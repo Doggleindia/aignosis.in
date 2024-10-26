@@ -1,11 +1,12 @@
 import React from 'react'
+import Component1 from './components/AutismTest'
+import MainComponent from './components/MainComponent'
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    
+    <MainComponent />
     </div>
   )
 }
