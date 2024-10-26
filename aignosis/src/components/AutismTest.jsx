@@ -49,7 +49,7 @@ const AutismTest = () => {
             <img
               src="https://s3-alpha-sig.figma.com/img/b0fb/753d/dfc3c4b9943c4f0466e62c0a63abe1b1?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VZXT48eSAokoap2MoUHeGXE6IaDFWoIc4gF8PwKbwoxMWLa4NRZMR7lHUDScJ7i~oAmhwfs48ImBGi6phBYvR9JiBdq0kPE5Mn3lwD8VZtPhsj417zymd4F-rJkEb2wxuzrEoLWnqVM4LfkrCL705TjWm8C2~hnzkm39mdoIHmiNEzPNXlrY2YwNiwft4FVzEUbOfmnV12sAA0o9QuUZfo9fXZ10PM~tO4GnFBmPoKUqJXWj8qqPWyieXbvaj0SuA-XhPJ~YBGFr4zRaZQ5Gh~hb63wVfuAUOuGhq1x8G7eGkZ0iMS1dRTA8S3ww1WfbbUcQG3oG1GKtM83h9uMJZQ__"
               alt="Laptop Mockup"
-              className="w-[1100px] h-auto scale-145"
+              className="w-[1101px] h-auto scale-145"
             />
 
             {/* Circle Indicators */}
