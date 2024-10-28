@@ -6,7 +6,7 @@ const Comparison = () => {
       className="flex items-center justify-center min-h-screen p-8"
       style={{ background: "rgba(26, 12, 37, 1)" }}
     >
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-[150px]">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-[150px]">
         {/* Left Side - Medical Report Image */}
         <div className="flex justify-center items-center">
           <div
@@ -22,7 +22,7 @@ const Comparison = () => {
         </div>
 
         {/* Right Side - Comparison Content */}
-        <div className="text-white space-y-6 w-[410px]">
+        <div className="text-white space-y-8 w-[410px]"> {/* Increased space-y from 6 to 8 */}
           <div className="flex items-center space-x-2 text-pink-400">
             <span
               className="h-[10px] w-[118px] rounded-full"
@@ -46,10 +46,10 @@ const Comparison = () => {
             <span className="font-light italic">A Better Way Forward</span>
           </h2>
           <div
-            className="p-8 w-[500px] rounded-lg space-y-6 shadow-xl"
+            className="p-8 rounded-lg space-y-6 shadow-xl"
             style={{ background: "rgba(26, 10, 38, 1)" }}
           >
-            <div className="flex justify-between items-center text-gray-300">
+            <div className="flex justify-between items-center text-gray-300 mb-4"> {/* Added mb-4 for margin-bottom */}
               <div className="w-1/3 text-left relative">
                 <div
                   className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
@@ -74,83 +74,38 @@ const Comparison = () => {
               <div className="w-1/3 text-center">Ai.gnosis</div>
             </div>
 
-            <div className="flex justify-between items-center text-gray-100">
-              <div className="w-1/3 text-left relative">
-                Cost
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
+            {/** Comparison Rows */}
+            {[
+              { label: "Cost", left: "Expensive", center: "Affordable" },
+              { label: "Time", left: "Weeks", center: "5 Minutes" },
+              { label: "Accessibility", left: "Limited Location", center: "Remote Friendly" },
+            ].map((item, index) => (
+              <div className="flex justify-between items-center text-gray-100 mb-4" key={index}> {/* Added mb-4 for margin-bottom */}
+                <div className="w-1/3 text-left relative">
+                  {item.label}
+                  <div
+                    className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
+                    style={{
+                      background:
+                        "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+                    }}
+                  ></div>
+                </div>
+
+                <div className="w-1/3 text-center relative">
+                  {item.left}
+                  <div
+                    className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
+                    style={{
+                      background:
+                        "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+                    }}
+                  ></div>
+                </div>
+
+                <div className="w-1/3 text-center">{item.center}</div>
               </div>
-
-              <div className="w-1/3 text-center relative">
-                Expensive
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
-
-              <div className="w-1/3 text-center">Affordable</div>
-            </div>
-
-            <div className="flex justify-between items-center text-gray-100">
-              <div className="w-1/3 text-left relative">
-                Time
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
-
-              <div className="w-1/3 text-center relative">
-                Weeks
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
-
-              <div className="w-1/3 text-center">5 Minutes</div>
-            </div>
-
-            <div className="flex justify-between items-center text-gray-100">
-              <div className="w-1/3 text-left relative">
-                Accessibility
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
-
-              <div className="w-1/3 text-center relative">
-                Limited Location
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
-
-              <div className="w-1/3  text-center ">Remote Friendly</div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
