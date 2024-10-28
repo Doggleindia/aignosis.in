@@ -1,5 +1,7 @@
 import React from 'react'
 import img1 from '../assets/images/image 32.png'
+import { GoArrowUpRight } from "react-icons/go";
+
 
 
 const Homepage = () => {
@@ -14,10 +16,14 @@ const Homepage = () => {
                     <a href="">Services</a>
                     <a href="">About</a>
                     <a href="">Prices</a>
-                    <div className='w-[18rem] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] bg-white'>
+                    <div className='w-[18rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
                         <a href="">Book an appointment</a>
-                        <div className='w-[2.5rem] h-[2.5rem] rounded-full bg-[#B740A1]'></div>
+                        <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
+                            <GoArrowUpRight />
+                        </div>
                     </div>
+
+
                 </div>
             </div>
             <div className="body w-full mt-[10rem] h-[30rem] relative flex-col flex justify-center items-center">
@@ -25,9 +31,11 @@ const Homepage = () => {
                 <div className='w-full h-full absolute flex-col flex justify-center items-center'>
                     <h1 className='text-center tracking-tight text-8xl font-semibold'>Frontier AI for Your Child’s</h1>
                     <h1 className='text-center mt-1 tracking-tight text-7xl font-semibold'>Best Development</h1>
-                    <div className='w-[14rem] mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] bg-transparent'>
+                    <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                         <a href="" className='text-white'>Learn more</a>
-                        <div className='w-[2.5rem] h-[2.5rem] rounded-full bg-[#B740A1]'></div>
+                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                        <GoArrowUpRight />
+                        </div>
                     </div>
                 </div>
             </div>
