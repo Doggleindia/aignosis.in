@@ -1,20 +1,20 @@
-import React from 'react'
-import Homepage from './components/homepage'
-import Laptop from './components/Laptop'
-import Screen3 from './components/Screen3'
-import Screen4 from './components/Screen4'
-import Screen5 from './components/Screen5'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router, Route, and Routes
+import HomepageMain from './components/HomepageMain'; // Import the HomepageMain component
+import AboutUs from './components/AboutUs';
+import PartnershipPage from './components/PartnershipPage';
 
 const App = () => {
   return (
-    <div>
-      <Homepage />
-      <Laptop />
-      <Screen3 />
-      <Screen4 />
-      <Screen5 />
-    </div>
-  )
+    <Router>
+      <Routes> {/* Use Routes to define all your routes */}
+        <Route path="/" element={<HomepageMain />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/partnership" element={<PartnershipPage />} />
+
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
