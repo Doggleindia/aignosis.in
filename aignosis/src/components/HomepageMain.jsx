@@ -1,5 +1,5 @@
 import React from 'react'
-import Homepage from './homepage'
+import Homepage from './Homepage'
 import Laptop from './Laptop'
 import Screen3 from './Screen3'
 import Screen4 from './Screen4'
