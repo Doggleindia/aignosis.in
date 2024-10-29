@@ -2,6 +2,9 @@ import React from 'react'
 import bg from '../assets/images/bg3.png'
 
 
+
+
+
 const Screen3 = () => {
   return (
     <div className='h-screen text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
@@ -25,8 +28,8 @@ const Screen3 = () => {
                     <h1 className='font-medium '><span className='text-[#811098] italic '>1 in 10</span>    children experience</h1>
                     <h1 className='font-medium justify-center items-center gap-4 flex text-left'>developmental delays <span className='w-[2rem] text-xs h-[2rem] rounded-full flex justify-center items-center bg-red-600'>SOS</span></h1>
                     <h1 className='text-base mt-2'>Early identification is crucial for support</h1>
-                    <div className='w-[10rem] mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent'>
-                        <a href="" className='text-white text-base'>Learn more</a>
+                    <div className='w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent'>
+                        <a href="" className='text-white  text-base'>Learn more</a>
                     </div>
                 </div>
                 <div className="w-[50%] h-full flex justify-center items-center">
