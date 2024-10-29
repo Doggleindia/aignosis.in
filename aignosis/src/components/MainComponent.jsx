@@ -6,6 +6,7 @@ import BookScreening from './BookScreening'
 import AutismTest from './AutismTest'
 import Comparison from './Comparison'
 import Partner from './Partner'
+import PriceMain from './price/PriceMain'
 
 const MainComponent = () => {
   return (
@@ -14,6 +15,7 @@ const MainComponent = () => {
      <Comparison />
      <Partner />
      <BookScreening />
+     <PriceMain />
     </div>
   )
 }
