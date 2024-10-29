@@ -10,7 +10,7 @@ import pic5 from '../assets/pic5.png';
 
 // Reusable ServiceCard Component
 const ServiceCard = ({ image, title, description }) => (
-  <div className="bg-purple-800 p-6 rounded-xl flex items-center shadow-lg hover:shadow-2xl transition-shadow">
+  <div className="bg-custom-gradient p-6 rounded-xl flex items-center shadow-3xl hover:shadow-2xl transition-shadow">
     {/* Image Section */}
     <div className="w-16 h-16 bg-purple-950 rounded-full flex items-center justify-center">
       <img src={image} alt="Service Icon" className="w-12 h-12" />
@@ -18,13 +18,13 @@ const ServiceCard = ({ image, title, description }) => (
 
     {/* Text Section */}
     <div className="ml-4 flex-grow">
-      <h3 className="text-lg font-semibold text-white">{title}</h3>
-      <p className="text-sm text-purple-300 mt-1">{description}</p>
+      <h3 className="text-lg font-semibold text-[#F6E8FB">{title}</h3>
+      <p className="text-sm text-[#F6E8FB] mt-1">{description}</p>
     </div>
 
     {/* Arrow Icon */}
     <div className="ml-4">
-      <button className="bg-pink-500 w-8 h-8 flex items-center justify-center rounded-full hover:bg-pink-600 transition-colors">
+      <button className="bg-[#B7408069] w-8 h-8 flex items-center justify-center rounded-full hover:bg-pink-600 transition-colors">
         <AiOutlineArrowRight className="text-white text-xl" />
       </button>
     </div>
@@ -67,7 +67,7 @@ const BookScreening = () => {
         <h1 className="text-4xl md:text-5xl font-semibold mb-2">
           Book a Screening:
         </h1>
-        <p className="text-2xl italic font-light">
+        <p className="text-2xl  italic font-light">
           Take the First Step Towards Early Intervention
         </p>
       </div>
@@ -99,15 +99,18 @@ const BookScreening = () => {
           </div>
 
           {/* Proceed Button */}
-          <div>
-            <button
-              className="mt-10 w-auto px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2"
-              style={{ border: '1px solid #9C00AD' }}
-            >
-              <span>Click to proceed</span>
-              <span className="text-xl">➡️</span>
-            </button>
-          </div>
+          
+
+<div className='mt-7'>
+  <button className="px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
+    <span>Click to proceed</span>
+    <div className="bg-[#B7408069] w-6 h-6 flex items-center justify-center rounded-full">
+      <AiOutlineArrowRight className="text-white text-xl" />
+    </div>
+  </button>
+</div>
+
+
         </div>
 
         {/* Image Section */}
@@ -121,13 +124,13 @@ const BookScreening = () => {
           <img src={mind_img2} alt="Service Icon" className="h-auto" />
 
           {/* Our Services Heading */}
-          <h2 className="text-2xl font-semibold text-white text-center">
+          <h2 className="text-2xl font-semibold text-[#FFFFFF] font-manrope text-center">
             Our Services:
           </h2>
 
           {/* Subtext */}
-          <p className="text-lg text-purple-300 text-center">
-            Comprehensive Support for Your Child’s Growth
+          <p className="text-lg text-[#FFFFFF] text-center font-raleway">
+            Comprehensive Support for Your Child’s <br /> Growth
           </p>
         </div>
 
