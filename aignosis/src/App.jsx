@@ -1,5 +1,5 @@
 import React from 'react'
-import Homepage from './components/homepage'
+import Homepage from './components/Homepage'
 import Laptop from './components/Laptop'
 import Screen3 from './components/Screen3'
 import Screen4 from './components/Screen4'
