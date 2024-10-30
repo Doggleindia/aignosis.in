@@ -15,7 +15,6 @@ const MainComponent = () => {
      <Comparison />
      <Partner />
      <BookScreening />
-     
     </div>
   )
 }

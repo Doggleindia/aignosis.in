@@ -13,6 +13,8 @@ import CalibrationPage from './components/testPages/CalibrationPage';
 import WebcamMicTest from './components/testPages/WebcamMicTest';
 import PriceMain from './components/price/PriceMain';
 import ReportComLast from './components/ReportComLast';
+import ScrollToTop from "./components/ScrollToTop";
+
 
 const App = () => {
   return (

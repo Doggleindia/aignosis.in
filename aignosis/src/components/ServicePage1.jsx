@@ -19,9 +19,15 @@ import cloud1 from '../assets/images/cloud1.png';
 import cloud2 from '../assets/images/cloud2.png';
 import cloud3 from '../assets/images/cloud3.png';
 import cloud4 from '../assets/images/cloud4.png';
+import ScrollToTop from "./ScrollToTop";
+import { useEffect } from "react";
+
 
 const ServicePage1 = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     const [openQuestion, setOpenQuestion] = useState(null);
 
     const toggleQuestion = (index) => {
