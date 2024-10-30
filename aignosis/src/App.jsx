@@ -8,7 +8,10 @@ import PatientHistoryForm2 from './components/patient-history-form/PatientHistor
 import PatientHistoryForm3 from './components/patient-history-form/PatientHistoryForm3';
 import PatientHistoryForm4 from './components/patient-history-form/PatientHistoryForm4';
 import ServicePage1 from './components/ServicePage1';
-
+import TestMain  from './components/testPages/TestMain'
+import CalibrationPage from './components/testPages/CalibrationPage';
+import WebcamMicTest from './components/testPages/WebcamMicTest';
+import PriceMain from './components/price/PriceMain';
 
 const App = () => {
   return (
@@ -22,7 +25,11 @@ const App = () => {
         <Route path="/form3" element={<PatientHistoryForm3 />} />
         <Route path="/form4" element={<PatientHistoryForm4 />} />
         <Route path="/servicepage1" element={<ServicePage1 />} />
-
+        <Route path="/prices" element={<PriceMain />} />
+        
+        <Route path="/test/fillup" element={<TestMain />} />
+        <Route path="/test/callibration" element={<CalibrationPage />} />
+        <Route path="/test/cammictest" element={<WebcamMicTest />} />
       </Routes>
     </Router>
   );
