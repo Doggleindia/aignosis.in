@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StepProgress from './StepProgress';
 import { Link } from 'react-router-dom';
+import WebcamMicTest from './WebcamMicTest';
 
 const CalibrationPage = () => {
+
+const [isWebVisible,setIsWebVisible] = useState(false);
+
+  const handleNextClick = () => {
+    setIsWebVisible(true);
+  };
+
+
   return (
-    <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-      <StepProgress />
-      <div className="w-[900px] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8 mt-[10px]">
+    <>
+  { !isWebVisible?( <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
+    
+      <div className="w-[900px] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8 ">
         
         {/* Ai.gnosis text with blurred background */}
         <div className="relative text-4xl font-bold text-[#1A0C25] mb-4">
@@ -37,15 +47,15 @@ const CalibrationPage = () => {
         </div>
 
         <div className="flex space-x-8 mt-[40px]">
-          <Link to="/test/cammictest" className="flex items-center justify-center w-[200px] h-[50px]  border border-[#9C00AD]  text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors">
+          <Link  onClick={handleNextClick} className="flex items-center justify-center w-[200px] h-[50px]  border border-[#9C00AD]  text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors">
             Start calibration
           </Link>
-          <button className="flex items-center justify-center w-[200px] h-[50px] bg-[#FDF9FF]  border border-[#9C00AD]  text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors">
+          <button  className="flex items-center justify-center w-[200px] h-[50px] bg-[#FDF9FF]  border border-[#9C00AD]  text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors">
             Stop calibration
           </button>
         </div>
       </div>
-    </div>
+    </div>):<WebcamMicTest /> } </>
   );
 }
 

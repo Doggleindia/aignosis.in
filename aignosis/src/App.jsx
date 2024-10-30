@@ -30,8 +30,7 @@ const App = () => {
         <Route path="/report" element={<ReportComLast />} />
 
         <Route path="/test/fillup" element={<TestMain />} />
-        <Route path="/test/callibration" element={<CalibrationPage />} />
-        <Route path="/test/cammictest" element={<WebcamMicTest />} />
+        
       </Routes>
     </Router>
   );

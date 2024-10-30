@@ -1,6 +1,7 @@
 import React from 'react'
 import img1 from '../assets/images/image 32.png'
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,8 +15,9 @@ const Homepage = () => {
                 </div>
                 <div className='flex justify-center font-medium items-center gap-[8rem]'>
                     <a href="">Services</a>
-                    <a href="">About</a>
-                    <a href="">Prices</a>
+                    <Link to='/aboutus'>About</Link>
+                    <Link to='/prices'>prices</Link>
+                    
                     <div className='w-[18rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
                         <a href="">Book an appointment</a>
                         <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
