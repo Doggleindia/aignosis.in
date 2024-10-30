@@ -12,6 +12,7 @@ import TestMain  from './components/testPages/TestMain'
 import CalibrationPage from './components/testPages/CalibrationPage';
 import WebcamMicTest from './components/testPages/WebcamMicTest';
 import PriceMain from './components/price/PriceMain';
+import ReportComLast from './components/ReportComLast';
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
         <Route path="/form4" element={<PatientHistoryForm4 />} />
         <Route path="/servicepage1" element={<ServicePage1 />} />
         <Route path="/prices" element={<PriceMain />} />
-        
+        <Route path="/report" element={<ReportComLast />} />
+
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/test/callibration" element={<CalibrationPage />} />
         <Route path="/test/cammictest" element={<WebcamMicTest />} />
