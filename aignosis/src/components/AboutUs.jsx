@@ -14,7 +14,7 @@ const AboutUs = () => {
                     <div className='flex justify-center font-medium items-center gap-[8rem]'>
                         <Link to="/servicepage1">Services</Link>
                         <Link to="/aboutus">About</Link>
-                        <Link to="">Prices</Link>
+                        <Link to="/prices">Prices</Link>
                         <div className='w-[18rem] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] bg-white'>
                             <Link to="">Book an appointment</Link>
                             <div className='w-[2.5rem] h-[2.5rem] rounded-full bg-[#B740A1]'></div>
