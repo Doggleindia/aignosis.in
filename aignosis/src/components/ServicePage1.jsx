@@ -6,7 +6,13 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
 import crossIcon from '../assets/images/cross.png';
+import { FaLocationDot } from "react-icons/fa6";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
 
+import { Link } from 'react-router-dom';
 
 import pos1 from '../assets/images/pos1.png';
 import pos2 from '../assets/images/pos2.png';
@@ -19,9 +25,15 @@ import cloud1 from '../assets/images/cloud1.png';
 import cloud2 from '../assets/images/cloud2.png';
 import cloud3 from '../assets/images/cloud3.png';
 import cloud4 from '../assets/images/cloud4.png';
+import ScrollToTop from "./ScrollToTop";
+import { useEffect } from "react";
+
 
 const ServicePage1 = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     const [openQuestion, setOpenQuestion] = useState(null);
 
     const toggleQuestion = (index) => {
@@ -61,14 +73,14 @@ const ServicePage1 = () => {
                 <div className="navbar text-center w-full h-[7rem] flex justify-between items-center px-[12rem]">
                     <div class="relative justify-center items-center inline-block">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-                        <a href="" class="relative text-3xl font-semibold tracking-wide text-white z-10">Ai.gnosis</a>
+                        <Link to="/" class="relative text-3xl font-semibold tracking-wide text-white z-10">Ai.gnosis</Link>
                     </div>
                     <div className='flex justify-center font-medium items-center gap-[8rem]'>
-                        <a href="">Services</a>
-                        <a href="">About</a>
-                        <a href="">Prices</a>
+                        <Link to="/servicepage1">Services</Link>
+                        <Link to="/aboutus">About</Link>
+                        <Link to="/prices">Prices</Link>
                         <div className='w-[18rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
-                            <a href="">Book an appointment</a>
+                            <Link to="">Book an appointment</Link>
                             <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
                                 <GoArrowUpRight />
                             </div>
@@ -364,7 +376,7 @@ const ServicePage1 = () => {
                         </div>
                     </div>
                 </div>
-                <div className='h-[60vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+                <div className='h-[50vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
                 <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-full border-[#B874B580]">
                     <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
                         <div className=" mt-[2rem]">
@@ -386,41 +398,61 @@ const ServicePage1 = () => {
                             ></iframe>
                         </div>
                         <div className="right w-[40%] px-[2vw] h-[85%]">
-                            <h1>
-                                Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-                            </h1>
+                        <h1>
+                            Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
+                        </h1>
 
-                            <form className="mt-4 space-y-4">
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Your Email"
-                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                />
-                                <input
-                                    type="phone"
-                                    placeholder="Your Phone Number"
-                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                />
-                                <textarea
-                                    placeholder="Your Message"
-                                    className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
-                                ></textarea>
-                                <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                    <a href="" className='text-white'>Learn more</a>
-                                    <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                        <GoArrowUpRight />
-                                    </div>
+                        <form className="mt-4 space-y-4">
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                            />
+                            <input
+                                type="phone"
+                                placeholder="Your Phone Number"
+                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                            />
+                            <textarea
+                                placeholder="Your Message"
+                                className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                            ></textarea>
+                            <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                                <a href="" className='text-white'>Send Message</a>
+                                <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                    <GoArrowUpRight />
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
 
 
                     </div>
+                </div>
+            </div>
+            <div className='w-full gap-[5vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center'>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaLocationDot />
+                    <h1 className='text-sm px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <IoIosMail />
+                    <h1 className='text-sm px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaPhoneAlt />
+                    <h1 className='text-sm px-4 text-center mt-4 text-white'>+91 94140 47644
+                        <br />
+                        +91 88900 47777</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaCalendarAlt />
+                    <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
                 </div>
             </div>
             <div className="footer">
@@ -428,9 +460,20 @@ const ServicePage1 = () => {
                     <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
                     <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
                     <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaTwitter />
+                        </div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaDiscord />
+                        </div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaMedium />
+                        </div>
+                    </div>
+                    <div className='flex text-center justify-center font-raleway gap-[5vw] mt-4 items-center'>
+                        <h1>Twitter</h1>
+                        <h1 className='ml-5'>Discord</h1>
+                        <h1 className='ml-5'>Medium</h1>
                     </div>
                 </div>
             </div>

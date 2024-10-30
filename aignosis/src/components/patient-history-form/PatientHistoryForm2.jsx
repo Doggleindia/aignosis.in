@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { FaArrowRight } from 'react-icons/fa'; 
 
-const PatientHistoryForm2 = () => {
+const PatientHistoryForm2 = ({ onNext }) => {
   const navigate = useNavigate();
 
   const handleNext = (e) => {
     e.preventDefault();
     try {
-      // Add any validation or data processing here before navigation
-      navigate('/form3'); // Navigate to PatientHistoryForm2
+      // Add any validation or data processing here before navigation// Navigate to PatientHistoryForm3
+      onNext(); // Call the parent function to move to the next form
     } catch (error) {
       console.error('Error during navigation:', error); // Log the error
       // Optionally, display an error message to the user
@@ -65,8 +65,12 @@ const PatientHistoryForm2 = () => {
           <div style={styles.question}>
             <p style={styles.questionLabel}>10. Which language is spoken at home?</p>
             <div style={styles.radioGroup}>
-              <label><input type="radio" name="language" value="English" style={styles.radio} /> English</label>
-              <label><input type="radio" name="language" value="Hindi" style={styles.radio} /> Hindi</label>
+              <label>
+                <input type="radio" name="language" value="English" style={styles.radio} /> English
+              </label>
+              <label>
+                <input type="radio" name="language" value="Hindi" style={styles.radio} /> Hindi
+              </label>
               <label>
                 <input type="radio" name="language" value="Other" style={styles.radio} /> Other (specify)
                 <input type="text" style={styles.input} placeholder="Specify language" />
@@ -78,15 +82,25 @@ const PatientHistoryForm2 = () => {
           <div style={styles.question}>
             <p style={styles.questionLabel}>11. Family medical history</p>
             <div style={styles.radioGroup}>
-              <label><input type="radio" name="familyHistory" value="Convulsions" style={styles.radio} /> History of convulsions</label>
-              <label><input type="radio" name="familyHistory" value="Neuromuscular" style={styles.radio} /> Neuro muscular disorder</label>
-              <label><input type="radio" name="familyHistory" value="MentalIllness" style={styles.radio} /> Mental illness</label>
-              <label><input type="radio" name="familyHistory" value="LossUnderstanding" style={styles.radio} /> Loss of understanding</label>
-              <label><input type="radio" name="familyHistory" value="MaternalBMI" style={styles.radio} /> Mother’s antenatal weight / BMI</label>
+              <label>
+                <input type="radio" name="familyHistory" value="Convulsions" style={styles.radio} /> History of convulsions
+              </label>
+              <label>
+                <input type="radio" name="familyHistory" value="Neuromuscular" style={styles.radio} /> Neuro muscular disorder
+              </label>
+              <label>
+                <input type="radio" name="familyHistory" value="MentalIllness" style={styles.radio} /> Mental illness
+              </label>
+              <label>
+                <input type="radio" name="familyHistory" value="LossUnderstanding" style={styles.radio} /> Loss of understanding
+              </label>
+              <label>
+                <input type="radio" name="familyHistory" value="MaternalBMI" style={styles.radio} /> Mother’s antenatal weight / BMI
+              </label>
               <label>
                 <input type="radio" name="familyHistory" value="Other" style={styles.radio} /> If other (Specify condition & family member)
-                <input type="text" style={styles.input} />
-                <input type="text" style={styles.input} />
+                <input type="text" style={styles.input} placeholder="Condition" />
+                <input type="text" style={styles.input} placeholder="Family Member" />
               </label>
             </div>
           </div>

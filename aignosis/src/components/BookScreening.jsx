@@ -7,11 +7,14 @@ import pic2 from '../assets/pic2.png';
 import pic3 from '../assets/pic3.png';
 import pic4 from '../assets/pic4.png';
 import pic5 from '../assets/pic5.png';
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from "react-router-dom";
 
 // Reusable ServiceCard Component
-const ServiceCard = ({ image, title, description }) => (
-  <div className="bg-custom-gradient p-6 rounded-xl flex items-center shadow-3xl hover:shadow-2xl transition-shadow">
+const ServiceCard = ({ image, title, description, onClick }) => (
+  <div
+    className="bg-custom-gradient p-6 rounded-xl flex items-center shadow-3xl hover:shadow-2xl transition-shadow cursor-pointer"
+    onClick={onClick}
+  >
     {/* Image Section */}
     <div className="w-16 h-16 bg-purple-950 rounded-full flex items-center justify-center">
       <img src={image} alt="Service Icon" className="w-12 h-12" />
@@ -19,7 +22,7 @@ const ServiceCard = ({ image, title, description }) => (
 
     {/* Text Section */}
     <div className="ml-4 flex-grow">
-      <h3 className="text-lg font-semibold text-[#F6E8FB">{title}</h3>
+      <h3 className="text-lg font-semibold text-[#F6E8FB]">{title}</h3>
       <p className="text-sm text-[#F6E8FB] mt-1">{description}</p>
     </div>
 
@@ -34,6 +37,13 @@ const ServiceCard = ({ image, title, description }) => (
 
 // Main Component
 const BookScreening = () => {
+
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <div
       className="min-h-screen bg-gradient-to-b from-purple-900 to-purple-800 text-white p-10 flex flex-col items-center"
@@ -100,16 +110,16 @@ const BookScreening = () => {
           </div>
 
           {/* Proceed Button */}
-          
 
-<div className='mt-7'>
-  <button className="px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
-    <span>Click to proceed</span>
-    <div className="bg-[#B7408069] w-6 h-6 flex items-center justify-center rounded-full">
-      <AiOutlineArrowRight className="text-white text-xl" />
-    </div>
-  </button>
-</div>
+
+          <div className='mt-7'>
+            <button className="px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
+              <span>Click to proceed</span>
+              <div className="bg-[#B7408069] w-6 h-6 flex items-center justify-center rounded-full">
+                <AiOutlineArrowRight className="text-white text-xl" />
+              </div>
+            </button>
+          </div>
 
 
         </div>
@@ -142,7 +152,9 @@ const BookScreening = () => {
               image={pic1}
               title="Assessments & Evaluation"
               description="Educational, Psychological & Social Skills Assessment"
-            /></Link>
+              onClick={() => handleNavigation("/servicepage1")}
+
+            />
           </div>
 
           <div className="ml-20">
@@ -150,6 +162,8 @@ const BookScreening = () => {
               image={pic2}
               title="Speech & Language"
               description="Support for Speech Delays & Communication Needs"
+              onClick={() => handleNavigation("/servicepage1")}
+
             />
           </div>
 
@@ -158,6 +172,8 @@ const BookScreening = () => {
               image={pic3}
               title="Behaviour Therapy"
               description="Guidance for Anxiety & Behavioral Health"
+              onClick={() => handleNavigation("/servicepage1")}
+
             />
           </div>
 
@@ -166,6 +182,8 @@ const BookScreening = () => {
               image={pic4}
               title="Occupational Therapy"
               description="Motor Skills Independence & Confidence Building"
+              onClick={() => handleNavigation("/servicepage1")}
+
             />
           </div>
 
@@ -174,6 +192,8 @@ const BookScreening = () => {
               image={pic5}
               title="Special Education"
               description="Academic Support in Core Subjects"
+              onClick={() => handleNavigation("/servicepage1")}
+
             />
           </div>
         </div>

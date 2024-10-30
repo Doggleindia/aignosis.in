@@ -2,19 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { FaArrowRight } from 'react-icons/fa';
 
-const PatientHistoryForm3 = () => {
+const PatientHistoryForm3 = ({ onNext }) => {
   const navigate = useNavigate();
 
   const handleNext = (e) => {
     e.preventDefault();
     try {
-        // Add any validation or data processing here before navigation
-        navigate('/form4'); // Navigate to PatientHistoryForm2
-      } catch (error) {
-        console.error('Error during navigation:', error); // Log the error
-        // Optionally, display an error message to the user
-      }
-    };
+      // Add any validation or data processing here before navigation// Navigate to PatientHistoryForm4
+      onNext(); // Call the parent function to move to the next form
+    } catch (error) {
+      console.error('Error during navigation:', error); // Log the error
+      // Optionally, display an error message to the user
+    }
+  };
 
   return (
     <div style={styles.container}>

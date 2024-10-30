@@ -1,4 +1,13 @@
 import React from 'react';
+import { GoArrowUpRight } from "react-icons/go";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
+
 
 const PartnershipPage = () => {
     return (
@@ -38,7 +47,7 @@ const PartnershipPage = () => {
                         >
                             <h1 className="text-xl font-semibold text-white">Scheduling Options</h1>
                             <h1 className="mt-2 text-white ">
-                            Schedule a consultation with our sales team directly through our integrated calendar, making it convenient for you to discuss partnership opportunities.
+                                Schedule a consultation with our sales team directly through our integrated calendar, making it convenient for you to discuss partnership opportunities.
                             </h1>
                         </div>
                     </div>
@@ -51,7 +60,7 @@ const PartnershipPage = () => {
                         >
                             <h1 className="text-xl font-semibold text-white">Quick Contact Form</h1>
                             <h1 className="mt-2 text-white">
-                            Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.
+                                Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.
                             </h1>
                         </div><div
                             className="w-[16vw] h-full p-[2vw] rounded-3xl"
@@ -61,7 +70,7 @@ const PartnershipPage = () => {
                         >
                             <h1 className="text-xl font-semibold text-white">Resource Downloads</h1>
                             <h1 className="mt-2 text-white">
-                            Access valuable resources, such as brochures and case studies, to learn more about our services and the impact of Ai.gnosis in autism detection.
+                                Access valuable resources, such as brochures and case studies, to learn more about our services and the impact of Ai.gnosis in autism detection.
                             </h1>
                         </div>
                     </div>
@@ -106,9 +115,11 @@ const PartnershipPage = () => {
                                 placeholder="Your Message"
                                 className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
                             ></textarea>
-                            <div className='w-[14rem] mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] bg-transparent'>
-                                <a href="" className='text-white'>Learn more</a>
-                                <div className='w-[2.5rem] h-[2.5rem] rounded-full bg-[#B740A1]'></div>
+                            <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                                <a href="" className='text-white'>Send Message</a>
+                                <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                    <GoArrowUpRight />
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -116,14 +127,45 @@ const PartnershipPage = () => {
 
                 </div>
             </div>
+            <div className='w-full gap-[5vw] h-[10vw] mt-[5vw] flex justify-center items-center'>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaLocationDot />
+                    <h1 className='text-sm px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <IoIosMail />
+                    <h1 className='text-sm px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaPhoneAlt />
+                    <h1 className='text-sm px-4 text-center mt-4 text-white'>+91 94140 47644
+                        <br />
+                        +91 88900 47777</h1>
+                </div>
+                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <FaCalendarAlt />
+                    <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
+                </div>
+            </div>
             <div className="footer mt-[8vw]">
                 <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
                     <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
                     <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
                     <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaTwitter />
+                        </div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaDiscord />
+                        </div>
+                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaMedium />
+                        </div>
+                    </div>
+                    <div className='flex text-center justify-center font-raleway gap-[5vw] mt-4 items-center'>
+                        <h1>Twitter</h1>
+                        <h1 className='ml-5'>Discord</h1>
+                        <h1 className='ml-5'>Medium</h1>
                     </div>
                 </div>
             </div>
