@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import popularImage from "../../assets/popular.png"; // Adjust the path if needed
+import { Link } from "react-router-dom";
 
 const ChoosePlan = () => {
   const [active, setActive] = useState("session");
@@ -81,7 +82,8 @@ const ChoosePlan = () => {
                 <p className="text-green-400 font-semibold">Save ₹50 overall!</p>
               </div>
               <button className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD] text-[#F6E8FB] font-semibold hover:bg-[#B7407D]  transition-colors duration-200">
-                <span>Click to proceed</span>
+                
+                <Link to='/test/fillup'> <span>Click to proceed</span> </Link>
                 <FiArrowRight className="text-lg" />
               </button>
             </div>

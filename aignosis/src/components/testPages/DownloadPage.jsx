@@ -1,14 +1,15 @@
 import React from 'react';
 import StepProgress from './StepProgress';
+import { Link } from 'react-router-dom';
 
 const DownloadPage = () => {
   return (
     <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen text-center">
       {/* Step Progress Indicator */}
-      <StepProgress />
+      {/* <StepProgress /> */}
 
       {/* Ai.gnosis Title with Glow Effect */}
-      <div className="relative mt-10">
+      <div className="relative ">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
         <h1 className="relative text-5xl font-semibold text-[#E3E2E5] z-10 font-montserrat">
           Ai.gnosis
@@ -16,7 +17,7 @@ const DownloadPage = () => {
       </div>
 
       {/* Big Thank You Message */}
-      <div className="mt-16">
+      <div className="mt-4">
         <h2 className="text-6xl font-bold text-[#FFFFFF] font-manrope">Thank you</h2>
       </div>
 
@@ -33,9 +34,9 @@ const DownloadPage = () => {
 
       {/* Download Button */}
       <div className="mt-10">
-        <button className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
+        <Link to='/report' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
           Download your report
-        </button>
+        </Link>
       </div>
     </div>
   );

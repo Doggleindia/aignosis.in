@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StepProgress from './StepProgress';
 import { Link } from 'react-router-dom';
 import WebcamMicTest from './WebcamMicTest';
+import DownloadPage from './DownloadPage';
 
 const CalibrationPage = () => {
 
@@ -55,7 +56,7 @@ const [isWebVisible,setIsWebVisible] = useState(false);
           </button>
         </div>
       </div>
-    </div>):<WebcamMicTest /> } </>
+    </div>):<DownloadPage /> } </>
   );
 }
 
