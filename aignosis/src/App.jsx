@@ -22,12 +22,13 @@ const App = () => {
         <Route path="/partnership" element={<PartnershipPage />} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path="/servicepage1" element={<ServicePage1 />} />
+        <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
+
         <Route path="/prices" element={<PriceMain />} />
         <Route path="/report" element={<ReportComLast />} />
         
         <Route path="/test/fillup" element={<TestMain />} />
-        <Route path="/test/calibration" element={<CalibrationPage />} />
-        <Route path="/test/cammictest" element={<WebcamMicTest />} />
+        
       </Routes>
     </Router>
   );

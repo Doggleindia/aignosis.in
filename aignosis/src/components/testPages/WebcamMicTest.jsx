@@ -5,7 +5,7 @@ const WebcamMicTest = () => {
   return (
     <>
     <div className=' bg-[#1A0C25]  min-h-screen flex flex-col justify-center items-center'> 
-        <StepProgress />
+        
     <div className="w-[900px] h-[600px] mt-[6px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-6 relative border border-[#5F1B73]">
         
         {/* Ai.gnosis Branding */}
