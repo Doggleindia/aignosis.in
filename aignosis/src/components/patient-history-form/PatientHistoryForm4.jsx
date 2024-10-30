@@ -7,7 +7,16 @@ const PatientHistoryForm4 = () => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    // Logic to handle the form submission or navigation
+    try {
+      // Add any validation or data processing here before navigation
+      // For example, you could collect form data here and validate it
+
+      // Navigate to the final submission page or the next form
+       // Change to your final route
+    } catch (error) {
+      console.error('Error during navigation:', error);
+      // Optionally, display an error message to the user
+    }
   };
 
   return (
@@ -31,7 +40,7 @@ const PatientHistoryForm4 = () => {
             <span style={styles.progressStep}>1</span> → 
             <span style={styles.progressStep}>2</span> → 
             <span style={styles.progressStep}>3</span> → 
-            <span style={{ ...styles.progressStep, ...styles.activeStep }}>4</span> → 
+            <span style={{ ...styles.progressStep, ...styles.activeStep }}>4</span>
           </div>
         </div>
       </div>
@@ -61,25 +70,17 @@ const PatientHistoryForm4 = () => {
               "Convenient Scheduling Through Our Portal",
               "Access to Tips and Activities on Our App",
               "No Travel or Waiting Time",
-              "EMI Payment Options (for Indian Residents Only)*",
-              "Experienced and Licensed Specialists",
-              "Weekday and Evening Appointments Available",
-              "Resources Provided After Sessions",
-              "Regular Progress Updates",
-              "Group Art & Story Sessions for Skill Building",
-              "Direct Messaging with Specialists",
-              "Convenient Scheduling Through Our Portal",
-              "Access to Tips and Activities on Our App",
+              "EMI Payment Options (for Indian Residents Only)*"
             ].map((question, index) => (
               <tr key={index}>
                 <td style={styles.tableCell}>{question}</td>
-                <td style={{ ...styles.tableCell, ...styles.radioCell }}>
+                <td style={styles.radioCell}>
                   <input type="radio" name={`question${index}`} value="yes" style={styles.radio} />
                 </td>
-                <td style={{ ...styles.tableCell, ...styles.radioCell }}>
+                <td style={styles.radioCell}>
                   <input type="radio" name={`question${index}`} value="no" style={styles.radio} />
                 </td>
-                <td style={{ ...styles.tableCell, ...styles.radioCell }}>
+                <td style={styles.radioCell}>
                   <input type="radio" name={`question${index}`} value="maybe" style={styles.radio} />
                 </td>
               </tr>
@@ -181,7 +182,7 @@ const styles = {
     borderBottom: '1px solid #ccc',
   },
   radioCell: {
-    borderLeft: '1px solid #e6e6e6', // Add vertical line between columns
+    borderLeft: '1px solid #e6e6e6',
     textAlign: 'center',
   },
   radio: {

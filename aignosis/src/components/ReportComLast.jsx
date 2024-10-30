@@ -1,8 +1,14 @@
 import React from 'react';
-
+import Page1 from "./ReportPages/page1"
+import Page2 from "./ReportPages/page2"
+import Page3 from "./ReportPages/page3"
 const ReportComLast = () => {
     return (
         <div className=''>
+            
+            <Page1 />
+            <Page2 />
+            <Page3 />
             <div className='w-full h-auto font-manrope flex p-[4vw] justify-center items-center bg-new-gradient'>
                 <div className='w-[85%] h-[90%] rounded-3xl bg-[#FFF9F8] p-6 shadow-lg'>
                     <table className='w-full table-auto text-center'>
