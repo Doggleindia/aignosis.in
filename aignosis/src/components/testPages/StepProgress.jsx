@@ -4,7 +4,7 @@ const StepProgress = () => {
   const steps = [
     { id: 1, label: "Fill up the details" },
     { id: 2, label: "Calibration" },
-    { id: 3, label: "Fill up the details" },
+    { id: 3, label: "Webcam & Microphone test" },
   ];
 
   return (
