@@ -7,6 +7,7 @@ import pic2 from '../assets/pic2.png';
 import pic3 from '../assets/pic3.png';
 import pic4 from '../assets/pic4.png';
 import pic5 from '../assets/pic5.png';
+import { Link } from 'react-router-dom';
 
 // Reusable ServiceCard Component
 const ServiceCard = ({ image, title, description }) => (
@@ -137,11 +138,11 @@ const BookScreening = () => {
         <div className="ml-[200px] flex flex-col gap-10">
           {/* Render Service Cards with Individual Margins */}
           <div className="ml-0">
-            <ServiceCard
+           <Link to='/test/fillup'> <ServiceCard 
               image={pic1}
               title="Assessments & Evaluation"
               description="Educational, Psychological & Social Skills Assessment"
-            />
+            /></Link>
           </div>
 
           <div className="ml-20">

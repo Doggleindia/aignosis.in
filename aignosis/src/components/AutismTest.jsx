@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -85,9 +86,9 @@ const AutismTest = () => {
             <span className="font-light italic">{currentContent.subtitle!==currentContent.header?currentContent.subtitle:""}</span>
           </h2>
           <p className="text-gray-300">{currentContent.description}</p>
-          <button className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D]   hover:text-white transition w-[206px]">
+          <Link to='/test/fillup' className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D]   hover:text-white transition w-[206px]">
             Take Assignment
-          </button>
+          </Link>
         </div>
 
         {/* Right Side - Laptop Image */}
