@@ -14,7 +14,7 @@ const Header = () => {
                     <Link to="/servicepage1">Services</Link>
                     <Link to="/aboutus">About</Link>
                     <Link to="/prices">Prices</Link> {/* Update to use 'to' prop */}
-                    <Link to="/appointment" className='w-[18rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
+                    <Link to="/appointment" className='w-[15rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
                         <span>Book an appointment</span>
                         <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
                             <GoArrowUpRight />
