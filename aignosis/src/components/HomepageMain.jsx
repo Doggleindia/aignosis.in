@@ -9,7 +9,7 @@ import MainComponent from './MainComponent'
 import PartnershipPage from './PartnershipPage'
 const HomepageMain = () => {
   return (
-    <div>
+    <div className='bg-[#1A0C25]'>
     
       <Homepage />
       <Laptop />
