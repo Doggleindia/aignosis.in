@@ -14,6 +14,7 @@ import PriceMain from './components/price/PriceMain';
 import ReportComLast from './components/ReportComLast';
 import ScrollToTop from "./components/ScrollToTop";
 import BlogPage from './components/BlogPages/BlogPage';
+import PaymentScreensMain from './components/PaymentScreensMain';
 // import Navbar from './components/Navbar';
 
 const App = () => {
@@ -33,6 +34,8 @@ const App = () => {
         <Route path="/report" element={<ReportComLast />} />
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/BlogPages/BlogPage" element={<BlogPage />} />
+        <Route path="/payment" element={<PaymentScreensMain />} />
+        
         
       </Routes>
     </Router>
