@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
-
   const stepsContent = [
     {
       title: "The Ai.gnosis Autism Test:",
@@ -12,46 +11,82 @@ const AutismTest = () => {
         "This enables early detection and helps parents take proactive steps for their child's development.",
       bgColor: "rgba(26, 12, 37, 1)",
       header: "Recognize the Signs",
+      ScreenNumber:1,
     },
     {
       title: "Quick Screening Process",
       subtitle: "Step 1",
       description:
-        "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. This quick process ensures minimal disruption while providing essential insights into your child's developmental progress.",
+        "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.",
       bgColor: "#5E3C69",
       header: "Step 1",
+      ScreenNumber:2,
     },
     {
       title: "Accurate Results with AI",
       subtitle: "Step 2",
       description:
-        "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes. Our technology analyzes key developmental indicators to provide an accurate understanding of potential autism traits.",
+        "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes.",
       bgColor: "#952981",
       header: "Step 2",
+      ScreenNumber:3,
     },
     {
       title: "Non-Invasive and Child-Friendly",
       subtitle: "Step 3",
       description:
-        "The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child's well-being throughout the process.",
+        "The test is completely non-invasive, making it comfortable for children. We ensure a stress-free experience throughout the process.",
       bgColor: "#5E3C69",
       header: "Step 3",
+      ScreenNumber:4,
     },
     {
       title: "Empowering Early Intervention",
       subtitle: "Step 4",
       description:
-        "Early detection is crucial in supporting your child’s growth. By identifying developmental signs early, the Aignosis Autism Test empowers parents to take proactive steps and seek guidance, fostering a supportive path for their child's future.",
+        "Early detection is crucial in supporting your child’s growth. The Aignosis Autism Test empowers parents to take proactive steps.",
       bgColor: "#1A0C25",
       header: "Step 4",
+      ScreenNumber:5,
     },
   ];
+
+  const scrollContainerRef = useRef(null);
+  let scrollTimeout = useRef();
+
+  const handleScrollStepChange = (event) => {
+    // Prevent default page scroll
+    event.preventDefault();
+
+    // Debounce the scroll
+    if (scrollTimeout.current) return;
+
+    scrollTimeout.current = setTimeout(() => {
+      if (event.deltaY > 0) {
+        // Scroll down - increase step
+        setCurrentStep((prev) => Math.min(prev + 1, stepsContent.length));
+      } else {
+        // Scroll up - decrease step
+        setCurrentStep((prev) => Math.max(prev - 1, 1));
+      }
+      scrollTimeout.current = null;
+    }, 300); // Adjust debounce delay as needed
+  };
 
   const handleCircleClick = (step) => {
     setCurrentStep(step);
   };
 
   const currentContent = stepsContent[currentStep - 1];
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    scrollContainer.addEventListener("wheel", handleScrollStepChange, { passive: false });
+
+    return () => {
+      scrollContainer.removeEventListener("wheel", handleScrollStepChange);
+    };
+  }, []);
 
   return (
     <div
@@ -83,16 +118,27 @@ const AutismTest = () => {
           <h2 className="text-4xl font-semibold leading-snug">
             {currentContent.title}
             <br />
-            <span className="font-light italic">{currentContent.subtitle!==currentContent.header?currentContent.subtitle:""}</span>
+            <span className="font-light italic">
+              {currentContent.subtitle !== currentContent.header
+                ? currentContent.subtitle
+                : ""}
+            </span>
           </h2>
           <p className="text-gray-300">{currentContent.description}</p>
-          <Link to='/test/fillup' className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D]   hover:text-white transition w-[206px]">
+          <Link
+            to="/test/fillup"
+            className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[206px]"
+          >
             Take Assignment
           </Link>
         </div>
 
-        {/* Right Side - Laptop Image */}
-        <div className="relative flex justify-center items-center">
+        {/* Right Side - Image with Scroll Functionality */}
+        <div
+          ref={scrollContainerRef}
+          className="relative flex justify-center items-center"
+          style={{ overflow: "hidden",cursor:'pointer' }}
+        >
           <img
             src="https://s3-alpha-sig.figma.com/img/b0fb/753d/dfc3c4b9943c4f0466e62c0a63abe1b1?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VZXT48eSAokoap2MoUHeGXE6IaDFWoIc4gF8PwKbwoxMWLa4NRZMR7lHUDScJ7i~oAmhwfs48ImBGi6phBYvR9JiBdq0kPE5Mn3lwD8VZtPhsj417zymd4F-rJkEb2wxuzrEoLWnqVM4LfkrCL705TjWm8C2~hnzkm39mdoIHmiNEzPNXlrY2YwNiwft4FVzEUbOfmnV12sAA0o9QuUZfo9fXZ10PM~tO4GnFBmPoKUqJXWj8qqPWyieXbvaj0SuA-XhPJ~YBGFr4zRaZQ5Gh~hb63wVfuAUOuGhq1x8G7eGkZ0iMS1dRTA8S3ww1WfbbUcQG3oG1GKtM83h9uMJZQ__"
             alt="Laptop Mockup"
@@ -113,10 +159,8 @@ const AutismTest = () => {
                 >
                   {item}
                 </div>
-                {item === 5 && (
-                  <div
-                    className="w-1 h-24 bg-[#952981] mt-2"
-                  ></div>
+                {item === currentContent.ScreenNumber && (
+                  <div className="w-1 h-24 bg-[#952981] mt-2"></div>
                 )}
               </div>
             ))}
