@@ -1,45 +1,31 @@
 import React from 'react';
-import img1 from '../assets/images/image 32.png';
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const Homepage = () => {
     return (
-        <div className='h-screen text-white w-full font-montserrat bg-[#1A0C25]'>
-            <div className="navbar text-center w-full h-[7rem] flex justify-between items-center px-[8rem]">
-                <div className="relative justify-center items-center inline-block">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-                    <Link to="/" className="relative text-3xl font-semibold tracking-wide text-white z-10">Ai.gnosis</Link>
-                </div>
-                <div className='flex justify-center font-medium items-center gap-[8rem]'>
-                    <Link to="/servicepage1">Services</Link>
-                    <Link to="/aboutus">About</Link>
-                    <Link to="/prices">Prices</Link> {/* Update to use 'to' prop */}
-                    <Link to="/appointment" className='w-[15rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
-                        <span>Book an appointment</span>
-                        <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
-                            <GoArrowUpRight />
-                        </div>
-                    </Link>
-                </div>
-            </div>
-            <div className="body w-full  h-[30rem] relative flex-col flex justify-center items-center">
+        <div className='h-screen max-sm:h-[80vh] text-white w-full font-montserrat bg-[#1A0C25]'>
+            <Header />
+            <div className="body w-full h-[30rem] relative flex flex-col justify-center items-center">
+                {/* Uncomment if needed */}
                 {/* <img src={img1} alt="" className='w-full opacity-90 h-[40rem] relative object-cover' /> */}
-                <div className='w-full h-full absolute flex-col flex justify-center items-center'>
-                    <div className="flex flex-row items-center space-y-1">
-                        <h1 className="text-center tracking-tight text-3xl font-semibold">
+                <div className='w-full h-full absolute flex flex-col justify-center items-center'>
+                    <div className="flex flex-col items-center space-y-2">
+                        <h1 className="text-center tracking-tight text-3xl md:text-4xl font-semibold font-manrope text-[#F0F0F0]">
                             Frontier AI for Your Child’s
                         </h1>
-                        <h1 className="text-center ml-24 tracking-tight text-3xl font-semibold">
+                        <h1 className="text-center tracking-tight text-3xl md:text-4xl font-semibold font-manrope text-[#F0F0F0]">
                             Best Development
                         </h1>
                     </div>
-                    <Link to="/learn-more" className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                        <span className='text-white'>Learn more</span>
-                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                            <GoArrowUpRight />
-                        </div>
-                    </Link>
+                    <Link to="/learn-more" className='w-[50%] sm:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
+    <span className='text-white text-sm sm:text-base flex-grow text-center'>Learn more</span>
+    <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
+        <GoArrowUpRight />
+    </div>
+</Link>
+
                 </div>
             </div>
         </div>

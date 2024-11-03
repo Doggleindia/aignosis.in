@@ -2,7 +2,8 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import bg from '../assets/images/bg3.png';
-
+import graph_img from '../assets/graph.png';
+import belongs from '../assets/belongs.png'
 const Screen4 = () => {
   const data = {
     datasets: [
@@ -102,22 +103,47 @@ const Screen4 = () => {
 
   return (
     <div
-      className="h-screen text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
-      <div className="h-[90%] w-[90%] flex justify-center items-center flex-col">
-        <div className="w-[50vw] h-[35vw] bg-[#322040] shadow-xl rounded-xl p-4">
+      className="h-screen max-sm:h-[60vh] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
+      <div className="h-[90%] w-auto flex justify-center items-center flex-col">
+        <div className="w-[55vw] h-[35vw] max-sm:h-[300px] max-sm:w-[90vw] bg-[#322040] relative shadow-xl rounded-xl p-4">
           <div className="w-full flex-col h-[30vw] justify-center flex items-center">
             <div className="flex justify-center gap-5 items-center">
-              <div className="w-[8rem] h-[1rem]  rounded-3xl bg-[#FFCADF21]"></div>
-              <h1 className="text-[#EDD0E7]">Development stages</h1>
-              <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
+            <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
+                        <h1 className='text-[#F1C6FE] text-sm md:text-3xl'>Recognize the Signs</h1>
+                        <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
             </div>
-            <div className="mt-[2rem] flex justify-center items-center flex-col h-[20vw] w-full">
-              <h1 className="text-center text-3xl mt-5 text-[#EDD0E7] tracking-tight font-semibold">
+            <div className="mt-[2rem] flex justify-center items-center flex-col h-[20vw]  w-full">
+              <h1 className="text-center max-sm:text-lg text-3xl mt-[20%] text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
               </h1>
-              <div className="mt-[6rem] flex justify-center items-center w-[40vw] h-full">
-                <Line data={data} options={options} />
+              <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" />
+              <div className="mt-[6rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
+                <img src={graph_img} alt="" />
               </div>
+
+
+              <div className="relative -left-[12%] -top-[18%] max-sm:hidden">
+  <p className="font-manrope text-[#F6E8FB] text-md">Brain development</p>
+  <p className="font-manrope text-[#F6E8FB] text-md">With First 5 Years</p>
+</div>
+<div className="m-5">
+  <p className="absolute bottom-0 left-[20%] max-sm:hidden">Birth</p>
+  <p className="absolute bottom-0 left-[54%] max-sm:hidden">5 Years</p>
+  <p className="absolute bottom-0 left-[75%] max-sm:hidden">18 Years</p>
+</div>
+
+          
+
             </div>
           </div>
         </div>

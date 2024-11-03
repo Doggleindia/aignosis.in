@@ -4,7 +4,7 @@ import aivideo from '../assets/images/aivideo.mp4'; // Update the path as per yo
 
 const Laptop = () => {
     return (
-        <div className="w-full mb-2 text-white flex relative justify-center items-center h-screen font-montserrat bg-[#1A0C25]">
+        <div className="w-full mb-2 text-white flex relative justify-center items-center h-screen max-sm:h-[35vh] font-montserrat bg-[#1A0C25]">
             {/* Gradient Blur Background with Lines */}
             <div className="absolute inset-0 z-0 flex justify-center items-center">
                 {/* Background Gradient */}
@@ -25,6 +25,27 @@ const Laptop = () => {
                     playsInline
                 />
             </div>
+
+            {/* Responsive Styles for Mobile Devices */}
+            <style jsx>{`
+                @media (max-width: 640px) { /* Tailwind's sm breakpoint */
+                    img {
+                        width: 90%; /* Adjust the laptop frame size */
+                        height: auto; /* Maintain aspect ratio */
+                        top: 5%; /* Positioning */
+                    }
+                    .absolute {
+                        top: 10%; /* Adjust video positioning */
+                        left: 5%; /* Adjust video positioning */
+                        width: 90%; /* Adjust width of the video */
+                        height: 70%; /* Adjust height of the video */
+                    }
+                    .bg-gradient-to-r {
+                        width: 100%; /* Full width for mobile */
+                        height: 100%; /* Full height for mobile */
+                    }
+                }
+            `}</style>
         </div>
     );
 };

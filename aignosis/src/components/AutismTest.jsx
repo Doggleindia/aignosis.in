@@ -55,57 +55,72 @@ const AutismTest = () => {
 
   return (
     <div
-      className="flex justify-between min-h-screen p-8"
+      className="flex flex-col md:flex-row justify-between min-h-screen p-4 md:p-8 "
       style={{ background: currentContent.bgColor }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Left Side Content */}
-        <div className="flex flex-col justify-center text-white space-y-4">
-          <div className="flex items-center space-x-2 ">
+        <div className="flex flex-col justify-center text-white space-y-4 p-4 md:p-0">
+          <div className="flex  items-center space-x-2 max-sm:justify-center max-sm:gap-0">
             <span
-              className="h-[10px] w-[118px] rounded-full"
+              className="h-[5px] md:h-[10px] w-1/3 md:w-[118px] max-sm:w-[60px] rounded-full"
               style={{
                 background:
                   "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
               }}
             ></span>
-            <span style={{ color: "rgba(241, 198, 254, 1)" }}>
+            <span  className="max-sm:text-sm  " style={{ color: "rgba(241, 198, 254, 1)" }}>
               {currentContent.header}
             </span>
             <span
-              className="h-[10px] w-[118px] rounded-full"
+              className="h-[5px] md:h-[10px] w-1/3 md:w-[118px] max-sm:w-[60px] rounded-full"
               style={{
                 background:
                   "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
               }}
             ></span>
           </div>
-          <h2 className="text-4xl font-semibold leading-snug">
+          <h2 className="text-2xl md:text-4xl font-semibold leading-snug">
             {currentContent.title}
             <br />
-            <span className="font-light italic">{currentContent.subtitle!==currentContent.header?currentContent.subtitle:""}</span>
+            <span className="font-light italic">
+              {currentContent.subtitle !== currentContent.header
+                ? currentContent.subtitle
+                : ""}
+            </span>
           </h2>
-          <p className="text-gray-300">{currentContent.description}</p>
-          <Link to='/test/fillup' className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D]   hover:text-white transition w-[206px]">
+          <p className="text-gray-300 text-sm md:text-base">
+            {currentContent.description}
+          </p>
+          <Link
+            to="/test/fillup"
+            className="px-4 py-2 text-sm md:text-base bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[160px] md:w-[206px]"
+          >
             Take Assignment
           </Link>
         </div>
 
-        {/* Right Side - Laptop Image */}
-        <div className="relative flex justify-center items-center">
+        {/* Right Side - Image and Circles */}
+        <div className="relative flex justify-center  items-center">
           <img
             src="https://s3-alpha-sig.figma.com/img/b0fb/753d/dfc3c4b9943c4f0466e62c0a63abe1b1?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VZXT48eSAokoap2MoUHeGXE6IaDFWoIc4gF8PwKbwoxMWLa4NRZMR7lHUDScJ7i~oAmhwfs48ImBGi6phBYvR9JiBdq0kPE5Mn3lwD8VZtPhsj417zymd4F-rJkEb2wxuzrEoLWnqVM4LfkrCL705TjWm8C2~hnzkm39mdoIHmiNEzPNXlrY2YwNiwft4FVzEUbOfmnV12sAA0o9QuUZfo9fXZ10PM~tO4GnFBmPoKUqJXWj8qqPWyieXbvaj0SuA-XhPJ~YBGFr4zRaZQ5Gh~hb63wVfuAUOuGhq1x8G7eGkZ0iMS1dRTA8S3ww1WfbbUcQG3oG1GKtM83h9uMJZQ__"
             alt="Laptop Mockup"
-            className="w-[1101px] h-auto scale-145"
+            className="w-full md:w-[1101px] max-sm:w-[300px] h-auto scale-125 md:scale-145"
           />
 
           {/* Circle Indicators */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 space-y-2 flex flex-col">
+          
+          <div className="absolute top-1/2 md:right-0     transform -translate-y-1/2 space-y-2 flex flex-col   ">
             {[1, 2, 3, 4, 5].map((item) => (
-              <div key={item} className="flex flex-col items-center">
+              <div
+              key={item}
+              className={`flex flex-col items-center ${
+                item === 1 ? "mt-2 sm:mt-0" : "" // Adds top margin only for the first indicator on mobile
+              }`}
+            >
                 <div
                   onClick={() => handleCircleClick(item)}
-                  className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${
+                  className={`h-8 w-8 md:h-10 md:w-10 flex items-center justify-center rounded-full text-white font-semibold text-xs md:text-sm cursor-pointer  ${
                     currentStep === item
                       ? "bg-[#952981]"
                       : "bg-transparent border border-[#9C00AD]"
@@ -114,9 +129,7 @@ const AutismTest = () => {
                   {item}
                 </div>
                 {item === 5 && (
-                  <div
-                    className="w-1 h-24 bg-[#952981] mt-2"
-                  ></div>
+                  <div className="w-[1px] md:w-1 h-12 md:h-24 bg-[#952981] mt-1 md:mt-2"></div>
                 )}
               </div>
             ))}
