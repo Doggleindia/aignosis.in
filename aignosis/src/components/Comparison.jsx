@@ -1,14 +1,47 @@
 import React from "react";
+import table from '../assets/ctable.png';
 
 const Comparison = () => {
   return (
     <div
-      className="flex items-center justify-center min-h-screen p-8"
+      className="flex items-center flex-col justify-center min-h-screen p-8"
       style={{ background: "rgba(26, 12, 37, 1)" }}
     >
+
+<div className="flex items-center space-x-2 text-pink-400 md:hidden max-sm:mb-5">
+            <span
+              className="h-[10px] w-[118px] rounded-full"
+              style={{
+                background:
+                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+              }}
+            ></span>
+
+            <span>Comparison</span>
+            <span
+              className="h-[10px] w-[118px] rounded-full"
+              style={{
+                background:
+                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+              }}
+            ></span>
+          </div>
+
+
+
+
+
+
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-[150px]">
         {/* Left Side - Medical Report Image */}
         <div className="flex justify-center items-center">
+        
+         
+
+
+
+
+
           <div
             className="p-9 rounded-lg w-[410px]"
             style={{ background: "rgba(245, 215, 255, 0.34)" }}
@@ -22,7 +55,13 @@ const Comparison = () => {
         </div>
 
         {/* Right Side - Comparison Content */}
-        <div className="text-white space-y-8 w-[410px]"> {/* Increased space-y from 6 to 8 */}
+        {/* Mobile View - Show table image */}
+        <div className="block md:hidden">
+          <img src={table} alt="Comparison Table" className="w-full h-auto" />
+        </div>
+
+        {/* Desktop View - Show comparison table code */}
+        <div className="hidden md:block text-white space-y-8 w-[410px]">
           <div className="flex items-center space-x-2 text-pink-400">
             <span
               className="h-[10px] w-[118px] rounded-full"
@@ -49,7 +88,7 @@ const Comparison = () => {
             className="p-8 rounded-lg space-y-6 shadow-xl"
             style={{ background: "rgba(26, 10, 38, 1)" }}
           >
-            <div className="flex justify-between items-center text-gray-300 mb-4"> {/* Added mb-4 for margin-bottom */}
+            <div className="flex justify-between items-center text-gray-300 mb-4">
               <div className="w-1/3 text-left relative">
                 <div
                   className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
@@ -80,7 +119,7 @@ const Comparison = () => {
               { label: "Time", left: "Weeks", center: "5 Minutes" },
               { label: "Accessibility", left: "Limited Location", center: "Remote Friendly" },
             ].map((item, index) => (
-              <div className="flex justify-between items-center text-gray-100 mb-4" key={index}> {/* Added mb-4 for margin-bottom */}
+              <div className="flex justify-between items-center text-gray-100 mb-4" key={index}>
                 <div className="w-1/3 text-left relative">
                   {item.label}
                   <div

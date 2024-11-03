@@ -42,31 +42,23 @@ const ServicePage1 = () => {
 
     const faqData = [
         {
-            question: "How many sessions should I choose for my child?",
-            answer:
-                "The number of sessions depends on your child's specific needs and goals. Our team can help guide you to select the ideal package based on an initial consultation.",
+            question: "How do I know if my child needs an assessment?",
+            answer: "Signs that may indicate your child needs an assessment include difficulties in learning, consistent struggles with reading or writing, challenges in social interactions, behavioral issues, or delays in speech and language development. If you notice your child facing these challenges, it may be beneficial to seek an assessment.",
         },
         {
-            question: "Are your prices competitive with in-person therapy costs?",
-            answer:
-                "Yes, our online sessions are designed to be affordable and often cost less than in-person therapy while maintaining high standards of care and convenience.",
+            question: "What is the appropriate age for an assessment?",
+            answer: "Children can be assessed as early as 18 months for developmental milestones, but most comprehensive evaluations typically occur between the ages of 3 and 7. Early intervention is crucial, so if you have concerns, it’s best to seek guidance sooner rather than later.",
         },
         {
-            question: "How long is the validity of my purchased sessions?",
-            answer:
-                "Purchased sessions are valid for six months, giving you the flexibility to schedule them at your convenience within that period.",
+            question: "How long does the assessment process take?",
+            answer: "The assessment process generally takes between 1 to 2 hours, depending on the specific evaluations being conducted. Additional time may be needed for follow-up discussions and to review the results with you.",
         },
         {
-            question: "What are the payment options available?",
-            answer:
-                "We accept credit/debit cards, bank transfers, and various secure online payment methods. Details are provided at checkout for easy payment processing.",
-        },
-        {
-            question: "I completed the payment but haven’t received a confirmation. What should I do?",
-            answer:
-                "If you haven’t received a confirmation, please allow a few minutes. If the issue persists, contact our support team for assistance.",
-        },
+            question: "What can I expect during an assessment?",
+            answer: "During the assessment, your child will participate in various activities and tasks designed to evaluate their cognitive, social, and emotional functioning. The process is interactive and child-friendly, ensuring your child feels comfortable. Afterward, you will receive a detailed report outlining the findings, along with recommendations for further support or intervention if needed.",
+        }
     ];
+    
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <div className='h-screen w-full '>
@@ -87,45 +79,64 @@ const ServicePage1 = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-full justify-center items-center flex h-[42vw]'>
+                <div className='w-full justify-center items-center flex h-auto'>
                     <div className='w-full flex-col h-[35vw] justify-center flex items-center'>
                         <div className="flex justify-center gap-5 items-center">
-                            <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
+                        <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
                             <h1 className='text-[#F1C6FE]'>Services</h1>
-                            <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
+                            <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
                         </div>
                         <div className=" justify-center w-full items-center flex flex-col">
                             <h1 className='text-5xl mt-5 font-medium'>Unlock Your Child’s Learning Potential</h1>
                             <h1 className='mt-3'>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
                         </div>
                         <div className="flex gap-[3vw] w-full h-[4vw] mt-[2vw] justify-center items-center">
-                            <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                <a href="" className='text-white'>Get In Touch</a>
-                                <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                    <GoArrowUpRight />
-                                </div>
-                            </div>
+                        <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4'>
+    <a href="" className='text-white'>Get In Touch</a>
+    <div className='w-[2.5rem] h-[2.5rem] flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+        <GoArrowUpRight />
+    </div>
+</div>
+
                             <h1 className='text-white font-semibold text-center'>Rated 4.5/5 by Parents</h1>
                         </div>
                         <div className='w-[40vw] mt-[2vw] h-[20vw] bg-[#D9D9D9]'>
+    <img 
+        src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__" 
+        alt="" 
+        className='w-full h-full object-cover' 
+    />
+</div>
 
-                        </div>
                     </div>
                 </div>
+
+
+                
                 <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start">
                     <div className="w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex">
                             <div>
-                                <h1 className='text-2xl font-semibold'>What Are Assessments?</h1>
-                                <h1 className='mt-6 text-right mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
+                                <h1 className='text-2xl text-left font-semibold'>What Are Assessments?</h1>
+                                <h1 className='mt-6 text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='text-2xl font-semibold'>Why is Early Diagnosis Important?</h1>
-                                <h1 className='mt-6 text-right mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
+                                <h1 className='text-2xl text-left font-semibold'>Why is Early Diagnosis Important?</h1>
+                                <h1 className='mt-6 text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='text-2xl font-medium'>Our Assessment Services:</h1>
-                                <div className='pl-[2vw]mt-6'>
+                                <h1 className='text-2xl text-left font-medium'>Our Assessment Services:</h1>
+                                <div className='pl-[2vw]mt-6 text-left'>
                                     <h1 className='mt-6 mr-[1vw]'>ADHD Screening</h1>
                                     <h1 className='mt-6 mr-[1vw]'>Autism Evaluation</h1>
                                     <h1 className='mt-6 mr-[1vw]'>Speech and Language Assessments</h1>
@@ -137,28 +148,41 @@ const ServicePage1 = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] px-[2vw]">
-                            <h1 className='text-xl mt-10 font-semibold uppercase text-center'>“The Best Time to Start is NOW”</h1>
-                            <h1 className='text-start mt-3 pl-[2.5vw]'>Support for Every Age Group</h1>
+                        <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
+                            <h1 className='text-xl mt-10 font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
+                            <h1 className=' mt-3 pl-[2.5vw] text-center'>Support for Every Age Group</h1>
                             <div className='mt-6 flex flex-col justify-center items-center pl-[2vw]'>
-                                <h1 className='text-xl text-start pr-[7vw] font-medium'>Our Assessment Services:</h1>
+                                <h1 className='text-xl text-left pr-[14vw] font-medium font-raleway'>We Specialize In:</h1>
                                 <div className='pl-[2vw] mt-6'>
-                                    <h1>ADHD Screening</h1>
-                                    <h1 className='mt-6'>Autism Evaluation</h1>
-                                    <h1 className='mt-6'>Speech and Language Assessments</h1>
-                                    <h1 className='mt-6'>Cognitive and Social Functioning Tests</h1>
-                                    <h1 className='mt-6'>Intellectual, Social, and Developmental Quotients</h1>
-                                    <h1 className='mt-6'>Learning Styles, Aptitude, and Interests</h1>
-                                    <h1 className='mt-6'>Learning Disabilities (Dyslexia, Dyscalculia, Dysgraphia)</h1>
-                                    <h1 className='mt-6 mb-[2v]'>Depression & Anxiety Evaluations</h1>
+                                    <h1>Sensory Processing Disorder</h1>
+                                    <h1 className='mt-6'>Autism</h1>
+                                    <h1 className='mt-6'>ADHD</h1>
+                                    <h1 className='mt-6'>Speech and Language Challenge</h1>
+                                    <h1 className='mt-6'>Learning Disabilities</h1>
+                                    <h1 className='mt-6'>Anxiety Disorders</h1>
+                                    <h1 className='mt-6'>Slow Learners</h1>
+                                    <h1 className='mt-6'>Down Syndromes</h1>
+                                    <h1 className='mt-6'>Intellectual Disabilities</h1>
+                                    
+                                    <h1 className='mt-6 mb-[2v]'>Giftedness</h1>
                                 </div>
                             </div>
                         </div>
                         <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                                <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
-                                <h1 className='text-[#F1C6FE]'>Services</h1>
-                                <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
+                            <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
+                                <h1 className='text-[#F1C6FE]'>Advantages</h1>
+                                <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
                                 <h1 className='text-5xl mt-5 font-medium'>Why choose us</h1>
@@ -257,16 +281,26 @@ const ServicePage1 = () => {
                             </div>
 
                         </div>
-                        <div className='w-[100%]  flex-col mt-[5vw] h-[41vw] justify-center flex items-center'>
+                        <div className='w-[100%]  flex-col mt-[10vw] h-[45vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                                <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
+                            <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
                                 <h1 className='text-[#F1C6FE]'>Advantages</h1>
-                                <div className='w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]'></div>
+                                <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                            }}
+                        ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='text-5xl mt-5 font-manrope font-medium'>Benefits of Our Service:</h1>
+                                <h1 className='text-5xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
                             </div>
-                            <div className=" w-[42vw] mt-[4vw] rounded-3xl h-[36vw] bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A]">
+                            <div className=" w-[42vw] mt-[4vw] rounded-3xl h-auto bg-[#F5D7FF57]">
                                 <table className="w-full text-left text-gray-200">
                                     <thead>
                                         <tr>
@@ -288,6 +322,7 @@ const ServicePage1 = () => {
                                             "Convenient App for Tips and Activities",
                                             "No Travel or Waiting Time",
                                             "EMI Options for Indian Residents*",
+
                                         ].map((feature, index) => (
                                             <tr key={index} className="border-t border-[#F6E8FB80]">
                                                 <td className="py-3">{feature}</td>
@@ -301,11 +336,11 @@ const ServicePage1 = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className='w-[100%] flex-col mt-[5vw] h-[44vw] justify-center flex items-center'>
+                        <div className='w-auto flex-col mt-[6vw] h-[44vw] justify-center flex items-center'>
                             <>
                                 <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
-                                    <h2 className="text-[#F6E8FB] text-[40px] font-bold font-manrope">Frequently Asked Questions</h2>
-                                    <div className=" w-[800px] bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] rounded-3xl p-8  mx-auto mt-10">
+                                    <h2 className="text-[#F6E8FB] text-[40px] text-center font-bold font-manrope">Frequently Asked Questions</h2>
+                                    <div className=" w-auto bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] rounded-3xl p-8  mx-auto mt-10">
                                         <div className="space-y-4">
                                             {faqData.map((item, index) => (
                                                 <div key={index} className="border-b border-gray-400">
@@ -330,35 +365,42 @@ const ServicePage1 = () => {
                             </>
                         </div>
                     </div>
+
+
+
+
+
+
                     <div className="w-[50%] h-auto p-[3vw] sticky top-10">
-                        <div className="w-[85%] flex-col h-[auto] py-[2vw] rounded-3xl bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] flex items-center justify-center">
-                            <h1 className='text-xl mt-10 font-semibold uppercase'>Book an online consultation Today</h1>
+                        <div className="w-auto flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
+                            <h1 className='text-xl mt-10 font-semibold font-manrope '>Book an online consultation </h1>
+                            <h1 className='text-xl font-semibold font-manrope'>Today</h1>
                             <form className="mt-[2vw] text-base px-[2vw] flex flex-col justify-center items-center space-y-4">
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="w-[16vw] px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    className="w-[16vw] px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
                                 />
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    className="w-full px-4 py-2   bg-[#2521276B]   border border-[#B7407D80] rounded-md"
                                 />
                                 <input
                                     type="phone"
                                     placeholder="Your Phone Number"
-                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    className="w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
                                 />
                                 <textarea
                                     placeholder="Your Message"
-                                    className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                                    className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
                                 ></textarea>
-                                <div className='w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                    <a href="" className='text-white'>Submit</a>
-                                    <div className='w-[2rem] h-[2rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                        <GoArrowUpRight />
-                                    </div>
-                                </div>
+                                <Link to="" className='w-[50%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
+    <span className='text-white text-sm sm:text-base flex-grow text-center'>submit</span>
+    <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
+        <GoArrowUpRight />
+    </div>
+</Link>
                             </form>
                             <h1 className='mt-[3vw] font-medium'>Reach us at </h1>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
