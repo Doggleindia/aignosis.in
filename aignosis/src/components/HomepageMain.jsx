@@ -18,7 +18,7 @@ const HomepageMain = () => {
       <Screen5 />
       <MainComponent />
       {/* <Footer/> */}
-      <PartnershipPage />
+      
     </div>
   )
 }

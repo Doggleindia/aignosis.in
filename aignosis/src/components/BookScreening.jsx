@@ -8,6 +8,7 @@ import pic3 from '../assets/pic3.png';
 import pic4 from '../assets/pic4.png';
 import pic5 from '../assets/pic5.png';
 import { useNavigate,Link } from "react-router-dom";
+import { GoArrowUpRight } from 'react-icons/go';
 
 // Reusable ServiceCard Component
 const ServiceCard = ({ image, title, description, onClick }) => (
@@ -16,7 +17,7 @@ const ServiceCard = ({ image, title, description, onClick }) => (
     onClick={onClick}
   >
     {/* Image Section */}
-    <div className="w-16 h-16 bg-purple-950 rounded-full flex items-center justify-center">
+    <div className="w-16 max-sm:h-[50px]  h-16 bg-purple-950 rounded-full flex items-center justify-center">
       <img src={image} alt="Service Icon" className="w-12 h-12" />
     </div>
 
@@ -45,27 +46,30 @@ const BookScreening = () => {
   };
 
   return (
-    <div
-      className="min-h-screen bg-gradient-to-b from-purple-900 to-purple-800 text-white p-10 flex flex-col items-center"
+
+   <div className='flex items-center justify-center m-2  max-sm:h-[400vh] ' style={{ background: 'rgba(26, 12, 37, 1)' }}>
+
+<div
+      className="min-h-screen bg-gradient-to-b border  border-[#B740A16B] w-[95vw] rounded-lg from-purple-900 to-purple-800 text-white p-10 flex flex-col items-center"
       style={{ background: 'rgba(26, 12, 37, 1)' }}
     >
       {/* Top Navigation */}
       <div className="flex justify-center items-center space-x-2 mb-8">
         <span
-          className="h-[10px] w-[118px] rounded-full"
+          className="h-[10px] w-[118px] max-sm:w-[60px] rounded-full"
           style={{
             background:
               'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
           }}
         ></span>
         <p
-          className="text-lg font-medium"
+          className="text-lg max-sm:text-sm  font-medium"
           style={{ color: '#F1C6FE', fontSize: '20px' }}
         >
           For Parents
         </p>
         <span
-          className="h-[10px] w-[118px] rounded-full"
+          className="h-[10px] w-[118px] max-sm:w-[60px] rounded-full"
           style={{
             background:
               'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
@@ -112,12 +116,12 @@ const BookScreening = () => {
           {/* Proceed Button */}
 
 
-          <div className='mt-7'>
-            <button className="px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
+          <div className='mt-7 '>
+            <button className="px-2 w-auto md:h-[2.5rem] py-4 max-sm:px-1 max-sm:py-0 rounded-full text-lg max-sm:text-sm  font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
               <span>Click to proceed</span>
-              <div className="bg-[#B7408069] w-6 h-6 flex items-center justify-center rounded-full">
-                <AiOutlineArrowRight className="text-white text-xl" />
-              </div>
+              <div className="w-[2rem] text-white group-hover:text-black text-lg flex justify-center items-center h-[2rem] rounded-full bg-[#B740A1] group-hover:bg-white  ">
+              <GoArrowUpRight />
+            </div>
             </button>
           </div>
 
@@ -125,14 +129,21 @@ const BookScreening = () => {
         </div>
 
         {/* Image Section */}
-        <div className="mt-16 ml-8">
-          <img src={family} alt="Family Illustration" className="w-64 h-auto" />
-        </div>
+        <div className="relative sm:ml-4">
+              <div className="absolute inset-0 bg-[#B740A1] opacity-65 blur-[200px] rounded-lg "></div>
+              <img src={family} alt="Family Illustration" className="relative z-10 w-64 h-auto max-sm:w-[400px]" />
+            </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between max-sm:flex-col">
         <div className="flex flex-col mt-20">
-          <img src={mind_img2} alt="Service Icon" className="h-auto" />
+   
+        <div className="relative sm:ml-4">
+              <div className="absolute inset-0 bg-[#B740A1] opacity-65 blur-[130px] rounded-lg "></div>
+              <img src={mind_img2} alt="Family Illustration" className="relative  w-64 h-auto max-sm:w-[400px]" />
+            </div>
+
+          
 
           {/* Our Services Heading */}
           <h2 className="text-2xl font-semibold text-[#FFFFFF] font-manrope text-center">
@@ -145,7 +156,7 @@ const BookScreening = () => {
           </p>
         </div>
 
-        <div className="ml-[200px] flex flex-col gap-10">
+        <div className="sm:ml-[200px] flex flex-col gap-10">
           {/* Render Service Cards with Individual Margins */}
           <div className="ml-0">
             <ServiceCard 
@@ -157,7 +168,7 @@ const BookScreening = () => {
             />
           </div>
 
-          <div className="ml-20">
+          <div className="sm:ml-20">
             <ServiceCard
               image={pic2}
               title="Speech & Language"
@@ -167,7 +178,7 @@ const BookScreening = () => {
             />
           </div>
 
-          <div className="ml-[150px]">
+          <div className="sm:ml-[150px]">
             <ServiceCard
               image={pic3}
               title="Behaviour Therapy"
@@ -177,7 +188,7 @@ const BookScreening = () => {
             />
           </div>
 
-          <div className="ml-20">
+          <div className="sm:ml-20">
             <ServiceCard
               image={pic4}
               title="Occupational Therapy"
@@ -187,7 +198,7 @@ const BookScreening = () => {
             />
           </div>
 
-          <div className="ml-0">
+          <div className="sm:ml-0">
             <ServiceCard
               image={pic5}
               title="Special Education"
@@ -199,6 +210,11 @@ const BookScreening = () => {
         </div>
       </div>
     </div>
+
+
+   </div>
+       
+   
   );
 };
 

@@ -2,19 +2,27 @@ import React, { useState } from "react";
 import StepProgress from "./StepProgress";
 import { Link } from "react-router-dom";
 import CalibrationPage from "./CalibrationPage";
-
+import WebcamMicTest from'./WebcamMicTest'
 export const FillupPage = () => {
-  const [isCalibrationVisible, setCalibrationVisible] = useState(false);
+  const [isWebVisible, setWebVisible] = useState(false);
 
-  const handleNextClick = () => {
-    setCalibrationVisible(true);
+  const handleNextClick = async () => {
+    try {
+      // Request permission for webcam and microphone
+      await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      // If permission is granted, show the CalibrationPage
+      setWebVisible(true);
+    } catch (error) {
+      console.error("Permission denied for webcam and microphone:", error);
+      alert("Please allow webcam and microphone access to proceed.");
+    }
   };
 
   return (
     <>
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen">
         <StepProgress />
-        {!isCalibrationVisible ? (
+        {!isWebVisible ? (
           <div className="flex flex-row mt-[10px]">
             {/* Left side content */}
             <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px]">
@@ -89,7 +97,7 @@ export const FillupPage = () => {
 
                 <div className="flex justify-center items-center">
                   <button
-                    type="button" // Change to type="button" to prevent form submission
+                    type="button"
                     onClick={handleNextClick}
                     className="hover:bg-pink-700 text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center"
                   >
@@ -100,7 +108,7 @@ export const FillupPage = () => {
             </div>
           </div>
         ) : (
-          <CalibrationPage />
+          <WebcamMicTest/>
         )}
       </div>
     </>

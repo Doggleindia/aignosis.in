@@ -9,7 +9,7 @@ const ChoosePlan = () => {
   return (
     <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6">
       {/* Header Section */}
-      <div className="flex flex-row items-center space-x-4 mb-8">
+      <div className="flex flex-row  items-center space-x-4 mb-8">
         <span
           className="h-[10px] w-[118px] rounded-full"
           style={{
@@ -17,7 +17,7 @@ const ChoosePlan = () => {
               "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
           }}
         ></span>
-        <span className="text-[24px] text-[#F1C6FE] font-medium">Choose A Plan</span>
+        <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">Choose A Plan</span>
         <span
           className="h-[10px] w-[118px] rounded-full"
           style={{
@@ -60,7 +60,7 @@ const ChoosePlan = () => {
       </div>
 
       {/* Pricing Cards Container */}
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-row max-sm:flex-col gap-10">
         {/* Cards for "Session" */}
         {active === "session" && (
           <>
@@ -149,7 +149,7 @@ const ChoosePlan = () => {
 
         {/* Cards for "Assessment" */}
         {active === "assessment" && (
-           <div className=" w-[800px] p-6 rounded-lg shadow-lg flex justify-center" style={{
+           <div className=" w-[800px] max-sm:w-[400px] p-6 rounded-lg shadow-lg flex justify-center" style={{
             background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(94, 40, 100, 0.3) 100%)",
           }}>
           {/* Left Side Content */}
