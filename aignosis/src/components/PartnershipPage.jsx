@@ -7,6 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
+import Footer from './Footer';
 
 
 const PartnershipPage = () => {
@@ -147,7 +148,7 @@ const PartnershipPage = () => {
                     <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
                 </div>
             </div>
-            <div className="footer mt-[8vw]">
+            {/* <div className="footer mt-[8vw]">
                 <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
                     <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
                     <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
@@ -168,7 +169,8 @@ const PartnershipPage = () => {
                         <h1 className='ml-5'>Medium</h1>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Footer/>
         </div>
     );
 };

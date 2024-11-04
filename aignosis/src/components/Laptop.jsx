@@ -4,49 +4,24 @@ import aivideo from '../assets/images/aivideo.mp4'; // Update the path as per yo
 
 const Laptop = () => {
     return (
-        <div className="w-full mb-2 text-white flex relative justify-center items-center h-screen max-sm:h-[35vh] font-montserrat bg-[#1A0C25]">
-            {/* Gradient Blur Background with Lines */}
-            <div className="absolute inset-0 z-0 flex justify-center items-center">
-                {/* Background Gradient */}
-                <div className="absolute w-[70%] h-[90%] bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-2xl rounded-full"></div>
-            </div>
-
-            {/* Laptop Image */}
-            <img className="w-[70%] object-fill h-[90%] z-10" src={frameImg} alt="Laptop Frame" />
-
-            {/* Video to be embedded within the frame */}
-            <div className="absolute w-[50%] h-[68%] top-[14%] left-[25%] z-20">
-                <video 
-                    src={aivideo}
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                />
-            </div>
-
-            {/* Responsive Styles for Mobile Devices */}
-            <style jsx>{`
-                @media (max-width: 640px) { /* Tailwind's sm breakpoint */
-                    img {
-                        width: 90%; /* Adjust the laptop frame size */
-                        height: auto; /* Maintain aspect ratio */
-                        top: 5%; /* Positioning */
-                    }
-                    .absolute {
-                        top: 10%; /* Adjust video positioning */
-                        left: 5%; /* Adjust video positioning */
-                        width: 90%; /* Adjust width of the video */
-                        height: 70%; /* Adjust height of the video */
-                    }
-                    .bg-gradient-to-r {
-                        width: 100%; /* Full width for mobile */
-                        height: 100%; /* Full height for mobile */
-                    }
-                }
-            `}</style>
+        <div className="landing_sec mb-8">
+        <div className="lan_sec_bottom mt-[-96] relative text-center">
+          {/* Main video */}
+          <video
+            loop
+            autoPlay
+            muted
+            className="border-[26px] border-black rounded-[22px] w-3/5 mx-auto"
+          >
+            <source src="https://graphterstudio.com/graphter/assets/media/rec.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+  
+          {/* Decorative circles */}
+          <div className="absolute top-[8px] left-1/2 w-[10px] h-[10px] rounded-full bg-[#252525] transform -translate-x-1/2 z-10"></div>
+          <div className="absolute top-[11px] left-1/2 w-[6px] h-[6px] rounded-full bg-[#252525] transform translate-x-[30%] z-10"></div>
         </div>
+      </div>
     );
 };
 
