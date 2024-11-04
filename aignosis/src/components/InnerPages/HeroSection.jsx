@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GoArrowUpRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
-import img1 from '../../assets/images/herobg.gif';
+import img1 from '../../assets/video/hero section.mp4';
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger separately
@@ -18,7 +18,7 @@ const HeroSection = () => {
         const applyAnimations = () => {
             if (window.innerWidth >= 768) {
                 heroElements = [
-                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=0px bottom+=100px" },
+                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=40px bottom+=100px" },
                     { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom+=100px" },
                     { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom+=100px" },
                 ];
@@ -69,8 +69,11 @@ const HeroSection = () => {
 
 
     return (
-        <div className="body pt-28 w-full h-screen relative flex-col flex justify-center items-center">
-            <img id='bgvdo' src={img1} alt="" className='w-full h-screen opacity-90 relative object-cover' />
+        <div className="body  w-full h-screen relative flex-col flex justify-center items-center">
+            <video id='bgvdo'
+                loop
+                autoPlay
+                muted src={img1} alt="" className='w-full h-screen opacity-90 relative object-cover' ></video>
             <div className='w-full h-full absolute flex-col flex justify-center items-center'>
                 <div className="w-full">
                     <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight text-3xl font-semibold">
