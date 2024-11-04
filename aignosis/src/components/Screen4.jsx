@@ -103,9 +103,9 @@ const Screen4 = () => {
 
   return (
     <div
-      className="h-screen max-sm:h-[60vh] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
+      className="h-screen max-sm:h-[40vh] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
       <div className="h-[90%] w-auto flex justify-center items-center flex-col">
-        <div className="w-[55vw] h-[35vw] max-sm:h-[300px] max-sm:w-[90vw] bg-[#322040] relative shadow-xl rounded-xl p-4">
+        <div className="w-[55vw] h-[40vw] max-sm:h-[300px] max-sm:w-[90vw] bg-[#322040] relative shadow-xl rounded-xl p-4">
           <div className="w-full flex-col h-[30vw] justify-center flex items-center">
             <div className="flex justify-center gap-5 items-center">
             <span
@@ -136,10 +136,10 @@ const Screen4 = () => {
   <p className="font-manrope text-[#F6E8FB] text-md">Brain development</p>
   <p className="font-manrope text-[#F6E8FB] text-md">With First 5 Years</p>
 </div>
-<div className="m-5">
-  <p className="absolute bottom-0 left-[20%] max-sm:hidden">Birth</p>
-  <p className="absolute bottom-0 left-[54%] max-sm:hidden">5 Years</p>
-  <p className="absolute bottom-0 left-[75%] max-sm:hidden">18 Years</p>
+<div className=" ">
+  <p className="absolute  left-[20%]  max-sm:hidden">Birth</p>
+  <p className="absolute  left-[55%] max-sm:hidden">5 Years</p>
+  <p className="absolute  left-[76%] max-sm:hidden">18 Years</p>
 </div>
 
           
