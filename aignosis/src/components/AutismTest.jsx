@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import bg2 from '../assets/images/bg2.jpg';
+import '../index.css'
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -11,7 +13,7 @@ const AutismTest = () => {
         "This enables early detection and helps parents take proactive steps for their child's development.",
       bgColor: "rgba(26, 12, 37, 1)",
       header: "Recognize the Signs",
-      ScreenNumber:1,
+      ScreenNumber: 1,
     },
     {
       title: "Quick Screening Process",
@@ -20,7 +22,7 @@ const AutismTest = () => {
         "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.",
       bgColor: "#5E3C69",
       header: "Step 1",
-      ScreenNumber:2,
+      ScreenNumber: 2,
     },
     {
       title: "Accurate Results with AI",
@@ -29,7 +31,7 @@ const AutismTest = () => {
         "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes.",
       bgColor: "#952981",
       header: "Step 2",
-      ScreenNumber:3,
+      ScreenNumber: 3,
     },
     {
       title: "Non-Invasive and Child-Friendly",
@@ -38,7 +40,7 @@ const AutismTest = () => {
         "The test is completely non-invasive, making it comfortable for children. We ensure a stress-free experience throughout the process.",
       bgColor: "#5E3C69",
       header: "Step 3",
-      ScreenNumber:4,
+      ScreenNumber: 4,
     },
     {
       title: "Empowering Early Intervention",
@@ -47,126 +49,124 @@ const AutismTest = () => {
         "Early detection is crucial in supporting your child’s growth. The Aignosis Autism Test empowers parents to take proactive steps.",
       bgColor: "#1A0C25",
       header: "Step 4",
-      ScreenNumber:5,
+      ScreenNumber: 5,
     },
   ];
-
   const scrollContainerRef = useRef(null);
-  let scrollTimeout = useRef();
 
-  const handleScrollStepChange = (event) => {
-    // Prevent default page scroll
-    event.preventDefault();
-
-    // Debounce the scroll
-    if (scrollTimeout.current) return;
-
-    scrollTimeout.current = setTimeout(() => {
-      if (event.deltaY > 0) {
-        // Scroll down - increase step
-        setCurrentStep((prev) => Math.min(prev + 1, stepsContent.length));
-      } else {
-        // Scroll up - decrease step
-        setCurrentStep((prev) => Math.max(prev - 1, 1));
-      }
-      scrollTimeout.current = null;
-    }, 300); // Adjust debounce delay as needed
-  };
-
-  const handleCircleClick = (step) => {
-    setCurrentStep(step);
-  };
-
-  const currentContent = stepsContent[currentStep - 1];
-
+  // Use IntersectionObserver to track sections as they scroll into view
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    scrollContainer.addEventListener("wheel", handleScrollStepChange, { passive: false });
+    const observerOptions = {
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCurrentStep(parseInt(entry.target.dataset.step));
+          }
+        });
+      },
+      observerOptions
+    );
+
+    const sections = scrollContainerRef.current.querySelectorAll(".scroll-section");
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      scrollContainer.removeEventListener("wheel", handleScrollStepChange);
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
+  const handleCircleClick = (step) => {
+    setCurrentStep(step);
+    scrollContainerRef.current
+      .querySelector(`[data-step="${step}"]`)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <div
-      className="flex justify-between min-h-screen p-8"
-      style={{ background: currentContent.bgColor }}
+      ref={scrollContainerRef}
+      className="flex flex-col snap-y snap-mandatory h-screen overflow-y-scroll overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
-        {/* Left Side Content */}
-        <div className="flex flex-col justify-center text-white space-y-4">
-          <div className="flex items-center space-x-2 ">
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-            <span style={{ color: "rgba(241, 198, 254, 1)" }}>
-              {currentContent.header}
-            </span>
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-          </div>
-          <h2 className="text-4xl font-semibold leading-snug">
-            {currentContent.title}
-            <br />
-            <span className="font-light italic">
-              {currentContent.subtitle !== currentContent.header
-                ? currentContent.subtitle
-                : ""}
-            </span>
-          </h2>
-          <p className="text-gray-300">{currentContent.description}</p>
-          <Link
-            to="/test/fillup"
-            className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[206px]"
-          >
-            Take Assignment
-          </Link>
-        </div>
-
-        {/* Right Side - Image with Scroll Functionality */}
+      {stepsContent.map((content, index) => (
         <div
-          ref={scrollContainerRef}
-          className="relative flex justify-center items-center"
-          style={{ overflow: "hidden",cursor:'pointer' }}
+          key={index}
+          className="scroll-section flex justify-between min-h-screen snap-start p-8 animate-fadeIn"
+          style={{ background: content.bgColor }}
+          data-step={index + 1}
         >
-          <img
-            src="https://s3-alpha-sig.figma.com/img/b0fb/753d/dfc3c4b9943c4f0466e62c0a63abe1b1?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VZXT48eSAokoap2MoUHeGXE6IaDFWoIc4gF8PwKbwoxMWLa4NRZMR7lHUDScJ7i~oAmhwfs48ImBGi6phBYvR9JiBdq0kPE5Mn3lwD8VZtPhsj417zymd4F-rJkEb2wxuzrEoLWnqVM4LfkrCL705TjWm8C2~hnzkm39mdoIHmiNEzPNXlrY2YwNiwft4FVzEUbOfmnV12sAA0o9QuUZfo9fXZ10PM~tO4GnFBmPoKUqJXWj8qqPWyieXbvaj0SuA-XhPJ~YBGFr4zRaZQ5Gh~hb63wVfuAUOuGhq1x8G7eGkZ0iMS1dRTA8S3ww1WfbbUcQG3oG1GKtM83h9uMJZQ__"
-            alt="Laptop Mockup"
-            className="w-[1101px] h-auto scale-145"
-          />
-
-          {/* Circle Indicators */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 space-y-2 flex flex-col">
-            {[1, 2, 3, 4, 5].map((item) => (
-              <div key={item} className="flex flex-col items-center">
-                <div
-                  onClick={() => handleCircleClick(item)}
-                  className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${
-                    currentStep === item
-                      ? "bg-[#952981]"
-                      : "bg-transparent border border-[#9C00AD]"
-                  }`}
-                >
-                  {item}
-                </div>
-                {item === currentContent.ScreenNumber && (
-                  <div className="w-1 h-24 bg-[#952981] mt-2"></div>
-                )}
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+            {/* Left Side Content */}
+            <div className="flex flex-col justify-center text-white space-y-4 animate-slideUp delay-150">
+              <div className="flex items-center space-x-2">
+                <span
+                  className="h-[10px] w-[118px] rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                  }}
+                ></span>
+                <span style={{ color: "rgba(241, 198, 254, 1)" }}>
+                  {content.header}
+                </span>
+                <span
+                  className="h-[10px] w-[118px] rounded-full"
+                  style={{
+                    background:
+                      "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                  }}
+                ></span>
               </div>
-            ))}
+              <h2 className="text-4xl font-semibold leading-snug">
+                {content.title}
+                <br />
+                <span className="font-light italic">
+                  {content.subtitle !== content.header ? content.subtitle : ""}
+                </span>
+              </h2>
+              <p className="text-gray-300">{content.description}</p>
+              <Link
+                to="/test/fillup"
+                className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[206px]"
+              >
+                Take Assignment
+              </Link>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="relative flex justify-center items-center">
+              <img
+                src={bg2}
+                alt="Laptop Mockup"
+                className="w-[1101px] h-auto scale-145"
+              />
+              {/* Circle Indicators */}
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 space-y-2 flex flex-col">
+                {[1, 2, 3, 4, 5].map((item) => (
+                  <div key={item} className="flex flex-col items-center">
+                    <div
+                      onClick={() => handleCircleClick(item)}
+                      className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${
+                        currentStep === item
+                          ? "bg-[#952981]"
+                          : "bg-transparent border border-[#9C00AD]"
+                      }`}
+                    >
+                      {item}
+                    </div>
+                    {item === content.ScreenNumber && (
+                      <div className="w-1 h-24 bg-[#952981] mt-2"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
