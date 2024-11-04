@@ -5,7 +5,7 @@ import '../index.css';
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const isScrolling = useRef(false); // Prevents multiple simultaneous scrolls
+  // const isScrolling = useRef(false); // Prevents multiple simultaneous scrolls
   const stepsContent = [
     {
       title: "The Ai.gnosis Autism Test:",
@@ -54,8 +54,8 @@ const AutismTest = () => {
   // Scroll handler to switch sections on image scroll only
   useEffect(() => {
     const handleWheel = (event) => {
-      // if (isScrolling.current) return; // Prevent simultaneous scroll events
-      // if (!imageContainerRef.current.contains(event.target)) return; // Scroll only if inside image area
+      if (isScrolling.current) return; // Prevent simultaneous scroll events
+      if (!imageContainerRef.current.contains(event.target)) return; // Scroll only if inside image area
 
       event.preventDefault();
       isScrolling.current = true;
@@ -93,7 +93,7 @@ const AutismTest = () => {
   return (
     <div
       ref={scrollContainerRef}
-      className="flex flex-col snap-y snap-mandatory h-screen overflow-hidden"
+      className="flex flex-col snap-y snap-mandatory mt-8 h-screen overflow-hidden"
       style={{ scrollBehavior: 'smooth', overflowY: 'hidden' }}
     >
       {stepsContent.map((content, index) => (
@@ -140,23 +140,27 @@ const AutismTest = () => {
             </div>
 
             {/* Right Side - Image */}
-            <div className="relative flex justify-center items-center" ref={imageContainerRef}>
-              <img
-                src={bg2}
-                alt="Laptop Mockup"
-                className="w-[1101px] h-auto scale-145"
-              />
-              {/* Circle Indicators */}
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 space-y-2 flex flex-col">
+            {/* Right Side - Image and Indicator Wrapper */}
+            <div className="relative flex justify-center items-center">
+              {/* Image Container */}
+              <div className="relative flex justify-center items-center">
+                <img
+                  src={bg2}
+                  alt="Laptop Mockup"
+                  className="w-[1101px] h-auto scale-145"
+                />
+              </div>
+
+              {/* Circle Indicators Container */}
+              <div className="absolute top-1/2 transform -translate-y-1/2 right-[-70px] space-y-2 flex flex-col">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="flex flex-col items-center">
                     <div
                       onClick={() => setCurrentStep(item)}
-                      className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${
-                        currentStep === item
+                      className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${currentStep === item
                           ? "bg-[#952981]"
                           : "bg-transparent border border-[#9C00AD]"
-                      }`}
+                        }`}
                     >
                       {item}
                     </div>
@@ -167,6 +171,7 @@ const AutismTest = () => {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       ))}
