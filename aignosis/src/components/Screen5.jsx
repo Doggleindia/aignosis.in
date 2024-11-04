@@ -55,8 +55,8 @@ const Screen5 = () => {
                         ></span>
                     </div>
                     <div className="mt-4 md:mt-[2rem]">
-                        <h1 className='text-center text-2xl md:text-7xl tracking-tight font-semibold leading-[2rem] md:leading-[4rem]'>Upto 1 in 5 children are at risk of developmental delays*</h1>
-                        <h1 className='text-center text-xl md:text-6xl italic tracking-tight font-semibold mt-4 md:mt-6 leading-[1.5rem] md:leading-[3rem]'>Is Your Child at Risk?</h1>
+                        <h1 className='text-center text-2xl md:text-5xl tracking-tight font-semibold leading-[2rem] md:leading-[4rem]'>Upto 1 in 5 children are at risk of developmental delays*</h1>
+                        <h1 className='text-center text-xl md:text-5xl italic tracking-tight font-semibold mt-4 md:mt-6 leading-[1.5rem] md:leading-[3rem]'>Is Your Child at Risk?</h1>
                     </div>
                     <div className='px-4 md:px-[25rem] mt-4 md:mt-[2rem] text-sm md:text-base'>
                         <p className='text-center'>

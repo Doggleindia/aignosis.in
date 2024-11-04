@@ -2,6 +2,15 @@ import React from 'react';
 import img from '../assets/images/SectionL.png';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import image1 from '../assets/members/image1.png'
+import image2 from '../assets/members/image2.png'
+import image3 from '../assets/members/image3.png'
+import image4 from '../assets/members/image4.png'
+import image5 from '../assets/members/image5.png'
+import image6 from '../assets/members/image6.png'
+import image7 from '../assets/members/image7.png'
+import image9 from '../assets/members/image9.png'
+
 
 const Divider = ({ title }) => (
     <div className="flex justify-center gap-5 items-center sm:mb-10 sm:mt-10">
@@ -11,9 +20,11 @@ const Divider = ({ title }) => (
     </div>
 );
 
-const TeamMember = ({ name, title, description }) => (
+const TeamMember = ({ name, img, description }) => (
     <div className="w-[80%] sm:w-[20vw] md:w-[15vw] text-center">
-        <div className="w-full h-[40vw] sm:h-[20vw] md:h-[16vw] bg-[#D9D9D947]"></div>
+        <div className="w-full h-[40vw] sm:h-[20vw] md:h-[16vw] bg-[#D9D9D947]">
+            <img src={img} className='w-full h-full' alt="" />
+        </div>
         <div className="w-full mt-4">
             <h1 className="text-lg sm:text-xl md:text-2xl">{name}</h1>
             <h2 className="mt-3 text-sm sm:text-base">{""}</h2>
@@ -46,7 +57,7 @@ const AboutUs = () => {
                 </section>
             </div>
 
-            <section className="w-full px-[5vw] md:px-[10vw] py-[2vw] bg-[#1A0C25] ">
+            <section className="w-full h-auto px-[5vw] md:px-[10vw] py-[2vw] bg-[#1A0C25] ">
                 <div className="w-full rounded-3xl border border-[#dfcbed26] p-4">
                     <Divider title="Our Project Team" />
                     <div className="text-center mb-10">
@@ -55,9 +66,9 @@ const AboutUs = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. S. ​Sitaraman" title="" description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" />
-                        <TeamMember name="Divyansh ​Mangal" title="" description="CO FOUNDER." />
-                        <TeamMember name="Raksheet ​Jain" title="" description="CO FOUNDER." />
+                        <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" />
+                        <TeamMember name="Divyansh ​Mangal"  img={image2} description="CO FOUNDER." />
+                        <TeamMember name="Raksheet ​Jain" img={image3} description="CO FOUNDER." />
                     </div>
                   <div className='flex justify-center items-center m-5'>
                   <h2 className='font-raleway text-[#FFFFFF]  text-5xl'>Advisors</h2>
@@ -65,15 +76,15 @@ const AboutUs = () => {
                 
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. Rajesh ​Jain" title="Advisor" description="Director, Consultant ​Pediatrician Raksheet ​Hospital." />
-                        <TeamMember name="Dr. Dhananajay ​K Mangal" title="Advisor" description="Director, Consultant ​Pediatrician Babylon ​Hospital." />
-                        <TeamMember name="Dr. Ramesh ​Agrawal" title="Advisor" description="Dr. Ramesh Agrawal ​HOD mother & child ​block, AIIMS Delhi." />
+                        <TeamMember name="Dr. Rajesh ​Jain" img={image4} description="Director, Consultant ​Pediatrician Raksheet ​Hospital." />
+                        <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." />
+                        <TeamMember name="Dr. Ramesh ​Agrawal" img={image6} description="Dr. Ramesh Agrawal ​HOD mother & child ​block, AIIMS Delhi."  />
                     </div>
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[5vw] mt-10 my-auto">
-                        <TeamMember name="Dr. Anami ​Gour" title="Advisor" description="Consultant Paediatric ​Intensive Care, St George’s ​University of London." />
+                        <TeamMember name="Dr. Anami ​Gour" img={image7} description="Consultant Paediatric ​Intensive Care, St George’s ​University of London." />
                         <TeamMember name="Mr. Shiv ​Kumar" title="Advisor" description="CEO, Kidaura Forbes ​30 under 30 (Social ​Impact)
 ." />
-                        <TeamMember name="Mr. Rajneesh ​Bhandari" title="Advisor" description="Director, ​NeuroEquilibrium ​Diagnostics Pvt. LMT." />
+                        <TeamMember name="Mr. Rajneesh ​Bhandari" img={image9} description="Director, ​NeuroEquilibrium ​Diagnostics Pvt. LMT." />
                         <TeamMember name="Mr. Arcchit ​Jain" title="Advisor" description="Vice President ​Goldman Sachs." />
                     </div>
 

@@ -7,7 +7,7 @@ const Screen3 = () => {
   return (
     <div
      
-      className='h-screen max-sm:h-[90vh] max-sm:mt-[100px] w-full   flex justify-center items-center bg-[#1A0C25]'
+      className='h-screen max-sm:h-[80vh] max-sm:mt-[100px] w-full   flex justify-center items-center bg-[#1A0C25]'
       
     >
       <div className="w-full md:w-[200vw] flex h-auto justify-center items-center flex-col border-t rounded-3xl border-[#B874B580] max-sm:border-none">
