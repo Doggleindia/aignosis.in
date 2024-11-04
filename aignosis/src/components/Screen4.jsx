@@ -98,51 +98,51 @@ const Screen4 = () => {
       },
     },
   };
-      
-  
+
+
 
   return (
     <div
-      className="h-screen max-sm:h-[40vh] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
-      <div className="h-[90%] w-auto flex justify-center items-center flex-col">
-        <div className="w-[55vw] h-[40vw] max-sm:h-[300px] max-sm:w-[90vw] bg-[#322040] relative shadow-xl rounded-xl p-4">
-          <div className="w-full flex-col h-[30vw] justify-center flex items-center">
+      className="h-screen max-sm:h-[40vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
+      <div className=" w-auto flex justify-center items-center flex-col">
+        <div className="  bg-[#322040] relative shadow-xl rounded-xl p-3">
+          <div className=" flex-col  justify-center flex items-center">
             <div className="flex justify-center gap-5 items-center">
-            <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
-                        <h1 className='text-[#F1C6FE] text-sm md:text-3xl'>Recognize the Signs</h1>
-                        <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+              <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                  background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                }}
+              ></span>
+              <h1 className='text-[#F1C6FE] text-sm md:text-3xl'>Recognize the Signs</h1>
+              <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                  background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                }}
+              ></span>
             </div>
-            <div className="mt-[2rem] flex justify-center items-center flex-col h-[20vw]  w-full">
-              <h1 className="text-center max-sm:text-lg text-3xl mt-[20%] text-[#EDD0E7] tracking-tight font-semibold">
+            <div className="mt-[1rem] flex justify-center items-center flex-col   w-full">
+              <h1 className="text-center max-sm:text-lg text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
               </h1>
               <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" />
-              <div className="mt-[6rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
+              <div className="m-[1rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
                 <img src={graph_img} alt="" />
               </div>
 
 
               <div className="relative -left-[12%] -top-[18%] max-sm:hidden">
-  <p className="font-manrope text-[#F6E8FB] text-md">Brain development</p>
-  <p className="font-manrope text-[#F6E8FB] text-md">With First 5 Years</p>
-</div>
-<div className=" ">
-  <p className="absolute  left-[20%]  max-sm:hidden">Birth</p>
-  <p className="absolute  left-[55%] max-sm:hidden">5 Years</p>
-  <p className="absolute  left-[76%] max-sm:hidden">18 Years</p>
-</div>
+                <p className="font-manrope text-[#F6E8FB] text-md">Brain development</p>
+                <p className="font-manrope text-[#F6E8FB] text-md">With First 5 Years</p>
+              </div>
+              <div className=" mb-4">
+                <p className="absolute  left-[20%]  max-sm:hidden">Birth</p>
+                <p className="absolute  left-[55%] max-sm:hidden">5 Years</p>
+                <p className="absolute  left-[76%] max-sm:hidden">18 Years</p>
+              </div>
 
-          
+
 
             </div>
           </div>

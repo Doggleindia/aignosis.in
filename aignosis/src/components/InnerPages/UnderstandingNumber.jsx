@@ -27,7 +27,7 @@ const UnderstandingNumber = ({ bg }) => {
     <>
       <div
         ref={containerRef}
-        className='w-[60%] h-[25vw] flex flex-col border border-[#B874B540] overflow-hidden rounded-3xl mb-10 relative max-sm:w-[90vw] max-sm:h-[70vw]'
+        className='w-[60%]  h-[25vw] flex flex-col border border-[#B874B540] overflow-hidden rounded-3xl mb-10 relative max-sm:w-[90vw] max-sm:h-[70vw]'
         style={{
           scrollBehavior: 'smooth',
           overflowY: 'hidden', // Prevent native scrolling
