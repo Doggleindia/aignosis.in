@@ -3,15 +3,16 @@ import StepProgress from "./StepProgress";
 import { Link } from "react-router-dom";
 import CalibrationPage from "./CalibrationPage";
 import WebcamMicTest from'./WebcamMicTest'
+import BackgroundInformationForm from "./BackgroundInformationForm";
 export const FillupPage = () => {
-  const [isWebVisible, setWebVisible] = useState(false);
+  const [isBackInfoVisible,setIsBackInfoVisible] = useState(false);
 
   const handleNextClick = async () => {
     try {
       // Request permission for webcam and microphone
-      await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+     // await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
       // If permission is granted, show the CalibrationPage
-      setWebVisible(true);
+      setIsBackInfoVisible(true);
     } catch (error) {
       console.error("Permission denied for webcam and microphone:", error);
       alert("Please allow webcam and microphone access to proceed.");
@@ -22,7 +23,7 @@ export const FillupPage = () => {
     <>
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen">
         <StepProgress />
-        {!isWebVisible ? (
+        {!isBackInfoVisible ? (
           <div className="flex flex-row mt-[10px]">
             {/* Left side content */}
             <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px]">
@@ -108,7 +109,7 @@ export const FillupPage = () => {
             </div>
           </div>
         ) : (
-          <WebcamMicTest/>
+          <BackgroundInformationForm/>
         )}
       </div>
     </>
