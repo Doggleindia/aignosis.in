@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import bg2 from '../assets/images/bg2.jpg';
-import '../index.css'
+import '../index.css';
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const isScrolling = useRef(false); // Prevents multiple simultaneous scrolls
   const stepsContent = [
     {
       title: "The Ai.gnosis Autism Test:",
       subtitle: "A quick, accurate, and non-invasive way to screen your child.",
-      description:
-        "This enables early detection and helps parents take proactive steps for their child's development.",
+      description: "This enables early detection and helps parents take proactive steps for their child's development.",
       bgColor: "rgba(26, 12, 37, 1)",
       header: "Recognize the Signs",
       ScreenNumber: 1,
@@ -18,8 +18,7 @@ const AutismTest = () => {
     {
       title: "Quick Screening Process",
       subtitle: "Step 1",
-      description:
-        "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.",
+      description: "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.",
       bgColor: "#5E3C69",
       header: "Step 1",
       ScreenNumber: 2,
@@ -27,8 +26,7 @@ const AutismTest = () => {
     {
       title: "Accurate Results with AI",
       subtitle: "Step 2",
-      description:
-        "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes.",
+      description: "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes.",
       bgColor: "#952981",
       header: "Step 2",
       ScreenNumber: 3,
@@ -36,8 +34,7 @@ const AutismTest = () => {
     {
       title: "Non-Invasive and Child-Friendly",
       subtitle: "Step 3",
-      description:
-        "The test is completely non-invasive, making it comfortable for children. We ensure a stress-free experience throughout the process.",
+      description: "The test is completely non-invasive, making it comfortable for children. We ensure a stress-free experience throughout the process.",
       bgColor: "#5E3C69",
       header: "Step 3",
       ScreenNumber: 4,
@@ -45,68 +42,75 @@ const AutismTest = () => {
     {
       title: "Empowering Early Intervention",
       subtitle: "Step 4",
-      description:
-        "Early detection is crucial in supporting your child’s growth. The Aignosis Autism Test empowers parents to take proactive steps.",
+      description: "Early detection is crucial in supporting your child’s growth. The Aignosis Autism Test empowers parents to take proactive steps.",
       bgColor: "#1A0C25",
       header: "Step 4",
       ScreenNumber: 5,
     },
   ];
   const scrollContainerRef = useRef(null);
+  const imageContainerRef = useRef(null);
 
-  // Use IntersectionObserver to track sections as they scroll into view
+  // Scroll handler to switch sections on image scroll only
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.5,
+    const handleWheel = (event) => {
+      // if (isScrolling.current) return; // Prevent simultaneous scroll events
+      // if (!imageContainerRef.current.contains(event.target)) return; // Scroll only if inside image area
+
+      event.preventDefault();
+      isScrolling.current = true;
+
+      if (event.deltaY > 0) {
+        // Scroll down - Move to the next section
+        setCurrentStep((prev) => Math.min(prev + 1, stepsContent.length));
+      } else {
+        // Scroll up - Move to the previous section
+        setCurrentStep((prev) => Math.max(prev - 1, 1));
+      }
+
+      // Allow scrolling again after a short delay
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 700); // Adjust timeout for smooth transitions
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrentStep(parseInt(entry.target.dataset.step));
-          }
-        });
-      },
-      observerOptions
-    );
-
-    const sections = scrollContainerRef.current.querySelectorAll(".scroll-section");
-    sections.forEach((section) => observer.observe(section));
+    const container = scrollContainerRef.current;
+    container.addEventListener('wheel', handleWheel, { passive: false });
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      container.removeEventListener('wheel', handleWheel);
     };
-  }, []);
+  }, [stepsContent.length]);
 
-  const handleCircleClick = (step) => {
-    setCurrentStep(step);
-    scrollContainerRef.current
-      .querySelector(`[data-step="${step}"]`)
-      .scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+  useEffect(() => {
+    // Scroll to the current step section smoothly
+    const section = scrollContainerRef.current.querySelector(`[data-step="${currentStep}"]`);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [currentStep]);
 
   return (
     <div
       ref={scrollContainerRef}
-      className="flex flex-col snap-y snap-mandatory h-screen overflow-y-scroll overflow-hidden"
+      className="flex flex-col snap-y snap-mandatory h-screen overflow-hidden"
+      style={{ scrollBehavior: 'smooth', overflowY: 'hidden' }}
     >
       {stepsContent.map((content, index) => (
         <div
           key={index}
-          className="scroll-section flex justify-between min-h-screen snap-start p-8 animate-fadeIn"
+          className={`scroll-section flex justify-between min-h-screen snap-start p-8 ${index + 1 === currentStep ? 'animate-slideUp' : ''}`}
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left Side Content */}
-            <div className="flex flex-col justify-center text-white space-y-4 animate-slideUp delay-150">
+            <div className="flex flex-col justify-center text-white space-y-4">
               <div className="flex items-center space-x-2">
                 <span
                   className="h-[10px] w-[118px] rounded-full"
                   style={{
-                    background:
-                      "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                   }}
                 ></span>
                 <span style={{ color: "rgba(241, 198, 254, 1)" }}>
@@ -115,8 +119,7 @@ const AutismTest = () => {
                 <span
                   className="h-[10px] w-[118px] rounded-full"
                   style={{
-                    background:
-                      "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                   }}
                 ></span>
               </div>
@@ -137,7 +140,7 @@ const AutismTest = () => {
             </div>
 
             {/* Right Side - Image */}
-            <div className="relative flex justify-center items-center">
+            <div className="relative flex justify-center items-center" ref={imageContainerRef}>
               <img
                 src={bg2}
                 alt="Laptop Mockup"
@@ -148,7 +151,7 @@ const AutismTest = () => {
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="flex flex-col items-center">
                     <div
-                      onClick={() => handleCircleClick(item)}
+                      onClick={() => setCurrentStep(item)}
                       className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${
                         currentStep === item
                           ? "bg-[#952981]"
