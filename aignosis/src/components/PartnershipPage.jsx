@@ -1,12 +1,56 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GoArrowUpRight } from "react-icons/go";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoIosMail } from "react-icons/io";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
-import { FaDiscord, FaTwitter, FaMedium } from "react-icons/fa";
+
+// Register the ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const PartnershipPage = () => {
+    const imageRef = useRef(null);
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        // Animate image on scroll
+        const imageAnimation = gsap.to(imageRef.current, {
+            y: 300, // The final position when fully scrolled
+            autoAlpha: 5, // Fade in the image
+            ease: "none", // No easing, for a direct scroll correlation
+            scrollTrigger: {
+                trigger: imageRef.current,
+                start: "top 35%", // Animation starts when the top of the image reaches 25% of the viewport
+                end: "top 60%", 
+                scrub: 4, // Smooth scrubbing for responsive movement
+            }
+        });
+    
+        // Animate cards on scroll with better timing and effects
+        cardsRef.current.forEach((card, index) => {
+            const delay = index * 0.1; // Reduced delay for quicker animations
+            gsap.fromTo(card, 
+                { y: 50, autoAlpha: 0 }, // Start cards slightly lower and fully transparent
+                { 
+                    y: 0, // Move to original position
+                    autoAlpha: 1, 
+                    duration: 0.8, // Shorter duration for a snappier feel
+                    ease: "back.out(1.7)", // Add a bounce effect for smoother entry
+                    delay: delay, // Delay between card animations
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 60%", // Start animating when the card is 60% from the top of the viewport
+                        toggleActions: "play none none none", // Play animation when entering viewport
+                    }
+                }
+            );
+        });
+    
+        return () => {
+            // Clean up the scroll triggers when the component unmounts
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, []);
+    
+
     return (
         <div className='min-h-screen text-white flex flex-col w-full font-montserrat bg-[#1A0C25] pb-10'>
             <div className="w-full flex flex-col justify-center items-center border-t rounded-[30rem] border-[#B874B580] py-10 mb-10">
@@ -26,42 +70,44 @@ const PartnershipPage = () => {
                     </div>
                 </div>
 
-                {/* Center Image between Boxes */}
-                <div className="flex justify-center mt-10 mb-10">
-                    <img src="src/assets/brain-icon.png" alt="Brain Icon" className="w-[10rem] h-[10rem]" />
-                </div>
-
                 {/* Partnership Benefits Boxes in 2x2 Grid */}
-                <div className='w-full max-w-[60vw] grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center mt-10 px-4 md:px-0 mb-10'>
-                    {[
-                        {
-                            title: "Partnership Benefits Overview",
-                            description: "Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.",
-                        },
-                        {
-                            title: "Scheduling Options",
-                            description: "Schedule a consultation with our sales team directly through our integrated calendar, making it convenient for you to discuss partnership opportunities.",
-                        },
-                        {
-                            title: "Quick Contact Form",
-                            description: "Fill up the form, and our team will respond promptly to assist you.",
-                        },
-                        {
-                            title: "Resource Downloads",
-                            description: "Access valuable resources, such as brochures and case studies, to learn more about our services and the impact of Ai.gnosis in autism detection.",
-                        },
-                    ].map((item, index) => (
-                        <div key={index} className="p-4 rounded-3xl bg-[#1A0C25] bg-gradient-to-b from-[#070B0E] to-[#300834] shadow-lg mb-6">
+                <div className='w-full relative max-w-[60vw] grid grid-cols-1 md:grid-cols-2 gap-[10vw] justify-center items-center mt-10 px-4 md:px-0 mb-10'>
+                    {[{
+                        title: "Partnership Benefits Overview",
+                        description: "Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.",
+                    },
+                    {
+                        title: "Scheduling Options",
+                        description: "Schedule a consultation with our sales team directly through our integrated calendar, making it convenient for you to discuss partnership opportunities.",
+                    },
+                    {
+                        title: "Quick Contact Form",
+                        description: "Fill up the form, and our team will respond promptly to assist you.",
+                    },
+                    {
+                        title: "Resource Downloads",
+                        description: "Access valuable resources, such as brochures and case studies, to learn more about our services and the impact of Ai.gnosis in autism detection.",
+                    }].map((item, index) => (
+                        <div
+                            key={index}
+                            className="p-6 h-[12vw] rounded-3xl bg-[#1A0C25] bg-gradient-to-b from-[#070B0E] to-[#300834] shadow-lg mb-6"
+                            ref={el => cardsRef.current[index] = el} // Store reference to each card
+                        >
                             <h1 className="text-xl font-semibold text-white">{item.title}</h1>
                             <p className="mt-2 text-white">{item.description}</p>
                         </div>
                     ))}
                 </div>
+
+                {/* Center Image between Boxes */}
+                <div className="flex absolute justify-center items-center" ref={imageRef}>
+                    <img src="src/assets/brain.png" alt="Brain Icon" className="w-[10rem] h-[10rem] scale-[2]" />
+                </div>
             </div>
 
             {/* Contact Form Section */}
             <div className="w-full flex flex-col md:flex-row justify-center items-center mt-10 px-4 gap-8 md:gap-16 mb-10">
-                <img src="src/assets/brain-icon.png" alt="Brain Icon" className="w-[20vw] h-[20vw] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
+                <img src="src/assets/brain.png" alt="Brain Icon" className="w-[50vw] h-[50vw] scale-[2] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
                 <div className="w-full md:w-[40%] px-4">
                     <h1 className="text-lg mb-4">
                         Fill up the form, and our team will respond promptly to assist you.

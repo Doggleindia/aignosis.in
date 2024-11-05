@@ -91,11 +91,9 @@ const AboutUs = () => {
                     
                 </div>
             </section>
-
-            <section className="w-full flex flex-col items-center py-10">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium">Our Partners</h1>
-                <img className="mt-10 w-[80%] md:w-[50%]" src={img} alt="Our Partners" />
-            </section>
+            <div className='mt-[3vw]'>
+            <Partner/>
+            </div>
 
             <section className="w-full h-auto flex justify-center items-center bg-[#1A0C25] py-10 md:py-20 px-4">
                 <div className="w-full md:w-[80%] text-center">
