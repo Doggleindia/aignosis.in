@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import bg2 from '../assets/images/bg2.jpg';
+import bg1 from '../assets/images/Autism/1.png';
+import bg2 from '../assets/images/Autism/2.jpg';
+import bg3 from '../assets/images/Autism/3.jpg';
+import bg4 from '../assets/images/Autism/4.jpg';
+import bg5 from '../assets/images/Autism/5.jpg';
 import '../index.css';
 
 const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  // const isScrolling = useRef(false); // Prevents multiple simultaneous scrolls
   const stepsContent = [
     {
       title: "The Ai.gnosis Autism Test:",
@@ -14,6 +17,7 @@ const AutismTest = () => {
       bgColor: "rgba(26, 12, 37, 1)",
       header: "Recognize the Signs",
       ScreenNumber: 1,
+      image: bg1,
     },
     {
       title: "Quick Screening Process",
@@ -22,6 +26,7 @@ const AutismTest = () => {
       bgColor: "#5E3C69",
       header: "Step 1",
       ScreenNumber: 2,
+      image: bg2,
     },
     {
       title: "Accurate Results with AI",
@@ -30,6 +35,7 @@ const AutismTest = () => {
       bgColor: "#952981",
       header: "Step 2",
       ScreenNumber: 3,
+      image: bg3,
     },
     {
       title: "Non-Invasive and Child-Friendly",
@@ -38,6 +44,7 @@ const AutismTest = () => {
       bgColor: "#5E3C69",
       header: "Step 3",
       ScreenNumber: 4,
+      image: bg4,
     },
     {
       title: "Empowering Early Intervention",
@@ -46,13 +53,14 @@ const AutismTest = () => {
       bgColor: "#1A0C25",
       header: "Step 4",
       ScreenNumber: 5,
+      image: bg5,
     },
   ];
+
   const scrollContainerRef = useRef(null);
   const imageContainerRef = useRef(null);
-  const isInitialRender = useRef(true);  // New flag to control initial render
+  const isInitialRender = useRef(true);
 
-  // Scroll handler to switch sections on image scroll only
   useEffect(() => {
     const handleWheel = (event) => {
       if (!imageContainerRef.current.contains(event.target)) return;
@@ -74,18 +82,16 @@ const AutismTest = () => {
   }, []);
 
   useLayoutEffect(() => {
-    // Skip initial scroll if it's the first render
     if (isInitialRender.current) {
       isInitialRender.current = false;
       return;
     }
-    console.log("isInitialRender.current",)
-    // Scroll to the current step section smoothly
     const section = scrollContainerRef.current.querySelector(`[data-step="${currentStep}"]`);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [currentStep]);
+
   return (
     <div
       ref={scrollContainerRef}
@@ -135,17 +141,14 @@ const AutismTest = () => {
               </Link>
             </div>
 
-            {/* Right Side - Image */}
             {/* Right Side - Image and Indicator Wrapper */}
             <div className="relative flex justify-center items-center">
-              {/* Image Container */}
-              <div className="relative flex justify-center items-center">
-                <img
-                  src={bg2}
-                  alt="Laptop Mockup"
-                  className="md:w-[1101px] h-auto scale-145"
-                />
-              </div>
+              {/* Dynamic Image for Each Step */}
+              <img
+                src={content.image}
+                alt={`Background for step ${content.ScreenNumber}`}
+                className="md:w-[1101px] h-auto scale-145"
+              />
 
               {/* Circle Indicators Container */}
               <div className="absolute top-1/2 transform -translate-y-1/2 right-[-70px] space-y-2 flex flex-col">
