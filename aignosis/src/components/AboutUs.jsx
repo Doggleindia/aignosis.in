@@ -10,7 +10,11 @@ import image5 from '../assets/members/image5.png'
 import image6 from '../assets/members/image6.png'
 import image7 from '../assets/members/image7.png'
 import image9 from '../assets/members/image9.png'
+
 import archit_img from '../assets/members/archit_img.jpeg'
+import Partner from './Partner';
+
+
 
 const Divider = ({ title }) => (
     <div className="flex justify-center gap-5 items-center sm:mb-10 sm:mt-10">
@@ -105,11 +109,9 @@ const AboutUs = () => {
                     
                 </div>
             </section>
-
-            <section className="w-full flex flex-col items-center py-10">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium">Our Partners</h1>
-                <img className="mt-10 w-[80%] md:w-[50%]" src={img} alt="Our Partners" />
-            </section>
+            <div className='mt-[3vw]'>
+             <Partner />
+            </div>
 
             <section className="w-full h-auto flex justify-center items-center bg-[#1A0C25] py-10 md:py-20 px-4">
                 <div className="w-full md:w-[80%] text-center">
