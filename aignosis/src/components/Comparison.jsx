@@ -21,9 +21,9 @@ const Comparison = () => {
       style={{ background: "rgba(26, 12, 37, 1)" }}
       onMouseMove={handleMouseMove} // Track mouse movement across the container
     >
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-[150px]">
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw] 2xl:gap-[4vw]">
         {/* Left Side - Sliding Images */}
-        <div className="flex justify-center items-center relative w-[410px] h-[510px]">
+        <div className="flex justify-center items-center relative md:w-[310px] md:h-[410px] 2xl:w-[410px] 2xl:h-[510px]">
           <div
             className="p-9 rounded-xl w-full h-full relative overflow-hidden flex justify-center items-center"
             style={{ background: "rgba(245, 215, 255, 0.34)" }}
@@ -72,7 +72,7 @@ const Comparison = () => {
               }}
             ></span>
           </div>
-          <h2 className="text-3xl font-semibold leading-snug">
+          <h2 className="2xl:text-3xl md:text-xl font-semibold leading-snug">
             Ai.gnosis vs. Traditional Screening <br />
             <span className="font-light italic font-manrope text-[#F6E8FB]">
               A Better Way Forward

@@ -99,7 +99,7 @@ const AutismTest = () => {
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="md:max-w-4xl 2xl:max-w-[7xl] mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left Side Content */}
             <div className="flex flex-col justify-center text-white space-y-4">
               <div className="flex items-center space-x-2">
@@ -143,7 +143,7 @@ const AutismTest = () => {
                 <img
                   src={bg2}
                   alt="Laptop Mockup"
-                  className="w-[1101px] h-auto scale-145"
+                  className="md:w-[1101px] h-auto scale-145"
                 />
               </div>
 
@@ -154,8 +154,8 @@ const AutismTest = () => {
                     <div
                       onClick={() => setCurrentStep(item)}
                       className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${currentStep === item
-                          ? "bg-[#952981]"
-                          : "bg-transparent border border-[#9C00AD]"
+                        ? "bg-[#952981]"
+                        : "bg-transparent border border-[#9C00AD]"
                         }`}
                     >
                       {item}

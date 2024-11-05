@@ -22,37 +22,37 @@ import com13 from '../assets/images/sponsered/image 114.png'
 
 const Partner = () => {
   return (
-    <div className="bg-white max-w-full min-h-[18vw] mb-[2vw] text-white py-10 px-6 text-center">
+    <div className="bg-white overflow-hidden max-w-full min-h-[30vw] justify-center items-center flex flex-col mb-[2vw] text-white py-10 px-6 text-center">
       <div className="w-full h-[2vw] flex justify-center items-center">
-        <h1 className='font-montserrat font-medium text-3xl text-black'>Supported by</h1>
+        <h1 className='font-montserrat font-semibold text-4xl  text-black'>Supported by</h1>
       </div>
-      <div className='w-full flex mt-[1.5vw] justify-center gap-[3vw]'>
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com1} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com2} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com3} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com4} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com6} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com7} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com8} alt="" srcset="" />
+      <div className='w-full flex mt-[4vw] justify-center gap-[3vw]'>
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com1} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com2} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com3} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com4} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com6} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com7} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com8} alt="" srcset="" />
 
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com10} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com11} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com12} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com10} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com11} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com12} alt="" srcset="" />
       </div>
-      <div className='w-full flex justify-center gap-[3vw]'>
+      <div className='w-full flex justify-center mt-[3vw] gap-[3vw]'>
 
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com9} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com10} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com11} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com12} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com13} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com1} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com4} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com6} alt="" srcset="" />
-        <img className='scale-[1.1] w-[10vh] h-[10vh]' src={com7} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com9} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com10} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com11} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com12} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com13} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com1} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com4} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com6} alt="" srcset="" />
+        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com7} alt="" srcset="" />
       </div>
     </div>
   )
