@@ -8,7 +8,7 @@ const StepProgress = () => {
   ];
 
   return (
-    <div className="flex justify-between h-[20%] bg-[#1A0C25] mb-[0px] mt-[30px]">
+    <div className="flex justify-between  h-[20%] bg-[#1A0C25] mb-[0px] py-[4vh]">
       {steps.map((step, index) => (
         <div key={step.id} className={`flex items-center relative ${
             index === steps.length - 1 ? 'mr-[100px]' : 'ml-[100px]'

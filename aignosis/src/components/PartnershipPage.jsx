@@ -13,13 +13,13 @@ const PartnershipPage = () => {
     useEffect(() => {
         // Animate image on scroll
         const imageAnimation = gsap.to(imageRef.current, {
-            y: 500, // The final position when fully scrolled
-            autoAlpha: 1, // Fade in the image
+            y: 300, // The final position when fully scrolled
+            autoAlpha: 5, // Fade in the image
             ease: "none", // No easing, for a direct scroll correlation
             scrollTrigger: {
                 trigger: imageRef.current,
                 start: "top 35%", // Animation starts when the top of the image reaches 25% of the viewport
-                end: "top 60%", // Animation ends when the top of the image reaches 30%
+                end: "top 60%", 
                 scrub: 4, // Smooth scrubbing for responsive movement
             }
         });
