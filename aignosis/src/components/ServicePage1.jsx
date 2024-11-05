@@ -33,7 +33,7 @@ const ServicePage1 = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
     const [openQuestion, setOpenQuestion] = useState(null);
 
     const toggleQuestion = (index) => {
@@ -58,7 +58,7 @@ const ServicePage1 = () => {
             answer: "During the assessment, your child will participate in various activities and tasks designed to evaluate their cognitive, social, and emotional functioning. The process is interactive and child-friendly, ensuring your child feels comfortable. Afterward, you will receive a detailed report outlining the findings, along with recommendations for further support or intervention if needed.",
         }
     ];
-    
+
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <div className='h-screen w-full '>
@@ -82,48 +82,48 @@ const ServicePage1 = () => {
                 <div className='w-full justify-center items-center flex h-auto'>
                     <div className='w-full flex-col h-[35vw] justify-center flex items-center'>
                         <div className="flex justify-center gap-5 items-center">
-                        <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                            <span
+                                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                style={{
+                                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                }}
+                            ></span>
                             <h1 className='text-[#F1C6FE]'>Services</h1>
                             <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                style={{
+                                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                }}
+                            ></span>
                         </div>
                         <div className=" justify-center w-full items-center flex flex-col">
                             <h1 className='text-5xl mt-5 font-medium font-raleway'>Unlock Your Child’s Learning Potential</h1>
                             <h1 className='mt-3 '>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
                         </div>
                         <div className="flex gap-[3vw] w-full h-[4vw] mt-[2vw] justify-center items-center">
-                        <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4'>
-    <a href="" className='text-white'>Get In Touch</a>
-    <div className='w-[2.5rem] h-[2.5rem] flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-        <GoArrowUpRight />
-    </div>
-</div>
+                            <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4'>
+                                <a href="" className='text-white'>Get In Touch</a>
+                                <div className='w-[2.5rem] h-[2.5rem] flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                    <GoArrowUpRight />
+                                </div>
+                            </div>
 
                             <h1 className='text-white font-semibold text-center'>Rated 4.5/5 by Parents</h1>
                         </div>
                         <div className='w-[40vw] mt-[2vw] h-[20vw] bg-[#D9D9D9]'>
-    <img 
-        src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__" 
-        alt="" 
-        className='w-full h-full object-cover' 
-    />
-</div>
+                            <img
+                                src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__"
+                                alt=""
+                                className='w-full h-full object-cover'
+                            />
+                        </div>
 
                     </div>
                 </div>
 
 
-                
-                <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-raleway text-white flex justify-center items-start">
+
+                <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start">
                     <div className="w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
@@ -163,26 +163,26 @@ const ServicePage1 = () => {
                                     <h1 className='mt-6'>Slow Learners</h1>
                                     <h1 className='mt-6'>Down Syndromes</h1>
                                     <h1 className='mt-6'>Intellectual Disabilities</h1>
-                                    
+
                                     <h1 className='mt-6 mb-[2v]'>Giftedness</h1>
                                 </div>
                             </div>
                         </div>
                         <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                            <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                                <span
+                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                    style={{
+                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                    }}
+                                ></span>
                                 <h1 className='text-[#F1C6FE]'>Advantages</h1>
                                 <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                    style={{
+                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                    }}
+                                ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
                                 <h1 className='text-5xl mt-5 font-medium'>Why choose us</h1>
@@ -283,30 +283,29 @@ const ServicePage1 = () => {
                         </div>
                         <div className='w-[100%]  flex-col mt-[10vw] h-[45vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                            <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                                <span
+                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                    style={{
+                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                    }}
+                                ></span>
                                 <h1 className='text-[#F1C6FE]'>Advantages</h1>
                                 <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
+                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                    style={{
+                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                    }}
+                                ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
                                 <h1 className='text-5xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
                             </div>
-                            <div className=" w-[42vw] mt-[4vw] rounded-3xl h-auto bg-[#F5D7FF57]">
+                            <div className=" w-[42vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
                                 <table className="w-full text-left text-gray-200">
                                     <thead>
                                         <tr>
-                                            <th className="pb-4 text-center text-lg"> </th>
-                                            <th className="pb-4 text-sm p-[2vw] text-center border-r border-[#F6E8FB80]">Ai.gnosis</th> {/* Added border here */}
-                                            <th className="pb-4 text-sm p-[2vw] text-center">Trdaitional</th>
+                                            <th className="pb-4 text-center text-lg border-r border-[#F6E8FB80]"> </th>
+                                            <th className="pb-4 text-sm p-[2vw] text-center">Ai.gnosis</th>
                                         </tr>
                                     </thead>
                                     <tbody className='text-center'>
@@ -325,10 +324,9 @@ const ServicePage1 = () => {
 
                                         ].map((feature, index) => (
                                             <tr key={index} className="border-t border-[#F6E8FB80]">
-                                                <td className="py-3">{feature}</td>
-                                                <td className="py-3 text-center border-r border-[#F6E8FB80]"></td> {/* Added border here */}
+                                                <td className="py-3 border-r border-[#F6E8FB80]">{feature}</td>
                                                 <td className="py-3 text-center">
-                                                    <img src={crossIcon} alt="Cross Icon" className="w-4 h-4 mx-auto" />
+                                                    ✅
                                                 </td>
                                             </tr>
                                         ))}
@@ -340,7 +338,7 @@ const ServicePage1 = () => {
                             <>
                                 <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
                                     <h2 className="text-[#F6E8FB] text-[40px] text-center font-bold font-manrope">Frequently Asked Questions</h2>
-                                    <div className=" w-auto bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] rounded-3xl p-8  mx-auto mt-10">
+                                    <div className=" w-auto bg-[#564A5957] rounded-3xl p-8  mx-auto mt-10">
                                         <div className="space-y-4">
                                             {faqData.map((item, index) => (
                                                 <div key={index} className="border-b border-gray-400">
@@ -396,11 +394,11 @@ const ServicePage1 = () => {
                                     className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
                                 ></textarea>
                                 <Link to="" className='w-[50%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
-    <span className='text-white text-sm sm:text-base flex-grow text-center'>submit</span>
-    <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
-        <GoArrowUpRight />
-    </div>
-</Link>
+                                    <span className='text-white text-sm sm:text-base flex-grow text-center'>submit</span>
+                                    <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
+                                        <GoArrowUpRight />
+                                    </div>
+                                </Link>
                             </form>
                             <h1 className='mt-[3vw] font-medium'>Reach us at </h1>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
@@ -419,108 +417,108 @@ const ServicePage1 = () => {
                     </div>
                 </div>
                 <div className='h-[50vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-                <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-full border-[#B874B580]">
-                    <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
-                        <div className=" mt-[2rem]">
-                            <h1 className='text-center text-7xl tracking-tight font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
-                        </div>
-                        <div className='px-[25rem] mt-[2rem]'>
-                            <p className='text-center'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
-                        </div>
-                    </div>
-                    <div className="w-full h-[30vw] px-[10vw] gap-5 flex justify-center items-center">
-                        <div className="left w-[40%] h-[85%]">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                            ></iframe>
-                        </div>
-                        <div className="right w-[40%] px-[2vw] h-[85%]">
-                        <h1>
-                            Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-                        </h1>
-
-                        <form className="mt-4 space-y-4">
-                            <input
-                                type="text"
-                                placeholder="Your Name"
-                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Your Email"
-                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                            />
-                            <input
-                                type="phone"
-                                placeholder="Your Phone Number"
-                                className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                            />
-                            <textarea
-                                placeholder="Your Message"
-                                className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
-                            ></textarea>
-                            <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                <a href="" className='text-white'>Send Message</a>
-                                <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                    <GoArrowUpRight />
-                                </div>
+                    <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-full border-[#B874B580]">
+                        <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
+                            <div className=" mt-[2rem]">
+                                <h1 className='text-center text-7xl tracking-tight font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
                             </div>
-                        </form>
-                    </div>
+                            <div className='px-[25rem] mt-[2rem]'>
+                                <p className='text-center'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
+                            </div>
+                        </div>
+                        <div className="w-full h-[30vw] px-[10vw] gap-5 flex justify-center items-center">
+                            <div className="left w-[40%] h-[85%]">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                ></iframe>
+                            </div>
+                            <div className="right w-[40%] px-[2vw] h-[85%]">
+                                <h1>
+                                    Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
+                                </h1>
+
+                                <form className="mt-4 space-y-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Your Email"
+                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    />
+                                    <input
+                                        type="phone"
+                                        placeholder="Your Phone Number"
+                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                    />
+                                    <textarea
+                                        placeholder="Your Message"
+                                        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                                    ></textarea>
+                                    <div className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                                        <a href="" className='text-white'>Send Message</a>
+                                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                            <GoArrowUpRight />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
 
 
+                        </div>
+                    </div>
+                </div>
+                <div className='w-full gap-[5vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center'>
+                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                        <FaLocationDot />
+                        <h1 className='text-sm px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
+                    </div>
+                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                        <IoIosMail />
+                        <h1 className='text-sm px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
+                    </div>
+                    <div className="w-[10vw] h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                        <FaPhoneAlt />
+                        <h1 className='text-sm px-4 text-center mt-4 text-white'>+91 94140 47644
+                            <br />
+                            +91 88900 47777</h1>
+                    </div>
+                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                        <FaCalendarAlt />
+                        <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
+                    </div>
+                </div>
+                <div className="footer">
+                    <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
+                        <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
+                        <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
+                        <div className='flex justify-center gap-[4vw] mt-10 items-center'>
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                                <FaTwitter />
+                            </div>
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                                <FaDiscord />
+                            </div>
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                                <FaMedium />
+                            </div>
+                        </div>
+                        <div className='flex text-center justify-center font-raleway gap-[5vw] mt-4 items-center'>
+                            <h1>Twitter</h1>
+                            <h1 className='ml-5'>Discord</h1>
+                            <h1 className='ml-5'>Medium</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className='w-full gap-[5vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center'>
-                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
-                    <FaLocationDot />
-                    <h1 className='text-sm px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
-                </div>
-                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
-                    <IoIosMail />
-                    <h1 className='text-sm px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
-                </div>
-                <div className="w-[10vw] h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
-                    <FaPhoneAlt />
-                    <h1 className='text-sm px-4 text-center mt-4 text-white'>+91 94140 47644
-                        <br />
-                        +91 88900 47777</h1>
-                </div>
-                <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
-                    <FaCalendarAlt />
-                    <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
-                </div>
-            </div>
-            <div className="footer">
-                <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
-                    <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
-                    <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
-                    <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                            <FaTwitter />
-                        </div>
-                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                            <FaDiscord />
-                        </div>
-                        <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                            <FaMedium />
-                        </div>
-                    </div>
-                    <div className='flex text-center justify-center font-raleway gap-[5vw] mt-4 items-center'>
-                        <h1>Twitter</h1>
-                        <h1 className='ml-5'>Discord</h1>
-                        <h1 className='ml-5'>Medium</h1>
-                    </div>
-                </div>
-            </div>
-            </div>
-            
+
         </div>
     )
 }

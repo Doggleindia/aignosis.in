@@ -13,6 +13,7 @@ import ReportComLast from './components/ReportComLast';
 import ScrollToTop from "./components/ScrollToTop";
 import BlogPage from './components/BlogPages/BlogPage';
 import PaymentScreensMain from './components/PaymentScreensMain';
+import Toddlers from './components/testPages/Toddlers';
 
 const App = () => {
   return (
@@ -31,6 +32,8 @@ const App = () => {
         
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/BlogPages" element={<BlogPage />} />
+        <Route path="/test/fillup/tod" element={<Toddlers />} />
+
         <Route path="/payment" element={<PaymentScreensMain />} />
       </Routes>
     </Router>
