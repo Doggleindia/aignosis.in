@@ -105,7 +105,7 @@ const AutismTest = () => {
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
-          <div className="md:max-w-4xl 2xl:max-w-[7xl] mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left Side Content */}
             <div className="flex flex-col justify-center text-white space-y-4">
               <div className="flex items-center space-x-2">

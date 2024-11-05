@@ -14,22 +14,20 @@ import image9 from '../assets/members/image9.png'
 import archit_img from '../assets/members/archit_img.jpeg'
 import Partner from './Partner';
 
-
-
 const Divider = ({ title }) => (
-    <div className="flex justify-center gap-5 items-center sm:mb-10 sm:mt-10">
+    <div className="flex justify-center gap-5 items-center mb-10 mt-10">
         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
         <h1 className="text-[#F1C6FE]">{title}</h1>
         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
     </div>
 );
 
-const TeamMember = ({ name, img, description ,height}) => (
-    <div className="w-[80%] sm:w-[20vw] md:w-[15vw] text-center flex flex-col items-center my-auto">
+const TeamMember = ({ name, img, description, height }) => (
+    <div className="w-[80%] sm:w-[20vw] md:w-[15vw] text-center flex flex-col items-center mx-auto">
         <div className="w-full h-[40vw] sm:h-[20vw] md:h-[16vw] bg-[#D9D9D947] flex justify-center items-center">
             <img src={img} className="w-full h-full object-cover" alt="" />
         </div>
-        <div className="w-full mt-auto flex flex-col items-center">
+        <div className="w-full mt-2 flex flex-col items-center">
             <h1 className={`text-lg sm:text-xl md:text-2xl ${height || 'h-[3rem]'} flex items-center justify-center`}>
                 {name}
             </h1>
@@ -39,7 +37,6 @@ const TeamMember = ({ name, img, description ,height}) => (
         </div>
     </div>
 );
-
 
 const AboutUs = () => {
     return (
@@ -65,7 +62,7 @@ const AboutUs = () => {
                 </section>
             </div>
 
-            <section className="w-full h-auto px-[5vw] md:px-[10vw] py-[2vw] bg-[#1A0C25] ">
+            <section className="w-full h-auto px-[5vw] md:px-[10vw] py-[2vw] bg-[#1A0C25]">
                 <div className="w-full rounded-3xl border border-[#dfcbed26] p-4">
                     <Divider title="Our Project Team" />
                     <div className="text-center mb-10">
@@ -74,43 +71,30 @@ const AboutUs = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        {/* <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" /> */}
-                        <TeamMember name="Divyansh ​Mangal"  img={image2} description="CO FOUNDER"    />
-                        <TeamMember name="Raksheet ​Jain" img={image3} description="CO FOUNDER" />
+                        <TeamMember name="Divyansh Mangal" img={image2} description="CO FOUNDER" />
+                        <TeamMember name="Raksheet Jain" img={image3} description="CO FOUNDER" />
                     </div>
-                  <div className='flex justify-center items-center m-20'>
-                  <h2 className='font-raleway text-[#FFFFFF]   text-5xl'>Advisors</h2>
-                  </div>
-                
+                    <div className='flex justify-center items-center my-10'>
+                        <h2 className='font-raleway text-[#FFFFFF] text-5xl'>Advisors</h2>
+                    </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        
-                        {/* <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." /> */}
-                        <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" /> 
-                        <TeamMember name="Dr. Ramesh ​Agrawal" img={image6} description="Dr. Ramesh Agrawal ​HOD mother & child ​block, AIIMS Delhi"  height="h-[6rem]" />
-
-
-                        <TeamMember name="Dr. Rajesh ​Jain" img={image4} description="Director, Consultant ​Pediatrician Raksheet ​Hospital" height="h-[6rem]" />
+                        <TeamMember name="Dr. S. Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" /> 
+                        <TeamMember name="Dr. Ramesh Agrawal" img={image6} description="HOD mother & child block, AIIMS Delhi" height="h-[6rem]" />
+                        <TeamMember name="Dr. Rajesh Jain" img={image4} description="Consultant Pediatrician Raksheet Hospital" height="h-[6rem]" />
                     </div>
                   
-                <div className='mt-[100px]'>
-                <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[5vw] mt-10 mb-5">
-                    <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." height="h-[6rem]" />
-                        <TeamMember name="Dr. Anami ​Gour" img={image7} description="Consultant Paediatric ​Intensive Care, St George’s ​University of London" height="h-[6rem]" />
-                        {/* <TeamMember name="Mr. Shiv ​Kumar" title="Advisor" description="CEO, Kidaura Forbes ​30 under 30 (Social ​Impact)
-." /> */}
-                        <TeamMember name="Mr. Rajneesh ​Bhandari" img={image9} description="Director, ​NeuroEquilibrium ​Diagnostics Pvt. LMT." height="h-[6rem]" />
-                        <TeamMember name="Mr. Arcchit ​Jain" title="Advisor" img={archit_img} description="Vice President ​Goldman Sachs" height="h-[6rem]" />
+                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[5vw] mt-10 mb-5">
+                        <TeamMember name="Dr. Dhananajay Mangal" img={image5} description="Consultant Pediatrician Babylon Hospital" height="h-[6rem]" />
+                        <TeamMember name="Dr. Anami Gour" img={image7} description="Consultant Paediatric Intensive Care, London" height="h-[6rem]" />
+                        <TeamMember name="Mr. Rajneesh Bhandari" img={image9} description="NeuroEquilibrium Diagnostics Pvt. LMT." height="h-[6rem]" />
+                        <TeamMember name="Mr. Arcchit Jain" img={archit_img} description="Vice President, Goldman Sachs" height="h-[6rem]" />
                     </div>
                 </div>
-
-                    
-
-                    
-                </div>
             </section>
+            
             <div className='mt-[3vw]'>
-             <Partner />
+                <Partner />
             </div>
 
             <section className="w-full h-auto flex justify-center items-center bg-[#1A0C25] py-10 md:py-20 px-4">
@@ -136,37 +120,20 @@ const AboutUs = () => {
                         </div>
                         <div className="w-full md:w-[45%] text-left">
                             <p className="text-sm md:text-base">
-                                Simply fill in your details below, and we’ll get back to you as soon as possible. 
-                                You can also find us on the map. For immediate assistance, feel free to call or email us directly!
+                                Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map. For immediate assistance, feel free to call or email us directly!
                             </p>
                             <form className="mt-4 space-y-4">
                                 <input type="text" placeholder="Your Name" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md text-sm" />
                                 <input type="email" placeholder="Your Email" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md text-sm" />
-                                <input type="phone" placeholder="Your Phone Number" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md text-sm" />
-                                <textarea placeholder="Your Message" className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none text-sm"></textarea>
-                                <div className="w-[14rem] mt-[5rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center gap-4 h-[3.5rem] bg-transparent">
-                                    <Link to="#" className="text-white">Learn more</Link>
-                                    <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-[#B740A1]"></div>
-                                </div>
+                                <textarea placeholder="Your Message" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md text-sm h-32"></textarea>
+                                <button type="submit" className="px-6 py-2 bg-[#FFE72E] text-[#1A0C25] font-semibold rounded-md">Submit</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
-            <div className="footer">
-                <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
-                    <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
-                    <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
-                    <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                        <div className="w-[5vw] h-[5vw] rounded-3xl bg-[#483253]"></div>
-                    </div>
-                    </div>
-                    </div>
-
         </div>
     );
-}
+};
 
 export default AboutUs;
