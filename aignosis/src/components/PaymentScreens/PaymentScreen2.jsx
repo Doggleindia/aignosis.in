@@ -1,167 +1,161 @@
-import React from 'react';
-import { FaUser, FaCreditCard, FaCheckCircle } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaCcVisa, FaCcMastercard, FaCcApplePay, FaCcPaypal, FaGooglePay } from 'react-icons/fa';
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { SiAmericanexpress } from "react-icons/si";
+import logo1 from "../../assets/images/payment/1.png";
+import logo2 from "../../assets/images/payment/2.png";
+import logo3 from "../../assets/images/payment/3.png";
+import snip1 from "../../assets/images/payment/logo1.png";
 
-const PaymentScreen2 = ({ onNext }) => {
+const PaymentScreen2 = ({ onNext, onBack }) => {
+  const [selectedMethod, setSelectedMethod] = useState("");
+
   const handleNext = (e) => {
     e.preventDefault();
-
-    try {
-      onNext(); // Call the parent function to move to the next form
-    } catch (error) {
-      console.error('Error during navigation:', error);
+    if (selectedMethod) {
+      onNext();
+    } else {
+      alert("Please select a payment method.");
     }
   };
 
+  const handlePaymentMethodChange = (method) => {
+    setSelectedMethod(method);
+  };
+
   return (
-    <div style={{
-      backgroundColor: '#1A0C25',
-      color: '#e2d6f9',
-      fontFamily: 'Raleway, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-    }}>
-      {/* Steps Section */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: '150px',
-      }}>
-        <div style={{ textAlign: 'center', margin: '0 40px' }}>
-          <div style={{ fontSize: '48px', color: '#ff79c6' }}>1</div>
-          <FaUser style={{ fontSize: '24px', color: '#ff79c6' }} />
-          <div style={{ fontSize: '12px' }}>Fill personal details</div>
+    <div className="w-full px-[5vw] text-white font-montserrat min-h-screen bg-[#1A0C25]">
+      <div className="navsection pt-[6vw] w-full h-[15vw] px-[5vw] gap-[15vw] flex justify-center items-center py-[1vw]">
+        {/* Steps */}
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>1</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo1} alt="" />
+          </div>
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Fill personal details</h1>
         </div>
-        <div style={{ fontSize: '24px', color: '#ff79c6', margin: '0 20px' }}>→</div>
-        <div style={{ textAlign: 'center', margin: '0 40px' }}>
-          <div style={{ fontSize: '48px', color: '#ff79c6' }}>2</div>
-          <FaCreditCard style={{ fontSize: '24px', color: '#ff79c6' }} />
-          <div style={{ fontSize: '12px' }}>Payment details</div>
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>2</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo2} alt="" />
+          </div>
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Payment details</h1>
         </div>
-        <div style={{ fontSize: '24px', color: '#ff79c6', margin: '0 20px' }}>→</div>
-        <div style={{ textAlign: 'center', margin: '0 40px' }}>
-          <div style={{ fontSize: '48px', color: '#ff79c6' }}>3</div>
-          <FaCheckCircle style={{ fontSize: '24px', color: '#ff79c6' }} />
-          <div style={{ fontSize: '12px' }}>Confirmation</div>
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>3</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo3} alt="" />
+          </div>
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Confirmation</h1>
         </div>
       </div>
-
-      {/* Main Content */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        marginTop: '30px',
-      }}>
-        {/* Order Summary */}
-        <div style={{
-          width: '30%',
-          backgroundColor: '#1A0C25',
-          padding: '20px',
-          borderRadius: '10px',
-        }}>
-          <h1 style={{
-            color: '#ff79c6',
-            marginBottom: '30px',
-            fontFamily: 'Manrope, sans-serif',
-          }}>Order Summary</h1>
-          <p style={{ fontSize: '15px', marginBottom: '10px' }}>Behavioral Therapy: $480.00</p>
-          <div style={{ marginBottom: '20px' }}>
-            <input type="text" placeholder="Gift Card / Discount code" style={{
-              padding: '10px',
-              borderRadius: '5px',
-              width: '70%',
-              marginRight: '10px',
-              border: '1px solid #e2d6f9',
-            }} />
-            <button style={{
-              padding: '10px 20px',
-              backgroundColor: '#1A0C25',
-              color: '#B740A1',
-              border: 'none',
-              borderRadius: '5px',
-            }}>Apply</button>
-          </div>
-          <div style={{ fontSize: '15px', marginBottom: '10px' }}>Subtotal: $460.00</div>
-          <div style={{ fontSize: '15px', marginBottom: '10px' }}>Sales tax (5.2%): $6.23</div>
-          <div style={{
-            fontSize: '15px',
-            fontWeight: 'bold',
-            color: '#ff79c6',
-          }}>Total Due: $466.23</div>
-        </div>
-
-        {/* Payment Methods */}
-        <div style={{
-          width: '45%',
-          backgroundColor: 'rgba(86, 74, 89, 0.7)',
-          padding: '40px',
-          borderRadius: '10px',
-        }}>
-          <h1 style={{
-            color: '#F6E8FB',
-            marginBottom: '30px',
-            fontSize: '20px',
-            fontFamily: 'Manrope, sans-serif',
-          }}>Payment Methods</h1>
-          <form>
-            {/* Payment Options */}
-            {['Pay on Delivery', 'Credit/Debit Card', 'Direct Bank Transfer', 'Other Payment Methods'].map((method, index) => (
-              <div key={index} style={{
-                marginBottom: '10px',
-                fontSize: '15px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
-                <label>
-                  <input type="radio" name="payment" style={{ marginRight: '10px' }} />
-                  {method}
-                </label>
-                <p style={{
-                  fontSize: '13px',
-                  marginLeft: '25px',
-                }}>({method === 'Pay on Delivery' ? 'Pay with cash on delivery' : method === 'Credit/Debit Card' ? 'Pay with your Credit / Debit Card' : method === 'Direct Bank Transfer' ? 'Make payment directly through bank account.' : 'Make payment through Gpay, Paypal, Paytm etc'})</p>
-              </div>
-            ))}
-
-            {/* Bank Transfer Section */}
-            <div style={{
-              backgroundColor: 'rgba(86, 74, 89, 0.7)',
-              color: '#E2D6F9',
-              padding: '20px',
-              borderRadius: '10px',
-              textAlign: 'center',
-              marginTop: '30px',
-            }}>
-              <p>Transfer ₹164.23 to:</p>
-              <div style={{
-                border: '1px solid #F6E8FB',
-                borderRadius: '10px',
-                padding: '10px',
-                display: 'inline-block',
-                marginTop: '10px',
-                borderColor: '#9C00AD',
-                width: '250px',
-              }}>
-                <p style={{ margin: 0, fontSize: '16px', color: '#BFA8D7' }}>Polaris Bank</p>
-                <p style={{ fontSize: '24px', fontWeight: 'bold', color: '#E2D6F9', marginBottom: '5px' }}>0123456781</p>
-              </div>
-              <p style={{ fontSize: '14px', color: '#FF6F61', marginTop: '10px' }}>
-                Expires in <span style={{ fontWeight: 'bold' }}>10:00</span> minutes
-              </p>
+      
+      <div className="w-full text-base text-[#F6E8FB] mt-[5vw]">
+        Home - Assessment / therapy - <span className='underline text-[#FB7CE4]'>Payment</span>
+      </div>
+      
+      <div className="w-full mt-[5vw] min-h-[38vw] flex justify-center gap-[5vw]">
+        <div className="left w-[30%] h-full">
+          <h1 className='font-medium'>Order Summary</h1>
+          <div className="flex mt-[2vw] justify-end"><RiDeleteBin5Line /></div>
+          <div className='flex justify-center mt-[1vw] items-center gap-[1vw] pl-10'>
+            <img src={snip1} alt="" />
+            <div className='flex w-full justify-between items-center'>
+              <h1>behavioral therapy</h1>
+              <h1>$450.00</h1>
             </div>
-
-            <button onClick={handleNext} style={{
-              padding: '10px 20px',
-              backgroundColor: '#1A0C25',
-              color: '#F6E8FB',
-              border: 'none',
-              borderRadius: '5px',
-              marginTop: '40px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              display: 'block',
-            }}>Next</button>
-          </form>
+          </div>
+          <div className="mt-[4vw] text-base pl-10">
+            <h1>Gift Card / Discount code</h1>
+            <div className="flex justify-between gap-5 mt-2">
+              <textarea className='rounded-xl bg-[#9C00AD63]' name="" id=""></textarea>
+              <button className='px-10 py-3 border border-[#B740A1] rounded-xl'>Apply</button>
+            </div>
+            <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2">
+              <h1>Subtotal:</h1>
+              <h1>$160.00</h1>
+            </div>
+            <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2">
+              <h1>Sales tax (6.5%):</h1>
+              <h1>$4.23</h1>
+            </div>
+            <div className="flex mt-6 justify-between items-center gap-5 pb-2">
+              <h1>Total due:</h1>
+              <h1 className='font-semibold text-[#B740A1]'>$164.23</h1>
+            </div>
+          </div>
+        </div>
+        
+        <div className="right w-[60%] h-full bg-[#564A5957] rounded-2xl p-[5vw]">
+          <h1 className='text-xl font-semibold'>Payment Methods</h1>
+          <div className='mt-5 pl-[3vw]'>
+            <div className='flex mt-2 gap-5'>
+              <input 
+                type="radio" 
+                value="payOnDelivery" 
+                checked={selectedMethod === "payOnDelivery"} 
+                onChange={() => handlePaymentMethodChange("payOnDelivery")} 
+              />
+              <div>
+                <h1>Pay on Delivery</h1>
+                <h1 className='text-xs'>Pay with cash on delivery</h1>
+              </div>
+            </div>
+            <div className='flex mt-2 gap-5'>
+              <input 
+                type="radio" 
+                value="creditDebitCard" 
+                checked={selectedMethod === "creditDebitCard"} 
+                onChange={() => handlePaymentMethodChange("creditDebitCard")} 
+              />
+              <div className="w-full h-[3vw] flex justify-between items-center">
+                <div>
+                  <h1>Credit/Debit Cards</h1>
+                  <h1 className='text-xs'>Pay with your Credit / Debit Card</h1>
+                </div>
+                <div className='text-3xl flex gap-[1vw]'>
+                  <FaCcVisa />
+                  <FaCcMastercard />
+                  <SiAmericanexpress />
+                </div>
+              </div>
+            </div>
+            <div className='flex mt-2 gap-5'>
+              <input 
+                type="radio" 
+                value="bankTransfer" 
+                checked={selectedMethod === "bankTransfer"} 
+                onChange={() => handlePaymentMethodChange("bankTransfer")} 
+              />
+              <div>
+                <h1>Direct Bank Transfer</h1>
+                <h1 className='text-xs'>Make payment directly through bank account.</h1>
+              </div>
+            </div>
+            <div className='flex mt-2 gap-5'>
+              <input 
+                type="radio" 
+                value="otherMethods" 
+                checked={selectedMethod === "otherMethods"} 
+                onChange={() => handlePaymentMethodChange("otherMethods")} 
+              />
+              <div className="w-full h-[3vw] flex justify-between items-center">
+                <div>
+                  <h1>Other Payment Methods</h1>
+                  <h1 className='text-xs'>Make payment through Gpay, Paypal, Paytm etc</h1>
+                </div>
+                <div className='text-3xl flex gap-[1vw]'>
+                  <FaCcApplePay />
+                  <FaCcPaypal />
+                  <FaGooglePay />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full mt-[3vw] flex gap-[5vw] justify-center items-center">
+            <button onClick={onBack} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Back</button>
+            <button onClick={handleNext} className='py-3 px-7 border rounded-3xl border-[#9C00AD] bg-[#9C00AD]'>Next</button>
+          </div>
         </div>
       </div>
     </div>

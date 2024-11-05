@@ -1,13 +1,21 @@
-import React from 'react';
-import { FaUser, FaCreditCard, FaCheckCircle, FaSpinner } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaCcVisa, FaCcMastercard, FaSpinner  , FaCcApplePay, FaCcPaypal, FaGooglePay } from 'react-icons/fa';
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { SiAmericanexpress } from "react-icons/si";
+import logo1 from "../../assets/images/payment/1.png";
+import logo2 from "../../assets/images/payment/2.png";
+import logo3 from "../../assets/images/payment/3.png";
+import snip1 from "../../assets/images/payment/logo1.png";
 
-const PaymentScreen3 = ({ onNext }) => {
+const PaymentScreen3 = ({ onNext, onBack }) => {
+  const [selectedMethod, setSelectedMethod] = useState("");
+
   const handleNext = (e) => {
     e.preventDefault();
 
     // Add any validation or data processing here
     try {
-      // Navigate to the confirmation step
+      // Navigate to PatientHistoryForm2 
       onNext(); // Call the parent function to move to the next form
     } catch (error) {
       console.error('Error during navigation:', error); // Log the error
@@ -15,36 +23,35 @@ const PaymentScreen3 = ({ onNext }) => {
     }
   };
 
+  const handlePaymentMethodChange = (method) => {
+    setSelectedMethod(method);
+  };
+
   return (
-    <div style={{
-      backgroundColor: '#1A0C25',
-      color: '#e2d6f9',
-      fontFamily: 'Raleway, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-    }}>
-      {/* Steps Section */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: '150px',
-        flexWrap: 'wrap', // Ensure steps wrap on smaller screens
-      }}>
-        {['Fill personal details', 'Payment details', 'Confirmation'].map((step, index) => (
-          <div key={index} style={{ textAlign: 'center', margin: '0 20px' }}>
-            <div style={{
-              fontSize: '48px',
-              color: '#ff79c6',
-            }}>{index + 1}</div>
-            <div style={{
-              fontSize: '24px',
-              color: '#ff79c6',
-            }}>
-              {index === 0 ? <FaUser /> : index === 1 ? <FaCreditCard /> : <FaCheckCircle />}
-            </div>
-            <div style={{ fontSize: '12px' }}>{step}</div>
+    <div className="w-full px-[5vw] pb-[2vw] text-white font-montserrat min-h-screen bg-[#1A0C25]">
+      <div className="navsection pt-[2vw] w-full h-[15vw] px-[5vw] gap-[15vw] flex justify-center items-center py-[1vw]">
+        {/* Steps */}
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>1</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo1} alt="" />
           </div>
-        ))}
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Fill personal details</h1>
+        </div>
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>2</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo2} alt="" />
+          </div>
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Payment details</h1>
+        </div>
+        <div className='flex flex-col justify-center items-center'>
+          <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl">
+            <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute'>3</h1>
+            <img className='absolute scale-[.7] left-[2vw] bottom-0' src={logo3} alt="" />
+          </div>
+          <h1 className='w-full text-center mt-[1vw] text-white font-montserrat'>Confirmation</h1>
+        </div>
       </div>
 
       {/* Loading Spinner for Payment Confirmation */}
@@ -59,6 +66,7 @@ const PaymentScreen3 = ({ onNext }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: '1vw',
       }}>
         <FaSpinner style={{
           fontSize: '48px',
@@ -78,24 +86,10 @@ const PaymentScreen3 = ({ onNext }) => {
       </style>
 
       {/* Next Button */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: '20px',
-      }}>
-        <button onClick={handleNext} style={{
-          padding: '10px 20px',
-          backgroundColor: '#1A0C25',
-          color: '#F6E8FB',
-          border: 'none',
-          borderRadius: '5px',
-          borderColor: "#9C00AD",
-          marginTop: "40px",
-          fontFamily: 'Manrope, sans-serif', // Change button font to Manrope
-        }}>
-          Next
-        </button>
-      </div>
+      <div className="w-full mt-[3vw] flex gap-[5vw] justify-center items-center">
+            <button onClick={onBack} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Back</button>
+            <button onClick={handleNext} className='py-3 px-7 border rounded-3xl border-[#9C00AD] bg-[#9C00AD]'>Next</button>
+          </div>
     </div>
   );
 };
