@@ -2,27 +2,28 @@ import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import DownloadPage from './DownloadPage';
+import WebcamMicTest from './WebcamMicTest';
 // import calibration_vdo from '../../assets/calibration_vdo.mp4';  
 
 const CalibrationPage = () => {
   
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isWebCamVisible, setIsWebCamVisible] = useState(false);
   const [isDownloadPageVisible, setIsDownloadPageVisible] = useState(false);
 
   const handleNextClick = () => {
     
-    setIsVideoPlaying(true); // will  Start video playback
+    setIsWebCamVisible(true); // will  Start video playback
   };
 
   // When the  video wil ends, then  navigate to DownloadPage
-  const handleVideoEnd = () => {
-    setIsVideoPlaying(false);
-    setIsDownloadPageVisible(true); 
-  };
+  // const handleVideoEnd = () => {
+  //   setIsVideoPlaying(false);
+  //   setIsDownloadPageVisible(true); 
+  // };
 
   return (
     <>
-      {!isVideoPlaying && !isDownloadPageVisible ? (
+      {!isWebCamVisible ? (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
           <div className="w-[900px] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
             {/* Ai.gnosis text with blurred background */}
@@ -68,21 +69,21 @@ const CalibrationPage = () => {
             </div>
           </div>
         </div>
-      ) : isVideoPlaying ? (
-        // Video playback section
-<div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-  <video
-    src={""}
-    autoPlay
-    onEnded={handleVideoEnd} // Transition to DownloadPage after video ends
-    className="w-full h-full object-cover"
-    style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
-    controls={false} // Hides video controls for a seamless experience
-  />
-</div>
+      
+//         // Video playback section
+// <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
+//   <video
+//     src={""}
+//     autoPlay
+//     onEnded={handleVideoEnd} // Transition to DownloadPage after video ends
+//     className="w-full h-full object-cover"
+//     style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
+//     controls={false} // Hides video controls for a seamless experience
+//   />
+// </div>
 
       ) : (
-        <DownloadPage />
+        <WebcamMicTest />
       )}
     </>
   );

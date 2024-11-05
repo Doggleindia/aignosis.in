@@ -1,67 +1,60 @@
-import React from "react";
-import table from '../assets/ctable.png';
+import React, { useRef, useState } from "react";
+import img1 from "../assets/prescription_img.png";
+import img2 from "../assets/prescription2_img.png";
 
 const Comparison = () => {
+  const containerRef = useRef(null);
+  const [dragPosition, setDragPosition] = useState(50); // Initial divider position (percentage)
+
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+    const newPosition = Math.max(0, Math.min(100, (x / width) * 100));
+    setDragPosition(newPosition);
+  };
+
   return (
     <div
-      className="flex items-center flex-col justify-center min-h-screen p-8"
+      ref={containerRef}
+      className="flex items-center flex-col justify-center min-h-screen"
       style={{ background: "rgba(26, 12, 37, 1)" }}
+      onMouseMove={handleMouseMove} // Track mouse movement across the container
     >
-
-<div className="flex items-center space-x-2 text-pink-400 md:hidden max-sm:mb-5">
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-
-            <span>Comparison</span>
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-          </div>
-
-
-
-
-
-
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-[150px]">
-        {/* Left Side - Medical Report Image */}
-        <div className="flex justify-center items-center">
-        
-         
-
-
-
-
-
+        {/* Left Side - Sliding Images */}
+        <div className="flex justify-center items-center relative w-[410px] h-[510px]">
           <div
-            className="p-9 rounded-lg w-[410px]"
+            className="p-9 rounded-xl w-full h-full relative overflow-hidden flex justify-center items-center"
             style={{ background: "rgba(245, 215, 255, 0.34)" }}
           >
             <img
-              src="https://s3-alpha-sig.figma.com/img/dadf/063e/34bacaaa286b2c283290ad56847c112f?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=adxlWhNvuvSb7QDogQ-QL8on7nJSR0qB~t~ZqQi35e35OahdQ2TNroHtdnWo6u5kc6sEQ6CNQc1wIhnA9ElHisbnLAXhe1oZ2~FZGdl05Ki-C7zqPMqyXB-6Ljj5MbCFGwIqlccN4sNqkwQRrbRGD1VDuoZOnlVJ45z1jQlQ7hV358xhEwXGe~8H68oeyjZU9kGdi7hCImJSEJzi1VuQRWsXQ-1RLb-xzwbyMFuB7fzWq1lvSbcQpxxr-y9UDnYNeIcAuNxxy~piSmqbHh4HWyq3Yk~v8ZXbcllAusNaxXQpWClvegME-EkCY7LL462Z8xkWustpNPc1BL3rnYcVlQ__"
-              alt="Medical Report"
-              className="rounded-lg w-full h-auto" // Adjusting width
+              src={img1}
+              alt="First Image"
+              className="rounded-lg p-8 w-full h-full absolute"
+              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }}
             />
+            <img
+              src={img2}
+              alt="Second Image"
+              className="rounded-lg p-8 w-full h-full absolute"
+              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }}
+            />
+            {/* Draggable Divider */}
+            <div
+              className="absolute top-0 bottom-0 w-1 bg-pink-400 cursor-pointer"
+              style={{ left: `${dragPosition}%` }}
+            >
+              <div
+                className="w-4 h-4 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                style={{ left: "50%" }}
+              ></div>
+            </div>
           </div>
         </div>
 
         {/* Right Side - Comparison Content */}
-        {/* Mobile View - Show table image */}
-        <div className="block md:hidden">
-          <img src={table} alt="Comparison Table" className="w-full h-auto" />
-        </div>
-
-        {/* Desktop View - Show comparison table code */}
-        <div className="hidden md:block text-white space-y-8 w-[410px]">
+        <div className="hidden md:block text-white space-y-8 w-[520px]">
           <div className="flex items-center space-x-2 text-pink-400">
             <span
               className="h-[10px] w-[118px] rounded-full"
@@ -70,7 +63,6 @@ const Comparison = () => {
                   "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
               }}
             ></span>
-
             <span>Comparison</span>
             <span
               className="h-[10px] w-[118px] rounded-full"
@@ -80,72 +72,61 @@ const Comparison = () => {
               }}
             ></span>
           </div>
-          <h2 className="text-4xl font-semibold leading-snug">
+          <h2 className="text-3xl font-semibold leading-snug">
             Ai.gnosis vs. Traditional Screening <br />
-            <span className="font-light italic">A Better Way Forward</span>
+            <span className="font-light italic font-manrope text-[#F6E8FB]">
+              A Better Way Forward
+            </span>
           </h2>
           <div
-            className="p-8 rounded-lg space-y-6 shadow-xl"
-            style={{ background: "rgba(26, 10, 38, 1)" }}
-          >
-            <div className="flex justify-between items-center text-gray-300 mb-4">
-              <div className="w-1/3 text-left relative">
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
+  className="p-10 rounded-lg space-y-6 shadow-xl"
+  style={{ background: "rgba(26, 10, 38, 1)" }}
+>
+  {/* Comparison Header */}
+  <div className="flex justify-between items-center text-gray-200 mb-4 font-bold w-full">
+    <div className="w-1/4 text-left"></div>
+    <div className="w-1/4 text-center uppercase">Traditional</div>
+    <div className="w-1/4 text-center uppercase">AI.gnosis</div>
+  </div>
 
-              <div className="w-1/3 text-center relative">
-                Traditional
-                <div
-                  className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                  style={{
-                    background:
-                      "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                  }}
-                ></div>
-              </div>
+  {/* Comparison Rows */}
+  {[ 
+    { label: "Cost", traditional: "Expensive", aiGnosis: "Affordable" }, 
+    { label: "Time", traditional: "Weeks", aiGnosis: "5 Minutes" }, 
+    { 
+      label: "Accessibility", 
+      traditional: "Limited Location", 
+      aiGnosis: "Remote Friendly" 
+    } 
+  ].map((item, index) => (
+    <div
+      className="flex justify-between items-center text-gray-100 mb-4 w-full"
+      key={index}
+    >
+      <div className="w-1/4 text-left text-gray-200 font-bold relative uppercase ">
+        {item.label}
+        <div
+          className="absolute top-0  bottom-0 -right-6 w-[5px] h-full"
+          style={{
+            background: "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+          }}
+        ></div>
+      </div>
 
-              <div className="w-1/3 text-center">Ai.gnosis</div>
-            </div>
+      <div className="w-1/4 text-center relative">
+        {item.traditional}
+        <div
+          className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
+          style={{
+            background: "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+          }}
+        ></div>
+      </div>
+      <div className="w-1/4 text-center">{item.aiGnosis}</div>
+    </div>
+  ))}
+</div>
 
-            {/** Comparison Rows */}
-            {[
-              { label: "Cost", left: "Expensive", center: "Affordable" },
-              { label: "Time", left: "Weeks", center: "5 Minutes" },
-              { label: "Accessibility", left: "Limited Location", center: "Remote Friendly" },
-            ].map((item, index) => (
-              <div className="flex justify-between items-center text-gray-100 mb-4" key={index}>
-                <div className="w-1/3 text-left relative">
-                  {item.label}
-                  <div
-                    className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                    style={{
-                      background:
-                        "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                    }}
-                  ></div>
-                </div>
-
-                <div className="w-1/3 text-center relative">
-                  {item.left}
-                  <div
-                    className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-                    style={{
-                      background:
-                        "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                    }}
-                  ></div>
-                </div>
-
-                <div className="w-1/3 text-center">{item.center}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </div>
