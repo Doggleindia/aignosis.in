@@ -10,7 +10,7 @@ import image5 from '../assets/members/image5.png'
 import image6 from '../assets/members/image6.png'
 import image7 from '../assets/members/image7.png'
 import image9 from '../assets/members/image9.png'
-
+import archit_img from '../assets/members/archit_img.jpeg'
 
 const Divider = ({ title }) => (
     <div className="flex justify-center gap-5 items-center sm:mb-10 sm:mt-10">
@@ -20,18 +20,22 @@ const Divider = ({ title }) => (
     </div>
 );
 
-const TeamMember = ({ name, img, description }) => (
-    <div className="w-[80%] sm:w-[20vw] md:w-[15vw] text-center">
-        <div className="w-full h-[40vw] sm:h-[20vw] md:h-[16vw] bg-[#D9D9D947]">
-            <img src={img} className='w-full h-full' alt="" />
+const TeamMember = ({ name, img, description ,height}) => (
+    <div className="w-[80%] sm:w-[20vw] md:w-[15vw] text-center flex flex-col items-center my-auto">
+        <div className="w-full h-[40vw] sm:h-[20vw] md:h-[16vw] bg-[#D9D9D947] flex justify-center items-center">
+            <img src={img} className="w-full h-full object-cover" alt="" />
         </div>
-        <div className="w-full mt-4">
-            <h1 className="text-lg sm:text-xl md:text-2xl">{name}</h1>
-            <h2 className="mt-3 text-sm sm:text-base">{""}</h2>
-            <p className="text-xs sm:text-sm  uppercase">{description}</p>
+        <div className="w-full mt-auto flex flex-col items-center">
+            <h1 className={`text-lg sm:text-xl md:text-2xl ${height || 'h-[3rem]'} flex items-center justify-center`}>
+                {name}
+            </h1>
+            <p className="text-xs sm:text-sm uppercase h-[2rem] flex items-center justify-center">
+                {description}
+            </p>
         </div>
     </div>
 );
+
 
 const AboutUs = () => {
     return (
@@ -66,27 +70,37 @@ const AboutUs = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" />
-                        <TeamMember name="Divyansh ​Mangal"  img={image2} description="CO FOUNDER." />
-                        <TeamMember name="Raksheet ​Jain" img={image3} description="CO FOUNDER." />
+                        {/* <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" /> */}
+                        <TeamMember name="Divyansh ​Mangal"  img={image2} description="CO FOUNDER"    />
+                        <TeamMember name="Raksheet ​Jain" img={image3} description="CO FOUNDER" />
                     </div>
-                  <div className='flex justify-center items-center m-5'>
-                  <h2 className='font-raleway text-[#FFFFFF]  text-5xl'>Advisors</h2>
+                  <div className='flex justify-center items-center m-20'>
+                  <h2 className='font-raleway text-[#FFFFFF]   text-5xl'>Advisors</h2>
                   </div>
                 
 
                     <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. Rajesh ​Jain" img={image4} description="Director, Consultant ​Pediatrician Raksheet ​Hospital." />
-                        <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." />
-                        <TeamMember name="Dr. Ramesh ​Agrawal" img={image6} description="Dr. Ramesh Agrawal ​HOD mother & child ​block, AIIMS Delhi."  />
+                        
+                        {/* <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." /> */}
+                        <TeamMember name="Dr. S. ​Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" /> 
+                        <TeamMember name="Dr. Ramesh ​Agrawal" img={image6} description="Dr. Ramesh Agrawal ​HOD mother & child ​block, AIIMS Delhi"  height="h-[6rem]" />
+
+
+                        <TeamMember name="Dr. Rajesh ​Jain" img={image4} description="Director, Consultant ​Pediatrician Raksheet ​Hospital" height="h-[6rem]" />
                     </div>
-                    <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[5vw] mt-10 my-auto">
-                        <TeamMember name="Dr. Anami ​Gour" img={image7} description="Consultant Paediatric ​Intensive Care, St George’s ​University of London." />
-                        <TeamMember name="Mr. Shiv ​Kumar" title="Advisor" description="CEO, Kidaura Forbes ​30 under 30 (Social ​Impact)
-." />
-                        <TeamMember name="Mr. Rajneesh ​Bhandari" img={image9} description="Director, ​NeuroEquilibrium ​Diagnostics Pvt. LMT." />
-                        <TeamMember name="Mr. Arcchit ​Jain" title="Advisor" description="Vice President ​Goldman Sachs." />
+                  
+                <div className='mt-[100px]'>
+                <div className="flex flex-wrap justify-center items-center gap-5 md:gap-[5vw] mt-10 mb-5">
+                    <TeamMember name="Dr. Dhananajay ​K Mangal" img={image5} description="Director, Consultant ​Pediatrician Babylon ​Hospital." height="h-[6rem]" />
+                        <TeamMember name="Dr. Anami ​Gour" img={image7} description="Consultant Paediatric ​Intensive Care, St George’s ​University of London" height="h-[6rem]" />
+                        {/* <TeamMember name="Mr. Shiv ​Kumar" title="Advisor" description="CEO, Kidaura Forbes ​30 under 30 (Social ​Impact)
+." /> */}
+                        <TeamMember name="Mr. Rajneesh ​Bhandari" img={image9} description="Director, ​NeuroEquilibrium ​Diagnostics Pvt. LMT." height="h-[6rem]" />
+                        <TeamMember name="Mr. Arcchit ​Jain" title="Advisor" img={archit_img} description="Vice President ​Goldman Sachs" height="h-[6rem]" />
                     </div>
+                </div>
+
+                    
 
                     
                 </div>

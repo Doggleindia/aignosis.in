@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import valid_img from  '../../assets/valid_img.png'
 import StepProgress from './StepProgress'
 import CalibrationResult from './CalibrationResult';
+import asesment_video from '../../assets/video/assesment_video.mp4'
 const CalibrationValidation = () => {
   
     const [isResultVisible, setIsResultVisible] = useState(false);
@@ -32,7 +33,7 @@ const CalibrationValidation = () => {
             {/* Static Image Preview or Snapshot Display */}
             <div className="w-[500px] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
               
-                <img src={valid_img} alt="Snapshot" className="w-full h-full object-cover" />
+                <video src={asesment_video} autoPlay muted    />
             
             </div>
 
