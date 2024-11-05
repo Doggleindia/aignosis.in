@@ -52,8 +52,8 @@ const PartnershipPage = () => {
     
 
     return (
-        <div className='min-h-screen text-white flex flex-col w-full font-montserrat bg-[#1A0C25] pb-10'>
-            <div className="w-full flex flex-col justify-center items-center border-t rounded-[30rem] border-[#B874B580] py-10 mb-10">
+        <div className='min-h-screen 2xl:px-[8rem] md:px-[4rem] text-white flex flex-col w-full font-montserrat bg-[#1A0C25] pb-10'>
+            <div className="w-full flex 2xl:px-[2rem] py-[8rem] flex-col justify-center items-center border-t rounded-[10rem] border-[#B874B580] mb-10">
                 <div className='flex flex-col justify-center items-center px-4 mb-10'>
                     <div className="flex justify-center gap-5 items-center mb-4">
                         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
@@ -61,11 +61,11 @@ const PartnershipPage = () => {
                         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
-                        <h1 className='text-3xl md:text-5xl tracking-tight font-semibold leading-[3rem]'>
+                        <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold leading-[3rem]'>
                             If you are a healthcare provider, payor, or caregiver and want to partner with Ai.gnosis, let’s talk!
                         </h1>
                     </div>
-                    <div className='px-4 md:px-[20vw] text-center'>
+                    <div className='px-4 2xl:text-lg md:text-xs md:px-[20vw] text-center'>
                         <p>Emphasis on partnerships within India, focusing on integration with local healthcare.</p>
                     </div>
                 </div>
@@ -90,18 +90,18 @@ const PartnershipPage = () => {
                     }].map((item, index) => (
                         <div
                             key={index}
-                            className="p-6 h-[12vw] rounded-3xl bg-[#1A0C25] bg-gradient-to-b from-[#070B0E] to-[#300834] shadow-lg mb-6"
+                            className="2xl:p-6 md:p-[2rem] 2xl:h-[12vw] md:h-[16vw] rounded-3xl bg-[#1A0C25] bg-gradient-to-b from-[#070B0E] to-[#300834] shadow-lg mb-6"
                             ref={el => cardsRef.current[index] = el} // Store reference to each card
                         >
-                            <h1 className="text-xl font-semibold text-white">{item.title}</h1>
-                            <p className="mt-2 text-white">{item.description}</p>
+                            <h1 className="2xl:text-2xl md:text-lg font-semibold text-white">{item.title}</h1>
+                            <p className="mt-2 md:text-xs 2xl:text-lg text-white">{item.description}</p>
                         </div>
                     ))}
                 </div>
 
                 {/* Center Image between Boxes */}
                 <div className="flex absolute justify-center items-center" ref={imageRef}>
-                    <img src="src/assets/brain.png" alt="Brain Icon" className="w-[10rem] h-[10rem] scale-[2]" />
+                    <img src="src/assets/brain.png" alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" />
                 </div>
             </div>
 
