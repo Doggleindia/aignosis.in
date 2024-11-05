@@ -4,8 +4,8 @@ import aivideo from '../assets/video/Aignosis_Product_intro.mp4'; // Update the 
 
 const Laptop = () => {
     return (
-        <div className="landing_sec mb-20">
-        <div className="lan_sec_bottom mt-[-96] relative text-center">
+        <div className="landing_sec mb-4 2xl:mb-24">
+        <div className="lan_sec_bottom 2xl:mt-[130px] md:mt-[100px] relative text-center">
           {/* Main video */}
           <video
             loop

@@ -109,17 +109,17 @@ const PartnershipPage = () => {
             <div className="w-full flex flex-col md:flex-row justify-center items-center mt-10 px-4 gap-8 md:gap-16 mb-10">
                 <img src="src/assets/brain.png" alt="Brain Icon" className="w-[50vw] h-[50vw] scale-[2] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
                 <div className="w-full md:w-[40%] px-4">
-                    <h1 className="text-lg mb-4">
+                    <h1 className="2xl:text-lg md:text-base mb-4">
                         Fill up the form, and our team will respond promptly to assist you.
                     </h1>
-                    <form className="space-y-4">
+                    <form className="space-y-4 md:text-sm 2xl:text-lg">
                         <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <input type="email" placeholder="Your Email*" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <input type="tel" placeholder="Phone number" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <textarea placeholder="Your Message*" className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"></textarea>
-                        <div className='w-[14rem] cursor-pointer mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                        <div className='2xl:w-[14rem] md:w-[11rem] cursor-pointer mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                             <button type="submit" className='text-white'>Submit</button>
-                            <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                            <div className='2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] 2xl:h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
                                 <GoArrowUpRight />
                             </div>
                         </div>
@@ -139,18 +139,18 @@ const PartnershipPage = () => {
                         loading="lazy"
                     ></iframe>
                 </div>
-                <div className="w-full md:w-[40%] px-4 mb-6">
-                    <h1 className="mb-4">
+                <div className="md:w-[40%] px-4 mb-6">
+                    <h1 className="mb-4 2xl:text-lg md:text-sm">
                         Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
                     </h1>
-                    <form className="space-y-4">
+                    <form className="space-y-4  md:text-sm 2xl:text-lg">
                         <input type="text" placeholder="Your Name" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <input type="email" placeholder="Your Email" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <input type="tel" placeholder="Your Phone Number" className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md" />
                         <textarea placeholder="Your Message" className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"></textarea>
                         <div className='w-[14rem] cursor-pointer mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                             <button type="submit" className='text-white'>Send Message</button>
-                            <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                            <div className='2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] 2xl:h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
                                 <GoArrowUpRight />
                             </div>
                         </div>
