@@ -97,8 +97,8 @@ const ServicePage1 = () => {
                             ></span>
                         </div>
                         <div className=" justify-center w-full items-center flex flex-col">
-                            <h1 className='text-5xl mt-5 font-medium'>Unlock Your Child’s Learning Potential</h1>
-                            <h1 className='mt-3'>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
+                            <h1 className='text-5xl mt-5 font-medium font-raleway'>Unlock Your Child’s Learning Potential</h1>
+                            <h1 className='mt-3 '>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
                         </div>
                         <div className="flex gap-[3vw] w-full h-[4vw] mt-[2vw] justify-center items-center">
                             <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4'>
@@ -125,7 +125,7 @@ const ServicePage1 = () => {
 
                 <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start">
                     <div className="w-[50%] h-auto p-[3vw]">
-                        <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex">
+                        <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
                                 <h1 className='text-2xl text-left font-semibold'>What Are Assessments?</h1>
                                 <h1 className='mt-6 text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>

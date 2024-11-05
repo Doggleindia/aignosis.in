@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
 import StepCount from "./StepCount";
 import { Link } from 'react-router-dom';
+import CalibrationPage from './CalibrationPage';
 
 
 const Toddlers = () => {
+
+
+  const [isCalVisible,setIsCalVisible]=useState(false);
+  
+
+
+  const handleNextClick = async () => {
+    setIsCalVisible(true);
+  };
+
+
     const [currentStep, setCurrentStep] = useState(3); // Example: Starting with step 3 highlighted
 
     return (
+
+        <>
+        {!isCalVisible?(
         <div className='bg-[#1A0C25] h-full w-full'>
-            <div className='flex px-[10px] flex-col justify-center items-center'>
-                <StepCount currentStep={currentStep} />
-            </div>
+            
             <div className='w-full h-[50vw] bg-[#1A0C25] px-[10vw]'>
                 <div className="flex w-full gap-[5vw] h-full justify-center items-center ">
                     <div className="left w-[30%] relative -top-[2vw] flex justify-center flex-col items-center h-full">
@@ -66,13 +79,15 @@ const Toddlers = () => {
                             </table>
                         </div>
                         <div className="w-full mt-[2vw] font-montserrat  text-white flex justify-center items-center h-[5vw]">
-                            <button className='px-[1vw] gap-[1vw] flex justify-center items-center w-[10vw] h-[3vw] py-3 border border-[#9C00AD] rounded-full'>continue <span className='w-[2vw] h-[2vw] rounded-full bg-[#9C00AD]'></span></button>
+                            <button onClick={handleNextClick} className='px-[1vw] gap-[1vw] flex justify-center items-center w-[10vw] h-[3vw] py-3 border border-[#9C00AD] rounded-full'>continue <span className='w-[2vw] h-[2vw] rounded-full bg-[#9C00AD]'></span></button>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </div>):(<CalibrationPage  />)
+}
+        </>
     );
 }
 
