@@ -10,6 +10,7 @@ import image5 from '../assets/members/image5.png'
 import image6 from '../assets/members/image6.png'
 import image7 from '../assets/members/image7.png'
 import image9 from '../assets/members/image9.png'
+import Partner from './Partner';
 
 
 const Divider = ({ title }) => (
@@ -92,7 +93,7 @@ const AboutUs = () => {
                 </div>
             </section>
             <div className='mt-[3vw]'>
-            <Partner/>
+             <Partner />
             </div>
 
             <section className="w-full h-auto flex justify-center items-center bg-[#1A0C25] py-10 md:py-20 px-4">
