@@ -104,17 +104,17 @@ const Screen4 = () => {
   return (
     <div
       className="h-screen max-sm:h-[40vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
-      <div className=" w-auto flex justify-center items-center flex-col">
-        <div className="  bg-[#322040] relative shadow-xl rounded-xl p-3">
-          <div className=" flex-col  justify-center flex items-center">
+      <div className="w-auto flex justify-center items-center flex-col">
+        <div className="bg-[#322040] relative shadow-xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
+          <div className="flex-col  justify-center flex items-center">
             <div className="flex justify-center gap-5 items-center">
               <span
-                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                className="h-[10px] 2xl:w-[118px] rounded-full md:w-[130px]"
                 style={{
-                  background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                  background:"linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
                 }}
               ></span>
-              <h1 className='text-[#F1C6FE] text-sm md:text-3xl'>Recognize the Signs</h1>
+              <h1 className='text-[#F1C6FE] md:text-sm 2xl:text-xl'>Recognize the Signs</h1>
               <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
@@ -122,8 +122,8 @@ const Screen4 = () => {
                 }}
               ></span>
             </div>
-            <div className="mt-[1rem] flex justify-center items-center flex-col   w-full">
-              <h1 className="text-center max-sm:text-lg text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
+            <div className="mt-[1rem] flex justify-center items-center flex-col w-full">
+              <h1 className="text-center max-sm:text-lg md:text-xl 2xl:text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
               </h1>
               <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" />
@@ -133,13 +133,13 @@ const Screen4 = () => {
 
 
               <div className="relative -left-[12%] -top-[18%] max-sm:hidden">
-                <p className="font-manrope text-[#F6E8FB] text-md">Brain development</p>
-                <p className="font-manrope text-[#F6E8FB] text-md">With First 5 Years</p>
+                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">Brain development</p>
+                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">With First 5 Years</p>
               </div>
               <div className=" mb-4">
-                <p className="absolute  left-[20%]  max-sm:hidden">Birth</p>
-                <p className="absolute  left-[55%] max-sm:hidden">5 Years</p>
-                <p className="absolute  left-[76%] max-sm:hidden">18 Years</p>
+                <p className="absolute md:text-xs 2xl:text-lg left-[20%]  max-sm:hidden">Birth</p>
+                <p className="absolute md:text-xs 2xl:text-lg left-[55%] max-sm:hidden">5 Years</p>
+                <p className="absolute md:text-xs 2xl:text-lg left-[76%] max-sm:hidden">18 Years</p>
               </div>
 
 

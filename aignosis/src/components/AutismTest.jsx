@@ -89,7 +89,7 @@ const AutismTest = () => {
   return (
     <div
       ref={scrollContainerRef}
-      className="flex flex-col snap-y snap-mandatory mt-8 h-screen overflow-hidden"
+      className="flex flex-col snap-y w-full snap-mandatory mt-8 h-screen overflow-hidden"
       style={{ scrollBehavior: 'smooth', overflowY: 'hidden' }}
     >
       {stepsContent.map((content, index) => (
