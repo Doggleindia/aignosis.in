@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import bg2 from '../assets/images/bg2.jpg';
 import '../index.css';
@@ -50,28 +50,19 @@ const AutismTest = () => {
   ];
   const scrollContainerRef = useRef(null);
   const imageContainerRef = useRef(null);
+  const isInitialRender = useRef(true);  // New flag to control initial render
 
   // Scroll handler to switch sections on image scroll only
   useEffect(() => {
     const handleWheel = (event) => {
-      if (isScrolling.current) return; // Prevent simultaneous scroll events
-      if (!imageContainerRef.current.contains(event.target)) return; // Scroll only if inside image area
+      if (!imageContainerRef.current.contains(event.target)) return;
 
       event.preventDefault();
-      isScrolling.current = true;
-
       if (event.deltaY > 0) {
-        // Scroll down - Move to the next section
         setCurrentStep((prev) => Math.min(prev + 1, stepsContent.length));
       } else {
-        // Scroll up - Move to the previous section
         setCurrentStep((prev) => Math.max(prev - 1, 1));
       }
-
-      // Allow scrolling again after a short delay
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 700); // Adjust timeout for smooth transitions
     };
 
     const container = scrollContainerRef.current;
@@ -80,16 +71,21 @@ const AutismTest = () => {
     return () => {
       container.removeEventListener('wheel', handleWheel);
     };
-  }, [stepsContent.length]);
+  }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // Skip initial scroll if it's the first render
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    }
+    console.log("isInitialRender.current",)
     // Scroll to the current step section smoothly
     const section = scrollContainerRef.current.querySelector(`[data-step="${currentStep}"]`);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [currentStep]);
-
   return (
     <div
       ref={scrollContainerRef}
