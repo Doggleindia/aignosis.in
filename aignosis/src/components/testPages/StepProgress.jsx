@@ -10,10 +10,10 @@ const StepProgress = ({ currentStep }) => {
   ];
 
   return (
-    <div className="flex justify-between h-[20%] bg-[#1A0C25] mb-[0px] py-[4vh]">
+    <div className="flex  justify-between h-[20%] bg-[#1A0C25] mb-[0px] py-[4vh]">
       {steps.map((step, index) => (
         <div key={step.id} className={`flex items-center relative ${
-            index === steps.length - 1 ? 'mr-[100px]' : 'ml-[100px]'
+            index === steps.length - 1 ? 'mr-[40px]' : 'ml-[50px]'
           }`}
         >
           <span className={`absolute -top-6 text-6xl font-manrope font-bold ${index === 1 ? '-left-2' : 'left-2'} ${
