@@ -1,11 +1,4 @@
 import React from 'react'
-import logo1 from '../assets/logo1.png'
-import logo2 from '../assets/logo2.png'
-import logo3 from '../assets/logo3.png'
-import logo4 from '../assets/logo4.png'
-import logo5 from '../assets/logo5.png'
-
-
 import com1 from '../assets/images/sponsered/image 83.png'
 import com2 from '../assets/images/sponsered/image 85.png'
 import com3 from '../assets/images/sponsered/image 87.png'
@@ -20,42 +13,34 @@ import com11 from '../assets/images/sponsered/image 112.png'
 import com12 from '../assets/images/sponsered/image 113.png'
 import com13 from '../assets/images/sponsered/image 114.png'
 
+import './partner.css'
+
+const logos = [com1, com2, com3, com4, com5, com6, com7, com8, com9, com10, com11, com12, com13];
+
 const Partner = () => {
   return (
     <div className="bg-white overflow-hidden max-w-full min-h-[30vw] justify-center items-center flex flex-col mb-[2vw] text-white py-10 px-6 text-center">
       <div className="w-full h-[2vw] flex justify-center items-center">
-        <h1 className='font-montserrat font-semibold text-4xl  text-black'>Supported by</h1>
+        <h1 className='font-montserrat font-semibold text-4xl text-black'>Supported by</h1>
       </div>
-      <div className='w-full flex mt-[4vw] justify-center gap-[3vw]'>
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com1} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com2} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com3} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com4} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com6} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com7} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com8} alt="" srcset="" />
 
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com10} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com11} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com12} alt="" srcset="" />
+      <div className="marquee-container mt-[4vw]">
+        <div className="marquee marquee-speed-1">
+          {logos.concat(logos).map((img, index) => (
+            <img key={`loop1-${index}`} className="marquee-image" src={img} alt={`Sponsor ${index + 1}`} />
+          ))}
+        </div>
       </div>
-      <div className='w-full flex justify-center mt-[3vw] gap-[3vw]'>
 
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com9} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com10} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com11} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com12} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com13} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com1} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com4} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com5} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com6} alt="" srcset="" />
-        <img className='scale-[1.1] w-[15vh] h-[10vh]' src={com7} alt="" srcset="" />
+      <div className="marquee-container mt-[2vw]">
+        <div className="marquee marquee-speed-2">
+          {logos.concat(logos).map((img, index) => (
+            <img key={`loop2-${index}`} className="marquee-image" src={img} alt={`Sponsor ${index + 1}`} />
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Partner;

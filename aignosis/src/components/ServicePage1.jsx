@@ -11,6 +11,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
+import Header from './Header';
 
 import { Link } from 'react-router-dom';
 
@@ -61,8 +62,10 @@ const ServicePage1 = () => {
 
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
+            <Header />
             <div className='h-screen w-full '>
-                <div className="navbar text-center w-full h-[7rem] flex justify-between items-center px-[12rem]">
+
+                {/* <div className="navbar text-center w-full h-[7rem] flex justify-between items-center px-[12rem]">
                     <div class="relative justify-center items-center inline-block">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
                         <Link to="/" class="relative text-3xl font-semibold tracking-wide text-white z-10">Ai.gnosis</Link>
@@ -78,7 +81,8 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+                
                 <div className='w-full justify-center items-center flex h-auto'>
                     <div className='w-full flex-col h-[35vw] justify-center flex items-center'>
                         <div className="flex justify-center gap-5 items-center">

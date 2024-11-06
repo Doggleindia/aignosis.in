@@ -74,14 +74,14 @@ const Header = () => {
 
 
     //     </div>
-    <div className={`text-white w-full font-montserrat fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60`}>
-                <div className="navbar text-center w-full flex justify-between items-center px-5 py-3">
-                <div className="relative justify-center items-center inline-block">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg" ></div>
-                        <Link to="/" className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide text-white z-10">
-                            Ai.gnosis
-                        </Link>
-                    </div>
+    <div className={`text-white w-full font-montserrat inline-block fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60`}>
+      <div className="navbar text-center w-full flex justify-between items-center px-5 py-3">
+        <div className="relative justify-center items-center inline-block">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg" ></div>
+          <Link to="/" className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide text-white z-10">
+            Ai.gnosis
+          </Link>
+        </div>
         <div className='flex justify-center font-medium items-center gap-[8rem]'>
           <Link to="/servicepage1">Services</Link>
           <Link to="/aboutus">About</Link>

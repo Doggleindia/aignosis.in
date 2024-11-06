@@ -106,9 +106,9 @@ const PartnershipPage = () => {
             </div>
 
             {/* Contact Form Section */}
-            <div className="w-full flex flex-col md:flex-row justify-center items-center mt-10 px-4 gap-8 md:gap-16 mb-10">
-                <img src="src/assets/brain.png" alt="Brain Icon" className="w-[50vw] h-[50vw] scale-[2] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
-                <div className="w-full md:w-[40%] px-4">
+            <div className="w-full flex flex-col md:flex-row 2xl:gap-[15vw] justify-center items-center mt-10 px-4 relative md:gap-16 mb-10">
+                <img src="src/assets/brain.png" alt="Brain Icon" className="w-[50vw] h-[50vw] 2xl:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
+                <div className="w-full ml-[38vw] md:w-[40%] px-4">
                     <h1 className="2xl:text-lg md:text-base mb-4">
                         Fill up the form, and our team will respond promptly to assist you.
                     </h1>
@@ -139,7 +139,8 @@ const PartnershipPage = () => {
                         loading="lazy"
                     ></iframe>
                 </div>
-                <div className="md:w-[40%] px-4 mb-6">
+                <div className="md:w-[40%] px-4 mt-[2vw] mb-6">
+                    <h1 className='text-bold text-4xl mb-[2vw]'>Contact US</h1>
                     <h1 className="mb-4 2xl:text-lg md:text-sm">
                         Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
                     </h1>
