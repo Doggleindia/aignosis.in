@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { GoArrowUpRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger separately
 import ScrollToPlugin from "gsap/ScrollToPlugin";
@@ -73,6 +74,7 @@ const HeroSection = () => {
                 loop
                 autoPlay
                 muted src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97' alt="" className='w-full h-screen opacity-90 relative object-cover' ></video>
+
             <div className='w-full h-full absolute flex-col flex justify-center items-center'>
                 <div className="w-full overflow-hidden">
                     <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight text-6xl font-semibold">

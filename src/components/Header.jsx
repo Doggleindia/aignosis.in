@@ -17,8 +17,8 @@ const Header = () => {
   };
 
   return (
-    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
-      <div className="navbar text-center w-full flex justify-between items-center px-5 py-3">
+    <div className="text-white w-full flex bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
+      <div className="align-center navbar text-center w-full flex justify-between items-center px-14 py-3">
         
         {/* Logo Section */}
         <div className="relative inline-block">
@@ -34,7 +34,7 @@ const Header = () => {
           <Link to="/aboutus" className="text-sm md:text-base font-raleway text-[#F6E8FB]">About</Link>
           <Link to="/prices" className="text-sm md:text-base font-raleway text-[#F6E8FB]">Prices</Link>
           <Link 
-            to="/appointment" 
+            to="/test/fillup" 
             className="2xl:w-[15rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
           >
             <span className="2xl:text-base md:text-sm">Book an appointment</span>
@@ -81,7 +81,7 @@ const Header = () => {
 
           {/* Book Appointment Button */}
           <Link 
-            to="/appointment" 
+            to="/test/fillup" 
             className="w-[10rem] gap-2 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300 mt-4"
           >
             <span className="text-sm text-center">Book an appointment</span>

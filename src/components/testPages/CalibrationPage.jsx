@@ -27,7 +27,7 @@ const CalibrationPage = () => {
     <>
       {!isVideoPlaying ? (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-          <div className="w-[900px] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
+          <div className="w-[900px] max-sm:w-[90vw] md:h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
             <div className="relative text-4xl font-bold text-[#1A0C25] mb-4">
               <span className="relative z-10 font-montserrat">Ai.gnosis</span>
               <div className="absolute inset-0 flex justify-center items-center z-0">
@@ -54,7 +54,7 @@ const CalibrationPage = () => {
               </div>
             </div>
 
-            <div className="flex space-x-8 mt-[40px]">
+            <div className="flex max-sm:flex-col max-sm:gap-2  md:space-x-8  mt-[40px]">
               <Link 
                 onClick={handleNextClick} 
                 className="flex items-center justify-center w-[200px] h-[50px] border border-[#9C00AD] text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors"
@@ -72,7 +72,7 @@ const CalibrationPage = () => {
       ) : (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center relative">
           <video
-  src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/assesment_video.mp4?alt=media&token=a44e6bac-4a05-4173-a8f1-dc622593829d'
+  src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/assesment_video.mp4?alt=media&token=a44e6bac-4a05-4173-a8f1-dc622593829d"
   autoPlay
   controls 
   onEnded={handleVideoEnd}

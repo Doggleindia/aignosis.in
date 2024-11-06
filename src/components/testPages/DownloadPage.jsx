@@ -2,6 +2,7 @@ import React from 'react';
 import StepProgress from './StepProgress';
 import { Link } from 'react-router-dom';
 
+
 const DownloadPage = () => {
   return (
     <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen text-center">
@@ -34,9 +35,13 @@ const DownloadPage = () => {
 
       {/* Download Button */}
       <div className="mt-10">
-        <Link to='/report' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
+        <a 
+          href="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/report.pdf?alt=media&token=5f14844b-7ded-4c31-b0be-40a43ffcb4ae" 
+          download="AiGnosis_Report.pdf" 
+          className="text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]"
+        >
           Download your report
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -130,22 +130,25 @@ const Screen4 = () => {
               <div className="m-[1rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
                 <img src={graph_img} alt="" />
               </div>
-
-
-              <div className="relative -left-[12%] -top-[18%] max-sm:hidden">
-                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">Brain development</p>
-                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">With First 5 Years</p>
-              </div>
               <div className=" mb-4">
                 <p className="absolute md:text-xs 2xl:text-lg left-[20%]  max-sm:hidden">Birth</p>
                 <p className="absolute md:text-xs 2xl:text-lg left-[55%] max-sm:hidden">5 Years</p>
                 <p className="absolute md:text-xs 2xl:text-lg left-[76%] max-sm:hidden">18 Years</p>
               </div>
 
+          
+
 
 
             </div>
+            
           </div>
+          
+          <div className="justify- relative -left-[12%] -top-[18%] max-sm:hidden">
+                
+                {/* <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md"></p> */}
+              </div>
+              <p className="flex justify-center align-center mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">Brain development With First 5 Years</p>
         </div>
       </div>
     </div>

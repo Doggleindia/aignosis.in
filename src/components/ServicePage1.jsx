@@ -68,7 +68,7 @@ const ServicePage1 = () => {
                     <div className="w-full flex flex-col justify-center items-center md:mt-[12vw] 2xl:mt-[6vw] h-auto">
 
                         {/* Title and Gradient Bars */}
-                        <div className="flex justify-center gap-5 items-center mb-5">
+                        <div className="flex justify-center gap-5 items-center ">
                             <span
                                 className="h-[5px] sm:h-[10px] w-[60px] sm:w-[118px] rounded-full"
                                 style={{
@@ -94,7 +94,7 @@ const ServicePage1 = () => {
                             </h1>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[90%] sm:w-[40vw] mt-4 sm:mt-[2vw] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[90%] sm:w-[40vw]  sm:mt-[2vw] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__"
                                 alt=""
@@ -102,8 +102,8 @@ const ServicePage1 = () => {
                             />
                         </div>
                         {/* CTA and Rating */}
-                        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-10">
-                            <div className="w-full sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
+                        <div className="flex flex-col sm:flex-row p-4 items-center justify-center w-full bg-[#1A0C25] ">
+                            <div className="w-full m-2 sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm: rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
                                 <a href="#" className="text-white text-xs sm:text-base">Get In Touch</a>
                                 <div className="w-[2rem] sm:w-[2.5rem] h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white text-lg group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">
                                     <GoArrowUpRight />

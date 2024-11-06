@@ -42,10 +42,10 @@ export const FillupPage = () => {
 
   return (
     <>
-      <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen">
+      <div className="bg-[#1A0C25] flex flex-col justify-center md:items-center min-h-screen">
         {/* <StepProgress /> */}
         {!isBackInfoVisible ? (
-          <div className="flex flex-row  max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0">
+          <div className="flex flex-row  max-sm:flex-col max-sm:justify-center md:items-center justify-between mt-[10px] max-sm:mt-0">
             {/* Left side content */}
             <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px]">
               {/* Logo with Gradient Background */}
