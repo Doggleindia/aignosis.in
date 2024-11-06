@@ -19,19 +19,19 @@ const PartnershipPage = () => {
             scrollTrigger: {
                 trigger: imageRef.current,
                 start: "top 35%", // Animation starts when the top of the image reaches 25% of the viewport
-                end: "top 60%", 
+                end: "top 60%",
                 scrub: 4, // Smooth scrubbing for responsive movement
             }
         });
-    
+
         // Animate cards on scroll with better timing and effects
         cardsRef.current.forEach((card, index) => {
             const delay = index * 0.1; // Reduced delay for quicker animations
-            gsap.fromTo(card, 
+            gsap.fromTo(card,
                 { y: 50, autoAlpha: 0 }, // Start cards slightly lower and fully transparent
-                { 
+                {
                     y: 0, // Move to original position
-                    autoAlpha: 1, 
+                    autoAlpha: 1,
                     duration: 0.8, // Shorter duration for a snappier feel
                     ease: "back.out(1.7)", // Add a bounce effect for smoother entry
                     delay: delay, // Delay between card animations
@@ -43,34 +43,34 @@ const PartnershipPage = () => {
                 }
             );
         });
-    
+
         return () => {
             // Clean up the scroll triggers when the component unmounts
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, []);
-    
+
 
     return (
         <div className='min-h-screen 2xl:px-[8rem] md:px-[4rem] text-white flex flex-col w-full font-montserrat bg-[#1A0C25] pb-10'>
             <div className="w-full flex 2xl:px-[2rem] py-[8rem] flex-col justify-center items-center border-t rounded-[10rem] border-[#B874B580] mb-10">
                 <div className='flex flex-col justify-center items-center px-4 mb-10'>
                     <div className="flex justify-center gap-5 items-center mb-4">
-                    <span
-          className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-          style={{
-            background:
-              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-          }}
-        ></span>
+                        <span
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background:
+                                    "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                            }}
+                        ></span>
                         <h1 className="text-[#EDD0E7]">Connect with Sales</h1>
                         <span
-  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-  style={{
-    background:
-      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-  }}
-></span>
+                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                            style={{
+                                background:
+                                    "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                            }}
+                        ></span>
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
                         <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold leading-[3rem]'>
@@ -119,7 +119,7 @@ const PartnershipPage = () => {
 
             {/* Contact Form Section */}
             <div className="w-full flex flex-col md:flex-row 2xl:gap-[15vw] justify-center items-center mt-10 px-4 relative md:gap-16 mb-10">
-                <img src={brain} alt="Brain Icon" className="w-[50vw] h-[50vw] 2xl:left-[18vw] md:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
+                <img src={brain} alt="Brain Icon" className="w-[50vw] h-[50vw] 2xl:left-[18vw] md:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0" />
                 <div className="w-full ml-[38vw] md:w-[40%] px-4">
                     <h1 className="2xl:text-lg md:text-base mb-4">
                         Fill up the form, and our team will respond promptly to assist you.
@@ -140,62 +140,62 @@ const PartnershipPage = () => {
             </div>
 
             <div className='2xl:h-[50vw] md:h-[80vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-                    <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
-                        <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
-                            <div className="mt-[5vw]">
-                                <h1 className='text-center 2xl:text-6xl md:text-5xl text-3xl font-semibold leading-[3rem] font-manrope'>Get in Touch with Ai.gnosis</h1>
-                            </div>
-                            <div className='px-[20vw]'>
-                                <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
-                            </div>
+                <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
+                    <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
+                        <div className="mt-[5vw]">
+                            <h1 className='text-center 2xl:text-6xl md:text-5xl text-3xl font-semibold leading-[3rem] font-manrope'>Get in Touch with Ai.gnosis</h1>
                         </div>
-                        <div className="w-full h-[40vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
-                            <div className="w-[100%] md:w-[40%] h-[70%]">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                ></iframe>
-                            </div>
-                            <div className="w-[100%] md:w-[40%] px-[4vw] h-[70%]">
-                                <h1 className='2xl:text-base md:text-sm text-xs'>
-                                    Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-                                </h1>
+                        <div className='px-[20vw]'>
+                            <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
+                        </div>
+                    </div>
+                    <div className="w-full h-[40vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
+                        <div className="2xl:w-[40%] md:w-[40%] 2xl:mt-[1vw] md:mt-[10vw] 2xl:h-[70%] md:h-[90%]">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                        <div className="w-[100%] md:w-[40%] px-[4vw] h-[70%]">
+                            <h1 className='2xl:text-base md:text-sm text-xs'>
+                                Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
+                            </h1>
 
-                                <form className="mt-4 2xl:text-base md:text-sm space-y-4">
-                                    <input
-                                        type="text"
-                                        placeholder="Your Name"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="Your Email"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <input
-                                        type="phone"
-                                        placeholder="Your Phone Number"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <textarea
-                                        placeholder="Your Message"
-                                        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
-                                    ></textarea>
-                                    <div className='w-[60vw] md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                        <a href="" className='text-white'>Send Message</a>
-                                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                            <GoArrowUpRight />
-                                        </div>
+                            <form className="mt-4 2xl:text-base md:text-sm space-y-4">
+                                <input
+                                    type="text"
+                                    placeholder="Your Name"
+                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                />
+                                <input
+                                    type="email"
+                                    placeholder="Your Email"
+                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                />
+                                <input
+                                    type="phone"
+                                    placeholder="Your Phone Number"
+                                    className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                />
+                                <textarea
+                                    placeholder="Your Message"
+                                    className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                                ></textarea>
+                                <div className='w-[60vw] md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                                    <a href="" className='text-white'>Send Message</a>
+                                    <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                        <GoArrowUpRight />
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     );
 };
