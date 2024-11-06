@@ -1,0 +1,47 @@
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .marquee {
+    display: inline-flex;
+  }
+  
+  .marquee-image {
+    width: 15vh;
+    height: 10vh;
+    margin: 0 1vw;
+  }
+  
+  /* Infinite scroll animation for first marquee */
+  @keyframes marquee1 {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Infinite scroll animation for second marquee, at a different speed */
+  @keyframes marquee2 {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Apply different speeds */
+  .marquee-speed-1 {
+    animation: marquee1 25s linear infinite;
+  }
+  
+  .marquee-speed-2 {
+    animation: marquee2 10s linear infinite;
+  }
+  
