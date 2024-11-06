@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GoArrowUpRight } from "react-icons/go";
-
+import brain from '../assets/images/brain.png'
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,13 +101,13 @@ const PartnershipPage = () => {
 
                 {/* Center Image between Boxes */}
                 <div className="flex absolute justify-center items-center" ref={imageRef}>
-                    <img src="src/assets/images/brain.png" alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" />
+                    <img src={brain} alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" />
                 </div>
             </div>
 
             {/* Contact Form Section */}
             <div className="w-full flex flex-col md:flex-row 2xl:gap-[15vw] justify-center items-center mt-10 px-4 relative md:gap-16 mb-10">
-                <img src="src/assets/images/brain.png" alt="Brain Icon" className="w-[50vw] h-[50vw] 2xl:left-[18vw] md:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
+                <img src={brain} alt="Brain Icon" className="w-[50vw] h-[50vw] 2xl:left-[18vw] md:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0"/>
                 <div className="w-full ml-[38vw] md:w-[40%] px-4">
                     <h1 className="2xl:text-lg md:text-base mb-4">
                         Fill up the form, and our team will respond promptly to assist you.
