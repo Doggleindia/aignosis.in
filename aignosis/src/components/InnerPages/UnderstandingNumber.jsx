@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-const UnderstandingNumber = ({ bg }) => {
+import bg1 from '../../assets/images/img2.png'
+import bg2 from '../../assets/images/img1.png'
+const UnderstandingNumber = () => {
   const [showSecondCard, setShowSecondCard] = useState(false);
   const containerRef = useRef(null);
 
@@ -44,20 +45,21 @@ const UnderstandingNumber = ({ bg }) => {
             background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
           }}
         >
-          <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] md:text-3xl 2xl:text-4xl max-sm:text-lg h-full flex flex-col justify-center items-start">
-            <h1 className="font-medium text-[#F6E8FB]">
-              <span className="text-[#811098] italic">1 in 10</span> children experience developmental delays
+          <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] md:text-3xl 2xl:text-4xl max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
+            <h1 className=" text-[#F6E8FB] font-raleway italic">
+              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-5xl">1 in 10 </span> children experience developmental delays
+              
             </h1> 
             <h1 className="font-medium flex gap-4 items-center">
-              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[400px] max-sm:ml-[33vw]">SOS</span>
+              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[26vw] max-sm:ml-[33vw]">SOS</span>
             </h1>
-            <h1 className="text-base  2xl:mt-2 md:-mt-3 max-sm:mt-0 max-sm:text-sm md:text-base 2xl:text-4xl text-[#F6E8FB]">Early identification is essential for better support</h1>
+            <h1 className="text-base max-sm:text-sm mt-2 text-[#F6E8FB]">Early identification is essential for better support</h1>
             <div className="w-[10rem] max-sm:w-[7rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent">
               <a href="" className="text-white text-base max-sm:text-sm">Learn more</a>
             </div>
           </div>
           <div className="w-[50%] h-full flex justify-center items-center">
-            <img className="w-[60%] h-[60%] object-cover" src={bg} alt="Developmental Delays" />
+            <img className="w-[60%] h-[60%] object-cover" src={bg1} alt="Developmental Delays" />
           </div>
         </div>
 
@@ -70,12 +72,12 @@ const UnderstandingNumber = ({ bg }) => {
             background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
           }}
         >
-          <div className="w-[50%] ml-[5rem]  max-sm:ml-[2rem] text-4xl   max-sm:text-lg h-full flex flex-col justify-center items-start">
-            <h1 className="font-medium text-[#F6E8FB]">
-              <span className="text-[#811098] italic">1 in 68</span> children are autistic in India
-            </h1>
+          <div className="w-[50%] ml-[5rem]  max-sm:ml-[2rem] text-4xl   max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
+          <h1 className=" text-[#F6E8FB] font-raleway italic">
+              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-5xl">1 in 68 </span> children are autistic in India
+            </h1> 
             <h1 className="font-medium flex gap-4 items-center">
-              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[400px] max-sm:ml-[33vw]">SOS</span>
+              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[19vw] max-sm:ml-[33vw] ">SOS</span>
             </h1>
             <h1 className="text-base max-sm:text-sm mt-2 text-[#F6E8FB]">Autism awareness and early detection can make a difference.</h1>
             <div className="w-[10rem] cursor-pointer max-sm:w-[7rem] group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent">
@@ -83,7 +85,7 @@ const UnderstandingNumber = ({ bg }) => {
             </div>
           </div>
           <div className="w-[50%] h-full flex justify-center items-center">
-            <img className="w-[60%] h-[60%] object-cover" src={bg} alt="Autism Awareness" />
+            <img className="w-[60%] h-[60%] object-cover" src={bg2} alt="Autism Awareness" />
           </div>
         </div>
       </div>

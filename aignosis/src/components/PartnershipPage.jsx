@@ -56,9 +56,21 @@ const PartnershipPage = () => {
             <div className="w-full flex 2xl:px-[2rem] py-[8rem] flex-col justify-center items-center border-t rounded-[10rem] border-[#B874B580] mb-10">
                 <div className='flex flex-col justify-center items-center px-4 mb-10'>
                     <div className="flex justify-center gap-5 items-center mb-4">
-                        <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
+                    <span
+          className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+          style={{
+            background:
+              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          }}
+        ></span>
                         <h1 className="text-[#EDD0E7]">Connect with Sales</h1>
-                        <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
+                        <span
+  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+  style={{
+    background:
+      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+  }}
+></span>
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
                         <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold leading-[3rem]'>
@@ -131,7 +143,7 @@ const PartnershipPage = () => {
                     <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
                         <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
                             <div className="mt-[5vw]">
-                                <h1 className='text-center 2xl:text-7xl md:text-5xl text-3xl font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
+                                <h1 className='text-center 2xl:text-6xl md:text-5xl text-3xl font-semibold leading-[3rem] font-manrope'>Get in Touch with Ai.gnosis</h1>
                             </div>
                             <div className='px-[20vw]'>
                                 <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>

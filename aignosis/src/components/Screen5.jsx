@@ -61,15 +61,15 @@ const Screen5 = () => {
                         ></span>
                         <h1 className='text-[#F1C6FE] text-sm  sm:text-xl md:text-xl'>Recognize the Signs</h1>
                         <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
-                    </div>
-                    <div className="mt-4 md:mt-[2rem]">
-                        <h1 className='text-2xl 2xl:text-6xl w-full text-center md:text-4xl tracking-tight font-semibold leading-[3rem] text-[#F6E8FB] max-sm:text-center'>Upto 1 in 5 children are at risk of developmental delays*</h1>
-                        <h1 className='text-center 2xl:text-6xl text-2xl md:text-4xl italic tracking-tight font-semibold mt-5 max-sm:mt-0 max-sm:mr-[20px] md:leading-[.1rem] 2xl:leading-[3rem] text-[#F6E8FB]'>Is Your Child at Risk?</h1>
+  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+  style={{
+    background:
+      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+  }}
+></span>                    </div>
+                    <div className="mt-4 md:mt-[2rem] font-manrope">
+                        <h1 className='text-2xl 2xl:text-5xl w-full text-center md:text-4xl tracking-tight font-semibold leading-[3rem] text-[#F6E8FB] max-sm:text-center'>Upto 1 in 5 children are at risk of developmental delays*</h1>
+                        <h1 className='text-center 2xl:text-5xl text-2xl md:text-4xl italic tracking-tight font-semibold mt-5 max-sm:mt-0 max-sm:mr-[20px] md:leading-[.1rem] 2xl:leading-[3rem] text-[#F6E8FB]'>Is Your Child at Risk?</h1>
                     </div>
                     <div className='px-4 md:px-[10rem] mt-4 md:mt-[2rem] text-sm md:text-base'>
                         <p className='text-center text-[#ECECEC] text-sm 2xl:text-xl md:text-base'>

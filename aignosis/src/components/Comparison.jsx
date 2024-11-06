@@ -52,82 +52,92 @@ const Comparison = () => {
             </div>
           </div>
         </div>
-
-        {/* Right Side - Comparison Content */}
-        <div className="hidden md:block text-white space-y-8 w-[520px]">
-          <div className="flex items-center space-x-2 text-pink-400">
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-            <span>Comparison</span>
-            <span
-              className="h-[10px] w-[118px] rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-              }}
-            ></span>
-          </div>
-          <h2 className="2xl:text-3xl md:text-xl font-semibold leading-snug">
-            Ai.gnosis vs. Traditional Screening <br />
-            <span className="font-light italic font-manrope text-[#F6E8FB]">
-              A Better Way Forward
-            </span>
-          </h2>
-          <div
-  className="p-10 rounded-lg space-y-6 shadow-xl"
-  style={{ background: "rgba(26, 10, 38, 1)" }}
->
-  {/* Comparison Header */}
-  <div className="flex justify-between items-center text-gray-200 mb-4 font-bold w-full">
-    <div className="w-1/4 text-left"></div>
-    <div className="w-1/4 text-center uppercase">Traditional</div>
-    <div className="w-1/4 text-center uppercase">AI.gnosis</div>
+        <div className="hidden md:block text-white space-y-8 w-[520px] relative">
+  {/* Comparison header */}
+  <div className="flex items-center space-x-2 text-pink-400">
+    <span
+      className="h-[10px] w-[118px] rounded-full"
+      style={{
+        background:
+          "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+      }}
+    ></span>
+    <span className="text-[#F1C6FE]">Comparison</span>
+    <span
+      className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+      style={{
+        background:
+          "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+      }}
+    ></span>
   </div>
 
-  {/* Comparison Rows */}
-  {[ 
-    { label: "Cost", traditional: "Expensive", aiGnosis: "Affordable" }, 
-    { label: "Time", traditional: "Weeks", aiGnosis: "5 Minutes" }, 
-    { 
-      label: "Accessibility", 
-      traditional: "Limited Location", 
-      aiGnosis: "Remote Friendly" 
-    } 
-  ].map((item, index) => (
-    <div
-      className="flex justify-between items-center text-gray-100 mb-4 w-full"
-      key={index}
-    >
-      <div className="w-1/4 text-left text-gray-200 font-bold relative uppercase ">
-        {item.label}
-        <div
-          className="absolute top-0  bottom-0 -right-6 w-[5px] h-full"
-          style={{
-            background: "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-          }}
-        ></div>
-      </div>
+  <h2 className="2xl:text-3xl md:text-xl font-semibold leading-snug">
+    Ai.gnosis vs. Traditional Screening <br />
+    <span className="font-light italic font-manrope text-[#F6E8FB]">
+      A Better Way Forward
+    </span>
+  </h2>
 
-      <div className="w-1/4 text-center relative">
-        {item.traditional}
-        <div
-          className="absolute top-0 bottom-0 right-0 w-[5px] h-full"
-          style={{
-            background: "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-          }}
-        ></div>
-      </div>
-      <div className="w-1/4 text-center">{item.aiGnosis}</div>
+  {/* Table Container with relative positioning */}
+  <div
+    className="p-10 rounded-lg space-y-6 shadow-xl relative overflow-hidden"
+    style={{ background: "rgba(26, 10, 38, 1)" }}
+  >
+    {/* Vertical Lines within the table */}
+    <div
+      className="absolute  top-[4vw] left-[33.3%] w-[5px] "
+      style={{
+        background:
+          "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+        height: "100%",
+      }}
+    ></div>
+    <div
+      className="absolute top-[4vw]  left-[66.6%] w-[5px]"
+      style={{
+        background:
+          "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
+        height: "100%",
+      }}
+    ></div>
+
+    {/* Table Headers */}
+    <div className="flex justify-between items-center text-gray-200 mb-4 font-bold w-full">
+      <div className="w-1/4 text-left"></div>
+      <div className="w-1/4 text-center uppercase">Traditional</div>
+      <div className="w-1/4 text-center uppercase">AI.gnosis</div>
     </div>
-  ))}
+
+    {/* Comparison Rows */}
+    <div className="flex justify-between items-center text-gray-100 mb-4 w-full">
+      <div className="w-1/4 text-left text-gray-200 font-bold uppercase">
+        Cost
+      </div>
+      <div className="w-1/4 text-center">Expensive</div>
+      <div className="w-1/4 text-center">Affordable</div>
+    </div>
+
+    <div className="flex justify-between items-center text-gray-100 mb-4 w-full">
+      <div className="w-1/4 text-left text-gray-200 font-bold uppercase">
+        Time
+      </div>
+      <div className="w-1/4 text-center">Weeks</div>
+      <div className="w-1/4 text-center">5 Minutes</div>
+    </div>
+
+    <div className="flex justify-between items-center text-gray-100 mb-4 w-full">
+      <div className="w-1/4 text-left text-gray-200 font-bold uppercase">
+        Accessibility
+      </div>
+      <div className="w-1/4 text-center">Limited Location</div>
+      <div className="w-1/4 text-center">Remote Friendly</div>
+    </div>
+  </div>
 </div>
 
-        </div>
+
+        
       </div>
     </div>
   );

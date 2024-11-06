@@ -69,12 +69,12 @@ const BookScreening = () => {
             For Parents
           </p>
           <span
-            className="h-[10px] w-[118px] max-sm:w-[60px] rounded-full"
-            style={{
-              background:
-                'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
-            }}
-          ></span>
+  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+  style={{
+    background:
+      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+  }}
+></span>
         </div>
 
         {/* Title Section */}
