@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DownloadPage from './DownloadPage';
-import calibration_vdo from '../../assets/video/assesment_video.mp4';
 
 const CalibrationPage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
