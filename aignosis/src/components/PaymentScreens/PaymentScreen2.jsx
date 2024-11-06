@@ -92,18 +92,6 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
             <div className='flex mt-2 gap-5'>
               <input 
                 type="radio" 
-                value="payOnDelivery" 
-                checked={selectedMethod === "payOnDelivery"} 
-                onChange={() => handlePaymentMethodChange("payOnDelivery")} 
-              />
-              <div>
-                <h1>Pay on Delivery</h1>
-                <h1 className='text-xs'>Pay with cash on delivery</h1>
-              </div>
-            </div>
-            <div className='flex mt-2 gap-5'>
-              <input 
-                type="radio" 
                 value="creditDebitCard" 
                 checked={selectedMethod === "creditDebitCard"} 
                 onChange={() => handlePaymentMethodChange("creditDebitCard")} 
