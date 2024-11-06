@@ -18,9 +18,9 @@ const HeroSection = () => {
         const applyAnimations = () => {
             if (window.innerWidth >= 768) {
                 heroElements = [
-                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=40px bottom+=100px" },
-                    { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom+=100px" },
-                    { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom+=100px" },
+                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=40px bottom+=100px", duration:2, scrub: true },
+                    { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom+=100px", duration:2  },
+                    { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom+=100px", duration:2  },
                 ];
                 // before 768px
             }
@@ -75,8 +75,8 @@ const HeroSection = () => {
                 autoPlay
                 muted src={img1} alt="" className='w-full h-screen opacity-90 relative object-cover' ></video>
             <div className='w-full h-full absolute flex-col flex justify-center items-center'>
-                <div className="w-full">
-                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight text-3xl font-semibold">
+                <div className="w-full overflow-hidden">
+                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight text-6xl font-semibold">
                         <span id='textright' className="block"> Frontier AI for Your Child’s</span>
                         <span id='textleft' className="block">&nbsp; Best Development </span>
                     </h1>

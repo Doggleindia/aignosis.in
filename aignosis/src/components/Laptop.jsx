@@ -11,7 +11,7 @@ const Laptop = () => {
             loop
             autoPlay
             muted
-            className="border-[26px] border-[#a19e9e6e] rounded-[22px] w-3/5 mx-auto"
+            className="border-[26px] border-[#a19e9e6e] rounded-[22px] w-[80%] mx-auto"
           >
             <source src={aivideo} type="video/mp4" />
             Your browser does not support the video tag.

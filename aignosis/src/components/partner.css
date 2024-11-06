@@ -38,10 +38,10 @@
   
   /* Apply different speeds */
   .marquee-speed-1 {
-    animation: marquee1 20s linear infinite;
+    animation: marquee1 25s linear infinite;
   }
   
   .marquee-speed-2 {
-    animation: marquee2 55s linear infinite;
+    animation: marquee2 10s linear infinite;
   }
   
