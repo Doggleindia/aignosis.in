@@ -73,13 +73,14 @@ const CalibrationPage = () => {
       ) : (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center relative">
           <video
-            src={calibration_vdo}
-            autoPlay
-            onEnded={handleVideoEnd}
-            className="w-full h-full object-cover"
-            style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
-            controls={false}
-          />
+  src={calibration_vdo}
+  autoPlay
+  controls 
+  onEnded={handleVideoEnd}
+  className="w-full h-full object-cover"
+  style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
+/>
+
           {isVideoEnded && (
             <button 
               onClick={goToDownloadPage} 

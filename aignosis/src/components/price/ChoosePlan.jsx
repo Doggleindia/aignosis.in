@@ -4,6 +4,12 @@ import popularImage from "../../assets/popular.png"; // Adjust the path if neede
 import { Link } from "react-router-dom";
 import { GoArrowUpRight, GoShare } from "react-icons/go";
 import { FaShareAlt } from "react-icons/fa";
+import img1 from '../../assets/assessments/as1.png'
+import img2 from '../../assets/assessments/as2.png'
+import img3 from '../../assets/assessments/as3.png'
+import img4 from '../../assets/assessments/as4.png'
+
+
 
 const ChoosePlan = () => {
   const [active, setActive] = useState("assessment");
@@ -21,12 +27,13 @@ const ChoosePlan = () => {
         ></span>
         <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">Choose A Plan</span>
         <span
-          className="h-[10px] w-[118px] rounded-full"
-          style={{
-            background:
-              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-          }}
-        ></span>
+  className="h-[10px] w-[118px] rounded-full"
+  style={{
+    background:
+      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+  }}
+></span>
+
       </div>
 
       {/* Title and Description */}
@@ -69,10 +76,9 @@ const ChoosePlan = () => {
         {active === "therapy" && (
           <>
             {/* Pricing Card 1 */}
-            <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative"
-                 style={{
-                   background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(94, 40, 100, 0.3) 100%)",
-                 }}>
+            <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative bg-[#564A5957]"
+                 
+                 >
               <div className="self-start px-4 py-2 rounded-2xl bg-[#B7407D54] text-xs font-semibold border border-[#B740A1]">
                 10% Off!
               </div>
@@ -85,19 +91,17 @@ const ChoosePlan = () => {
                 <p>15 Sessions at ₹600/session</p>
                 <p className="text-green-400 font-semibold">Save ₹3000 overall!</p>
               </div>
-              <button className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD] text-[#F6E8FB] font-semibold hover:bg-[#B7407D]  transition-colors duration-200">
+              <Link to="/payment" className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD] text-[#F6E8FB] font-semibold hover:bg-[#B7407D]  transition-colors duration-200">
                 
-                <Link to='/test/fillup'> <span>Click to proceed</span> </Link>
+                 <span>Click to proceed</span> 
                 <FiArrowRight className="text-lg" />
-              </button>
+              </Link>
             </div>
      
 
         {/* Pricing Card 2 */}
-        <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative"
-                 style={{
-                   background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(94, 40, 100, 0.3) 100%)",
-                 }}>
+        <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative bg-[#564A5957]"
+                 >
                      <img
                 src={popularImage}
                 alt="Popular"
@@ -115,19 +119,17 @@ const ChoosePlan = () => {
                 <p>30 Sessions at ₹600/session</p>
                 <p className="text-green-400 font-semibold">Save ₹8000 overall!</p>
               </div>
-              <button className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD] text-[#292738] bg-[#F6E8FB]  font-semibold hover:bg-[#B7407D]  transition-colors duration-200">
+              <Link to="/payment" className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD] text-[#292738] bg-[#F6E8FB]  font-semibold hover:bg-[#B7407D]  transition-colors duration-200">
                 <span>Click to proceed</span>
                 <FiArrowRight className="text-lg" />
-              </button>
+              </Link>
             </div>
 
 
 
             {/* Pricing Card 3 */}
-            <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative"
-                 style={{
-                   background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(94, 40, 100, 0.3) 100%)",
-                 }}>
+            <div className="w-[320px] h-[400px] rounded-3xl p-8 flex flex-col justify-between items-center text-white relative bg-[#564A5957]"
+                >
              
               <div className="self-start px-4 py-2 rounded-2xl bg-[#B7407D54] text-xs font-semibold border border-[#B740A1]">
                 20% Off!
@@ -141,10 +143,10 @@ const ChoosePlan = () => {
                 <p>60 Sessions at ₹600/session</p>
                 <p className="text-green-400 font-semibold">Save ₹18000 overall!</p>
               </div>
-              <button className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD]  font-semibold hover:bg-[#B7407D] transition-colors duration-200">
+              <Link to="/payment" className="mt-6 px-6 py-3 rounded-full flex items-center justify-center space-x-2 border border-[#9C00AD]  font-semibold hover:bg-[#B7407D] transition-colors duration-200">
                 <span>Click to proceed</span>
                 <FiArrowRight className="text-lg" />
-              </button>
+              </Link>
             </div>
 
             
@@ -160,10 +162,10 @@ const ChoosePlan = () => {
 >
   {/* Card for "Assessment" */}
  
-    <div className="w-[900px] max-sm:w-[400px] p-8 flex flex-col items-center space-y-8">
+    <div className="w-[60vw] max-sm:w-[400px] p-8 flex flex-col items-center space-y-8">
       
       {/* Top Content: Discount and Price */}
-      <div className="w-[20vw] h-auto flex flex-col bg-[#9C00AD08] border p-4 border-[#B740A180] items-center gap-5 text-center text-[#F6E8FB] rounded-xl font-raleway">
+      <div className="w-[20vw] h-auto flex flex-col bg-[#564A5957] border p-4 border-[#B740A180] items-center gap-5 text-center text-[#F6E8FB] rounded-xl font-raleway">
         {/* Discount Label */}
         <div className="px-4 py-2 w-[100px] rounded-2xl bg-[#B7407D54] text-xs text-left font-semibold border border-[#B740A1]">
           20% Off!
@@ -185,7 +187,9 @@ const ChoosePlan = () => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             {/* Placeholder for Step 1 Image */}
-            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md"></div>
+            <div className="w-[110px] h-[110px]  bg-gray-500 rounded-md">
+              <img src={img1} className="w-full h-full" alt="" />
+            </div>
           </div>
           <h3 className="font-bold text-lg">In-Depth Assessment</h3>
           <p className="text-sm ">Specialized evaluations that uncover your child’s unique abilities and areas for growth, providing clear insights into their developmental journey.</p>
@@ -195,7 +199,9 @@ const ChoosePlan = () => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             {/* Placeholder for Step 2 Image */}
-            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md"></div>
+            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md">
+            <img src={img2} className="w-full h-full" alt="" />
+            </div>
           </div>
           <h3 className="font-bold text-lg">Personalized Therapy</h3>
           <p className="text-sm">Individualized sessions focused on building essential skills, designed to support your child’s specific developmental needs in a nurturing environment.</p>
@@ -205,7 +211,9 @@ const ChoosePlan = () => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             {/* Placeholder for Step 3 Image */}
-            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md"></div>
+            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md">
+            <img src={img3} className="w-full h-full" alt="" />
+            </div>
           </div>
           <h3 className="font-bold text-lg">Adaptive Learning Support</h3>
           <p className="text-sm">Resources and guidance tailored to promote learning success and help your child confidently engage with educational goals.</p>
@@ -215,7 +223,9 @@ const ChoosePlan = () => {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             {/* Placeholder for Step 4 Image */}
-            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md"></div>
+            <div className="w-[110px] h-[110px] bg-gray-500 rounded-md">
+            <img src={img4} className="w-full h-full" alt="" />
+            </div>
           </div>
           <h3 className="font-bold text-lg">A Brighter Tomorrow</h3>
           <p className="text-sm">Empowering your child to grow, thrive, and enjoy a happier life with improved self-confidence and adaptive skills.</p>
@@ -224,12 +234,12 @@ const ChoosePlan = () => {
 
       {/* Buttons Container */}
       <div className="flex justify-center space-x-4 mt-8">
-      <button className="px-2 w-auto md:h-[2.5rem] text-[#F6E8FB]  py-4 max-sm:px-1 max-sm:py-0 rounded-full text-lg max-sm:text-sm  font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
+      <Link to="/payment" className="px-2 w-auto md:h-[2.5rem] text-[#F6E8FB]  py-4 max-sm:px-1 max-sm:py-0 rounded-full text-lg max-sm:text-sm  font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
               <span>Take the assesment</span>
               <div className="w-[2rem] text-white group-hover:text-black text-lg flex justify-center items-center h-[2rem] rounded-full bg-[#B740A1] group-hover:bg-white  ">
               <GoArrowUpRight />
             </div>
-            </button>
+            </Link>
             <button className="px-2 w-auto md:h-[2.5rem] text-[#F6E8FB]  py-4 max-sm:px-1 max-sm:py-0 rounded-full text-lg max-sm:text-sm  font-semibold flex items-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]">
               <span>Share the assesment</span>
               <div className="w-[2rem] text-white group-hover:text-black text-lg flex justify-center items-center h-[2rem] rounded-full bg-[#B740A1] group-hover:bg-white  ">

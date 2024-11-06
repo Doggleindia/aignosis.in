@@ -13,12 +13,13 @@ const Advantages = () => {
         ></span>
         <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">Choose A Plan</span>
         <span
-          className="h-[10px] w-[118px] rounded-full"
-          style={{
-            background:
-              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-          }}
-        ></span>
+  className="h-[10px] w-[118px] rounded-full"
+  style={{
+    background:
+      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+  }}
+></span>
+
       </div>
 
       {/* Title and Description */}
