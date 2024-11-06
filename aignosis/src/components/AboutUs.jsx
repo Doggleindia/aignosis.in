@@ -16,9 +16,9 @@ import archit_img from '../assets/members/archit_img.jpg'
 import Partner from './Partner';
 
 const Divider = ({ title }) => (
-    <div className="flex justify-center gap-5 items-center mb-10 mt-10">
+    <div className="flex 2xl:mt-[4vw] md:mt-[14vw] justify-center gap-5 items-center mb-10">
         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
-        <h1 className="text-[#F1C6FE]">{title}</h1>
+        <h1 className="text-[#F1C6FE] 2xl:text-base md:text-sm">{title}</h1>
         <div className="w-[8rem] h-[1rem] rounded-3xl bg-[#FFCADF21]"></div>
     </div>
 );
@@ -44,10 +44,10 @@ const AboutUs = () => {
         <div className="bg-[#1A0C25] font-montserrat text-white">
             <div className="min-h-screen w-full">
                 <Header />
-                <section className="flex flex-col items-center h-auto md:h-[48vw] justify-center px-4 md:px-0">
+                <section className="flex  flex-col items-center h-auto md:h-[48vw] justify-center px-4 md:px-0">
                     <Divider title="Understanding the Numbers" />
                     <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl mt-[4vw] font-medium">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl  font-medium">
                             Ai.gnosis – Empowering Early Detection
                         </h1>
                         <p className="mt-3 text-sm sm:text-base">Working together for a brighter future.</p>

@@ -31,7 +31,7 @@ const ChoosePlan = () => {
   return (
     <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6">
       {/* Header Section */}
-      <div className="flex flex-row  items-center space-x-4 mb-8">
+      <div className="flex flex-row 2xl:mt-[4vw] md:mt-[6vw] items-center space-x-4 mb-8">
         <span
           className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
           style={{
