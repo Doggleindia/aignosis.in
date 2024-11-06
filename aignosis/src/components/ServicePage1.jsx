@@ -463,19 +463,19 @@ const ServicePage1 = () => {
 
                 {/* Contact Info Section */}
                 <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center flex-col md:flex-row'>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[13vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="w-[20vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaLocationDot />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-2'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[13vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <IoIosMail />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>aignosis7@gmail.com</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[13vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaPhoneAlt />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-4'>+91 94140 47644 +91 88900 47777</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[13vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaCalendarAlt />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>Schedule an appointment</h1>
                     </div>
@@ -487,13 +487,13 @@ const ServicePage1 = () => {
                         <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw] text-xs md:text-base'>Get in Touch or Visit Us</h1>
                         <h1 className='mt-4 tracking-wider text-xs md:text-sm'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
                         <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                            <div className="w-[12vw] h-[12vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
                                 <FaTwitter />
                             </div>
-                            <div className="w-[12vw] h-[12vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
                                 <FaDiscord />
                             </div>
-                            <div className="w-[12vw] h-[12vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
                                 <FaMedium />
                             </div>
                         </div>
