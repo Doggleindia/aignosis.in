@@ -74,8 +74,8 @@ const Header = () => {
 
 
     //     </div>
-    <div className={`text-white w-full font-montserrat inline-block fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60`}>
-      <div className="navbar text-center w-full flex justify-between items-center px-5 py-3">
+    <div className={`text-white w-full bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60`}>
+      <div className="navbar text-center w-full fixed flex justify-between items-center px-5 py-3">
         <div className="relative justify-center items-center inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg" ></div>
           <Link to="/" className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide text-white z-10">
@@ -86,9 +86,9 @@ const Header = () => {
           <Link to="/servicepage1">Services</Link>
           <Link to="/aboutus">About</Link>
           <Link to="/prices">Prices</Link> {/* Update to use 'to' prop */}
-          <Link to="/test/fillup" className='w-[15rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
-            <span>Book an appointment</span>
-            <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
+          <Link to="/test/fillup" className='2xl:w-[15rem] md:w-[14rem]  gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
+            <span className='2xl:text-base md:text-sm'>Book an appointment</span>
+            <div className='2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
               <GoArrowUpRight />
             </div>
           </Link>

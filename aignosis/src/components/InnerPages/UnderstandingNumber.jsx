@@ -72,7 +72,7 @@ const UnderstandingNumber = ({ bg }) => {
         >
           <div className="w-[50%] ml-[5rem]  max-sm:ml-[2rem] text-4xl   max-sm:text-lg h-full flex flex-col justify-center items-start">
             <h1 className="font-medium text-[#F6E8FB]">
-              <span className="text-[#811098] italic">1 in 64</span> children are autistic in India
+              <span className="text-[#811098] italic">1 in 68</span> children are autistic in India
             </h1>
             <h1 className="font-medium flex gap-4 items-center">
               <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[400px] max-sm:ml-[33vw]">SOS</span>

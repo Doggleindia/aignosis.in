@@ -64,35 +64,16 @@ const ServicePage1 = () => {
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-screen w-full '>
-
-                {/* <div className="navbar text-center w-full h-[7rem] flex justify-between items-center px-[12rem]">
-                    <div class="relative justify-center items-center inline-block">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-                        <Link to="/" class="relative text-3xl font-semibold tracking-wide text-white z-10">Ai.gnosis</Link>
-                    </div>
-                    <div className='flex justify-center font-medium items-center gap-[8rem]'>
-                        <Link to="/servicepage1">Services</Link>
-                        <Link to="/aboutus">About</Link>
-                        <Link to="/prices">Prices</Link>
-                        <div className='w-[15rem] gap-4 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300'>
-                            <Link to="">Book an appointment</Link>
-                            <div className='w-[2.5rem] text-white group-hover:text-black text-xl flex justify-center items-center h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white'>
-                                <GoArrowUpRight />
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-                
                 <div className='w-full justify-center items-center flex h-auto'>
-                    <div className='w-full flex-col h-[35vw] justify-center flex items-center'>
+                    <div className='w-full flex-col md:mt-[12vw] 2xl:mt-[6vw] h-[35vw] justify-center flex items-center'>
                         <div className="flex justify-center gap-5 items-center">
                             <span
                                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                 style={{
-                                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
+                                    background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
                                 }}
                             ></span>
-                            <h1 className='text-[#F1C6FE]'>Services</h1>
+                            <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Services</h1>
                             <span
                                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                 style={{
@@ -101,18 +82,18 @@ const ServicePage1 = () => {
                             ></span>
                         </div>
                         <div className=" justify-center w-full items-center flex flex-col">
-                            <h1 className='text-5xl mt-5 font-medium font-raleway'>Unlock Your Child’s Learning Potential</h1>
-                            <h1 className='mt-3 '>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
+                            <h1 className=' 2xl:text-5xl md:text-4xl mt-5 font-medium font-raleway'>Unlock Your Child’s Learning Potential</h1>
+                            <h1 className='2xl:text-base md:text-sm mt-3 '>Explore Online Assessments with 24/7 Support in 8 Languages!</h1>
                         </div>
                         <div className="flex gap-[3vw] w-full h-[4vw] mt-[2vw] justify-center items-center">
                             <div className='w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4'>
-                                <a href="" className='text-white'>Get In Touch</a>
+                                <a href="" className='text-white 2xl:text-base md:text-sm'>Get In Touch</a>
                                 <div className='w-[2.5rem] h-[2.5rem] flex items-center justify-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
                                     <GoArrowUpRight />
                                 </div>
                             </div>
 
-                            <h1 className='text-white font-semibold text-center'>Rated 4.5/5 by Parents</h1>
+                            <h1 className='text-white 2xl:text-base md:text-sm font-semibold text-center'>Rated 4.5/5 by Parents</h1>
                         </div>
                         <div className='w-[40vw] mt-[2vw] h-[20vw] bg-[#D9D9D9]'>
                             <img
@@ -124,23 +105,20 @@ const ServicePage1 = () => {
 
                     </div>
                 </div>
-
-
-
                 <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start">
-                    <div className="w-[50%] h-auto p-[3vw]">
+                    <div className="w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
-                                <h1 className='text-2xl text-left font-semibold'>What Are Assessments?</h1>
-                                <h1 className='mt-6 text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
+                                <h1 className='2xl:text-2xl md:text-xl text-left font-semibold'>What Are Assessments?</h1>
+                                <h1 className='mt-6 2xl:text-base md:text-sm text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='text-2xl text-left font-semibold'>Why is Early Diagnosis Important?</h1>
-                                <h1 className='mt-6 text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
+                                <h1 className='2xl:text-2xl md:text-xl text-left font-semibold'>Why is Early Diagnosis Important?</h1>
+                                <h1 className='mt-6 2xl:text-base md:text-sm text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='text-2xl text-left font-medium'>Our Assessment Services:</h1>
-                                <div className='pl-[2vw]mt-6 text-left'>
+                                <h1 className='2xl:text-2xl md:text-xl text-left font-medium'>Our Assessment Services:</h1>
+                                <div className='pl-[2vw]mt-6 2xl:text-base md:text-sm text-left'>
                                     <h1 className='mt-6 mr-[1vw]'>ADHD Screening</h1>
                                     <h1 className='mt-6 mr-[1vw]'>Autism Evaluation</h1>
                                     <h1 className='mt-6 mr-[1vw]'>Speech and Language Assessments</h1>
@@ -153,11 +131,11 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                         <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
-                            <h1 className='text-xl mt-10 font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
-                            <h1 className=' mt-3 pl-[2.5vw] text-center'>Support for Every Age Group</h1>
+                            <h1 className='mt-10 2xl:text-xl md:text-lg font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
+                            <h1 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-center'>Support for Every Age Group</h1>
                             <div className='mt-6 flex flex-col justify-center items-center pl-[2vw]'>
-                                <h1 className='text-xl text-left pr-[14vw] font-medium font-raleway'>We Specialize In:</h1>
-                                <div className='pl-[2vw] mt-6'>
+                                <h1 className='2xl:text-xl md:text-lg text-left pr-[14vw] font-medium font-raleway'>We Specialize In:</h1>
+                                <div className='pl-[1vw] 2xl:text-base md:text-sm mt-6'>
                                     <h1>Sensory Processing Disorder</h1>
                                     <h1 className='mt-6'>Autism</h1>
                                     <h1 className='mt-6'>ADHD</h1>
@@ -167,20 +145,19 @@ const ServicePage1 = () => {
                                     <h1 className='mt-6'>Slow Learners</h1>
                                     <h1 className='mt-6'>Down Syndromes</h1>
                                     <h1 className='mt-6'>Intellectual Disabilities</h1>
-
                                     <h1 className='mt-6 mb-[2v]'>Giftedness</h1>
                                 </div>
                             </div>
                         </div>
                         <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                                <span
-                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                                    style={{
-                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                                    }}
-                                ></span>
-                                <h1 className='text-[#F1C6FE]'>Advantages</h1>
+                            <span
+                                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                style={{
+                                    background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
+                                }}
+                            ></span>
+                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -189,9 +166,9 @@ const ServicePage1 = () => {
                                 ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='text-5xl mt-5 font-medium'>Why choose us</h1>
-                                <h1 className='mt-3'>Early Intervention + Consistent Practice </h1>
-                                <h1 className='font-semibold italic text-xl text-[#9C00AD]'>= Enhanced Progress!</h1>
+                                <h1 className='mt-5 2xl:text-5xl md:text-3xl font-medium'>Why choose us</h1>
+                                <h1 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h1>
+                                <h1 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>= Enhanced Progress!</h1>
                             </div>
                             <div className='w-full pt-[3vw] pl-[2.5vw] h-[25vw] justify-center flex items-center'>
                                 <div className="w-full flex h-[22vw] relative">
@@ -285,15 +262,15 @@ const ServicePage1 = () => {
                             </div>
 
                         </div>
-                        <div className='w-[100%]  flex-col mt-[10vw] h-[45vw] justify-center flex items-center'>
+                        <div className='w-[100%] flex-col md:mt-[20vw] 2xl:mt-[10vw] h-[45vw] justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
-                                <span
-                                    className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                                    style={{
-                                        background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                                    }}
-                                ></span>
-                                <h1 className='text-[#F1C6FE]'>Advantages</h1>
+                            <span
+                                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                                style={{
+                                    background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
+                                }}
+                            ></span>
+                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -302,17 +279,17 @@ const ServicePage1 = () => {
                                 ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='text-5xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
+                                <h1 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
                             </div>
                             <div className=" w-[42vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
                                 <table className="w-full text-left text-gray-200">
                                     <thead>
                                         <tr>
                                             <th className="pb-4 text-center text-lg border-r border-[#F6E8FB80]"> </th>
-                                            <th className="pb-4 text-sm p-[2vw] text-center">Ai.gnosis</th>
+                                            <th className="pb-4 p-[2vw] 2xl:text-sm md:text-xs text-center">Ai.gnosis</th>
                                         </tr>
                                     </thead>
-                                    <tbody className='text-center'>
+                                    <tbody className='text-center 2xl:text-base md:text-sm'>
                                         {[
                                             "Affordable Compared to Traditional Centers",
                                             "Access to Qualified Specialists",
@@ -338,46 +315,39 @@ const ServicePage1 = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className='w-auto flex-col mt-[6vw] h-[44vw] justify-center flex items-center'>
-                            <>
-                                <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
-                                    <h2 className="text-[#F6E8FB] text-[40px] text-center font-bold font-manrope">Frequently Asked Questions</h2>
-                                    <div className=" w-auto bg-[#564A5957] rounded-3xl p-8  mx-auto mt-10">
-                                        <div className="space-y-4">
-                                            {faqData.map((item, index) => (
-                                                <div key={index} className="border-b border-gray-400">
-                                                    <div
-                                                        onClick={() => toggleQuestion(index)}
-                                                        className="flex items-center justify-between py-4 cursor-pointer"
-                                                    >
-                                                        <p className="text-lg text-[#F6E8FB] font-raleway">{index + 1}. {item.question}</p>
-                                                        <button className="text-xl font-semibold text-gray-300">
-                                                            {openQuestion === index ? "−" : "+"}
-                                                        </button>
-                                                    </div>
-                                                    {openQuestion === index && (
-                                                        <p className="text-gray-300 font-montserrat text-sm mt-2 mb-4">{item.answer}</p>
-                                                    )}
+                        <div className='w-auto flex-col md:mt-[18vw] 2xl:mt-[1vw] h-[44vw] justify-center flex items-center'>
+
+                            <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
+                                <h2 className="text-[#F6E8FB] text-[40px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
+                                <div className=" w-auto bg-[#564A5957] rounded-3xl p-8 px-[5vw] mx-auto mt-10">
+                                    <div className="space-y-4">
+                                        {faqData.map((item, index) => (
+                                            <div key={index} className="border-b border-gray-400">
+                                                <div
+                                                    onClick={() => toggleQuestion(index)}
+                                                    className="flex items-center justify-between py-4 cursor-pointer"
+                                                >
+                                                    <p className="2xl:text-lg md:text-base text-[#F6E8FB] font-raleway">{index + 1}. {item.question}</p>
+                                                    <button className="2xl:text-xl md:text-lg font-semibold text-gray-300">
+                                                        {openQuestion === index ? "−" : "+"}
+                                                    </button>
                                                 </div>
-                                            ))}
-                                        </div>
-                                        <div className="text-center mt-8 text-gray-400 cursor-pointer">View All</div>
+                                                {openQuestion === index && (
+                                                    <p className="text-gray-300 font-montserrat text-sm mt-2 mb-4">{item.answer}</p>
+                                                )}
+                                            </div>
+                                        ))}
                                     </div>
+                                    <div className="text-center mt-8 2xl:text-base md:text-sm text-gray-400 cursor-pointer">View All</div>
                                 </div>
-                            </>
+                            </div>
                         </div>
                     </div>
-
-
-
-
-
-
                     <div className="w-[50%] h-auto p-[3vw] sticky top-10">
                         <div className="w-auto flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
-                            <h1 className='text-xl mt-10 font-semibold font-manrope '>Book an online consultation </h1>
-                            <h1 className='text-xl font-semibold font-manrope'>Today</h1>
-                            <form className="mt-[2vw] text-base px-[2vw] flex flex-col justify-center items-center space-y-4">
+                            <h1 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h1>
+                            <h1 className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</h1>
+                            <form className="mt-[2vw] 2xl:text-base md:text-sm px-[2vw] flex flex-col justify-center items-center space-y-4">
                                 <input
                                     type="text"
                                     placeholder="Your Name"
@@ -398,36 +368,36 @@ const ServicePage1 = () => {
                                     className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
                                 ></textarea>
                                 <Link to="" className='w-[50%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
-                                    <span className='text-white text-sm sm:text-base flex-grow text-center'>submit</span>
+                                    <span className='text-white 2xl:text-base md:text-sm flex-grow text-center'>submit</span>
                                     <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
                                         <GoArrowUpRight />
                                     </div>
                                 </Link>
                             </form>
-                            <h1 className='mt-[3vw] font-medium'>Reach us at </h1>
+                            <h1 className='mt-[3vw] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white text-sm font-medium'>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs font-medium'>+98876654334</h1>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
                                 <IoIosMail />
-                                <h1 className='text-white text-sm font-medium'>email@gamil.com</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>email@gamil.com</h1>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#3ad345] text-xl'>
                                 <FaWhatsapp />
-                                <h1 className='text-white text-sm font-medium'>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>+98876654334</h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='h-[50vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-                    <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-full border-[#B874B580]">
+                <div className='2xl:h-[50vw] md:h-[80vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+                    <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
                         <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
-                            <div className=" mt-[2rem]">
-                                <h1 className='text-center text-7xl tracking-tight font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
+                            <div className="">
+                                <h1 className='text-center 2xl:text-7xl md:text-5xl tracking-tight font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
                             </div>
-                            <div className='px-[25rem] mt-[2rem]'>
-                                <p className='text-center'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
+                            <div className='px-[25rem]'>
+                                <p className='text-center mt-[2vw] 2xl:text-base md:text-sm '>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
                             </div>
                         </div>
                         <div className="w-full h-[30vw] px-[10vw] gap-5 flex justify-center items-center">
@@ -442,11 +412,11 @@ const ServicePage1 = () => {
                                 ></iframe>
                             </div>
                             <div className="right w-[40%] px-[2vw] h-[85%]">
-                                <h1>
+                                <h1 className=' 2xl:text-base md:text-sm  '>
                                     Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
                                 </h1>
 
-                                <form className="mt-4 space-y-4">
+                                <form className="mt-4  2xl:text-base md:text-sm  space-y-4">
                                     <input
                                         type="text"
                                         placeholder="Your Name"
@@ -479,28 +449,28 @@ const ServicePage1 = () => {
                         </div>
                     </div>
                 </div>
-                <div className='w-full gap-[5vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center'>
-                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center'>
+                    <div className="2xl:w-[10vw] md:w-[13vw] md:h-[13vw] 2xl:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
                         <FaLocationDot />
-                        <h1 className='text-sm px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
+                        <h1 className=' 2xl:text-sm md:text-xs  px-2 text-center mt-4 text-white'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
                     </div>
-                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <div className="2xl:w-[10vw] md:w-[13vw] md:h-[13vw] 2xl:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
                         <IoIosMail />
-                        <h1 className='text-sm px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
+                        <h1 className='2xl:text-sm md:text-xs  px-10 text-center mt-4 text-white'>aignosis7@gmail.com</h1>
                     </div>
-                    <div className="w-[10vw] h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <div className="2xl:w-[10vw] md:w-[13vw] md:h-[13vw] 2xl:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
                         <FaPhoneAlt />
-                        <h1 className='text-sm px-4 text-center mt-4 text-white'>+91 94140 47644
+                        <h1 className='2xl:text-sm md:text-xs  px-4 text-center mt-4 text-white'>+91 94140 47644
                             <br />
                             +91 88900 47777</h1>
                     </div>
-                    <div className="w-[10vw] h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
+                    <div className="2xl:w-[10vw] md:w-[13vw] md:h-[13vw] 2xl:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col">
                         <FaCalendarAlt />
-                        <h1 className='text-sm px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
+                        <h1 className='2xl:text-sm md:text-xs  px-10 text-center mt-4 text-white'>Schedule an appoinment</h1>
                     </div>
                 </div>
-                <div className="footer">
-                    <div className='w-full flex-col  h-[20vw] bg-[#731762] flex justify-start items-center'>
+                <div className="footer ">
+                    <div className='w-full flex-col md:h-[25vw] 2x:h-[20vw] bg-[#731762] flex justify-start items-center'>
                         <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw]'>Get in Touch or Visit Us</h1>
                         <h1 className='mt-4 tracking-wider'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
                         <div className='flex justify-center gap-[4vw] mt-10 items-center'>

@@ -47,7 +47,7 @@ const AboutUs = () => {
                 <section className="flex flex-col items-center h-auto md:h-[48vw] justify-center px-4 md:px-0">
                     <Divider title="Understanding the Numbers" />
                     <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl mt-5 font-medium">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl mt-[4vw] font-medium">
                             Ai.gnosis – Empowering Early Detection
                         </h1>
                         <p className="mt-3 text-sm sm:text-base">Working together for a brighter future.</p>
