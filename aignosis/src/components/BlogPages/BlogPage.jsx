@@ -14,7 +14,7 @@ const BlogPage = () => {
      <Header />
 
       {/* Main Content */}
-      <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <div style={{ textAlign: "center", marginTop: "5rem" }}>
         <h2 style={{
           color: "#ff8aff",
           marginBottom: "0.5rem",
