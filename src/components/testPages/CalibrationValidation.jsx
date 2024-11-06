@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import valid_img from  '../../assets/valid_img.png'
 import StepProgress from './StepProgress'
 import CalibrationResult from './CalibrationResult';
-import asesment_video from '../../assets/video/assesment_video.mp4'
 const CalibrationValidation = () => {
   
     const [isResultVisible, setIsResultVisible] = useState(false);
