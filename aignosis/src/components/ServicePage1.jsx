@@ -114,7 +114,7 @@ const ServicePage1 = () => {
                             </h1>
                         </div>
 
-                        
+
 
                     </div>
                 </div>
@@ -403,9 +403,9 @@ const ServicePage1 = () => {
                         </div>
                     </div>
                 </div>
-                <div className='2xl:h-[50vw] md:h-[80vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-                    <div className="w-full h-[100%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
-                        <div className='w-full flex-col h-[20vw] justify-center flex items-center'>
+                <div className='2xl:h-[40vw] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+                    <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
+                        <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
                             <div className="">
                                 <h1 className='text-center 2xl:text-7xl md:text-5xl text-3xl font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
                             </div>
@@ -413,8 +413,8 @@ const ServicePage1 = () => {
                                 <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
                             </div>
                         </div>
-                        <div className="w-full h-[40vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
-                            <div className="w-[100%] md:w-[40%] h-[70%]">
+                        <div className="w-full h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
+                            <div className="w-[100%] md:w-[40%] h-[90%]">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
                                     width="100%"
@@ -462,20 +462,20 @@ const ServicePage1 = () => {
                 </div>
 
                 {/* Contact Info Section */}
-                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] h-[25vw] flex justify-center items-center flex-col md:flex-row'>
-                    <div className="w-[20vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] flex justify-center items-center flex-col md:flex-row'>
+                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaLocationDot />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-2'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <IoIosMail />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>aignosis7@gmail.com</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaPhoneAlt />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-4'>+91 94140 47644 +91 88900 47777</h1>
                     </div>
-                    <div className="w-[30vw] md:w-[10vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
+                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaCalendarAlt />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>Schedule an appointment</h1>
                     </div>
