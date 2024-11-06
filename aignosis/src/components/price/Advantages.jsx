@@ -5,7 +5,7 @@ const Advantages = () => {
     <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
       <div className="flex flex-row items-center space-x-4 mb-8">
         <span
-          className="h-[10px] w-[118px] rounded-full"
+          className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
           style={{
             background:
               "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
@@ -13,7 +13,7 @@ const Advantages = () => {
         ></span>
         <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">Choose A Plan</span>
         <span
-  className="h-[10px] w-[118px] rounded-full"
+  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
   style={{
     background:
       "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
@@ -31,7 +31,7 @@ const Advantages = () => {
           Ai.gnosis combines technology and care to provide accurate assessments and personalized <br /> support for your child’s growth.
         </p>
       </div>
-      <div className="bg-[#F5D7FF57] rounded-3xl p-6 w-[700px] max-sm:w-auto mx-auto mt-10 font-raleway">
+      <div className="bg-[#564A5957] rounded-3xl p-6 w-[700px] max-sm:w-auto mx-auto mt-10 font-raleway">
         <table className="w-full text-left text-gray-200">
           <thead>
             <tr>

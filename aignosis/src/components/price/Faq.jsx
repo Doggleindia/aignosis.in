@@ -39,7 +39,7 @@ const Faq = () => {
         <>
             <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
                 <h2 className="text-[#F6E8FB] text-[40px] font-bold font-manrope">Frequently Asked Questions</h2>
-                <div className=" w-[800px] max-sm:w-auto bg-gradient-to-r from-[#4B2C83] to-[#6F4C8A] rounded-3xl p-8  mx-auto mt-10">
+                <div className=" w-[55vw] max-sm:w-auto bg-[#564A5957] rounded-3xl p-8  mx-auto mt-10">
                     <div className="space-y-4">
                         {faqData.map((item, index) => (
                             <div key={index} className="border-b border-gray-400">
