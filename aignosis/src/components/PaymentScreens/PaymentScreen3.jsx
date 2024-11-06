@@ -6,6 +6,7 @@ import logo1 from "../../assets/images/payment/1.png";
 import logo2 from "../../assets/images/payment/2.png";
 import logo3 from "../../assets/images/payment/3.png";
 import snip1 from "../../assets/images/payment/logo1.png";
+import { Link } from 'react-router-dom';
 
 const PaymentScreen3 = ({ onNext, onBack }) => {
   const [selectedMethod, setSelectedMethod] = useState("");
@@ -88,7 +89,7 @@ const PaymentScreen3 = ({ onNext, onBack }) => {
       {/* Next Button */}
       <div className="w-full mt-[3vw] flex gap-[5vw] justify-center items-center">
             <button onClick={onBack} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Back</button>
-            <button onClick={handleNext} className='py-3 px-7 border rounded-3xl border-[#9C00AD] bg-[#9C00AD]'>Next</button>
+            <Link to="/test/fillup" className='py-3 px-7 border rounded-3xl border-[#9C00AD] bg-[#9C00AD]'>Next</Link>
           </div>
     </div>
   );
