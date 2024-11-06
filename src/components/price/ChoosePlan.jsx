@@ -194,10 +194,10 @@ const ChoosePlan = () => {
       {/* Top Content: Discount and Price */}
       <div className="w-full md:w-[40vw] lg:w-[20vw] h-auto flex flex-col bg-[#564A5957] border p-4 border-[#B740A180] items-center gap-5 text-center text-[#F6E8FB] rounded-xl font-raleway">
         <div className="px-4 py-2 w-[100px] rounded-2xl bg-[#B7407D54] text-xs text-left font-semibold border border-[#B740A1]">
-          20% Off!
+          65% Off!
         </div>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4">₹1400</h2>
-        <p className="text-xs md:text-sm lg:text-md font-normal">(Comprehensive Evaluation)</p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4">₹700</h2>
+        <p className="text-xs md:text-sm lg:text-md font-normal">(originally ₹2000)</p>
         <div className="space-y-2 text-center text-xs md:text-sm lg:text-md mt-4">
           <p>Includes Formal Report</p>
           <p>Detailed Explanation</p>
