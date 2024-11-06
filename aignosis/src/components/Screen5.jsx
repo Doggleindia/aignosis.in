@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
-import bg from '../assets/images/poster.png';
-import bg2 from '../assets/images/poster2.png';
-import bg3 from '../assets/images/poster3.png';
+import bg from '../assets/images/poster4.png';
+import bg2 from '../assets/images/poster5.png';
+import bg3 from '../assets/images/poster6.png';
+import bg4 from '../assets/images/poster7.png';
+import bg5 from '../assets/images/poster8.png';
+
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 
 const Screen5 = () => {
     const slides = [
         {
-            title: "Does your child watch screens for more than 2 hours a day?",
+            title: "Does NOT follow moving objects with eyes",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg
         },
         {
-            title: "Does your child show frequent tantrums and meltdowns?",
-            description: "Frequent tantrums and meltdowns may signal challenges in emotional regulation, often linked to early signs of autism. Understanding these behaviors can aid in timely intervention.",
+            title: "Does NOT use gestures like waving or shaking head",
+            description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg2
         },
         {
-            title: "Does your child have difficulty speaking and communicating needs?",
-            description: "Difficulties in speaking and expressing needs are common indicators of developmental delays and autism. Early recognition of communication challenges is essential for support.",
+            title: "Does NOT speak two-word sentences",
+            description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg3
+        },
+        {
+            title: "Has DIFFICULTY manipulating small objects",
+            description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
+            img: bg4
+        },
+        {
+            title: "Has DIFFICULTY scribbling or drawing",
+            description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
+            img: bg5
         }
     ];
 
@@ -78,12 +91,12 @@ const Screen5 = () => {
                         >
                             {slides.map((slide, index) => (
                                 <div key={index} className="w-full flex-shrink-0 flex flex-col md:flex-row">
-                                    <div className="w-full 2xl:w-[50%] md:w-[30%] h-[15rem] md:h-full flex justify-center items-center">
-                                        <img className='w-full h-full object-cover' src={slide.img} alt={slide.title} />
+                                    <div className="w-full 2xl:w-[28vw] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
+                                        <img className='w-full h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
                                     </div>
-                                    <div className="w-full xl:w-[60%] md:w-[80%] mt-4 md:mt-0 md:ml-[5rem] 2xl:pr-[3vw] md:pr-[2vw] text-base md:text-4xl flex flex-col justify-center items-start">
-                                        <h1 className='font-medium text-left max-sm:text-center md:text-lg 2xl:text-2xl'>{slide.title}</h1>
-                                        <p className='mt-2 text-sm max-sm:text-center md:pr-[2rem] 2xl:text-lg md:text-base'>{slide.description}</p>
+                                    <div className="w-full 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
+                                        <h1 className='font-medium w-[full] text-left max-sm:text-center md:text-lg 2xl:text-2xl'>{slide.title}</h1>
+                                        <p className='mt-2 text-sm max-sm:text-left 2xl:text-lg md:text-base'>{slide.description}</p>
                                         <div className='w-full md:w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-4 md:mt-[2rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center text-[#0D0C0A] h-[2.5rem] md:h-[3rem] bg-transparent '>
                                             <a href="#" className='text-white text-sm md:text-base'>Learn more</a>
                                         </div>

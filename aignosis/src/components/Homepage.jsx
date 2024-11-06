@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import HeroSection from './InnerPages/HeroSection';
+import Header from './Header';
 
 const Homepage = () => {
     const [showNavbar, setShowNavbar] = useState(true);
@@ -27,7 +28,7 @@ const Homepage = () => {
     return (
         <>
             {/* Navbar */}
-            <div
+            {/* <div
                 className={`text-white w-full font-montserrat fixed top-0 z-10 transition-transform duration-300 ${
                     showNavbar ? 'translate-y-0 backdrop-blur-md bg-opacity-60' : '-translate-y-full'
                 } `}
@@ -54,8 +55,8 @@ const Homepage = () => {
                         </Link>
                     </div>
                 </div>
-            </div>
-
+            </div> */}
+            <Header />
             {/* Hero Section */}
             <HeroSection />
         </>
