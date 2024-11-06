@@ -41,3 +41,34 @@
     animation: slideUp 0.8s ease-out translate-y-fulls forwards;
   }
   
+  .slide-right {
+    display: inline;
+    animation: slide-right 0.7s ease forwards alternate;
+  }
+
+  .slide-right-fast {
+    display: inline;
+    animation: slide-right 0.7s ease forwards alternate;
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-right-fast {
+    0% {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

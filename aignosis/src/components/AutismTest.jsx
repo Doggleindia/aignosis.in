@@ -57,28 +57,31 @@ const AutismTest = () => {
     },
   ];
 
+
   const scrollContainerRef = useRef(null);
-  const imageContainerRef = useRef(null);
   const isInitialRender = useRef(true);
+  const animatingRef = useRef(false); // To track animation state and avoid overscrolling
 
   useEffect(() => {
     const handleWheel = (event) => {
-      if (!imageContainerRef.current.contains(event.target)) return;
-
+      if (animatingRef.current) return; // Prevent scroll if an animation is in progress
       event.preventDefault();
+      animatingRef.current = true; // Set animation in progress
+
       if (event.deltaY > 0) {
         setCurrentStep((prev) => Math.min(prev + 1, stepsContent.length));
       } else {
         setCurrentStep((prev) => Math.max(prev - 1, 1));
       }
+
+      // Allow new scroll only after animation completes
+      setTimeout(() => animatingRef.current = false, 800);
     };
 
     const container = scrollContainerRef.current;
-    container.addEventListener('wheel', handleWheel, { passive: false });
+    container.addEventListener("wheel", handleWheel, { passive: false });
 
-    return () => {
-      container.removeEventListener('wheel', handleWheel);
-    };
+    return () => container.removeEventListener("wheel", handleWheel);
   }, []);
 
   useLayoutEffect(() => {
@@ -88,7 +91,7 @@ const AutismTest = () => {
     }
     const section = scrollContainerRef.current.querySelector(`[data-step="${currentStep}"]`);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [currentStep]);
 
@@ -96,46 +99,36 @@ const AutismTest = () => {
     <div
       ref={scrollContainerRef}
       className="flex flex-col snap-y w-full snap-mandatory mt-8 h-screen overflow-hidden"
-      style={{ scrollBehavior: 'smooth', overflowY: 'hidden' }}
+      style={{ scrollBehavior: "smooth", overflowY: "hidden" }}
     >
       {stepsContent.map((content, index) => (
         <div
           key={index}
-          className={`scroll-section flex justify-between min-h-screen snap-start p-8 ${index + 1 === currentStep ? 'animate-slideUp' : ''}`}
+          className={`scroll-section flex justify-between min-h-screen snap-start p-8 
+            ${index + 1 === currentStep ? "animate-slideUp" : ""}`}
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
           <div className="md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left Side Content */}
-            <div className="flex flex-col justify-center text-white space-y-4">
+            <div className="flex flex-col justify-center text-white space-y-4 transition-transform duration-700 transform 
+              ${currentStep === index + 1 ? 'translate-y-0' : 'translate-y-10 opacity-0'}">
               <div className="flex items-center space-x-2">
-                <span
-                  className="h-[10px] w-[118px] rounded-full"
-                  style={{
-                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-                  }}
-                ></span>
-                <span style={{ color: "rgba(241, 198, 254, 1)" }}>
-                  {content.header}
-                </span>
-                <span
-                  className="h-[10px] w-[118px] rounded-full"
-                  style={{
-                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-                  }}
-                ></span>
+                {/* Header Line Decor */}
+                <span className="h-[10px] w-[118px] rounded-full" style={{ background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)" }}></span>
+                <span style={{ color: "rgba(241, 198, 254, 1)" }}>{content.header}</span>
+                <span className="h-[10px] w-[118px] rounded-full" style={{ background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)" }}></span>
               </div>
-              <h2 className="text-4xl font-semibold leading-snug">
+              <h2 className={`text-4xl font-semibold leading-snug ${currentStep === index + 1 ? 'slide-right' : ''}`}
+              >
                 {content.title}
                 <br />
-                <span className="font-light italic">
-                  {content.subtitle !== content.header ? content.subtitle : ""}
-                </span>
+                <span className={`font-light italic ${currentStep === index + 1 ? 'slide-right' : ''}`}>{content.subtitle !== content.header ? content.subtitle : ""}</span>
               </h2>
-              <p className="text-gray-300">{content.description}</p>
+              <p className={`text-gray-300 ${currentStep === index + 1 ? 'slide-right' : ''}`}>{content.description}</p>
               <Link
                 to="/test/fillup"
-                className="px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[206px]"
+                className={`px-6 py-2 bg-transparent border border-pink-400 rounded-full hover:bg-[#B7407D] hover:text-white transition w-[206px] ${currentStep === index + 1 ? 'slide-right-fast' : ''}`}
               >
                 Take Assignment
               </Link>
@@ -143,11 +136,11 @@ const AutismTest = () => {
 
             {/* Right Side - Image and Indicator Wrapper */}
             <div className="relative flex justify-center items-center">
-              {/* Dynamic Image for Each Step */}
               <img
                 src={content.image}
                 alt={`Background for step ${content.ScreenNumber}`}
-                className="md:w-[1101px] h-auto scale-145"
+                className="md:w-[1101px] h-auto scale-145 transition-transform duration-700"
+                style={{ transform: currentStep === index + 1 ? "scale(1)" : "scale(1.1)" }}
               />
 
               {/* Circle Indicators Container */}
@@ -156,10 +149,8 @@ const AutismTest = () => {
                   <div key={item} className="flex flex-col items-center">
                     <div
                       onClick={() => setCurrentStep(item)}
-                      className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer ${currentStep === item
-                        ? "bg-[#952981]"
-                        : "bg-transparent border border-[#9C00AD]"
-                        }`}
+                      className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer 
+                        ${currentStep === item ? "bg-[#952981]" : "bg-transparent border border-[#9C00AD]"}`}
                     >
                       {item}
                     </div>
@@ -170,7 +161,6 @@ const AutismTest = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       ))}
