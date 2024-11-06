@@ -45,7 +45,7 @@ export const FillupPage = () => {
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen">
         {/* <StepProgress /> */}
         {!isBackInfoVisible ? (
-          <div className="flex flex-row mt-[10px]">
+          <div className="flex flex-row justify-between mt-[10px]">
             {/* Left side content */}
             <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px]">
               {/* Logo with Gradient Background */}
@@ -57,18 +57,18 @@ export const FillupPage = () => {
               </div>
 
               {/* Assessment Text */}
-              <div className="flex flex-col space-y-4 max-w-sm mr-[100px]">
+              <div className="flex flex-col space-y-4 max-w-sm ">
                 <p className="text-white font-manrope text-center text-2xl">
                   Please take the assessment to <span className="text-left ">begin with diagnosis</span>
                 </p>
-                <p className="text-[#FFFFFF] font-raleway text-sm px-4 py-2 text-center ml-[px]">
+                <p className="text-[#FFFFFF] font-raleway text-sm px-4 py-2 text-center ">
                   Assessment duration: 5 mins
                 </p>
               </div>
             </div>
 
             {/* Right side form */}
-            <div className="bg-[#564A5957] p-10 rounded-2xl shadow-lg w-[800px] ml-[100px] mx-8">
+            <div className="bg-[#564A5957] p-10 rounded-2xl shadow-lg w-[50vw] mx-8">
               <h2 className="text-white text-2xl font-semibold mb-4 font-manrope text-center">
                 Welcome to Ai.gnosis early detection screener
               </h2>
