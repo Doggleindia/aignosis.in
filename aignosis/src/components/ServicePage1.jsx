@@ -59,6 +59,27 @@ const ServicePage1 = () => {
             answer: "During the assessment, your child will participate in various activities and tasks designed to evaluate their cognitive, social, and emotional functioning. The process is interactive and child-friendly, ensuring your child feels comfortable. Afterward, you will receive a detailed report outlining the findings, along with recommendations for further support or intervention if needed.",
         }
     ];
+    const Divider = ({ title }) => (
+        <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                }}
+            ></span>
+            <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
+                {title}
+            </h1>
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                }}
+            ></span>
+        </div>
+    );
 
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
@@ -68,21 +89,8 @@ const ServicePage1 = () => {
                     <div className="w-full flex flex-col justify-center items-center md:mt-[12vw] 2xl:mt-[6vw] h-auto">
 
                         {/* Title and Gradient Bars */}
-                        <div className="flex justify-center gap-5 items-center mb-5">
-                            <span
-                                className="h-[5px] sm:h-[10px] w-[60px] sm:w-[118px] rounded-full"
-                                style={{
-                                    background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
-                                }}
-                            ></span>
-                            <h1 className="text-[#F1C6FE] text-sm sm:text-base">Services</h1>
-                            <span
-                                className="h-[5px] sm:h-[10px] w-[60px] sm:w-[118px] rounded-full"
-                                style={{
-                                    background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                                }}
-                            ></span>
-                        </div>
+                        <Divider title="Services" />
+
 
                         {/* Headline and Subtitle */}
                         <div className="flex flex-col items-center text-center">

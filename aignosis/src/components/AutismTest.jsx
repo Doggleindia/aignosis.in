@@ -94,6 +94,27 @@ const AutismTest = () => {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [currentStep]);
+  const Divider = ({ title }) => (
+    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+        <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+                background:
+                    "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+        ></span>
+        <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
+            {title}
+        </h1>
+        <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+                background:
+                    "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+        ></span>
+    </div>
+);
 
   return (
     <div
@@ -111,19 +132,17 @@ const AutismTest = () => {
         >
           <div className="md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left Side Content */}
-            <div className="flex flex-col justify-center text-white space-y-4 transition-transform duration-700 transform 
+            <div className="flex flex-col justify-center pr-[2rem] text-white space-y-4 transition-transform duration-700 transform 
               ${currentStep === index + 1 ? 'translate-y-0' : 'translate-y-10 opacity-0'}">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center mr-[2rem]">
                 {/* Header Line Decor */}
-                <span className="h-[10px] w-[118px] rounded-full" style={{ background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)" }}></span>
-                <span style={{ color: "rgba(241, 198, 254, 1)" }}>{content.header}</span>
-                <span className="h-[10px] w-[118px] rounded-full" style={{ background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)" }}></span>
+                <Divider title={content.header} />
               </div>
-              <h2 className={`text-4xl font-semibold leading-snug ${currentStep === index + 1 ? 'slide-right' : ''}`}
+              <h2 className={`2xl:text-4xl md:text-3xl font-semibold leading-snug ${currentStep === index + 1 ? 'slide-right' : ''}`}
               >
                 {content.title}
                 <br />
-                <span className={`font-light italic ${currentStep === index + 1 ? 'slide-right' : ''}`}>{content.subtitle !== content.header ? content.subtitle : ""}</span>
+                <span className={`font-light 2xl:text-3xl md:text-2xl italic ${currentStep === index + 1 ? 'slide-right' : ''}`}>{content.subtitle !== content.header ? content.subtitle : ""}</span>
               </h2>
               <p className={`text-gray-300 ${currentStep === index + 1 ? 'slide-right' : ''}`}>{content.description}</p>
               <Link

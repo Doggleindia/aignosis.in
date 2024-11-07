@@ -98,7 +98,27 @@ const Screen4 = () => {
       },
     },
   };
-
+  const Divider = ({ title }) => (
+    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+      <span
+        className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+        style={{
+          background:
+            "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+        }}
+      ></span>
+      <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
+        {title}
+      </h1>
+      <span
+        className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+        style={{
+          background:
+            "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+        }}
+      ></span>
+    </div>
+  );
 
 
   return (
@@ -107,21 +127,8 @@ const Screen4 = () => {
       <div className="w-auto flex justify-center items-center flex-col">
         <div className="bg-[#322040] relative shadow-xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
           <div className="flex-col  justify-center flex items-center">
-            <div className="flex justify-center gap-5 items-center">
-              <span
-                className="h-[10px] 2xl:w-[118px] rounded-full md:w-[130px]"
-                style={{
-                  background:"linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                }}
-              ></span>
-              <h1 className='text-[#F1C6FE] md:text-sm 2xl:text-xl'>Recognize the Signs</h1>
-              <span
-                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                style={{
-                  background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                }}
-              ></span>
-            </div>
+          <Divider title="Development stages" />
+
             <div className="mt-[1rem] flex justify-center items-center flex-col w-full">
               <h1 className="text-center max-sm:text-lg md:text-xl 2xl:text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
