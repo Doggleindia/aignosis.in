@@ -7,6 +7,7 @@ import Screen5 from './Screen5'
 import MainComponent from './MainComponent'
 import Footer from './Footer'
 import PartnershipPage from './PartnershipPage'
+import ContactPage from './ContactPage'
 const HomepageMain = () => {
   return (
     <div className='bg-[#1A0C25]'>
@@ -18,6 +19,7 @@ const HomepageMain = () => {
       <Screen5 />
       <MainComponent />
       <PartnershipPage/>
+      <ContactPage/>
       <Footer/>
       
     </div>
