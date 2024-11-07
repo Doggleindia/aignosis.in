@@ -53,7 +53,7 @@ const PartnershipPage = () => {
 
     return (
         <div className='min-h-screen 2xl:px-[8rem] md:px-[4rem] text-white flex flex-col w-full font-montserrat bg-[#1A0C25] pb-10'>
-            <div className="w-full flex 2xl:px-[2rem] py-[8rem] flex-col justify-center items-center border-t rounded-[10rem] border-[#B874B580] mb-10">
+            <div className="w-full flex 2xl:px-[2rem] py-[2rem] flex-col justify-center items-center border-t rounded-[10rem] border-[#B874B580] mb-10">
                 <div className='flex flex-col justify-center items-center px-4 mb-10'>
                     <div className="flex justify-center gap-5 items-center mb-4">
                         <span

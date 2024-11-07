@@ -5,31 +5,9 @@ import { Link } from 'react-router-dom'
 const GiftAssessment = () => {
   return (
     <div>
-        <div className="flex flex-col items-center gap-5 bg-[#1A0C25]  min-h-screen text-white">
+        <div className=" flex flex-col items-center gap-5 bg-[#1A0C25]  min-h-screen text-white">
  {/* Header Section */}
- <div className="flex flex-row  items-center space-x-4 ">
-        <span
-          className="h-[10px] w-[118px] rounded-full"
-          style={{
-            background:
-              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-          }}
-        ></span>
-        <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm font-raleway  text-lg">Share as a gift</span>
-        <span
-  className="h-[10px] w-[118px] rounded-full"
-  style={{
-    background:
-      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-  }}
-></span>
-
-      </div>
-      <h2 className="text-5xl font-semibold  font-raleway text-[#F6E8FB] text-center">Gift an Assessment</h2>
-      <p className="text-center max-w-auto mt-4 text-[#ECECEC] text-md">
-        Share the gift of support and insight by sending this assessment to a family in need. <br /> 
-        Fill in the details below to personalize your gift and help make a difference in a child's journey.
-      </p>
+ 
 
       <div className="w-[40vw] max-sm:w-[80vw]   mt-8 p-10 bg-[#9C00AD08] border border-[#B740A180] rounded-lg">
         <h3 className="text-xl font-semibold mb-4 text-[#ECECEC] text-center">Sender's Details</h3>
