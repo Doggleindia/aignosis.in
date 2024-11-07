@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import { GoArrowUpRight } from 'react-icons/go'
-import { Link } from 'react-router-dom'
+import { GoArrowUpRight } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 import img1 from '../../assets/video/hero section.mp4';
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger separately
 import ScrollToPlugin from "gsap/ScrollToPlugin";
-
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); // Register both plugins
 
@@ -14,25 +13,24 @@ const HeroSection = () => {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        let heroElements = []
+        let heroElements = [];
+
         const applyAnimations = () => {
             if (window.innerWidth >= 768) {
+                // Animations for larger screens (Laptop/Tablet)
                 heroElements = [
-                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=40px bottom+=100px", duration:2, scrub: true },
-                    { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom+=100px", duration:2  },
-                    { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom+=100px", duration:2  },
+                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=40px bottom+=100px", duration: 2, scrub: true },
+                    { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom+=100px", duration: 2 },
+                    { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom+=100px", duration: 2 },
                 ];
-                // before 768px
-            }
-            else {
+            } else {
+                // Animations for smaller screens (Mobile)
                 heroElements = [
-                    { id: "#bgvdo", x: '0', y: "0", scale: 0.5, start: "top=0px bottom=0px" },
-                    { id: "#textright", x: '-20vw', y: '0px', start: "top=50px bottom=0px" },
-                    { id: "#textleft", x: '20vw', y: '0px', start: "top=50px bottom=0px" },
+                    { id: "#bgvdo", x: '0', y: "0", scale: 0.7, start: "top=0px bottom=0px" }, // Slightly larger scale for mobile
+                    { id: "#textright", x: '-10vw', y: '0px', start: "top=50px bottom=0px" },  // Adjust positioning for smaller screens
+                    { id: "#textleft", x: '10vw', y: '0px', start: "top=50px bottom=0px" },
                 ];
-                // after 768px
             }
-
 
             heroElements.forEach(({ id, x, y, scale, start }) => {
                 gsap.to(id, {
@@ -67,16 +65,15 @@ const HeroSection = () => {
         };
     }, []);
 
-
     return (
-        <div className="body  w-full h-screen relative flex-col flex justify-center items-center">
+        <div className="body w-full h-screen relative flex-col flex justify-center items-center">
             <video id='bgvdo'
                 loop
                 autoPlay
-                muted src={img1} alt="" className='w-full h-screen opacity-90 relative object-cover' ></video>
+                muted src={img1} alt="" className='w-full h-screen opacity-90 relative object-cover' />
             <div className='w-full h-full absolute flex-col flex justify-center items-center'>
                 <div className="w-full overflow-hidden">
-                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight text-6xl font-semibold">
+                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight max-sm:text-3xl text-6xl font-semibold">
                         <span id='textright' className="block"> Frontier AI for Your Child’s</span>
                         <span id='textleft' className="block">&nbsp; Best Development </span>
                     </h1>
@@ -92,4 +89,4 @@ const HeroSection = () => {
     )
 }
 
-export default HeroSection
+export default HeroSection;

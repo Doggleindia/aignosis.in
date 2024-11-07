@@ -7,7 +7,7 @@ const ContactPage = () => {
     return (
         <>
             {/* Contact Form Section */}
-            <div className='2xl:h-[40vw] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+            <div className='2xl:h-[50vw] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
                 <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
                     <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
                         <div className="">

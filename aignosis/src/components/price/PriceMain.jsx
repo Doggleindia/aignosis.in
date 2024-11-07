@@ -4,6 +4,7 @@ import Advantages from './Advantages'
 import Faq from './Faq'
 import Header from '../Header'
 import Footer from '../Footer'
+import ContactPage from '../ContactPage'
 
 
 const PriceMain = () => {
@@ -13,6 +14,7 @@ const PriceMain = () => {
         <ChoosePlan />
         <Advantages />
         <Faq />
+        <ContactPage />
         <Footer/>
     </>
   )
