@@ -103,9 +103,9 @@ const Screen4 = () => {
 
   return (
     <div
-      className="h-screen max-sm:h-[40vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]">
+      className="h-screen max-sm:h-[40vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25] relative">
       <div className="w-auto flex justify-center items-center flex-col">
-        <div className="bg-[#322040] relative shadow-xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
+        <div className="bg-[#1A0C254D] relative shadow-2xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
           <div className="flex-col  justify-center flex items-center">
             <div className="flex justify-center gap-5 items-center">
               <span
@@ -122,7 +122,7 @@ const Screen4 = () => {
                 }}
               ></span>
             </div>
-            <div className="mt-[1rem] flex justify-center items-center flex-col w-full">
+            <div className="mt-[1rem] flex justify-center gap-3 items-center flex-col w-full">
               <h1 className="text-center max-sm:text-lg md:text-xl 2xl:text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
               </h1>
@@ -130,23 +130,31 @@ const Screen4 = () => {
               <div className="m-[1rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
                 <img src={graph_img} alt="" />
               </div>
-
-
-              <div className="relative -left-[12%] -top-[18%] max-sm:hidden">
-                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">Brain development</p>
-                <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">With First 5 Years</p>
-              </div>
               <div className=" mb-4">
                 <p className="absolute md:text-xs 2xl:text-lg left-[20%]  max-sm:hidden">Birth</p>
                 <p className="absolute md:text-xs 2xl:text-lg left-[55%] max-sm:hidden">5 Years</p>
                 <p className="absolute md:text-xs 2xl:text-lg left-[76%] max-sm:hidden">18 Years</p>
               </div>
 
+          
+
 
 
             </div>
+            
           </div>
+          
+          <div className="justify- relative -left-[12%] -top-[19%] max-sm:hidden">
+                
+                {/* <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md"></p> */}
+              </div>
+              <p className="flex justify-center align-center mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md">Brain development With First 5 Years</p>
         </div>
+
+        <div className="absolute inset-0 bg-[#B740A1] w-[10vw] h-[30vw]   left-0   opacity-65 blur-[200px] rounded-xl "></div>
+        <div className="absolute inset-0 bg-[#B740A1] w-auto h-[30vw]   left-[85%] top-[50%]  opacity-65 blur-[200px] rounded-xl "></div>
+
+
       </div>
     </div>
   );

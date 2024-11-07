@@ -16,10 +16,14 @@ const Laptop = () => {
             <source src={aivideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-  
+   
           {/* Decorative circles */}
           <div className="absolute top-[8px] left-1/2 w-[10px] h-[10px] rounded-full bg-[#252525] transform -translate-x-1/2 z-10"></div>
           <div className="absolute top-[11px] left-1/2 w-[6px] h-[6px] rounded-full bg-[#252525] transform translate-x-[calc(100%_+_5px)] z-10"></div>
+          
+          <div className="absolute inset-0 bg-[#B740A1] w-[10vw] h-[10vw]  bottom-0 left-0 top-[90%]  opacity-65 blur-[120px] rounded-xl "></div>
+          
+          
         </div>
       </div>
     );
