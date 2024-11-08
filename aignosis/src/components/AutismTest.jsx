@@ -130,7 +130,7 @@ const AutismTest = () => {
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
-          <div className="md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="relative md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-[5vw]">
             {/* Left Side Content */}
             <div className="flex flex-col justify-center pr-[2rem] text-white space-y-4 transition-transform duration-700 transform 
               ${currentStep === index + 1 ? 'translate-y-0' : 'translate-y-10 opacity-0'}">
@@ -153,6 +153,10 @@ const AutismTest = () => {
               </Link>
             </div>
 
+            
+            <div className="absolute left-[26vw] top-[15vw] bottom-[15vw] w-[15vw] h-[20vw]  inset-0 bg-[#B740A1] opacity-65 blur-[200px] rounded-lg "></div>
+          
+          
             {/* Right Side - Image and Indicator Wrapper */}
             <div className="relative flex justify-center items-center">
               <img

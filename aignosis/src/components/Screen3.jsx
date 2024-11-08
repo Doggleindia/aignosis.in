@@ -38,7 +38,7 @@ const Screen3 = () => {
             <h1 className='text-2xl 2xl:text-5xl w-full text-center md:text-3xl tracking-tight font-semibold leading-[3rem] text-[#F6E8FB] max-sm:text-center'>Understanding the Numbers</h1>
             <h1 className='text-center 2xl:text-5xl text-2xl md:text-4xl italic tracking-tight font-semibold mt-5 max-sm:mt-0 max-sm:mr-[20px] md:leading-[.1rem] 2xl:leading-[3rem] text-[#F6E8FB]'>Developmental Delays & Autism</h1>
           </div>
-          <div className='px-[16rem] mt-[2rem] mb-3 max-sm:px-[30px] max-sm:mt-0 flex flex-wrap max-sm:mb-[250px] '>
+          <div className='px-[16rem] mt-[2rem] mb-3 max-sm:px-[30px] max-sm:mt-2 flex flex-wrap max-sm:mb-[250px] '>
             <p className='text-center text-[#ECECEC] text-sm 2xl:text-xl md:text-base'>
               Gain insight into the prevalence of developmental challenges and autism among children.
               Each data point highlights the urgency of early detection, supporting parents with reliable information to act quickly.
