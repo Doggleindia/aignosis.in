@@ -14,6 +14,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import BlogPage from './components/BlogPages/BlogPage';
 import PaymentScreensMain from './components/PaymentScreensMain';
 import Toddlers from './components/testPages/Toddlers';
+import ContactPage from './components/ContactPage';
 
 const App = () => {
   return (

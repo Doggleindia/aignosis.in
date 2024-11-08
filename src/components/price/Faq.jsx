@@ -38,7 +38,7 @@ const Faq = () => {
     return (
         <>
             <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
-                <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[25px] font-bold font-manrope">Frequently Asked Questions</h2>
+                <h2 className="text-[#F6E8FB] text-[40px] font-bold font-manrope">Frequently Asked Questions</h2>
                 <div className=" w-[55vw] max-sm:w-auto bg-[#564A5957] rounded-3xl p-8  mx-auto mt-10">
                     <div className="space-y-4">
                         {faqData.map((item, index) => (

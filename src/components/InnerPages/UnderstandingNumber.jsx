@@ -45,13 +45,13 @@ const UnderstandingNumber = () => {
             background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
           }}
         >
-          <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] md:text-3xl 2xl:text-4xl max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
+          <div className="w-[50%]   ml-[5rem] max-sm:ml-[2rem] md:text-3xl 2xl:text-4xl max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
             <h1 className=" text-[#F6E8FB] font-raleway italic">
-              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-5xl">1 in 10 </span> children experience developmental delays
+              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-5xl max-sm:text-2xl">1 in 10 </span> children experience developmental delays
               
             </h1> 
             <h1 className="font-medium flex gap-4 items-center">
-              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[26vw] max-sm:ml-[33vw]">SOS</span>
+              <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[26vw] max-sm:ml-[30vw]">SOS</span>
             </h1>
             <h1 className="text-base max-sm:text-sm mt-2 text-[#F6E8FB]">Early identification is essential for better support</h1>
             <div className="w-[10rem] max-sm:w-[7rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent">
@@ -59,7 +59,7 @@ const UnderstandingNumber = () => {
             </div>
           </div>
           <div className="w-[50%] h-full flex justify-center items-center">
-            <img className="w-[60%] h-[60%] object-cover" src={bg1} alt="Developmental Delays" />
+            <img className="w-[60%] h-[60%] max-sm:w-auto object-cover" src={bg1} alt="Developmental Delays" />
           </div>
         </div>
 
@@ -72,9 +72,9 @@ const UnderstandingNumber = () => {
             background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
           }}
         >
-          <div className="w-[50%] ml-[5rem]  max-sm:ml-[2rem] text-4xl   max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
+          <div className="w-[50%] ml-[5rem]  max-sm:ml-[2rem] text-4xl italic  max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
           <h1 className=" text-[#F6E8FB] font-raleway italic">
-              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-5xl">1 in 68 </span> children are autistic in India
+              <span className="text-[#F6E8FB]  italic font-raleway font-semibold text-4xl max-sm:text-2xl">1 in 68 </span> children are autistic in India
             </h1> 
             <h1 className="font-medium flex gap-4 items-center">
               <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[19vw] max-sm:ml-[33vw] ">SOS</span>
@@ -85,7 +85,7 @@ const UnderstandingNumber = () => {
             </div>
           </div>
           <div className="w-[50%] h-full flex justify-center items-center">
-            <img className="w-[60%] h-[60%] object-cover" src={bg2} alt="Autism Awareness" />
+            <img className="w-[60%] h-[60%] max-sm:w-auto  object-cover" src={bg2} alt="Autism Awareness" />
           </div>
         </div>
       </div>

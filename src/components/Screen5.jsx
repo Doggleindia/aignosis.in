@@ -46,28 +46,37 @@ const Screen5 = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     };
 
+    const Divider = ({ title }) => (
+        <div className="flex flex-row justify-center items-center space-x-4 max-sm:mb-2 max-sm:mt-2 mb-8 mt-10">
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                }}
+            ></span>
+            <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
+                {title}
+            </h1>
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                }}
+            ></span>
+        </div>
+    );
+
     return (
-        <div className='h-screen max-sm:h-auto text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+        <div className='h-screen max-sm:h-auto max-sm:mt-[220px]  text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
             <div className="w-full h-full flex justify-center items-center flex-col px-4 md:px-0">
 
                 {/* Header Section */}
                 <div className='w-full flex-col md:h-[20vw] justify-center flex items-center mb-10'>
-                    <div className="flex justify-center gap-5 items-center">
-                        <span
-                            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-                            style={{
-                                background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
-                            }}
-                        ></span>
-                        <h1 className='text-[#F1C6FE] text-sm  sm:text-xl md:text-xl'>Recognize the Signs</h1>
-                        <span
-  className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-  style={{
-    background:
-      "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-  }}
-></span>                    </div>
-                    <div className="mt-4 md:mt-[2rem] font-manrope">
+                <Divider title="Recognize the Signs " />
+
+                    <div className="mt-4 mx-sm:[mt-0] md:mt-[0rem] font-manrope">
                         <h1 className='text-2xl 2xl:text-5xl w-full text-center md:text-4xl tracking-tight font-semibold leading-[3rem] text-[#F6E8FB] max-sm:text-center'>Upto 1 in 5 children are at risk of developmental delays*</h1>
                         <h1 className='text-center 2xl:text-5xl text-2xl md:text-4xl italic tracking-tight font-semibold mt-5 max-sm:mt-0 max-sm:mr-[20px] md:leading-[.1rem] 2xl:leading-[3rem] text-[#F6E8FB]'>Is Your Child at Risk?</h1>
                     </div>
@@ -90,14 +99,14 @@ const Screen5 = () => {
                             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                         >
                             {slides.map((slide, index) => (
-                                <div key={index} className="w-full flex-shrink-0 flex flex-col md:flex-row">
-                                    <div className="w-full 2xl:w-[28vw] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
-                                        <img className='w-full h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
+                                <div key={index} className="w-full max-sm:w-[79%] flex-shrink-0 flex flex-col md:flex-row">
+                                    <div className="w-full 2xl:w-[28vw] max-sm:w-[79%] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
+                                        <img className='w-full max-sm:w-[79%]   h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
                                     </div>
-                                    <div className="w-full 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
+                                    <div className="w-full max-sm:w-[73%] 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
                                         <h1 className='font-medium w-[full] text-left max-sm:text-center md:text-lg 2xl:text-2xl'>{slide.title}</h1>
-                                        <p className='mt-2 text-sm max-sm:text-left 2xl:text-lg md:text-base'>{slide.description}</p>
-                                        <div className='w-full md:w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-4 md:mt-[2rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center text-[#0D0C0A] h-[2.5rem] md:h-[3rem] bg-transparent '>
+                                        <p className='mt-2 text-sm max-sm:text-center 2xl:text-lg md:text-base'>{slide.description}</p>
+                                        <div className='w-full max-sm:w-[50%] max-sm:mt-[21px] max-sm:mb-[15px] max-sm:m-[auto] md:w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-4 md:mt-[2rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center text-[#0D0C0A] h-[2.5rem] md:h-[3rem] bg-transparent '>
                                             <a href="#" className='text-white text-sm md:text-base'>Learn more</a>
                                         </div>
                                     </div>
