@@ -40,7 +40,7 @@ const Partner = () => {
   return (
     <div className="bg-white overflow-hidden max-w-full min-h-[30vw] justify-center items-center flex flex-col mb-[2vw] text-white py-10 px-6 text-center">
       <div className="w-full h-[2vw] flex justify-center items-center">
-        <h1 className='font-montserrat font-semibold text-4xl text-black'>Supported by</h1>
+        <h1 className='font-montserrat font-semibold text-4xl max-sm:text-2xl text-black'>Supported by</h1>
       </div>
 
       <div className="marquee-container mt-[4vw]">

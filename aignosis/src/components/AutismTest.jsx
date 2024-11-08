@@ -95,7 +95,7 @@ const AutismTest = () => {
     }
   }, [currentStep]);
   const Divider = ({ title }) => (
-    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+    <div className="flex flex-row justify-center items-center max-sm:mx-auto max-sm:space-x-3 md:space-x-4 mb-8 mt-10">
         <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{
@@ -130,11 +130,11 @@ const AutismTest = () => {
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
-          <div className="relative md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-[5vw]">
+          <div className="relative md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  gap-[5vw] max-sm:-gap-[10vw] ">
             {/* Left Side Content */}
             <div className="flex flex-col justify-center pr-[2rem] text-white space-y-4 transition-transform duration-700 transform 
               ${currentStep === index + 1 ? 'translate-y-0' : 'translate-y-10 opacity-0'}">
-              <div className="flex items-center mr-[2rem]">
+              <div className="flex items-center md:mr-[2rem]">
                 {/* Header Line Decor */}
                 <Divider title={content.header} />
               </div>
@@ -158,18 +158,27 @@ const AutismTest = () => {
           
           
             {/* Right Side - Image and Indicator Wrapper */}
-            <div className="relative flex justify-center items-center">
-              <img
-                src={content.image}
-                alt={`Background for step ${content.ScreenNumber}`}
-                className="md:w-[1101px] h-auto scale-145 transition-transform duration-700"
-                style={{ transform: currentStep === index + 1 ? "scale(1)" : "scale(1.1)" }}
-              />
+            <div className="relative flex justify-center md:items-center">
+            <img
+  src={content.image}
+  alt={`Background for step ${content.ScreenNumber}`}
+  className="
+    md:w-[1101px] w-full h-auto 
+    transition-transform duration-700
+    transform
+    scale-145 
+    md:scale-100 
+    sm:scale-110 
+    ${currentStep === index + 1 ? 'scale-100' : 'scale-105'}
+  "
+  style={{ transform: currentStep === index + 1 ? "scale(1)" : "scale(1.1)" }}
+/>
+
 
               {/* Circle Indicators Container */}
-              <div className="absolute top-1/2 transform -translate-y-1/2 right-[-70px] space-y-2 flex flex-col">
+              <div className="absolute top-1/2 max-sm:-top-[120%]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[2%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
                 {[1, 2, 3, 4, 5].map((item) => (
-                  <div key={item} className="flex flex-col items-center">
+                  <div key={item} className="flex flex-col max-sm:flex-row items-center">
                     <div
                       onClick={() => setCurrentStep(item)}
                       className={`h-10 w-10 flex items-center justify-center rounded-full text-white font-semibold text-sm cursor-pointer 
@@ -178,7 +187,7 @@ const AutismTest = () => {
                       {item}
                     </div>
                     {item === content.ScreenNumber && (
-                      <div className="w-1 h-24 bg-[#952981] mt-2"></div>
+                      <div className="w-1 h-24 max-sm:w-24 max-sm:h-1 bg-[#952981] md:mt-2 max-sm:mx-1"></div>
                     )}
                   </div>
                 ))}
