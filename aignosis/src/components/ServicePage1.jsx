@@ -84,9 +84,9 @@ const ServicePage1 = () => {
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
-            <div className='h-screen w-full '>
+            <div className='h-screen  w-full '>
                 <div className="w-full flex justify-center items-center h-auto px-4 sm:px-0">
-                    <div className="w-full flex flex-col justify-center items-center md:mt-[12vw] 2xl:mt-[6vw] h-auto">
+                    <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vw] 2xl:mt-[6vw] h-auto">
 
                         {/* Title and Gradient Bars */}
                         <Divider title="Services" />
@@ -121,56 +121,62 @@ const ServicePage1 = () => {
                                 Rated 4.5/5 by Parents
                             </h1>
                         </div>
-
-
-
                     </div>
+                    <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
                 </div>
-                <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start">
-                    <div className="w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
+                <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start flex-wrap md:flex-nowrap">
+                    <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
-                                <h1 className='2xl:text-2xl md:text-xl text-left font-semibold'>What Are Assessments?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
+                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What Are Assessments?</h1>
+                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>Our comprehensive psycho-educational assessments help identify your child's unique learning needs.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-left font-semibold'>Why is Early Diagnosis Important?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
+                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>Why is Early Diagnosis Important?</h1>
+                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-left font-medium'>Our Assessment Services:</h1>
-                                <div className='pl-[2vw]mt-6 2xl:text-base md:text-sm text-left'>
-                                    <h1 className='mt-6 mr-[1vw]'>ADHD Screening</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Autism Evaluation</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Speech and Language Assessments</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Cognitive and Social Functioning Tests</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Intellectual, Social, and Developmental Quotients</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Learning Styles, Aptitude, and Interests</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Learning Disabilities (Dyslexia, Dyscalculia, Dysgraphia)</h1>
-                                    <h1 className='mt-6 mr-[1vw]'>Depression & Anxiety Evaluations</h1>
+                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-medium'>Our Assessment Services:</h1>
+                                <div className='pl-[2vw] mt-6 2xl:text-base md:text-sm text-xs text-left'>
+                                    {[
+                                        "ADHD Screening",
+                                        "Autism Evaluation",
+                                        "Speech and Language Assessments",
+                                        "Cognitive and Social Functioning Tests",
+                                        "Intellectual, Social, and Developmental Quotients",
+                                        "Learning Styles, Aptitude, and Interests",
+                                        "Learning Disabilities (Dyslexia, Dyscalculia, Dysgraphia)",
+                                        "Depression & Anxiety Evaluations"
+                                    ].map((service, index) => (
+                                        <h1 key={index} className='mt-6 mr-[1vw]'>{service}</h1>
+                                    ))}
                                 </div>
                             </div>
                         </div>
                         <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
-                            <h1 className='mt-10 2xl:text-xl md:text-lg font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
-                            <h1 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-center'>Support for Every Age Group</h1>
+                            <h1 className='mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
+                            <h1 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center'>Support for Every Age Group</h1>
                             <div className='mt-6 flex flex-col justify-center items-center pl-[2vw]'>
-                                <h1 className='2xl:text-xl md:text-lg text-left pr-[14vw] font-medium font-raleway'>We Specialize In:</h1>
-                                <div className='pl-[1vw] 2xl:text-base md:text-sm mt-6'>
-                                    <h1>Sensory Processing Disorder</h1>
-                                    <h1 className='mt-6'>Autism</h1>
-                                    <h1 className='mt-6'>ADHD</h1>
-                                    <h1 className='mt-6'>Speech and Language Challenge</h1>
-                                    <h1 className='mt-6'>Learning Disabilities</h1>
-                                    <h1 className='mt-6'>Anxiety Disorders</h1>
-                                    <h1 className='mt-6'>Slow Learners</h1>
-                                    <h1 className='mt-6'>Down Syndromes</h1>
-                                    <h1 className='mt-6'>Intellectual Disabilities</h1>
-                                    <h1 className='mt-6 mb-[2v]'>Giftedness</h1>
+                                <h1 className='2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway'>We Specialize In:</h1>
+                                <div className='pl-[1vw] 2xl:text-base md:text-sm text-xs mt-6'>
+                                    {[
+                                        "Sensory Processing Disorder",
+                                        "Autism",
+                                        "ADHD",
+                                        "Speech and Language Challenge",
+                                        "Learning Disabilities",
+                                        "Anxiety Disorders",
+                                        "Slow Learners",
+                                        "Down Syndromes",
+                                        "Intellectual Disabilities",
+                                        "Giftedness"
+                                    ].map((specialty, index) => (
+                                        <h1 key={index} className='mt-6'>{specialty}</h1>
+                                    ))}
                                 </div>
                             </div>
                         </div>
-                        <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center flex items-center'>
+                        <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center hidden md:flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -283,7 +289,7 @@ const ServicePage1 = () => {
                             </div>
 
                         </div>
-                        <div className='w-[100%] flex-col md:mt-[20vw] 2xl:mt-[10vw] h-[45vw] justify-center flex items-center'>
+                        <div className='w-[100%] flex-col md:mt-[20vw] 2xl:mt-[10vw] h-[45vw] justify-center hidden md:flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -325,7 +331,7 @@ const ServicePage1 = () => {
                                             "EMI Options for Indian Residents*",
 
                                         ].map((feature, index) => (
-                                            <tr key={index} className="border-t border-[#F6E8FB80]">
+                                            <tr key={index} className="border-t border-[#F6E8FB80] last:pb-[2rem]">
                                                 <td className="py-3 border-r border-[#F6E8FB80]">{feature}</td>
                                                 <td className="py-3 text-center">
                                                     ✅
@@ -336,7 +342,7 @@ const ServicePage1 = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className='w-auto flex-col md:mt-[18vw] 2xl:mt-[1vw] h-[44vw] justify-center flex items-center'>
+                        <div className='w-auto flex-col md:mt-[18vw] 2xl:mt-[1vw] h-[44vw] justify-center hidden md:flex items-center'>
 
                             <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
                                 <h2 className="text-[#F6E8FB] text-[40px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
@@ -364,8 +370,10 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[50%]  hidden sm:block h-auto p-[3vw] sticky top-10">
-                        <div className="w-auto flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
+                    <div className="w-[50%] hidden sm:block h-auto p-[3vw] sticky top-10">
+                        <div className="w-auto relative z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
+                            <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
+
                             <h1 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h1>
                             <h1 className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</h1>
                             <form className="mt-[2vw] 2xl:text-base md:text-sm px-[2vw] flex flex-col justify-center items-center space-y-4">
@@ -411,17 +419,18 @@ const ServicePage1 = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className='2xl:h-[40vw] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
                     <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
-                        <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
+                        <div className='w-full flex-col mt-[5rem] h-[15vw] justify-center flex items-center'>
                             <div className="">
-                                <h1 className='text-center 2xl:text-7xl md:text-5xl text-3xl font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
+                                <h1 className='text-center 2xl:text-7xl  md:text-5xl text-3xl font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
                             </div>
                             <div className='px-[5vw]'>
                                 <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
                             </div>
                         </div>
-                        <div className="w-full h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
+                        <div className="w-full py-[5rem] h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
                             <div className="w-[100%] md:w-[40%] h-[90%]">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
@@ -470,7 +479,7 @@ const ServicePage1 = () => {
                 </div>
 
                 {/* Contact Info Section */}
-                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] flex justify-center items-center flex-col md:flex-row'>
+                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] hidden md:flex justify-center items-center flex-col md:flex-row'>
                     <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                         <FaLocationDot />
                         <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-2'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
