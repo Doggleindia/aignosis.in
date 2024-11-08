@@ -85,8 +85,8 @@ const ServicePage1 = () => {
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-screen  w-full '>
-                <div className="w-full flex justify-center items-center h-auto px-4 sm:px-0">
-                    <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vw] 2xl:mt-[6vw] h-auto">
+                <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
+                    <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
 
                         {/* Title and Gradient Bars */}
                         <Divider title="Services" />
@@ -102,7 +102,7 @@ const ServicePage1 = () => {
                             </h1>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[90%] sm:w-[40vw] mt-4 sm:mt-[2vw] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[90%] sm:w-[40vw]  mb-20 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__"
                                 alt=""
@@ -110,7 +110,7 @@ const ServicePage1 = () => {
                             />
                         </div>
                         {/* CTA and Rating */}
-                        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full mt-10">
+                        <div className=" flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                             <div className="w-full sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
                                 <a href="#" className="text-white text-xs sm:text-base">Get In Touch</a>
                                 <div className="w-[2rem] sm:w-[2.5rem] h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white text-lg group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">
@@ -433,7 +433,7 @@ const ServicePage1 = () => {
                         <div className="w-full py-[5rem] h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
                             <div className="w-[100%] md:w-[40%] h-[90%]">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509819!2d144.95592751531588!3d-37.81720997975168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d25f7fa0a5d!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1632822903308!5m2!1sen!2sus"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1634778192933!2d75.8266295!3d26.8983064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6958f6f2e59%3A0xe378dd988aba33b0!2sBabylon%20Children&#39;s%20Hospital%20%7C%20BEST%20CHILD%20HOSPITAL%20IN%20JAIPUR%20%7C%20CHILD%20DOCTOR%20IN%20JAIPUR!5e0!3m2!1sen!2sin!4v1731096209878!5m2!1sen!2sin"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
