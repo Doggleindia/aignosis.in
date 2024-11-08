@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DownloadPage from './DownloadPage';
-import calibration_vdo from '../../assets/video/assesment_video.mp4';
 
 const CalibrationPage = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -73,7 +72,8 @@ const CalibrationPage = () => {
       ) : (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center relative">
           <video
-  src={calibration_vdo}
+  src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/assesment_video.mp4?alt=media&token=a44e6bac-4a05-4173-a8f1-dc622593829d'
+
   autoPlay
   controls 
   onEnded={handleVideoEnd}

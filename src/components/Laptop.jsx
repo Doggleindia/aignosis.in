@@ -1,6 +1,6 @@
 import React from 'react';
-import frameImg from '../assets/images/pcvideo.svg'; // Update the path as per your project structure
-import aivideo from '../assets/video/Aignosis_Product_intro.mp4'; // Update the path as per your project structure
+// import frameImg from '../assets/images/pcvideo.svg'; // Update the path as per your project structure
+// import aivideo from '../assets/video/Aignosis_Product_intro.mp4'; // Update the path as per your project structure
 
 const Laptop = () => {
     return (
@@ -12,7 +12,7 @@ const Laptop = () => {
                     autoPlay
                     className="border-[26px] border-[#a19e9e6e] rounded-[22px] w-[90%] sm:w-[80%] mx-auto"
                 >
-                    <source src={aivideo} type="video/mp4" />
+                    <source src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Product_intro%20(1).mp4?alt=media&token=d9c52a79-1717-4cab-906b-4f475dfe0a4b' type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
