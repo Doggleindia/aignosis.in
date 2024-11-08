@@ -34,9 +34,9 @@ const DownloadPage = () => {
 
       {/* Download Button */}
       <div className="mt-10">
-        <Link to='/report' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
+        <a href='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/A4.pdf?alt=media&token=2c7ef903-0fc2-4af9-b1c1-c9367ddbedec' target='_blank' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
           Download your report
-        </Link>
+        </a>
       </div>
     </div>
   );

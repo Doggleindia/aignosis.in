@@ -54,7 +54,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             <img src={snip1} alt="" />
             <div className='flex w-full justify-between items-center max-sm:text-sm'>
               <h1>behavioral therapy</h1>
-              <h1>$450.00</h1>
+              <h1>₹450.00</h1>
             </div>
           </div>
           <div className="mt-[4vw] text-base pl-10 max-sm:pl-5 max-sm:text-sm">
@@ -65,15 +65,15 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Subtotal:</h1>
-              <h1>$160.00</h1>
+              <h1>₹160.00</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Sales tax (6.5%):</h1>
-              <h1>$4.23</h1>
+              <h1>₹4.23</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 pb-2 max-sm:text-sm">
               <h1>Total due:</h1>
-              <h1 className='font-semibold text-[#B740A1]'>$164.23</h1>
+              <h1 className='font-semibold text-[#B740A1]'>₹164.23</h1>
             </div>
           </div>
         </div>

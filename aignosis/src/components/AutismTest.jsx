@@ -176,7 +176,7 @@ const AutismTest = () => {
 
 
               {/* Circle Indicators Container */}
-              <div className="absolute top-1/2 max-sm:-top-[120%]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[2%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
+              <div className="absolute top-1/2 max-sm:-top-[129%]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[21%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="flex flex-col max-sm:flex-row items-center">
                     <div
@@ -187,7 +187,7 @@ const AutismTest = () => {
                       {item}
                     </div>
                     {item === content.ScreenNumber && (
-                      <div className="w-1 h-24 max-sm:w-24 max-sm:h-1 bg-[#952981] md:mt-2 max-sm:mx-1"></div>
+                      <div className="w-1 h-24 max-sm:w-8 max-sm:h-1 bg-[#952981] md:mt-2 max-sm:mx-1"></div>
                     )}
                   </div>
                 ))}

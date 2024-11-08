@@ -83,7 +83,7 @@ const PartnershipPage = () => {
                 </div>
 
                 {/* Partnership Benefits Boxes in 2x2 Grid */}
-                <div className='w-full relative max-w-[60vw] grid grid-cols-1 md:grid-cols-2 gap-[10vw] justify-center items-center mt-10 px-4 md:px-0 mb-10'>
+                <div className='w-full relative max-sm:max-w-[83vw] max-w-[60vw] grid grid-cols-1 md:grid-cols-2 gap-[10vw] justify-center items-center mt-10 px-4 md:px-0 mb-10'>
                     {[{
                         title: "Partnership Benefits Overview",
                         description: "Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.",

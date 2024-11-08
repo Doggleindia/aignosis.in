@@ -10,7 +10,6 @@ const Laptop = () => {
                 <video
                     loop
                     autoPlay
-                    muted
                     className="border-[26px] border-[#a19e9e6e] rounded-[22px] w-[90%] sm:w-[80%] mx-auto"
                 >
                     <source src={aivideo} type="video/mp4" />
