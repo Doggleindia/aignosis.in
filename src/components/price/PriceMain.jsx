@@ -10,12 +10,14 @@ import ContactPage from '../ContactPage'
 const PriceMain = () => {
   return (
     <>
+    <div className='bg-[#1A0C25]'>
         <Header/>
         <ChoosePlan />
         <Advantages />
         <Faq />
         <ContactPage />
         <Footer/>
+        </div>
     </>
   )
 }

@@ -31,7 +31,7 @@ const PaymentScreen3 = ({ onNext, onBack }) => {
   return (
     <div className="w-full px-[5vw] pb-[2vw] text-white font-montserrat min-h-screen bg-[#1A0C25]">
       
-      <div className="navsection pt-[2vw] max-sm:pt-[15vw] w-full h-[15vw] px-[5vw] gap-[15vw] flex justify-center items-center py-[1vw] max-sm:flex-row max-sm:gap-[3vw] ">
+      <div className="navsection max-sm:mt-[33px] pt-[2vw] max-sm:pt-[15vw] w-full h-[15vw] px-[5vw] gap-[15vw] flex justify-center items-center py-[1vw] max-sm:flex-row max-sm:gap-[3vw] ">
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>1</h1>

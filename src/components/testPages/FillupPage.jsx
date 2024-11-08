@@ -45,11 +45,11 @@ export const FillupPage = () => {
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen">
         {/* <StepProgress /> */}
         {!isBackInfoVisible ? (
-          <div className="flex flex-row  max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0">
+          <div className="flex flex-row  max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0 max-sm:mb-[50px]">
             {/* Left side content */}
-            <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px]">
+            <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px] max-sm:mt-[50px]">
               {/* Logo with Gradient Background */}
-              <div className="relative inline-block ml-[85px]">
+              <div className="relative inline-block m-[auto]">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
                 <span className="relative text-4xl font-semibold tracking-wide text-white z-10">
                   Ai.gnosis
