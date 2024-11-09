@@ -130,7 +130,15 @@ export const FillupPage = () => {
                   className="bg-[#1A0C25] text-white px-4 py-3 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
 
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center gap-2 max-sm:flex-col">
+                <Link 
+  to="/prices"
+  className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
+             transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
+>
+  Back
+</Link>
+
                   <button
                     type="button"
                     onClick={handleNextClick}

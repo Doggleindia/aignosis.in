@@ -50,13 +50,19 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
         <div className="left w-[30%] h-full max-sm:w-full">
           <h1 className='font-medium max-sm:text-sm'>Order Summary</h1>
           <div className="flex mt-[2vw] justify-end"><RiDeleteBin5Line /></div>
-          <div className='flex justify-center mt-[1vw] items-center gap-[1vw] pl-10 max-sm:pl-5'>
+          <div className='flex  flex-col justify-start mt-[1vw] bg-[#564A5957] border border-[#9C00AD63] rounded-xl   gap-[1vw] pl-2 max-sm:pl-5'>
+            <div className='flex flex-row'>
             <img src={snip1} alt="" />
             <div className='flex w-full justify-between items-center max-sm:text-sm'>
-              <h1>behavioral therapy</h1>
-              <h1>₹450.00</h1>
+              <h1 className='m-auto'>behavioral therapy</h1>
+              <h1 className='m-auto'>₹46000</h1>
             </div>
+            </div>
+            <span className="flex font-raleway text-sm ">6-Month Validity </span>
+            <span className="flex font-raleway text-sm">30 Sessions at ₹600/session </span>
+            <span className="flex font-raleway text-sm">Save ₹8000 overall!</span>
           </div>
+
           <div className="mt-[4vw] text-base pl-10 max-sm:pl-5 max-sm:text-sm">
             <h1>Gift Card / Discount code</h1>
             <div className="flex justify-between gap-5 mt-2">
