@@ -12,8 +12,13 @@ import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 import Header from './Header';
-
+import ContactPage from './ContactPage'
+import Footer from './Footer'
 import { Link } from 'react-router-dom';
+
+
+
+
 
 import pos1 from '../assets/images/pos1.png';
 import pos2 from '../assets/images/pos2.png';
@@ -97,7 +102,7 @@ const ServicePage1 = () => {
                             <h1 className="text-lg sm:text-4xl md:text-5xl mt-2 font-medium font-raleway">
                                 Unlock Your Child’s Learning Potential
                             </h1>
-                            <h1 className="text-xs sm:text-base mt-2 sm:mt-3">
+                            <h1 className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
                                 Explore Online Assessments with 24/7 Support in 8 Languages!
                             </h1>
                         </div>
@@ -111,7 +116,7 @@ const ServicePage1 = () => {
                         </div>
                         {/* CTA and Rating */}
                         <div className=" flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-                            <div className="w-full sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
+                            <div className="w-full max-sm:w-[50%] sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
                                 <a href="#" className="text-white text-xs sm:text-base">Get In Touch</a>
                                 <div className="w-[2rem] sm:w-[2.5rem] h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white text-lg group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">
                                     <GoArrowUpRight />
@@ -124,7 +129,7 @@ const ServicePage1 = () => {
                     </div>
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
                 </div>
-                <div className="w-full min-h-screen px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start flex-wrap md:flex-nowrap">
+                <div className="w-full min-h-screen max-sm:h-[500vh] px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
                     <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
@@ -176,7 +181,7 @@ const ServicePage1 = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center hidden md:flex items-center'>
+                        <div className='w-[100%] mt-[4vw] flex-col h-[35vw] justify-center max-sm:hidden  md:flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -197,7 +202,7 @@ const ServicePage1 = () => {
                                 <h1 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h1>
                                 <h1 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>= Enhanced Progress!</h1>
                             </div>
-                            <div className='w-full pt-[3vw] pl-[2.5vw] h-[25vw] justify-center flex items-center'>
+                            <div className='w-full pt-[3vw] pl-[2.5vw] h-[25vw]  justify-center flex items-center'>
                                 <div className="w-full flex h-[22vw] relative">
                                     {/* Group for pos1 */}
                                     <div className="group ">
@@ -289,7 +294,10 @@ const ServicePage1 = () => {
                             </div>
 
                         </div>
-                        <div className='w-[100%] flex-col md:mt-[20vw] 2xl:mt-[10vw] h-[45vw] justify-center hidden md:flex items-center'>
+
+
+                        
+                        <div className='w-[100%]  flex-col md:mt-[20vw] max-sm:mt-[10vw] 2xl:mt-[10vw] h-[45vw] max-sm:h-auto justify-center  flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -308,7 +316,7 @@ const ServicePage1 = () => {
                             <div className=" justify-center w-full items-center flex flex-col">
                                 <h1 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
                             </div>
-                            <div className=" w-[42vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
+                            <div className=" w-[42vw] max-sm:w-[80vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
                                 <table className="w-full text-left text-gray-200">
                                     <thead>
                                         <tr>
@@ -342,11 +350,16 @@ const ServicePage1 = () => {
                                 </table>
                             </div>
                         </div>
-                        <div className='w-auto flex-col md:mt-[18vw] 2xl:mt-[1vw] h-[44vw] justify-center hidden md:flex items-center'>
 
-                            <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center p-6'>
-                                <h2 className="text-[#F6E8FB] text-[40px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
-                                <div className=" w-auto bg-[#564A5957] rounded-3xl p-8 px-[5vw] mx-auto mt-10">
+
+
+
+                        
+                        <div className='w-auto max-sm:w-full  flex-col md:mt-[18vw] max-sm:mt-[90vw] md:min-h-screen 2xl:mt-[10vw] h-[44vw]  flex justify-center items-center '>
+
+                            <div className='b flex flex-col justify-center items-center  p-6'>
+                                <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[20px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
+                                <div className=" w-auto max-sm:w-[80vw] bg-[#564A5957] rounded-3xl p-8 px-[5vw] mx-auto mt-10">
                                     <div className="space-y-4">
                                         {faqData.map((item, index) => (
                                             <div key={index} className="border-b border-gray-400">
@@ -354,7 +367,7 @@ const ServicePage1 = () => {
                                                     onClick={() => toggleQuestion(index)}
                                                     className="flex items-center justify-between py-4 cursor-pointer"
                                                 >
-                                                    <p className="2xl:text-lg md:text-base text-[#F6E8FB] font-raleway">{index + 1}. {item.question}</p>
+                                                    <p className="2xl:text-lg md:text-base text-[#F6E8FB] font-raleway ">{index + 1}. {item.question}</p>
                                                     <button className="2xl:text-xl md:text-lg font-semibold text-gray-300">
                                                         {openQuestion === index ? "−" : "+"}
                                                     </button>
@@ -370,8 +383,8 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[50%] hidden sm:block h-auto p-[3vw] sticky top-10">
-                        <div className="w-auto relative z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
+                    <div className="w-[50%] max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[20vw] md:top-10">
+                        <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
                             <h1 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h1>
@@ -380,7 +393,7 @@ const ServicePage1 = () => {
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="w-[16vw] px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
+                                    className="w-[16vw] max-sm:w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
                                 />
                                 <input
                                     type="email"
@@ -396,7 +409,7 @@ const ServicePage1 = () => {
                                     placeholder="Your Message"
                                     className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
                                 ></textarea>
-                                <Link to="" className='w-[50%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
+                                <Link to="" className='w-[60%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
                                     <span className='text-white 2xl:text-base md:text-sm flex-grow text-center'>submit</span>
                                     <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
                                         <GoArrowUpRight />
@@ -406,7 +419,7 @@ const ServicePage1 = () => {
                             <h1 className='mt-[3vw] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white 2xl:text-sm md:text-xs font-medium'>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs font-medium '>+98876654334</h1>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
                                 <IoIosMail />
@@ -418,109 +431,15 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
+                    
                 </div>
 
-                <div className='2xl:h-[40vw] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-                    <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
-                        <div className='w-full flex-col mt-[5rem] h-[15vw] justify-center flex items-center'>
-                            <div className="">
-                                <h1 className='text-center 2xl:text-7xl  md:text-5xl text-3xl font-semibold leading-[3rem]'>Get in Touch with Ai.gnosis</h1>
-                            </div>
-                            <div className='px-[5vw]'>
-                                <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>We’d love to hear from you! Whether you have questions, feedback, or would like to schedule a visit, our contact form makes it easy to reach out.</p>
-                            </div>
-                        </div>
-                        <div className="w-full py-[5rem] h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
-                            <div className="w-[100%] md:w-[40%] h-[90%]">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1634778192933!2d75.8266295!3d26.8983064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6958f6f2e59%3A0xe378dd988aba33b0!2sBabylon%20Children&#39;s%20Hospital%20%7C%20BEST%20CHILD%20HOSPITAL%20IN%20JAIPUR%20%7C%20CHILD%20DOCTOR%20IN%20JAIPUR!5e0!3m2!1sen!2sin!4v1731096209878!5m2!1sen!2sin"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                ></iframe>
-                            </div>
-                            <div className="w-[100%] md:w-[40%] px-[4vw] h-[70%]">
-                                <h1 className='2xl:text-base md:text-sm text-xs'>
-                                    Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-                                </h1>
+              
 
-                                <form className="mt-4 2xl:text-base md:text-sm space-y-4">
-                                    <input
-                                        type="text"
-                                        placeholder="Your Name"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="Your Email"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <input
-                                        type="phone"
-                                        placeholder="Your Phone Number"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
-                                    />
-                                    <textarea
-                                        placeholder="Your Message"
-                                        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
-                                    ></textarea>
-                                    <div className='w-[60vw] md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                        <a href="" className='text-white'>Send Message</a>
-                                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                            <GoArrowUpRight />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
-                {/* Contact Info Section */}
-                <div className='w-full gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] hidden md:flex justify-center items-center flex-col md:flex-row'>
-                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
-                        <FaLocationDot />
-                        <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-2'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
-                    </div>
-                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
-                        <IoIosMail />
-                        <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>aignosis7@gmail.com</h1>
-                    </div>
-                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
-                        <FaPhoneAlt />
-                        <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-4'>+91 94140 47644 +91 88900 47777</h1>
-                    </div>
-                    <div className="2xl:w-[10vw] md:w-[12vw] h-[8vw] md:h-[10vw] text-3xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
-                        <FaCalendarAlt />
-                        <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>Schedule an appointment</h1>
-                    </div>
-                </div>
-
-                {/* Footer Section */}
-                <div className="footer">
-                    <div className='w-full flex-col md:h-[25vw] 2x:h-[20vw] bg-[#731762] flex justify-start items-center'>
-                        <h1 className='tracking-[.5vw] uppercase font-montserrat mt-[5vw] text-xs md:text-base'>Get in Touch or Visit Us</h1>
-                        <h1 className='mt-4 tracking-wider text-xs md:text-sm'>Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!</h1>
-                        <div className='flex justify-center gap-[4vw] mt-10 items-center'>
-                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                                <FaTwitter />
-                            </div>
-                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                                <FaDiscord />
-                            </div>
-                            <div className="w-[5vw] h-[5vw] text-3xl rounded-3xl text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                                <FaMedium />
-                            </div>
-                        </div>
-                        <div className='flex text-center justify-center font-raleway gap-[5vw] mt-4 items-center'>
-                            <h1 className='text-xs md:text-sm'>Twitter</h1>
-                            <h1 className='ml-5 text-xs md:text-sm'>Discord</h1>
-                            <h1 className='ml-5 text-xs md:text-sm'>Medium</h1>
-                        </div>
-                    </div>
-                </div>
+                <ContactPage />
+                <Footer />
 
 
             </div>

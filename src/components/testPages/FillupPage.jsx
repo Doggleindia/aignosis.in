@@ -47,7 +47,7 @@ export const FillupPage = () => {
         {!isBackInfoVisible ? (
           <div className="flex flex-row  max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0 max-sm:mb-[50px]">
             {/* Left side content */}
-            <div className="flex flex-col items-start space-y-[80px] px-8 mt-[200px] max-sm:mt-[50px]">
+            <div className="flex flex-col items-start space-y-[80px] px-8  max-sm:mt-[50px]">
               {/* Logo with Gradient Background */}
               <div className="relative inline-block m-[auto]">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
@@ -130,7 +130,15 @@ export const FillupPage = () => {
                   className="bg-[#1A0C25] text-white px-4 py-3 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
 
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center gap-2 max-sm:flex-col">
+                <Link 
+  to="/prices"
+  className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
+             transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
+>
+  Back
+</Link>
+
                   <button
                     type="button"
                     onClick={handleNextClick}
