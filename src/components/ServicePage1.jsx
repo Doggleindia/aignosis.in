@@ -12,7 +12,6 @@ import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 import Header from './Header';
-import ContactPage from './ContactPage'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
 
@@ -33,6 +32,7 @@ import cloud3 from '../assets/images/cloud3.png';
 import cloud4 from '../assets/images/cloud4.png';
 import ScrollToTop from "./ScrollToTop";
 import { useEffect } from "react";
+import ContactServicePage from './ContactServicePage';
 
 
 const ServicePage1 = () => {
@@ -107,7 +107,7 @@ const ServicePage1 = () => {
                             </h1>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[90%] sm:w-[40vw]  mb-20 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__"
                                 alt=""
@@ -129,7 +129,7 @@ const ServicePage1 = () => {
                     </div>
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
                 </div>
-                <div className="w-full min-h-screen max-sm:h-[500vh] px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
+                <div className="w-full min-h-screen max-sm:h-[400vh] px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
                     <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
@@ -409,14 +409,14 @@ const ServicePage1 = () => {
                                     placeholder="Your Message"
                                     className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
                                 ></textarea>
-                                <Link to="" className='w-[60%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
+                                <Link to="" className='w-[60%] max-sm:w-[78%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300'>
                                     <span className='text-white 2xl:text-base md:text-sm flex-grow text-center'>submit</span>
                                     <div className='w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1'>
                                         <GoArrowUpRight />
                                     </div>
                                 </Link>
                             </form>
-                            <h1 className='mt-[3vw] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
+                            <h1 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
                             <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
                                 <FaPhoneAlt />
                                 <h1 className='text-white 2xl:text-sm md:text-xs font-medium '>+98876654334</h1>
@@ -438,7 +438,7 @@ const ServicePage1 = () => {
 
                
 
-                <ContactPage />
+                <ContactServicePage />
                 <Footer />
 
 
