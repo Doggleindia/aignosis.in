@@ -10,26 +10,27 @@ import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 const Screen5 = () => {
     const slides = [
         {
+            subTitle:"3 months old",
             title: "Does NOT follow moving objects with eyes",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg
         },
-        {
+        {subTitle:"1 year old",
             title: "Does NOT use gestures like waving or shaking head",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg2
         },
-        {
+        {subTitle:"2 Year old",
             title: "Does NOT speak two-word sentences",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg3
         },
-        {
+        {subTitle:"3 Year old",
             title: "Has DIFFICULTY manipulating small objects",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg4
         },
-        {
+        {subTitle:"4 Year old",
             title: "Has DIFFICULTY scribbling or drawing",
             description: "Prolonged screen time can impact social interaction and communication skills, which are crucial in early autism detection. Monitor your child’s screen habits closely.",
             img: bg5
@@ -112,6 +113,7 @@ const Screen5 = () => {
                                         <img className='w-full max-sm:w-[79%]   h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
                                     </div>
                                     <div className="w-full max-sm:w-[60%] 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
+                                        <span className="text-[#B7407D] text-sm">{slide.subTitle}</span>
                                         <h1 className='font-medium w-[full] text-left max-sm:text-center md:text-lg 2xl:text-2xl'>{slide.title}</h1>
                                         <p className='mt-2 text-sm max-sm:text-center 2xl:text-lg md:text-base'>{slide.description}</p>
                                         <div className='w-full max-sm:w-[50%] max-sm:mt-[21px] max-sm:mb-[15px] max-sm:m-[auto] md:w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-4 md:mt-[2rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center text-[#0D0C0A] h-[2.5rem] md:h-[3rem] bg-transparent '>

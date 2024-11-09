@@ -5,6 +5,7 @@ import logo2 from "../../assets/images/payment/2.png";
 import logo3 from "../../assets/images/payment/3.png";
 import snip1 from "../../assets/images/payment/logo1.png";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 const PaymentScreen1 = ({ onNext, onBack }) => {
   const handleNext = (e) => {
@@ -71,15 +72,15 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Subtotal:</h1>
-              <h1>₹160.00</h1>
+              <h1>₹46000</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Sales tax (6.5%):</h1>
-              <h1>₹4.23</h1>
+              <h1>₹200</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 pb-2 max-sm:text-sm">
               <h1>Total due:</h1>
-              <h1 className='font-semibold text-[#B740A1]'>₹164.23</h1>
+              <h1 className='font-semibold text-[#B740A1]'>₹46200</h1>
             </div>
           </div>
         </div>
@@ -110,7 +111,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             </select>
           </div>
           <div className="w-full mt-[3vw] flex gap-[5vw] justify-center items-center">
-          <button onClick={onBack} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Back</button>
+      <Link to='/prices'>    <button onClick={onBack} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Back</button></Link>
             <button onClick={handleNext} className='py-3 px-7 border rounded-3xl border-[#9C00AD]'>Next</button>
           </div>
         </div>
