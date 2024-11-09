@@ -72,7 +72,7 @@ const CalibrationPage = () => {
       ) : (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center relative">
           <video
-  src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/assesment_video.mp4?alt=media&token=a44e6bac-4a05-4173-a8f1-dc622593829d'
+  src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Test_Vid_2.mp4?alt=media&token=d1444252-00c9-463a-a5f8-ee4129f2b211'
 
   autoPlay
   controls 

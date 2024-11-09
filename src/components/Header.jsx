@@ -64,7 +64,7 @@ const Header = () => {
             Prices
           </Link>
           <Link 
-            to="/appointment" 
+            to="/test/fillup" 
             onClick={() => handleLinkClick('/appointment')}
             className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
           >
@@ -121,7 +121,7 @@ const Header = () => {
 
           {/* Book Appointment Button */}
           <Link 
-            to="/appointment" 
+            to="/test/fillup" 
             onClick={() => handleLinkClick('/appointment')}
             className="w-[10rem] gap-2 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300 mt-4"
           >

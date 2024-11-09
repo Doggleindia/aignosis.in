@@ -57,7 +57,7 @@ const TeamMember = ({ name, img, description, height }) => (
 const AboutUs = () => {
     return (
         <div className="bg-[#1A0C25] font-montserrat text-white">
-            <div className="min-h-screen w-full">
+            <div className="min-h-screen w-full pt-[30px] pb-[120px]">
                 <Header />
                 <section className="flex flex-col 2xl:pt-[4vw] md:pt-[12vw] items-center h-auto md:h-[48vw] justify-center px-4 md:px-0">
                     <Divider title="About Us" />

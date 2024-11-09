@@ -4,7 +4,7 @@ import bg2 from '../assets/images/poster5.png';
 import bg3 from '../assets/images/poster6.png';
 import bg4 from '../assets/images/poster7.png';
 import bg5 from '../assets/images/poster8.png';
-
+import { useSwipeable } from 'react-swipeable';
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 
 const Screen5 = () => {
@@ -45,6 +45,14 @@ const Screen5 = () => {
     const goToNextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     };
+
+    // Swipe Handlers for Mobile
+    const handlers = useSwipeable({
+        onSwipedLeft: goToNextSlide,
+        onSwipedRight: goToPreviousSlide,
+        preventDefaultTouchmoveEvent: true,
+        trackTouch: true,
+    });
 
     const Divider = ({ title }) => (
         <div className="flex flex-row justify-center items-center space-x-4 max-sm:mb-2 max-sm:mt-2 mb-8 mt-10">
@@ -88,7 +96,7 @@ const Screen5 = () => {
                 </div>
 
                 {/* Slide Section */}
-                <div className="w-full 2xl:w-[80%] md:w-[80%] h-auto md:h-[25vw] flex flex-col md:flex-row justify-center items-center gap-6 md:gap-[5rem]">
+                <div className="w-full 2xl:w-[80%] md:w-[80%] h-auto md:h-[25vw] flex flex-col md:flex-row justify-center items-center gap-6 md:gap-[5rem] "  {...handlers}>
                     <div onClick={goToPreviousSlide} className="cursor-pointer w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] flex justify-center items-center text-base md:text-xl bg-[#382C3E] rounded-full">
                         <GoArrowLeft />
                     </div>
@@ -99,11 +107,11 @@ const Screen5 = () => {
                             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                         >
                             {slides.map((slide, index) => (
-                                <div key={index} className="w-full max-sm:w-[79%] flex-shrink-0 flex flex-col md:flex-row">
-                                    <div className="w-full 2xl:w-[28vw] max-sm:w-[79%] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
+                                <div key={index} className="w-full max-sm:w-[100%] flex-shrink-0 flex flex-col md:flex-row">
+                                    <div className="w-full 2xl:w-[28vw] max-sm:w-[68%] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
                                         <img className='w-full max-sm:w-[79%]   h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
                                     </div>
-                                    <div className="w-full max-sm:w-[73%] 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
+                                    <div className="w-full max-sm:w-[60%] 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
                                         <h1 className='font-medium w-[full] text-left max-sm:text-center md:text-lg 2xl:text-2xl'>{slide.title}</h1>
                                         <p className='mt-2 text-sm max-sm:text-center 2xl:text-lg md:text-base'>{slide.description}</p>
                                         <div className='w-full max-sm:w-[50%] max-sm:mt-[21px] max-sm:mb-[15px] max-sm:m-[auto] md:w-[10rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-4 md:mt-[2rem] border-2 border-[#B740A1] rounded-full flex justify-center items-center text-[#0D0C0A] h-[2.5rem] md:h-[3rem] bg-transparent '>
