@@ -39,6 +39,11 @@ const PaymentScreen3 = ({ onNext, onBack }) => {
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Fill personal details</h1>
         </div>
+        <span className="mx-[2vw]">
+  <svg className="w-6 h-6 text-[#B7407DB2] max-sm:w-4 max-sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</span>
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>2</h1>
@@ -46,6 +51,11 @@ const PaymentScreen3 = ({ onNext, onBack }) => {
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Payment details</h1>
         </div>
+        <span className="mx-[2vw]">
+  <svg className="w-6 h-6 text-[#B7407DB2] max-sm:w-4 max-sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</span>
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative bg-[#B7407D] text-white border-transparent flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>3</h1>

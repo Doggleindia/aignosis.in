@@ -35,6 +35,11 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Fill personal details</h1>
         </div>
+        <span className="mx-[2vw]">
+  <svg className="w-6 h-6 text-[#B7407DB2] max-sm:w-4 max-sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</span>
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[7vw] h-[7vw] relative  bg-[#B7407D] text-white border-transparent flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>2</h1>
@@ -42,6 +47,11 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Payment details</h1>
         </div>
+        <span className="mx-[2vw]">
+  <svg className="w-6 h-6 text-[#B7407DB2] max-sm:w-4 max-sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</span>
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>3</h1>
@@ -63,7 +73,7 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
             <img src={snip1} alt="" className="max-sm:w-[15vw]" />
             <div className='flex w-full justify-between items-center'>
               <h1>behavioral therapy</h1>
-              <h1>$450.00</h1>
+              <h1>₹46000</h1>
             </div>
           </div>
           <div className="mt-[4vw] text-base pl-10 max-sm:pl-0 max-sm:text-sm">
@@ -74,15 +84,15 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Subtotal:</h1>
-              <h1>$160.00</h1>
+              <h1>₹46000</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Sales tax (6.5%):</h1>
-              <h1>$4.23</h1>
+              <h1>₹200</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 pb-2 max-sm:text-sm">
               <h1>Total due:</h1>
-              <h1 className='font-semibold text-[#B740A1]'>$164.23</h1>
+              <h1 className='font-semibold text-[#B740A1]'>₹46200</h1>
             </div>
           </div>
         </div>
