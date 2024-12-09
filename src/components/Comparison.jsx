@@ -24,12 +24,13 @@ const Comparison = () => {
 
   return (
     <div
-      ref={containerRef}
+      
       className="flex items-center flex-col justify-center min-h-screen px-4 sm:px-8"
       style={{ background: "rgba(26, 12, 37, 1)" }}
-      onMouseMove={handleMouseMove} // Track mouse movement across the container
+      // Track mouse movement across the container
     >
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw] 2xl:gap-[4vw]">
+        <div ref={containerRef} onMouseMove={handleMouseMove}  >
         {/* Left Side - Sliding Images */}
         <div className="max-sm:hidden flex justify-center items-center relative w-full h-auto md:w-[310px] md:h-[410px] 2xl:w-[410px] 2xl:h-[510px]">
           <div
@@ -60,7 +61,7 @@ const Comparison = () => {
             </div>
           </div>
         </div>
-
+        </div>
         {/* Text Content */}
         <div className=" text-white space-y-4 sm:space-y-8 w-full sm:w-[520px] relative mt-8 sm:mt-0">
           {/* Comparison Header */}
@@ -150,7 +151,7 @@ const Comparison = () => {
       {/* Left Side - Sliding Images */}
       <div
       ref={containerRef}
-      className="flex justify-center mt-[40px]"
+      className="flex justify-center mt-[40px] max-sm:h-[90vw]"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}   // Track mouse movement across the container
     >

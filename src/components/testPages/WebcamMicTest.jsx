@@ -81,7 +81,7 @@ const WebcamMicTest = () => {
   return (
     <>
    {!isCalVisible?( <div className='bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center'> 
-      <div className="w-[900px] h-[600px] mt-[6px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-6 relative border border-[#5F1B73]">
+      <div className="w-[900px] max-sm:w-[90vw] h-[600px] mt-[6px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-6 relative border border-[#5F1B73]">
         {/* Ai.gnosis Branding */}
         <div className="text-4xl font-bold text-[#1A0C25] relative mb-2">
           <span className="z-10 font-montserrat">Ai.gnosis</span>
@@ -91,10 +91,10 @@ const WebcamMicTest = () => {
         </div>
 
         {/* Webcam & Microphone Test Section */}
-        <h2 className="text-2xl font-semibold text-[#292738] font-manrope">Webcam & Microphone test</h2>
+        <h2 className="text-2xl font-semibold text-[#292738] font-manrope max-sm:text-xl">Webcam & Microphone test</h2>
 
         {/* Webcam Preview or Snapshot Display */}
-        <div className="w-[500px] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
+        <div className="w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
           {snapshotTaken ? (
             <img src={snapshot} alt="Snapshot" className="w-full h-full object-cover" />
           ) : (

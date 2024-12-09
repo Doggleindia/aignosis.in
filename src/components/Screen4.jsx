@@ -123,7 +123,7 @@ const Screen4 = () => {
 
   return (
     <div
-      className="h-screen max-sm:h-[7vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25] relative">
+      className="h-screen max-sm:h-[25vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25] relative">
       <div className="w-auto flex justify-center items-center flex-col">
         <div className="bg-[#1A0C254D] relative shadow-2xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
           <div className="flex-col  justify-center flex items-center">

@@ -27,7 +27,7 @@ const CalibrationPage = () => {
     <>
       {!isVideoPlaying ? (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-          <div className="w-[900px] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
+          <div className="w-[900px] max-sm:w-[45vh] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
             <div className="relative text-4xl font-bold text-[#1A0C25] mb-4">
               <span className="relative z-10 font-montserrat">Ai.gnosis</span>
               <div className="absolute inset-0 flex justify-center items-center z-0">
@@ -42,30 +42,31 @@ const CalibrationPage = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <input type="checkbox" className="w-5 h-5" />
-                <span className="text-[#292738] font-medium font-raleway">Ensure the webcam is connected properly</span>
+                <span className="text-[#292738] font-medium max-sm:text-sm font-raleway">Ensure the webcam is connected properly</span>
               </div>
               <div className="flex items-center space-x-3">
                 <input type="checkbox" className="w-5 h-5" />
-                <span className="text-[#292738] font-medium font-raleway">Adjust lighting to avoid glare</span>
+                <span className="text-[#292738] font-medium max-sm:text-sm font-raleway">Adjust lighting to avoid glare</span>
               </div>
               <div className="flex items-center space-x-3">
                 <input type="checkbox" className="w-5 h-5" />
-                <span className="text-[#292738] font-medium font-raleway">Position yourself comfortably in front of the camera</span>
+                <span className="text-[#292738] font-medium max-sm:text-sm font-raleway">Position yourself comfortably in front of the camera</span>
               </div>
             </div>
 
-            <div className="flex space-x-8 mt-[40px]">
+            <div className="flex max-sm:flex-col max-sm:space-y-3 md:space-x-8 mt-[40px]">
               <Link 
                 onClick={handleNextClick} 
                 className="flex items-center justify-center w-[200px] h-[50px] border border-[#9C00AD] text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors"
               >
                 Start calibration
               </Link>
-              <button 
-                className="flex items-center justify-center w-[200px] h-[50px] bg-[#FDF9FF] border border-[#9C00AD] text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors"
+              <Link 
+              
+                className="flex items-center justify-center w-[200px] h-[50px] bg-[#FDF9FF] border border-[#9C00AD] text-[#292738] font-montserrat rounded-full font-semibold hover:bg-[#F0A1FF] hover:text-white transition-colors "
               >
                 Stop calibration
-              </button>
+                </Link>
             </div>
           </div>
         </div>

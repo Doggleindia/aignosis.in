@@ -176,7 +176,7 @@ const AutismTest = () => {
 
 
               {/* Circle Indicators Container */}
-              <div className="absolute top-1/2 max-sm:-top-[129%]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[21%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
+              <div className="absolute top-1/2 max-sm:-top-[105vw]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[21%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="flex flex-col max-sm:flex-row items-center">
                     <div

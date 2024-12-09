@@ -21,15 +21,15 @@ const BlogPage = () => {
           fontSize: "1.2rem",
           fontFamily: "Arial, sans-serif"
         }}>Blogs</h2>
-        <h1 className="font-raleway text-[#F6E8FB]" style={{
-          fontSize: "2.5rem",
+        <h1 className="font-raleway text-[#F6E8FB] max-sm:text-[2rem] text-[2.5rem]" style={{
+          
           fontWeight: "bold",
           marginBottom: "1rem",
           
         }}>
           Insights & Resources for Autism Awareness
         </h1>
-        <p style={{
+        <p className=""  style={{
           fontSize: "1rem",
           color: "#ECECEC",
           lineHeight: "1.6",
@@ -54,14 +54,9 @@ const BlogPage = () => {
         marginRight: "auto" // Center the section
       }}>
 
-        <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "2rem"
-        }}>
+        <div className="max-sm:flex-col flex  justify-between items-center mb-[2rem] text-[1.5rem] max-sm:text-[1rem]"  >
           <h3 style={{
-            fontSize: "1.5rem",
+            
             fontWeight: "bold",
             color: "#fff",
             fontFamily: "Arial, sans-serif"
@@ -74,12 +69,12 @@ const BlogPage = () => {
           }}>More →</a>
         </div>
 
-        <div style={{ display: "flex", gap: "2rem" }}>
-  <div style={{
+        <div className="max-sm:flex-col max-sm:justify-center max-sm:items-center " style={{ display: "flex", gap: "2rem" }}>
+  <div  className="max-sm:w-[60vw] w-[48%] " style={{
     backgroundColor: "#1a0e28",
     borderRadius: "8px",
     overflow: "hidden",
-    width: "48%", // Set width for inner boxes
+    // Set width for inner boxes
     display: "flex",
     flexDirection: "column"
   }}>
@@ -111,11 +106,15 @@ const BlogPage = () => {
     </div>
   </div>
 
-  <div style={{
+
+
+
+
+  <div  className="max-sm:w-[60vw] w-[48%] " style={{
     backgroundColor: "#1a0e28",
     borderRadius: "8px",
     overflow: "hidden",
-    width: "48%", // Set width for inner boxes
+    // Set width for inner boxes
     display: "flex",
     flexDirection: "column"
   }}>
@@ -162,12 +161,7 @@ const BlogPage = () => {
         marginBottom: "8rem"
         
       }}>
-        <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "2rem"
-        }}>
+        <div className="max-sm:flex-col flex  justify-between items-center mb-[2rem] text-[1.5rem] max-sm:text-[1rem]">
           <h3 style={{
             fontSize: "1.5rem",
             fontWeight: "bold",
@@ -182,13 +176,13 @@ const BlogPage = () => {
           }}>More →</a>
         </div>
 
-        <div style={{ display: "flex", gap: "2rem" }}>
+        <div className="max-sm:flex-col " style={{ display: "flex", gap: "2rem" }}>
           {/* Left Side: Single Post (blogimg3) */}
-          <div style={{
+          <div className="max-sm:w-[60vw] w-[48%]" style={{
             backgroundColor: "#1a0e28",
             borderRadius: "8px",
             overflow: "hidden",
-            width: "48%", // Set width for the left box
+            // Set width for the left box
             display: "flex",
             flexDirection: "column"
           }}>
@@ -224,13 +218,14 @@ const BlogPage = () => {
           {/* Right Side: Stacked Posts (blogimg4 and blogimg5) */}
 <div style={{ display: "flex", flexDirection: "column", gap: "2rem", width: "48%" }}>
   {/* Post 1 */}
-  <div style={{
-    backgroundColor: "#1a0e28",
-    borderRadius: "8px",
-    overflow: "hidden",
-    display: "flex",
-    flexDirection: "column"
-  }}>
+  <div className="max-sm:w-[60vw] w-full" style={{
+            backgroundColor: "#1a0e28",
+            borderRadius: "8px",
+            overflow: "hidden",
+            // Set width for the left box
+            display: "flex",
+            flexDirection: "column"
+          }}>
     <img
       src={blogimg4}
       alt="Post 4"
@@ -259,13 +254,14 @@ const BlogPage = () => {
   </div>
 
   {/* Post 2 */}
-  <div style={{
-    backgroundColor: "#1a0e28",
-    borderRadius: "8px",
-    overflow: "hidden",
-    display: "flex",
-    flexDirection: "column"
-  }}>
+  <div className="max-sm:w-[60vw] w-full" style={{
+            backgroundColor: "#1a0e28",
+            borderRadius: "8px",
+            overflow: "hidden",
+            // Set width for the left box
+            display: "flex",
+            flexDirection: "column"
+          }}>
     <img
       src={blogimg5}
       alt="Post 5"
