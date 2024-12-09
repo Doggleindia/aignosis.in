@@ -119,10 +119,17 @@ const AutismTest = () => {
   return (
     <div
       ref={scrollContainerRef}
-      className="flex flex-col snap-y w-full snap-mandatory mt-8 h-screen overflow-hidden"
+      className="flex flex-col  snap-y w-full snap-mandatory mt-8 h-screen overflow-hidden"
       style={{ scrollBehavior: "smooth", overflowY: "hidden" }}
     >
       {stepsContent.map((content, index) => (
+
+        
+        
+
+
+
+
         <div
           key={index}
           className={`scroll-section flex justify-between min-h-screen snap-start p-8 
@@ -130,6 +137,15 @@ const AutismTest = () => {
           style={{ background: content.bgColor }}
           data-step={index + 1}
         >
+
+
+
+
+
+
+             
+
+
           <div className="relative md:max-w-4xl 2xl:max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2  gap-[5vw] max-sm:-gap-[10vw] ">
             {/* Left Side Content */}
             <div className="flex flex-col justify-center pr-[2rem] text-white space-y-4 transition-transform duration-700 transform 
@@ -176,7 +192,7 @@ const AutismTest = () => {
 
 
               {/* Circle Indicators Container */}
-              <div className="absolute top-1/2 max-sm:-top-[105vw]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[21%] md:space-y-2 max-sm:space-x-1 max-sm:justify-center flex flex-col ">
+              <div className="  absolute top-1/2 max-sm:-top-[108vw]  max-sm:flex-row transform -translate-y-1/2 right-[-70px] max-sm:right-[10vw] md:space-y-2 max-sm:space-x-1 max-sm:justify-center max-sm:items-center flex flex-col ">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <div key={item} className="flex flex-col max-sm:flex-row items-center">
                     <div
@@ -192,6 +208,9 @@ const AutismTest = () => {
                   </div>
                 ))}
               </div>
+
+
+
             </div>
           </div>
         </div>

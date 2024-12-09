@@ -64,6 +64,13 @@ const Header = () => {
             Prices
           </Link>
           <Link 
+            to="/BlogPages" 
+            onClick={() => handleLinkClick('/prices')}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === '/BlogPages' ? 'border-b-2 border-white' : ''}`}
+          >
+            Blogs
+          </Link>
+          <Link 
             to="/test/fillup" 
             onClick={() => handleLinkClick('/appointment')}
             className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
@@ -118,7 +125,13 @@ const Header = () => {
           >
             Prices
           </Link>
-
+          <Link 
+            to="/BlogPages" 
+            onClick={() => handleLinkClick('/prices')}
+            className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/BlogPages' ? 'underline' : ''}`}
+          >
+            Blogs
+          </Link>
           {/* Book Appointment Button */}
           <Link 
             to="/test/fillup" 

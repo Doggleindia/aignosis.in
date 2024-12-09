@@ -9,9 +9,11 @@ import Header from "../Header";
 
 const BlogPage = () => {
   return (
-    <div style={{ backgroundColor: "#1a0e28", color: "#fff", padding: "2rem" }}>
+    <>
+    <Header />
+    <div className="p-[2rem] max-sm:p-4" style={{ backgroundColor: "#1a0e28", color: "#fff" }}>
       {/* Header */}
-     <Header />
+     
 
       {/* Main Content */}
       <div style={{ textAlign: "center", marginTop: "5rem" }}>
@@ -43,13 +45,13 @@ const BlogPage = () => {
       </div>
 
       {/* Featured Posts - Section 1 */}
-      <section style={{
+      <section className="w-[90%] max-sm:w-[90vw]" style={{
         marginTop: "3rem",
         padding: "3rem",
         backgroundColor: "#271937",
         borderRadius: "8px",
         marginBottom: "3rem", // Increased vertical spacing
-        width: "90%", // Set the desired width
+        
         marginLeft: "auto", // Center the section
         marginRight: "auto" // Center the section
       }}>
@@ -70,7 +72,7 @@ const BlogPage = () => {
         </div>
 
         <div className="max-sm:flex-col max-sm:justify-center max-sm:items-center " style={{ display: "flex", gap: "2rem" }}>
-  <div  className="max-sm:w-[60vw] w-[48%] " style={{
+  <div  className="max-sm:w-[80vw] w-[48%] " style={{
     backgroundColor: "#1a0e28",
     borderRadius: "8px",
     overflow: "hidden",
@@ -110,7 +112,7 @@ const BlogPage = () => {
 
 
 
-  <div  className="max-sm:w-[60vw] w-[48%] " style={{
+  <div  className="max-sm:w-[80vw] w-[48%] " style={{
     backgroundColor: "#1a0e28",
     borderRadius: "8px",
     overflow: "hidden",
@@ -149,21 +151,24 @@ const BlogPage = () => {
 
       </section>
 
+
+
+
       {/* Featured Posts - Section 2 */}
-      <section style={{
+      <section className="w-[90%] max-sm:w-[90vw] md:p-[2rem]  max-sm:p-[5vw]     ml-auto mr-auto " style={{
         marginTop: "3rem",
-        padding: "2rem",
+        
         backgroundColor: "#271937",
         borderRadius: "8px",
-        width: "90%", // Set the desired width
-        marginLeft: "auto", // Center the section
-        marginRight: "auto",
+        // Set the desired width
+        // Center the section
+        
         marginBottom: "8rem"
         
       }}>
-        <div className="max-sm:flex-col flex  justify-between items-center mb-[2rem] text-[1.5rem] max-sm:text-[1rem]">
+        <div className="max-sm:flex-col flex  justify-between items-center  mb-[2rem] text-[1.5rem] max-sm:text-[1rem]">
           <h3 style={{
-            fontSize: "1.5rem",
+            
             fontWeight: "bold",
             color: "#fff",
             fontFamily: "Arial, sans-serif"
@@ -176,9 +181,9 @@ const BlogPage = () => {
           }}>More →</a>
         </div>
 
-        <div className="max-sm:flex-col " style={{ display: "flex", gap: "2rem" }}>
+        <div className="max-sm:flex-col   " style={{ display: "flex", gap: "2rem" }}>
           {/* Left Side: Single Post (blogimg3) */}
-          <div className="max-sm:w-[60vw] w-[48%]" style={{
+          <div className="max-sm:w-[80vw] w-[48%]   " style={{
             backgroundColor: "#1a0e28",
             borderRadius: "8px",
             overflow: "hidden",
@@ -216,9 +221,9 @@ const BlogPage = () => {
           </div>
 
           {/* Right Side: Stacked Posts (blogimg4 and blogimg5) */}
-<div style={{ display: "flex", flexDirection: "column", gap: "2rem", width: "48%" }}>
+<div className="" style={{ display: "flex", flexDirection: "column", gap: "2rem", width: "48%" }}>
   {/* Post 1 */}
-  <div className="max-sm:w-[60vw] w-full" style={{
+  <div className="max-sm:w-[80vw]  w-full" style={{
             backgroundColor: "#1a0e28",
             borderRadius: "8px",
             overflow: "hidden",
@@ -254,7 +259,7 @@ const BlogPage = () => {
   </div>
 
   {/* Post 2 */}
-  <div className="max-sm:w-[60vw] w-full" style={{
+  <div className="max-sm:w-[80vw]  max-sm:mb-[4vw] w-full" style={{
             backgroundColor: "#1a0e28",
             borderRadius: "8px",
             overflow: "hidden",
@@ -298,7 +303,7 @@ const BlogPage = () => {
         <Footer />
       </div>
     </div>
-    
+    </>
     
   );
 };
