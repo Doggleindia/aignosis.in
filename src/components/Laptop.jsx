@@ -9,8 +9,9 @@ const Laptop = () => {
                 {/* Main video */}
                 <video
                     loop
-                    autoPlay
+                    autoPlay controls muted
                     
+  
                     className="border-[26px] border-[#a19e9e6e] rounded-[22px] w-[80%] mx-auto"
                 >
                     <source src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Product_intro%20(1).mp4?alt=media&token=d9c52a79-1717-4cab-906b-4f475dfe0a4b' type="video/mp4" />

@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-10 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
+    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] 2xl:py-[10px]">
         
         {/* Logo Section */}
@@ -70,8 +70,8 @@ const Header = () => {
           >
             Blogs
           </Link>
-          <Link 
-            to="/test/fillup" 
+          <a
+            href='#contact' 
             onClick={() => handleLinkClick('/appointment')}
             className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
           >
@@ -79,7 +79,7 @@ const Header = () => {
             <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
               <GoArrowUpRight />
             </div>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Icon */}

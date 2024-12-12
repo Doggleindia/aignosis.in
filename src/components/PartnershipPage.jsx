@@ -9,11 +9,13 @@ gsap.registerPlugin(ScrollTrigger);
 const PartnershipPage = () => {
     const imageRef = useRef(null);
     const cardsRef = useRef([]);
-
+    
     useEffect(() => {
+        const isMobile = window.innerWidth <= 768; // Define mobile breakpoint
+    const yPosition = isMobile ? 720 : 300;
         // Animate image on scroll
         const imageAnimation = gsap.to(imageRef.current, {
-            y: 300, // The final position when fully scrolled
+            y: yPosition, // The final position when fully scrolled
             autoAlpha: 5, // Fade in the image
             ease: "none", // No easing, for a direct scroll correlation
             scrollTrigger: {
@@ -110,9 +112,9 @@ const PartnershipPage = () => {
                         </div>
                     ))}
                 </div>
-
+                 
                 {/* Center Image between Boxes */}
-                <div className=" max-sm:hidden flex absolute justify-center items-center" ref={imageRef}>
+                <div className="  flex absolute justify-center  items-center" ref={imageRef}>
                     <img src={brain} alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" />
                 </div>
             </div>

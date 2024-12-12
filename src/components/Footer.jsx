@@ -1,10 +1,6 @@
 import React from 'react';
-import { GoArrowUpRight } from "react-icons/go";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoIosMail } from "react-icons/io";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
-import { FaDiscord, FaTwitter, FaMedium, FaBlog } from "react-icons/fa";
+import { FaTwitter, FaDiscord, FaMedium, FaBlog, FaLock } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -16,25 +12,38 @@ function Footer() {
                 <h1 className='text-sm md:text-base lg:text-lg mt-4 text-center px-4 lg:px-0'>
                     Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!
                 </h1>
-                <div className='flex justify-center gap-4 md:gap-8 lg:gap-10 mt-6 md:mt-8 items-center'>
-                    <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                        <FaTwitter />
+                <div className='flex justify-center max-sm:gap-4 gap-8 md:gap-10 mt-6 md:mt-8 items-center'>
+                    {/* Group icon and text together */}
+                    <div className="flex flex-col items-center">
+                        <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaTwitter />
+                        </div>
+                        <h1 className="text-sm md:text-base mt-2">Twitter</h1>
                     </div>
-                    <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                        <FaDiscord />
+                    <div className="flex flex-col items-center">
+                        <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaDiscord />
+                        </div>
+                        <h1 className="text-sm md:text-base mt-2">Discord</h1>
                     </div>
-                    <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                        <FaMedium />
+                    <div className="flex flex-col items-center">
+                        <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaMedium />
+                        </div>
+                        <h1 className="text-sm md:text-base mt-2">Medium</h1>
                     </div>
-                    <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
-                        <FaBlog />
+                    <div className="flex flex-col items-center">
+                        <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaBlog />
+                        </div>
+                        <h1 className="text-sm md:text-base mt-2">Blog</h1>
                     </div>
-                </div>
-                <div className='flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 mt-4 md:mt-6 text-center font-raleway'>
-                    <h1 className="text-sm md:text-base">Twitter</h1>
-                    <h1 className="text-sm md:text-base">Discord</h1>
-                    <h1 className="text-sm md:text-base">Medium</h1>
-                    <h1 className="text-sm md:text-base">Blog</h1>
+                    <Link to='/privacy' className="flex flex-col items-center">
+                        <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+                            <FaLock />
+                        </div>
+                        <h1 className="text-sm md:text-base mt-2">Privacy Policy</h1>
+                    </Link>
                 </div>
             </div>
         </div>

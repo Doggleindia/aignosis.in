@@ -90,6 +90,7 @@ const ServicePage1 = () => {
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-screen  w-full '>
+            
                 <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
                     <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
 
@@ -129,7 +130,8 @@ const ServicePage1 = () => {
                     </div>
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
                 </div>
-                <div className="w-full min-h-screen max-sm:h-[400vh] px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
+
+                <div className="w-full min-h-screen max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
                     <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
@@ -355,7 +357,7 @@ const ServicePage1 = () => {
 
 
                         
-                        <div className='w-auto max-sm:w-full  flex-col md:mt-[18vw] max-sm:mt-[90vw] md:min-h-screen 2xl:mt-[10vw] h-[44vw]  flex justify-center items-center '>
+                        <div className='w-auto max-sm:w-full  flex-col md:mt-[18vw] max-sm:mt-[90vw] md:min-h-screen 2xl:mt-[10vw] md:h-[44vw]  flex justify-center items-center '>
 
                             <div className='b flex flex-col justify-center items-center  p-6'>
                                 <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[20px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
@@ -383,7 +385,7 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[50%] max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[20vw] md:top-10">
+                    <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[20vw] md:top-10">
                         <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
@@ -431,15 +433,23 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
+                    <div  className=' md:hidden mt-[5vw]'>
+              <ContactServicePage />
+              <Footer />
+              </div>
                     
                 </div>
 
               
+             <div className='max-sm:hidden'>
+             <ContactServicePage />
+             <Footer />
+             </div>
+                
+               
+                
 
                
-
-                <ContactServicePage />
-                <Footer />
 
 
             </div>

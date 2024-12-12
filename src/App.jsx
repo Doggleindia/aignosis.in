@@ -15,6 +15,7 @@ import BlogPage from './components/BlogPages/BlogPage';
 import PaymentScreensMain from './components/PaymentScreensMain';
 import Toddlers from './components/testPages/Toddlers';
 import ContactPage from './components/ContactPage';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/test/fillup/tod" element={<Toddlers />} />
 
         <Route path="/payment" element={<PaymentScreensMain />} />
+        <Route path='/privacy' element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

@@ -151,9 +151,10 @@ const Screen4 = () => {
             
           </div>
           
-          <div className="justify- relative -left-[12%] -top-[19%] max-sm:hidden">
+          <div className="justify- relative -left-[12%] -top-[80%] max-sm:hidden">
                 
                 {/* <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md"></p> */}
+                 {/* <p className=" mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Yearsdddd</p> */}
               </div>
               <p className="flex justify-center align-center mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Years</p>
         </div>
