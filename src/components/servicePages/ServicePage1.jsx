@@ -1,38 +1,38 @@
 import React, { useState } from 'react'
-import img from '../assets/images/SectionL.png';
+import img from '../../assets/images/SectionL.png';
 import { GoArrowUpRight } from "react-icons/go";
 import { CiPhone } from "react-icons/ci";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
-import crossIcon from '../assets/images/cross.png';
+import crossIcon from '../../assets/images/cross.png';
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
-import Header from './Header';
-import Footer from './Footer'
+import Header from '../Header';
+import Footer from '../Footer'
 import { Link } from 'react-router-dom';
 
 
 
 
 
-import pos1 from '../assets/images/pos1.png';
-import pos2 from '../assets/images/pos2.png';
-import pos3 from '../assets/images/pos3.png';
-import pos4 from '../assets/images/pos4.png';
-import arrow1 from '../assets/images/Arrow 3.png';
-import arrow2 from '../assets/images/Arrow 4.png';
-import arrow3 from '../assets/images/Arrow 5.png';
-import cloud1 from '../assets/images/cloud1.png';
-import cloud2 from '../assets/images/cloud2.png';
-import cloud3 from '../assets/images/cloud3.png';
-import cloud4 from '../assets/images/cloud4.png';
-import ScrollToTop from "./ScrollToTop";
+import pos1 from '../../assets/images/pos1.png';
+import pos2 from '../../assets/images/pos2.png';
+import pos3 from '../../assets/images/pos3.png';
+import pos4 from '../../assets/images/pos4.png';
+import arrow1 from '../../assets/images/Arrow 3.png';
+import arrow2 from '../../assets/images/Arrow 4.png';
+import arrow3 from '../../assets/images/Arrow 5.png';
+import cloud1 from '../../assets/images/cloud1.png';
+import cloud2 from '../../assets/images/cloud2.png';
+import cloud3 from '../../assets/images/cloud3.png';
+import cloud4 from '../../assets/images/cloud4.png';
+import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
-import ContactServicePage from './ContactServicePage';
+import ContactServicePage from '../ContactServicePage';
 
 
 const ServicePage1 = () => {
@@ -110,7 +110,7 @@ const ServicePage1 = () => {
                         {/* Image Section */}
                         <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lOhHRgm1J6W-vkRDggGCxLp9PIbGXKbOGd8LHQb-vcW1apeNTaG-zSP18WGb-l9g~kfgmj93nK3fm5egWFnPmlgHLCBFRo9E-av9AXcgOiFVmhklfPfNhC5K7HdmXtJIoxAqc50pnGrpfotUE7l~e4Ntz25yzaATOKWYJEahYf3bcyF5Ez2fkOV-e2ewUAJB0OyxjQkNKhxwjIBO6L72aEi5twwrrHKsJTvm14HEPbvnugE3C~pAKpDAJmZHUMbcSvmtwAVXYtYEu1Df5eV2Xyz5Z2QtVaXs1sCMUwVHcRj3Sz-VDhtkKMvumxQ8PHrL6CIT0Mf0bnkqpwxITmexwQ__"
+                                src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Euno-KlCJ6EDJu1Kfkx7mRLRhOs6kTTC1qXdGbUDK5GJyETw87wOSNn~q6iqFpfPaWRbS9bn5kZS~8YaEEoOyobR25o9Q6Q~TSI6GDM0BzUZm1suSJXAzCR650JhMVuAtu9Z17g9LMd-VlQwm95jAckkRjl8usLl4EtGiwaMK3MvPOK0MT1eLgOM2I0M0CrQs99LbvM3yVlLzsxEEiDoav-o6OR1FGFDgM6GiNpau7TaLjELNu9Lig06BGQnwKNJUo06Uw8K0fio31Ayu7XxiflAiC4rhGnSw5I-8lcBtXnYiaPxSHO~bUo2NpvfV4lLp1uSHDwL0YkvT2EAjO62nw__"
                                 alt=""
                                 className="w-full h-full object-cover"
                             />

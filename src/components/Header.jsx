@@ -7,7 +7,14 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
+  const [isHovered, setIsHovered] = useState(false);
+  const [selectedService, setSelectedService] = useState(''); // Renamed state variable
 
+  
+
+  const handleServiceClick = (link) => {
+    setActiveLink(link);
+  };
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setDropdownOpen(false); // Close dropdown if main menu is toggled
@@ -42,13 +49,82 @@ const Header = () => {
         
         {/* Navigation Links for Desktop */}
         <div className="hidden md:flex justify-center font-medium items-center gap-[8rem]">
-          <Link 
-            to="/servicepage1" 
-            onClick={() => handleLinkClick('/servicepage1')}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === '/servicepage1' ? 'border-b-2 border-white' : ''}`}
-          >
-            Services
-          </Link>
+         
+        <div 
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Link
+        to=""
+        onClick={() => handleServiceClick('/service1')} // Updated function name
+        className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${selectedService === '/service1' ? 'border-b-2 border-white' : ''}`} // Updated condition
+      >
+        Services
+      </Link>
+
+      {/* Dropdown menu */}
+      {isHovered && (
+  <div className="absolute bg-[#1A0C25] text-white p-2 rounded-lg shadow-lg top-[85%] left-0 w-56 z-10 mt-2 transition-all duration-200 ease-in-out">
+    <ul className="space-y-2">
+      <li>
+        <Link 
+          to="/service1" 
+          onClick={() => handleServiceClick('/service1')}
+          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
+          aria-label="Service 1"
+        >
+          Service 1
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/service2" 
+          onClick={() => handleServiceClick('/service2')}
+          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
+          aria-label="Service 2"
+        >
+          Service 2
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/service3" 
+          onClick={() => handleServiceClick('/service3')}
+          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
+          aria-label="Service 3"
+        >
+          Service 3
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/service4" 
+          onClick={() => handleServiceClick('/service4')}
+          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
+          aria-label="Service 4"
+        >
+          Service 4
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to="/service5" 
+          onClick={() => handleServiceClick('/service5')}
+          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
+          aria-label="Service 5"
+        >
+          Service 5
+        </Link>
+      </li>
+    </ul>
+  </div>
+)}
+
+    </div>
+
+
+
           <Link 
             to="/aboutus" 
             onClick={() => handleLinkClick('/aboutus')}
@@ -105,8 +181,8 @@ const Header = () => {
         >
           {/* Dropdown Links */}
           <Link 
-            to="/servicepage1" 
-            onClick={() => handleLinkClick('/servicepage1')}
+            to="/service1" 
+            onClick={() => handleLinkClick('/service1')}
             className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/servicepage1' ? 'underline' : ''}`}
           >
             Services
