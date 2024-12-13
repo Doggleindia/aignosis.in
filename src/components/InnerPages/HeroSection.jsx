@@ -73,9 +73,10 @@ const HeroSection = () => {
                 muted  src='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97' alt="" className='w-full h-screen opacity-90 relative object-cover' />
             <div className='w-full h-full absolute flex-col flex justify-center items-center'>
                 <div className="w-full overflow-hidden">
-                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight max-sm:text-3xl text-6xl font-semibold">
+                    <h1 className="flex justify-center text-center text-fuchsia-50 tracking-tight max-sm:text-lg text-6xl font-semibold ">
                         <span id='textright' className="block"> Frontier AI for Your Child’s</span>
-                        <span id='textleft' className="block">&nbsp; Best Development </span>
+                        
+                        <span id='textleft' className="  block">&nbsp; Best Development </span>
                     </h1>
                 </div>
                 <Link to="/BlogPages" className='w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>

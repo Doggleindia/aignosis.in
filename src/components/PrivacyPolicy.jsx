@@ -55,8 +55,11 @@ const PrivacyPolicy = () => {
           </p>
           <h2 className="text-lg font-semibold mt-6 mb-4 sm:text-2xl">Your Rights</h2>
           <p className="mb-4 text-sm leading-relaxed sm:text-base">
-            You have the right to access, update, or delete your personal information. Contact us at
-            [contact information] to exercise these rights.
+            You have the right to access, update, or delete your personal information. Contact us at 
+            <a href="mailto:aignosis7@gmail.com" className="text-blue-500 hover:underline p-2">
+    aignosis7@gmail.com
+</a>
+     to exercise these rights.
           </p>
           <h2 className="text-lg font-semibold mt-6 mb-4 sm:text-2xl">Changes to This Policy</h2>
           <p className="mb-4 text-sm leading-relaxed sm:text-base">
@@ -67,7 +70,7 @@ const PrivacyPolicy = () => {
         </div>
         
       </div>
-      <ContactPage />
+      {/* <ContactPage /> */}
       <Footer />
     </div>
   );

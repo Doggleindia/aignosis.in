@@ -133,8 +133,8 @@ const Header = () => {
             Blogs
           </Link>
           {/* Book Appointment Button */}
-          <Link 
-            to="/test/fillup" 
+          <a
+           href='#contact' 
             onClick={() => handleLinkClick('/appointment')}
             className="w-[10rem] gap-2 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300 mt-4"
           >
@@ -142,7 +142,7 @@ const Header = () => {
             <div className="w-[2rem] text-white group-hover:text-black text-lg flex justify-center items-center h-[2rem] rounded-full bg-[#B740A1] group-hover:bg-white mr-1">
               <GoArrowUpRight />
             </div>
-          </Link>
+          </a>
         </div>
       )}
     </div>

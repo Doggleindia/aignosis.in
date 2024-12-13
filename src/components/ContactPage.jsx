@@ -75,27 +75,27 @@ const ContactPage = () => {
         name="name" 
         placeholder="Your Name"
         required
-        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
       />
       <input
         type="email"
         name="email" 
         placeholder="Your Email"
         required
-        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
       />
       <input
         type="text"
         name="phone" 
         placeholder="Your Phone Number"
         required
-        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
       />
       <textarea
         name="message" 
         placeholder="Your Message"
         required
-        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+        className="w-full h-32 px-4 py-2  bg-[#2521276B] border-2 border-[#B740A1] rounded-md resize-none"
       ></textarea>
       <button
         type="submit"

@@ -41,21 +41,21 @@ const ContactServicePage = () => {
                                     <input
                                         type="text"
                                         placeholder="Your Name"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Your Email"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
                                     />
                                     <input
                                         type="phone"
                                         placeholder="Your Phone Number"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
                                     />
                                     <textarea
                                         placeholder="Your Message"
-                                        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                                        className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"
                                     ></textarea>
                                     <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                                         <a href="" className='text-white'>Send Message</a>
@@ -74,21 +74,21 @@ const ContactServicePage = () => {
                                     <input
                                         type="text"
                                         placeholder="Your Name"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Your Email"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
                                     />
                                     <input
                                         type="phone"
                                         placeholder="Your Phone Number"
-                                        className="w-full px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md"
+                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
                                     />
                                     <textarea
                                         placeholder="Your Message"
-                                        className="w-full h-32 px-4 py-2 border bg-[#2521276B] border-gray-300 rounded-md resize-none"
+                                        className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"
                                     ></textarea>
                                     <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                                         <a href="" className='text-white'>Send Message</a>

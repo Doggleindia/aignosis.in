@@ -300,9 +300,10 @@ const BlogPage = () => {
         </div>
       </section>
       <div>
-        <Footer />
+        
       </div>
     </div>
+    <Footer />
     </>
     
   );

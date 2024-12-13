@@ -12,7 +12,7 @@ function Footer() {
                 <h1 className='text-sm md:text-base lg:text-lg mt-4 text-center px-4 lg:px-0'>
                     Stay connected with us! Follow us for the latest updates, news, and insights. We’d love to engage with you online!
                 </h1>
-                <div className='flex justify-center max-sm:gap-4 gap-8 md:gap-10 mt-6 md:mt-8 items-center'>
+                <div className='flex justify-center max-sm:gap-[3vw] gap-8 md:gap-10 mt-6 md:mt-8 items-center'>
                     {/* Group icon and text together */}
                     <div className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
