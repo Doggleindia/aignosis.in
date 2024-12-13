@@ -65,7 +65,7 @@ const Header = () => {
 
       {/* Dropdown menu */}
       {isHovered && (
-  <div className="absolute bg-[#1A0C25] text-white p-2 rounded-lg shadow-lg top-[85%] left-0 w-56 z-10 mt-2 transition-all duration-200 ease-in-out">
+  <div className="absolute bg-[#1A0C25] text-white p-2 rounded-lg shadow-lg top-[70%] left-0 w-56 z-10 mt-2 transition-all duration-200 ease-in-out">
     <ul className="space-y-2">
       <li>
         <Link 
