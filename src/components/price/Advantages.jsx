@@ -53,7 +53,7 @@ const Advantages = () => {
                 <td className="py-3">{feature}</td>
                 <td className="py-3 text-center border-r border-[#F6E8FB80]">✅</td> {/* Added border here */}
                 <td className="py-3 text-center">
-                  <img src={crossIcon} alt="Cross Icon" className="w-4 h-4 mx-auto" />
+                  <img src={crossIcon} alt="Cross Icon" className="w-4 h-4 mx-auto" loading="lazy" />
                 </td>
               </tr>
             ))}

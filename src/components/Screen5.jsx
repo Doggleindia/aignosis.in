@@ -110,7 +110,7 @@ const Screen5 = () => {
                             {slides.map((slide, index) => (
                                 <div key={index} className="w-full max-sm:w-[100%] flex-shrink-0 flex flex-col md:flex-row">
                                     <div className="w-full 2xl:w-[28vw] max-sm:w-[68%] md:w-[20vw] 2xl:h-full md:h-full flex justify-center items-center">
-                                        <img className='w-full max-sm:w-[79%]   h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} />
+                                        <img className='w-full max-sm:w-[79%]   h-full object-fit scale-[.7]' src={slide.img} alt={slide.title} loading="lazy" />
                                     </div>
                                     <div className="w-full max-sm:w-[60%] 2xl:w-[20vw] md:w-[28vw] md:py-[2rem] mt-4 md:mt-0 md:ml-[5rem] text-base md:text-4xl flex flex-col justify-center items-start">
                                         <span className="text-[#B7407D] text-sm max-sm:ml-[4vw]">{slide.subTitle}</span>

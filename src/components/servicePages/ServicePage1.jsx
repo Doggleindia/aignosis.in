@@ -112,7 +112,7 @@ const ServicePage1 = () => {
                             <img
                                 src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Euno-KlCJ6EDJu1Kfkx7mRLRhOs6kTTC1qXdGbUDK5GJyETw87wOSNn~q6iqFpfPaWRbS9bn5kZS~8YaEEoOyobR25o9Q6Q~TSI6GDM0BzUZm1suSJXAzCR650JhMVuAtu9Z17g9LMd-VlQwm95jAckkRjl8usLl4EtGiwaMK3MvPOK0MT1eLgOM2I0M0CrQs99LbvM3yVlLzsxEEiDoav-o6OR1FGFDgM6GiNpau7TaLjELNu9Lig06BGQnwKNJUo06Uw8K0fio31Ayu7XxiflAiC4rhGnSw5I-8lcBtXnYiaPxSHO~bUo2NpvfV4lLp1uSHDwL0YkvT2EAjO62nw__"
                                 alt=""
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover" loading="lazy"
                             />
                         </div>
                         {/* CTA and Rating */}
@@ -212,14 +212,14 @@ const ServicePage1 = () => {
                                         <img
                                             className="absolute cursor-pointer scale-[.9] top-5 left-[2vw]"
                                             src={pos1}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
 
                                         {/* Cloud Image - Visible on hover */}
                                         <img
                                             className="absolute scale-[.6] -top-[5vw] left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
 
                                         {/* Heading Content - Visible on hover */}
@@ -235,12 +235,12 @@ const ServicePage1 = () => {
                                         <img
                                             className="absolute cursor-pointer scale-[.9] top-[4vw] left-[15vw]"
                                             src={pos2}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <img
                                             className="absolute scale-[.6] -top-[4vw] left-[16vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <h1
                                             className="text-black absolute text-[10px] font-medium left-[22vw] -top-[1vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -254,12 +254,12 @@ const ServicePage1 = () => {
                                         <img
                                             className="absolute cursor-pointer scale-[.9] top-[13vw] left-[4vw]"
                                             src={pos3}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <img
                                             className="absolute scale-[.6] top-[4vw] z-10 left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <h1
                                             className="text-black z-20 absolute text-[10px] font-medium left-[8.6vw] top-[7.5vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -273,12 +273,12 @@ const ServicePage1 = () => {
                                         <img
                                             className="absolute cursor-pointer scale-[.9] top-[15vw] left-[16vw]"
                                             src={pos4}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <img
                                             className="absolute scale-[.6] z-10 top-[6vw] left-[15vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
-                                            alt=""
+                                            alt="" loading="lazy"
                                         />
                                         <h1
                                             className="text-black absolute z-20 text-[10px] font-medium left-[21vw] top-[9vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -288,9 +288,9 @@ const ServicePage1 = () => {
                                     </div>
 
                                     {/* Other elements such as arrows */}
-                                    <img className="absolute scale-[.7] top-[6vw] left-[9vw]" src={arrow1} alt="" />
-                                    <img className="absolute scale-[.7] top-[10vw] left-[10vw]" src={arrow2} alt="" />
-                                    <img className="absolute scale-[.7] top-[16vw] left-[10.5vw]" src={arrow3} alt="" />
+                                    <img className="absolute scale-[.7] top-[6vw] left-[9vw]" src={arrow1} alt="" loading="lazy" />
+                                    <img className="absolute scale-[.7] top-[10vw] left-[10vw]" src={arrow2} alt="" loading="lazy" />
+                                    <img className="absolute scale-[.7] top-[16vw] left-[10.5vw]" src={arrow3} alt="" loading="lazy" />
                                 </div>
 
                             </div>

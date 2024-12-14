@@ -53,18 +53,24 @@ const UnderstandingNumber = () => {
 
   return (
     <div
-      ref={containerRef}
-      className="2xl:w-[60%] md:w-[50%] h-[25vw] flex flex-col border border-[#B874B540] overflow-hidden rounded-3xl mb-10 relative max-sm:w-[90vw] max-sm:h-[75vw]"
-      style={{
-        scrollBehavior: 'smooth',
-        overflowY: 'hidden',
-        position: 'relative',
-      }}
+    ref={containerRef}
+    className=" 2xl:w-[100%] md:w-[50%] h-[35vw]  flex flex-col justify-center   items-center   overflow-hidden  mb-10 relative max-sm:w-[90vw] max-sm:h-[85vw]"
+    style={{
+      scrollBehavior: 'smooth',
+      overflowY: 'hidden',
+      position: 'relative',
+    }}
+  >
+    <div
+      
+      className="  2xl:w-[60%] md:w-[100%] h-[25vw]  flex flex-col border border-[#B874B540] overflow-hidden rounded-3xl mb-10 relative max-sm:w-[90vw] max-sm:h-[78vw]"
+    
     >
+       
       {/* First Card */}
       <div
         className={`firstCard flex absolute inset-0 transition-all duration-700 ease-in-out ${
-          showSecondCard ? '-translate-y-full z-10' : 'translate-y-0 z-20'
+          showSecondCard ? '-translate-y-full z-10' : 'translate-y-0 z-10'
         }`}
         style={{
           background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
@@ -99,7 +105,7 @@ const UnderstandingNumber = () => {
       {/* Second Card */}
       <div
         className={`secondCard flex absolute inset-0 transition-all duration-700 ease-in-out ${
-          showSecondCard ? 'translate-y-0 z-20' : 'translate-y-full z-10'
+          showSecondCard ? 'translate-y-0 z-10' : 'translate-y-full z-10'
         }`}
         style={{
           background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
@@ -130,6 +136,7 @@ const UnderstandingNumber = () => {
           <img className="w-[60%] h-[60%] max-sm:w-auto object-cover" src={bg2} alt="Autism Awareness" />
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import logo2 from "../../assets/images/payment/2.png";
 import logo3 from "../../assets/images/payment/3.png";
 import snip1 from "../../assets/images/payment/logo1.png";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const PaymentScreen1 = ({ onNext, onBack }) => {
   const handleNext = (e) => {
@@ -18,6 +18,11 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
     }
   };
 
+  const location = useLocation();
+  const { selectedPrice } = location.state || { selectedPrice: 0 };
+
+
+
   return (
     <div className="w-full px-[5vw] text-white font-montserrat min-h-screen bg-[#1A0C25] max-sm:px-[3vw] max-sm:pt-[5vw]">
 
@@ -25,7 +30,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative  bg-[#B7407D] text-white border-transparent flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>1</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo1} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo1} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Fill personal details</h1>
         </div>
@@ -37,7 +42,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[7vw] h-[7vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>2</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo2} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo2} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Payment details</h1>
         </div>
@@ -49,7 +54,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>3</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo3} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo3} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center md:mt-[1vw] max-sm:mb-[4vw] text-white font-montserrat max-sm:text-sm'>Confirmation</h1>
         </div>
@@ -63,10 +68,10 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
           <div className="flex mt-[2vw] justify-end"><RiDeleteBin5Line /></div>
           <div className='flex  flex-col justify-start mt-[1vw] bg-[#564A5957] border border-[#9C00AD63] rounded-xl   gap-[1vw] pl-2 max-sm:pl-5'>
             <div className='flex flex-row'>
-            <img src={snip1} alt="" />
+            <img src={snip1} alt="" loading="lazy" />
             <div className='flex w-full justify-between items-center max-sm:text-sm'>
               <h1 className='m-auto'>behavioral therapy</h1>
-              <h1 className='m-auto'>₹46000</h1>
+              <h1 className='m-auto'>₹{selectedPrice}</h1>
             </div>
             </div>
             <span className="flex font-raleway text-sm ">6-Month Validity </span>
@@ -82,7 +87,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Subtotal:</h1>
-              <h1>₹46000</h1>
+              <h1>₹{selectedPrice}</h1>
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 border-b border-[#763e6c] pb-2 max-sm:text-sm">
               <h1>Sales tax (6.5%):</h1>
@@ -90,7 +95,7 @@ const PaymentScreen1 = ({ onNext, onBack }) => {
             </div>
             <div className="flex mt-6 justify-between items-center gap-5 pb-2 max-sm:text-sm">
               <h1>Total due:</h1>
-              <h1 className='font-semibold text-[#B740A1]'>₹46200</h1>
+              <h1 className='font-semibold text-[#B740A1]'>₹{selectedPrice+200}</h1>
             </div>
           </div>
         </div>

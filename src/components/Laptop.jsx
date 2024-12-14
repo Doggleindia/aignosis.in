@@ -1,10 +1,12 @@
 import React from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 // import frameImg from '../assets/images/pcvideo.svg'; // Update the path as per your project structure
 // import aivideo from '../assets/video/Aignosis_Product_intro.mp4'; // Update the path as per your project structure
 
 const Laptop = () => {
     return (
         <div className="landing_sec mb-4 2xl:mb-24">
+             
             <div className="lan_sec_bottom 2xl:mt-[130px] md:mt-[100px] relative text-center">
                 {/* Main video */}
                 <video

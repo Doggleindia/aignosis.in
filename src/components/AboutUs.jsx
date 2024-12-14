@@ -67,7 +67,7 @@ const AboutUs = () => {
                         </h1>
                         <p className="mt-3 text-xs sm:text-base">Working together for a brighter future.</p>
                     </div>
-                    <img src={about} alt="About Us" className="w-[90%] md:w-[40vw] h-auto mt-[2vw]" />
+                    <img src={about} alt="About Us" className="w-[90%] md:w-[40vw] h-auto mt-[2vw]" loading="lazy" />
                     <p className="w-[90%] md:w-[60vw] text-center mt-[2vw] text-xxs sm:text-xs md:text-base mb-200">
                         At Ai.gnosis, we are committed to making a positive impact on the lives of children and families
                         through early autism screening and support. Our team harnesses the power of advanced AI to enable early,
@@ -87,24 +87,24 @@ const AboutUs = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[7vw]">
-                        <TeamMember name="Divyansh Mangal" img={image2} description="CO FOUNDER" />
-                        <TeamMember name="Raksheet Jain" img={image3} description="CO FOUNDER" />
+                        <TeamMember name="Divyansh Mangal" img={image2} description="CO FOUNDER" loading="lazy" />
+                        <TeamMember name="Raksheet Jain" img={image3} description="CO FOUNDER" loading="lazy" />
                     </div>
                     <div className='flex justify-center items-center my-10'>
                         <h2 className='font-raleway text-[#FFFFFF] text-2xl sm:text-5xl'>Advisors</h2>
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. S. Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" />
-                        <TeamMember name="Dr. Ramesh Agrawal" img={image6} description="HOD mother & child block, AIIMS Delhi" height="h-[6rem]" />
-                        <TeamMember name="Dr. Rajesh Jain" img={image4} description="Consultant Pediatrician Raksheet Hospital" height="h-[6rem]" />
+                        <TeamMember name="Dr. S. Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" loading="lazy" />
+                        <TeamMember name="Dr. Ramesh Agrawal" img={image6} description="HOD mother & child block, AIIMS Delhi" height="h-[6rem]"  loading="lazy"/>
+                        <TeamMember name="Dr. Rajesh Jain" img={image4} description="Consultant Pediatrician Raksheet Hospital" height="h-[6rem]" loading="lazy" />
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[5vw] mt-10 mb-5 pb-5">
-                        <TeamMember name="Dr. Dhananajay Mangal" img={image5} description="Consultant Pediatrician Babylon Hospital" height="h-[6rem]" />
-                        <TeamMember name="Dr. Anami Gour" img={image7} description="Consultant Paediatric Intensive Care, London" height="h-[6rem]" />
-                        <TeamMember name="Mr. Rajneesh Bhandari" img={image9} description="NeuroEquilibrium Diagnostics Pvt. LMT." height="h-[6rem]" />
-                        <TeamMember name="Mr. Arcchit Jain" img={archit_img} description="Vice President, Goldman Sachs" height="h-[6rem]" />
+                        <TeamMember name="Dr. Dhananajay Mangal" img={image5} description="Consultant Pediatrician Babylon Hospital" height="h-[6rem]" loading="lazy" />
+                        <TeamMember name="Dr. Anami Gour" img={image7} description="Consultant Paediatric Intensive Care, London" height="h-[6rem]" loading="lazy" />
+                        <TeamMember name="Mr. Rajneesh Bhandari" img={image9} description="NeuroEquilibrium Diagnostics Pvt. LMT." height="h-[6rem]" loading="lazy" />
+                        <TeamMember name="Mr. Arcchit Jain" img={archit_img} description="Vice President, Goldman Sachs" height="h-[6rem]" loading="lazy" />
                     </div>
                 </div>
             </section>

@@ -8,12 +8,14 @@ import MainComponent from './MainComponent'
 import Footer from './Footer'
 import PartnershipPage from './PartnershipPage'
 import ContactPage from './ContactPage'
+import WhatsAppButton from './WhatsAppButton'
 const HomepageMain = () => {
   return (
     <div className='bg-[#1A0C25]'>
     
       <Homepage />
       <Laptop />
+      <WhatsAppButton />
       <Screen3 />
       <Screen4 />
       <Screen5 />

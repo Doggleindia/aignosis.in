@@ -41,13 +41,13 @@ const Comparison = () => {
               src={img1}
               alt="First Image"
               className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }}
+              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }} loading="lazy"
             />
             <img
               src={img2}
               alt="Second Image"
               className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }}
+              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }} loading="lazy"
             />
             {/* Draggable Divider */}
             <div
@@ -164,13 +164,13 @@ const Comparison = () => {
               src={img1}
               alt="First Image"
               className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }}
+              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }} loading="lazy"
             />
             <img
               src={img2}
               alt="Second Image"
               className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }}
+              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }} loading="lazy"
             />
             {/* Draggable Divider */}
             <div

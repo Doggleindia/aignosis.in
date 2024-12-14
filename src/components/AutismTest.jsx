@@ -187,7 +187,7 @@ const AutismTest = () => {
     sm:scale-110 
     ${currentStep === index + 1 ? 'scale-100' : 'scale-105'}
   "
-  style={{ transform: currentStep === index + 1 ? "scale(1)" : "scale(1.1)" }}
+  style={{ transform: currentStep === index + 1 ? "scale(1)" : "scale(1.1)" }} loading="lazy"
 />
 
 

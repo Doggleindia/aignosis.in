@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiArrowRight, FiChevronsRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoArrowUpRight, GoShare } from "react-icons/go";
 import { FaShareAlt } from "react-icons/fa";
 import img1 from '../../assets/assessments/as1.png';
@@ -16,7 +16,13 @@ import GiftHeading from "./GiftHeading";
 const ChoosePlan = () => {
   const [active, setActive] = useState("assessment");
   const [isGiftVisible, setIsGiftVisible] = useState(false);
-  
+ 
+  const navigate = useNavigate();
+
+  const handleCardClick = (price) => {
+    navigate("/payment", { state: { selectedPrice: price } }); // Pass price to Payment page
+  };
+
 
   useEffect(()=>{
    setIsGiftVisible(false)
@@ -126,7 +132,7 @@ const ChoosePlan = () => {
   <div className="flex flex-col items-center text-center md:w-[40%] lg:w-auto">
     <div className="mb-4">
       <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] bg-[#382C3E73] rounded-md">
-        <img src={img1} className="w-full h-full" alt="Step 1" />
+        <img src={img1} className="w-full h-full" alt="Step 1" loading="lazy" />
       </div>
     </div>
     <h3 className="font-bold text-base md:text-lg">In-Depth Assessment</h3>
@@ -142,7 +148,7 @@ const ChoosePlan = () => {
   <div className="flex flex-col items-center text-center md:w-[40%] lg:w-auto">
     <div className="mb-4">
       <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] bg-[#382C3E73] rounded-md">
-        <img src={img2} className="w-full h-full" alt="Step 2" />
+        <img src={img2} className="w-full h-full" alt="Step 2" loading="lazy" />
       </div>
     </div>
     <h3 className="font-bold text-base md:text-lg">Personalized Therapy</h3>
@@ -158,7 +164,7 @@ const ChoosePlan = () => {
   <div className="flex flex-col items-center text-center md:w-[40%] lg:w-auto">
     <div className="mb-4">
       <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] bg-[#382C3E73] rounded-md">
-        <img src={img3} className="w-full h-full" alt="Step 3" />
+        <img src={img3} className="w-full h-full" alt="Step 3"  loading="lazy"/>
       </div>
     </div>
     <h3 className="font-bold text-base md:text-lg">Adaptive Learning Support</h3>
@@ -174,7 +180,7 @@ const ChoosePlan = () => {
   <div className="flex flex-col items-center text-center md:w-[40%] lg:w-auto">
     <div className="mb-4">
       <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] lg:w-[110px] lg:h-[110px] bg-[#382C3E73] rounded-md">
-        <img src={img4} className="w-full h-full" alt="Step 4" />
+        <img src={img4} className="w-full h-full" alt="Step 4" loading="lazy" />
       </div>
     </div>
     <h3 className="font-bold text-base md:text-lg">Continuous Feedback</h3>
@@ -186,15 +192,15 @@ const ChoosePlan = () => {
    
       {/* Buttons Container */}
       <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-[80px] mt-8">
-        <Link
-          to="/payment"
+        <div
+          onClick={() => handleCardClick(700)}
           className="px-4 w-full md:w-auto text-[#F6E8FB] py-2 rounded-full text-sm md:text-base lg:text-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#B7407D] transition-colors border border-[#9C00AD]"
         >
           <span>Take the assessment</span>
           <div className="w-[1.5rem] sm:w-[2rem] text-white flex justify-center items-center h-[1.5rem] sm:h-[2rem] rounded-full bg-[#B740A1]">
             <GoArrowUpRight />
           </div>
-        </Link>
+        </div>
         
         <button
           onClick={handleGift}

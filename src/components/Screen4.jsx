@@ -133,9 +133,9 @@ const Screen4 = () => {
               <h1 className="text-center max-sm:text-lg md:text-xl 2xl:text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
                 90% of your baby’s brain develops before the age of 5
               </h1>
-              <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" />
+              <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" loading="lazy" />
               <div className="m-[1rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
-                <img src={graph_img} alt="" />
+                <img src={graph_img} alt="" loading="lazy" />
               </div>
               <div className=" mb-4">
                 <p className="absolute md:text-xs 2xl:text-lg left-[20%]  ">Birth</p>
@@ -144,7 +144,7 @@ const Screen4 = () => {
               </div>
 
           
-
+    
 
 
             </div>
@@ -157,12 +157,14 @@ const Screen4 = () => {
                  {/* <p className=" mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Yearsdddd</p> */}
               </div>
               <p className="flex justify-center align-center mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Years</p>
+
+              <p className='text-center text-[#F6E8FB] text-sm p-4'>Source: Harvard center for developing child</p>
         </div>
 
         <div className="absolute inset-0 bg-[#B740A1] w-[10vw] h-[30vw]   left-0   opacity-65 blur-[200px] rounded-xl "></div>
         <div className="absolute inset-0 bg-[#B740A1] w-auto h-[30vw]   left-[85%] top-[50%]  opacity-65 blur-[200px] rounded-xl "></div>
 
-
+       
       </div>
     </div>
   );

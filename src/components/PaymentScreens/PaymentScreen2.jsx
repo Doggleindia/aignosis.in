@@ -31,7 +31,7 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>1</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo1} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo1} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Fill personal details</h1>
         </div>
@@ -43,7 +43,7 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[7vw] h-[7vw] relative  bg-[#B7407D] text-white border-transparent flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>2</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo2} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo2} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center mt-[1vw] text-white font-montserrat max-sm:text-sm'>Payment details</h1>
         </div>
@@ -55,7 +55,7 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
         <div className='flex flex-col justify-center items-center'>
           <div className="w-[8vw] h-[8vw] relative text-[#B7407DB2] border border-[#B7407D80] flex justify-center items-center rounded-2xl max-sm:w-[15vw] max-sm:h-[15vw]">
             <h1 className='font-montserrat top-[1vw] left-[1.2vw] font-bold text-6xl absolute max-sm:text-4xl'>3</h1>
-            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo3} alt="" />
+            <img className='absolute scale-[.7] left-[2vw] bottom-0 max-sm:scale-[0.5]' src={logo3} alt="" loading="lazy" />
           </div>
           <h1 className='w-full text-center md:mt-[1vw] max-sm:mb-[4vw] text-white font-montserrat max-sm:text-sm'>Confirmation</h1>
         </div>
@@ -70,7 +70,7 @@ const PaymentScreen2 = ({ onNext, onBack }) => {
           <h1 className='font-medium max-sm:text-base'>Order Summary</h1>
           <div className="flex mt-[2vw] justify-end"><RiDeleteBin5Line /></div>
           <div className='flex justify-center mt-[1vw] items-center gap-[1vw] pl-10 max-sm:pl-0'>
-            <img src={snip1} alt="" className="max-sm:w-[15vw]" />
+            <img src={snip1} alt="" className="max-sm:w-[15vw]" loading="lazy" />
             <div className='flex w-full justify-between items-center'>
               <h1>behavioral therapy</h1>
               <h1>₹46000</h1>

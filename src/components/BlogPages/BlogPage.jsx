@@ -83,7 +83,7 @@ const BlogPage = () => {
     <img
       src={blogimg1}
       alt="Post 1"
-      style={{ width: "100%", height: "200px", objectFit: "cover" }}
+      style={{ width: "100%", height: "200px", objectFit: "cover" }} loading="lazy"
     />
     <div className="font-raleway" style={{ padding: "2rem" }}>
       <h4 style={{
@@ -123,7 +123,7 @@ const BlogPage = () => {
     <img
       src={blogimg2}
       alt="Post 2"
-      style={{ width: "100%", height: "200px", objectFit: "cover" }}
+      style={{ width: "100%", height: "200px", objectFit: "cover" }} loading="lazy"
     />
     <div className="font-raleway" style={{ padding: "2rem" }}>
       <h4 style={{
@@ -194,7 +194,7 @@ const BlogPage = () => {
             <img
               src={blogimg3}
               alt="Post 3"
-              style={{ width: "100%", height: "400px", objectFit: "cover" }}
+              style={{ width: "100%", height: "400px", objectFit: "cover" }} loading="lazy"
             />
             <div className="font-manrope" style={{ padding: "2rem" }}> {/* Increased padding */}
               <h4 style={{
@@ -234,7 +234,7 @@ const BlogPage = () => {
     <img
       src={blogimg4}
       alt="Post 4"
-      style={{ width: "100%", height: "200px", objectFit: "cover" }}
+      style={{ width: "100%", height: "200px", objectFit: "cover" }} loading="lazy"
     />
     <div style={{ padding: "2rem" }}>
       <h4 className="font-manrope" style={{
@@ -270,7 +270,7 @@ const BlogPage = () => {
     <img
       src={blogimg5}
       alt="Post 5"
-      style={{ width: "100%", height: "200px", objectFit: "cover" }}
+      style={{ width: "100%", height: "200px", objectFit: "cover" }} loading="lazy"
     />
     <div style={{ padding: "2rem" }}>
       <h4 className="font-manrope" style={{

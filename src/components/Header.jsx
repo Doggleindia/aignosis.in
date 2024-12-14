@@ -10,6 +10,10 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [selectedService, setSelectedService] = useState(''); // Renamed state variable
 
+  const [isMenuVisible, setIsMenuVisible] = useState(true); // Menu visibility
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
+  const [currentActiveLink, setCurrentActiveLink] = useState("/");
+
   
 
   const handleServiceClick = (link) => {
@@ -65,72 +69,87 @@ const Header = () => {
 
       {/* Dropdown menu */}
       {isHovered && (
-  <div className="absolute bg-[#1A0C25] text-white p-2 rounded-lg shadow-lg top-[70%] left-0 w-56 z-10 mt-2 transition-all duration-200 ease-in-out">
-    <ul className="space-y-2">
-      <li>
-        <Link 
-          to="/service1" 
-          onClick={() => handleServiceClick('/service1')}
-          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
-          aria-label="Service 1"
-        >
-          Service 1
-        </Link>
-      </li>
-      <li>
-        <Link 
-          to="/service2" 
-          onClick={() => handleServiceClick('/service2')}
-          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
-          aria-label="Service 2"
-        >
-          Service 2
-        </Link>
-      </li>
-      <li>
-        <Link 
-          to="/service3" 
-          onClick={() => handleServiceClick('/service3')}
-          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
-          aria-label="Service 3"
-        >
-          Service 3
-        </Link>
-      </li>
-      <li>
-        <Link 
-          to="/service4" 
-          onClick={() => handleServiceClick('/service4')}
-          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
-          aria-label="Service 4"
-        >
-          Service 4
-        </Link>
-      </li>
-      <li>
-        <Link 
-          to="/service5" 
-          onClick={() => handleServiceClick('/service5')}
-          className="block p-3 rounded-md hover:bg-[#F6E8FB] hover:text-[#1A0C25] transition duration-200"
-          aria-label="Service 5"
-        >
-          Service 5
-        </Link>
-      </li>
-    </ul>
+  <div className="absolute text-white p-2 rounded-lg shadow-lg top-[70%] left-0 w-[22vw] z-10 mt-2 transition-all duration-200 ease-in-out" style={{ 
+    background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)', 
+    
+    padding: '1rem 0',
+    
+    borderRadius: '8px'
+  }}>
+    <ul className="space-y-2 flex flex-col justify-center items-center">
+  <li>
+    <Link 
+      to="/service1" 
+      onClick={() => handleServiceClick('/service1')}
+      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
+        activeLink === '/service1' ? 'text-[#B740A1]' : ''
+      }`}
+      aria-label="Service 1"
+    >
+      Assessments & Evaluation
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/service2" 
+      onClick={() => handleServiceClick('/service2')}
+      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
+        activeLink === '/service2' ? 'text-[#B740A1]' : ''
+      }`}
+      aria-label="Service 2"
+    >
+      Speech & Language
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/service3" 
+      onClick={() => handleServiceClick('/service3')}
+      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
+        activeLink === '/service3' ? 'text-[#B740A1]' : ''
+      }`}
+      aria-label="Service 3"
+    >
+      Behaviour Therapy
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/service4" 
+      onClick={() => handleServiceClick('/service4')}
+      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
+        activeLink === '/service4' ? 'text-[#B740A1]' : ''
+      }`}
+      aria-label="Service 4"
+    >
+      Occupational Therapy
+    </Link>
+  </li>
+  <li>
+    <Link 
+      to="/service5" 
+      onClick={() => handleServiceClick('/service5')}
+      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${
+        activeLink === '/service5' ? 'text-[#B740A1]' : ''
+      }`}
+      aria-label="Service 5"
+    >
+      Special Education
+    </Link>
+  </li>
+</ul>
+
   </div>
+
 )}
 
     </div>
-
-
-
           <Link 
             to="/aboutus" 
             onClick={() => handleLinkClick('/aboutus')}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === '/aboutus' ? 'border-b-2 border-white' : ''}`}
           >
-            About
+            About Us
           </Link>
           <Link 
             to="/prices" 
@@ -167,58 +186,112 @@ const Header = () => {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div 
-          className="md:hidden flex flex-col items-center mt-2 pb-4"
-          style={{ 
-            background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)', 
-            width: '100%', 
-            padding: '1rem 0',
-            borderTop: '1px solid #952981',
-            borderBottom: '1px solid #952981',
-            borderRadius: '8px'
-          }}
-        >
-          {/* Dropdown Links */}
-          <Link 
-            to="/service1" 
-            onClick={() => handleLinkClick('/service1')}
-            className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/servicepage1' ? 'underline' : ''}`}
+      {menuOpen&& (
+        <div className="flex justify-center items-center">
+          <div
+            className="md:hidden flex flex-col mt-2 pb-4"
+            style={{
+              background:
+                "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
+              width: "80%",
+              borderRadius: "8px",
+              padding: "1.5rem",
+            }}
           >
-            Services
-          </Link>
-          <Link 
-            to="/aboutus" 
-            onClick={() => handleLinkClick('/aboutus')}
-            className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/aboutus' ? 'underline' : ''}`}
-          >
-            About
-          </Link>
-          <Link 
-            to="/prices" 
-            onClick={() => handleLinkClick('/prices')}
-            className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/prices' ? 'underline' : ''}`}
-          >
-            Prices
-          </Link>
-          <Link 
-            to="/BlogPages" 
-            onClick={() => handleLinkClick('/prices')}
-            className={`text-sm font-raleway text-[#F6E8FB] border-b border-[#952981] ${activeLink === '/BlogPages' ? 'underline' : ''}`}
-          >
-            Blogs
-          </Link>
-          {/* Book Appointment Button */}
-          <a
-           href='#contact' 
-            onClick={() => handleLinkClick('/appointment')}
-            className="w-[10rem] gap-2 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300 mt-4"
-          >
-            <span className="text-sm text-center">Book an appointment</span>
-            <div className="w-[2rem] text-white group-hover:text-black text-lg flex justify-center items-center h-[2rem] rounded-full bg-[#B740A1] group-hover:bg-white mr-1">
-              <GoArrowUpRight />
+            {/* HOME Link */}
+            <Link
+              to="/"
+              
+              className={`text-sm font-raleway text-[#F6E8FB] mt-2 border-b-2 p-2 border-[#952981] `}
+            >
+              HOME
+            </Link>
+
+            {/* SERVICES Dropdown */}
+            <div className="flex flex-col mt-2">
+              <div
+                onClick={() =>
+                  setIsServicesDropdownOpen(!isServicesDropdownOpen)
+                }
+                className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
+              >
+                SERVICES
+                <span>{isServicesDropdownOpen ? "▾" : "▸"}</span>
+              </div>
+              {isServicesDropdownOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  <Link
+                    to="/service1"
+                    
+                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
+                  >
+                    Assessments & Evaluation
+                  </Link>
+                  <Link
+                    to="/service2"
+                    
+                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
+                  >
+                    Speech & Language
+                  </Link>
+                  <Link
+                    to="/service3"
+                    
+                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
+                  >
+                    Behaviour Therapy
+                  </Link>
+                  <Link
+                    to="/service4"
+                    
+                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
+                  >
+                    Occupational Therapy
+                  </Link>
+                  <Link
+                    to="/service5"
+                    
+                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
+                  >
+                    Special Education
+                  </Link>
+                </div>
+              )}
+              <p className=' border-b-2 p-2 border-[#952981]'></p>
             </div>
-          </a>
+
+            {/* ABOUT Link */}
+            <Link
+              to="/aboutus"
+              
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              ABOUT
+            </Link>
+
+            {/* BLOGS Link */}
+            <Link
+              to="/BlogPages"
+              
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              BLOGS
+            </Link>
+
+            {/* Book Appointment Button */}
+            <a
+              href="#contact"
+             
+              className="w-full mt-6 flex justify-center items-center gap-2 rounded-full cursor-pointer h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+            >
+              <span className="text-sm text-center text-[#0D0C0A] group-hover:text-white">
+                Book an appointment
+              </span>
+              <div className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-[#B740A1] text-white group-hover:bg-white group-hover:text-black">
+                <GoArrowUpRight />
+              </div>
+            </a>
+          </div>
         </div>
       )}
     </div>

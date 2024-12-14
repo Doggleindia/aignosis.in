@@ -18,7 +18,7 @@ const ServiceCard = ({ image, title, description, onClick }) => (
   >
     {/* Image Section */}
     <div className="w-16 max-sm:h-[50px] h-16 bg-purple-950 rounded-full flex items-center justify-center">
-      <img src={image} alt="Service Icon" className="w-12 h-12" />
+      <img src={image} alt="Service Icon" className="w-12 h-12" loading="lazy" />
     </div>
 
     {/* Text Section */}
@@ -131,7 +131,7 @@ const BookScreening = () => {
           {/* Image Section */}
           <div className="relative mt-[3rem] md:pr-[6rem]">
             <div className="absolute inset-0 bg-[#B740A1] opacity-65 blur-[200px] rounded-lg "></div>
-            <img src={family} alt="Family Illustration" className="relative z-10 md:w-72 2xl:w-64 h-auto max-sm:w-[400px]" />
+            <img src={family} alt="Family Illustration" className="relative z-10 md:w-72 2xl:w-64 h-auto max-sm:w-[400px]" loading="lazy" />
           </div>
         </div>
 
@@ -140,7 +140,7 @@ const BookScreening = () => {
 
             <div className="relative mt-[10rem] sm:ml-[8rem]">
               <div className="absolute inset-0 bg-[#B740A1] opacity-65 blur-[130px] rounded-lg "></div>
-              <img src={mind_img2} alt="Family Illustration" className="relative  w-64 h-auto max-sm:w-[400px]" />
+              <img src={mind_img2} alt="Family Illustration" className="relative  w-64 h-auto max-sm:w-[400px]"  loading="lazy" />
             </div>
 
 
