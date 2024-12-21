@@ -21,6 +21,7 @@ import ServicePage3 from './components/servicePages/ServicePage3';
 import ServicePage4 from './components/servicePages/ServicePage4';
 import ServicePage5 from './components/servicePages/ServicePage5';
 import ServicePage1 from './components/servicePages/ServicePage1';
+import TAndC from './components/TAndC';
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
 
         <Route path="/payment" element={<PaymentScreensMain />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
+        <Route path='/terms' element={<TAndC />} />
       </Routes>
     </Router>
   );

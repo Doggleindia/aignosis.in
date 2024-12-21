@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTwitter, FaDiscord, FaMedium, FaBlog, FaLock } from "react-icons/fa";
+import { FaTwitter, FaDiscord, FaMedium, FaBlog, FaLock, FaFileAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -14,7 +14,7 @@ function Footer() {
                 </h1>
                 <div className='flex justify-center max-sm:gap-[3vw] gap-8 md:gap-10 mt-6 md:mt-8 items-center'>
                     {/* Group icon and text together */}
-                    <div className="flex flex-col items-center">
+                    {/* <div className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
                             <FaTwitter />
                         </div>
@@ -31,19 +31,30 @@ function Footer() {
                             <FaMedium />
                         </div>
                         <h1 className="text-sm md:text-base mt-2">Medium</h1>
-                    </div>
-                    <div className="flex flex-col items-center">
+                    </div> */}
+                    <Link to='/BlogPages' className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
                             <FaBlog />
                         </div>
                         <h1 className="text-sm md:text-base mt-2">Blog</h1>
-                    </div>
+                    </Link>
                     <Link to='/privacy' className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
                             <FaLock />
                         </div>
                         <h1 className="text-sm md:text-base mt-2">Privacy Policy</h1>
                     </Link>
+                    
+                    <Link to='/terms' className="flex flex-col items-center">
+  <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
+    <FaFileAlt />
+  </div>
+  <h1 className="text-sm md:text-base mt-2">Terms & Conditions</h1>
+</Link>
+
+ 
+
+
                 </div>
             </div>
         </div>

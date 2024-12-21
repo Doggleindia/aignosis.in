@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const Header = () => {
@@ -14,6 +14,12 @@ const Header = () => {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
   const [currentActiveLink, setCurrentActiveLink] = useState("/");
 
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    // Navigate to home with state to trigger scrolling
+    navigate('/', { state: { scrollToContact: true } });
+  };
   
 
   const handleServiceClick = (link) => {
@@ -69,7 +75,7 @@ const Header = () => {
 
       {/* Dropdown menu */}
       {isHovered && (
-  <div className="absolute text-white p-2 rounded-lg shadow-lg top-[70%] left-0 w-[22vw] z-10 mt-2 transition-all duration-200 ease-in-out" style={{ 
+  <div className="absolute text-white p-2 rounded-lg shadow-lg top-[70%]  -left-[8vw] w-[22vw] z-10 mt-2 transition-all duration-200 ease-in-out" style={{ 
     background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)', 
     
     padding: '1rem 0',
@@ -165,16 +171,17 @@ const Header = () => {
           >
             Blogs
           </Link>
-          <a
-            href='#contact' 
-            onClick={() => handleLinkClick('/appointment')}
-            className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
-          >
-            <span className="2xl:text-base md:text-sm">Book an appointment</span>
-            <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
-              <GoArrowUpRight />
-            </div>
-          </a>
+          <div
+     onClick={handleNavigate}
+  className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+>
+  <span className="2xl:text-base md:text-sm">Book an appointment</span>
+  <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
+    <GoArrowUpRight />
+  </div>
+</div>
+
+
         </div>
 
         {/* Mobile Menu Icon */}
@@ -268,7 +275,13 @@ const Header = () => {
             >
               ABOUT
             </Link>
-
+            <Link
+              to="/prices"
+              
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              Prices
+            </Link>
             {/* BLOGS Link */}
             <Link
               to="/BlogPages"
@@ -279,8 +292,8 @@ const Header = () => {
             </Link>
 
             {/* Book Appointment Button */}
-            <a
-              href="#contact"
+            <div
+               onClick={handleNavigate}
              
               className="w-full mt-6 flex justify-center items-center gap-2 rounded-full cursor-pointer h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
             >
@@ -290,7 +303,7 @@ const Header = () => {
               <div className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-[#B740A1] text-white group-hover:bg-white group-hover:text-black">
                 <GoArrowUpRight />
               </div>
-            </a>
+            </div>
           </div>
         </div>
       )}
