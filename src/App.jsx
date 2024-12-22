@@ -22,6 +22,7 @@ import ServicePage4 from './components/servicePages/ServicePage4';
 import ServicePage5 from './components/servicePages/ServicePage5';
 import ServicePage1 from './components/servicePages/ServicePage1';
 import TAndC from './components/TAndC';
+import RefundAndReschedule from './components/RefundAndReschedule';
 
 const App = () => {
   return (
@@ -49,6 +50,8 @@ const App = () => {
         <Route path="/payment" element={<PaymentScreensMain />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TAndC />} />
+        <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
+
       </Routes>
     </Router>
   );

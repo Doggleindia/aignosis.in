@@ -119,7 +119,7 @@ const TAndC = () => {
 
 
 
-
+{/* 
 <h2 className="text-lg font-semibold mt-6 mb-4 sm:text-2xl">Refund and Rescheduling Policy</h2>
 <p>At<strong> Aignosis Artificial Intelligence Private Limited.</strong>("Aignosis" or "We"), we strive to provide exceptional service through our autism screening and related solutions. This policy outlines the terms for cancellations, rescheduling, and refunds.</p>
 
@@ -200,7 +200,7 @@ const TAndC = () => {
 
 <p>We are committed to ensuring a smooth and satisfactory experience for all our users.</p>
 
-
+ */}
 
 
 
