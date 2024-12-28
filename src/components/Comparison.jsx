@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import img1 from "../assets/prescription_img.png";
 import img2 from "../assets/prescription2_img.png";
-
 const Comparison = () => {
   const containerRef = useRef(null);
   const [dragPosition, setDragPosition] = useState(50); // Initial divider position (percentage)
@@ -186,6 +185,7 @@ const Comparison = () => {
         </div>
         </div>
 
+        
 
 
 

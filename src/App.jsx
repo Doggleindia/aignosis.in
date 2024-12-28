@@ -25,6 +25,7 @@ import TAndC from './components/TAndC';
 import RefundAndReschedule from './components/RefundAndReschedule';
 import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
+import ClinicMain from './components/clinic/ClinicMain';
 
 const App = () => {
   return (
@@ -49,7 +50,7 @@ const App = () => {
         <Route path="/BlogPages" element={<BlogPage />} />
         <Route path="/BlogPages/howWeWork" element={<WeWork />} />
         {/* <Route path="/BlogPages/:blogName" element={<BlogView />} /> */}
-
+        <Route path="/clinic" element={<ClinicMain />} />
         <Route path="/test/fillup/tod" element={<Toddlers />} />
 
         <Route path="/payment" element={<PaymentScreensMain />} />
