@@ -23,6 +23,8 @@ import ServicePage5 from './components/servicePages/ServicePage5';
 import ServicePage1 from './components/servicePages/ServicePage1';
 import TAndC from './components/TAndC';
 import RefundAndReschedule from './components/RefundAndReschedule';
+import BlogView from './components/BlogPages/BlogView';
+import WeWork from './components/BlogPages/WeWork';
 
 const App = () => {
   return (
@@ -45,6 +47,9 @@ const App = () => {
         
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/BlogPages" element={<BlogPage />} />
+        <Route path="/BlogPages/howWeWork" element={<WeWork />} />
+        {/* <Route path="/BlogPages/:blogName" element={<BlogView />} /> */}
+
         <Route path="/test/fillup/tod" element={<Toddlers />} />
 
         <Route path="/payment" element={<PaymentScreensMain />} />

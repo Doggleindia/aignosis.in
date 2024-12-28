@@ -1,0 +1,214 @@
+import React from "react";
+import Header from "../Header";
+
+import {
+  FaMicroscope,
+  FaClipboardCheck,
+  FaBrain,
+  FaGlobe,
+} from "react-icons/fa";
+import BlogFooter from "./BlogFooter";
+const WeWork = () => {
+  const milestones = [
+    {
+      icon: <FaMicroscope className="text-purple-500" />,
+      text: "Independent Validation of Classifiers",
+    },
+    {
+      icon: <FaClipboardCheck className="text-green-500" />,
+      text: "Prospective Validation Studies Begin",
+    },
+    {
+      icon: <FaBrain className="text-blue-500" />,
+      text: "Evolution into Canvas Dx: The First FDA Authorized Diagnostic System for Autism",
+    },
+    {
+      icon: <FaGlobe className="text-orange-500" />,
+      text: "Real-World Integration",
+    },
+  ];
+  const references = [
+    {
+      text: "U.S. Food & Drug Administration. FDA Authorizes Marketing of Diagnostic Aid for Autism Spectrum Disorder.",
+      link: "https://www.fda.gov/news-events/press-announcements/fda-authorizes-marketing-diagnostic-aid-autism-spectrum-disorder",
+    },
+    {
+      text: "Gordon-Lipkin, E., Foster, J. & Peacock, G. Whittling down the wait time: exploring models to minimize the delay from initial concern to diagnosis and treatment of autism spectrum disorder. Pediatr. Clin. 63, 851–859 (2016).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/27565363/",
+    },
+    {
+      text: "Kosmicki, J. A., Sochat, V., Duda, M. & Wall, D. P. Searching for a minimal set of behaviors for autism detection through feature selection-based machine learning. Transl. Psychiatry 5, e514–e514 (2015).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/25710120/",
+    },
+    {
+      text: "Levy, S., Duda, M., Haber, N. & Wall, D. P. Sparsifying machine learning models identify stable subsets of predictive features for behavioral detection of autism. Mol. Autism 8, 1–17 (2017).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/29270283/",
+    },
+    {
+      text: "Wall, D. P., Dally, R., Luyster, R., Jung, J.-Y. & DeLuca, T. F. Use of artificial intelligence to shorten the behavioral diagnosis of autism. (2012). PLoS One. 2012;7(8):e43855.",
+      link: "https://pubmed.ncbi.nlm.nih.gov/22952789/",
+    },
+    {
+      text: "Duda, M., Daniels, J. & Wall, D. P. Clinical evaluation of a novel and mobile autism risk assessment. J. Autism Dev. Disord. 46, 1953–1961 (2016).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/26873142/",
+    },
+    {
+      text: "Duda, M., Kosmicki, J. A. & Wall, D. P. Testing the accuracy of an observation-based classifier for rapid detection of autism risk. Transl. Psychiatry 4, e424–e424 (2014).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/25116834/",
+    },
+    {
+      text: "Wall, D. P., Kosmicki, J., Deluca, T. F., Harstad, E. & Fusaro, V. A. Use of machine learning to shorten observation-based screening and diagnosis of autism. Transl. Psychiatry 2, e100–e100 (2012).",
+      link: "https://www.nature.com/articles/tp201210",
+    },
+    {
+      text: "Tariq, Q. et al. Mobile detection of autism through machine learning on home video: A development and prospective validation study. PLoS Med. 15, e1002705 (2018).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/30481180/",
+    },
+    {
+      text: "Kanne, S. M., Carpenter, L. A. & Warren, Z. Screening in toddlers and preschoolers at risk for autism spectrum disorder: Evaluating a novel mobile‐health screening tool. Autism Res. 11, 1038–1049 (2018).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/29734507/",
+    },
+    {
+      text: "Abbas, H., Garberson, F., Glover, E. & Wall, D. P. Machine learning approach for early detection of autism by combining questionnaire and home video screening. J. Am. Med. Inform. Assoc. 25, 1000–1007 (2018).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/29741630/",
+    },
+    {
+      text: "Abbas, H., Garberson, F., Liu-Mayo, S., Glover, E. & Wall, D. P. Multi-modular AI approach to streamline autism diagnosis in young children. Sci. Rep. 10, 1–8 (2020).",
+      link: "https://www.nature.com/articles/s41598-020-61213-w",
+    },
+    {
+      text: "Megerian, J. T. et al. Evaluation of an Artificial Intelligence-Based Medical Device for Diagnosis of Autism Spectrum Disorder. Nat. Partn. J.- Digit. Med. (2022) doi:10.1038/s41746-022-00598-6.",
+      link: "https://www.nature.com/articles/s41746-022-00598-6",
+    },
+    {
+      text: "Brian, J. A., Zwaigenbaum, L. & Ip, A. Standards of diagnostic assessment for autism spectrum disorder. Paediatr. Child Health 24, 444–451 (2019).",
+      link: "https://pubmed.ncbi.nlm.nih.gov/31660042/",
+    },
+    {
+      text: "Wall, D. P., et al. Optimizing a de novo artificial intelligence-based medical device under a predetermined change control plan: Improved ability to detect or rule out pediatric autism, Intelligence-Based Medicine, Volume 8, 2023, 100102, ISSN 2666-5212.",
+      link: "https://www.sciencedirect.com/science/article/pii/S2666521223000169?via%3Dihub",
+    },
+  ];
+  return (
+    <div className="bg-[#1A0C25] md:p-2 max-sm:pt-2">
+      <Header />
+      <div className="bg-[#1A0C25]  mt-[5vw] min-h-screen">
+        <div className=" relative">
+          <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
+          {/* Overlay */}
+          <img
+            src="https://s3-alpha-sig.figma.com/img/5f57/5251/b906feead24ae66455a5f2e66541c5b9?Expires=1736121600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VCraK-qPfLniUVINljJ9EqZ~Gizt5YFaf8E0oJNOzoIS0vzTfSfH4ygImiks4BpJ5BqMFe6GbjAk8JF5ZvNJHV8WpJNZc7TnOdEmsb0JDzqVCFZehpdFcoAKtS7yvh8k7UpYEC7RmsOkH9Az3eviB7Wqye3P8ySPoSWx0j-oF0ap6HIf1MrQGr9EqHmpchzrWIutuYYGOaWOe1JYEuv6IFqvk79zGiqbCIeTKodibFSV~PGVK7IHLDQ5186Vy~aZk4i68fGR~DZodOawE8qPR1qyLLptafJi0c~9jFTnRWCubUafxebo~f80pm4WY2YGQP-5nAO9J4fbVySiCoJbew__"
+            alt=""
+            className="w-full h-[300px] object-cover"
+          />
+          <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
+            Rigorously trained & tested. Clinically validated. Peer-reviewed.
+          </p>
+        </div>
+        <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
+          <div className="flex flex-col gap-5">
+            <p className="text-[#F6E8FB] font-raleway  text-[32px]">
+              AI & Machine Learning that Supports Early Diagnosis
+            </p>
+
+            <p className="font-raleway text-[#F6E8FB] text-[20px]">
+              Canvas Dx is the first and only FDA authorized diagnostic system
+              that gives more clinicians the ability to diagnose or rule out
+              autism in children ages 1.5 to 6 years1. Learn about the key
+              milestones of our product development, from foundational research
+              to clinical validation, post-FDA authorization algorithmic
+              optimization and real-world performance. Find summaries of all our
+              major peer-reviewed scientific publications and journals.
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <div className="w-[800px] h-[300px] bg-[#D9D9D9]"></div>
+            <div className="w-[800px] h-[300px] bg-[#D9D9D9]"></div>
+          </div>
+          <div></div>
+
+          <div>
+            <div className="md:ml-[4vw] p-8 rounded-lg ">
+              <div className="flex items-center mb-6">
+                <div className="w-10 h-10 flex items-center justify-center bg-[#9C00AD] rounded-full text-white mr-4">
+                  <span className="text-xl font-bold">⏳</span>
+                </div>
+                <h2 className="text-2xl font-semibold text-[#F6E8FB] max-sm:text-lg font-raleway">
+                  Early Stage Development
+                </h2>
+              </div>
+
+              <p className="text-[#F6E8FB] font-raleway pl-[4vw] leading-relaxed mb-6">
+                Foundational research began at Harvard Medical School's Center
+                for Biomedical Informatics, where Cognoa's founder, Dr. Dennis
+                Wall PhD, was on faculty. Early research focused on addressing
+                the crisis of late diagnosis for children with autism and
+                exploring machine learning as a foundation for an accurate,
+                efficient, objective, and user-friendly diagnostic solution. In
+                this early work, machine learning approaches were applied to
+                derive maximally predictive autism behavioral features using
+                archived electronic patient record data from thousands of
+                children with diverse conditions, presentations, and
+                comorbidities. Six peer-reviewed scientific publications
+                analyzed score data from 11,298 individuals with varying autism
+                presentations, and 1,356 individuals without autism. Performance
+                metrics for an initial set of eight unique machine learning
+                autism classifiers were derived, tested, and published.
+              </p>
+
+              <div className="pl-[4vw]">
+                <button className="bg-transparent border border-[#9C00AD] text-white px-6 py-2 rounded-full hover:bg-purple-500 hover:text-white transition">
+                  Study Summary
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-6 md:pl-[4vw]">
+            {milestones.map((milestone, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between space-x-4"
+              >
+                <div className="flex items-center space-x-4">
+                  {milestone.icon}
+
+                  <p className="font-raleway text-[#F6E8FB] text-2xl max-sm:text-lg ">
+                    {milestone.text}
+                  </p>
+                </div>
+
+                <p className="text-[#F6E8FB] text-xl">+</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-gradient-to-b from-[#241E22] to-[#43284C] p-[5vw] px-[10vw] rounded-lg text-white">
+          <h2 className="text-2xl font-bold mb-4">References</h2>
+          <ol className="list-inside space-y-4">
+            {references.map((reference, index) => {
+              const letter = String.fromCharCode(97 + index);
+              return (
+                <li key={index} className="leading-relaxed">
+                  <span className="font-bold">{letter}.</span>
+                  <a
+                    href={reference.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#F6E8FB] hover:text-purple-400 ml-2 underline"
+                  >
+                    {reference.text}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+
+        <BlogFooter />
+      </div>
+    </div>
+  );
+};
+
+export default WeWork;
