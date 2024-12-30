@@ -3,7 +3,7 @@ import React from 'react'
 const BlogFooter = () => {
   return (
     <div>
-      <footer className="bg-[#811F67] text-white py-10">
+      <footer className="bg-[#811F67] px-[10vw] text-white py-10">
       <div className="container mx-auto max-sm:flex max-sm:justify-center max-sm:flex-col max-sm:items-center  grid grid-cols-1 md:grid-cols-4 gap-8 px-[1vw]">
        
         <div>

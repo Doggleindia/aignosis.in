@@ -4,6 +4,11 @@ import NavBar from './NavBar'
 import PriceBody from './Priceplan/PriceBody'
 import PricepageBanefits from './Priceplan/PricepageBanefits'
 import HowitWorks from './Priceplan/HowitWorks'
+import ContactPage from './ContactPage'
+import BlogFooter from './BlogPages/BlogFooter'
+import HowtoUseOptically from './Priceplan/HowtoUseOptically'
+import CustomerLove from './Priceplan/CustomerLove'
+import CustomerLove2 from './Priceplan/CustomerLove2'
 
 const Priceplan = () => {
   return (
@@ -24,6 +29,12 @@ const Priceplan = () => {
       <PriceBody />
       <PricepageBanefits />
       <HowitWorks/>
+      <HowtoUseOptically/>
+      <CustomerLove/>
+      <CustomerLove2/>
+
+      <ContactPage/>
+      <BlogFooter/>
     </div>
   )
 }
