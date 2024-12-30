@@ -14,7 +14,27 @@ const ClinicMain = () => {
   return (
     <div>
       <Header />
+      
       <div className="bg-[#1A0C25]  min-h-screen font-raleway p-[5vw] flex flex-col items-center">
+      <div className="flex flex-row  mt-[2vw] max-sm:mt-[15vw] items-center space-x-4 max-sm:mb-8">
+        <span
+          className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
+          style={{
+            background:
+              "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          }}
+        ></span>
+        <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
+          Clinic
+        </span>
+        <span
+          className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
+          style={{
+            background:
+              "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          }}
+        ></span>
+      </div>
   <div className="flex max-sm:flex-col  lg:flex-nowrap w-full gap-8">
     {/* Left Side: Image */}
     <div className="md:flex-1 flex justify-center items-center">
@@ -28,7 +48,7 @@ const ClinicMain = () => {
     {/* Right Side: Text */}
     <div className="flex-1 flex flex-col justify-center text-[#F6E8FB] space-y-6">
   <div className="flex items-center">
-    <h1 className="text-sm md:text-[16px] leading-tight text-[#9C00AD] ">
+    <h1 className="text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold ">
     Welcome to AIGNOSIS
     </h1>
     <img

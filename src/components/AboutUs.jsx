@@ -10,6 +10,9 @@ import birt_aignosis from "../assets/images/aboutUs/birth_aignosis.png";
 import Footer from "./Footer";
 import AignosisTeam from "./aboutus/AignosisTeam";
 import Divider from "./aboutus/Divider";
+import Awards from "./clinic/Awards";
+import Endrosed from "./clinic/Endrosed";
+import BlogFooter from "./BlogPages/BlogFooter";
 
 
 const TeamMember = ({ name, img, description, height }) => (
@@ -205,7 +208,9 @@ const AboutUs = () => {
         </div>
       </div>
       <AignosisTeam/>
-      <Footer />
+      <Awards />
+      <Endrosed />
+      <BlogFooter />
     </div>
   );
 };

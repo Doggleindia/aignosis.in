@@ -160,6 +160,13 @@ const Header = () => {
             Prices
           </Link>
           <Link
+            to="/clinic"
+            onClick={() => handleLinkClick('/clinic')}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === '/clinic' ? 'border-b-2 border-white' : ''}`}
+          >
+            Clinic
+          </Link>
+          <Link
             to="/BlogPages"
             onClick={() => handleLinkClick('/prices')}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === '/BlogPages' ? 'border-b-2 border-white' : ''}`}
@@ -275,7 +282,14 @@ const Header = () => {
 
               className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
             >
-              Prices
+              PRICES
+            </Link>
+            <Link
+              to="/clinic"
+
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              CLINIC
             </Link>
             {/* BLOGS Link */}
             <Link
