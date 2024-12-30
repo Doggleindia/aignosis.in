@@ -4,7 +4,7 @@ const BlogFooter = () => {
   return (
     <div>
       <footer className="bg-[#811F67] text-white py-10">
-      <div className="container mx-auto max-sm:flex max-sm:justify-center max-sm:flex-col max-sm:items-center  grid grid-cols-1 md:grid-cols-4 gap-8 px-[10vw]">
+      <div className="container mx-auto max-sm:flex max-sm:justify-center max-sm:flex-col max-sm:items-center  grid grid-cols-1 md:grid-cols-4 gap-8 px-[1vw]">
        
         <div>
           <h3 className="text-lg font-semibold mb-4">Pages</h3>
@@ -47,9 +47,9 @@ const BlogFooter = () => {
         </div>
 
        
-        <div>
+        <div className='max-sm:flex max-sm:flex-col max-sm:items-center'>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-          <address className="not-italic space-y-2">
+          <address className="not-italic space-y-2 max-sm:text-center">
             <p>
               Plot No. 741, Mahavir Nagar-Ist, Mandir Marg, Tonk Road, Durgapura, Jaipur,
               Rajasthan 302018

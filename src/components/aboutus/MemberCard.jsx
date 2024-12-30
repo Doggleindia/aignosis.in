@@ -3,7 +3,7 @@ import React from "react";
 const MemberCard = ({title,subtitle, desc, src}) => {
   return (
     <>
-      <div className=" mx-2 flex justify-center border border-white border-opacity-10">
+      <div className=" mx-2 flex max-sm:flex-col justify-center border border-white border-opacity-10">
         <img
           src={src}
           alt="about"
