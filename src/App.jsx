@@ -26,6 +26,7 @@ import RefundAndReschedule from './components/RefundAndReschedule';
 import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
 import ClinicMain from './components/clinic/ClinicMain';
+import Priceplan from './components/Priceplan';
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/service4' element={<ServicePage4/>} />
         <Route path='/service5' element={<ServicePage5/>} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
+        <Route path='/priceplan' element={<Priceplan />} /> 
 
         <Route path="/prices" element={<PriceMain />} />
         <Route path="/report" element={<ReportComLast />} />
