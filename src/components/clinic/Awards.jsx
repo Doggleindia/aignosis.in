@@ -3,7 +3,7 @@ import img7 from "../../assets/clinic/img7.png";
 import AwardCard from './AwardCard';
 const Awards = () => {
   return (
-    <div className='bg-[#1A0C25] min-h-screen p-[10vw] '>
+    <div className='bg-[#1A0C25]  p-[5vw] '>
              <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"

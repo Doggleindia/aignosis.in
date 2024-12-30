@@ -9,11 +9,12 @@ import Trusted from './Trusted';
 import Reports from './Reports';
 import Awards from './Awards';
 import Endrosed from './Endrosed';
+import BlogFooter from '../BlogPages/BlogFooter';
 const ClinicMain = () => {
   return (
     <div>
       <Header />
-      <div className="bg-[#1A0C25]  min-h-screen font-raleway p-[10vw] flex flex-col items-center">
+      <div className="bg-[#1A0C25]  min-h-screen font-raleway p-[5vw] flex flex-col items-center">
   <div className="flex max-sm:flex-col  lg:flex-nowrap w-full gap-8">
     {/* Left Side: Image */}
     <div className="md:flex-1 flex justify-center items-center">
@@ -49,14 +50,14 @@ const ClinicMain = () => {
 
 
 
-  <div className="flex flex-col items-center justify-center min-h-screen bg-[#1A0C25] p-8 text-white font-raleway">
+  <div className="flex flex-col items-center justify-center min-h-screen bg-[#1A0C25] p-1 md:p-8 text-white font-raleway">
   {/* Centered Heading */}
-  <h1 className=" md:text-5xl text-center mb-8 text-[#F6E8FB] text-[48px]">
+  <h1 className=" md:text-5xl text-center mb-8 text-[#F6E8FB] text-[24px]">
   Features and how we are solving it 
   </h1>
 
   {/* Content Section */}
-  <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-[60px]">
+  <div className="flex flex-col md:flex-row items-center justify-between w-full  space-y-8 md:space-y-0 md:space-x-[60px]">
     {/* Left Image */}
     <div className="flex-shrink-0">
       <img 
@@ -82,11 +83,11 @@ const ClinicMain = () => {
 
 
 
-<div className="flex max-sm:mt-[5vw] flex-col items-center justify-center bg-[#1A0C25]  p-6 text-white font-raleway">
+<div className="flex max-sm:mt-[5vw] flex-col items-center justify-center bg-[#1A0C25] p-1 md:p-6 text-white font-raleway">
   
 
   {/* Content Section */}
-  <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-[60px]">
+  <div className="flex flex-col md:flex-row items-center justify-between w-full  space-y-8 md:space-y-0 md:space-x-[60px]">
 
 
 
@@ -117,11 +118,11 @@ const ClinicMain = () => {
 
     <img src={img4} alt="" />
  </div>
-<div className="flex flex-col items-center justify-center bg-[#1A0C25]   p-6 text-white font-raleway">
+<div className="flex flex-col items-center justify-center bg-[#1A0C25]  p-1 md:p-6 text-white font-raleway">
   
 
   {/* Content Section */}
-  <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0 md:space-x-[60px]">
+  <div className="flex flex-col md:flex-row items-center justify-between w-full  space-y-8 md:space-y-0 md:space-x-[60px]">
     {/* Left Image */}
     <div className="flex-shrink-0">
       <img 
@@ -166,6 +167,7 @@ const ClinicMain = () => {
  <div>
   <Endrosed />
  </div>
+ <BlogFooter />
     </div>
   )
 }
