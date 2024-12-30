@@ -23,6 +23,7 @@ import ServicePage5 from './components/servicePages/ServicePage5';
 import ServicePage1 from './components/servicePages/ServicePage1';
 import TAndC from './components/TAndC';
 import RefundAndReschedule from './components/RefundAndReschedule';
+import LoginPage from './components/LoginPage/LoginPage'
 import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
 import ClinicMain from './components/clinic/ClinicMain';
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/payment" element={<PaymentScreensMain />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TAndC />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
 
       </Routes>
