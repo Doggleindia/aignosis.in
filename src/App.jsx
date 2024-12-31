@@ -44,9 +44,9 @@ const App = () => {
         <Route path='/service4' element={<ServicePage4/>} />
         <Route path='/service5' element={<ServicePage5/>} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
-        <Route path='/priceplan' element={<Priceplan />} /> 
+        <Route path='/priceplan' element={<PriceMain />} /> 
 
-        <Route path="/prices" element={<PriceMain />} />
+        <Route path="/prices" element={<Priceplan />} />
         <Route path="/report" element={<ReportComLast />} />
         
         <Route path="/test/fillup" element={<TestMain />} />

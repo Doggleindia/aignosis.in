@@ -58,7 +58,7 @@ const Header = () => {
         </div>
 
         {/* Navigation Links for Desktop */}
-        <div className="hidden md:flex justify-center font-medium items-center gap-[8rem]">
+        <div className="hidden md:flex justify-center font-medium items-center gap-[4rem]">
 
           <div
             className="relative"
