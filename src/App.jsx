@@ -28,6 +28,7 @@ import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
 import ClinicMain from './components/clinic/ClinicMain';
 import Priceplan from './components/Priceplan';
+import BrainMain from './components/homeBrain/BrainMain';
 
 const App = () => {
   return (
@@ -61,7 +62,7 @@ const App = () => {
         <Route path='/terms' element={<TAndC />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
-
+        {/* <Route path='/brain' element={<BrainMain />} /> */}
       </Routes>
     </Router>
   );

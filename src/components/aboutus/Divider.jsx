@@ -24,7 +24,7 @@ const Divider = ({ title,desc,subtitle }) => {
           ></span>
         </div>
 
-        <span className="font-raleway font-bold p-2 text-3xl">
+        <span className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
          {subtitle}
         </span>
         <span className="font-inter p-1 text-1xl">
