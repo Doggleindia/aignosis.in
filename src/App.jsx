@@ -28,7 +28,11 @@ import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
 import ClinicMain from './components/clinic/ClinicMain';
 import Priceplan from './components/Priceplan';
+
 import BrainMain from './components/homeBrain/BrainMain';
+
+import FromDoctor from './components/FromDoctor';
+
 
 const App = () => {
   return (
@@ -46,6 +50,8 @@ const App = () => {
         <Route path='/service5' element={<ServicePage5/>} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path='/priceplan' element={<PriceMain />} /> 
+        <Route path='/fromdoctor' element={<FromDoctor/>} />
+
 
         <Route path="/prices" element={<Priceplan />} />
         <Route path="/report" element={<ReportComLast />} />
@@ -62,7 +68,7 @@ const App = () => {
         <Route path='/terms' element={<TAndC />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
-        {/* <Route path='/brain' element={<BrainMain />} /> */}
+        <Route path='/brain' element={<BrainMain />} />
       </Routes>
     </Router>
   );
