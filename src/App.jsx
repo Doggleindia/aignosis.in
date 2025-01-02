@@ -33,7 +33,7 @@ import FromDoctor from './components/FromDoctor';
 const App = () => {
   return (
     <Router>
-      <ScrollToTop /> {/* Optional: if you want to scroll to the top on route change */}
+      <ScrollToTop />
       <Routes> {/* Use Routes to define all your routes */}
         <Route path="/" element={<HomepageMain />} />
         <Route path="/aboutus" element={<AboutUs />} />
