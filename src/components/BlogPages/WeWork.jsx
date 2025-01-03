@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import BlogShow from './BlogShow'
 
 import {
   FaMicroscope,
@@ -104,6 +105,9 @@ const WeWork = () => {
           <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
             Rigorously trained & tested. Clinically validated. Peer-reviewed.
           </p>
+        </div> 
+        <div>
+          <BlogShow/>
         </div>
         <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
           <div className="flex flex-col gap-5">
