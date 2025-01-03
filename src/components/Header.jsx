@@ -9,11 +9,8 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState('/');
   const [isHovered, setIsHovered] = useState(false);
   const [selectedService, setSelectedService] = useState(''); // Renamed state variable
-
-  const [isMenuVisible, setIsMenuVisible] = useState(true); // Menu visibility
+// Menu visibility
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
-  const [currentActiveLink, setCurrentActiveLink] = useState("/");
-
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -32,9 +29,6 @@ const Header = () => {
 
   const location = useLocation()
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
 
   // Update activeLink when the location changes
   useEffect(() => {
@@ -58,7 +52,7 @@ const Header = () => {
         </div>
 
         {/* Navigation Links for Desktop */}
-        <div className="hidden md:flex justify-center font-medium items-center gap-[8rem]">
+        <div className="hidden md:flex justify-center font-medium items-center gap-[4rem]">
 
           <div
             className="relative"

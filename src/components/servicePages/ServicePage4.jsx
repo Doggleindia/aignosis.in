@@ -29,6 +29,7 @@ import cloud4 from '../../assets/images/cloud4.png';
 import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
 import ContactServicePage from '../ContactServicePage';
+import BlogFooter from '../BlogPages/BlogFooter';
 
 
 const ServicePage4 = () => {
@@ -452,7 +453,9 @@ const ServicePage4 = () => {
               
              <div className='max-sm:hidden'>
              <ContactServicePage />
-             <Footer />
+             {/* <Footer /> */}
+             <BlogFooter/>
+
              </div>
                 
                

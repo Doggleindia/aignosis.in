@@ -3,7 +3,7 @@ import React from 'react'
 const PriceBody = () => {
     return (
         <>
-            <div className=' hidden md:flex w-full h-full font-raleway p-4 gap-4 px-10'>
+            <div className=' hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 gap-4 2xl:px-[5vw] md:px-10'>
                 <div className="flex w-[15%] flex-col gap-4">
                     <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
                     <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>

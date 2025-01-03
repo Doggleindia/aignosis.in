@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header";
 import BlogShow from './BlogShow'
 
@@ -7,27 +7,47 @@ import {
   FaClipboardCheck,
   FaBrain,
   FaGlobe,
+  FaHistory
 } from "react-icons/fa";
 import BlogFooter from "./BlogFooter";
 const WeWork = () => {
+  const [openMilestone, setOpenMilestone] = useState(null);
+
   const milestones = [
     {
-      icon: <FaMicroscope className="text-purple-500" />,
-      text: "Independent Validation of Classifiers",
+      title: "Early Stage Development",
+      content:
+        "Foundational research began at Harvard Medical School's Center for Biomedical Informatics, where Cognoa's founder, Dr. Dennis Wall PhD, was on faculty. Early research focused on addressing the crisis of late diagnosis for children with autism2 and exploring machine learning as a foundation for an accurate, efficient, objective, and user-friendly diagnostic solution. In this early work, machine learning approaches were applied to derive maximally predictive autism behavioral features using archived electronic patient record data from thousands of children with diverse conditions, presentations, and comorbidities.",
+      icon: <FaMicroscope />,
     },
     {
-      icon: <FaClipboardCheck className="text-green-500" />,
-      text: "Prospective Validation Studies Begin",
+      title: "Independent Validation of Classifiers",
+      content:
+        "This is the content for Independent Validation of Classifiers. Include relevant details here.",
+      icon: <FaClipboardCheck />,
     },
     {
-      icon: <FaBrain className="text-blue-500" />,
-      text: "Evolution into Canvas Dx: The First FDA Authorized Diagnostic System for Autism",
+      title: "Prospective Validation Studies Begin",
+      content:
+        "This is the content for Prospective Validation Studies. Add specifics here.",
+      icon: <FaBrain />,
     },
     {
-      icon: <FaGlobe className="text-orange-500" />,
-      text: "Real-World Integration",
+      title: "Evolution into Canvas Dx: The First FDA Authorized Diagnostic System for Autism",
+      content:
+        "This is the content about the evolution into Canvas Dx. Include further information here.",
+      icon: <FaGlobe />,
+    },
+    {
+      title: "Real-World Integration",
+      content:
+        "This is the content for Real-World Integration. Provide details about its applications.",
+      icon: <FaHistory />,
     },
   ];
+  const handleToggle = (index) => {
+    setOpenMilestone(openMilestone === index ? null : index);
+  };
   const references = [
     {
       text: "U.S. Food & Drug Administration. FDA Authorizes Marketing of Diagnostic Aid for Autism Spectrum Disorder.",
@@ -93,7 +113,7 @@ const WeWork = () => {
   return (
     <div className="bg-[#1A0C25] md:p-2 max-sm:pt-2">
       <Header />
-      <div className="bg-[#1A0C25]  mt-[5vw] min-h-screen">
+      <div className="bg-[#1A0C25] mt-[5vw] min-h-screen">
         <div className=" relative">
           <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
           {/* Overlay */}
@@ -132,59 +152,52 @@ const WeWork = () => {
           <div></div>
 
           <div>
-            <div className="md:ml-[4vw] p-8 rounded-lg ">
+            {/* <div className="md:ml-[4vw] rounded-lg">
               <div className="flex items-center mb-6">
                 <div className="w-10 h-10 flex items-center justify-center bg-[#9C00AD] rounded-full text-white mr-4">
                   <span className="text-xl font-bold">⏳</span>
                 </div>
-                <h2 className="text-2xl font-semibold text-[#F6E8FB] max-sm:text-lg font-raleway">
+                <h2 className="text-2xl text-[#F6E8FB] max-sm:text-lg font-raleway">
                   Early Stage Development
                 </h2>
               </div>
-
-              <p className="text-[#F6E8FB] font-raleway pl-[4vw] leading-relaxed mb-6">
-                Foundational research began at Harvard Medical School's Center
-                for Biomedical Informatics, where Cognoa's founder, Dr. Dennis
-                Wall PhD, was on faculty. Early research focused on addressing
-                the crisis of late diagnosis for children with autism and
-                exploring machine learning as a foundation for an accurate,
-                efficient, objective, and user-friendly diagnostic solution. In
-                this early work, machine learning approaches were applied to
-                derive maximally predictive autism behavioral features using
-                archived electronic patient record data from thousands of
-                children with diverse conditions, presentations, and
-                comorbidities. Six peer-reviewed scientific publications
-                analyzed score data from 11,298 individuals with varying autism
-                presentations, and 1,356 individuals without autism. Performance
-                metrics for an initial set of eight unique machine learning
-                autism classifiers were derived, tested, and published.
-              </p>
-
               <div className="pl-[4vw]">
                 <button className="bg-transparent border border-[#9C00AD] text-white px-6 py-2 rounded-full hover:bg-purple-500 hover:text-white transition">
                   Study Summary
                 </button>
               </div>
-            </div>
-          </div>
+            </div> */}
+            <div className="md:ml-[4vw] p-8 rounded-lg">
+              {milestones.map((milestone, index) => (
+                <div key={index} className="mb-8">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 flex items-center justify-center border border-[#9C00AD] rounded-full text-white mr-4">
+                  <span className="text-base font-bold">{milestone.icon}</span>
+                      </div>
+                      <h2 className="text-2xl font-semibold text-[#F6E8FB] max-sm:text-lg font-raleway">
+                        {milestone.title}
+                      </h2>
+                    </div>
+                    {/* Toggle Icon */}
+                    <span
+                      className="text-[#F6E8FB] text-2xl cursor-pointer"
+                      onClick={() => handleToggle(index)}
+                    >
+                      {openMilestone === index ? "−" : "+"}
+                    </span>
+                  </div>
 
-          <div className="space-y-6 md:pl-[4vw]">
-            {milestones.map((milestone, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between space-x-4"
-              >
-                <div className="flex items-center space-x-4">
-                  {milestone.icon}
-
-                  <p className="font-raleway text-[#F6E8FB] text-2xl max-sm:text-lg ">
-                    {milestone.text}
-                  </p>
+                  {/* Content (conditionally shown) */}
+                  {openMilestone === index && (
+                    <p className="text-[#F6E8FB] font-raleway pl-[4vw] leading-relaxed mb-6">
+                      {milestone.content}
+                    </p>
+                  )}
                 </div>
-
-                <p className="text-[#F6E8FB] text-xl">+</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div className="bg-gradient-to-b from-[#241E22] to-[#43284C] p-[5vw] px-[10vw] rounded-lg text-white">
@@ -208,12 +221,10 @@ const WeWork = () => {
             })}
           </ol>
         </div>
-   {/* jdjkjk */}
-   {/* comment */}
         <BlogFooter />
       </div>
     </div>
-  );  vdkd
+  ); vdkd
 };
 
 export default WeWork;

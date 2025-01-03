@@ -10,33 +10,19 @@ import PartnershipPage from './PartnershipPage'
 import ContactPage from './ContactPage'
 import WhatsAppButton from './WhatsAppButton'
 import { useLocation } from 'react-router-dom'
+import BlogFooter from './BlogPages/BlogFooter'
 const HomepageMain = () => {
 
 
-  const location = useLocation();
-
-  useEffect(() => {
-    // Check if the navigation state includes scrollToContact
-    if (location.state?.scrollToContact) {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [location.state]);
   return (
     <div className='bg-[#1A0C25]'>
     
       <Homepage />
-      <Laptop />
       <WhatsAppButton />
-      <Screen3 />
-      <Screen4 />
-      <Screen5 />
-      <MainComponent />
-      <PartnershipPage/>
+      <Laptop />
+     
       <ContactPage/>
-      <Footer/>
+      <BlogFooter/>
       
     </div>
   )
