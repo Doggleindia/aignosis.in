@@ -1,6 +1,78 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import fetchData from "../config/fetchData";  // Assuming you have this function to make API calls
 
 const LoginOtp = ({ goBack, phoneNumber }) => {
+  const [otp, setOtp] = useState(["", "", "", "","", ""]); // For OTP input
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const otpInputs = useRef([]);  // Ref to track OTP input fields
+
+
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+
+    if (/^\d{0,1}$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+
+      // Focus the next input field automatically when a digit is entered
+      if (value !== "" && index < otp.length - 1) {
+        otpInputs.current[index + 1].focus(); // Focus next input
+      }
+    }
+  };
+  const handleKeyDown = (e, index) => {
+    // Handle backspace for focusing the previous input
+    if (e.key === "Backspace" && otp[index] === "") {
+      if (index > 0) {
+        otpInputs.current[index - 1].focus(); // Focus previous input
+      }
+    }
+  };
+
+  const handleSubmit = async () => {
+    const otpValue = otp.join(""); // Combine the OTP parts
+
+    if (otpValue.length !== 6) {
+      setErrorMessage("Please enter a valid 6-digit OTP");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setErrorMessage(""); // Clear previous error messages
+
+      const payload = {
+        phoneNumber,
+        otp: otpValue,
+      };
+
+      const { response, error } = await fetchData({
+        url: "http://localhost:5500/api/auth/verify",
+        method: "POST",
+        data: payload,
+      });
+
+      setLoading(false);
+
+      if (response) {
+        // Store token in localStorage
+        localStorage.setItem("authToken", response.token);
+        // Redirect or handle successful login
+        window.location.href = "/";  // Redirect to home or dashboard
+      } else if (error) {
+        setErrorMessage(error.message || "OTP verification failed. Please try again.");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.error("Error during OTP verification", error);
+      setErrorMessage("An error occurred during OTP verification. Please try again.");
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
       {/* Pink Gradient Radiant Effect */}
@@ -15,51 +87,49 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
           <h2 className="mt-4 text-lg sm:text-xl lg:text-2xl xl:text-3xl max-sm:text-base md:text-2xl">
             Early Autism Detection Made<br /> Easy & Accurate
           </h2>
-
-          {/* Round Gradient */}
-          <div className="absolute left-[50%] transform translate-x-[-50%] lg:left-[.1rem] lg:translate-x-0 xl:left-[1rem]  bottom-[60px] bg-gradient-to-r from-purple-500 to-pink-500 blur-lg opacity-30 h-[60px] sm:h-[80px] lg:h-[90px] xl:h-[100px] w-[90px] sm:w-[120px] lg:w-[110px] xl:w-[100px] rounded-full max-sm:h-[40px] max-sm:w-[70px]"></div>
-
-          {/* Intersecting Lines */}
-          <div className="absolute w-full h-full hidden lg:block">
-            <div className="absolute top-[34vh] 2xl:border-t-[2px] left-[-120%] xl:top-[32vh] xl:left-[-148%] 2xl:left-[-160%] w-[700px] xl:w-[800px] h-[700px] xl:h-[800px] border-t-[2px] border-[#811F67] rounded-full"></div>
-            <div className="absolute top-[29vh] 2xl:border-t-[2px] left-[-130%] xl:top-[26vh] xl:left-[-160%] 2xl:left-[-170%] w-[600px] xl:w-[700px] h-[600px] xl:h-[700px] border-t-[2px] border-[#811F67] rounded-full"></div>
-          </div>
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="lg:flex-[2] flex justify-center items-center bg-white relative z-20 p-4 lg:p-0 xl:pr-[10vw] max-sm:w-[70vw] max-sm:h-[100vw]  max-sm:ml-[15vw]  max-sm:rounded-[4vw] md:ml-0 md:mt-0 md:pr-8">
+      <div className="lg:flex-[2] flex justify-center items-center bg-white relative z-20 p-4 lg:p-0 xl:pr-[10vw] max-sm:w-[70vw] max-sm:h-[100vw] max-sm:ml-[15vw] max-sm:rounded-[4vw] md:ml-0 md:mt-0 md:pr-8">
         <button
           onClick={goBack}
           className="absolute top-[12vw] left-[5.5vw] text-2xl max-sm:ml-[8vw] max-sm:top-[8vw] text-[#811F67] font-bold"
         >
           &lt;
         </button>
-        <div className="w-3/4 max-w-md ml-[6vw]  mt-[4vw] relative">
+        <div className="w-3/4 max-w-md ml-[6vw] mt-[4vw] relative">
           <h2 className="text-2xl font-bold mb-2 max-sm:text-lg">Enter your OTP</h2>
           <p className="mb-2 text-sm text-gray-500">
             OTP has been sent to {phoneNumber}
           </p>
-          <p className="mb-4 text-sm text-red-500 max-sm:sm">0:05 sec left</p>
+          <p className="mb-4 text-sm text-red-500 max-sm:sm">{errorMessage}</p>
 
           <div className="mb-2 flex space-x-2 max-sm:space-x-1">
-            {Array(4)
-              .fill("")
-              .map((_, index) => (
-                <input
-                  key={index}
-                  type="text"
-                  maxLength="1"
-                  className="w-12 h-12 text-center max-sm:w-[8vw] max-sm:h-[8vw] text-lg border border-gray-300 rounded-md shadow-sm focus:ring-[#811F67] focus:border-[#811F67]"
-                />
-              ))}
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                type="text"
+                maxLength="1"
+                value={digit}
+                onChange={(e) => handleOtpChange(e, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}  
+                ref={(el) => (otpInputs.current[index] = el)}  // Set the ref
+                className="w-12 h-12 text-center max-sm:w-[8vw] max-sm:h-[8vw] text-lg border border-gray-300 rounded-md shadow-sm focus:ring-[#811F67] focus:border-[#811F67]"
+              />
+            ))}
           </div>
 
           <button className="block text-[#811F67] font-semibold mb-4 max-sm:ml-[9vw] mt-4">
             Resend
           </button>
-          <button className="w-[11vw] py-2 text-sm bg-[#811F67] max-sm:w-[35vw] text-white font-semibold rounded-full">
-            Log In
+          <button
+            onClick={handleSubmit}
+            className="border border-[#B740A1] bg-[#811F67] p-2 px-11 rounded-[30px]"
+          >
+            <span className="text-sm max-sm:w-[35vw] text-white p-auto font-semibold rounded-full">
+              Log In
+            </span>
           </button>
         </div>
       </div>

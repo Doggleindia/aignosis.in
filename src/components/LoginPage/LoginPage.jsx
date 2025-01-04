@@ -1,18 +1,65 @@
 import React, { useState } from "react";
 import LoginOtp from "./LoginOtp";
+import fetchData from "../config/fetchData";
 
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  
 
   const handlePhoneChange = (e) => {
-    const value = e.target.value;
-    if (/^\d{0,10}$/.test(value)) {
+    let value = e.target.value;
+  
+    // Ensure the "+91" prefix is always present
+    if (!value.startsWith("+91")) {
+      value = "+91" + value.replace(/^\D+/g, ""); // Remove non-digit characters at the start
+    }
+  
+    if (/^\+91\d{0,10}$/.test(value)) {
       setPhoneNumber(value);
-      setIsButtonEnabled(value.length === 10);
+      setIsButtonEnabled(value.length === 13);
     }
   };
+  
+  // const handlePhoneChange = (e) => {
+  //   const value = e.target.value;
+
+  //   // Ensure the phone number always starts with "+91"
+  //   if ( /^\+91\d{0,10}$/.test(value)) {
+  //     setPhoneNumber(value);
+  //     setIsButtonEnabled(value.length === 13);
+  //   }
+  // };
+  console.log("phoneNumber",phoneNumber);
+  
+
+  const SendOtp = async() => {
+    try {
+    setLoading(true);
+    setErrorMessage("");
+    const payload = { phoneNumber: phoneNumber };
+    const {response,error} = await fetchData(
+      {
+        url:'/api/auth/login',
+        method:'POST',
+        data:payload
+      }
+    )
+    setLoading(false);
+console.log(response,"statusresponse");
+
+    if (response) {
+      setShowOtpPage(response.status);
+    } else if (error) {
+      setErrorMessage(error.message || "Failed to send OTP. Please try again.");
+    }
+    } catch (error) {
+      console.log(error),"error in sending otp";
+    }
+  }
 
   return (
     <>
@@ -71,9 +118,9 @@ const LoginPage = () => {
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 } font-semibold rounded-full`}
                 disabled={!isButtonEnabled}
-                onClick={() => setShowOtpPage(true)}
+                onClick={SendOtp}
               >
-                Send OTP
+                  {loading ? "Sending..." : "Send OTP"}
               </button>
             </div>
           </div>
