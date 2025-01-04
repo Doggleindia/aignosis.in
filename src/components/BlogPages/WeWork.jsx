@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
+import aboutContent from "../aboutus/AboutContent.js";
 
 
 import {
@@ -7,10 +8,16 @@ import {
   FaClipboardCheck,
   FaBrain,
   FaGlobe,
-  FaHistory
+  FaHistory,
 } from "react-icons/fa";
 import BlogFooter from "./BlogFooter";
+import BlogContent from "./BlogContent";
+import { useParams } from "react-router-dom";
 const WeWork = () => {
+  const { id } = useParams();
+  const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
+  console.log(blog, "aboutContent");
+  const { title} = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
 
   const milestones = [
@@ -33,7 +40,8 @@ const WeWork = () => {
       icon: <FaBrain />,
     },
     {
-      title: "Evolution into Canvas Dx: The First FDA Authorized Diagnostic System for Autism",
+      title:
+        "Evolution into Canvas Dx: The First FDA Authorized Diagnostic System for Autism",
       content:
         "This is the content about the evolution into Canvas Dx. Include further information here.",
       icon: <FaGlobe />,
@@ -123,49 +131,15 @@ const WeWork = () => {
             className="w-full h-[300px] object-cover"
           />
           <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
-            Rigorously trained & tested. Clinically validated. Peer-reviewed.
+           {title}
           </p>
         </div> 
         <div>
         </div>
         <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
-          <div className="flex flex-col gap-5">
-            <p className="text-[#F6E8FB] font-raleway  text-[32px]">
-              AI & Machine Learning that Supports Early Diagnosis
-            </p>
-
-            <p className="font-raleway text-[#F6E8FB] text-[20px]">
-              Canvas Dx is the first and only FDA authorized diagnostic system
-              that gives more clinicians the ability to diagnose or rule out
-              autism in children ages 1.5 to 6 years1. Learn about the key
-              milestones of our product development, from foundational research
-              to clinical validation, post-FDA authorization algorithmic
-              optimization and real-world performance. Find summaries of all our
-              major peer-reviewed scientific publications and journals.
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <div className="w-[800px] h-[300px] bg-[#D9D9D9]"></div>
-            <div className="w-[800px] h-[300px] bg-[#D9D9D9]"></div>
-          </div>
-          <div></div>
+          <BlogContent aboutContent={aboutContent} />
 
           <div>
-            {/* <div className="md:ml-[4vw] rounded-lg">
-              <div className="flex items-center mb-6">
-                <div className="w-10 h-10 flex items-center justify-center bg-[#9C00AD] rounded-full text-white mr-4">
-                  <span className="text-xl font-bold">⏳</span>
-                </div>
-                <h2 className="text-2xl text-[#F6E8FB] max-sm:text-lg font-raleway">
-                  Early Stage Development
-                </h2>
-              </div>
-              <div className="pl-[4vw]">
-                <button className="bg-transparent border border-[#9C00AD] text-white px-6 py-2 rounded-full hover:bg-purple-500 hover:text-white transition">
-                  Study Summary
-                </button>
-              </div>
-            </div> */}
             <div className="md:ml-[4vw] p-8 rounded-lg">
               {milestones.map((milestone, index) => (
                 <div key={index} className="mb-8">
@@ -173,7 +147,9 @@ const WeWork = () => {
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center">
                       <div className="w-10 h-10 flex items-center justify-center border border-[#9C00AD] rounded-full text-white mr-4">
-                  <span className="text-base font-bold">{milestone.icon}</span>
+                        <span className="text-base font-bold">
+                          {milestone.icon}
+                        </span>
                       </div>
                       <h2 className="text-2xl font-semibold text-[#F6E8FB] max-sm:text-lg font-raleway">
                         {milestone.title}
@@ -223,7 +199,8 @@ const WeWork = () => {
         <BlogFooter />
       </div>
     </div>
-  ); vdkd
+  );
+  vdkd;
 };
 
 export default WeWork;

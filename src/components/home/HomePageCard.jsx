@@ -1,6 +1,8 @@
 import React from 'react';
 import member from "../../assets/images/aboutUs/member.png";
 const HomePageCard = () => {
+  console.log(import.meta.env.VITE_MAIN_BACKEND, "VITE_MAIN_BACKEND");
+
     return (
         <>
         <div className="border border-[#B740A1] p-4 my-8 mx-4  rounded-[30px] flex  text-[#0D0C0A]   bg-transparent ">

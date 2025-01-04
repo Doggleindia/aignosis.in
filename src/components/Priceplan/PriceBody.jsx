@@ -1,6 +1,272 @@
-import React from 'react'
+import React, { useState } from "react";
+import { ImCancelCircle } from "react-icons/im";
+import brain from "../../assets/brain payment.png"
+import { MdDeleteForever } from "react-icons/md";
+import { CiSquarePlus } from "react-icons/ci";
+import { CiSquareMinus } from "react-icons/ci";
+import { BsArrowRightShort } from "react-icons/bs";
+import { FaPaypal } from "react-icons/fa";
+import { FaCcAmazonPay } from "react-icons/fa";
+import { FaGooglePay } from "react-icons/fa";
+import { FaCcApplePay } from "react-icons/fa";
+import { FaCcVisa } from "react-icons/fa";
+import { SiAmericanexpress } from "react-icons/si";
+import { FaCcMastercard } from "react-icons/fa";
+
+const PaymentPopup = ({ isVisible, onClose }) => {
+    if (!isVisible) return null;
+
+    const [step, setStep] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
+    const [orderConfirmed, setOrderConfirmed] = useState(false);
+
+    const handleNextStep = () => {
+        if (step === 3) {
+            setIsLoading(true);
+            setTimeout(() => {
+                setIsLoading(false);
+                setOrderConfirmed(true);
+            }, 2000); // Simulate a 2-second loading period
+            return;
+        }
+        setStep((prev) => prev + 1);
+    };
+
+    const handlePrevStep = () => {
+        if (step > 1) setStep((prev) => prev - 1);
+    };
+    const handleClosePopup = () => {
+        if (onClose) {
+            onClose(); // Calling the onClose prop to handle the closing of the popup
+        }
+    };
+
+    const renderStepContent = () => {
+        if (orderConfirmed) {
+            return (
+                <div className="text-center">
+                    <h1 className="text-lg font-bold text-[#B740A1]">Payment Successful!</h1>
+                    <p className="text-sm mt-2">Thank you for your purchase. Your payment has been confirmed.</p>
+                </div>
+            );
+        }
+
+        if (isLoading) {
+            return (
+                <div className="flex mb-[9.5vw] flex-col items-center justify-center h-full">
+                    <div className="loader border-t-[#B740A1] border-4 border-gray-300 rounded-full w-12 h-12 animate-spin"></div>
+                    <p className="mt-4 text-sm">Processing your payment...</p>
+                </div>
+            );
+        }
+
+        switch (step) {
+            case 1:
+                return (
+                    <div>
+                        <h1 className="text-xs font-bold">Complete Registration Payment</h1>
+                        <form className="mt-5 mb-5 grid gap-4 px-5">
+                            <input type="text" placeholder="Your Name*" className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs" />
+                            <input type="email" placeholder="Your Email*" className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs" />
+                            <input type="text" placeholder="Phone number*" className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs" />
+                            <div className="flex gap-3">
+                                <input type="text" placeholder="Area/city" className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs" />
+                                <input type="text" placeholder="State" className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs" />
+                            </div>
+                        </form>
+                    </div>
+                );
+            case 2:
+                return (
+                    <div>
+                        <div className="p-2 mb-5 max-w-lg mx-auto">
+                            <h1 className="font-medium text-xs mb-3">Payment Methods</h1>
+                            <div className="space-y-2">
+                                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                                    />
+                                    <div className="flex items-center justify-between w-full">
+                                        <div>
+                                            <p className="font-medium text-[12px]">Credit/Debit Cards</p>
+                                            <p className="text-gray-500 text-[10px]">Pay with your Credit / Debit Card</p>
+                                        </div>
+                                        <div className="flex space-x-2">
+                                            <FaCcVisa />
+                                            <SiAmericanexpress />
+                                            <FaCcMastercard />
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                                    />
+                                    <div className="flex items-center justify-between w-full">
+                                        <div>
+                                            <p className="font-medium text-[12px]">Direct Bank Transfer</p>
+                                            <p className="text-gray-500 text-[10px]">
+                                                Make payment directly through bank account.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                                    />
+                                    <div className="flex items-center justify-between w-full">
+                                        <div>
+                                            <p className="font-medium text-[12px]">Other Payment Methods</p>
+                                            <p className="text-gray-500 text-[10px]">
+                                                Make payment through Gpay, Paypal, Paytm etc
+                                            </p>
+                                        </div>
+                                        <div className="flex space-x-2">
+                                            <FaPaypal />
+                                            <FaCcAmazonPay />
+                                            <FaGooglePay />
+                                            <FaCcApplePay />
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                );
+            case 3:
+                return (
+                    <div className="mb-[7vw]">
+                        <h1 className="text-[14px] font-medium">Enter OTP</h1>
+                        <p className="mt-4 text-center text-[12px] text-gray-600">Enter your 4-digit card pin to confirm this payment</p>
+                        <div className="w-full flex justify-center gap-4 mt-6">
+                            {Array(4)
+                                .fill("")
+                                .map((_, index) => (
+                                    <input
+                                        key={index}
+                                        type="text"
+                                        maxLength="1"
+                                        className="w-12 h-12 border border-gray-300 rounded-md text-center text-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                                    />
+                                ))}
+                        </div>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <div className="fixed inset-0 text-black z-50 font-manrope flex items-center justify-end bg-white bg-opacity-50">
+            <div className="bg-white p-8 h-screen w-[30%]">
+                <div className="flex text-[#B740A1] justify-between items-center">
+                    <h1 className="text-[#B740A1] text-xs">Your Cart - 1 item</h1>
+                    <ImCancelCircle onClick={handleClosePopup} />
+                </div>
+                <div className="border flex border-[#9C00AD63] rounded-2xl mt-5 w-full h-[10vw] p-4">
+                    <div className="w-[10vw] rounded-2xl items-center justify-center flex h-full bg-[#9C00AD63]">
+                        <img src={brain} alt="" />
+                    </div>
+                    <div className="text-black w-full py-2 px-4">
+                        <div className="flex w-full justify-between items-center">
+                            <h1 className="text-xs font-medium">Behavioral therapy</h1>
+                            <MdDeleteForever />
+                        </div>
+                        <div className="flex w-full justify-between items-center">
+                            <div className="">
+                                <h1 className="text-[10px] mt-5">6-Month Validity</h1>
+                                <h1 className="text-[10px]">30 Sessions at ₹600/session</h1>
+                                <h1 className="text-[10px]">Save ₹8000 overall!</h1>
+                            </div>
+                            <h1 className="mt-[4vw] text-sm font-bold">Rs 46000</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex mt-5 gap-2 justify-center items-center w-full">
+                    <p className="text-[10px]">Explore educational trends, teaching strategies, and edtech innovations that are Explore educational trends, teaching strategies, and edtech innovations that are </p>
+                    <div className="border gap-2 flex items-center justify-center border-[#9C00AD63] px-2 py-2 w-[15vw]">
+                        <h1><CiSquarePlus size={20} /></h1>
+                        <h1>1</h1>
+                        <h1><CiSquareMinus size={20} /></h1>
+                    </div>
+                </div>
+                <div className="flex mt-3 gap-2 w-full">
+                    <input
+                        type="text"
+                        placeholder="Enter coupon code"
+                        className="border border-[#9C00AD63] w-full px-4 py-1 text-xs rounded-md"
+                    />
+                    <button className="bg-[#B740A1] text-white px-4 py-2 text-xs rounded-md ">Apply</button>
+                </div>
+
+                {/* Price Details */}
+                <div className="mt-6">
+                    <div className="flex justify-between text-sm">
+                        <span className="text-[10px]">Subtotal</span>
+                        <span className="text-[10px]">₹160.00</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                        <span className="text-[10px]">Sales Tax (6.5%)</span>
+                        <span className="text-[10px]">₹4.23</span>
+                    </div>
+                    <div className="flex justify-between text-sm font-bold">
+                        <span className="text-[12px]">Total Due</span>
+                        <span className="text-[12px]">₹164.23</span>
+                    </div>
+                </div>
+
+                <div className="mt-5">{renderStepContent()}</div>
+                {!orderConfirmed && (
+                    <div className="flex bg-[#F1C6FE94] items-center justify-between border-t py-4 px-5">
+                        {step > 1 && (
+                            <button
+                                onClick={handlePrevStep}
+                                className="text-black border border-[#9C00AD] px-4 py-1 rounded-full text-xs flex items-center gap-2"
+                            >
+                                <div className="w-6 h-6 rotate-180 text-white bg-[#B7407D] rounded-full flex justify-center items-center">
+                                    <BsArrowRightShort size={20} />
+                                </div>
+                                Back
+                            </button>
+                        )}
+                        <h1 className="text-sm font-bold">₹164.23 <span className="text-[10px] font-normal">Includes tax</span></h1>
+                        <button
+                            onClick={handleNextStep}
+                            className="text-black border border-[#9C00AD] px-4 py-1 rounded-full text-xs flex items-center gap-2"
+                        >
+                            {step === 3 ? "Confirm" : "Next"}
+                            <div className="w-6 h-6 text-white bg-[#B7407D] rounded-full flex justify-center items-center">
+                                <BsArrowRightShort size={20} />
+                            </div>
+                        </button>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
 
 const PriceBody = () => {
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+    const handleBuyNowClick = () => {
+        setIsPopupVisible(true);
+    };
+
+    const handleClosePopup = () => {
+        setIsPopupVisible(false);
+    };
+
     return (
         <>
             <div className=' hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 gap-4 2xl:px-[5vw] md:px-10'>
@@ -115,7 +381,7 @@ const PriceBody = () => {
                         <div className="flex mt-5 gap-4">
                             {/* Share Button */}
                             <div className="relative w-full flex justify-center items-center rounded-lg p-[2px] bg-gradient-to-r from-[#D2407480] to-[#6518B480]">
-                                <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                                <button onClick={handleBuyNowClick} className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
                                     Buy now
                                 </button>
                             </div>
@@ -125,8 +391,8 @@ const PriceBody = () => {
             </div>
             <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
                 <div className="flex flex-col gap-4 items-center">
-                     {/* Center Image */}
-                     <div className="w-[90vw] h-[60vw] bg-[#D9D9D9]"></div>
+                    {/* Center Image */}
+                    <div className="w-[90vw] h-[60vw] bg-[#D9D9D9]"></div>
                     {/* Left Column */}
                     <div className="flex gap-2">
                         <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
@@ -205,13 +471,14 @@ const PriceBody = () => {
                         <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                             Add to cart
                         </button>
-                        <button className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                        <button onClick={handleBuyNowClick}
+                            className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                             Buy now
                         </button>
                     </div>
                 </div>
             </div>
-
+            <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} />
         </>
     )
 }

@@ -4,8 +4,9 @@ import Header from "../Header";
 import blogimg1 from "../../assets/blogimg1.png";
 import BlogCard from "./BlogCard";
 import Pagination from "./Pagination";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BlogFooter from "./BlogFooter";
+import aboutContent from "../aboutus/AboutContent.js";
 import blog from "./BlogData";
 import BlogCategory from "./BlogCategory";
 const BlogPage = () => {
@@ -20,8 +21,16 @@ const BlogPage = () => {
     description:
       "Offer insights into what autism is and provide practical advice on how loved ones can offer support, understand communication differences, and build stronger relationships with autistic individuals.",
   };
+  const firstblog = aboutContent.blogs.find((b) => b.id === 1);
+  console.log(firstblog, "blogData");
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const navigate = useNavigate();
+  const handleCardClick = (id) => {
+    navigate(`/blog/${id}`);
   };
 
   return (
@@ -50,86 +59,42 @@ const BlogPage = () => {
               </div>
 
               {/* Featured Post */}
-              <div className="bg-[#2A183885] border border-[#9C00AD4D] p-6 rounded-lg text-white">
+              <div
+                className="bg-[#2A183885] border border-[#9C00AD4D] p-6 rounded-lg text-white"
+                onClick={() => handleCardClick(firstblog.id)}
+              >
                 <img
-                  src={blogimg1}
+                  src={firstblog.blogimg}
                   alt="Understanding Autism"
                   className="rounded-lg mb-4 w-full object-cover"
                 />
                 <h3 className="text-lg text-[#F6E8FB] font-semibold mb-2">
-                  Understanding Autism: A Guide for Family and Friends
+                  {firstblog.title}
                 </h3>
                 <p className="text-sm text-[#B740A1] mb-4">
-                  Vinay <span className="text-gray-400">• a min ago</span>
+                  {firstblog.author}{" "}
+                  <span className="text-gray-400">• {firstblog.time}</span>
                 </p>
                 <p className="text-sm text-[#F6E8FB]">
-                  Offer insights into what autism is and provide practical
-                  advice on how loved ones can offer support, understand
-                  communication differences, and build stronger relationships
-                  with autistic individuals.
+                  {firstblog.metaDescription}
                 </p>
               </div>
             </section>
 
             <div className="grid grid-cols-2 gap-2 mt-[2vw] rounded-lg max-w-4xl mx-auto">
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <div></div>
+              {aboutContent.blogs.map((cardData, index) => (
+                <BlogCard
+                handleCardClick = {handleCardClick}
+                cardData = {cardData}
+                  key={index} // Add a unique key to each item
+                  image={cardData.blogimg}
+                  title={cardData.title}
+                  author={cardData.author}
+                  time={cardData.time}
+                  description={cardData.metaDescription}
+                />
+              ))}
             </div>
-
-            <div className="grid grid-cols-2 gap-2 mt-[2vw] rounded-lg max-w-4xl mx-auto">
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <div></div>
-            </div>
-            <div className="grid grid-cols-2 gap-2 mt-[2vw] rounded-lg max-w-4xl mx-auto">
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <BlogCard
-                image={cardData.image}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                category={cardData.category}
-                description={cardData.description}
-              />
-              <div></div>
-            </div>
-            
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
