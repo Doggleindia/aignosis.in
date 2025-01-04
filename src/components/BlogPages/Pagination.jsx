@@ -1,6 +1,7 @@
 import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   // Define how many pages to display at a time
   const maxVisiblePages = 7;
@@ -66,7 +67,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       >
         <FaChevronRight />
       </button>
+      
     </div>
+    
   );
 };
 

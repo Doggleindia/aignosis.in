@@ -1,26 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const BlogSidebar = () => {
+const BlogSidebar = ({ blogData }) => {
+  const navigate = useNavigate();
+
   const categories = [
     "All",
-    "Autism Spectrum Disorder",
-    "ABA Therapy",
-    "Speech Therapy",
-    "Occupational Therapy",
-    "Shadow Teacher",
-    "Daily Living and Independence",
-    "Communication and Social Skills",
-    "Behavioral Challenges",
-    "Diagnosis and Early Signs",
-    "Fine Motor",
-    "Language",
-    "Support and Services",
-    "Treatment and Intervention",
+    ...Object.values(blogData).map((blog) => blog.headline)
+    
   ];
 
   const [activeCategory, setActiveCategory] = useState(
     "Autism Spectrum Disorder"
   );
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+    navigate("/BlogPages/howWeWork", { state: { category } }); // Pass the category as state
+  };
 
   return (
     <div className="bg-[#1A0C25] pl-[3vw]">
@@ -51,7 +48,7 @@ const BlogSidebar = () => {
         {categories.map((category, index) => (
           <li
             key={index}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryClick(category)}
             className={`cursor-pointer max-sm:before:content-['•'] max-sm:before:text-white max-sm:my-auto 
                             ${
                               activeCategory === category

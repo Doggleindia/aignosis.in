@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import BlogShow from './BlogShow'
+
 
 import {
   FaMicroscope,
@@ -127,7 +127,6 @@ const WeWork = () => {
           </p>
         </div> 
         <div>
-          <BlogShow/>
         </div>
         <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
           <div className="flex flex-col gap-5">

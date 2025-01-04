@@ -6,6 +6,8 @@ import BlogCard from "./BlogCard";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
 import BlogFooter from "./BlogFooter";
+import blog from "./BlogData";
+import BlogCategory from "./BlogCategory";
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 20;
@@ -30,7 +32,7 @@ const BlogPage = () => {
       <div className="bg-[#1A0C25] min-h-screen font-raleway  ">
         <div className="flex max-sm:flex-col gap-2 bg-[#1A0C25]  p-6">
           <div className="  md:w-1/4 mt-[4vw] ">
-            <BlogSidebar />
+            <BlogSidebar blogData={blog} />
           </div>
           <div className=" w-full md:w-3/4 mt-[8vw]">
             <section className="bg-[#1A0C25] border border-[#9C00AD66] p-8 rounded-lg  md:max-w-4xl mx-auto">
@@ -127,6 +129,7 @@ const BlogPage = () => {
               />
               <div></div>
             </div>
+            
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -134,7 +137,7 @@ const BlogPage = () => {
             />
           </div>
         </div>
-
+        <BlogCategory/>
         <div className="bg-gradient-to-b from-[#241E22] my-[10vw] to-[#43284C] h-[300px] flex flex-col justify-center items-center gap-4 text-white ">
           <p className="text-2xl max-sm:text-lg font-montserrat">HOW WE WORK</p>
           <p className="text-2xl max-sm:text-lg max-sm:p-4 font-montserrat">
