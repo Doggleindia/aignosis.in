@@ -17,7 +17,7 @@ const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
   console.log(blog, "aboutContent");
-  const { title} = blog;
+  const {  pageTitle} = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
 
   const milestones = [
@@ -131,7 +131,7 @@ const WeWork = () => {
             className="w-full h-[300px] object-cover"
           />
           <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
-           {title}
+           {pageTitle}
           </p>
         </div> 
         <div>
