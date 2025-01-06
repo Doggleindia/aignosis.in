@@ -15,19 +15,19 @@ const Homefirst = () => {
   // }, []);
   useEffect(() => {
     // Disable scrolling while the video is playing
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
 
     // Delay showing content until the video animation is complete
     const timeout = setTimeout(() => {
       setShowContent(true);
       // Enable scrolling after the animation
-      document.body.style.overflow = "auto";
-    }, 10000); // Adjust timing based on the video duration
+      // document.body.style.overflow = "auto";
+    }, 12000); // Adjust timing based on the video duration
 
     return () => {
       clearTimeout(timeout);
       // Ensure scrolling is enabled when the component unmounts or changes
-      document.body.style.overflow = "auto";
+      // document.body.style.overflow = "auto";
     };
   }, []);
 
@@ -58,7 +58,7 @@ const Homefirst = () => {
           <motion.div
             initial={{ y: 0 }}
             animate={{ y: "-100%" }}
-            transition={{ duration: 2, ease: "easeInOut", delay: 10 }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 10 }}
             className="absolute  inset-0 w-full h-full z-20 pointer-events-none"
           >
             <video
@@ -75,7 +75,7 @@ const Homefirst = () => {
             <motion.div
               initial="hidden"
               animate="visible"
-              className={`${showContent ? "block" : "hidden"} relative z-0 body w-[90%] h-screen flex-col m-auto justify-center align-center items-center hidden md:flex`}
+              className={` relative z-0 body w-[90%] h-screen flex-col m-auto justify-center align-center items-center hidden md:flex`}
             >
               <motion.span
                 custom={0.2}

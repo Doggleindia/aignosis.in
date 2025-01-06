@@ -14,7 +14,7 @@ const AnimatedIntro = ({ videoSrc, children }) => {
 
   return (
     <div className="relative h-screen ">
-    <div className="absolute inset-0 w-full h-full">{children}</div>
+   
         {!playAnimation && (
         <motion.div
           initial={{ y: 0 }}
