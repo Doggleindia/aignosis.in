@@ -15,19 +15,17 @@ const Homefirst = () => {
   // }, []);
   useEffect(() => {
     // Disable scrolling while the video is playing
-    // document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
     // Delay showing content until the video animation is complete
     const timeout = setTimeout(() => {
       setShowContent(true);
-      // Enable scrolling after the animation
-      // document.body.style.overflow = "auto";
-    }, 12000); // Adjust timing based on the video duration
+      document.body.style.overflow = "auto";
+    }, 4000); // Adjust timing based on the video duration
 
     return () => {
       clearTimeout(timeout);
-      // Ensure scrolling is enabled when the component unmounts or changes
-      // document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto";
     };
   }, []);
 
@@ -42,7 +40,7 @@ const Homefirst = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.2 },
     visible: (delay) => ({
       opacity: 1,
       scale: 1,
@@ -50,11 +48,29 @@ const Homefirst = () => {
     }),
   };
 
+
+  if (!showContent) {
+    return (
+      <motion.div 
+      initial={{ y: 0 }}
+      animate={{ y: "-100%" }}
+      transition={{ duration: 1, ease: "easeInOut", delay: 3 }}
+      className="w-full h-screen bg-black z-30 relative flex justify-center items-center">
+        {/* This will render a blank screen */}
+        <video
+              src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97"
+              className="absolute  w-full h-full object-cover"
+              autoPlay
+              muted
+            />
+      </motion.div>
+    );
+  }
   return (
     <>
     
         {/* Video animation section */}
-        {!showContent && (
+        {/* {!showContent && (
           <motion.div
             initial={{ y: 0 }}
             animate={{ y: "-100%" }}
@@ -68,7 +84,7 @@ const Homefirst = () => {
               muted
             />
           </motion.div>
-        )}
+        )} */}
 
         {showContent && (
           <>
