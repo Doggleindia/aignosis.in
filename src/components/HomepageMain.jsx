@@ -11,20 +11,21 @@ import ContactPage from './ContactPage'
 import WhatsAppButton from './WhatsAppButton'
 import { useLocation } from 'react-router-dom'
 import BlogFooter from './BlogPages/BlogFooter'
+import AnimatedIntro from './home/AnimatedIntro'
 const HomepageMain = () => {
-
+  
 
   return (
+    <AnimatedIntro videoSrc="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97" >
     <div className='bg-[#1A0C25]'>
-    
       <Homepage />
       <WhatsAppButton />
       <Laptop />
      
       <ContactPage/>
       <BlogFooter/>
-      
     </div>
+      </AnimatedIntro>
   )
 }
 

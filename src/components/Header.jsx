@@ -199,7 +199,8 @@ const Header = () => {
           </div> */}
           {/* Login Button */}
           <Link
-            to='login'
+            to='/login'
+            onClick={() => handleLinkClick("/login")}
             className="border border-[#B740A1] p-2 px-11 rounded-[30px]"
           >
             <span className="2xl:text-base md:text-sm m-auto text-2xl text-white">
