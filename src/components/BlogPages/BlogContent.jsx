@@ -50,7 +50,7 @@ const BlogContent = ({ aboutContent }) => {
           {hasImage && (
             <div className="flex gap-2 mt-2">
               <img
-                src={ogMetadata?.ogImage || imageOptimization?.fileName || blogimg || "default-image.jpg"}
+                src={ogMetadata?.ogImage || imageOptimization?.fileName || "default-image.jpg"}
                 alt={imageOptimization?.altText || "default alt text"}
                 className="w-[800px] h-[300px] text-white object-cover"
               />

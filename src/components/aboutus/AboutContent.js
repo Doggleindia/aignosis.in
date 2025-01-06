@@ -438,9 +438,9 @@ const AboutContent = {
         og_title: "Speech Therapy Exercises for Autism: Easy and Effective Home Strategies",
         og_description: "Discover practical speech therapy exercises for autism that you can do at home. Help your child improve communication skills with simple, proven methods."
       },
-      image_optimization: {
-        file_name: "speech-therapy-exercises-autism-home.jpg",
-        alt_text: "Parent practicing speech therapy exercises with a child with autism at home."
+      imageOptimization: {
+        fileName: "speech-therapy-exercises-autism-home.jpg",
+        altText: "Parent practicing speech therapy exercises with a child with autism at home."
       },
       content: [
         {
@@ -603,9 +603,9 @@ const AboutContent = {
         og_title: "Speech Therapy Lesson Plans and Materials for Autism: Effective Strategies",
         og_description: "Create engaging lesson plans and gather essential materials for speech therapy for autism. Help your child thrive with these proven strategies."
       },
-      image_optimization: {
-        file_name: "speech-therapy-lesson-plans-materials-autism.jpg",
-        alt_text: "A therapist using materials to teach a child with autism during a speech therapy session."
+      imageOptimization: {
+        fileName: "speech-therapy-lesson-plans-materials-autism.jpg",
+        altText: "A therapist using materials to teach a child with autism during a speech therapy session."
       },
       content: [
         {
@@ -795,9 +795,9 @@ const AboutContent = {
         og_title: "How Speech Therapy Builds Confidence in Children with Autism",
         og_description: "Explore how speech therapy helps children with autism build confidence by improving communication, encouraging social interactions, and fostering emotional growth."
       },
-      image_optimization: {
-        file_name: "speech-therapy-confidence-autism.jpg",
-        alt_text: "A child with autism practicing speech therapy to build confidence in social settings."
+      imageOptimization: {
+        fileName: "speech-therapy-confidence-autism.jpg",
+        altText: "A child with autism practicing speech therapy to build confidence in social settings."
       },
       content: [
         {
@@ -887,9 +887,9 @@ const AboutContent = {
         og_title: "Occupational Therapy for Autism: Overview, Goals, and Benefits",
         og_description: "Explore the role of occupational therapy in autism treatment, including its ability to help with sensory challenges, fine motor skills, social interactions, and daily life skills."
       },
-      image_optimization: {
-        file_name: "occupational-therapy-autism.jpg",
-        alt_text: "A child with autism participating in occupational therapy to improve sensory and motor skills."
+      imageOptimization: {
+        fileName: "occupational-therapy-autism.jpg",
+        altText: "A child with autism participating in occupational therapy to improve sensory and motor skills."
       },
       content: [
         {
@@ -1113,9 +1113,9 @@ const AboutContent = {
         og_title: "Down Syndrome vs. Autism: Key Differences Explained",
         og_description: "Explore the essential differences between Down syndrome and autism in behavior, characteristics, and support needs."
       },
-      image_optimization: {
-        file_name: "down-syndrome-vs-autism.jpg",
-        alt_text: "Comparison chart showing differences between Down syndrome and autism."
+      imageOptimization: {
+        fileName: "down-syndrome-vs-autism.jpg",
+        altText: "Comparison chart showing differences between Down syndrome and autism."
       },
       content: [
         {

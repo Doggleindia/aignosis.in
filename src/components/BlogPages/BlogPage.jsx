@@ -81,20 +81,21 @@ const BlogPage = () => {
               </div>
             </section>
 
-            <div className="grid grid-cols-2 gap-2 mt-[2vw] rounded-lg max-w-4xl mx-auto">
-              {aboutContent.blogs.map((cardData, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-[2vw] rounded-lg max-w-4xl mx-auto">
+             {aboutContent.blogs.map((cardData, index) => (
                 <BlogCard
-                handleCardClick = {handleCardClick}
-                cardData = {cardData}
-                  key={index} // Add a unique key to each item
-                  image={cardData.blogimg}
-                  title={cardData.title}
-                  author={cardData.author}
-                  time={cardData.time}
-                  description={cardData.metaDescription}
-                />
-              ))}
-            </div>
+                handleCardClick={handleCardClick}
+                cardData={cardData}
+                key={index} // Unique key for each item
+                image={cardData.blogimg}
+                title={cardData.title}
+                author={cardData.author}
+                time={cardData.time}
+                description={cardData.metaDescription}
+            />
+            ))}
+           </div>
+
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

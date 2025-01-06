@@ -3,7 +3,7 @@ import React from "react";
 const BlogCard = ({ image, title, author, time, category, description ,cardData,handleCardClick}) => {
   return (
     <div
-      className="bg-[#2A183885]  rounded-lg shadow-lg border border-[#9C00AD4D]"
+      className="bg-[#2A183885]  rounded-lg shadow-lg border border-[#9C00AD4D] cursor-pointer"
       onClick={() => handleCardClick(cardData.id)}
     >
       <img
