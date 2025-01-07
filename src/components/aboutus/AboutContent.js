@@ -1,11 +1,12 @@
 import blogimg1 from "../../assets/blogimg1.png";
 import blogimg2 from './aut.jpg'
-import blogimg3 from './aut2.jpg'
+import blogimg3 from './aut3.webp'
 const AboutContent = {
   blogs: [
     {
       id: 1,
       blogimg: blogimg1,
+      image: "",
       author: "Raksheet",
       time: "1 day ago",
       title: "Early Signs of Autism in Children: A Parent's Guide",
@@ -132,6 +133,7 @@ const AboutContent = {
     {
       id: 2,
       blogimg: blogimg1,
+      image: "",
       author: "Dakshit",
       time: "2 days ago",
       title: "The Importance of Early Intervention for Autism: A Guide for Parents",
@@ -242,6 +244,7 @@ const AboutContent = {
     {
       id: 3,
       blogimg: blogimg1,
+      image: "",
       author: "Saket",
       time: "3 day ago",
       title: "How AI Is Transforming Early Autism Diagnosis",
@@ -329,6 +332,7 @@ const AboutContent = {
       id: 4,
       blogimg: blogimg1,  // Image URL for the blog can be inserted here
       author: "Raksheet",
+      image: "",
       time: "1 day ago",
       title: "Speech Therapy Tips for Children with Autism",
       pageTitle: "Speech Therapy Tips for Children with Autism | Effective Communication Strategies",
@@ -417,6 +421,7 @@ const AboutContent = {
     {
       id: 5,
       blogimg: blogimg1,
+      image: "",
       author: "kinnu",
       time: "4 days ago",
       title: "Speech Therapy Exercises for People with Autism That Can be Practiced at Home",
@@ -582,6 +587,7 @@ const AboutContent = {
     {
       id: 6,
       blogimg: blogimg1,
+      image: "",
       author: "khnnu",
       time: "6 days ago",
       title: "Speech Therapy Lesson Plans and Materials for Autism",
@@ -774,6 +780,7 @@ const AboutContent = {
     {
       id: 7,
       blogimg: blogimg1,
+      image: "",
       author: "khnnu",
       time: "6 days ago",
       title: "How Speech Therapy Helps Children with Autism Build Confidence",
@@ -864,6 +871,7 @@ const AboutContent = {
     {
       id: 8,
       blogimg:blogimg1,
+      image: "",
       author: "khnnu",
       time: "6 days ago",
       title: "Occupational Therapy for Autism: Overview, Goals, Benefits, and Disadvantages",
@@ -992,6 +1000,7 @@ const AboutContent = {
     {
       id: 9,
       blogimg: blogimg1,
+      image: "",
       author: "khnnu",
       time: "6 days ago",
       title: "Effective Speech Therapy Treatments: Improving Communication Skills in Children",
@@ -1091,6 +1100,7 @@ const AboutContent = {
    {
       id: 10,
       blogimg: blogimg1,
+      image: "",
       author: "khnnu",
       time: "just now",
       title: "Down Syndrome vs. Autism: Key Differences in Characteristics and Behavior",
@@ -1200,7 +1210,8 @@ const AboutContent = {
     }, 
     {
       id: 11,
-      blogimg: blogimg1,
+      blogimg: blogimg2,
+      image: blogimg2,
       author: "IAC",
       time: "October 25, 2023",
       title: "Early Detection and Diagnosis of Autism in India: Importance and Challenges",
@@ -1226,7 +1237,7 @@ const AboutContent = {
         og_description: "Discover how early detection and diagnosis of Autism in India can transform lives. Learn about the challenges and the importance of timely intervention."
       },
       imageOptimization: {
-        fileName: blogimg2,
+        fileName: '',
         altText: "A chart showing Autism diagnosis trends in India."
       },
       content: [
@@ -1283,7 +1294,8 @@ const AboutContent = {
     },
     {
       id: 12,
-      blogimg: blogimg1,
+      blogimg: blogimg3,
+      image: blogimg3,
       author: "Ying Ying Choo, Pratibha Agarwal",
       time: "March 3, 2019",
       title: "Developmental Delay: Identification and Management at Primary Care Level",
@@ -1310,7 +1322,7 @@ const AboutContent = {
         og_description: "Learn how primary care can play a vital role in the identification and management of developmental delays in children. Early intervention strategies are crucial for improving outcomes."
       },
       imageOptimization: {
-        fileName: blogimg3,
+        fileName: '',
         altText: "A pediatrician examining a child to check for developmental delay signs."
       },
       content: [

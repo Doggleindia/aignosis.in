@@ -17,7 +17,7 @@ const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
   console.log(blog, "aboutContent");
-  const {  pageTitle} = blog;
+  const {  pageTitle , image} = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
 
   const milestones = [
@@ -126,8 +126,7 @@ const WeWork = () => {
           <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
           {/* Overlay */}
           <img
-            src="https://s3-alpha-sig.figma.com/img/5f57/5251/b906feead24ae66455a5f2e66541c5b9?Expires=1736121600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VCraK-qPfLniUVINljJ9EqZ~Gizt5YFaf8E0oJNOzoIS0vzTfSfH4ygImiks4BpJ5BqMFe6GbjAk8JF5ZvNJHV8WpJNZc7TnOdEmsb0JDzqVCFZehpdFcoAKtS7yvh8k7UpYEC7RmsOkH9Az3eviB7Wqye3P8ySPoSWx0j-oF0ap6HIf1MrQGr9EqHmpchzrWIutuYYGOaWOe1JYEuv6IFqvk79zGiqbCIeTKodibFSV~PGVK7IHLDQ5186Vy~aZk4i68fGR~DZodOawE8qPR1qyLLptafJi0c~9jFTnRWCubUafxebo~f80pm4WY2YGQP-5nAO9J4fbVySiCoJbew__"
-            alt=""
+            src={image}
             className="w-full h-[300px] object-cover"
           />
           <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
