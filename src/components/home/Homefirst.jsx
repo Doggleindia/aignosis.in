@@ -92,7 +92,7 @@ const Homefirst = () => {
           <motion.div
             initial="hidden"
             animate="visible"
-            className={` relative z-0 body w-[90%] h-screen flex-col m-auto justify-center align-center items-center hidden md:flex`}
+            className={`relative z-0 body w-[90%] h-screen flex-col m-auto justify-center align-center items-center hidden md:flex`}
           >
             <motion.span
               custom={0.2}
