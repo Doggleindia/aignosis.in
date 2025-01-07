@@ -20,7 +20,7 @@ const HeroSection = () => {
       <Endrosed />
       <FromDoctor />
       <Awards />
-      <Endrosed />
+      {/* <Endrosed /> */}
       <Reports />
       <BookScreening />
       <PartnershipPage />
