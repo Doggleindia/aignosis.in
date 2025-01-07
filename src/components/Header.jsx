@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import axiosInstance from "./config/axiosInstance";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState("/");
   const [isHovered, setIsHovered] = useState(false);
   const [selectedService, setSelectedService] = useState(""); // Renamed state variable
+  const [authUser, setAuthUser] = useState(false); // Authenticated user
   // Menu visibility
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
   const navigate = useNavigate();
@@ -38,6 +40,38 @@ const Header = () => {
   };
 
   
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = localStorage.getItem("authToken");
+      try {
+        console.log(authUser,"authUser1");
+        // Verify the token with the backend
+        const response = await axiosInstance.post(
+          "/verifyJwt",
+          {}, // Empty body for the POST request
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Add the token in the headers
+            },
+          });
+          setAuthUser(true)
+
+        if (!response.data.success) {
+          console.log(authUser,"authUser2");
+          // Token verification failed, redirect to login
+          setAuthUser(false)
+        }
+      } catch (error) {
+        console.error("Token verification failed:", error);
+        setAuthUser(false)
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  console.log(authUser,"authUser");
   
 
   return (
@@ -186,7 +220,8 @@ const Header = () => {
           >
             Blogs
           </Link>
-          {/* <div
+          {authUser ? (
+          <div
             onClick={handleNavigate}
             className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
           >
@@ -196,16 +231,18 @@ const Header = () => {
             <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
               <GoArrowUpRight />
             </div>
-          </div> */}
-          {/* Login Button */}
+          </div>
+          ):(
           <Link
-            to='login'
+            to='/login'
+            onClick={() => handleLinkClick("/login")}
             className="border border-[#B740A1] p-2 px-11 rounded-[30px]"
           >
             <span className="2xl:text-base md:text-sm m-auto text-2xl text-white">
               Log in
             </span>
           </Link>
+          )}
         </div>
 
         {/* Mobile Menu Icon */}

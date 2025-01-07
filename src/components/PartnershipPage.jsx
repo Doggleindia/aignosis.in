@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 const PartnershipPage = () => {
     const imageRef = useRef(null);
     const cardsRef = useRef([]);
-    
+
     useEffect(() => {
         const isMobile = window.innerWidth <= 768; // Define mobile breakpoint
-    const yPosition = isMobile ? 720 : 300;
+        const yPosition = isMobile ? 720 : 300;
         // Animate image on scroll
         const imageAnimation = gsap.to(imageRef.current, {
             y: yPosition, // The final position when fully scrolled
@@ -76,10 +76,10 @@ const PartnershipPage = () => {
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
                         <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold leading-[3rem]'>
-                            If you are a healthcare provider, payor, or caregiver and want to partner with Ai.gnosis, let’s talk!
+                            If you are a healthcare provider, payor, or caregiver <br /> and want to partner with Ai.gnosis, let’s talk!
                         </h1>
                     </div>
-                    <div className='px-4 2xl:text-lg md:text-xs md:px-[20vw] text-center'>
+                    <div className='px-4 2xl:text-lg mt-4 md:text-xs md:px-[20vw] text-center'>
                         <p>Emphasis on partnerships within India, focusing on integration with local healthcare.</p>
                     </div>
                 </div>
@@ -87,32 +87,35 @@ const PartnershipPage = () => {
                 {/* Partnership Benefits Boxes in 2x2 Grid */}
                 <div className='w-full relative max-sm:max-w-[83vw] max-w-[60vw] grid grid-cols-1 md:grid-cols-2 gap-[10vw] justify-center items-center mt-10 px-4 md:px-0 mb-10'>
                     {[{
-                        title: "Partnership Benefits Overview",
-                        description: "Discover the advantages of collaborating with Ai.gnosis, including enhanced patient care, access to cutting-edge tools, and opportunities for joint research initiatives.",
+                        title: "Early Identification of Developmental Disorders",
+                        description: "The solution enables you to identify developmental delays like autism at an early stage, providing you with the opportunity to begin interventions when they are most effective.",
                     },
                     {
-                        title: "Scheduling Options",
-                        description: "Schedule a consultation with our sales team directly through our integrated calendar, making it convenient for you to discuss partnership opportunities.",
+                        title: "Evidence-Based and Clinically Validated",
+                        description: "Our system is backed by clinical research and expert validation, ensuring that the results you receive are scientifically sound and can be trusted for accurate diagnosis.",
                     },
                     {
-                        title: "Quick Contact Form",
-                        description: "Fill up the form, and our team will respond promptly to assist you.",
+                        title: "Streamlined Workflow for Pediatric Practices",
+                        description: "Designed for simplicity, our tool integrates seamlessly into your existing workflow, offering fast and accurate results without disrupting your practice's operations.",
                     },
                     {
-                        title: "Resource Downloads",
-                        description: "Access valuable resources, such as brochures and case studies, to learn more about our services and the impact of Ai.gnosis in autism detection.",
+                        title: "Improved Patient Outcomes with Early Intervention",
+                        description: "By using our early detection tool, you can ensure that children receive timely intervention, which can lead to improved cognitive, social, and emotional development, enhancing their overall quality of life.",
                     }].map((item, index) => (
                         <div
                             key={index}
-                            className="2xl:p-6 p-4 md:p-[2rem]  2xl:h-[18vw] md:h-[16vw] rounded-3xl w-auto bg-[#1A0C25] bg-gradient-to-b from-[#070B0E] to-[#300834] shadow-lg mb-6"
+                            className="2xl:p-6 p-4 md:p-[2rem] 2xl:h-[18vw] md:h-[16vw] rounded-3xl w-auto shadow-lg mb-6"
                             ref={el => cardsRef.current[index] = el} // Store reference to each card
+                            style={{ background: 'radial-gradient(circle, #43284C 0%, #1A0C25 100%)' }} // Apply radial gradient 43284C 1A0C25 here
                         >
-                            <h1 className="2xl:text-2xl text-lg md:text-lg font-semibold text-white">{item.title}</h1>
+
+                            <h1 className="2xl:text-2xl border-l-2 pl-6 border-[#811F67] text-lg md:text-lg font-semibold text-white">{item.title}</h1>
                             <p className="mt-2 md:text-xs test-sm 2xl:text-lg text-white p-2 ">{item.description}</p>
+                            <div className="w-full h-1 border-b-2 border-[#811F67] mt-5"></div>
                         </div>
                     ))}
                 </div>
-                 
+
                 {/* Center Image between Boxes */}
                 <div className="  flex absolute justify-center  items-center" ref={imageRef}>
                     <img src={brain} alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" loading="lazy" />
@@ -120,31 +123,30 @@ const PartnershipPage = () => {
             </div>
 
             {/* Contact Form Section */}
-            <div className="w-full flex flex-col md:flex-row 2xl:gap-[15vw] justify-center items-center mt-10 px-4 relative md:gap-16 mb-10">
-                <img src={brain} alt="Brain Icon" className="max-sm:hidden w-[50vw] h-[50vw] 2xl:left-[18vw] md:left-[18vw] absolute scale-[2.5] md:w-[10vw] md:h-[10vw] mb-4 md:mb-0" loading="lazy" />
-                <div className="w-full md:ml-[38vw] md:w-[40%] px-4">
-                    <h1 className="2xl:text-lg md:text-base mb-4 max-sm:text-center">
+            <div className="w-full flex flex-col justify-center items-center px-4 mb-10">
+                <div className="w-full text-center px-[25vw]">
+                    <h1 className="2xl:text-xl font-medium md:text-2xl mb-10 max-sm:text-center">
                         Fill up the form, and our team will respond promptly to assist you.
                     </h1>
-                    <form className="space-y-4 md:text-sm 2xl:text-lg">
+                    <form className="space-y-4 px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
                         <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
                         <input type="email" placeholder="Your Email*" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
                         <input type="tel" placeholder="Phone number" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
                         <textarea placeholder="Your Message*" className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"></textarea>
-                        <div className=' max-sm:mx-auto 2xl:w-[14rem] md:w-[11rem] w-[8rem] cursor-pointer mt-[1.5rem] border-2 border-[#B740A1] gap-2 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] md:h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-    <button type="submit" className='text-white text-sm md:text-base'>Submit</button>
-    <div className='2xl:w-[2.5rem] md:w-[2rem] w-[1.8rem] h-[1.8rem] md:h-[2rem] 2xl:h-[2.5rem] justify-center flex items-center text-white text-lg md:text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-        <GoArrowUpRight />
-    </div>
-</div>
+                        <div className=' max-sm:mx-auto 2xl:w-[14rem] md:w-[9rem] w-[8rem] cursor-pointer mt-[1.5rem] border-2 border-[#B740A1] gap-2 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] md:h-[3rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                            <button type="submit" className='text-white text-sm md:text-sm'>Submit</button>
+                            <div className='2xl:w-[2.5rem] md:w-[1.8rem] w-[1.8rem] h-[1.8rem] md:h-[1.8rem] 2xl:h-[2.5rem] justify-center flex items-center text-white text-lg md:text-base group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                <GoArrowUpRight />
+                            </div>
+                        </div>
 
                     </form>
                 </div>
             </div>
 
-           
-            
-        </div>
+
+
+        </div >
     );
 };
 
