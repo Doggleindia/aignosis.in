@@ -42,11 +42,11 @@ const Awards = () => {
 
       </div>
       <div className='flex max-sm:flex-col justify-center items-center gap-6 p-10'>
-      <AwardCard imageSrc={img1} altText="First Award" />        
-      <AwardCard imageSrc={img2} altText="Second Award" />
-      <AwardCard imageSrc={img3} altText="Third Award" />
-      <AwardCard imageSrc={img4} altText="Fourth Award" />
-      <AwardCard imageSrc={img5} altText="Fifth Award" />
+        <AwardCard imageSrc={img1} altText="First Award" />
+        <AwardCard imageSrc={img2} altText="Second Award" />
+        <AwardCard imageSrc={img3} altText="Third Award" />
+        <AwardCard imageSrc={img4} altText="Fourth Award" />
+        <AwardCard imageSrc={img5} altText="Fifth Award" />
 
       </div>
 

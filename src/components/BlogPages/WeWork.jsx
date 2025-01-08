@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
 import aboutContent from "../aboutus/AboutContent.js";
-
-
 import {
   FaMicroscope,
   FaClipboardCheck,
@@ -17,7 +15,7 @@ const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
   console.log(blog, "aboutContent");
-  const {  pageTitle , image} = blog;
+  const { pageTitle, image } = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
 
   const milestones = [
@@ -130,9 +128,9 @@ const WeWork = () => {
             className="w-full h-[300px] object-cover"
           />
           <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
-           {pageTitle}
+            {pageTitle}
           </p>
-        </div> 
+        </div>
         <div>
         </div>
         <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
