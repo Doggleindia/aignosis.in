@@ -10,12 +10,14 @@ import BookScreening from "../BookScreening";
 import PartnershipPage from "../PartnershipPage";
 import FromDoctor from "../FromDoctor";
 import Homefirst from "./Homefirst";
+import UnderStandingNumber from "./UnderStandingNumber";
 
 const HeroSection = () => {
   return (
     <>
       <Homefirst/>
       <OpenAI />
+      <UnderStandingNumber/>
       <BrainMain />
       <Endrosed />
       <FromDoctor />
