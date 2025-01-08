@@ -4,8 +4,21 @@ import img1 from '../assets/images/doctor img.png';
 import Divider from './aboutus/Divider';
 import img2 from "../assets/homepage/image 144.png";
 import img3 from "../assets/homepage/image 145.png";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const FromDoctor = () => {
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,  // Show next/prev arrows
+        dots: true,    // Show navigation dots
+        autoplay: true,
+        autoplaySpeed: 3000, // Slide every 3 seconds
+    };
+
     return (
         <>
             <div className='w-full h-full hidden md:block text-white bg-[#1A0C25]'>
@@ -20,7 +33,7 @@ const FromDoctor = () => {
                         <div className="w-[75%] h-full">
                             <img className='object-contain w-full h-full' src={img2} alt="" srcset="" />
                         </div>
-                        <div className="w-full h-full">
+                        <div className="w-[50%] h-full">
                             <div className="flex flex-row justify-start items-center space-x-4">
                                 <span
                                     className="h-[6px] w-[100px] rounded-full max-sm:w-[60px]"
@@ -42,7 +55,7 @@ const FromDoctor = () => {
                             </div>
                             <h1 className='font-raleway mt-5 text-4xl'>The right support at the right time <br /> makes all the difference.</h1>
                             <p className='mt-5  leading-[1.2vw]'>Connect with an expert therapist for personalized virtual sessions, where children learn <br /> practical skills through activities, games, and worksheets to achieve their goals faster.</p>
-                            <div className="flex mt-10  gap-10 overflow-x-auto">
+                            {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                 <div
                                     className="flex rounded-3xl w-[50%] h-[15vw] p-8 text-white"
                                     style={{
@@ -50,24 +63,21 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <div className="flex flex-col justify-between h-full">
-                                        {/* Testimonial Text */}
+                                
                                         <p className="text-xs">
                                             "As a pediatrician with over 40 years of experience, I believe early detection of autism and developmental disorders is critical. This test is a groundbreaking tool that allows us to detect early signs with high accuracy. It empowers parents to take action sooner, improving outcomes for children."
                                             .
                                         </p>
 
-                                        {/* Divider */}
+                                        
                                         <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
 
-                                        {/* Doctor Info */}
                                         <div className="flex justify-between items-center">
-                                            {/* Left Side */}
                                             <div className="flex flex-col">
                                                 <h1 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h1>
                                                 <span className="text-xs text-[#CACED9]"> Pediatrician & Developmental Expert</span>
                                             </div>
 
-                                            {/* Placeholder */}
                                             <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                         </div>
                                     </div>
@@ -79,27 +89,75 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <div className="flex flex-col justify-between h-full">
-                                        {/* Testimonial Text */}
                                         <p className="text-xs">
                                             "The early autism detection test is a significant step forward in pediatric care. It offers a non-invasive, cost-effective, and efficient way to screen children for neurodevelopmental disorders. I wholeheartedly support this initiative, as it provides essential data for timely intervention."
                                         </p>
 
-                                        {/* Divider */}
                                         <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
 
-                                        {/* Doctor Info */}
                                         <div className="flex justify-between items-center">
-                                            {/* Left Side */}
                                             <div className="flex flex-col">
                                                 <h1 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h1>
                                                 <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi
                                                 </span>
                                             </div>
 
-                                            {/* Placeholder */}
                                             <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                         </div>
                                     </div>
+                                </div>
+                            </div> */}
+                            <div className="w-full" >
+                                <div className="mt-10 w-[60%]">
+                                    <Slider className='rounded-3xl gap-10' {...settings} style={{
+                                        background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)',
+                                    }}>
+                                        {/* Testimonial Card 1 */}
+                                        <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto">
+                                            <div className="flex flex-col justify-between h-full"
+                                            >
+                                                {/* Testimonial Text */}
+                                                <p className="text-xs">
+                                                    "As a pediatrician with over 40 years of experience, I believe early detection of autism and developmental disorders is critical. This test is a groundbreaking tool that allows us to detect early signs with high accuracy. It empowers parents to take action sooner, improving outcomes for children."
+                                                </p>
+                                                {/* Divider */}
+                                                <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                                                {/* Doctor Info */}
+                                                <div className="flex justify-between items-center">
+                                                    {/* Left Side */}
+                                                    <div className="flex flex-col">
+                                                        <h1 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h1>
+                                                        <span className="text-xs text-[#CACED9]">Pediatrician & Developmental Expert</span>
+                                                    </div>
+                                                    {/* Placeholder */}
+                                                    <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Testimonial Card 2 */}
+                                        <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto"
+                                            style={{ background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)' }}>
+                                            <div className="flex flex-col justify-between h-full">
+                                                {/* Testimonial Text */}
+                                                <p className="text-xs">
+                                                    "The early autism detection test is a significant step forward in pediatric care. It offers a non-invasive, cost-effective, and efficient way to screen children for neurodevelopmental disorders. I wholeheartedly support this initiative, as it provides essential data for timely intervention."
+                                                </p>
+                                                {/* Divider */}
+                                                <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                                                {/* Doctor Info */}
+                                                <div className="flex justify-between items-center">
+                                                    {/* Left Side */}
+                                                    <div className="flex flex-col">
+                                                        <h1 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h1>
+                                                        <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi</span>
+                                                    </div>
+                                                    {/* Placeholder */}
+                                                    <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Slider>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +187,7 @@ const FromDoctor = () => {
                                 </div>
                                 <h1 className='font-raleway mt-5 text-4xl'>Stories of Support and Success</h1>
                                 <p className='mt-5  leading-[1.2vw]'>Discover how AI.Gnosis has empowered parents with the tools and insights they <br /> need to make informed decisions for their children’s future.</p>
-                                <div className="flex mt-10 gap-10 overflow-x-auto">
+                                {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                     <div
                                         className="flex rounded-3xl w-[30vw] h-[15vw] p-8 text-white"
                                         style={{
@@ -137,23 +195,18 @@ const FromDoctor = () => {
                                         }}
                                     >
                                         <div className="flex flex-col justify-between h-full">
-                                            {/* Testimonial Text */}
                                             <p className="text-xs">
                                                 "I was so unsure about my child’s development, but this test was so easy and quick. We got the answers we needed right at home, which made everything so much easier."
                                             </p>
 
-                                            {/* Divider */}
                                             <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
 
-                                            {/* Doctor Info */}
                                             <div className="flex justify-between items-center">
-                                                {/* Left Side */}
                                                 <div className="flex flex-col">
                                                     <h1 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h1>
                                                     <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
                                                 </div>
 
-                                                {/* Placeholder */}
                                                 <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                             </div>
                                         </div>
@@ -165,27 +218,75 @@ const FromDoctor = () => {
                                         }}
                                     >
                                         <div className="flex flex-col justify-between h-full">
-                                            {/* Testimonial Text */}
                                             <p className="text-xs">
                                                 The process was quick, the results were clear, and I felt reassured that we could start early intervention immediately. I wish we had this option sooner!"
 
                                             </p>
 
-                                            {/* Divider */}
                                             <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
 
-                                            {/* Doctor Info */}
                                             <div className="flex justify-between items-center">
-                                                {/* Left Side */}
                                                 <div className="flex flex-col">
                                                     <h1 className="text-base text-[#CACED9] font-semibold">Priya patil,</h1>
                                                     <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
                                                 </div>
 
-                                                {/* Placeholder */}
                                                 <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div> */}
+                                <div className="w-full pl-7" >
+                                    <div className="mt-10 w-[60%]">
+                                        <Slider className='rounded-3xl gap-10' {...settings} style={{
+                                            background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)',
+                                        }}>
+                                            {/* Testimonial Card 1 */}
+                                            <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto">
+                                                <div className="flex flex-col justify-between h-full"
+                                                >
+                                                    {/* Testimonial Text */}
+                                                    <p className="text-xs">
+                                                        "As a pediatrician with over 40 years of experience, I believe early detection of autism and developmental disorders is critical. This test is a groundbreaking tool that allows us to detect early signs with high accuracy. It empowers parents to take action sooner, improving outcomes for children."
+                                                    </p>
+                                                    {/* Divider */}
+                                                    <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                                                    {/* Doctor Info */}
+                                                    <div className="flex justify-between items-center">
+                                                        {/* Left Side */}
+                                                        <div className="flex flex-col">
+                                                            <h1 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h1>
+                                                            <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
+                                                        </div>
+                                                        {/* Placeholder */}
+                                                        <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Testimonial Card 2 */}
+                                            <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto"
+                                                style={{ background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)' }}>
+                                                <div className="flex flex-col justify-between h-full">
+                                                    {/* Testimonial Text */}
+                                                    <p className="text-xs">
+                                                        "The early autism detection test is a significant step forward in pediatric care. It offers a non-invasive, cost-effective, and efficient way to screen children for neurodevelopmental disorders. I wholeheartedly support this initiative, as it provides essential data for timely intervention."
+                                                    </p>
+                                                    {/* Divider */}
+                                                    <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                                                    {/* Doctor Info */}
+                                                    <div className="flex justify-between items-center">
+                                                        {/* Left Side */}
+                                                        <div className="flex flex-col">
+                                                            <h1 className="text-base text-[#CACED9] font-semibold">Priya patil,</h1>
+                                                            <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
+                                                        </div>
+                                                        {/* Placeholder */}
+                                                        <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Slider>
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +342,6 @@ const FromDoctor = () => {
                                 <img src={img} alt="" srcset="" />
                             </div>
                             <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
-                                {/* Testimonial Card 1 */}
                                 <div
                                     className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
                                     style={{
@@ -259,7 +359,6 @@ const FromDoctor = () => {
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>
-                                {/* Testimonial Card 2 */}
                                 <div
                                     className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
                                     style={{
@@ -310,7 +409,6 @@ const FromDoctor = () => {
                                 <img src={img1} alt="" srcset="" />
                             </div>
                             <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
-                                {/* Testimonial Card 1 */}
                                 <div
                                     className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
                                     style={{
@@ -328,7 +426,6 @@ const FromDoctor = () => {
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>
-                                {/* Testimonial Card 2 */}
                                 <div
                                     className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
                                     style={{

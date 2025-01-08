@@ -32,7 +32,7 @@ import Priceplan from './components/Priceplan';
 import BrainMain from './components/homeBrain/BrainMain';
 
 import FromDoctor from './components/FromDoctor';
-import AuthRoute from './components/config/AuthRoute';
+// import AuthRoute from './components/config/AuthRoute';
 
 
 const App = () => {
@@ -54,7 +54,7 @@ const App = () => {
         <Route path='/fromdoctor' element={<FromDoctor/>} />
 
 
-        <Route path="/prices" element={ <AuthRoute><Priceplan /></AuthRoute>} />
+        <Route path="/prices" element={ <Priceplan />} />
         <Route path="/report" element={<ReportComLast />} />
         
         <Route path="/test/fillup" element={<TestMain />} />

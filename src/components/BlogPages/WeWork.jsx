@@ -18,7 +18,7 @@ const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
   console.log(blog, "aboutContent");
-  const {  pageTitle , image} = blog;
+  const { pageTitle, image } = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
   const sanitizedPageTitle = DOMPurify.sanitize(
     pageTitle
@@ -129,6 +129,7 @@ const WeWork = () => {
     <div className="bg-[#1A0C25] md:p-2 max-sm:pt-2">
       <Header />
       <div className="bg-[#1A0C25] mt-[5vw] min-h-screen">
+
       <div className="relative">
   <div className="absolute inset-0 bg-black opacity-40"></div>
   {/* Overlay */}
@@ -141,6 +142,7 @@ const WeWork = () => {
   dangerouslySetInnerHTML={{ __html: sanitizedPageTitle }}
 ></p>
 </div>
+
 
 
         <div>
