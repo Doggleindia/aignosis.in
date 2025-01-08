@@ -235,6 +235,38 @@ const Features = () => {
           </div>
         </div>
       </div>
+      <div className='bg-[#1A0C25] p-[2vw] pt-[4vw] '>
+        <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
+          <span
+            className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+          <span className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
+            The Ai.gnosis Autism Test
+          </span>
+          <span
+            className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+        </div>
+
+        <div className='flex flex-col'>
+          <div className='flex justify-center items-center' >
+            <img src={""} className='w-[100px]' alt="" />
+            <h1 className='text-[#F6E8FB] mt-2 font-raleway text-[48px] text-center leading-[3vw] max-sm:text-[24px] mr-[20px]'> A quick, accurate, and non-invasive way to <br /> screen your child.</h1>
+          </div>
+          <div className='flex justify-center items-center mx-auto md:w-[800px]'>
+
+            <p className='text-[#F6E8FB] mt-4 text-center'>This enables early detection and helping parents take proactive steps for their child’s development.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

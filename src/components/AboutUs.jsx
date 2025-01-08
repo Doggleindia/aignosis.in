@@ -2,7 +2,7 @@
 import Header from "./Header";
 
 import sideleft from "../assets/images/aboutUs/about.png";
-import doctor1 from "../assets/images/aboutUs/doctors1.svg";
+import doctor1 from "../assets/homepage/white screen.png";
 import doctor2 from "../assets/images/aboutUs/doctors2.svg";
 import doctor3 from "../assets/images/aboutUs/doctors3.svg";
 import blog_icon from "../assets/images/aboutUs/blog_icon.png";
@@ -22,9 +22,8 @@ const TeamMember = ({ name, img, description, height }) => (
     </div>
     <div className="w-full mt-2 flex flex-col items-center">
       <h1
-        className={`text-lg sm:text-xl md:text-2xl ${
-          height || "h-[3rem]"
-        } flex items-center justify-center`}
+        className={`text-lg sm:text-xl md:text-2xl ${height || "h-[3rem]"
+          } flex items-center justify-center`}
       >
         {name}
       </h1>
@@ -40,17 +39,17 @@ const AboutUs = () => {
     <div className="bg-[#1A0C25] max-sm:px-2 font-montserrat text-white">
       <div className="pt-28 pb-8">
         <Header />
-          <Divider title="About Us" desc=' Working together for a brighter future.' subtitle = ' Ai.gnosis – Empowering Early Detection'   />
-      
+        <Divider title="About Us" desc=' Working together for a brighter future.' subtitle=' Ai.gnosis – Empowering Early Detection' />
+
       </div>
 
-      <div className=" max-sm:p-4 flex max-sm:flex-col justify-center">
+      <div className=" max-sm:p-4 flex max-sm:flex-col gap-6 justify-center">
         <img
           src={sideleft}
           alt="about"
-          className="rounded-3xl w-[600px] h-[600px] object-cover"
+          className="rounded-3xl w-[400px] h-[400px] object-cover"
         />
-        <div className="md:w-[50%] max-sm:pt-4 px-4 p-3">
+        <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
           <span className="font-medium">How it all began</span>
           <span className="pt-4 block">
             Embark on a journey through our narrative, where innovation meets
@@ -71,7 +70,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
+      {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
         <div className="flex max-sm:pt-4 flex-col items-start">
           <img
             src={doctor1}
@@ -91,10 +90,10 @@ const AboutUs = () => {
             className="rounded-3xl w-[600px] max-sm:hidden max-sm:pt-4 h-[291px] object-cover mt-4"
           />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex  max-sm:flex-col items-center  justify-center mt-8 ">
-        <div className="flex flex-col items-start max-sm:max-w-[100%] max-w-[50%] h-[600px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+      <div className="flex max-sm:flex-col items-center px-10 justify-center mt-[8vw] ">
+        <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
           <span className="font-medium font-raleway text-2xl">
             The birth of aignosis
           </span>
@@ -115,21 +114,21 @@ const AboutUs = () => {
             maiores, corporis reprehenderit.
           </span>
         </div>
-        <div className="flex items-end ">
-          <img
+        <div className="flex items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+          {/* <img
             src={birt_aignosis}
             alt="about"
             className=" w-[600px] h-[600px] object-cover"
-          />
+          /> */}
         </div>
       </div>
-      <div className="flex flex-row max-sm:flex-col max-sm:mt-4  items-center  justify-center mt-8 ">
+      <div className="flex flex-row max-sm:flex-col max-sm:mt-4  items-center  justify-center mt-[8vw] ">
         <div className="pl-8 rounded-xl bg-white bg-opacity-10 max-sm:pb-6  max-w-[700PX]  mr-2 max-md:pl-5">
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
               <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
                 <div className="rounded-lg w-[90px] p-2 "
-                style={{
+                  style={{
                     background: `radial-gradient(
                       100% 100% at 50% -4950%, 
                       rgba(255, 255, 255, 0.3) 0%, 
@@ -147,7 +146,7 @@ const AboutUs = () => {
                 <div className="mt-8 text-xl font-semibold leading-none text-white">
                   Blog
                 </div>
-                <div className="self-stretch font-inter mt-6 text-base tracking-wide leading-6 text-white text-opacity-80">
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
                   commodi consequatur vero sit. Est excepturi nisi reprehenderit
                   repudiandae sunt veritatis fugiat perferendis a harum
@@ -169,8 +168,8 @@ const AboutUs = () => {
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
               <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
-              <div className="rounded-lg w-[90px] p-2 "
-                style={{
+                <div className="rounded-lg w-[90px] p-2 "
+                  style={{
                     background: `radial-gradient(
                       100% 100% at 50% -4950%, 
                       rgba(255, 255, 255, 0.3) 0%, 
@@ -188,7 +187,7 @@ const AboutUs = () => {
                 <div className="mt-8 text-xl font-semibold leading-none text-white">
                   The birth of aignosis
                 </div>
-                <div className="self-stretch font-inter mt-6 text-base tracking-wide leading-6 text-white text-opacity-80">
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
                   commodi consequatur vero sit. Est excepturi nisi reprehenderit
                   repudiandae sunt veritatis fugiat perferendis a harum
@@ -207,9 +206,11 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <AignosisTeam/>
-      <Awards />
-      <Endrosed />
+      <div className="px-[5vw]">
+        <AignosisTeam />
+      </div>
+      {/* <Awards />
+      <Endrosed /> */}
       <BlogFooter />
     </div>
   );

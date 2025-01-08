@@ -75,7 +75,7 @@ const Header = () => {
   
 
   return (
-    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] md:h-[6vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
+    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
