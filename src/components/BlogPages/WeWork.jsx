@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Header";
 import aboutContent from "../aboutus/AboutContent.js";
+import DOMPurify from 'dompurify';
 
 
 import {
@@ -19,6 +20,12 @@ const WeWork = () => {
   console.log(blog, "aboutContent");
   const {  pageTitle , image} = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
+  const sanitizedPageTitle = DOMPurify.sanitize(
+    pageTitle
+      .split(' ')
+      .map((word, index) => (index === 7 ? `${word}<br/>` : word))
+      .join(' ')
+  );
 
   const milestones = [
     {
@@ -122,17 +129,20 @@ const WeWork = () => {
     <div className="bg-[#1A0C25] md:p-2 max-sm:pt-2">
       <Header />
       <div className="bg-[#1A0C25] mt-[5vw] min-h-screen">
-        <div className=" relative">
-          <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
-          {/* Overlay */}
-          <img
-            src={image}
-            className="w-full h-[300px] object-cover"
-          />
-          <p className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[18vw] max-sm:left-[8vw] text-3xl">
-           {pageTitle}
-          </p>
-        </div> 
+      <div className="relative">
+  <div className="absolute inset-0 bg-black opacity-40"></div>
+  {/* Overlay */}
+  <img
+    src={image}
+    className="w-full h-[300px] object-cover"
+  />
+  <p
+  className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-3xl"
+  dangerouslySetInnerHTML={{ __html: sanitizedPageTitle }}
+></p>
+</div>
+
+
         <div>
         </div>
         <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">

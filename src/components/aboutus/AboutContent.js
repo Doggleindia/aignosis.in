@@ -1,12 +1,33 @@
 import blogimg1 from "../../assets/blogimg1.png";
 import blogimg2 from './aut.jpg'
 import blogimg3 from './aut3.webp'
+import blogimg4 from './00.png'
+import blogimg5 from './10.png'
+import blogimg7 from './1.png'
+import blogimg8 from './2.png'
+import blogimg9 from './3.png'
+import blogimg10 from './4.png'
+import blogimg11 from './5.png'
+import blogimg12 from './6.png'
+import blogimg13 from './7.png'
+import blogimg14 from './8.png'
+import blogimg15 from './9.png'
+import blogimg16 from './11.png'
+import blogimg17 from './22.png'
+import blogimg18 from './33.png'
+import blogimg19 from './44.png'
+import blogimg20 from './55.png'
+import blogimg21 from './66.png'
+import blogimg22 from './77.png'
+import blogimg23 from './88.png'
+import blogimg24 from './99.png'
+
 const AboutContent = {
   blogs: [
     {
       id: 1,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg16,
+      image: blogimg7,
       author: "Raksheet",
       time: "1 day ago",
       title: "Early Signs of Autism in Children: A Parent's Guide",
@@ -32,7 +53,7 @@ const AboutContent = {
         ogDescription: "Discover the early signs of autism in children, the importance of early intervention, and how to support your child effectively.",
       },
       imageOptimization: {
-        fileName: "early-signs-of-autism-children.jpg",
+        fileName: blogimg16,
         altText: "A child sitting with a parent, engaging in play, demonstrating early signs of autism",
       },
       content: [
@@ -132,8 +153,8 @@ const AboutContent = {
     
     {
       id: 2,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg17,
+      image: blogimg8,
       author: "Dakshit",
       time: "2 days ago",
       title: "The Importance of Early Intervention for Autism: A Guide for Parents",
@@ -163,7 +184,7 @@ const AboutContent = {
           "Explore how early intervention for autism supports children’s developmental growth and provides practical autism care solutions.",
       },
       imageOptimization: {
-        fileName: "early-intervention-autism-care.jpg",
+        fileName: blogimg17,
         altText: "Child receiving early intervention therapy for autism with a therapist",
       },
       content: [
@@ -243,8 +264,8 @@ const AboutContent = {
     },
     {
       id: 3,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg18,
+      image: blogimg9,
       author: "Saket",
       time: "3 day ago",
       title: "How AI Is Transforming Early Autism Diagnosis",
@@ -277,7 +298,7 @@ const AboutContent = {
         ogDescription: "Explore how AI-powered tools are improving early autism diagnosis, enhancing accuracy, and helping healthcare providers deliver personalized interventions."
       },
       imageOptimization: {
-        fileName: "ai-based-autism-diagnosis.jpg",
+        fileName: blogimg18,
         altText: "AI-based autism diagnosis using advanced machine learning algorithms for early detection"
       },
       content: [
@@ -330,9 +351,9 @@ const AboutContent = {
     },
     {
       id: 4,
-      blogimg: blogimg1,  // Image URL for the blog can be inserted here
+      blogimg: blogimg19,  // Image URL for the blog can be inserted here
       author: "Raksheet",
-      image: "",
+      image: blogimg10,
       time: "1 day ago",
       title: "Speech Therapy Tips for Children with Autism",
       pageTitle: "Speech Therapy Tips for Children with Autism | Effective Communication Strategies",
@@ -355,7 +376,7 @@ const AboutContent = {
         ogDescription: "Explore helpful speech therapy tips for children with autism. Learn how to support your child’s communication development with expert techniques."
       },
       imageOptimization: {
-        fileName: "speech-therapy-autistic-children.jpg",
+        fileName: blogimg19,
         altText: "A speech therapist using visual aids with a child on the autism spectrum."
       },
       content: [
@@ -420,8 +441,8 @@ const AboutContent = {
     },
     {
       id: 5,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg20,
+      image: blogimg11,
       author: "kinnu",
       time: "4 days ago",
       title: "Speech Therapy Exercises for People with Autism That Can be Practiced at Home",
@@ -446,7 +467,7 @@ const AboutContent = {
         og_description: "Discover practical speech therapy exercises for autism that you can do at home. Help your child improve communication skills with simple, proven methods."
       },
       imageOptimization: {
-        fileName: "speech-therapy-exercises-autism-home.jpg",
+        fileName:blogimg20,
         altText: "Parent practicing speech therapy exercises with a child with autism at home."
       },
       content: [
@@ -586,8 +607,8 @@ const AboutContent = {
     },
     {
       id: 6,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg21,
+      image: blogimg12,
       author: "khnnu",
       time: "6 days ago",
       title: "Speech Therapy Lesson Plans and Materials for Autism",
@@ -612,7 +633,7 @@ const AboutContent = {
         og_description: "Create engaging lesson plans and gather essential materials for speech therapy for autism. Help your child thrive with these proven strategies."
       },
       imageOptimization: {
-        fileName: "speech-therapy-lesson-plans-materials-autism.jpg",
+        fileName: blogimg21,
         altText: "A therapist using materials to teach a child with autism during a speech therapy session."
       },
       content: [
@@ -779,8 +800,8 @@ const AboutContent = {
     },
     {
       id: 7,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg22,
+      image: blogimg13,
       author: "khnnu",
       time: "6 days ago",
       title: "How Speech Therapy Helps Children with Autism Build Confidence",
@@ -805,7 +826,7 @@ const AboutContent = {
         og_description: "Explore how speech therapy helps children with autism build confidence by improving communication, encouraging social interactions, and fostering emotional growth."
       },
       imageOptimization: {
-        fileName: "speech-therapy-confidence-autism.jpg",
+        fileName: blogimg22,
         altText: "A child with autism practicing speech therapy to build confidence in social settings."
       },
       content: [
@@ -870,8 +891,8 @@ const AboutContent = {
     },
     {
       id: 8,
-      blogimg:blogimg1,
-      image: "",
+      blogimg:blogimg23,
+      image: blogimg14,
       author: "khnnu",
       time: "6 days ago",
       title: "Occupational Therapy for Autism: Overview, Goals, Benefits, and Disadvantages",
@@ -898,7 +919,7 @@ const AboutContent = {
         og_description: "Explore the role of occupational therapy in autism treatment, including its ability to help with sensory challenges, fine motor skills, social interactions, and daily life skills."
       },
       imageOptimization: {
-        fileName: "occupational-therapy-autism.jpg",
+        fileName:blogimg23,
         altText: "A child with autism participating in occupational therapy to improve sensory and motor skills."
       },
       content: [
@@ -999,8 +1020,8 @@ const AboutContent = {
     },
     {
       id: 9,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg24,
+      image: blogimg15,
       author: "khnnu",
       time: "6 days ago",
       title: "Effective Speech Therapy Treatments: Improving Communication Skills in Children",
@@ -1025,7 +1046,7 @@ const AboutContent = {
         ogDescription: "Explore effective speech therapy treatments that help children develop language and social skills for better communication."
       },
       imageOptimization: {
-        fileName: "effective-speech-therapy-children.jpg",
+        fileName: blogimg24,
         altText: "A speech therapist working with a child to improve communication skills."
       },
       content: [
@@ -1099,8 +1120,8 @@ const AboutContent = {
     },
    {
       id: 10,
-      blogimg: blogimg1,
-      image: "",
+      blogimg: blogimg4,
+      image: blogimg5,
       author: "khnnu",
       time: "just now",
       title: "Down Syndrome vs. Autism: Key Differences in Characteristics and Behavior",
@@ -1126,7 +1147,7 @@ const AboutContent = {
         og_description: "Explore the essential differences between Down syndrome and autism in behavior, characteristics, and support needs."
       },
       imageOptimization: {
-        fileName: "down-syndrome-vs-autism.jpg",
+        fileName: blogimg4,
         altText: "Comparison chart showing differences between Down syndrome and autism."
       },
       content: [
