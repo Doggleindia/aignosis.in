@@ -57,10 +57,53 @@ const Homefirst = () => {
         animate={{ y: "-100%" }}
         transition={{ duration: 1, ease: "easeInOut", delay: 3 }}
         className="w-full h-screen bg-black z-30 relative flex justify-center items-center">
-        {/* This will render a blank screen */}
+        <motion.div
+          className="absolute z-40 flex justify-center items-center"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                staggerChildren: 1,
+                ease: [0.42, 0, 0.58, 1], 
+              },
+            },
+          }}
+        >
+          <motion.h1
+            className="text-white font-montserrat font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            Frontier AI
+          </motion.h1>
+          <motion.h1
+            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            for Your Child’s
+          </motion.h1>
+          <motion.h1
+            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {" "}Best Development
+          </motion.h1>
+        </motion.div>
         <video
           src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97"
-          className="absolute  w-full h-full object-cover"
+          className="absolute w-full h-full object-cover"
           autoPlay
           muted
         />

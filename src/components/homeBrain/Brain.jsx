@@ -6,7 +6,8 @@ const Brain = () => {
   return (
     <div className='bg-[#1A0C25] relative min-h-screen font-raleway  p-[4vw] max-sm:p-[6vw] '>
       <Divider title="Transformative" desc='' subtitle='How early interventions can help' />
-      <div className='flex max-sm:flex-col  justify-center gap-[8vw] items-centergap-8   max-sm:mx-2' style={{ backgroundImage: `url(${linebg})`, backgroundSize: 'cover' }}>
+      {/*style={{ backgroundImage: `url(${linebg})`, backgroundSize: 'cover' }}*/}
+      <div className='flex max-sm:flex-col  justify-center gap-[8vw] items-centergap-8   max-sm:mx-2' >
         <div className="absolute inset-0 bg-[#B740A1] w-[40vw] sm:w-[40vw] h-[20vw] sm:h-[10vw] top-[50%] -left-[20%]  opacity-65 blur-[120px] rounded-xl"></div>
         <div className='flex flex-col max-sm:justify-center max-sm:items-center gap-4'>
           <div className='flex flex-col'>

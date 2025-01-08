@@ -37,7 +37,7 @@ const ContactServicePage = () => {
                                 Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
                             </h1>
                             <div className="max-sm:hidden">
-                            <form className=" max-sm:hidden mt-4 2xl:text-base md:text-sm space-y-4">
+                                <form className=" max-sm:hidden mt-4 2xl:text-base md:text-sm space-y-4">
                                     <input
                                         type="text"
                                         placeholder="Your Name"
@@ -47,39 +47,6 @@ const ContactServicePage = () => {
                                         type="email"
                                         placeholder="Your Email"
                                         className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
-                                    />
-                                    <input
-                                        type="phone"
-                                        placeholder="Your Phone Number"
-                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
-                                    />
-                                    <textarea
-                                        placeholder="Your Message"
-                                        className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"
-                                    ></textarea>
-                                    <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-                                        <a href="" className='text-white'>Send Message</a>
-                                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
-                                            <GoArrowUpRight />
-                                        </div>
-                                    </div>
-                                </form>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                            <div className='max-md:hidden max-sm:w-full max-sm:pt-[52px] max-sm:px-[18px] bg-[#1A0C25]'>
-                                <form className="md:hidden mt-4 2xl:text-base md:text-sm space-y-4">
-                                    <input
-                                        type="text"
-                                        placeholder="Your Name"
-                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="Your Email"
-                                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
                                     />
                                     <input
                                         type="phone"
@@ -98,9 +65,42 @@ const ContactServicePage = () => {
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='max-md:hidden max-sm:w-full max-sm:pt-[52px] max-sm:px-[18px] bg-[#1A0C25]'>
+                <form className="md:hidden mt-4 2xl:text-base md:text-sm space-y-4">
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B] rounded-md"
+                    />
+                    <input
+                        type="phone"
+                        placeholder="Your Phone Number"
+                        className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
+                    />
+                    <textarea
+                        placeholder="Your Message"
+                        className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"
+                    ></textarea>
+                    <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                        <a href="" className='text-white'>Send Message</a>
+                        <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                            <GoArrowUpRight />
+                        </div>
+                    </div>
+                </form>
+            </div>
 
             {/* Contact Info Section */}
-            <div className='w-full max-sm:w-[100%] max-sm:pt-[60px]  max-sm:p-[25px]  gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] flex justify-center items-center flex-col md:flex-row'>
+            {/* <div className='w-full max-sm:w-[100%] max-sm:pt-[60px]  max-sm:p-[25px]  gap-[7vw] md:mt-[0vw] bg-[#1A0C25] md:h-[20vw] 2xl:h-[25vw] flex justify-center items-center flex-col md:flex-row'>
                 <div className="2xl:w-[10vw] md:w-[12vw] h-[8vh] max-sm:h-[14vh] md:h-[10vw] text-2xl text-[#731762] bg-[#2d153f] rounded-3xl justify-center items-center flex flex-col mb-5">
                     <FaMapMarkerAlt />
                     <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-2'>311, Adarsh Nagar ​Jaipur, Rajasthan ​302004</h1>
@@ -117,7 +117,7 @@ const ContactServicePage = () => {
                     <FaCalendarAlt />
                     <h1 className='2xl:text-sm md:text-xs text-center mt-4 text-white px-10'>Schedule an appointment</h1>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
