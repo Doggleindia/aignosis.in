@@ -13,6 +13,7 @@
     "axios": "^1.7.9",
     "chart.js": "^4.4.5",
     "date-fns": "^4.1.0",
+    "dompurify": "^3.2.3",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.16.0",
     "gsap": "^3.12.5",
