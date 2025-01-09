@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import HomePageCard from "./HomePageCard";
 import { motion } from "framer-motion";
 import member from "../../assets/images/aboutUs/member.png";
+import p1 from "../../assets/PopUps/p1.png";
+import p2 from "../../assets/PopUps/p2.png";
+
 
 const Homefirst = () => {
   const [showContent, setShowContent] = useState(false);
@@ -132,6 +135,12 @@ const Homefirst = () => {
 
       {showContent && (
         <>
+          <div className="absolute bottom-[7vw] left-[5vw]">
+            <img src={p1} alt="" srcset="" />
+          </div>
+          <div className="absolute bottom-[17vw] right-[5vw]">
+            <img src={p2} alt="" srcset="" />
+          </div>
           <motion.div
             initial="hidden"
             animate="visible"

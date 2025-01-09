@@ -7,8 +7,31 @@ import img2 from "../../assets/homepage/image i2.png";
 import img3 from "../../assets/homepage/image i3.png";
 import img4 from "../../assets/homepage/image i4.png";
 import gsap from "gsap";
+import p4 from "../../assets/PopUps/p.png";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
+
+  const p3Ref = useRef(null);  // Create a reference for p3 image
+
+    useEffect(() => {
+        // GSAP animation for p3 image
+        gsap.fromTo(p3Ref.current, 
+            { opacity: 0, x: 200 }, 
+            {
+                opacity: 1,
+                x: 0,
+                scrollTrigger: {
+                    trigger: p3Ref.current,
+                    start: "top 80%",  // Animation starts when p3 image top reaches 80% of the viewport height
+                    end: "top center", // Animation ends when p3 image top reaches the center of the viewport
+                    scrub: true,
+                }
+            }
+        );
+    }, []);
   const cardRefs = useRef([]);
   const lightRefs = useRef([]);
 
@@ -78,7 +101,7 @@ const Features = () => {
   };
 
   return (
-    <div className="bg-[#1A0C25]  min-h-screen font-raleway  p-[4vw] ">
+    <div className="bg-[#1A0C25] min-h-screen font-raleway  p-[4vw] ">
       <div>
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" subtitle="" />
@@ -86,7 +109,7 @@ const Features = () => {
           <h1 className="text-[#F6E8FB] font-raleway -mt-10  max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h1>
-          <img src={img5} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" />
+          <img src={p4} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center  gap-4 p-4">
