@@ -47,15 +47,17 @@ const BlogContent = ({ aboutContent }) => {
           <p className="text-[#F6E8FB] font-raleway text-[18px]">By {author}</p>
           
           {/* Image (only if available) */}
-          {hasImage && (
-            <div className="flex gap-2 mt-2">
-              <img
-                src={ogMetadata?.ogImage || imageOptimization?.fileName || "default-image.jpg"}
-                alt={imageOptimization?.altText || "default alt text"}
-                className="w-[800px] h-[300px] text-white object-cover"
-              />
-            </div>
-          )}
+          {(ogMetadata?.ogImage || imageOptimization?.fileName) && (
+  <div className="flex gap-2 mt-2">
+    <img
+      src={ogMetadata?.ogImage || imageOptimization?.fileName}
+      alt={imageOptimization?.altText || ""}
+      className="w-[800px] h-[300px] text-white object-cover"
+    />
+  </div>
+)}
+
+
         </div>
 
         {/* Meta Description */}
