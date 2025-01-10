@@ -38,15 +38,15 @@ const HowitWorks = () => {
                     <div className="w-full flex items-center justify-start h-[20vw]">
                         <div className="w-[13vw] p-2 h-auto">
                             <h1 className='text-[20px]'>Step 1</h1>
-                            <p className='text-[12px] text-[#CACED9]'>Explore educational trends, teaching strategies, and edtech innovations that are shaping</p>
+                            <p className='text-[12px] text-[#CACED9]'>Book Your Test Schedule the screening online or at a center.</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
                             <div className="absolute -left-16 -top-4">
                                 <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
                         </div>                        <div className="w-[13vw] ml-5 p-2 h-auto">
-                            <h1 className='text-[20px]'>Step 1</h1>
-                            <p className='text-[12px] text-[#CACED9]'>Explore educational trends, teaching strategies, and edtech innovations that are shaping</p>
+                            <h1 className='text-[20px]'>Step 3</h1>
+                            <p className='text-[12px] text-[#CACED9]'>Run the Screening Follow simple steps to start the test.</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
                             <div className="absolute -left-16 -top-4">
@@ -61,8 +61,8 @@ const HowitWorks = () => {
                             </div>
                         </div>                        
                         <div className="w-[13vw] ml-5  p-2 h-auto">
-                            <h1 className='text-[20px]'>Step 1</h1>
-                            <p className='text-[12px] text-[#CACED9]'>Explore educational trends, teaching strategies, and edtech innovations that are shaping</p>
+                            <h1 className='text-[20px]'>Step 2</h1>
+                            <p className='text-[12px] text-[#CACED9]'>Set Up the Environment Create a calm, distraction-free space.</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
                             <div className="absolute rotate-180 -right-16 -bottom-4">
@@ -70,14 +70,14 @@ const HowitWorks = () => {
                             </div>
                         </div>                       
                         <div className="w-[13vw] p-2 ml-5 h-auto">
-                            <h1 className='text-[20px]'>Step 1</h1>
-                            <p className='text-[12px] text-[#CACED9]'>Explore educational trends, teaching strategies, and edtech innovations that are shaping</p>
+                            <h1 className='text-[20px]'>Step 4 </h1>
+                            <p className='text-[12px] text-[#CACED9]'>AI Analysis Let our AI analyze your child’s responses.</p>
                         </div>
                     </div>
                     <div className="w-full absolute top-[10vw] right-12 flex items-center justify-end h-[20vw]">
                         <div className="w-[13vw] p-2 h-auto">
-                            <h1 className='text-[20px]'>Step 1</h1>
-                            <p className='text-[12px] text-[#CACED9]'>Explore educational trends, teaching strategies, and edtech innovations that are shaping</p>
+                            <h1 className='text-[20px]'>Step 5</h1>
+                            <p className='text-[12px] text-[#CACED9]'>Receive Insights Get a detailed report with recommendations and free consultation. Next section add animation and it should be moving slowly</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[20vw]">
                             <div className="absolute -left-16 -top-4">

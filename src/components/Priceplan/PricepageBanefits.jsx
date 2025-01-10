@@ -3,6 +3,74 @@ import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
 
 const PricepageBenefits = () => {
+    const cardData = [
+        {
+            name: "Anaya",
+            age: "3.8 year",
+            location: "Bengaluru",
+            goals: [
+                "Clearer Speech",
+                "Improved Social Interactions",
+                "Better Sensory Regulation",
+            ],
+            insights: [
+                "Speech and Vocalization Patterns",
+                "Sensory Responses (e.g., sensitivity to noise)",
+                "Eye Contact and Joint Attention",
+                "Interaction with Peers",
+            ],
+            recommendations: [
+                "Speech Therapy",
+                "Occupational Therapy for Sensory Integration",
+                "Parent-Child Interactive Activities",
+                "Social Skills Training",
+            ],
+        },
+        {
+            name: "Aarav",
+            age: "4.5 year",
+            location: "Mumbai",
+            goals: [
+                "Improved Communication Skills",
+                "Reduced Screen Time",
+                "Enhanced Attention Span",
+            ],
+            insights: [
+                "Response to Name",
+                "Speech Development",
+                "Attention to Visual and Social Cues",
+                "Repetitive Behaviors",
+            ],
+            recommendations: [
+                "Speech Therapy",
+                "Occupational Therapy",
+                "Structured Play Sessions",
+                "Screen Time Management Strategies",
+            ],
+        },
+        {
+            name: "Vivaan",
+            age: "5.1 year",
+            location: "Delhi",
+            goals: [
+                "Better Social Engagement",
+                "Improved Focus",
+                "Enhanced Emotional Understanding",
+            ],
+            insights: [
+                "Social Communication",
+                "Joint Attention",
+                "Emotional Response",
+                "Gaze Patterns",
+            ],
+            recommendations: [
+                "Social Skills Training",
+                "Behavioral Therapy",
+                "Structured Play Activities",
+            ],
+        },
+        
+    ];
     const Divider = ({ title }) => (
         <div className="flex flex-row justify-center items-center space-x-4 mb-3 mt-10">
             <span
@@ -50,7 +118,7 @@ const PricepageBenefits = () => {
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
-                            <p className="mt-6 text-center text-sm text-white">Child health</p>
+                            <p className="mt-6 text-center text-sm text-white">Early Detection for Better Outcomes</p>
                         </div>
 
                         {/* Second Item */}
@@ -60,7 +128,7 @@ const PricepageBenefits = () => {
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
-                            <p className="mt-6 text-center text-sm text-white">Child health</p>
+                            <p className="mt-6 text-center text-sm text-white">Personalized Therapy Recommendations</p>
                         </div>
 
                         {/* Third Item */}
@@ -70,16 +138,16 @@ const PricepageBenefits = () => {
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
-                            <p className="mt-6 text-center text-sm text-white">Child health</p>
+                            <p className="mt-6 text-center text-sm text-white">Improved Social Skills & Communication</p>
                         </div>
-                        <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
+                        {/* <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
                                 src={img1}
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
                             <p className="mt-6 text-center text-sm text-white">Child health</p>
-                        </div>
+                        </div> */}
 
                     </div>
                     {/* Right Arrow */}
@@ -97,20 +165,65 @@ const PricepageBenefits = () => {
 
                 {/* Cards Section */}
                 <div className="flex justify-center items-center mt-10 gap-6">
-                    {[1, 2, 3].map((card, index) => (
-                        <div key={index} className="w-[22vw] relative flex flex-col items-center justify-center h-[27vw] rounded-xl bg-[#43284C4D]">
+                    {cardData.map((card, index) => (
+                        <div
+                            key={index}
+                            className="w-[22vw] relative flex flex-col items-center justify-center h-[45vw] rounded-xl bg-[#43284C4D]"
+                        >
                             {/* Image Section */}
-                            <div className="w-[90%] mt-10 absolute top-0 flex items-center ml-3 justify-center h-[40%]">
-                                <img src={img2} alt={`Card ${index}`} />
+                            <div className="w-[90%] absolute top-4 flex items-center justify-center h-[40%]">
+                                <img src={img2} alt={`Card ${index}`} className="rounded-lg shadow-md" />
+                            </div>
+
+                            {/* Badge */}
+                            <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                                {card.age}
                             </div>
 
                             {/* Text Section */}
-                            <div className="p-4 px-6 mt-[12.5vw]">
-                                <h1 className="text-[10px] text-[#CACED9]">12 January, 2021</h1>
-                                <h1 className="text-base font-semibold">Pixel Perfect</h1>
-                                <p className="text-[10px] mt-5 text-[#CACED9]">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae eros dui. Sed quis tincidunt purus, sit amet sodales arcu. Maecenas suscipit magna id viverra euismod. Aenean viverra dui convallis ante lobortis laoreet. Sed nec quam enim.
+                            <div className="p-4 px-6 mt-[15vw] w-full">
+                                <h1 className="text-[12px] text-[#CACED9]">
+                                    <span className="text-[18px] text-white font-medium">
+                                        {card.name}{" "}
+                                    </span>
+                                    {card.age}
+                                </h1>
+                                <h1 className="text-[10px] text-[#CACED9]">{card.location}</h1>
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Development Goal:
+                                </h1>
+                                <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.goals.map((goal, i) => (
+                                        <li key={i}>{goal}</li>
+                                    ))}
+                                </ul>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Personalized Screening Insights:
+                                </h1>
+                                <p className="text-[10px] mt-2 text-[#CACED9]">
+                                    Key Features Assessed:
+                                    <ul className="list-disc ml-4">
+                                        {card.insights.map((insight, i) => (
+                                            <li key={i}>{insight}</li>
+                                        ))}
+                                    </ul>
                                 </p>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Therapy Recommendations:
+                                </h1>
+                                <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.recommendations.map((recommendation, i) => (
+                                        <li key={i}>{recommendation}</li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     ))}

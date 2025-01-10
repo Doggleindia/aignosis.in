@@ -9,6 +9,7 @@ import BlogFooter from './BlogPages/BlogFooter'
 import HowtoUseOptically from './Priceplan/HowtoUseOptically'
 import CustomerLove from './Priceplan/CustomerLove'
 import CustomerLove2 from './Priceplan/CustomerLove2'
+import Features from './homeBrain/Features'
 
 const Priceplan = () => {
   return (
@@ -31,8 +32,7 @@ const Priceplan = () => {
       <HowitWorks/>
       <HowtoUseOptically/>
       <CustomerLove/>
-      <CustomerLove2/>
-
+      <Features />
       <ContactPage/>
       <BlogFooter/>
     </div>
