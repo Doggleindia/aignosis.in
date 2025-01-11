@@ -3,7 +3,7 @@ import Divider from "../aboutus/Divider";
 import img5 from "../../assets/clinic/img5.png";
 import animal from "../../assets/animal.png";
 import img1 from "../../assets/homepage/image i1.png";
-import img2 from "../../assets/homepage/image i2.png";
+import img2 from "../../assets/ZenBook Duo 15.png";
 import img3 from "../../assets/homepage/image i3.png";
 import img4 from "../../assets/homepage/image i4.png";
 import gsap from "gsap";
@@ -95,7 +95,7 @@ const Features = () => {
 
   const showLight = (light) => {
     gsap.to(light, {
-      opacity: 0.7,
+      opacity: 0.2,
       duration: 0.1,
     });
   };
