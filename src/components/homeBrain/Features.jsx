@@ -106,10 +106,10 @@ const Features = () => {
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" subtitle="" />
         <div className="flex justify-center items-center">
-          <h1 className="text-[#F6E8FB] font-raleway -mt-10 text-center max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
+          <h1 className="text-[#F6E8FB] font-raleway text-center max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h1>
-          <img src={p4} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
+          <img src={p4} className="w-[100px] hidden md:block max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center  gap-4 p-4">

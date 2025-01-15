@@ -69,7 +69,7 @@ const PricepageBenefits = () => {
                 "Structured Play Activities",
             ],
         },
-        
+
     ];
     const Divider = ({ title }) => (
         <div className="flex flex-row justify-center items-center space-x-4 mb-3 mt-10">
@@ -250,6 +250,80 @@ const PricepageBenefits = () => {
                     ))}
                 </div>
             </div>
+            <div className="block md:hidden p-4">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-2xl sm:text-3xl lg:text-5xl w-full font-montserrat text-center tracking-tight font-semibold text-[#F6E8FB]">
+                    Precision Solutions, Exclusively Designed for You
+                </h1>
+
+                {/* Cards Section */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:justify-center lg:items-center mt-10 gap-6">
+                    {cardData.map((card, index) => (
+                        <div
+                            key={index}
+                            className="w-full sm:w-[40%] lg:w-[22vw] pl-5 flex flex-col items-center justify-center h-auto sm:h-[45vw] rounded-xl bg-[#43284C4D] p-4"
+                        >
+                            {/* Image Section */}
+                            <div className="w-full sm:w-[90%] flex items-center justify-center h-[40%]">
+                                <img src={img2} alt={`Card ${index}`} className="rounded-lg shadow-md" />
+                            </div>
+
+                            {/* Badge */}
+                            <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                                {card.age}
+                            </div>
+
+                            {/* Text Section */}
+                            <div className="mt-4 w-full">
+                                <h1 className="text-sm sm:text-[12px] text-[#CACED9]">
+                                    <span className="text-base sm:text-[18px] text-white font-medium">
+                                        {card.name}{" "}
+                                    </span>
+                                    {card.age}
+                                </h1>
+                                <h1 className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</h1>
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                    Development Goal:
+                                </h1>
+                                <ul className="text-xs sm:text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.goals.map((goal, i) => (
+                                        <li key={i}>{goal}</li>
+                                    ))}
+                                </ul>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                    Personalized Screening Insights:
+                                </h1>
+                                <p className="text-xs sm:text-[10px] mt-2 text-[#CACED9]">
+                                    Key Features Assessed:
+                                    <ul className="list-disc ml-4">
+                                        {card.insights.map((insight, i) => (
+                                            <li key={i}>{insight}</li>
+                                        ))}
+                                    </ul>
+                                </p>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                    Therapy Recommendations:
+                                </h1>
+                                <ul className="text-xs sm:text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.recommendations.map((recommendation, i) => (
+                                        <li key={i}>{recommendation}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
         </>
     );
 };

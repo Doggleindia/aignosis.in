@@ -42,8 +42,8 @@ const BlogPage = () => {
         <Header />
       </div>
       <div className="bg-[#1A0C25] min-h-screen font-raleway  ">
-        <div className="flex max-sm:flex-col gap-2 bg-[#1A0C25]  p-6">
-          <div className="  md:w-1/4 mt-[4vw] ">
+        <div className="flex max-sm:flex-col gap-2 bg-[#1A0C25] p-6">
+          <div className=" md:w-1/4 mt-[4vw] ">
             <BlogSidebar blogData={blog} />
           </div>
           <div className=" w-full md:w-3/4 mt-[8vw]">
@@ -84,7 +84,7 @@ const BlogPage = () => {
               </div>
             </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-[2vw] rounded-lg max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-[8vw] md:mt-[2vw] rounded-lg max-w-4xl mx-auto">
              {aboutContent.blogs.map((cardData, index) => (
                 <BlogCard
                 handleCardClick={handleCardClick}
