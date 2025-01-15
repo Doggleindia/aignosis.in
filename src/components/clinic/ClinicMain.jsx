@@ -1,8 +1,6 @@
 import React from 'react'
 import Header from '../Header'
-import img1 from "../../assets/clinic/img1.png";
 import img2 from "../../assets/clinic/img2.png";
-import img3 from "../../assets/clinic/img3.png";
 import img4 from "../../assets/clinic/img4.png";
 import Comparison from '../Comparison';
 import Trusted from './Trusted';
@@ -39,7 +37,7 @@ const ClinicMain = () => {
           {/* Left Side: Image */}
           <div className="md:flex-1 flex justify-center items-center">
             <img
-              src={img1}
+              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/img1.png"
               alt="Descriptive Alt Text"
               className="rounded-lg shadow-lg max-w-full max-h-[80vh] object-cover"
             />
@@ -81,7 +79,7 @@ const ClinicMain = () => {
             {/* Left Image */}
             <div className="flex-shrink-0">
               <img
-                src={img3}
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/img3.png"
                 alt="Description of Image"
                 className="w-full max-h-[60vh] shadow-lg"
               />
@@ -122,7 +120,7 @@ const ClinicMain = () => {
             {/* Left Image */}
             <div className="flex-shrink-0">
               <img
-                src={img3}
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/img3.png"
                 alt="Description of Image"
                 className="w-full max-h-[60vh] shadow-lg"
               />
@@ -140,7 +138,7 @@ const ClinicMain = () => {
             {/* Left Image */}
             <div className="flex-shrink-0">
               <img
-                src={img3}
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/img3.png"
                 alt="Description of Image"
                 className="w-full max-h-[60vh] shadow-lg"
               />

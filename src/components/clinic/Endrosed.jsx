@@ -2,11 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import laptop from "../../assets/laptop l1.png";
-import p1 from "../../assets/aboutus.png";
-import p2 from "../../assets/images/autism/2.jpg";
-import p3 from "../../assets/images/autism/3.jpg";
-import p4 from "../../assets/images/autism/4.jpg";
-import p5 from "../../assets/images/autism/5.jpg";
 
 
 
@@ -59,7 +54,7 @@ const Endrosed = () => {
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src={p1} alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png" alt="Screen Content" />
               </div>
             </div>
 
@@ -73,7 +68,7 @@ const Endrosed = () => {
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw] absolute">
-                <img className="w-full h-full object-cover" src={p2} alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg" alt="Screen Content" />
               </div>
             </div>
 
@@ -87,7 +82,7 @@ const Endrosed = () => {
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src={p3} alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg" alt="Screen Content" />
               </div>
             </div>
 
@@ -99,7 +94,7 @@ const Endrosed = () => {
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src={p4} alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg" alt="Screen Content" />
               </div>
             </div>
 
@@ -111,7 +106,7 @@ const Endrosed = () => {
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw] absolute">
-                <img className="w-full h-full object-cover" src={p5} alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg" alt="Screen Content" />
               </div>
             </div>
 
