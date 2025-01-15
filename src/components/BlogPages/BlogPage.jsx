@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import BlogSidebar from "./BlogSidebar";
-import Header from "../Header";
-import blogimg1 from "../../assets/blogimg1.png";
-import BlogCard from "./BlogCard";
-import Pagination from "./Pagination";
+import React, { useState, lazy , Suspense } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import BlogFooter from "./BlogFooter";
+import blogimg1 from "../../assets/blogimg1.png";
 import aboutContent from "../aboutus/AboutContent.js";
 import blog from "./BlogData";
-import BlogCategory from "./BlogCategory";
+
+// Lazy-loaded components
+const BlogSidebar = lazy(() => import("./BlogSidebar"));
+const Header = lazy(() => import("../Header"));
+const BlogCard = lazy(() => import("./BlogCard"));
+const Pagination = lazy(() => import("./Pagination"));
+const BlogCategory = lazy(() => import("./BlogCategory"));
+const BlogFooter = lazy(() => import("./BlogFooter"));
+
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 20;
@@ -34,7 +37,7 @@ const BlogPage = () => {
   };
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <div>
         <Header />
       </div>
@@ -118,7 +121,7 @@ const BlogPage = () => {
         </div>
         <BlogFooter />
       </div>
-    </>
+      </Suspense>
   );
 };
 
