@@ -5,6 +5,9 @@ import member from "../../assets/images/aboutUs/member.png";
 import p1 from "../../assets/PopUps/p1.png";
 import p2 from "../../assets/PopUps/p2.png";
 import firstanimation from "../../assets/homepage/neuron.mp4";
+import m1 from "../../assets/mock1.png";
+import m2 from "../../assets/mock2.png";
+
 
 
 const Homefirst = () => {
