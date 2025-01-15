@@ -22,7 +22,7 @@ const AignosisTeam = () => {
                     subtitle={"The Minds Behind Ai.gnosis"}
                     desc={"Working together for a brighter future."}
                 />
-                <div className="flex mt-10 gap-4 px-10">
+                <div className="flex mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
                     <MemberCard
                         title="Divyansh ​Mangal"
                         subtitle="Co-Founder"
@@ -36,9 +36,9 @@ const AignosisTeam = () => {
                         src={member3}
                     />
                 </div>
-                <div className="flex flex-col mt-10 gap-4 px-10">
+                <div className="flex flex-col mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
                     <h1 className="text-center text-3xl font-semibold w-full">Advisors</h1>
-                    <div className="flex mt-10 gap-4 px-10">
+                    <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
                         <MemberCard
                             title="Dr. S. Sitaraan"
                             subtitle="DIRECTOR & DEVELOPMENTAL NEUROLOGIST"
@@ -52,7 +52,7 @@ const AignosisTeam = () => {
                             src={member6}
                         />
                     </div>
-                    <div className="flex mt-10 gap-4 px-10">
+                    <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
                         <MemberCard
                             title="Dr. Rajesh Jain"
                             subtitle="Consultant Pediatrician Raksheet Hospital"
@@ -66,7 +66,7 @@ const AignosisTeam = () => {
                             src={member5}
                         />
                     </div>
-                    <div className="flex mt-10 gap-4 px-10">
+                    <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
                         <MemberCard
                             title="Dr. Anami Gour"
                             subtitle="Consultant Paediatric Intensive Care, London"
@@ -80,7 +80,7 @@ const AignosisTeam = () => {
                             src={member9}
                         />
                     </div>
-                    <div className="flex mt-10 gap-4 px-[20vw]">
+                    <div className="flex mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-[20vw]">
                         <MemberCard
                             title="Mr. Arcchit Jain"
                             subtitle="Vice President, Goldman Sachs"
