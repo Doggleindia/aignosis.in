@@ -36,9 +36,9 @@ const ContactPage = () => {
   return (
     <>
       {/* Contact Form Section */}
-      <div id='contact' className='2xl:h-[50vw] max-sm:mt-[60px] md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+      <div id='contact' className='2xl:h-[50vw] max-sm:mt-[60px] h-full md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
         <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580] max-sm:rounded-[7rem]">
-          <div className='w-full flex-col h-[15vw] max-sm:h-[60vw] justify-center flex items-center'>
+          <div className='w-full flex-col h-[15vw] max-sm:h-[50vw] justify-center flex items-center'>
             <div className="">
               <h1 className='text-center 2xl:text-7xl md:text-5xl max-sm:text-2xl font-semibold leading-[3rem]'>
                 Get in Touch with Ai.gnosis
@@ -50,7 +50,7 @@ const ContactPage = () => {
               </p>
             </div>
           </div>
-          <div className="w-full h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
+          <div className="w-full h-full pb-10 md:h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
             <div className="w-[100%] md:w-[40%] h-[90%]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1634778192933!2d75.8266295!3d26.8983064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6958f6f2e59%3A0xe378dd988aba33b0!2sBabylon%20Children&#39;s%20Hospital%20%7C%20BEST%20CHILD%20HOSPITAL%20IN%20JAIPUR%20%7C%20CHILD%20DOCTOR%20IN%20JAIPUR!5e0!3m2!1sen!2sin!4v1731096209878!5m2!1sen!2sin"

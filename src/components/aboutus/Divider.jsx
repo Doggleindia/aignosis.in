@@ -1,5 +1,5 @@
 import React from "react";
-const Divider = ({ title,desc,subtitle }) => {
+const Divider = ({ title, desc, subtitle }) => {
   return (
     <>
       <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
@@ -25,14 +25,14 @@ const Divider = ({ title,desc,subtitle }) => {
         </div>
 
         <span className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
-         {subtitle}
+          {subtitle}
         </span>
         <span className="font-inter text-white p-1 text-1xl">
           {" "}
           {desc}
         </span>
       </div>
-      <div className="flex md:hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
+      <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
         {/* DIVIDER CODE */}
         <div className="flex flex-row justify-center items-center space-x-4">
           <span
@@ -55,7 +55,7 @@ const Divider = ({ title,desc,subtitle }) => {
         </div>
 
         <span className="font-raleway text-center text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
-         {subtitle}
+          {subtitle}
         </span>
         <span className="font-inter text-center text-white p-1 text-1xl">
           {" "}

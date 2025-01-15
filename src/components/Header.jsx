@@ -76,7 +76,7 @@ const Header = () => {
 
   return (
     <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
-      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] 2xl:py-[10px]">
+      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
@@ -109,7 +109,7 @@ const Header = () => {
             {/* Dropdown menu */}
             {isHovered && (
               <div
-                className="absolute text-white p-2 rounded-lg shadow-lg top-[70%]  -left-[8vw] w-[22vw] z-10 mt-2 transition-all duration-200 ease-in-out"
+                className="absolute text-white p-2 mt-8 rounded-lg shadow-lg top-[70%]  -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out"
                 style={{
                   background:
                     "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
