@@ -7,7 +7,7 @@ const BlogSidebar = ({ blogData }) => {
   const categories = [
     "All",
     ...Object.values(blogData).map((blog) => blog.headline)
-    
+
   ];
 
   const [activeCategory, setActiveCategory] = useState(
@@ -16,12 +16,12 @@ const BlogSidebar = ({ blogData }) => {
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    navigate("/BlogPages/howWeWork", { state: { category } }); // Pass the category as state
+    navigate(`/Blog/${category}`, { state: { category } }); // Pass the category as state
   };
 
   return (
     <div className="bg-[#1A0C25] pl-[3vw]">
-      <div className="flex flex-row 2xl:mt-[4vw] mt-[6vw] max-sm:mt-[15vw] items-center space-x-4 mb-8">
+      <div className="flex flex-row 2xl:mt-[4vw] mt-[6vw] max-sm:mt-[15vw] items-center md:justify-start justify-center space-x-4 mb-8">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
           style={{
@@ -40,22 +40,21 @@ const BlogSidebar = ({ blogData }) => {
           }}
         ></span>
       </div>
-      <h2 className="text-[#F6E8FB] font-raleway text-4xl">
+      <h2 className="text-[#F6E8FB] md:text-left text-center font-raleway text-4xl">
         Read our pages on parenting strategies, skill training & on various
         topics.
       </h2>
-      <ul className="space-y-2 font-raleway list-disc mt-6 md:pl-6 max-sm:space-x-[50px] max-sm:flex max-sm:overflow-x-auto max-sm:flex-nowrap max-sm:list-none">
+      <ul className="space-y-2 flex flex-col font-raleway  list-disc mt-6 md:pl-6 max-sm:space-x-[50px] max-sm:flex max-sm:overflow-x-auto max-sm:flex-nowrap max-sm:list-none">
         {categories.map((category, index) => (
           <li
             key={index}
-            onClick={() => handleCategoryClick(category)}
+            onClick={() => handleCategoryClick(index)}
             className={`cursor-pointer max-sm:before:content-['•'] max-sm:before:text-white max-sm:my-auto 
-                            ${
-                              activeCategory === category
-                                ? "text-[#B740A1]"
-                                : "text-[#FFFFFF]"
-                            } 
-                            hover:text-purple-300`}
+                            ${activeCategory === category
+                ? "text-[#B740A1]"
+                : "text-[#FFFFFF]"
+              } 
+                  hover:text-purple-300`}
           >
             {category}
           </li>

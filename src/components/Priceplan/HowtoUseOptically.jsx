@@ -31,32 +31,60 @@ const HowToUseOptically = () => {
     ];
 
     return (
-        <div className="py-4 px-6">
-            {/* Divider Section */}
-            <Divider title="Advantages" />
-            <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
-            Why screening is important for your child            </h1>
+        <>
+            <div className="md:block hidden py-4 px-6">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                    Why screening is important for your child            </h1>
 
-            {/* Cards Section */}
-            <div className="flex flex-wrap justify-center gap-8 mt-10">
-                {cards.map((card, index) => (
-                    <div
-                        key={index}
-                        className="flex flex-col items-center w-[20vw] gap-4"
-                    >
-                        {/* Box */}
-                        <div className="bg-[#43284C4D] rounded-lg w-full h-[20vw]"></div>
+                {/* Cards Section */}
+                <div className="flex flex-wrap justify-center gap-8 mt-10">
+                    {cards.map((card, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col items-center w-[20vw] gap-4"
+                        >
+                            {/* Box */}
+                            <div className="bg-[#43284C4D] rounded-lg w-full h-[20vw]"></div>
 
-                        {/* Title and Description */}
-                        <div className="text-left">
-                            <h1 className="text-base font-semibold text-white">{card.title}</h1>
-                            <p className="text-sm text-[#CACED9] mt-2">{card.description}</p>
+                            {/* Title and Description */}
+                            <div className="text-left">
+                                <h1 className="text-base font-semibold text-white">{card.title}</h1>
+                                <p className="text-sm text-[#CACED9] mt-2">{card.description}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
 
-        </div>
+            </div>
+            <div className="block md:hidden py-4 px-4">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-xl sm:text-2xl font-montserrat w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
+                    Why screening is important for your child
+                </h1>
+
+                {/* Cards Section */}
+                <div className="flex flex-wrap justify-center gap-6 mt-8">
+                    {cards.map((card, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col items-center w-[80vw] gap-4"
+                        >
+                            {/* Box */}
+                            <div className="bg-[#43284C4D] rounded-lg w-full h-[40vw]"></div>
+
+                            {/* Title and Description */}
+                            <div className="text-center">
+                                <h1 className="text-base font-semibold text-white">{card.title}</h1>
+                                <p className="text-sm text-[#CACED9] mt-2">{card.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };
 
