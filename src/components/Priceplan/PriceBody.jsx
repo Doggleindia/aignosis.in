@@ -563,7 +563,7 @@ const PriceBody = () => {
                 <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                   <button
                     //   onClick={handleBuyNowClick}
-                    onClick={handlePayment}
+                    // onClick={handlePayment}
                     className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                   >
                     Buy now

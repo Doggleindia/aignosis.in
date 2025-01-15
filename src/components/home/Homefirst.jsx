@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import member from "../../assets/images/aboutUs/member.png";
 import p1 from "../../assets/PopUps/p1.png";
 import p2 from "../../assets/PopUps/p2.png";
+import firstanimation from "../../assets/homepage/neuron.mp4";
 
 
 const Homefirst = () => {
@@ -105,7 +106,7 @@ const Homefirst = () => {
           </motion.h1>
         </motion.div>
         <video
-          src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97"
+          src={firstanimation}
           className="absolute w-full h-full object-cover"
           autoPlay
           muted
