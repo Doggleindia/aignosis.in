@@ -1,6 +1,7 @@
-import React from "react";
-import Divider from "./Divider";
-import MemberCard from "./MemberCard";
+import React, { lazy, Suspense } from "react";
+// Lazy load components
+const Divider = lazy(() => import("./Divider"));
+const MemberCard = lazy(() => import("./MemberCard"));
 import member from "../../assets/members/image1.jpg";
 import member2 from "../../assets/members/image2.png";
 import member3 from "../../assets/members/image3.png";
@@ -14,7 +15,7 @@ import member9 from "../../assets/members/image9.png";
 
 const AignosisTeam = () => {
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             <div className="flex rounded-2xl py-[5vw] mt-[8vw] flex-col my-8 max-sm:mx-2 mx-8 border border-solid bg-gray-800 bg-opacity-30 border-white border-opacity-10 min-h-auto">
                 <Divider
                     title="Our Project team"
@@ -90,7 +91,7 @@ const AignosisTeam = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </Suspense>
     );
 };
 

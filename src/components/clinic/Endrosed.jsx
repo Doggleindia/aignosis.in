@@ -52,9 +52,9 @@ const Endrosed = () => {
             <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 1</h1>
             <h1 className="font-manrope font-bold text-white text-5xl">Quick Screening Process</h1>
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
-              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
+              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" loading="lazy" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png" alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png" alt="Screen Content" loading="lazy" />
               </div>
             </div>
 
@@ -66,9 +66,9 @@ const Endrosed = () => {
             <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 2</h1>
             <h1 className="font-manrope font-bold text-white text-5xl">Detailed Assessment</h1>
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
-              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
+              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" loading="lazy" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw] absolute">
-                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg" alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg" alt="Screen Content" loading="lazy"/>
               </div>
             </div>
 
@@ -80,9 +80,9 @@ const Endrosed = () => {
             <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 3</h1>
             <h1 className="font-manrope font-bold text-white text-5xl">Final Insights</h1>
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
-              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
+              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" loading="lazy" />
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg" alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg" alt="Screen Content" loading="lazy"/>
               </div>
             </div>
 
@@ -92,9 +92,9 @@ const Endrosed = () => {
             <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 4</h1>
             <h1 className="font-manrope font-bold text-white text-5xl">Final Insights</h1>
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
-              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
+              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" loading="lazy"/>
               <div className="w-[35vw] top-[4vw] h-[21.5vw]  absolute">
-                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg" alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg" alt="Screen Content" loading="lazy" />
               </div>
             </div>
 
@@ -104,9 +104,9 @@ const Endrosed = () => {
             <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 5</h1>
             <h1 className="font-manrope font-bold text-white text-5xl">Final Insights</h1>
             <div className="w-full flex justify-center items-center relative h-[30vw] ">
-              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
+              <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" loading="lazy"/>
               <div className="w-[35vw] top-[4vw] h-[21.5vw] absolute">
-                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg" alt="Screen Content" />
+                <img className="w-full h-full object-cover" src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg" alt="Screen Content" loading="lazy" />
               </div>
             </div>
 
