@@ -3,7 +3,6 @@ import img from '../assets/images/doctor.png';
 import img1 from '../assets/images/doctor img.png';
 import Divider from './aboutus/Divider';
 import img2 from "../assets/homepage/image 144.png";
-import img3 from "../assets/homepage/image 145.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -291,7 +290,7 @@ const FromDoctor = () => {
                                 </div>
                             </div>
                             <div className="w-[75%] h-full">
-                                <img className='object-contain w-full h-full' src={img3} alt="" srcset="" />
+                                <img className='object-contain w-full h-full' src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png" alt="" srcset="" />
                             </div>
                         </div>
                     </div>
