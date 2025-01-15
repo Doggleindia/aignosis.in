@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import img1 from "../assets/prescription_img.png";
 import img2 from "../assets/prescription2_img.png";
-
 const Comparison = () => {
   const containerRef = useRef(null);
   const [dragPosition, setDragPosition] = useState(50); // Initial divider position (percentage)
@@ -29,8 +28,10 @@ const Comparison = () => {
       style={{ background: "rgba(26, 12, 37, 1)" }}
       // Track mouse movement across the container
     >
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw] 2xl:gap-[4vw]">
+      <div className=" relative mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw] 2xl:gap-[4vw]">
         <div ref={containerRef} onMouseMove={handleMouseMove}  >
+          {/* Blur effect */}
+<div className="absolute inset-0 bg-[#B740A1] w-[55vw] sm:w-[40vw] h-[15vw] sm:h-[10vw] -top-[10%] left-[15%]  opacity-65 blur-[120px] rounded-xl"></div>
         {/* Left Side - Sliding Images */}
         <div className="max-sm:hidden flex justify-center items-center relative w-full h-auto md:w-[310px] md:h-[410px] 2xl:w-[410px] 2xl:h-[510px]">
           <div
@@ -92,8 +93,8 @@ const Comparison = () => {
 
           {/* Table Container with relative positioning */}
           <div
-            className="p-6 sm:p-10 rounded-lg space-y-4 sm:space-y-6 shadow-xl relative overflow-hidden"
-            style={{ background: "rgba(26, 10, 38, 1)" }}
+            className="p-6 sm:p-10 rounded-lg bg-[#43284C4D] space-y-4 sm:space-y-6 shadow-xl relative overflow-hidden"
+            
           >
             {/* Vertical Lines within the table */}
             <div
@@ -105,7 +106,7 @@ const Comparison = () => {
               }}
             ></div>
             <div
-              className="absolute top-[4vw] left-[66.6%] w-[3px] sm:w-[5px]"
+              className="absolute top-[3vw] left-[66.6%] w-[3px] sm:w-[5px]"
               style={{
                 background:
                   "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
@@ -155,7 +156,7 @@ const Comparison = () => {
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}   // Track mouse movement across the container
     >
-      <div className="md:hidden flex justify-center items-center relative w-[70vw] h-[80vw] mx-auto">
+      <div className="md:hidden flex justify-center items-center relative w-[75vw] h-[80vw] mx-auto">
           <div
             className="p-4 sm:p-9 rounded-xl w-full h-full relative overflow-hidden flex justify-center items-center"
             style={{ background: "rgba(245, 215, 255, 0.34)" }}
@@ -186,6 +187,7 @@ const Comparison = () => {
         </div>
         </div>
 
+        
 
 
 

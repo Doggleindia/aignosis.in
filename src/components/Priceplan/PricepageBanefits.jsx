@@ -1,0 +1,257 @@
+import React from 'react';
+import img1 from "../../assets/image.png";
+import img2 from "../../assets/Featured.png"; // Make sure this path is correct
+
+const PricepageBenefits = () => {
+    const cardData = [
+        {
+            name: "Anaya",
+            age: "3.8 year",
+            location: "Bengaluru",
+            goals: [
+                "Clearer Speech",
+                "Improved Social Interactions",
+                "Better Sensory Regulation",
+            ],
+            insights: [
+                "Speech and Vocalization Patterns",
+                "Sensory Responses (e.g., sensitivity to noise)",
+                "Eye Contact and Joint Attention",
+                "Interaction with Peers",
+            ],
+            recommendations: [
+                "Speech Therapy",
+                "Occupational Therapy for Sensory Integration",
+                "Parent-Child Interactive Activities",
+                "Social Skills Training",
+            ],
+        },
+        {
+            name: "Aarav",
+            age: "4.5 year",
+            location: "Mumbai",
+            goals: [
+                "Improved Communication Skills",
+                "Reduced Screen Time",
+                "Enhanced Attention Span",
+            ],
+            insights: [
+                "Response to Name",
+                "Speech Development",
+                "Attention to Visual and Social Cues",
+                "Repetitive Behaviors",
+            ],
+            recommendations: [
+                "Speech Therapy",
+                "Occupational Therapy",
+                "Structured Play Sessions",
+                "Screen Time Management Strategies",
+            ],
+        },
+        {
+            name: "Vivaan",
+            age: "5.1 year",
+            location: "Delhi",
+            goals: [
+                "Better Social Engagement",
+                "Improved Focus",
+                "Enhanced Emotional Understanding",
+            ],
+            insights: [
+                "Social Communication",
+                "Joint Attention",
+                "Emotional Response",
+                "Gaze Patterns",
+            ],
+            recommendations: [
+                "Social Skills Training",
+                "Behavioral Therapy",
+                "Structured Play Activities",
+            ],
+        },
+        
+    ];
+    const Divider = ({ title }) => (
+        <div className="flex flex-row justify-center items-center space-x-4 mb-3 mt-10">
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
+                }}
+            ></span>
+            <h1 className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
+                {title}
+            </h1>
+            <span
+                className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+                style={{
+                    background:
+                        'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
+                }}
+            ></span>
+        </div>
+    );
+
+    return (
+        <>
+            <div className="hidden md:block pt-8">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                    Benefits of Ai.gnosis
+                </h1>
+
+                {/* Carousel Section */}
+                <div className="flex h-full w-full justify-center items-center mt-10">
+                    {/* Left Arrow */}
+                    <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
+                        <span className="text-white text-xl">{'<'}</span>
+                    </button>
+
+                    {/* Carousel Items */}
+                    <div className="flex gap-[3vw] justify-center items-center overflow-hidden w-[80%] px-4">
+                        {/* First Item */}
+                        <div className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-[200px]">
+                            <img
+                                src={img1}
+                                alt="Child health"
+                                className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
+                            />
+                            <p className="mt-6 text-center text-sm text-white">Early Detection for Better Outcomes</p>
+                        </div>
+
+                        {/* Second Item */}
+                        <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
+                            <img
+                                src={img1}
+                                alt="Child health"
+                                className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
+                            />
+                            <p className="mt-6 text-center text-sm text-white">Personalized Therapy Recommendations</p>
+                        </div>
+
+                        {/* Third Item */}
+                        <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
+                            <img
+                                src={img1}
+                                alt="Child health"
+                                className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
+                            />
+                            <p className="mt-6 text-center text-sm text-white">Improved Social Skills & Communication</p>
+                        </div>
+                        {/* <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
+                            <img
+                                src={img1}
+                                alt="Child health"
+                                className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
+                            />
+                            <p className="mt-6 text-center text-sm text-white">Child health</p>
+                        </div> */}
+
+                    </div>
+                    {/* Right Arrow */}
+                    <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
+                        <span className="text-white text-xl">{'>'}</span>
+                    </button>
+                </div>
+            </div>
+            <div className="hidden md:block pt-5 pb-5">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-2xl 2xl:text-5xl w-full font-montserrat text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                    Precision Solutions, Exclusively Designed for You
+                </h1>
+
+                {/* Cards Section */}
+                <div className="flex justify-center items-center mt-10 gap-6">
+                    {cardData.map((card, index) => (
+                        <div
+                            key={index}
+                            className="w-[22vw] relative flex flex-col items-center justify-center h-[45vw] rounded-xl bg-[#43284C4D]"
+                        >
+                            {/* Image Section */}
+                            <div className="w-[90%] absolute top-4 flex items-center justify-center h-[40%]">
+                                <img src={img2} alt={`Card ${index}`} className="rounded-lg shadow-md" />
+                            </div>
+
+                            {/* Badge */}
+                            <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                                {card.age}
+                            </div>
+
+                            {/* Text Section */}
+                            <div className="p-4 px-6 mt-[15vw] w-full">
+                                <h1 className="text-[12px] text-[#CACED9]">
+                                    <span className="text-[18px] text-white font-medium">
+                                        {card.name}{" "}
+                                    </span>
+                                    {card.age}
+                                </h1>
+                                <h1 className="text-[10px] text-[#CACED9]">{card.location}</h1>
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Development Goal:
+                                </h1>
+                                <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.goals.map((goal, i) => (
+                                        <li key={i}>{goal}</li>
+                                    ))}
+                                </ul>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Personalized Screening Insights:
+                                </h1>
+                                <p className="text-[10px] mt-2 text-[#CACED9]">
+                                    Key Features Assessed:
+                                    <ul className="list-disc ml-4">
+                                        {card.insights.map((insight, i) => (
+                                            <li key={i}>{insight}</li>
+                                        ))}
+                                    </ul>
+                                </p>
+
+                                <div className="border-t border-[#B740A180] my-2"></div>
+
+                                <h1 className="text-base font-semibold text-white">
+                                    Therapy Recommendations:
+                                </h1>
+                                <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
+                                    {card.recommendations.map((recommendation, i) => (
+                                        <li key={i}>{recommendation}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="block md:hidden p-4">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-xl w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
+                    Benefits of Ai.gnosis
+                </h1>
+
+                {/* Mobile Carousel Section */}
+                <div className="flex flex-col gap-4 justify-center items-center mt-6">
+                    {Array(4).fill(0).map((_, index) => (
+                        <div key={index} className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-full">
+                            <img
+                                src={img1}
+                                alt="Child health"
+                                className="w-full h-[40vw] rounded-lg object-cover"
+                            />
+                            <p className="mt-4 text-center text-sm text-white">Child health</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default PricepageBenefits;

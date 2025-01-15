@@ -1,122 +1,201 @@
-import img from '../assets/images/SectionL.png';
-import { Link } from 'react-router-dom';
-import Header from './Header';
-import image1 from '../assets/members/image1.jpg';
-import image2 from '../assets/members/image2.png';
-import image3 from '../assets/members/image3.png';
-import image4 from '../assets/members/image4.png';
-import image5 from '../assets/members/image5.png';
-import image6 from '../assets/members/image6.png';
-import image7 from '../assets/members/image7.png';
-import image9 from '../assets/members/image9.png';
-import about from '../assets/aboutus.png';
-import archit_img from '../assets/members/archit_img.jpg';
-import Partner from './Partner';
-import Footer from './Footer';
-import ContactPage from './ContactPage';
-const Divider = ({ title }) => (
-    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
-        <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-                background:
-                    "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-        ></span>
-        <h1 className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
-            {title}
-        </h1>
-        <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-                background:
-                    "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-        ></span>
-    </div>
-);
+
+import Header from "./Header";
+
+import sideleft from "../assets/images/aboutUs/about.png";
+import doctor1 from "../assets/homepage/white screen.png";
+import doctor2 from "../assets/images/aboutUs/doctors2.svg";
+import doctor3 from "../assets/images/aboutUs/doctors3.svg";
+import blog_icon from "../assets/images/aboutUs/blog_icon.png";
+import birt_aignosis from "../assets/images/aboutUs/birth_aignosis.png";
+import Footer from "./Footer";
+import AignosisTeam from "./aboutus/AignosisTeam";
+import Divider from "./aboutus/Divider";
+import Awards from "./clinic/Awards";
+import Endrosed from "./clinic/Endrosed";
+import BlogFooter from "./BlogPages/BlogFooter";
+
 
 const TeamMember = ({ name, img, description, height }) => (
-    <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
-        <div className="w-full h-[50vw] sm:h-[30vw] md:h-[20vw] bg-[#D9D9D947] flex justify-center items-center">
-            <img src={img} className="w-full h-full object-cover" alt="" />
-        </div>
-        <div className="w-full mt-2 flex flex-col items-center">
-            <h1 className={`text-lg sm:text-xl md:text-2xl ${height || 'h-[3rem]'} flex items-center justify-center`}>
-                {name}
-            </h1>
-            <p className="text-xs sm:text-sm uppercase h-[2rem] flex items-center justify-center">
-                {description}
-            </p>
-        </div>
+  <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
+    <div className="w-full h-[50vw] sm:h-[30vw] md:h-[20vw] bg-[#D9D9D947] flex justify-center items-center">
+      <img src={img} className="w-full h-full object-cover" alt="" />
     </div>
+    <div className="w-full mt-2 flex flex-col items-center">
+      <h1
+        className={`text-lg sm:text-xl md:text-2xl ${height || "h-[3rem]"
+          } flex items-center justify-center`}
+      >
+        {name}
+      </h1>
+      <p className="text-xs sm:text-sm uppercase h-[2rem] flex items-center justify-center">
+        {description}
+      </p>
+    </div>
+  </div>
 );
 
-
-
 const AboutUs = () => {
-    return (
-        <div className="bg-[#1A0C25] font-montserrat text-white">
-            <div className="min-h-screen w-full pt-[30px] pb-[120px]">
-                <Header />
-                <section className="flex flex-col 2xl:pt-[4vw] md:pt-[12vw] items-center h-auto md:h-[48vw] justify-center px-4 md:px-0">
-                    <Divider title="About Us" />
-                    <div className="text-center">
-                        <h1 className="text-2xl sm:text-3xl md:text-5xl mt-5 font-medium">
-                            Ai.gnosis – Empowering Early Detection
-                        </h1>
-                        <p className="mt-3 text-xs sm:text-base">Working together for a brighter future.</p>
-                    </div>
-                    <img src={about} alt="About Us" className="w-[90%] md:w-[40vw] h-auto mt-[2vw]" loading="lazy" />
-                    <p className="w-[90%] md:w-[60vw] text-center mt-[2vw] text-xxs sm:text-xs md:text-base mb-200">
-                        At Ai.gnosis, we are committed to making a positive impact on the lives of children and families
-                        through early autism screening and support. Our team harnesses the power of advanced AI to enable early,
-                        accessible diagnoses and provide parents with the resources they need for timely intervention. With a
-                        focus on compassionate care and innovation, we’re dedicated to guiding families on the path to better
-                        understanding and support.
-                    </p>
-                </section>
-            </div>
+  return (
+    <div className="bg-[#1A0C25] max-sm:px-2 font-montserrat text-white">
+      <div className="pt-28 pb-8">
+        <Header />
+        <Divider title="About Us" desc=' Working together for a brighter future.' subtitle=' Ai.gnosis – Empowering Early Detection' />
 
-            <section className="w-full h-auto px-4 sm:px-[5vw] md:px-[10vw] py-[2vw] bg-[#1A0C25]">
-                <div className="w-full rounded-3xl border border-[#dfcbed26] p-4">
-                    <Divider title="Our Project Team" />
-                    <div className="text-center mb-10">
-                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-medium">The Minds Behind Ai.gnosis</h1>
-                        <p className="mt-3 text-xs sm:text-base">Working together for a brighter future.</p>
-                    </div>
+      </div>
 
-                    <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[7vw]">
-                        <TeamMember name="Divyansh Mangal" img={image2} description="CO FOUNDER" loading="lazy" />
-                        <TeamMember name="Raksheet Jain" img={image3} description="CO FOUNDER" loading="lazy" />
-                    </div>
-                    <div className='flex justify-center items-center my-10'>
-                        <h2 className='font-raleway text-[#FFFFFF] text-2xl sm:text-5xl'>Advisors</h2>
-                    </div>
-
-                    <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[7vw]">
-                        <TeamMember name="Dr. S. Sitaraman" img={image1} description="DIRECTOR & DEVELOPMENTAL NEUROLOGIST" height="h-[6rem]" loading="lazy" />
-                        <TeamMember name="Dr. Ramesh Agrawal" img={image6} description="HOD mother & child block, AIIMS Delhi" height="h-[6rem]"  loading="lazy"/>
-                        <TeamMember name="Dr. Rajesh Jain" img={image4} description="Consultant Pediatrician Raksheet Hospital" height="h-[6rem]" loading="lazy" />
-                    </div>
-
-                    <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 md:gap-[5vw] mt-10 mb-5 pb-5">
-                        <TeamMember name="Dr. Dhananajay Mangal" img={image5} description="Consultant Pediatrician Babylon Hospital" height="h-[6rem]" loading="lazy" />
-                        <TeamMember name="Dr. Anami Gour" img={image7} description="Consultant Paediatric Intensive Care, London" height="h-[6rem]" loading="lazy" />
-                        <TeamMember name="Mr. Rajneesh Bhandari" img={image9} description="NeuroEquilibrium Diagnostics Pvt. LMT." height="h-[6rem]" loading="lazy" />
-                        <TeamMember name="Mr. Arcchit Jain" img={archit_img} description="Vice President, Goldman Sachs" height="h-[6rem]" loading="lazy" />
-                    </div>
-                </div>
-            </section>
-
-            <div className='mt-[3vw]'>
-                <Partner />
-            </div>
-
-           <ContactPage/>
-            <Footer />
+      <div className=" max-sm:p-4 flex max-sm:flex-col gap-6 justify-center">
+        <img
+          src={sideleft}
+          alt="about"
+          className="rounded-3xl w-[400px] h-[400px] object-cover"
+        />
+        <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
+          <span className="font-medium">How it all began</span>
+          {/* <span className="pt-4 block">
+            Embark on a journey through our narrative, where innovation meets
+            purpose.
+          </span> */}
+          <span className="pt-4 block">
+            We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
+          </span>
+          <span className="pt-4 block">
+            That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
+          </span>
         </div>
-    );
+      </div>
+
+      {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
+        <div className="flex max-sm:pt-4 flex-col items-start">
+          <img
+            src={doctor1}
+            alt="about"
+            className="rounded-3xl w-[600px] h-[600px] object-cover"
+          />
+        </div>
+        <div className="flex max-sm:pt-4 flex-col items-start ml-8">
+          <img
+            src={doctor2}
+            alt="about"
+            className="rounded-3xl max-sm:hidden w-[600px] h-[291px] object-cover"
+          />
+          <img
+            src={doctor3}
+            alt="about"
+            className="rounded-3xl w-[600px] max-sm:hidden max-sm:pt-4 h-[291px] object-cover mt-4"
+          />
+        </div>
+      </div> */}
+
+      <div className="flex max-sm:flex-col items-center px-10 justify-center mt-[8vw] ">
+        <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+          <span className="font-medium font-raleway text-2xl">
+            The Goal of aignosis
+          </span>
+          {/* <span className="pt-4 block font-manrope">
+            Embark on a journey through our narrative, where innovation meets
+            purpose.
+          </span> */}
+          <span className="pt-4 block font-manrope">
+            At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
+          </span>
+          <span className="pt-4 block font-manrope">
+            Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
+          </span>
+        </div>
+        <div className="flex items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+          {/* <img
+            src={birt_aignosis}
+            alt="about"
+            className=" w-[600px] h-[600px] object-cover"
+          /> */}
+        </div>
+      </div>
+      <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
+        <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700PX]  mr-2 max-md:pl-5">
+          <div className="flex gap-5 max-md:flex-col">
+            <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+              <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
+                <div className="rounded-lg w-[90px] p-2 "
+                  style={{
+                    background: `radial-gradient(
+                      100% 100% at 50% -4950%, 
+                      rgba(255, 255, 255, 0.3) 0%, 
+                      rgba(255, 255, 255, 0) 100%
+                    ), rgba(255, 255, 255, 0.2)`,
+                  }}
+                >
+                  <img
+                    loading="lazy"
+                    src={blog_icon}
+                    alt="Blog section icon"
+                    className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
+                  />
+                </div>
+                <div className="mt-8 text-xl font-semibold leading-none text-white">
+                  Vision
+                </div>
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
+                  To create a world where every child has the opportunity to thrive through early detection and personalized developmental support, breaking barriers to accessibility and affordability in autism screening.
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col  ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+              <img
+                loading="lazy"
+                src={doctor1}
+                alt="Blog section featured image"
+                className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="pl-8 rounded-xl max-sm:mt-4 overflow-hidden bg-white bg-opacity-10 max-sm:pb-6  max-w-[700px] max-md:pl-5">
+          <div className="flex gap-5 max-md:flex-col">
+            <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+              <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
+                <div className="rounded-lg w-[90px] p-2 "
+                  style={{
+                    background: `radial-gradient(
+                      100% 100% at 50% -4950%, 
+                      rgba(255, 255, 255, 0.3) 0%, 
+                      rgba(255, 255, 255, 0) 100%
+                    ), rgba(255, 255, 255, 0.2)`,
+                  }}
+                >
+                  <img
+                    loading="lazy"
+                    src={blog_icon}
+                    alt="Blog section icon"
+                    className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
+                  />
+                </div>
+                <div className="mt-8 text-xl font-semibold leading-none text-white">
+                  Mission
+                </div>
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
+                  To revolutionize early autism detection by leveraging AI and cutting-edge technology to deliver accurate, affordable, and non-invasive screening solutions. We aim to empower families, educators, and clinicians with actionable insights, fostering early intervention.
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+              <img
+                loading="lazy"
+                src={doctor1}
+                alt="Blog section featured image"
+                className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="px-[5vw]">
+        <AignosisTeam />
+      </div>
+      {/* <Awards />
+      <Endrosed /> */}
+      <BlogFooter />
+    </div>
+  );
 };
 
 export default AboutUs;

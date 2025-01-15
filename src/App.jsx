@@ -23,11 +23,22 @@ import ServicePage5 from './components/servicePages/ServicePage5';
 import ServicePage1 from './components/servicePages/ServicePage1';
 import TAndC from './components/TAndC';
 import RefundAndReschedule from './components/RefundAndReschedule';
+import LoginPage from './components/LoginPage/LoginPage'
+import BlogView from './components/BlogPages/BlogView';
+import WeWork from './components/BlogPages/WeWork';
+import ClinicMain from './components/clinic/ClinicMain';
+import Priceplan from './components/Priceplan';
+
+import BrainMain from './components/homeBrain/BrainMain';
+
+import FromDoctor from './components/FromDoctor';
+// import AuthRoute from './components/config/AuthRoute';
+
 
 const App = () => {
   return (
     <Router>
-      <ScrollToTop /> {/* Optional: if you want to scroll to the top on route change */}
+      <ScrollToTop />
       <Routes> {/* Use Routes to define all your routes */}
         <Route path="/" element={<HomepageMain />} />
         <Route path="/aboutus" element={<AboutUs />} />
@@ -39,19 +50,26 @@ const App = () => {
         <Route path='/service4' element={<ServicePage4/>} />
         <Route path='/service5' element={<ServicePage5/>} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
+        <Route path='/priceplan' element={<PriceMain />} /> 
+        <Route path='/fromdoctor' element={<FromDoctor/>} />
 
-        <Route path="/prices" element={<PriceMain />} />
+
+        <Route path="/prices" element={ <Priceplan />} />
         <Route path="/report" element={<ReportComLast />} />
         
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/BlogPages" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<WeWork />} />
+        {/* <Route path="/BlogPages/:blogName" element={<BlogView />} /> */}
+        <Route path="/clinic" element={<ClinicMain />} />
         <Route path="/test/fillup/tod" element={<Toddlers />} />
 
         <Route path="/payment" element={<PaymentScreensMain />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TAndC />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
-
+        <Route path='/brain' element={<BrainMain />} />
       </Routes>
     </Router>
   );

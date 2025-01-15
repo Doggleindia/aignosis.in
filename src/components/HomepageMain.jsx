@@ -10,35 +10,22 @@ import PartnershipPage from './PartnershipPage'
 import ContactPage from './ContactPage'
 import WhatsAppButton from './WhatsAppButton'
 import { useLocation } from 'react-router-dom'
+import BlogFooter from './BlogPages/BlogFooter'
+import AnimatedIntro from './home/AnimatedIntro'
 const HomepageMain = () => {
+  
 
-
-  const location = useLocation();
-
-  useEffect(() => {
-    // Check if the navigation state includes scrollToContact
-    if (location.state?.scrollToContact) {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [location.state]);
   return (
-    <div className='bg-[#1A0C25]'>
-    
+    // <AnimatedIntro videoSrc="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97" >
+    <div className='bg-[#1A0C25] overflow-x-hidden'>
       <Homepage />
-      <Laptop />
       <WhatsAppButton />
-      <Screen3 />
-      <Screen4 />
-      <Screen5 />
-      <MainComponent />
-      <PartnershipPage/>
+      <Laptop />
+     
       <ContactPage/>
-      <Footer/>
-      
+      <BlogFooter/>
     </div>
+      // </AnimatedIntro>
   )
 }
 

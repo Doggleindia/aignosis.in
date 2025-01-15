@@ -1,0 +1,282 @@
+import React, { useState, useEffect } from "react";
+import HomePageCard from "./HomePageCard";
+import { motion } from "framer-motion";
+import member from "../../assets/images/aboutUs/member.png";
+import p1 from "../../assets/PopUps/p1.png";
+import p2 from "../../assets/PopUps/p2.png";
+import firstanimation from "../../assets/homepage/neuron.mp4";
+import m1 from "../../assets/mock1.png";
+import m2 from "../../assets/mock2.png";
+
+
+
+const Homefirst = () => {
+  const [showContent, setShowContent] = useState(false);
+
+  // useEffect(() => {
+  //   // Delay showing content until the video animation is complete
+  //   const timeout = setTimeout(() => {
+  //     setShowContent(true);
+  //   }, 10000); // Adjust timing based on the video duration
+
+  //   return () => clearTimeout(timeout);
+  // }, []);
+  useEffect(() => {
+    // Disable scrolling while the video is playing
+    document.body.style.overflow = "hidden";
+
+    // Delay showing content until the video animation is complete
+    const timeout = setTimeout(() => {
+      setShowContent(true);
+      document.body.style.overflow = "auto";
+    }, 4000); // Adjust timing based on the video duration
+
+    return () => {
+      clearTimeout(timeout);
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  // Animation variants
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (delay) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, delay },
+    }),
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.2 },
+    visible: (delay) => ({
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, delay },
+    }),
+  };
+
+
+  if (!showContent) {
+    return (
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: "-100%" }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 3 }}
+        className="w-full h-screen bg-black z-30 relative flex justify-center items-center">
+        <motion.div
+          className="absolute z-40 flex justify-center items-center"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                staggerChildren: 1,
+                ease: [0.42, 0, 0.58, 1], 
+              },
+            },
+          }}
+        >
+          <motion.h1
+            className="text-white font-montserrat font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            Frontier AI
+          </motion.h1>
+          <motion.h1
+            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            for Your Child’s
+          </motion.h1>
+          <motion.h1
+            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {" "}Best Development
+          </motion.h1>
+        </motion.div>
+        <video
+          src={firstanimation}
+          className="absolute w-full h-full object-cover"
+          autoPlay
+          muted
+        />
+      </motion.div>
+    );
+  }
+  return (
+    <>
+
+      {/* Video animation section */}
+      {/* {!showContent && (
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: "-100%" }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 10 }}
+            className="absolute  inset-0 w-full h-full z-20 pointer-events-none"
+          >
+            <video
+              src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97"
+              className="absolute  w-full h-full object-cover"
+              autoPlay
+              muted
+            />
+          </motion.div>
+        )} */}
+
+      {showContent && (
+        <>
+          {/* <div className="absolute bottom-[7vw] left-[5vw]">
+            <img src={p1} alt="" srcset="" />
+          </div>
+          <div className="absolute bottom-[17vw] right-[5vw]">
+            <img src={p2} alt="" srcset="" />
+          </div> */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            className={`relative z-0 body w-[90%] h-screen flex-col m-auto justify-center align-center items-center hidden md:flex`}
+          >
+            <motion.span
+              custom={0.2}
+              variants={textVariants}
+              className="justify-center block tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]"
+            >
+              WELCOME TO AIGNOSIS
+            </motion.span>
+            <motion.span
+              custom={0.4}
+              variants={textVariants}
+              className="text-white font-bold text-5xl pt-[20px] font-manrope"
+            >
+              Early Autism Detection Made
+            </motion.span>
+            <motion.span
+              custom={0.6}
+              variants={textVariants}
+              className="text-[#811f67] font-bold text-5xl font-manrope"
+            >
+              Easy & Accurate
+            </motion.span>
+            <motion.p
+              custom={0.8}
+              variants={textVariants}
+              p
+              className="text-white px-[20vw] font-raleway font-md text-center p-[10px]"
+            >
+              AI.Gnosis offers AI-powered tools for early autism detection,
+              providing actionable insights for parents and caregivers. Backed
+              by clinical research and cutting-edge technology to ensure
+              reliability, accuracy, and peace of mind—accessible from the
+              comfort of your home or with professional guidance.
+            </motion.p>
+
+            {/* home page Card */}
+            <motion.div
+              custom={1}
+              variants={cardVariants}
+              className="flex flex-row"
+            >
+              <HomePageCard
+                imageSrc={member}
+                title="Get your child tested now"
+                description="Empowering Clinics with Advanced Autism Detection Tools"
+              />
+              <HomePageCard
+                imageSrc={member}
+                title="For doctors"
+                description="Empowering Clinics with Advanced Autism Detection Tools"
+              />            </motion.div>
+          </motion.div>
+
+          <motion.div
+
+            className="body w-[90%] h-screen flex-col m-auto justify-center align-center items-center flex md:hidden">
+            {/* Welcome Text */}
+            <motion.span
+              custom={0.2}
+              variants={textVariants}
+              className="justify-center block font-manrope font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4">
+              Welcome to Aignosis
+            </motion.span>
+
+            {/* Main Heading */}
+            <motion.h1
+              custom={0.4}
+              variants={textVariants}
+              className="text-white font-bold text-3xl font-manrope text-center mb-2">
+              Early Autism Detection Made
+            </motion.h1>
+            <motion.h2
+              custom={0.6}
+              variants={textVariants} className="text-[#811f67] font-extrabold text-3xl font-manrope text-center mb-6">
+              Easy & Accurate
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              custom={0.8}
+              variants={textVariants}
+              className="text-white px-[10vw] font-raleway font-normal text-center text-sm leading-relaxed mb-8">
+              AI.Gnosis offers AI-powered tools for early autism detection,
+              providing actionable insights for parents and caregivers. Backed
+              by clinical research and cutting-edge technology to ensure
+              reliability, accuracy, and peace of mind—accessible from the
+              comfort of your home or with professional guidance.
+            </motion.p>
+
+            {/* Buttons for Cards */}
+            <motion.div
+              custom={1}
+              variants={cardVariants}
+              className="flex flex-col space-y-4 w-full">
+              <button className="flex items-center justify-between w-full bg-[#2A013E] text-white border border-[#9C00AD] px-4 py-3 rounded-lg hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-white rounded-full">
+                    <img className="w-full h-full object-contain" src={m1} alt="" srcset="" />
+                  </div>
+                  <span className="text-left">
+                    <strong className="block font-bold">
+                      Get your child tested now
+                    </strong>
+                    <span className="text-sm">
+                      Empowering Clinics with Advanced Autism Detection Tools
+                    </span>
+                  </span>
+                </div>
+              </button>
+
+              <button className="flex items-center justify-between w-full bg-[#2A013E] text-white border border-[#9C00AD] px-4 py-3 rounded-lg hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-white rounded-full"></div>
+                  <span className="text-left">
+                    <strong className="block font-bold">For doctors</strong>
+                    <span className="text-sm">
+                      Empowering Clinics with Advanced Autism Detection Tools
+                    </span>
+                  </span>
+                </div>
+              </button>
+            </motion.div>
+          </motion.div>
+        </>
+      )}
+
+    </>
+  );
+};
+
+export default Homefirst;
