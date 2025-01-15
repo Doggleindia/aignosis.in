@@ -136,12 +136,12 @@ const Homefirst = () => {
 
       {showContent && (
         <>
-          <div className="absolute bottom-[7vw] left-[5vw]">
+          {/* <div className="absolute bottom-[7vw] left-[5vw]">
             <img src={p1} alt="" srcset="" />
           </div>
           <div className="absolute bottom-[17vw] right-[5vw]">
             <img src={p2} alt="" srcset="" />
-          </div>
+          </div> */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -242,7 +242,9 @@ const Homefirst = () => {
               className="flex flex-col space-y-4 w-full">
               <button className="flex items-center justify-between w-full bg-[#2A013E] text-white border border-[#9C00AD] px-4 py-3 rounded-lg hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-white rounded-full"></div>
+                  <div className="w-8 h-8 bg-white rounded-full">
+                    <img className="w-full h-full object-contain" src={m1} alt="" srcset="" />
+                  </div>
                   <span className="text-left">
                     <strong className="block font-bold">
                       Get your child tested now

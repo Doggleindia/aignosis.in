@@ -1,5 +1,7 @@
 import React from 'react'
-import img10 from "../../assets/clinic/img10.png";
+import img10 from "../../assets/prescription_img.png";
+import img11 from "../../assets/prescription2_img.png";
+
 const Reports = () => {
   return (
     <div className='bg-gradient-to-b flex max-sm:flex-col  justify-center items-center gap-[10vw] from-[#241E22] to-[#43284C] h-[60vh] p-[5vw] '>
@@ -47,7 +49,7 @@ const Reports = () => {
           {/* Middle Image */}
           <div className="absolute top-[50%] transform -translate-y-1/2 z-10">
             <img
-              src={img10}
+              src={img11}
               alt="Middle Image"
               className="w-[300px] h-[300px] max-sm:w-[300px] max-sm:h-[250px] object-cover mt-[4vw] max-sm:mt-[8vw]   shadow-lg"
             />
