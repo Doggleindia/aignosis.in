@@ -16,7 +16,7 @@ const HeroSection = () => {
   return (
     <>
       <Homefirst/>
-      <OpenAI />
+      <OpenAI /> 
       <UnderStandingNumber/>
       <BrainMain />
       <Endrosed />

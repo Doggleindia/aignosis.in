@@ -74,7 +74,7 @@ const OpenAI = () => {
                         description="Has DIFFICULTY scribbling or drawing"
                     />
                 </div>
-                <div className="absolute -top-[1vw] right-[13vw]" ref={p3Ref}> {/* Apply the ref to p3 image */}
+                <div className="hidden md:absolute -top-[1vw] right-[13vw]" ref={p3Ref}> {/* Apply the ref to p3 image */}
                     <img src={p3} alt="Popup Image" />
                 </div>
             </div>
@@ -82,22 +82,42 @@ const OpenAI = () => {
 
 
             {/* Mobile view */}
-            <div className='lg:hidden flex overflow-x-auto mx-8 justify-start items-center m-auto space-x-4'>
+            <div className='lg:hidden flex overflow-x-auto mx-8 my-2 justify-start items-center m-auto space-x-2'>
                 <div className='flex-shrink-0'>
-                    <AiCard />
-                </div>
+                    <AiCard
+                        imageSrc={img1}
+                        date="3 month old"
+                        title=""
+                        description="Does NOT follow moving objects with eyes"
+                    />                </div>
                 <div className='flex-shrink-0'>
-                    <AiCard />
-                </div>
+                    <AiCard
+                        imageSrc={img2}
+                        date="1 year old"
+                        title=""
+                        description="Does NOT use gestures like waving or shaking head"
+                    />                </div>
                 <div className='flex-shrink-0'>
-                    <AiCard />
-                </div>
+                    <AiCard
+                        imageSrc={img3}
+                        date="2 year old"
+                        title=""
+                        description="Does NOT speak two-word sentences"
+                    />                </div>
                 <div className='flex-shrink-0'>
-                    <AiCard />
-                </div>
+                    <AiCard
+                        imageSrc={img4}
+                        date="3 year old"
+                        title=""
+                        description="Has DIFFICULTY manipulating small objects"
+                    />                </div>
                 <div className='flex-shrink-0'>
-                    <AiCard />
-                </div>
+                    <AiCard
+                        imageSrc={img5}
+                        date="4 year old"
+                        title=""
+                        description="Has DIFFICULTY scribbling or drawing"
+                    />                </div>
             </div>
             <p className='text-center text-[9px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
             <button className='flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope text-sm md:text-2xl xl:text-lg text-white'>

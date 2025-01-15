@@ -54,8 +54,8 @@ const PartnershipPage = () => {
 
 
     return (
-        <div className='min-h-screen 2xl:px-[8rem] md:px-[4rem] text-white flex flex-col w-full font-montserrat bg-[#1A0C25] '>
-            <div className="w-full flex 2xl:px-[2rem] py-[3rem]  flex-col justify-center items-center border-t rounded-[10rem] max-sm:rounded-[5rem] border-[#B874B580] md:mb-10 ">
+        <div className='min-h-screen 2xl:px-[8rem] md:px-[4rem] mt-14 text-white flex flex-col w-full font-montserrat bg-[#1A0C25] '>
+            <div className="w-full flex 2xl:px-[2rem] py-[3rem] flex-col justify-center items-center border-t rounded-[10rem] max-sm:rounded-[5rem] border-[#B874B580] md:mb-10 ">
                 <div className='flex flex-col justify-center items-center px-4 md:mb-10'>
                     <div className="flex justify-center gap-5 items-center mb-4">
                         <span
@@ -75,7 +75,7 @@ const PartnershipPage = () => {
                         ></span>
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
-                        <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold leading-[3rem]'>
+                        <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold md:leading-[3rem]'>
                             If you are a healthcare provider, payor, or caregiver <br /> and want to partner with Ai.gnosis, let’s talk!
                         </h1>
                     </div>
@@ -117,18 +117,18 @@ const PartnershipPage = () => {
                 </div>
 
                 {/* Center Image between Boxes */}
-                <div className="  flex absolute justify-center  items-center" ref={imageRef}>
-                    <img src={brain} alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" loading="lazy" />
+                <div className="md:flex hidden absolute justify-center items-center" ref={imageRef}>
+                    <img src={brain} alt="Brain Icon" className="2xl:w-[10rem] md:w-[6rem] md:h-[6rem] w-[10rem] md:scale-[2.5] 2xl:h-[10rem] 2xl:scale-[2]" loading="lazy" />
                 </div>
             </div>
 
             {/* Contact Form Section */}
-            <div className="w-full flex flex-col justify-center items-center px-4 mb-10">
-                <div className="w-full text-center px-[25vw]">
+            <div className="w-full flex flex-col justify-center items-center md:px-4 mb-10">
+                <div className="w-full text-center px-[10vw] md:px-[25vw]">
                     <h1 className="2xl:text-xl font-medium md:text-2xl mb-10 max-sm:text-center">
                         Fill up the form, and our team will respond promptly to assist you.
                     </h1>
-                    <form className="space-y-4 px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
+                    <form className="space-y-4 md:px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
                         <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
                         <input type="age" placeholder="Your Age*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
                         <input type="email" placeholder="Your Email*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
