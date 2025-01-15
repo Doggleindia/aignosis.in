@@ -24,10 +24,10 @@ const HowToUseOptically = () => {
     );
 
     const cards = [
-        { title: 'Child health', description: 'Explore educational trends, teaching strategies, and edtech innovations that are shaping' },
-        { title: 'Child health', description: 'Explore educational trends, teaching strategies, and edtech innovations that are shaping' },
-        { title: 'Child health', description: 'Explore educational trends, teaching strategies, and edtech innovations that are shaping' },
-        { title: 'Child health', description: 'Explore educational trends, teaching strategies, and edtech innovations that are shaping' },
+        { title: 'Observe Natural Behaviors', description: 'A calm environment helps capture your child’s authentic responses.' },
+        { title: 'Early Screening, Better Outcomes', description: 'Detecting early signs ensures timely intervention and improved development.' },
+        { title: 'Keep it Relaxed', description: 'Ensure your child is comfortable and engaged for the best results.' },
+        { title: 'One Step at a Time', description: 'One screening session is enough to provide valuable insights' },
     ];
 
     return (
@@ -35,8 +35,7 @@ const HowToUseOptically = () => {
             {/* Divider Section */}
             <Divider title="Advantages" />
             <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
-                How to use optically
-            </h1>
+            Why screening is important for your child            </h1>
 
             {/* Cards Section */}
             <div className="flex flex-wrap justify-center gap-8 mt-10">

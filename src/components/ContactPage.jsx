@@ -75,31 +75,40 @@ const ContactPage = () => {
                   name="name"
                   placeholder="Your Name"
                   required
-                  className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
+                  className="w-full px-4 py-2 bg-[#2521276B]  rounded-md"
                 />
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
+                  type="text"
+                  name="age"
+                  placeholder="Your Age"
                   required
-                  className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
+                  className="w-full px-4 py-2 bg-[#2521276B]  rounded-md"
+                />
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="Your City"
+                  required
+                  className="w-full px-4 py-2 bg-[#2521276B]  rounded-md"
                 />
                 <input
                   type="text"
                   name="phone"
                   placeholder="Your Phone Number"
                   required
-                  className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md"
+                  className="w-full px-4 py-2 bg-[#2521276B]  rounded-md"
                 />
                 <textarea
                   name="message"
                   placeholder="Your Message"
                   required
-                  className="w-full h-32 px-4 py-2  bg-[#2521276B] border-2 border-[#B740A1] rounded-md resize-none"
-                ></textarea>
+                  className="w-full h-32 px-4 py-2  bg-[#2521276B] rounded-md resize-none"
+                >
+
+                </textarea>
                 <button
                   type="submit"
-                  className="w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300"
+                  className="w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] gap-4 border-2 border-[#B740A1]  rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300"
                 >
                   <span className="text-white">Send Message</span>
                   <div className="w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">

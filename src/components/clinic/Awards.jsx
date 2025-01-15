@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
 import img7 from "../../assets/clinic/img7.png";
 import img1 from "../../assets/homepage/image a1.png";
 import img2 from "../../assets/homepage/image a2.png";
@@ -10,12 +10,33 @@ import img11 from "../../assets/homepage/image a7.png";
 import img8 from "../../assets/homepage/image a8.png";
 import img9 from "../../assets/homepage/image a9.png";
 import img10 from "../../assets/homepage/image a10.png";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
 
 import AwardCard from './AwardCard';
 const Awards = () => {
+  const p3Ref = useRef(null);  // Create a reference for p3 image
+
+    useEffect(() => {
+        // GSAP animation for p3 image
+        gsap.fromTo(p3Ref.current, 
+            { opacity: 0, x: -200 }, 
+            {
+                opacity: 1,
+                x: 0,
+                scrollTrigger: {
+                    trigger: p3Ref.current,
+                    start: "top 80%",  // Animation starts when p3 image top reaches 80% of the viewport height
+                    end: "top center", // Animation ends when p3 image top reaches the center of the viewport
+                    scrub: true,
+                }
+            }
+        );
+    }, []);
   return (
-    <div className='bg-[#1A0C25] w-full p-[5vw] '>
+    <div className='bg-[#1A0C25] relative w-full p-[5vw] '>
       <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
@@ -37,7 +58,7 @@ const Awards = () => {
       </div>
       <div className='flex flex-col'>
         <div className='flex justify-center items-center' >
-          <img src={img7} className='w-[100px]' alt="" />
+          <img src={img7} className='w-[100px]' alt="" ref={p3Ref}/>
           <h1 className='text-[#F6E8FB] font-raleway text-[48px] max-sm:text-[24px] md:mr-[20px]'>Supported by Leaders in Innovation and Care</h1>
         </div>
         <div className='flex justify-center items-center mx-auto md:w-[800px]'>

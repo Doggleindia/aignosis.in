@@ -129,10 +129,12 @@ const PartnershipPage = () => {
                         Fill up the form, and our team will respond promptly to assist you.
                     </h1>
                     <form className="space-y-4 px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
-                        <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
-                        <input type="email" placeholder="Your Email*" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
-                        <input type="tel" placeholder="Phone number" className="w-full px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md" />
-                        <textarea placeholder="Your Message*" className="w-full h-32 px-4 py-2 border-2 border-[#B740A1] bg-[#2521276B]  rounded-md resize-none"></textarea>
+                        <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
+                        <input type="age" placeholder="Your Age*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
+                        <input type="email" placeholder="Your Email*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
+                        <input type="city" placeholder="Your City" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
+                        <input type="tel" placeholder="Phone number" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
+                        <textarea placeholder="Your Message*" className="w-full h-32 px-4 py-2 bg-[#2521276B]  rounded-md resize-none"></textarea>
                         <div className=' max-sm:mx-auto 2xl:w-[14rem] md:w-[9rem] w-[8rem] cursor-pointer mt-[1.5rem] border-2 border-[#B740A1] gap-2 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] md:h-[3rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
                             <button type="submit" className='text-white text-sm md:text-sm'>Submit</button>
                             <div className='2xl:w-[2.5rem] md:w-[1.8rem] w-[1.8rem] h-[1.8rem] md:h-[1.8rem] 2xl:h-[2.5rem] justify-center flex items-center text-white text-lg md:text-base group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>

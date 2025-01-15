@@ -50,10 +50,7 @@ const CustomerLove = () => {
                     >                    {/* Text Section */}
                         <div className="flex-1 flex flex-col justify-between pr-7">
                             <p className="text-base">
-                                <span className="text-pink-400">AI Gnosis</span> has
-                                revolutionized the way we approach autism diagnosis in our clinic. The
-                                AI tools are not only accurate but also incredibly user-friendly,
-                                making our workflow more efficient.
+                            Aignosis helped us understand our child’s development better. The insights were so accurate and the personalized therapy plan has made such a difference in just a few weeks!”
                             </p>
                             <div className="w-full h-[4px] mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
                             <div className="flex items-center justify-between px-10">
@@ -65,8 +62,8 @@ const CustomerLove = () => {
                                 </div>
                                 <div>
                                     <h1 className="text-sm text-white">
-                                        Dr. Rohan Mehta,
-                                        <span className="block text-[#CACED9] mt-2 text-xs">
+                                    Meera Sharma
+                                                                            <span className="block text-[#CACED9] mt-2 text-xs">
                                             Pediatric Neurologist
                                         </span>
                                     </h1>

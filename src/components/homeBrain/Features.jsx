@@ -3,12 +3,35 @@ import Divider from "../aboutus/Divider";
 import img5 from "../../assets/clinic/img5.png";
 import animal from "../../assets/animal.png";
 import img1 from "../../assets/homepage/image i1.png";
-import img2 from "../../assets/homepage/image i2.png";
+import img2 from "../../assets/ZenBook Duo 15.png";
 import img3 from "../../assets/homepage/image i3.png";
 import img4 from "../../assets/homepage/image i4.png";
 import gsap from "gsap";
+import p4 from "../../assets/PopUps/p.png";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
+
+  const p3Ref = useRef(null);  // Create a reference for p3 image
+
+    useEffect(() => {
+        // GSAP animation for p3 image
+        gsap.fromTo(p3Ref.current, 
+            { opacity: 0, x: 200 }, 
+            {
+                opacity: 1,
+                x: 0,
+                scrollTrigger: {
+                    trigger: p3Ref.current,
+                    start: "top 80%",  // Animation starts when p3 image top reaches 80% of the viewport height
+                    end: "top center", // Animation ends when p3 image top reaches the center of the viewport
+                    scrub: true,
+                }
+            }
+        );
+    }, []);
   const cardRefs = useRef([]);
   const lightRefs = useRef([]);
 
@@ -72,13 +95,13 @@ const Features = () => {
 
   const showLight = (light) => {
     gsap.to(light, {
-      opacity: 0.7,
+      opacity: 0.2,
       duration: 0.1,
     });
   };
 
   return (
-    <div className="bg-[#1A0C25]  min-h-screen font-raleway  p-[4vw] ">
+    <div className="bg-[#1A0C25] min-h-screen font-raleway  p-[4vw] ">
       <div>
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" subtitle="" />
@@ -86,7 +109,7 @@ const Features = () => {
           <h1 className="text-[#F6E8FB] font-raleway -mt-10  max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h1>
-          <img src={img5} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" />
+          <img src={p4} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center  gap-4 p-4">
@@ -232,38 +255,6 @@ const Features = () => {
                 screen during the test for an easy experience.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className='bg-[#1A0C25] p-[2vw] pt-[4vw] '>
-        <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
-          <span
-            className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-          <span className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
-            The Ai.gnosis Autism Test
-          </span>
-          <span
-            className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-        </div>
-
-        <div className='flex flex-col'>
-          <div className='flex justify-center items-center' >
-            <img src={""} className='w-[100px]' alt="" />
-            <h1 className='text-[#F6E8FB] mt-2 font-raleway text-[48px] text-center leading-[3vw] max-sm:text-[24px] mr-[20px]'> A quick, accurate, and non-invasive way to <br /> screen your child.</h1>
-          </div>
-          <div className='flex justify-center items-center mx-auto md:w-[800px]'>
-
-            <p className='text-[#F6E8FB] mt-4 text-center'>This enables early detection and helping parents take proactive steps for their child’s development.</p>
           </div>
         </div>
       </div>

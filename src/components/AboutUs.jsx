@@ -51,21 +51,15 @@ const AboutUs = () => {
         />
         <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
           <span className="font-medium">How it all began</span>
-          <span className="pt-4 block">
+          {/* <span className="pt-4 block">
             Embark on a journey through our narrative, where innovation meets
             purpose.
+          </span> */}
+          <span className="pt-4 block">
+            We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
           </span>
           <span className="pt-4 block">
-            Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames.
-            Blandit et purus mollis convallis malesuada egestas risus quam enim.
-            Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui
-            elementum a sed.
-          </span>
-          <span className="pt-4 block">
-            Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames.
-            Blandit et purus mollis convallis malesuada egestas risus quam enim.
-            Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui
-            elementum a sed.
+            That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
           </span>
         </div>
       </div>
@@ -95,23 +89,17 @@ const AboutUs = () => {
       <div className="flex max-sm:flex-col items-center px-10 justify-center mt-[8vw] ">
         <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
           <span className="font-medium font-raleway text-2xl">
-            The birth of aignosis
+            The Goal of aignosis
           </span>
-          <span className="pt-4 block font-manrope">
+          {/* <span className="pt-4 block font-manrope">
             Embark on a journey through our narrative, where innovation meets
             purpose.
+          </span> */}
+          <span className="pt-4 block font-manrope">
+            At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
           </span>
           <span className="pt-4 block font-manrope">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis unde
-            cumque molestias molestiae! Nostrum in ratione nulla velit unde,
-            illo neque vitae numquam aut recusandae doloremque cupiditate
-            maiores, corporis reprehenderit.
-          </span>
-          <span className="pt-4 block font-manrope">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis unde
-            cumque molestias molestiae! Nostrum in ratione nulla velit unde,
-            illo neque vitae numquam aut recusandae doloremque cupiditate
-            maiores, corporis reprehenderit.
+            Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
           </span>
         </div>
         <div className="flex items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
@@ -122,8 +110,8 @@ const AboutUs = () => {
           /> */}
         </div>
       </div>
-      <div className="flex flex-row max-sm:flex-col max-sm:mt-4  items-center  justify-center mt-[8vw] ">
-        <div className="pl-8 rounded-xl bg-white bg-opacity-10 max-sm:pb-6  max-w-[700PX]  mr-2 max-md:pl-5">
+      <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
+        <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700PX]  mr-2 max-md:pl-5">
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
               <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
@@ -144,13 +132,10 @@ const AboutUs = () => {
                   />
                 </div>
                 <div className="mt-8 text-xl font-semibold leading-none text-white">
-                  Blog
+                  Vision
                 </div>
                 <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  commodi consequatur vero sit. Est excepturi nisi reprehenderit
-                  repudiandae sunt veritatis fugiat perferendis a harum
-                  nesciunt. Tempore veniam corporis libero nisi.
+                  To create a world where every child has the opportunity to thrive through early detection and personalized developmental support, breaking barriers to accessibility and affordability in autism screening.
                 </div>
               </div>
             </div>
@@ -164,7 +149,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="pl-8 rounded-xl max-sm:mt-4  bg-white bg-opacity-10 max-sm:pb-6  max-w-[700px] max-md:pl-5">
+        <div className="pl-8 rounded-xl max-sm:mt-4 overflow-hidden bg-white bg-opacity-10 max-sm:pb-6  max-w-[700px] max-md:pl-5">
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
               <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
@@ -185,13 +170,10 @@ const AboutUs = () => {
                   />
                 </div>
                 <div className="mt-8 text-xl font-semibold leading-none text-white">
-                  The birth of aignosis
+                  Mission
                 </div>
                 <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  commodi consequatur vero sit. Est excepturi nisi reprehenderit
-                  repudiandae sunt veritatis fugiat perferendis a harum
-                  nesciunt. Tempore veniam corporis libero nisi.
+                  To revolutionize early autism detection by leveraging AI and cutting-edge technology to deliver accurate, affordable, and non-invasive screening solutions. We aim to empower families, educators, and clinicians with actionable insights, fostering early intervention.
                 </div>
               </div>
             </div>

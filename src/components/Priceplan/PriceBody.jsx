@@ -13,7 +13,7 @@ import { FaCcVisa } from "react-icons/fa";
 import { SiAmericanexpress } from "react-icons/si";
 import { FaCcMastercard } from "react-icons/fa";
 import axiosInstance from "../config/axiosInstance";
-
+import "./PriceBody.css"
 const PaymentPopup = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
 
@@ -316,7 +316,7 @@ const PriceBody = () => {
   };
 
   console.log(amount, "amount");
-  
+
   const handleBuyNowClick = () => {
     if (!amount) {
       alert("Please select a plan before proceeding.");
@@ -333,8 +333,8 @@ const PriceBody = () => {
 
   const handlePayment = async () => {
     try {
-        console.log("enter first");
-        
+      console.log("enter first");
+
       const { data: order } = await axiosInstance.post(
         "/api/payment/create-order",
         { amount },
@@ -424,20 +424,18 @@ const PriceBody = () => {
         <div className="ml-4 w-[45%] pr-4">
           <div className="flex flex-col">
             <h1 className="text-4xl">
-              Select Perfect Plan For Your Child's Needs
+              Early Autism Screening for a Brighter Tomorrow
+
             </h1>
             <p className=" text-xs mt-4 font-montserrat text-[#F6E8FB]">
-              Find the ideal support plan tailored to your child’s unique
-              journey. Our options are designed to provide targeted
-              guidance,whether for developmental assessments, therapy, or
-              academic support, ensuring a comprehensive approach to their
-              growth and success.
+              Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |
+
             </p>
-            <p className="italic text-xs mt-4 text-[#F6E8FB]">
+            {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
               this assessment, offering meaningful support and valuable insights
               to families navigating similar paths."
-            </p>
+            </p> */}
           </div>
           <div className="mt-4 font-montserrat">
             <h1>700₹</h1>
@@ -455,20 +453,48 @@ const PriceBody = () => {
           <div className="">
             <div className="">
               <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  In-Depth Assessment
+                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
+                  Better Social Skills & Communication
                 </h1>
                 <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Personalized therapy
+                  Stronger Emotional Connection
+                </h1>
+                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                  Happier Families with Clear Guidance
                 </h1>
               </div>
               <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Addaptive learning support{" "}
+                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                  Faster Developmental Growth
+                </h1>
+                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                  Improved Focus & Learning
                 </h1>
                 <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Continuos feedback
+                  Boosted Confidence & Happiness
                 </h1>
+              </div>
+            </div>
+          </div>
+          <div className="mt-5">
+            <div className="flex gap-5">
+              <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <h1 className="text-xs">33% Off!</h1>
+                </div>
+                <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+              </div>
+              <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <h1 className="text-xs">33% Off!</h1>
+                </div>
+                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                <h1 className="text-xs">(MRP incl. all taxes)</h1>
               </div>
             </div>
           </div>
@@ -476,34 +502,33 @@ const PriceBody = () => {
             <div className="">
               <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
             </div>
-            <div className="flex mt-6 gap-4">
+            <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
               {/* Card 1 */}
               {therapyCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`therapy-card ${
-                    selectedCard === index ? "selected" : ""
-                  }`}
+                  className={`therapy-card ${selectedCard === index ? "selected" : ""
+                    }`}
                   onClick={() => handleCardSelect(index, card.amount)}
                 >
                   <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                     <div className="text-center mb-4">
                       <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
-                      {card.discount} Off!
+                        {card.discount} Off!
                       </span>
                     </div>
                     <div className="text-center">
                       <p className="text-lg font-semibold">
-                      ₹{card.amount}{" "}
+                        ₹{card.amount}{" "}
                         <span className="line-through text-gray-400">
-                        ₹{card.amount + card.savings}
+                          ₹{card.amount + card.savings}
                         </span>
                       </p>
-                      
+
                       <p className="text-xs mt-2">{card.sessions}Month Validity</p>
                       <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
                       <p className="text-xs font-bold mt-2">
-                      Save ₹{card.savings} overall!
+                        Save ₹{card.savings} overall!
                       </p>
                     </div>
                   </div>
@@ -512,44 +537,48 @@ const PriceBody = () => {
             </div>
             <div className="flex mt-5 gap-4">
               {/* Share Button */}
-              <div className="relative w-full flex justify-center items-center rounded-lg p-[2px] bg-gradient-to-r from-[#D2407480] to-[#6518B480]"
-              onClick={() => {
-                if (navigator.share) {
-                  navigator
-                    .share({
-                      title: "Check this out!",
-                      text: "I found something interesting for you.",
-                      url: window.location.href, // Current page URL
-                    })
-                    .then(() => console.log("Content shared successfully"))
-                    .catch((error) => console.error("Error sharing content", error));
-                } else {
-                  alert("Web Share API is not supported in your browser.");
-                }
-              }}
-              >
-                <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                  Share
-                </button>
+              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
+                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator
+                        .share({
+                          title: "Check this out!",
+                          text: "I found something interesting for you.",
+                          url: window.location.href, // Current page URL
+                        })
+                        .then(() => console.log("Content shared successfully"))
+                        .catch((error) => console.error("Error sharing content", error));
+                    } else {
+                      alert("Web Share API is not supported in your browser.");
+                    }
+                  }}
+                >
+                  <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                    Share
+                  </button>
+                </div>
               </div>
-
-              {/* Add to Cart Button */}
-              <div className="relative w-full flex justify-center items-center rounded-lg p-[2px] bg-gradient-to-r from-[#D2407480] to-[#6518B480]">
-                <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                  Add to cart
-                </button>
+              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
+                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                  <button
+                    //   onClick={handleBuyNowClick}
+                    // onClick={handlePayment}
+                    className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
+                  >
+                    Buy now
+                  </button>
+                </div>
               </div>
             </div>
             <div className="flex mt-5 gap-4">
-              {/* Share Button */}
-              <div className="relative w-full flex justify-center items-center rounded-lg p-[2px] bg-gradient-to-r from-[#D2407480] to-[#6518B480]">
-                <button
-                //   onClick={handleBuyNowClick}
-                  onClick={handlePayment}
-                  className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
-                >
-                  Buy now
-                </button>
+              {/* Add to Cart Button */}
+              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                  <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -672,7 +701,7 @@ const PriceBody = () => {
         </div>
       </div>
       {/* <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} /> */}
-    
+
 
       {paymentStatus && <p className="payment-status">{paymentStatus}</p>}
     </>
