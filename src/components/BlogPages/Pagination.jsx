@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  // Define how many pages to display at a time
-  const maxVisiblePages = 7;
+  const [maxVisiblePages, setMaxVisiblePages] = useState(10);
+
+  // Adjust maxVisiblePages based on screen size
+  useEffect(() => {
+    const updateMaxVisiblePages = () => {
+      setMaxVisiblePages(window.innerWidth <= 640 ? 6 : 10); // 640px corresponds to `max-sm` in Tailwind
+    };
+
+    updateMaxVisiblePages(); // Initialize on mount
+    window.addEventListener("resize", updateMaxVisiblePages); // Listen to resize events
+    return () => window.removeEventListener("resize", updateMaxVisiblePages); // Cleanup
+  }, []);
+
   const halfRange = Math.floor(maxVisiblePages / 2);
 
   // Determine the range of pages to display
@@ -67,9 +77,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       >
         <FaChevronRight />
       </button>
-      
     </div>
-    
   );
 };
 

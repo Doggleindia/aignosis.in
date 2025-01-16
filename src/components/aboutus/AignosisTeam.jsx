@@ -22,7 +22,7 @@ const AignosisTeam = () => {
                     subtitle={"The Minds Behind Ai.gnosis"}
                     desc={"Working together for a brighter future."}
                 />
-                <div className="flex mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
+                <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw]  gap-4 px-10">
                     <MemberCard
                         title="Divyansh ​Mangal"
                         subtitle="Co-Founder"
