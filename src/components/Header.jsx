@@ -356,33 +356,7 @@ const Header = () => {
             </div>
 
 
-            {/* ABOUT Link */}
-            <Link
-              to="/about-us"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/prices"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              PRICES
-            </Link>
-            <Link
-              to="/clinic"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              CLINIC
-            </Link>
-            {/* BLOGS Link */}
-            <Link
-              to="/blog"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              BLOGS
-            </Link>
-
+          
             {/* Book Appointment Button */}
             <div
               onClick={handleNavigate}
