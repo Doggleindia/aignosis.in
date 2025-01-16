@@ -109,7 +109,7 @@ const Header = () => {
             {/* Dropdown menu */}
             {isHovered && (
               <div
-                className="absolute text-white p-2 mt-8 rounded-lg shadow-lg top-[70%]  -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out"
+                className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out"
                 style={{
                   background:
                     "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
