@@ -42,13 +42,14 @@ const App = () => {
       <Routes> {/* Use Routes to define all your routes */}
         <Route path="/" element={<HomepageMain />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/partnership" element={<PartnershipPage />} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path="/assessments-evaluation" element={<ServicePage1 />} />
-        <Route path='/service2' element={<ServicePage2 />} />
-        <Route path='/service3' element={<ServicePage3 />} />
-        <Route path='/service4' element={<ServicePage4/>} />
-        <Route path='/service5' element={<ServicePage5/>} />
+        <Route path='/speech-language' element={<ServicePage2 />} />
+        <Route path='/behaviour-therapy' element={<ServicePage3 />} />
+        <Route path='/occupational-therapy' element={<ServicePage4/>} />
+        <Route path='/special-education' element={<ServicePage5/>} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path='/priceplan' element={<PriceMain />} /> 
         <Route path='/fromdoctor' element={<FromDoctor/>} />

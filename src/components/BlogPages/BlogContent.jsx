@@ -56,7 +56,7 @@ const BlogContent = ({ aboutContent }) => {
               <img
                 src={imageOptimization?.fileName}
                 alt={imageOptimization?.altText || ""}
-                className="w-[800px] h-[300px] text-white object-cover"
+                className="w-[800px] h-[300px] text-white object-cover max-sm:object-contain"
               />
             </div>
           )}
