@@ -122,7 +122,7 @@ const Header = () => {
                 <ul className="space-y-2 flex flex-col justify-center items-center">
                   <li>
                     <Link
-                      to="/service1"
+                      to="/assessments-evaluation"
                       onClick={() => handleServiceClick("/service1")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
                         activeLink === "/service1" ? "text-[#B740A1]" : ""
@@ -134,7 +134,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/service2"
+                      to="/speech-language"
                       onClick={() => handleServiceClick("/service2")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
                         activeLink === "/service2" ? "text-[#B740A1]" : ""
@@ -146,7 +146,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/service3"
+                      to="/behaviour-therapy"
                       onClick={() => handleServiceClick("/service3")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
                         activeLink === "/service3" ? "text-[#B740A1]" : ""
@@ -158,7 +158,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/service4"
+                      to="/occupational-therapy"
                       onClick={() => handleServiceClick("/service4")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
                         activeLink === "/service4" ? "text-[#B740A1]" : ""
@@ -170,7 +170,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/service5"
+                      to="/special-education"
                       onClick={() => handleServiceClick("/service5")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${
                         activeLink === "/service5" ? "text-[#B740A1]" : ""
@@ -185,7 +185,7 @@ const Header = () => {
             )}
           </div>
           <Link
-            to="/aboutus"
+            to="/about-us"
             onClick={() => handleLinkClick("/aboutus")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
               activeLink === "/aboutus" ? "border-b-2 border-white" : ""
@@ -212,7 +212,7 @@ const Header = () => {
             Clinic
           </Link>
           <Link
-            to="/BlogPages"
+            to="/Blog-Pages"
             onClick={() => handleLinkClick("/prices")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
               activeLink === "/BlogPages" ? "border-b-2 border-white" : ""
@@ -288,31 +288,31 @@ const Header = () => {
               {isServicesDropdownOpen && (
                 <div className="ml-4 mt-2 flex flex-col gap-2">
                   <Link
-                    to="/service1"
+                    to="/assessments-evaluation"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Assessments & Evaluation
                   </Link>
                   <Link
-                    to="/service2"
+                    to="/speech-language"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Speech & Language
                   </Link>
                   <Link
-                    to="/service3"
+                    to="/behaviour-therapy"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Behaviour Therapy
                   </Link>
                   <Link
-                    to="/service4"
+                    to="/occupational-therapy"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Occupational Therapy
                   </Link>
                   <Link
-                    to="/service5"
+                    to="/special-education"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Special Education
@@ -324,7 +324,7 @@ const Header = () => {
 
             {/* ABOUT Link */}
             <Link
-              to="/aboutus"
+              to="/about-us"
               className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
             >
               ABOUT
@@ -343,7 +343,7 @@ const Header = () => {
             </Link>
             {/* BLOGS Link */}
             <Link
-              to="/BlogPages"
+              to="/Blog-Pages"
               className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
             >
               BLOGS

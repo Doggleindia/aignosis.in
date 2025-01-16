@@ -1,4 +1,7 @@
 const blog = {
+  blog: {
+    headline: "All"
+  },
   blog1: {
     headline: "Early Signs of Autism in Children: A Parent's Guide", // Headline for blog1
     image: "YOUR_IMAGE_URL_FOR_BLOG1", // Image URL for blog1
