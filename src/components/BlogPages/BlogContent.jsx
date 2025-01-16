@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet"; // For adding meta tags dynamically
 import { useParams } from "react-router-dom";
+import DOMPurify from "dompurify"; // Import DOMPurify
 
 const BlogContent = ({ aboutContent }) => {
   const { id } = useParams();
@@ -22,6 +23,9 @@ const BlogContent = ({ aboutContent }) => {
   } = blog;
 
   const hasImage = ogMetadata?.ogImage || imageOptimization?.fileName || blogimg;
+
+  // Function to sanitize HTML content
+  const sanitizeHTML = (html) => DOMPurify.sanitize(html);
 
   return (
     <>
@@ -48,16 +52,14 @@ const BlogContent = ({ aboutContent }) => {
           
           {/* Image (only if available) */}
           {(ogMetadata?.ogImage || imageOptimization?.fileName) && (
-  <div className="flex gap-2 mt-2">
-    <img
-      src={imageOptimization?.fileName}
-      alt={imageOptimization?.altText || ""}
-      className="w-[800px] h-[300px] text-white object-cover"
-    />
-  </div>
-)}
-
-
+            <div className="flex gap-2 mt-2">
+              <img
+                src={imageOptimization?.fileName}
+                alt={imageOptimization?.altText || ""}
+                className="w-[800px] h-[300px] text-white object-cover"
+              />
+            </div>
+          )}
         </div>
 
         {/* Meta Description */}
@@ -70,10 +72,10 @@ const BlogContent = ({ aboutContent }) => {
               <h2 className="text-[#F6E8FB] font-raleway text-[24px]">
                 {section.sectionTitle}
               </h2>
-              {/* Render HTML content safely */}
+              {/* Render sanitized HTML content */}
               <p
                 className="font-raleway text-[#F6E8FB]"
-                dangerouslySetInnerHTML={{ __html: section.text }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHTML(section.text) }}
               ></p>
 
               {/* Subsections */}
@@ -85,7 +87,7 @@ const BlogContent = ({ aboutContent }) => {
                     </h3>
                     <p
                       className="font-raleway text-[#F6E8FB]"
-                      dangerouslySetInnerHTML={{ __html: subsection.text }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHTML(subsection.text) }}
                     ></p>
                   </div>
                 ))}
