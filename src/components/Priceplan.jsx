@@ -13,8 +13,9 @@ import Features from './homeBrain/Features'
 
 const Priceplan = () => {
   return (
-    <div className='bg-[#1A0C25] p-2 overflow-x-hidden text-white w-full h-full'>
-      <Header />
+   <>
+   <Header/>  
+     <div className='bg-[#1A0C25] p-2 overflow-x-hidden text-white w-full h-full'>
       <div className="w-full mt-[5vw] hidden md:block h-full">
         <div className="w-full p-10 flex ml-6 gap-10">
           <button className='border-b border-[#811F67]'>Assesments</button>
@@ -34,8 +35,9 @@ const Priceplan = () => {
       <CustomerLove/>
       <Features />
       <ContactPage/>
-      <BlogFooter/>
     </div>
+    <BlogFooter/>
+   </>
   )
 }
 

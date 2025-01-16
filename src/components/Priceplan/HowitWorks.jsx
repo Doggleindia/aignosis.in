@@ -52,14 +52,14 @@ const HowitWorks = () => {
                             <div className="absolute -left-16 -top-4">
                                 <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
-                        </div>                    
                         </div>
+                    </div>
                     <div className="w-full flex items-center justify-start h-[15vw]">
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
                             <div className="absolute rotate-180 -right-16 -bottom-4">
                                 <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
-                        </div>                        
+                        </div>
                         <div className="w-[13vw] ml-5  p-2 h-auto">
                             <h1 className='text-[20px]'>Step 2</h1>
                             <p className='text-[12px] text-[#CACED9]'>Set Up the Environment Create a calm, distraction-free space.</p>
@@ -68,7 +68,7 @@ const HowitWorks = () => {
                             <div className="absolute rotate-180 -right-16 -bottom-4">
                                 <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
-                        </div>                       
+                        </div>
                         <div className="w-[13vw] p-2 ml-5 h-auto">
                             <h1 className='text-[20px]'>Step 4 </h1>
                             <p className='text-[12px] text-[#CACED9]'>AI Analysis Let our AI analyze your child’s responses.</p>
@@ -88,6 +88,84 @@ const HowitWorks = () => {
                 </div>
 
             </div>
+            <div className="pt-8 md:hidden">
+                {/* Divider Section */}
+                <Divider title="Advantages" />
+                <h1 className="text-xl font-montserrat text-center tracking-tight font-semibold text-[#F6E8FB]">
+                    How it works
+                </h1>
+                <div className="w-full relative font-montserrat h-full p-5">
+                    <div className="w-full flex flex-col items-center space-y-6">
+                        {/* Step 1 */}
+                        <div className="w-full flex flex-col items-center space-y-2">
+                            <div className="w-full text-center">
+                                <h1 className="text-[16px]">Step 1</h1>
+                                <p className="text-[12px] text-[#CACED9]">Book Your Test Schedule the screening online or at a center.</p>
+                            </div>
+                            <div className="bg-[#D9D9D947] relative w-full rounded-2xl h-32">
+                                <div className="absolute -left-4 -top-4">
+                                    <img src={forward} className="object-contain scale-[.6]" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="w-full flex flex-col items-center space-y-2">
+                            
+                            <div className="w-full text-center">
+                                <h1 className="text-[16px]">Step 2</h1>
+                                <p className="text-[12px] text-[#CACED9]">Set Up the Environment Create a calm, distraction-free space.</p>
+                            </div>
+                            <div className="bg-[#D9D9D947] relative w-full rounded-2xl h-32">
+                                <div className="absolute rotate-180 -right-4 -bottom-4">
+                                    <img src={forward} className="object-contain scale-[.6]" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="w-full flex flex-col items-center space-y-2">
+                            <div className="w-full text-center">
+                                <h1 className="text-[16px]">Step 3</h1>
+                                <p className="text-[12px] text-[#CACED9]">Run the Screening Follow simple steps to start the test.</p>
+                            </div>
+                            <div className="bg-[#D9D9D947] relative w-full rounded-2xl h-32">
+                                <div className="absolute -left-4 -top-4">
+                                    <img src={forward} className="object-contain scale-[.6]" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Step 4 */}
+                        <div className="w-full flex flex-col items-center space-y-2">
+                        <div className="w-full text-center">
+                                <h1 className="text-[16px]">Step 4</h1>
+                                <p className="text-[12px] text-[#CACED9]">AI Analysis Let our AI analyze your child’s responses.</p>
+                            </div>
+                            <div className="bg-[#D9D9D947] relative w-full rounded-2xl h-32">
+                                <div className="absolute rotate-180 -right-4 -bottom-4">
+                                    <img src={forward} className="object-contain scale-[.6]" alt="" />
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        {/* Step 5 */}
+                        <div className="w-full flex flex-col items-center space-y-2">
+                            <div className="w-full text-center">
+                                <h1 className="text-[16px]">Step 5</h1>
+                                <p className="text-[12px] text-[#CACED9]">Receive Insights Get a detailed report with recommendations and free consultation.</p>
+                            </div>
+                            <div className="bg-[#D9D9D947] relative w-full rounded-2xl h-32">
+                                <div className="absolute -left-4 -top-4">
+                                    <img src={forward} className="object-contain scale-[.6]" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
