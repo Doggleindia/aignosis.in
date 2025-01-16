@@ -304,7 +304,7 @@ const PaymentPopup = ({ isVisible, onClose }) => {
   );
 };
 
-const PriceBody = () => {
+const PriceBody = ({ selectedOption }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [amount, setAmount] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -411,319 +411,644 @@ const PriceBody = () => {
   ];
   return (
     <>
-      <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 gap-4 2xl:px-[5vw] md:px-10">
-        <div className="flex w-[15%] flex-col gap-4">
-          <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
-          <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
-          <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
-          <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
-        </div>
-        <div className="">
-          <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]"></div>
-        </div>
-        <div className="ml-4 w-[45%] pr-4">
-          <div className="flex flex-col">
-            <h1 className="text-4xl">
-              Early Autism Screening for a Brighter Tomorrow
+      {selectedOption === 'Assessment' ? (
+        <div>
+          <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 2xl:px-[5vw] md:px-10">
+            <div className="flex sticky gap-12 top-4">
+              <div className="flex w-[15%] flex-col gap-4">
+                <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+                <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+                <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+                <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+                <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+              </div>
+              <div className="flex-1 overflow-auto">
+                <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]"></div>
+              </div>
+            </div>
+            <div className="ml-4 flex-1 overflow-auto w-[45%] pr-4">
+              <div className="flex flex-col">
+                <h1 className="text-4xl">
+                  Early Autism Screening for a Brighter Tomorrow
 
-            </h1>
-            <p className=" text-xs mt-4 font-montserrat text-[#F6E8FB]">
-              Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |
+                </h1>
+                <p className=" text-xs mt-4 font-montserrat text-[#F6E8FB]">
+                  Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |
 
-            </p>
-            {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
+                </p>
+                {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
               this assessment, offering meaningful support and valuable insights
               to families navigating similar paths."
             </p> */}
-          </div>
-          <div className="mt-4 font-montserrat">
-            <h1>700₹</h1>
-            <div className="text-[9px]">
-              <h1 className="text-[#F6E8FB]">originally ₹2000</h1>
-              <h1 className="text-[#F6E8FB]">(Comprehensive Evaluation)</h1>
-              <h1 className="text-[#F6E8FB]">Includes Formal Report</h1>
-              <h1 className="text-[#F6E8FB]">Detailed Explanation</h1>
-              <h1 className="text-[#F6E8FB]">Easy & fast procedure</h1>
-            </div>
-          </div>
-          <div className="mt-4">
-            <h1>Benefits</h1>
-          </div>
-          <div className="">
-            <div className="">
-              <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
-                  Better Social Skills & Communication
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Stronger Emotional Connection
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Happier Families with Clear Guidance
-                </h1>
               </div>
-              <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Faster Developmental Growth
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Improved Focus & Learning
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                  Boosted Confidence & Happiness
-                </h1>
-              </div>
-            </div>
-          </div>
-          <div className="mt-5">
-            <div className="flex gap-5">
-              <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
-                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+              <div className="mt-4 font-montserrat">
+                <h1>700₹</h1>
+                <div className="text-[9px]">
+                  <h1 className="text-[#F6E8FB]">originally ₹2000</h1>
+                  <h1 className="text-[#F6E8FB]">(Comprehensive Evaluation)</h1>
+                  <h1 className="text-[#F6E8FB]">Includes Formal Report</h1>
+                  <h1 className="text-[#F6E8FB]">Detailed Explanation</h1>
+                  <h1 className="text-[#F6E8FB]">Easy & fast procedure</h1>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
               </div>
-              <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
-                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+              <div className="mt-4">
+                <h1>Benefits</h1>
+              </div>
+              <div className="">
+                <div className="">
+                  <div className="mt-2 flex gap-4">
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
+                      Better Social Skills & Communication
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Stronger Emotional Connection
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Happier Families with Clear Guidance
+                    </h1>
+                  </div>
+                  <div className="mt-2 flex gap-4">
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Faster Developmental Growth
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Improved Focus & Learning
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Boosted Confidence & Happiness
+                    </h1>
+                  </div>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
               </div>
-            </div>
-          </div>
-          <div className="mt-5">
-            <div className="">
-              <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
-            </div>
-            <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
-              {/* Card 1 */}
-              {therapyCards.map((card, index) => (
-                <div
-                  key={index}
-                  className={`therapy-card ${selectedCard === index ? "selected" : ""
-                    }`}
-                  onClick={() => handleCardSelect(index, card.amount)}
-                >
-                  <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
-                    <div className="text-center mb-4">
-                      <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
-                        {card.discount} Off!
-                      </span>
+              <div className="mt-5">
+                <div className="flex gap-5">
+                  <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                    <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
                     </div>
-                    <div className="text-center">
-                      <p className="text-lg font-semibold">
-                        ₹{card.amount}{" "}
-                        <span className="line-through text-gray-400">
-                          ₹{card.amount + card.savings}
-                        </span>
-                      </p>
+                    <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                    <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                  <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                    <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                    <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-5">
+                <div className="">
+                  <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+                </div>
+                <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
+                  {/* Card 1 */}
+                  {therapyCards.map((card, index) => (
+                    <div
+                      key={index}
+                      className={`therapy-card ${selectedCard === index ? "selected" : ""
+                        }`}
+                      onClick={() => handleCardSelect(index, card.amount)}
+                    >
+                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                        <div className="text-center mb-4">
+                          <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                            {card.discount} Off!
+                          </span>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-lg font-semibold">
+                            ₹{card.amount}{" "}
+                            <span className="line-through text-gray-400">
+                              ₹{card.amount + card.savings}
+                            </span>
+                          </p>
 
-                      <p className="text-xs mt-2">{card.sessions}Month Validity</p>
-                      <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
-                      <p className="text-xs font-bold mt-2">
-                        Save ₹{card.savings} overall!
-                      </p>
+                          <p className="text-xs mt-2">{card.sessions}Month Validity</p>
+                          <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
+                          <p className="text-xs font-bold mt-2">
+                            Save ₹{card.savings} overall!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex mt-5 gap-4">
+                  {/* Share Button */}
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator
+                            .share({
+                              title: "Check this out!",
+                              text: "I found something interesting for you.",
+                              url: window.location.href, // Current page URL
+                            })
+                            .then(() => console.log("Content shared successfully"))
+                            .catch((error) => console.error("Error sharing content", error));
+                        } else {
+                          alert("Web Share API is not supported in your browser.");
+                        }
+                      }}
+                    >
+                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                        Share
+                      </button>
+                    </div>
+                  </div>
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                      <button
+                        //   onClick={handleBuyNowClick}
+                        // onClick={handlePayment}
+                        className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
+                      >
+                        Buy now
+                      </button>
                     </div>
                   </div>
                 </div>
-              ))}
+                <div className="flex mt-5 gap-4">
+                  {/* Add to Cart Button */}
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex mt-5 gap-4">
-              {/* Share Button */}
-              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
-                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
-                  onClick={() => {
-                    if (navigator.share) {
-                      navigator
-                        .share({
-                          title: "Check this out!",
-                          text: "I found something interesting for you.",
-                          url: window.location.href, // Current page URL
-                        })
-                        .then(() => console.log("Content shared successfully"))
-                        .catch((error) => console.error("Error sharing content", error));
-                    } else {
-                      alert("Web Share API is not supported in your browser.");
-                    }
-                  }}
+          </div>
+          <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
+            <div className="flex flex-col gap-4 items-center">
+              {/* Center Image */}
+              <div className="w-[90vw] h-[60vw] bg-[#D9D9D9]"></div>
+              {/* Left Column */}
+              <div className="flex gap-2 w-full">
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+
+              </div>
+
+              {/* Text Content */}
+              <div className="text-left mt-4 px-2">
+                <h1 className="text-xl font-bold">
+                Early Autism Screening for a Brighter Tomorrow
+                </h1>
+                <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
+                Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |
+                </p>
+                {/* <p className="italic text-xs mt-2 text-[#F6E8FB]">
+                  "Looking to support another child’s journey? You can also gift
+                  this assessment, offering meaningful support and valuable insights
+                  to families navigating similar paths."
+                </p> */}
+              </div>
+
+              {/* Pricing */}
+              <div className="text-left w-full px-2 font-montserrat">
+                <h1 className="text-2xl">700₹</h1>
+                <div className="text-[10px] mt-2 text-[#FFFEF8]">
+                  <p>originally ₹2000</p>
+                  <p>(Comprehensive Evaluation)</p>
+                  <p>Includes Formal Report</p>
+                  <p>Detailed Explanation</p>
+                  <p>Easy & fast procedure</p>
+                </div>
+              </div>
+
+              {/* Benefits */}
+              <div className="mt-4">
+                <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    In-Depth Assessment
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Personalized Therapy
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Adaptive Learning Support
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Continuous Feedback
+                  </span>
+                </div>
+              </div>
+              <div className="mt-5">
+                <div className="flex flex-col gap-5">
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                    <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                    <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                    <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                    <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                </div>
+              </div>
+              {/* Therapy Options */}
+              <div className="mt-4">
+                <h1 className="text-xl font-bold text-white text-left px-2">
+                  Add Therapy
+                </h1>
+                <div className="flex flex-wrap justify-center gap-4 mt-4">
+                  {/* Therapy Cards */}
+                  {Array(3)
+                    .fill(0)
+                    .map((_, index) => (
+                      <div
+                        key={index}
+                        className="bg-[#43284C4D] rounded-lg p-4 text-white w-[80%] text-center"
+                      >
+                        <div className="mb-2">
+                          <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                            10% Off!
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-lg font-semibold">
+                            ₹24000{" "}
+                            <span className="line-through text-gray-400">
+                              ₹27000
+                            </span>
+                          </p>
+                          <p className="text-xs mt-2">3-Month Validity</p>
+                          <p className="text-xs">15 Sessions at ₹1600/session</p>
+                          <p className="text-xs font-bold mt-2">
+                            Save ₹3000 overall!
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center gap-4 mt-4">
+                <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                  Share
+                </button>
+                <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                  Add to cart
+                </button>
+                <button
+                  onClick={handleBuyNowClick}
+                  className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
                 >
-                  <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                    Share
-                  </button>
-                </div>
-              </div>
-              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
-                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                  <button
-                    //   onClick={handleBuyNowClick}
-                    // onClick={handlePayment}
-                    className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
-                  >
-                    Buy now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-5 gap-4">
-              {/* Add to Cart Button */}
-              <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
-                <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                  <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                    Add to cart
-                  </button>
-                </div>
+                  Buy now
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
-        <div className="flex flex-col gap-4 items-center">
-          {/* Center Image */}
-          <div className="w-[90vw] h-[60vw] bg-[#D9D9D9]"></div>
-          {/* Left Column */}
-          <div className="flex gap-2">
-            <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
-            <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
-            <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
-            <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
-          </div>
+      ) : (
+        <div className="">
+          <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 gap-4 2xl:px-[5vw] md:px-10">
+            <div className="flex sticky w-[15%] flex-col gap-4">
+              <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+              <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+              <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+              <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
+              <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
 
-          {/* Text Content */}
-          <div className="text-left mt-4 px-2">
-            <h1 className="text-xl font-bold">
-              Select Perfect Plan For Your Child's Needs
-            </h1>
-            <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
-              Find the ideal support plan tailored to your child’s unique
-              journey. Our options are designed to provide targeted guidance,
-              whether for developmental assessments, therapy, or academic
-              support, ensuring a comprehensive approach to their growth and
-              success.
-            </p>
-            <p className="italic text-xs mt-2 text-[#F6E8FB]">
+            </div>
+            <div className="">
+              <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]"></div>
+            </div>
+            <div className="ml-4 w-[45%] pr-4">
+              <div className="flex flex-col">
+                <h1 className="text-4xl">
+                  Select best therapy plan  For Your Child's Needs
+
+                </h1>
+                <p className=" text-xs mt-4 font-montserrat text-[#F6E8FB]">
+                  Find the ideal support plan tailored to your child’s unique journey. Our options are designed to provide targeted guidance,whether for developmental assessments, therapy, or academic support, ensuring a comprehensive approach to their growth and success.
+                </p>
+
+                <p className=" text-xs mt-4 font-montserrat italic text-[#F6E8FB]">
+                  "Looking to support another child’s journey? You can also gift this assessment, offering meaningful support and valuable insights to families navigating similar paths."
+                </p>
+                {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
               this assessment, offering meaningful support and valuable insights
               to families navigating similar paths."
-            </p>
-          </div>
-
-          {/* Pricing */}
-          <div className="text-left w-full px-2 font-montserrat">
-            <h1 className="text-2xl">700₹</h1>
-            <div className="text-[10px] mt-2 text-[#FFFEF8]">
-              <p>originally ₹2000</p>
-              <p>(Comprehensive Evaluation)</p>
-              <p>Includes Formal Report</p>
-              <p>Detailed Explanation</p>
-              <p>Easy & fast procedure</p>
-            </div>
-          </div>
-
-          {/* Benefits */}
-          <div className="mt-4">
-            <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
-            <div className="mt-4 flex flex-wrap justify-center gap-2">
-              <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                In-Depth Assessment
-              </span>
-              <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                Personalized Therapy
-              </span>
-              <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                Adaptive Learning Support
-              </span>
-              <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                Continuous Feedback
-              </span>
-            </div>
-          </div>
-          <div className="mt-5">
-            <div className="flex flex-col gap-5">
-              <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
-                <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
-                </div>
-                <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+            </p> */}
               </div>
-              <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
-                <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+              {/* <div className="mt-4 font-montserrat">
+                <h1>700₹</h1>
+                <div className="text-[9px]">
+                  <h1 className="text-[#F6E8FB]">originally ₹2000</h1>
+                  <h1 className="text-[#F6E8FB]">(Comprehensive Evaluation)</h1>
+                  <h1 className="text-[#F6E8FB]">Includes Formal Report</h1>
+                  <h1 className="text-[#F6E8FB]">Detailed Explanation</h1>
+                  <h1 className="text-[#F6E8FB]">Easy & fast procedure</h1>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
-              </div>
-            </div>
-          </div>
-          {/* Therapy Options */}
-          <div className="mt-4">
-            <h1 className="text-xl font-bold text-white text-left px-2">
-              Add Therapy
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4 mt-4">
-              {/* Therapy Cards */}
-              {Array(3)
-                .fill(0)
-                .map((_, index) => (
-                  <div
-                    key={index}
-                    className="bg-[#43284C4D] rounded-lg p-4 text-white w-[80%] text-center"
-                  >
-                    <div className="mb-2">
-                      <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
-                        10% Off!
-                      </span>
+              </div> */}
+              {/* <div className="mt-4">
+                <h1>Benefits</h1>
+              </div> */}
+              {/* <div className="">
+                <div className="">
+                  <div className="mt-2 flex gap-4">
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
+                      Better Social Skills & Communication
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Stronger Emotional Connection
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Happier Families with Clear Guidance
+                    </h1>
+                  </div>
+                  <div className="mt-2 flex gap-4">
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Faster Developmental Growth
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Improved Focus & Learning
+                    </h1>
+                    <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                      Boosted Confidence & Happiness
+                    </h1>
+                  </div>
+                </div>
+              </div> */}
+              {/* <div className="mt-5">
+                <div className="flex gap-5">
+                  <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                    <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
                     </div>
-                    <div>
-                      <p className="text-lg font-semibold">
-                        ₹24000{" "}
-                        <span className="line-through text-gray-400">
-                          ₹27000
-                        </span>
-                      </p>
-                      <p className="text-xs mt-2">3-Month Validity</p>
-                      <p className="text-xs">15 Sessions at ₹1600/session</p>
-                      <p className="text-xs font-bold mt-2">
-                        Save ₹3000 overall!
-                      </p>
+                    <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                    <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                  <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                    <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                    <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                </div>
+              </div> */}
+              <div className="mt-5">
+                <div className="">
+                  <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+                </div>
+                <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
+                  {/* Card 1 */}
+                  {therapyCards.map((card, index) => (
+                    <div
+                      key={index}
+                      className={`therapy-card ${selectedCard === index ? "selected" : ""
+                        }`}
+                      onClick={() => handleCardSelect(index, card.amount)}
+                    >
+                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                        <div className="text-center mb-4">
+                          <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                            {card.discount} Off!
+                          </span>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-lg font-semibold">
+                            ₹{card.amount}{" "}
+                            <span className="line-through text-gray-400">
+                              ₹{card.amount + card.savings}
+                            </span>
+                          </p>
+
+                          <p className="text-xs mt-2">{card.sessions}Month Validity</p>
+                          <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
+                          <p className="text-xs font-bold mt-2">
+                            Save ₹{card.savings} overall!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex mt-5 gap-4">
+                  {/* Share Button */}
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                      onClick={() => {
+                        if (navigator.share) {
+                          navigator
+                            .share({
+                              title: "Check this out!",
+                              text: "I found something interesting for you.",
+                              url: window.location.href, // Current page URL
+                            })
+                            .then(() => console.log("Content shared successfully"))
+                            .catch((error) => console.error("Error sharing content", error));
+                        } else {
+                          alert("Web Share API is not supported in your browser.");
+                        }
+                      }}
+                    >
+                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                        Share
+                      </button>
                     </div>
                   </div>
-                ))}
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                      <button
+                        //   onClick={handleBuyNowClick}
+                        // onClick={handlePayment}
+                        className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
+                      >
+                        Buy now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex mt-5 gap-4">
+                  {/* Add to Cart Button */}
+                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
+            <div className="flex flex-col gap-4 items-center">
+              {/* Center Image */}
+              <div className="w-[90vw] h-[60vw] bg-[#D9D9D9]"></div>
+              {/* Left Column */}
+              <div className="flex gap-2 w-full">
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
+                <div className="w-[20vw] h-[20vw] bg-[#D9D9D9]"></div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-4">
-            <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-              Share
-            </button>
-            <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-              Add to cart
-            </button>
-            <button
-              onClick={handleBuyNowClick}
-              className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
-            >
-              Buy now
-            </button>
+              </div>
+
+              {/* Text Content */}
+              <div className="text-left mt-4 px-2">
+                <h1 className="text-xl font-bold">
+                  Select Perfect Plan For Your Child's Needs
+                </h1>
+                <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
+                  Find the ideal support plan tailored to your child’s unique
+                  journey. Our options are designed to provide targeted guidance,
+                  whether for developmental assessments, therapy, or academic
+                  support, ensuring a comprehensive approach to their growth and
+                  success.
+                </p>
+                <p className="italic text-xs mt-2 text-[#F6E8FB]">
+                  "Looking to support another child’s journey? You can also gift
+                  this assessment, offering meaningful support and valuable insights
+                  to families navigating similar paths."
+                </p>
+              </div>
+
+              {/* Pricing */}
+              {/* <div className="text-left w-full px-2 font-montserrat">
+                <h1 className="text-2xl">700₹</h1>
+                <div className="text-[10px] mt-2 text-[#FFFEF8]">
+                  <p>originally ₹2000</p>
+                  <p>(Comprehensive Evaluation)</p>
+                  <p>Includes Formal Report</p>
+                  <p>Detailed Explanation</p>
+                  <p>Easy & fast procedure</p>
+                </div>
+              </div> */}
+
+              {/* Benefits */}
+              {/* <div className="mt-4">
+                <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    In-Depth Assessment
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Personalized Therapy
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Adaptive Learning Support
+                  </span>
+                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                    Continuous Feedback
+                  </span>
+                </div>
+              </div> */}
+              {/* <div className="mt-5">
+                <div className="flex flex-col gap-5">
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                    <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                    <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                    <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                      <h1 className="text-xs">33% Off!</h1>
+                    </div>
+                    <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                    <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                    <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                    <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                  </div>
+                </div>
+              </div> */}
+              {/* Therapy Options */}
+              <div className="mt-4">
+                <h1 className="text-xl font-bold text-white text-left px-2">
+                  Add Therapy
+                </h1>
+                <div className="flex flex-wrap justify-center gap-4 mt-4">
+                  {/* Therapy Cards */}
+                  {Array(3)
+                    .fill(0)
+                    .map((_, index) => (
+                      <div
+                        key={index}
+                        className="bg-[#43284C4D] rounded-lg p-4 text-white w-[80%] text-center"
+                      >
+                        <div className="mb-2">
+                          <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                            10% Off!
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-lg font-semibold">
+                            ₹24000{" "}
+                            <span className="line-through text-gray-400">
+                              ₹27000
+                            </span>
+                          </p>
+                          <p className="text-xs mt-2">3-Month Validity</p>
+                          <p className="text-xs">15 Sessions at ₹1600/session</p>
+                          <p className="text-xs font-bold mt-2">
+                            Save ₹3000 overall!
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center gap-4 mt-4">
+                <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                  Share
+                </button>
+                <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                  Add to cart
+                </button>
+                <button
+                  onClick={handleBuyNowClick}
+                  className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
+                >
+                  Buy now
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+
+      )}
+
       {/* <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} /> */}
-
-
       {paymentStatus && <p className="payment-status">{paymentStatus}</p>}
     </>
   );

@@ -1,6 +1,10 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
+import card1 from "../../assets/pricepage/image.png"; // Make sure this path is correct
+import card2 from "../../assets/pricepage/image1.png"; // Make sure this path is correct
+import card3 from "../../assets/pricepage/card.png"; // Make sure this path is correct
+
 
 const PricepageBenefits = () => {
     const cardData = [
@@ -92,7 +96,13 @@ const PricepageBenefits = () => {
             ></span>
         </div>
     );
+    const data = [
+        { imageUrl: card1, title: 'Early Detection for Better Outcomes' },
+        { imageUrl: card2, title: 'Personalized Therapy Recommendations' },
+        { imageUrl: card3, title: 'Improved Social Skills & Communication' },
 
+        // Add more items as needed
+    ];
     return (
         <>
             <div className="hidden md:block pt-8">
@@ -114,7 +124,7 @@ const PricepageBenefits = () => {
                         {/* First Item */}
                         <div className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={img1}
+                                src={card1}
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -124,7 +134,7 @@ const PricepageBenefits = () => {
                         {/* Second Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={img1}
+                                src={card2}
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -134,7 +144,7 @@ const PricepageBenefits = () => {
                         {/* Third Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={img1}
+                                src={card3}
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -238,14 +248,14 @@ const PricepageBenefits = () => {
 
                 {/* Mobile Carousel Section */}
                 <div className="flex flex-col gap-4 justify-center items-center mt-6">
-                    {Array(4).fill(0).map((_, index) => (
+                    {data.map((item, index) => (
                         <div key={index} className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-full">
                             <img
-                                src={img1}
-                                alt="Child health"
+                                src={item.imageUrl}
+                                alt={item.title}
                                 className="w-full h-[40vw] rounded-lg object-cover"
                             />
-                            <p className="mt-4 text-center text-sm text-white">Child health</p>
+                            <p className="mt-4 text-center text-sm text-white">{item.title}</p>
                         </div>
                     ))}
                 </div>
