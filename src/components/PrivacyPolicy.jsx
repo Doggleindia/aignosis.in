@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import BlogFooter from './BlogPages/BlogFooter';
 
 const PrivacyPolicy = () => {
   return (
@@ -183,7 +184,7 @@ const PrivacyPolicy = () => {
 </p>
         </div>
       </div>
-      <Footer />
+      <BlogFooter />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import BlogFooter from './BlogPages/BlogFooter';
 
 const TAndC = () => {
   return (
@@ -209,7 +210,7 @@ const TAndC = () => {
           
         </div>
       </div>
-      <Footer />
+      <BlogFooter />
     </div>
   );
 };

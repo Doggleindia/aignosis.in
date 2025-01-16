@@ -98,9 +98,9 @@ const Header = () => {
           >
             <Link
               to=""
-              onClick={() => handleServiceClick("/service1")} // Updated function name
+              onClick={() => handleServiceClick("/assessments-evaluation")} // Updated function name
               className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-                selectedService === "/service1" ? "border-b-2 border-white" : ""
+                selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
               }`} // Updated condition
             >
               Services
@@ -122,12 +122,12 @@ const Header = () => {
                 <ul className="space-y-2 flex flex-col justify-center items-center">
                   <li>
                     <Link
-                      to="/service1"
-                      onClick={() => handleServiceClick("/service1")}
+                      to="/assessments-evaluation"
+                      onClick={() => handleServiceClick("/assessments-evaluation")}
                       className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
-                        activeLink === "/service1" ? "text-[#B740A1]" : ""
+                        activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
                       }`}
-                      aria-label="Service 1"
+                      aria-label="/assessments-evaluation"
                     >
                       Assessments & Evaluation
                     </Link>
@@ -185,10 +185,10 @@ const Header = () => {
             )}
           </div>
           <Link
-            to="/aboutus"
-            onClick={() => handleLinkClick("/aboutus")}
+            to="/about-us"
+            onClick={() => handleLinkClick("/about-us")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/aboutus" ? "border-b-2 border-white" : ""
+              activeLink === "/about-us" ? "border-b-2 border-white" : ""
             }`}
           >
             About Us
@@ -212,10 +212,10 @@ const Header = () => {
             Clinic
           </Link>
           <Link
-            to="/BlogPages"
+            to="/blog"
             onClick={() => handleLinkClick("/prices")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/BlogPages" ? "border-b-2 border-white" : ""
+              activeLink === "/blog" ? "border-b-2 border-white" : ""
             }`}
           >
             Blogs
@@ -261,9 +261,9 @@ const Header = () => {
             style={{
               background:
                 "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
-              width: "80%",
+              width: "100%",
               borderRadius: "8px",
-              padding: "1.5rem",
+              padding: "0.3rem",
             }}
           >
             {/* HOME Link */}
@@ -274,13 +274,43 @@ const Header = () => {
               HOME
             </Link>
 
-            {/* SERVICES Dropdown */}
-            <div className="flex flex-col mt-2">
+          
+
+            {/* ABOUT Link */}
+            <Link
+              to="/about-us"
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              ABOUT
+            </Link>
+            <Link
+              to="/prices"
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              PRICES
+            </Link>
+            <Link
+              to="/clinic"
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              CLINIC
+            </Link>
+            {/* BLOGS Link */}
+            <Link
+              to="/blog"
+              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
+            >
+              BLOGS
+            </Link>
+
+
+  {/* SERVICES Dropdown */}
+  <div className="flex flex-col text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]">
               <div
                 onClick={() =>
                   setIsServicesDropdownOpen(!isServicesDropdownOpen)
                 }
-                className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
+                // className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
               >
                 SERVICES
                 <span>{isServicesDropdownOpen ? "▾" : "▸"}</span>
@@ -288,7 +318,7 @@ const Header = () => {
               {isServicesDropdownOpen && (
                 <div className="ml-4 mt-2 flex flex-col gap-2">
                   <Link
-                    to="/service1"
+                    to="/assessments-evaluation"
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Assessments & Evaluation
@@ -319,35 +349,10 @@ const Header = () => {
                   </Link>
                 </div>
               )}
-              <p className=" border-b-2 p-2 border-[#952981]"></p>
+              {/* <p className=" border-b-2 p-2 border-[#952981]"></p> */}
             </div>
 
-            {/* ABOUT Link */}
-            <Link
-              to="/aboutus"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/prices"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              PRICES
-            </Link>
-            <Link
-              to="/clinic"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              CLINIC
-            </Link>
-            {/* BLOGS Link */}
-            <Link
-              to="/BlogPages"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              BLOGS
-            </Link>
+
 
             {/* Book Appointment Button */}
             <div
@@ -357,7 +362,7 @@ const Header = () => {
               <span className="text-sm text-center text-[#0D0C0A] group-hover:text-white">
                 Book an appointment
               </span>
-              <div className="w-[2rem] h-[2rem] flex justify-center items-center rounded-full bg-[#B740A1] text-white group-hover:bg-white group-hover:text-black">
+              <div className="w-[3rem] h-[2rem] flex justify-center items-center rounded-full bg-[#B740A1] text-white group-hover:bg-white group-hover:text-black">
                 <GoArrowUpRight />
               </div>
             </div>

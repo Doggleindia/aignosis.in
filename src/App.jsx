@@ -41,10 +41,10 @@ const App = () => {
       <ScrollToTop />
       <Routes> {/* Use Routes to define all your routes */}
         <Route path="/" element={<HomepageMain />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/partnership" element={<PartnershipPage />} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
-        <Route path="/service1" element={<ServicePage1 />} />
+        <Route path="/assessments-evaluation" element={<ServicePage1 />} />
         <Route path='/service2' element={<ServicePage2 />} />
         <Route path='/service3' element={<ServicePage3 />} />
         <Route path='/service4' element={<ServicePage4/>} />
@@ -58,17 +58,16 @@ const App = () => {
         <Route path="/report" element={<ReportComLast />} />
         
         <Route path="/test/fillup" element={<TestMain />} />
-        <Route path="/BlogPages" element={<BlogPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<WeWork />} />
-        {/* <Route path="/BlogPages/:blogName" element={<BlogView />} /> */}
         <Route path="/clinic" element={<ClinicMain />} />
         <Route path="/test/fillup/tod" element={<Toddlers />} />
 
         <Route path="/payment" element={<PaymentScreensMain />} />
-        <Route path='/privacy' element={<PrivacyPolicy />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TAndC />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/refundandreschedule' element={<RefundAndReschedule />} />
+        <Route path='/refund-reschedule' element={<RefundAndReschedule />} />
         <Route path='/brain' element={<BrainMain />} />
       </Routes>
     </Router>

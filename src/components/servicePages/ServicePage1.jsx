@@ -436,7 +436,7 @@ const ServicePage1 = () => {
                     </div>
                     <div  className=' md:hidden mt-[5vw]'>
               <ContactServicePage />
-              <Footer />
+              <BlogFooter />
               </div>
                     
                 </div>
