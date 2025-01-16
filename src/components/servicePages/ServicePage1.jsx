@@ -14,6 +14,7 @@ import { FaMedium } from "react-icons/fa6";
 import Header from '../Header';
 import Footer from '../Footer'
 import { Link } from 'react-router-dom';
+import service1 from '../../assets/servicepage/image 67.png';
 
 
 
@@ -34,6 +35,7 @@ import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
 import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
+import ContactPage from '../ContactPage';
 
 
 const ServicePage1 = () => {
@@ -90,8 +92,8 @@ const ServicePage1 = () => {
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
-            <div className='h-screen  w-full '>
-            
+            <div className='h-full w-full '>
+
                 <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
                     <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
 
@@ -109,9 +111,9 @@ const ServicePage1 = () => {
                             </h1>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[70%] sm:w-[40vw] mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/d91d/9efb/7dea1cf961e4446aef3c48d99e7f60ce?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Euno-KlCJ6EDJu1Kfkx7mRLRhOs6kTTC1qXdGbUDK5GJyETw87wOSNn~q6iqFpfPaWRbS9bn5kZS~8YaEEoOyobR25o9Q6Q~TSI6GDM0BzUZm1suSJXAzCR650JhMVuAtu9Z17g9LMd-VlQwm95jAckkRjl8usLl4EtGiwaMK3MvPOK0MT1eLgOM2I0M0CrQs99LbvM3yVlLzsxEEiDoav-o6OR1FGFDgM6GiNpau7TaLjELNu9Lig06BGQnwKNJUo06Uw8K0fio31Ayu7XxiflAiC4rhGnSw5I-8lcBtXnYiaPxSHO~bUo2NpvfV4lLp1uSHDwL0YkvT2EAjO62nw__"
+                                src={service1}
                                 alt=""
                                 className="w-full h-full object-cover" loading="lazy"
                             />
@@ -132,8 +134,8 @@ const ServicePage1 = () => {
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
                 </div>
 
-                <div className="w-full min-h-screen max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
-                    <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
+                <div className="w-full min-h-screen h-full max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
+                    <div className="w-full md:w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
                                 <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What Are Assessments?</h1>
@@ -297,10 +299,7 @@ const ServicePage1 = () => {
                             </div>
 
                         </div>
-
-
-                        
-                        <div className='w-[100%]  flex-col md:mt-[20vw] max-sm:mt-[10vw] 2xl:mt-[10vw] h-[45vw] max-sm:h-auto justify-center  flex items-center'>
+                        <div className='w-[100%]  flex-col max-sm:mt-[10vw] h-[45vw] max-sm:h-auto justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -342,7 +341,7 @@ const ServicePage1 = () => {
                                             "EMI Options for Indian Residents*",
 
                                         ].map((feature, index) => (
-                                            <tr key={index} className="border-t border-[#F6E8FB80] last:pb-[2rem]">
+                                            <tr key={index} className="border-t border-[#F6E8FB80] last:pb-[1rem]">
                                                 <td className="py-3 border-r border-[#F6E8FB80]">{feature}</td>
                                                 <td className="py-3 text-center">
                                                     ✅
@@ -353,12 +352,7 @@ const ServicePage1 = () => {
                                 </table>
                             </div>
                         </div>
-
-
-
-
-                        
-                        <div className='w-auto max-sm:w-full  flex-col md:mt-[18vw] max-sm:mt-[90vw] md:min-h-screen 2xl:mt-[10vw] md:h-[44vw]  flex justify-center items-center '>
+                        <div className='w-auto max-sm:w-full flex-col max-sm:mt-[5vw] md:h-[vw] flex justify-center items-center '>
 
                             <div className='b flex flex-col justify-center items-center  p-6'>
                                 <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[20px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
@@ -386,7 +380,7 @@ const ServicePage1 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[20vw] md:top-10">
+                    <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[5vw] md:top-10">
                         <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
@@ -420,42 +414,31 @@ const ServicePage1 = () => {
                                 </Link>
                             </form>
                             <h1 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
+                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white 2xl:text-sm md:text-xs font-medium '>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h1>
                             </div>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
+                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <IoIosMail />
-                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>email@gamil.com</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h1>
                             </div>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#3ad345] text-xl'>
+                            <div className='w-full mt-[1vw] flex mb-10 justify-center text-xs items-center gap-[1vw] text-[#3ad345]'>
                                 <FaWhatsapp />
-                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h1>
                             </div>
                         </div>
                     </div>
-                    <div  className=' md:hidden mt-[5vw]'>
-              <ContactServicePage />
-              <BlogFooter />
-              </div>
-                    
                 </div>
-
-              
-             <div className='max-sm:hidden'>
-             <ContactServicePage />
-             {/* <Footer /> */}
-             <BlogFooter/>
-             </div>
-                
-               
-                
-
-               
-
-
+                <div className='max-sm:hidden'>
+                    <ContactPage />
+                    {/* <Footer /> */}
+                    <BlogFooter />
+                </div>
             </div>
-
+            <div className=' md:hidden mt-[5vw]'>
+                        <ContactPage />
+                        <BlogFooter />
+                    </div>
         </div>
     )
 }
