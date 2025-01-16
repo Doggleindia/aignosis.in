@@ -7,7 +7,7 @@ const HomePageCard = ({ imageSrc, title, description }) => {
         <img
           src={imageSrc}
           alt="icon"
-          className="w-[100px] m-[auto] h-[100px]"
+          className="w-[100px] m-[auto] h-[75px]"
         />
         <div className="flex flex-col self-start p-[10px]">
           <p className="block text-[#F6E8FB] font-semibold text-lg">{title}</p>

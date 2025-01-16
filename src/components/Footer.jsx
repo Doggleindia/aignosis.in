@@ -32,13 +32,13 @@ function Footer() {
                         </div>
                         <h1 className="text-sm md:text-base mt-2">Medium</h1>
                     </div> */}
-                    <Link to='/BlogPages' className="flex flex-col items-center">
+                    <Link to='/blog' className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
                             <FaBlog />
                         </div>
                         <h1 className="text-sm md:text-base mt-2">Blog</h1>
                     </Link>
-                    <Link to='/privacy' className="flex flex-col items-center">
+                    <Link to='/privacy-policy' className="flex flex-col items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 text-2xl md:text-3xl rounded-full text-[#731762] bg-[#2d153f] flex justify-center items-center">
                             <FaLock />
                         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import BlogFooter from './BlogPages/BlogFooter'
 
 const RefundAndReschedule = () => {
   return (
@@ -140,7 +141,7 @@ const RefundAndReschedule = () => {
         
       </div>
     </div>
-    <Footer />
+    <BlogFooter />
   </div>
   )
 }

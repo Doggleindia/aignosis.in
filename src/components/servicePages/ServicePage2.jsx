@@ -30,6 +30,8 @@ import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
 import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
+import service2 from '../../assets/servicepage/image 68.png';
+import ContactPage from '../ContactPage';
 
 
 const ServicePage2 = () => {
@@ -86,8 +88,7 @@ const ServicePage2 = () => {
     return (
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
-            <div className='h-screen  w-full '>
-            
+            <div className='h-full w-full '>
                 <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
                     <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
 
@@ -98,16 +99,16 @@ const ServicePage2 = () => {
                         {/* Headline and Subtitle */}
                         <div className="flex flex-col items-center text-center">
                             <h1 className="text-lg sm:text-4xl md:text-5xl mt-2 font-medium font-raleway">
-                            Help Your Child Speak with Confidence
+                                Help Your Child Speak with Confidence
                             </h1>
                             <h1 className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
-                            Online Speech Therapy with 24/7 Support in 8 Languages!
+                                Online Speech Therapy with 24/7 Support in 8 Languages!
                             </h1>
                         </div>
                         {/* Image Section */}
                         <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
-                                src="https://s3-alpha-sig.figma.com/img/abcc/19e9/e69f2f3ad5f2f386662673fab280f80d?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OUiyAJW5nGOY5bieZt2MhZQGqRb3R6Ti--WrF0njPlamcef~fwzxOh-kvv~rwFiUoLei-ohkF8UfIoOTZDBEf9K2WxwGQ4qAsmx8G2m3CA81n6FR35XuTXB5Nj7Zh72saSPNKSQ27VGNWJ0OXb7torrCw5Pd4iw5SwqlwndMdoudK0SGL0c2Jng4B0dtbXY1JamQiYzHGAOwVCYn2a6x~R~euCZmOA0BzLC5bgtE0IZj5QjRQVHqDYxva1U7eF7s0D51kwOMcxhSD8e5Zm04bYj128uvEVw4R0zQqj~I2QibJJypPRjKaK48eTeK5N0XM1kDPpJ6m5RZJjP84Xf4VQ__"
+                                src={service2}
                                 alt=""
                                 className="w-full h-full object-cover" loading="lazy"
                             />
@@ -129,7 +130,7 @@ const ServicePage2 = () => {
                 </div>
 
                 <div className="w-full min-h-screen max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
-                    <div className="w-full md:w-[50%] h-auto 2xl:pb-[0vw] md:pb-[15vw] p-[3vw]">
+                    <div className="w-full md:w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
                                 <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What is Speech Therapy?</h1>
@@ -150,7 +151,7 @@ const ServicePage2 = () => {
                                         "Vocabulary-building through rhymes and stories",
                                         "Modeling correct sounds and syllables",
                                         "Developing grammar and language skills",
-                                        
+
                                     ].map((service, index) => (
                                         <h1 key={index} className='mt-6 mr-[1vw]'>{service}</h1>
                                     ))}
@@ -173,7 +174,7 @@ const ServicePage2 = () => {
                                         "Social, Emotional, and Mental Health (SEMH) Needs",
                                         "Developmental Language Disorders",
                                         "Fluency Issues",
-                                        
+
                                     ].map((specialty, index) => (
                                         <h1 key={index} className='mt-6'>{specialty}</h1>
                                     ))}
@@ -202,9 +203,9 @@ const ServicePage2 = () => {
                                 <h1 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>  = Remarkable Progress!</h1>
                             </div>
 
-                          <div className=''>
-                            <img src={think_img} alt="" loading="lazy" />
-                          </div>
+                            <div className=''>
+                                <img src={think_img} alt="" loading="lazy" />
+                            </div>
 
                             <div className=' hidden w-full pt-[3vw] pl-[2.5vw] h-[25vw]  justify-center items-center'>
                                 <div className="w-full flex h-[22vw] relative">
@@ -216,14 +217,12 @@ const ServicePage2 = () => {
                                             src={pos1}
                                             alt="" loading="lazy"
                                         />
-
                                         {/* Cloud Image - Visible on hover */}
                                         <img
                                             className="absolute scale-[.6] -top-[5vw] left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
                                             alt="" loading="lazy"
                                         />
-
                                         {/* Heading Content - Visible on hover */}
                                         <h1
                                             className="text-black absolute text-[10px] font-medium left-[9vw] -top-[2vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -231,7 +230,6 @@ const ServicePage2 = () => {
                                             Expertise from <br /> Licensed <br /> Psychologists
                                         </h1>
                                     </div>
-
                                     {/* Group for pos2 */}
                                     <div className="group ">
                                         <img
@@ -250,7 +248,6 @@ const ServicePage2 = () => {
                                             Personalized <br /> Therapy <br /> Sessions for You
                                         </h1>
                                     </div>
-
                                     {/* Group for pos3 */}
                                     <div className="group ">
                                         <img
@@ -269,7 +266,6 @@ const ServicePage2 = () => {
                                             24/7 Support and <br /> Guidance Available
                                         </h1>
                                     </div>
-
                                     {/* Group for pos4 */}
                                     <div className="group ">
                                         <img
@@ -288,22 +284,14 @@ const ServicePage2 = () => {
                                             Confidential <br /> and Secure <br /> Environment
                                         </h1>
                                     </div>
-
                                     {/* Other elements such as arrows */}
                                     <img className="absolute scale-[.7] top-[6vw] left-[9vw]" src={arrow1} alt="" loading="lazy" />
                                     <img className="absolute scale-[.7] top-[10vw] left-[10vw]" src={arrow2} alt="" loading="lazy" />
                                     <img className="absolute scale-[.7] top-[16vw] left-[10.5vw]" src={arrow3} alt="" loading="lazy" />
                                 </div>
-
                             </div>
-
-                            
-
                         </div>
-
-
-                        
-                        <div className='w-[100%]  flex-col md:mt-[20vw] max-sm:mt-[10vw] 2xl:mt-[10vw] h-[45vw] max-sm:h-auto justify-center  flex items-center'>
+                        <div className='w-[100%] flex-col max-sm:mt-[10vw] h-[45vw] max-sm:h-auto justify-center flex items-center'>
                             <div className="flex justify-center gap-5 items-center">
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -356,12 +344,7 @@ const ServicePage2 = () => {
                                 </table>
                             </div>
                         </div>
-
-
-
-
-                        
-                        <div className='w-auto max-sm:w-full  flex-col md:mt-[18vw] max-sm:mt-[90vw] md:min-h-screen 2xl:mt-[10vw] md:h-[44vw]  flex justify-center items-center '>
+                        <div className='w-auto max-sm:w-full flex-col max-sm:mt-[5vw] flex justify-center items-center '>
 
                             <div className='b flex flex-col justify-center items-center  p-6'>
                                 <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[20px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">Frequently Asked Questions</h2>
@@ -389,7 +372,7 @@ const ServicePage2 = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[20vw] md:top-10">
+                    <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[5vw] md:top-10">
                         <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
@@ -423,43 +406,40 @@ const ServicePage2 = () => {
                                 </Link>
                             </form>
                             <h1 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
+                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white 2xl:text-sm md:text-xs font-medium '>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h1>
                             </div>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#811F67] text-xl'>
+                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <IoIosMail />
-                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>email@gamil.com</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h1>
                             </div>
-                            <div className='w-full mt-[1vw] flex justify-center items-center gap-[1vw] text-[#3ad345] text-xl'>
+                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#3ad345]'>
                                 <FaWhatsapp />
-                                <h1 className='text-white 2xl:text-sm md:text-xs  font-medium'>+98876654334</h1>
+                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h1>
                             </div>
                         </div>
                     </div>
-                    <div  className=' md:hidden mt-[5vw]'>
-              <ContactServicePage />
-              <Footer />
-              </div>
                     
                 </div>
+                <div className='max-sm:hidden'>
+                    <ContactPage />
+                    {/* <Footer /> */}
+                    <BlogFooter />
 
-              
-             <div className='max-sm:hidden'>
-             <ContactServicePage />
-             {/* <Footer /> */}
-             <BlogFooter/>
+                </div>
 
-             </div>
-                
-               
-                
 
-               
+
+
+
 
 
             </div>
-
+            <div className=' md:hidden mt-[5vw]'>
+                        < ContactPage />
+                        <BlogFooter />
+                    </div>                           
         </div>
     )
 }

@@ -113,7 +113,7 @@ const BlogPage = () => {
             Rigorously trained & tested. Clinically validated. Peer-reviewed.
           </p>
           <Link
-            to="/BlogPages/howWeWork"
+            to="/blog/howWeWork"
             className="bg-transparent border border-[#9C00AD] text-white px-6 py-2 rounded-full hover:bg-purple-500 hover:text-white transition"
           >
             Study Summary
