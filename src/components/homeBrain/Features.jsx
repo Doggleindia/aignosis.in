@@ -106,17 +106,17 @@ const Features = () => {
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" subtitle="" />
         <div className="flex justify-center items-center">
-          <h1 className="text-[#F6E8FB] font-raleway -mt-10  max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
+          <h1 className="text-[#F6E8FB] font-raleway text-center max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h1>
-          <img src={p4} className="w-[100px] max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
+          <img src={p4} className="w-[100px] hidden md:block max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center  gap-4 p-4">
         {/* Blank Divs */}
         <div className="flex max-sm:flex-col gap-4">
           <div
-            className="w-[40vw] h-[25vw] max-sm:w-[300px] max-sm:h-[300px] bg-[#43284C4D] rounded-lg border border-[#5455694D]"
+            className="w-[40vw] h-[35vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"
             ref={(el) => addToRefs(el, cardRefs)}
             onMouseMove={(e) =>
               handleMouseMove(e, cardRefs.current[0], lightRefs.current[0])
@@ -153,7 +153,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className="w-[30vw] h-[25vw] max-sm:w-[300px] max-sm:h-[300px] bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
+          <div className="w-[30vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
             onMouseMove={(e) =>
               handleMouseMove(e, cardRefs.current[1], lightRefs.current[1])
             }
@@ -188,7 +188,7 @@ const Features = () => {
           </div>
         </div>
         <div className="flex max-sm:flex-col gap-4">
-          <div className="w-[30vw] h-[25vw] max-sm:w-[300px] max-sm:h-[300px] bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
+          <div className="w-[30vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
             onMouseMove={(e) =>
               handleMouseMove(e, cardRefs.current[2], lightRefs.current[2])
             }
@@ -218,10 +218,10 @@ const Features = () => {
               </p>
             </div>
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
-              <img className="object-contain w-full h-full" src={img3} alt="" />
+              <img className="object-contain w-[50%] h-full" src={img3} alt="" />
             </div>
           </div>
-          <div className="w-[40vw] h-[25vw] max-sm:w-[300px] max-sm:h-[300px] bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
+          <div className="w-[40vw] h-[35vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
             onMouseMove={(e) =>
               handleMouseMove(e, cardRefs.current[3], lightRefs.current[3])
             }

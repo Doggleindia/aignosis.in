@@ -75,38 +75,40 @@ const Homefirst = () => {
               y: 0,
               transition: {
                 staggerChildren: 1,
-                ease: [0.42, 0, 0.58, 1], 
+                ease: [0.42, 0, 0.58, 1],
               },
             },
           }}
         >
-          <motion.h1
-            className="text-white font-montserrat font-semibold tracking- text-5xl text-center"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            Frontier AI
-          </motion.h1>
-          <motion.h1
-            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            for Your Child’s
-          </motion.h1>
-          <motion.h1
-            className="text-white ml-2 font-montserrat  font-semibold tracking- text-5xl text-center"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            {" "}Best Development
-          </motion.h1>
+          <div className="flex flex-col md:flex-row">
+            <motion.h1
+              className="text-white font-montserrat font-semibold tracking- text-3xl mt-2 md:text-5xl text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              Frontier AI
+            </motion.h1>
+            <motion.h1
+              className="text-white ml-2 font-montserrat  font-semibold tracking- text-3xl mt-2 md:text-5xl text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              for Your Child’s
+            </motion.h1>
+            <motion.h1
+              className="text-white ml-2 font-montserrat  font-semibold tracking- mt-2 text-3xl md:text-5xl text-center"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              {" "}Best Development
+            </motion.h1>
+          </div>
         </motion.div>
         <video
           src={firstanimation}
@@ -191,12 +193,12 @@ const Homefirst = () => {
               className="flex flex-row"
             >
               <HomePageCard
-                imageSrc={member}
+                imageSrc={m1}
                 title="Get your child tested now"
                 description="Empowering Clinics with Advanced Autism Detection Tools"
               />
               <HomePageCard
-                imageSrc={member}
+                imageSrc={m2}
                 title="For doctors"
                 description="Empowering Clinics with Advanced Autism Detection Tools"
               />            </motion.div>
@@ -209,7 +211,7 @@ const Homefirst = () => {
             <motion.span
               custom={0.2}
               variants={textVariants}
-              className="justify-center block font-manrope font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4">
+              className="justify-center block font-manrope text-sm font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4">
               Welcome to Aignosis
             </motion.span>
 
@@ -217,7 +219,7 @@ const Homefirst = () => {
             <motion.h1
               custom={0.4}
               variants={textVariants}
-              className="text-white font-bold text-3xl font-manrope text-center mb-2">
+              className="text-white font-bold text-2xl font-manrope text-center mt-2 ">
               Early Autism Detection Made
             </motion.h1>
             <motion.h2
@@ -230,7 +232,7 @@ const Homefirst = () => {
             <motion.p
               custom={0.8}
               variants={textVariants}
-              className="text-white px-[10vw] font-raleway font-normal text-center text-sm leading-relaxed mb-8">
+              className="text-white font-raleway font-normal text-center text-sm leading-relaxed mb-8">
               AI.Gnosis offers AI-powered tools for early autism detection,
               providing actionable insights for parents and caregivers. Backed
               by clinical research and cutting-edge technology to ensure
@@ -243,9 +245,9 @@ const Homefirst = () => {
               custom={1}
               variants={cardVariants}
               className="flex flex-col space-y-4 w-full">
-              <button className="flex items-center justify-between w-full bg-[#2A013E] text-white border border-[#9C00AD] px-4 py-3 rounded-lg hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-white rounded-full">
+              <button className="flex items-center justify-between w-full bg-[#1A0C25] text-white border border-[#9C00AD] px-4 py-3 rounded-3xl hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 bg-white rounded-full">
                     <img className="w-full h-full object-contain" src={m1} alt="" srcset="" />
                   </div>
                   <span className="text-left">
@@ -259,9 +261,11 @@ const Homefirst = () => {
                 </div>
               </button>
 
-              <button className="flex items-center justify-between w-full bg-[#2A013E] text-white border border-[#9C00AD] px-4 py-3 rounded-lg hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-white rounded-full"></div>
+              <button className="flex items-center justify-between w-full bg-[#1A0C25] text-white border border-[#9C00AD] px-4 py-3 rounded-3xl hover:bg-[#9C00AD] hover:text-[#2A013E] transition-all">
+                <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-white rounded-full">
+                    <img className="w-full h-full object-contain" src={m2} alt="" srcset="" />
+                  </div>
                   <span className="text-left">
                     <strong className="block font-bold">For doctors</strong>
                     <span className="text-sm">

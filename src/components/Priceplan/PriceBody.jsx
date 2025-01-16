@@ -645,7 +645,28 @@ const PriceBody = () => {
               </span>
             </div>
           </div>
-
+          <div className="mt-5">
+            <div className="flex flex-col gap-5">
+              <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <h1 className="text-xs">33% Off!</h1>
+                </div>
+                <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+              </div>
+              <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <h1 className="text-xs">33% Off!</h1>
+                </div>
+                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+              </div>
+            </div>
+          </div>
           {/* Therapy Options */}
           <div className="mt-4">
             <h1 className="text-xl font-bold text-white text-left px-2">

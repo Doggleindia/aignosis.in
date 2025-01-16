@@ -86,8 +86,8 @@ const AboutUs = () => {
         </div>
       </div> */}
 
-      <div className="flex max-sm:flex-col items-center px-10 justify-center mt-[8vw] ">
-        <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+      <div className="flex max-sm:flex-row items-center px-10 justify-center mt-[8vw] ">
+        <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 max-sm:p-[5vw] max-sm:pl-[4vw] max-sm:pt-[3vw] max-sm:w-[100%] max-sm:h-[400px] from-[#241E22] to-[#43284C]">
           <span className="font-medium font-raleway text-2xl">
             The Goal of aignosis
           </span>
@@ -95,14 +95,14 @@ const AboutUs = () => {
             Embark on a journey through our narrative, where innovation meets
             purpose.
           </span> */}
-          <span className="pt-4 block font-manrope">
+          <span className="pt-4 block max-sm:text-[2.5vw] font-manrope">
             At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
           </span>
-          <span className="pt-4 block font-manrope">
+          <span className="pt-4 block max-sm:text-[2.5vw]  font-manrope">
             Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
           </span>
         </div>
-        <div className="flex items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+        <div className="flex hidden lg:block items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
           {/* <img
             src={birt_aignosis}
             alt="about"
