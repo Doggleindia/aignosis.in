@@ -1,4 +1,8 @@
 import React from 'react';
+import card1 from "../../assets/pricepage/card1.png"
+import card2 from "../../assets/pricepage/card2.png"
+import card3 from "../../assets/pricepage/card3.png"
+import card4 from "../../assets/pricepage/card4.png"
 
 const HowToUseOptically = () => {
     const Divider = ({ title }) => (
@@ -24,10 +28,10 @@ const HowToUseOptically = () => {
     );
 
     const cards = [
-        { title: 'Observe Natural Behaviors', description: 'A calm environment helps capture your child’s authentic responses.' },
-        { title: 'Early Screening, Better Outcomes', description: 'Detecting early signs ensures timely intervention and improved development.' },
-        { title: 'Keep it Relaxed', description: 'Ensure your child is comfortable and engaged for the best results.' },
-        { title: 'One Step at a Time', description: 'One screening session is enough to provide valuable insights' },
+        { title: 'Observe Natural Behaviors', description: 'A calm environment helps capture your child’s authentic responses.', image_url:card1 },
+        { title: 'Early Screening, Better Outcomes', description: 'Detecting early signs ensures timely intervention and improved development.' ,image_url:card2 },
+        { title: 'Keep it Relaxed', description: 'Ensure your child is comfortable and engaged for the best results.', image_url:card3 },
+        { title: 'One Step at a Time', description: 'One screening session is enough to provide valuable insights', image_url:card4 },
     ];
 
     return (
@@ -46,7 +50,9 @@ const HowToUseOptically = () => {
                             className="flex flex-col items-center w-[20vw] gap-4"
                         >
                             {/* Box */}
-                            <div className="bg-[#43284C4D] rounded-lg w-full h-[20vw]"></div>
+                            <div className="bg-[#43284C4D] overflow-hidden rounded-3xl w-full h-[20vw]">
+                                <img className='w-full h-full object-cover' src={card.image_url} alt="" />
+                            </div>
 
                             {/* Title and Description */}
                             <div className="text-left">
@@ -73,8 +79,9 @@ const HowToUseOptically = () => {
                             className="flex flex-col items-center w-[80vw] gap-4"
                         >
                             {/* Box */}
-                            <div className="bg-[#43284C4D] rounded-lg w-full h-[40vw]"></div>
-
+                            <div className="bg-[#43284C4D] overflow-hidden rounded-3xl w-full h-[60vw]">
+                                <img className='w-full h-full object-cover' src={card.image_url} alt="" />
+                            </div>
                             {/* Title and Description */}
                             <div className="text-center">
                                 <span className="text-base font-semibold text-white">{card.title}</span>
