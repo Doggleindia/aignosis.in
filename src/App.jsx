@@ -32,6 +32,7 @@ import Priceplan from './components/Priceplan';
 import BrainMain from './components/homeBrain/BrainMain';
 
 import FromDoctor from './components/FromDoctor';
+import CareerPage from './components/Career/CareerPage';
 // import AuthRoute from './components/config/AuthRoute';
 
 
@@ -70,6 +71,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/refund-reschedule' element={<RefundAndReschedule />} />
         <Route path='/brain' element={<BrainMain />} />
+        <Route path='/career' element={<CareerPage />} />
       </Routes>
     </Router>
   );
