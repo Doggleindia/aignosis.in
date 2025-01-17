@@ -32,6 +32,7 @@ import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
 import service5 from '../../assets/servicepage/image.png';
 import ContactPage from '../ContactPage';
+import SEO from '../config/Seo';
 
 
 const ServicePage5 = () => {
@@ -88,6 +89,13 @@ const ServicePage5 = () => {
     );
 
     return (
+        <>
+        
+        <SEO
+        pageTitle={"AI Autism Diagnosis & Special Education Support | Aignosis"}
+        canonicalUrl={"https://aignosis.in/special-education"}
+        metaDescription={"Explore AI-based autism diagnosis, detection tech, and educational support for children with autism. Aignosis provides specialized solutions to enhance learning."}
+        />
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-full w-full '>
@@ -464,6 +472,7 @@ const ServicePage5 = () => {
                 <BlogFooter />
             </div>
         </div>
+        </>
     )
 }
 

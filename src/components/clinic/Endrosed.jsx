@@ -49,8 +49,8 @@ const Endrosed = () => {
         >
           {/* Step 1 */}
           <div className="flex-shrink-0 w-screen h-screen flex flex-col justify-center items-center bg-[#43284C4D]">
-            <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 1</h1>
-            <h1 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Quick Screening Process</h1>
+            <span className="text-[#B740A1] font-semibold font-raleway text-sm">Step 1</span>
+            <h2 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Quick Screening Process</h2>
             <div className="w-full flex justify-center items-center relative h-[50vw] md:h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[60vw] md:w-[35vw] top-[4vw] h-[41vw] md:h-[21.5vw]  absolute">
@@ -58,13 +58,13 @@ const Endrosed = () => {
               </div>
             </div>
 
-            <h1 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. This quick process ensures minimal disruption while providing essential insights into your child’s developmental progress.</h1>
+            <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. This quick process ensures minimal disruption while providing essential insights into your child’s developmental progress.</h4>
           </div>
 
           {/* Step 2 */}
           <div className="flex-shrink-0 w-screen h-screen flex flex-col justify-center items-center bg-[#5d15758c]">
-            <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 2</h1>
-            <h1 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Detailed Assessment</h1>
+            <span className="text-[#B740A1] font-semibold font-raleway text-sm">Step 2</span>
+            <h2 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Detailed Assessment</h2>
             <div className="w-full flex justify-center items-center relative h-[50vw] md:h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[60vw] md:w-[35vw] top-[4vw] h-[41vw] md:h-[21.5vw]  absolute">
@@ -72,13 +72,13 @@ const Endrosed = () => {
               </div>
             </div>
 
-            <h1 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes. Our technology analyzes key developmental indicators to provide an accurate understanding of potential autism traits.</h1>
+            <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes. Our technology analyzes key developmental indicators to provide an accurate understanding of potential autism traits.</h4>
           </div>
 
           {/* Step 3 */}
           <div className="flex-shrink-0 w-screen h-screen flex flex-col justify-center items-center bg-[#2e093a8c]">
-            <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 3</h1>
-            <h1 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h1>
+            <span className="text-[#B740A1] font-semibold font-raleway text-sm">Step 3</span>
+            <h2 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h2>
             <div className="w-full flex justify-center items-center relative h-[50vw] md:h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[60vw] md:w-[35vw] top-[4vw] h-[41vw] md:h-[21.5vw]  absolute">
@@ -86,11 +86,11 @@ const Endrosed = () => {
               </div>
             </div>
 
-            <h1 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.</h1>
+            <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.</h4>
           </div>
           <div className="flex-shrink-0 w-screen h-screen flex flex-col justify-center items-center bg-[#5E3C69]">
-            <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 4</h1>
-            <h1 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h1>
+            <span className="text-[#B740A1] font-semibold font-raleway text-sm">Step 4</span>
+            <h2 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h2>
             <div className="w-full flex justify-center items-center relative h-[50vw] md:h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[60vw] md:w-[35vw] top-[4vw] h-[41vw] md:h-[21.5vw]  absolute">
@@ -98,11 +98,11 @@ const Endrosed = () => {
               </div>
             </div>
 
-            <h1 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">Early detection is crucial in supporting your child’s growth. By identifying developmental signs early, the Ai.gnosis Autism Test empowers parents to take proactive steps and seek guidance, fostering a supportive path for their child’s future.</h1>
+            <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">Early detection is crucial in supporting your child’s growth. By identifying developmental signs early, the Ai.gnosis Autism Test empowers parents to take proactive steps and seek guidance, fostering a supportive path for their child’s future.</h4>
           </div>
           <div className="flex-shrink-0 w-screen h-screen flex flex-col justify-center items-center bg-[#952981] ">
-            <h1 className="text-[#B740A1] font-semibold font-raleway text-sm">Step 5</h1>
-            <h1 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h1>
+            <span className="text-[#B740A1] font-semibold font-raleway text-sm">Step 5</span>
+            <h2 className="font-manrope font-bold text-white text-3xl md:text-5xl text-center">Final Insights</h2>
             <div className="w-full flex justify-center items-center relative h-[50vw] md:h-[30vw] ">
               <img src={laptop} className="object-contain relative w-full h-full" alt="Laptop" />
               <div className="w-[60vw] md:w-[35vw] top-[4vw] h-[41vw] md:h-[21.5vw]  absolute">
@@ -110,7 +110,7 @@ const Endrosed = () => {
               </div>
             </div>
 
-            <h1 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.</h1>
+            <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.</h4>
           </div>
         </div>
       </div>

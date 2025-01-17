@@ -438,41 +438,41 @@ const PriceBody = () => {
             </p> */}
           </div>
           <div className="mt-4 font-montserrat">
-            <h1>700₹</h1>
+            <span>700₹</span>
             <div className="text-[9px]">
-              <h1 className="text-[#F6E8FB]">originally ₹2000</h1>
-              <h1 className="text-[#F6E8FB]">(Comprehensive Evaluation)</h1>
-              <h1 className="text-[#F6E8FB]">Includes Formal Report</h1>
-              <h1 className="text-[#F6E8FB]">Detailed Explanation</h1>
-              <h1 className="text-[#F6E8FB]">Easy & fast procedure</h1>
+              <span className="text-[#F6E8FB]">originally ₹2000</span>
+              <span className="text-[#F6E8FB]">(Comprehensive Evaluation)</span>
+              <span className="text-[#F6E8FB]">Includes Formal Report</span>
+              <span className="text-[#F6E8FB]">Detailed Explanation</span>
+              <span className="text-[#F6E8FB]">Easy & fast procedure</span>
             </div>
           </div>
           <div className="mt-4">
-            <h1>Benefits</h1>
+            <span>Benefits</span>
           </div>
           <div className="">
             <div className="">
               <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
                   Better Social Skills & Communication
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
                   Stronger Emotional Connection
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
                   Happier Families with Clear Guidance
-                </h1>
+                </span>
               </div>
               <div className="mt-2 flex gap-4">
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
                   Faster Developmental Growth
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
                   Improved Focus & Learning
-                </h1>
-                <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
                   Boosted Confidence & Happiness
-                </h1>
+                </span>
               </div>
             </div>
           </div>
@@ -480,27 +480,27 @@ const PriceBody = () => {
             <div className="flex gap-5">
               <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
                 <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+                  <span className="text-xs">33% Off!</span>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                <h2 className="mt-3">Aignosis Screening – Standard</h2>
+                <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h3>
+                <span className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></span>
+                <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
               <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
                 <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+                  <span className="text-xs">33% Off!</span>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
+                <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h3>
+                <span className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></span>
+                <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
             </div>
           </div>
           <div className="mt-5">
             <div className="">
-              <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+              <span className="text-2xl font-semibold text-white">Add Therapy</span>
             </div>
             <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
               {/* Card 1 */}
@@ -598,9 +598,9 @@ const PriceBody = () => {
 
           {/* Text Content */}
           <div className="text-left mt-4 px-2">
-            <h1 className="text-xl font-bold">
+            <span className="text-xl font-bold">
               Select Perfect Plan For Your Child's Needs
-            </h1>
+            </span>
             <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
               Find the ideal support plan tailored to your child’s unique
               journey. Our options are designed to provide targeted guidance,
@@ -617,7 +617,7 @@ const PriceBody = () => {
 
           {/* Pricing */}
           <div className="text-left w-full px-2 font-montserrat">
-            <h1 className="text-2xl">700₹</h1>
+            <span className="text-2xl">700₹</span>
             <div className="text-[10px] mt-2 text-[#FFFEF8]">
               <p>originally ₹2000</p>
               <p>(Comprehensive Evaluation)</p>
@@ -629,7 +629,7 @@ const PriceBody = () => {
 
           {/* Benefits */}
           <div className="mt-4">
-            <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
+            <span className="text-lg text-left px-2 font-semibold">Benefits</span>
             <div className="mt-4 flex flex-wrap justify-center gap-2">
               <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
                 In-Depth Assessment
@@ -649,29 +649,29 @@ const PriceBody = () => {
             <div className="flex flex-col gap-5">
               <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
                 <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+                  <span className="text-xs">33% Off!</span>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                <h4 className="mt-3">Aignosis Screening – Standard</h4>
+                <h5 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h5>
+                <span className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></span>
+                <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
               <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
                 <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <h1 className="text-xs">33% Off!</h1>
+                  <span className="text-xs">33% Off!</span>
                 </div>
-                <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                <h4 className="mt-3">Aignosis Screening – Comprehensive</h4>
+                <h4 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h4>
+                <span className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></span>
+                <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
             </div>
           </div>
           {/* Therapy Options */}
           <div className="mt-4">
-            <h1 className="text-xl font-bold text-white text-left px-2">
+            <span className="text-xl font-bold text-white text-left px-2">
               Add Therapy
-            </h1>
+            </span>
             <div className="flex flex-wrap justify-center gap-4 mt-4">
               {/* Therapy Cards */}
               {Array(3)

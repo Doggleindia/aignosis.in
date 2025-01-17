@@ -10,10 +10,16 @@ import HowtoUseOptically from './Priceplan/HowtoUseOptically'
 import CustomerLove from './Priceplan/CustomerLove'
 import CustomerLove2 from './Priceplan/CustomerLove2'
 import Features from './homeBrain/Features'
+import SEO from './config/Seo'
 
 const Priceplan = () => {
   return (
    <>
+   <SEO
+   canonicalUrl={"https://aignosis.in/prices"}
+   metaDescription={"Check out Aignosis' competitive pricing for autism assessments, psychological evaluations, and specialized care solutions. Affordable services for parents."}
+   pageTitle={"Affordable Pricing for Autism Assessment & Care | Aignosis"}
+   />
    <Header/>  
      <div className='bg-[#1A0C25] p-2 overflow-x-hidden text-white w-full h-full'>
       <div className="w-full mt-[5vw] hidden md:block h-full">

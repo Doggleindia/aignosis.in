@@ -80,9 +80,9 @@ const PricepageBenefits = () => {
                         'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                 }}
             ></span>
-            <h1 className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
+            <span className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
                 {title}
-            </h1>
+            </span>
             <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
@@ -98,9 +98,9 @@ const PricepageBenefits = () => {
             <div className="hidden md:block pt-8">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                <h5 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
                     Benefits of Ai.gnosis
-                </h1>
+                </h5>
 
                 {/* Carousel Section */}
                 <div className="flex h-full w-full justify-center items-center mt-10">
@@ -159,9 +159,9 @@ const PricepageBenefits = () => {
             <div className="hidden md:block pt-5 pb-5">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-2xl 2xl:text-5xl w-full font-montserrat text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                <h5 className="text-2xl 2xl:text-5xl w-full font-montserrat text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
                     Precision Solutions, Exclusively Designed for You
-                </h1>
+                </h5>
 
                 {/* Cards Section */}
                 <div className="flex justify-center items-center mt-10 gap-6">
@@ -182,18 +182,18 @@ const PricepageBenefits = () => {
 
                             {/* Text Section */}
                             <div className="p-4 px-6 mt-[15vw] w-full">
-                                <h1 className="text-[12px] text-[#CACED9]">
+                                <h4 className="text-[12px] text-[#CACED9]">
                                     <span className="text-[18px] text-white font-medium">
                                         {card.name}{" "}
                                     </span>
                                     {card.age}
-                                </h1>
-                                <h1 className="text-[10px] text-[#CACED9]">{card.location}</h1>
+                                </h4>
+                                <span className="text-[10px] text-[#CACED9]">{card.location}</span>
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-base font-semibold text-white">
+                                <span className="text-base font-semibold text-white">
                                     Development Goal:
-                                </h1>
+                                </span>
                                 <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
                                     {card.goals.map((goal, i) => (
                                         <li key={i}>{goal}</li>
@@ -202,9 +202,9 @@ const PricepageBenefits = () => {
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-base font-semibold text-white">
+                                <h6 className="text-base font-semibold text-white">
                                     Personalized Screening Insights:
-                                </h1>
+                                </h6>
                                 <p className="text-[10px] mt-2 text-[#CACED9]">
                                     Key Features Assessed:
                                     <ul className="list-disc ml-4">
@@ -216,9 +216,9 @@ const PricepageBenefits = () => {
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-base font-semibold text-white">
+                                <h5 className="text-base font-semibold text-white">
                                     Therapy Recommendations:
-                                </h1>
+                                </h5>
                                 <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
                                     {card.recommendations.map((recommendation, i) => (
                                         <li key={i}>{recommendation}</li>
@@ -232,9 +232,9 @@ const PricepageBenefits = () => {
             <div className="block md:hidden p-4">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-xl w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
+                <span className="text-xl w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
                     Benefits of Ai.gnosis
-                </h1>
+                </span>
 
                 {/* Mobile Carousel Section */}
                 <div className="flex flex-col gap-4 justify-center items-center mt-6">
@@ -253,9 +253,9 @@ const PricepageBenefits = () => {
             <div className="block md:hidden p-4">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl w-full font-montserrat text-center tracking-tight font-semibold text-[#F6E8FB]">
+                <span className="text-2xl sm:text-3xl lg:text-5xl w-full font-montserrat text-center tracking-tight font-semibold text-[#F6E8FB]">
                     Precision Solutions, Exclusively Designed for You
-                </h1>
+                </span>
 
                 {/* Cards Section */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:justify-center lg:items-center mt-10 gap-6">
@@ -276,18 +276,18 @@ const PricepageBenefits = () => {
 
                             {/* Text Section */}
                             <div className="mt-4 w-full">
-                                <h1 className="text-sm sm:text-[12px] text-[#CACED9]">
+                                <span className="text-sm sm:text-[12px] text-[#CACED9]">
                                     <span className="text-base sm:text-[18px] text-white font-medium">
                                         {card.name}{" "}
                                     </span>
                                     {card.age}
-                                </h1>
-                                <h1 className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</h1>
+                                </span>
+                                <span className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</span>
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                <span className="text-sm sm:text-base font-semibold text-white">
                                     Development Goal:
-                                </h1>
+                                </span>
                                 <ul className="text-xs sm:text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
                                     {card.goals.map((goal, i) => (
                                         <li key={i}>{goal}</li>
@@ -296,9 +296,9 @@ const PricepageBenefits = () => {
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                <span className="text-sm sm:text-base font-semibold text-white">
                                     Personalized Screening Insights:
-                                </h1>
+                                </span>
                                 <p className="text-xs sm:text-[10px] mt-2 text-[#CACED9]">
                                     Key Features Assessed:
                                     <ul className="list-disc ml-4">
@@ -310,9 +310,9 @@ const PricepageBenefits = () => {
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
-                                <h1 className="text-sm sm:text-base font-semibold text-white">
+                                <span className="text-sm sm:text-base font-semibold text-white">
                                     Therapy Recommendations:
-                                </h1>
+                                </span>
                                 <ul className="text-xs sm:text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
                                     {card.recommendations.map((recommendation, i) => (
                                         <li key={i}>{recommendation}</li>

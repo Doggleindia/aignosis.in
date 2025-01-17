@@ -13,9 +13,9 @@ const CustomerLove = () => {
                         'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                 }}
             ></span>
-            <h1 className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
+            <span className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
                 {title}
-            </h1>
+            </span>
             <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
@@ -31,9 +31,9 @@ const CustomerLove = () => {
             <div className="px-8 md:block hidden pt-8">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                <h5 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
                     Customer Love
-                </h1>
+                </h5>
                 {/* Carousel Section */}
                 <div className="flex items-center justify-center mt-12">
                     {/* Left Arrow */}
@@ -55,18 +55,18 @@ const CustomerLove = () => {
                             <div className="w-full h-[4px] mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
                             <div className="flex items-center justify-between px-10">
                                 <div className="">
-                                    <h1 className="text-sm text-[#CACED9]">4.9 Ratings</h1>
+                                    <span className="text-sm text-[#CACED9]">4.9 Ratings</span>
                                     <div className="flex items-center">
                                         <span className="text-yellow-400">★★★★★</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <h1 className="text-sm text-white">
+                                    <span className="text-sm text-white">
                                         Meera Sharma
                                         <span className="block text-[#CACED9] mt-2 text-xs">
                                             Pediatric Neurologist
                                         </span>
-                                    </h1>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -91,9 +91,9 @@ const CustomerLove = () => {
             <div className="px-4 block md:hidden pt-6 md:px-8 md:pt-8">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-xl md:text-3xl lg:text-5xl font-montserrat w-full text-center tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                <h5 className="text-xl md:text-3xl lg:text-5xl font-montserrat w-full text-center tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
                     Customer Love
-                </h1>
+                </h5>
                 {/* Carousel Section */}
                 <div className="flex items-center justify-center mt-8 md:mt-12">
                     {/* Left Arrow */}
@@ -116,18 +116,18 @@ const CustomerLove = () => {
                             <div className="w-full h-[2px] md:h-[4px] mt-4 md:mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
                             <div className="flex flex-col md:flex-row items-center justify-between mt-4 md:mt-0 px-0 md:px-10">
                                 <div className="text-center md:text-left">
-                                    <h1 className="text-sm text-[#CACED9]">4.9 Ratings</h1>
+                                    <span className="text-sm text-[#CACED9]">4.9 Ratings</span>
                                     <div className="flex items-center justify-center md:justify-start">
                                         <span className="text-yellow-400">★★★★★</span>
                                     </div>
                                 </div>
                                 <div className="mt-2 md:mt-0 text-center md:text-right">
-                                    <h1 className="text-sm text-white">
+                                    <span className="text-sm text-white">
                                         Meera Sharma
                                         <span className="block text-[#CACED9] mt-2 text-xs">
                                             Pediatric Neurologist
                                         </span>
-                                    </h1>
+                                    </span>
                                 </div>
                             </div>
                         </div>

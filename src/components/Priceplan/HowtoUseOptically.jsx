@@ -10,9 +10,9 @@ const HowToUseOptically = () => {
                         'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                 }}
             ></span>
-            <h1 className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
+            <h4 className="text-[18px] text-[#F1C6FE] font-medium max-sm:text-sm">
                 {title}
-            </h1>
+            </h4>
             <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
@@ -35,8 +35,8 @@ const HowToUseOptically = () => {
             <div className="md:block hidden py-4 px-6">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
-                    Why screening is important for your child            </h1>
+                <h5 className="text-2xl 2xl:text-5xl font-montserrat w-full text-center md:text-3xl tracking-tight font-semibold text-[#F6E8FB] max-sm:text-center">
+                    Why screening is important for your child            </h5>
 
                 {/* Cards Section */}
                 <div className="flex flex-wrap justify-center gap-8 mt-10">
@@ -50,7 +50,7 @@ const HowToUseOptically = () => {
 
                             {/* Title and Description */}
                             <div className="text-left">
-                                <h1 className="text-base font-semibold text-white">{card.title}</h1>
+                                <h3 className="text-base font-semibold text-white">{card.title}</h3>
                                 <p className="text-sm text-[#CACED9] mt-2">{card.description}</p>
                             </div>
                         </div>
@@ -61,9 +61,9 @@ const HowToUseOptically = () => {
             <div className="block md:hidden py-4 px-4">
                 {/* Divider Section */}
                 <Divider title="Advantages" />
-                <h1 className="text-xl sm:text-2xl font-montserrat w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
+                <h5 className="text-xl sm:text-2xl font-montserrat w-full text-center tracking-tight font-semibold text-[#F6E8FB]">
                     Why screening is important for your child
-                </h1>
+                </h5>
 
                 {/* Cards Section */}
                 <div className="flex flex-wrap justify-center gap-6 mt-8">
@@ -77,7 +77,7 @@ const HowToUseOptically = () => {
 
                             {/* Title and Description */}
                             <div className="text-center">
-                                <h1 className="text-base font-semibold text-white">{card.title}</h1>
+                                <span className="text-base font-semibold text-white">{card.title}</span>
                                 <p className="text-sm text-[#CACED9] mt-2">{card.description}</p>
                             </div>
                         </div>

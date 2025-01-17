@@ -32,6 +32,7 @@ import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
 import service2 from '../../assets/servicepage/image 68.png';
 import ContactPage from '../ContactPage';
+import SEO from '../config/Seo';
 
 
 const ServicePage2 = () => {
@@ -72,9 +73,9 @@ const ServicePage2 = () => {
                         "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                 }}
             ></span>
-            <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
+            <h5 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
                 {title}
-            </h1>
+            </h5>
             <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
@@ -86,6 +87,12 @@ const ServicePage2 = () => {
     );
 
     return (
+        <>
+        <SEO
+        canonicalUrl='https://aignosis.in/speech-language'
+        metaDescription={'Find expert speech therapy for autistic children and accurate autism diagnosis near you. Aignosis offers personalized care and advanced solutions.'}
+        pageTitle={'Speech Therapy for Autistic Children | Aignosis'}/>
+        
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-full w-full '>
@@ -101,9 +108,9 @@ const ServicePage2 = () => {
                             <h1 className="text-lg sm:text-4xl md:text-5xl mt-2 font-medium font-raleway">
                                 Help Your Child Speak with Confidence
                             </h1>
-                            <h1 className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
+                            <p className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
                                 Online Speech Therapy with 24/7 Support in 8 Languages!
-                            </h1>
+                            </p>
                         </div>
                         {/* Image Section */}
                         <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
@@ -111,7 +118,7 @@ const ServicePage2 = () => {
                                 src={service2}
                                 alt=""
                                 className="w-full h-full object-cover" loading="lazy"
-                            />
+                                />
                         </div>
                         {/* CTA and Rating */}
                         <div className=" flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
@@ -121,9 +128,9 @@ const ServicePage2 = () => {
                                     <GoArrowUpRight />
                                 </div>
                             </div>
-                            <h1 className="text-white text-xs sm:text-base font-semibold text-center">
+                            <p className="text-white text-xs sm:text-base font-semibold text-center">
                                 Rated 4.5/5 by Parents
-                            </h1>
+                            </p>
                         </div>
                     </div>
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
@@ -133,16 +140,16 @@ const ServicePage2 = () => {
                     <div className="w-full md:w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What is Speech Therapy?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>Speech therapy helps children overcome speech delays and communication challenges.</h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What is Speech Therapy?</h2>
+                                <h3 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>Speech therapy helps children overcome speech delays and communication challenges.</h3>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>Why is Early Diagnosis Important?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>Why is Early Diagnosis Important?</h2>
+                                <h3 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h3>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-medium'>Therapy Activities
-                                </h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-medium'>Therapy Activities
+                                </h2>
                                 <div className='pl-[2vw] mt-6 2xl:text-base md:text-sm text-xs text-left'>
                                     {[
                                         "Engaging play activities with games and picture cards",
@@ -151,18 +158,18 @@ const ServicePage2 = () => {
                                         "Vocabulary-building through rhymes and stories",
                                         "Modeling correct sounds and syllables",
                                         "Developing grammar and language skills",
-
+                                        
                                     ].map((service, index) => (
-                                        <h1 key={index} className='mt-6 mr-[1vw]'>{service}</h1>
+                                        <h5 key={index} className='mt-6 mr-[1vw]'>{service}</h5>
                                     ))}
                                 </div>
                             </div>
                         </div>
                         <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
-                            <h1 className='mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
-                            <h1 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center'>Support for Every Age Group</h1>
+                            <h2 className='mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h2>
+                            <h3 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center'>Support for Every Age Group</h3>
                             <div className='mt-6 flex flex-col justify-center items-center pl-[2vw]'>
-                                <h1 className='2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway'>We Address:</h1>
+                                <p className='2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway'>We Address:</p>
                                 <div className='pl-[1vw] 2xl:text-base md:text-sm text-xs mt-6'>
                                     {[
                                         "Language Delays",
@@ -174,9 +181,9 @@ const ServicePage2 = () => {
                                         "Social, Emotional, and Mental Health (SEMH) Needs",
                                         "Developmental Language Disorders",
                                         "Fluency Issues",
-
+                                        
                                     ].map((specialty, index) => (
-                                        <h1 key={index} className='mt-6'>{specialty}</h1>
+                                        <h5 key={index} className='mt-6'>{specialty}</h5>
                                     ))}
                                 </div>
                             </div>
@@ -189,18 +196,18 @@ const ServicePage2 = () => {
                                         background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
                                     }}
                                 ></span>
-                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
+                                <p className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</p>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
                                         background: "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)"
                                     }}
-                                ></span>
+                                    ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='mt-5 2xl:text-5xl md:text-3xl font-medium'>Why choose us</h1>
-                                <h1 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h1>
-                                <h1 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>  = Remarkable Progress!</h1>
+                                <h3 className='mt-5 2xl:text-5xl md:text-3xl font-medium'>Why choose us</h3>
+                                <h4 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h4>
+                                <h5 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>  = Remarkable Progress!</h5>
                             </div>
 
                             <div className=''>
@@ -224,11 +231,11 @@ const ServicePage2 = () => {
                                             alt="" loading="lazy"
                                         />
                                         {/* Heading Content - Visible on hover */}
-                                        <h1
+                                        <h4
                                             className="text-black absolute text-[10px] font-medium left-[9vw] -top-[2vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        >
+                                            >
                                             Expertise from <br /> Licensed <br /> Psychologists
-                                        </h1>
+                                        </h4>
                                     </div>
                                     {/* Group for pos2 */}
                                     <div className="group ">
@@ -241,12 +248,12 @@ const ServicePage2 = () => {
                                             className="absolute scale-[.6] -top-[4vw] left-[16vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
                                             alt="" loading="lazy"
-                                        />
-                                        <h1
+                                            />
+                                        <h4
                                             className="text-black absolute text-[10px] font-medium left-[22vw] -top-[1vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             Personalized <br /> Therapy <br /> Sessions for You
-                                        </h1>
+                                        </h4>
                                     </div>
                                     {/* Group for pos3 */}
                                     <div className="group ">
@@ -254,17 +261,17 @@ const ServicePage2 = () => {
                                             className="absolute cursor-pointer scale-[.9] top-[13vw] left-[4vw]"
                                             src={pos3}
                                             alt="" loading="lazy"
-                                        />
+                                            />
                                         <img
                                             className="absolute scale-[.6] top-[4vw] z-10 left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
                                             alt="" loading="lazy"
-                                        />
-                                        <h1
+                                            />
+                                        <p
                                             className="text-black z-20 absolute text-[10px] font-medium left-[8.6vw] top-[7.5vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             24/7 Support and <br /> Guidance Available
-                                        </h1>
+                                        </p>
                                     </div>
                                     {/* Group for pos4 */}
                                     <div className="group ">
@@ -272,17 +279,17 @@ const ServicePage2 = () => {
                                             className="absolute cursor-pointer scale-[.9] top-[15vw] left-[16vw]"
                                             src={pos4}
                                             alt="" loading="lazy"
-                                        />
+                                            />
                                         <img
                                             className="absolute scale-[.6] z-10 top-[6vw] left-[15vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                             src={cloud1}
                                             alt="" loading="lazy"
                                         />
-                                        <h1
+                                        <p
                                             className="text-black absolute z-20 text-[10px] font-medium left-[21vw] top-[9vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             Confidential <br /> and Secure <br /> Environment
-                                        </h1>
+                                        </p>
                                     </div>
                                     {/* Other elements such as arrows */}
                                     <img className="absolute scale-[.7] top-[6vw] left-[9vw]" src={arrow1} alt="" loading="lazy" />
@@ -299,7 +306,7 @@ const ServicePage2 = () => {
                                         background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
                                     }}
                                 ></span>
-                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
+                                <p className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</p>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -308,7 +315,7 @@ const ServicePage2 = () => {
                                 ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
+                                <h2 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h2>
                             </div>
                             <div className=" w-[42vw] max-sm:w-[80vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
                                 <table className="w-full text-left text-gray-200">
@@ -355,7 +362,7 @@ const ServicePage2 = () => {
                                                 <div
                                                     onClick={() => toggleQuestion(index)}
                                                     className="flex items-center justify-between py-4 cursor-pointer"
-                                                >
+                                                    >
                                                     <p className="2xl:text-lg md:text-base text-[#F6E8FB] font-raleway ">{index + 1}. {item.question}</p>
                                                     <button className="2xl:text-xl md:text-lg font-semibold text-gray-300">
                                                         {openQuestion === index ? "−" : "+"}
@@ -376,24 +383,24 @@ const ServicePage2 = () => {
                         <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
-                            <h1 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h1>
-                            <h1 className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</h1>
+                            <p className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </p>
+                            <span className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</span>
                             <form className="mt-[2vw] 2xl:text-base md:text-sm px-[2vw] flex flex-col justify-center items-center space-y-4">
                                 <input
                                     type="text"
                                     placeholder="Your Name"
                                     className="w-[16vw] max-sm:w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
-                                />
+                                    />
                                 <input
                                     type="email"
                                     placeholder="Your Email"
                                     className="w-full px-4 py-2   bg-[#2521276B]   border border-[#B7407D80] rounded-md"
-                                />
+                                    />
                                 <input
                                     type="phone"
                                     placeholder="Your Phone Number"
                                     className="w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
-                                />
+                                    />
                                 <textarea
                                     placeholder="Your Message"
                                     className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
@@ -405,18 +412,18 @@ const ServicePage2 = () => {
                                     </div>
                                 </Link>
                             </form>
-                            <h1 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
+                            <span className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </span>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h1>
+                                <span className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</span>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <IoIosMail />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h1>
+                                <span className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</span>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#3ad345]'>
                                 <FaWhatsapp />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h1>
+                                <span className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</span>
                             </div>
                         </div>
                     </div>
@@ -441,6 +448,7 @@ const ServicePage2 = () => {
                         <BlogFooter />
                     </div>                           
         </div>
+                                    </>
     )
 }
 

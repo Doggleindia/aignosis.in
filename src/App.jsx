@@ -42,7 +42,6 @@ const App = () => {
       <Routes> {/* Use Routes to define all your routes */}
         <Route path="/" element={<HomepageMain />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/partnership" element={<PartnershipPage />} />
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path="/assessments-evaluation" element={<ServicePage1 />} />

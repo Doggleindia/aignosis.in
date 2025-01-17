@@ -14,7 +14,7 @@ const Reports = () => {
                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
             }}
           ></span>
-          <h1 className="text-sm text-center text-[#F1C6FE] font-medium">Sample reports</h1>
+          <span className="text-sm text-center text-[#F1C6FE] font-medium">Sample reports</span>
           <span
             className="h-[4px] w-[50px] rounded-full"
             style={{
@@ -23,8 +23,8 @@ const Reports = () => {
             }}
           ></span>
         </div>
-        <h1 className="font-bold text-white font-manrope text-2xl md:text-4xl text-center md:text-left">
-          View Our <br /> Comprehensive  Reports</h1>
+        <span className="font-bold text-white font-manrope text-2xl md:text-4xl text-center md:text-left">
+          View Our <br /> Comprehensive  Reports</span>
         <p className="md:text-left text-center text-sm text-white">
           Download in-depth reports on autism research, strategies, and resources. <br /> Gain valuable insights to better understand the condition and explore effective <br /> approaches for support and development.
         </p>
