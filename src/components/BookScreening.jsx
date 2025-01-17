@@ -79,9 +79,9 @@ const BookScreening = () => {
 
         {/* Title Section */}
         <div className="text-center max-w-2xl">
-          <h1 className="md:text-3xl 2xl:text-5xl font-semibold mb-2">
+          <h2 className="md:text-3xl 2xl:text-5xl font-semibold mb-2">
             Book a Screening:
-          </h1>
+          </h2>
           <p className="text-2xl  italic font-light">
             Take the First Step Towards Early Intervention
           </p>

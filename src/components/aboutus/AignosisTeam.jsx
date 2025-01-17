@@ -37,7 +37,7 @@ const AignosisTeam = () => {
                     />
                 </div>
                 <div className="flex flex-col mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
-                    <h1 className="text-center text-3xl font-semibold w-full">Advisors</h1>
+                    <span className="text-center text-3xl font-semibold w-full">Advisors</span>
                     <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
                         <MemberCard
                             title="Dr. S. Sitaraan"

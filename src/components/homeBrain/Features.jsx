@@ -106,9 +106,9 @@ const Features = () => {
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" subtitle="" />
         <div className="flex justify-center items-center">
-          <h1 className="text-[#F6E8FB] font-raleway text-center max-sm:text-center text-[40px] md:mr-[20px] max-sm:text-[24px]">
+          <h3 className="text-[#F6E8FB] font-bold font-raleway text-center max-sm:text-center text-[40px]  max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
-          </h1>
+          </h3>
           <img src={p4} className="w-[100px] hidden md:block max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
@@ -140,9 +140,9 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img1} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[8vw]">
-              <h1 className="font-bold text-lg mt-4">
+              <h4 className="font-bold text-lg mt-4">
                 Privacy and Comfort at Home
-              </h1>
+              </h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
                 Complete the test from the comfort of your own home, ensuring
                 privacy for both you and your child.
@@ -175,7 +175,7 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img2} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
-              <h1 className="font-bold text-lg mt-4">Accurate diagnosis</h1>
+              <h4 className="font-bold text-lg mt-4">Accurate diagnosis</h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
                 Our AI-driven system provides precise, reliable results to
                 ensure accurate early diagnosis.
@@ -207,7 +207,7 @@ const Features = () => {
               }}
             ></div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[4vw]">
-              <h1 className="font-bold text-lg mt-4">Fast & easy test</h1>
+              <h4 className="font-bold text-lg mt-4">Fast & easy test</h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
                 Get results in minutes, with an easy-to-follow process that
                 anyone can complete.
@@ -243,9 +243,9 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img4} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[7vw]">
-              <h1 className="font-bold text-lg mt-4">
+              <h4 className="font-bold text-lg mt-4">
                 Non-Invasive Testing with Just Your Webcam
-              </h1>
+              </h4>
               <p className="text-[#C4C4C4] text-xs px-[1vw] mt-4">
                 The test is non-invasive, requiring only a standard webcam—no
                 needles or complex equipment.

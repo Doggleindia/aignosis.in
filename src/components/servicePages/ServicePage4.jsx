@@ -32,6 +32,7 @@ import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
 import service4 from '../../assets/servicepage/image 70.png';
 import ContactPage from '../ContactPage';
+import SEO from '../config/Seo';
 
 
 const ServicePage4 = () => {
@@ -91,6 +92,14 @@ const ServicePage4 = () => {
     );
 
     return (
+        <>
+    <SEO
+    pageTitle={'Occupational Therapy for Autism | Aignosis'}
+    canonicalUrl={'https://aignosis.in/occupational-therapy'}
+    metaDescription={'Explore effective occupational therapy for autism at Aignosis. Enhance daily living skills and improve independence with expert therapy solutions.'}
+
+    />
+
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
             <div className='h-full  w-full '>
@@ -463,6 +472,7 @@ const ServicePage4 = () => {
                         <BlogFooter />
                     </div>                               
         </div>
+        </>
     )
 }
 
