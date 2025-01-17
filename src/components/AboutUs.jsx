@@ -5,6 +5,7 @@ import sideleft from "../assets/images/aboutUs/about.png";
 import doctor1 from "../assets/homepage/white screen.png";
 import doctor2 from "../assets/images/aboutUs/doctors2.svg";
 import doctor3 from "../assets/images/aboutUs/doctors3.svg";
+import vission from "./aboutus/vission.jpg";
 import blog_icon from "../assets/images/aboutUs/blog_icon.png";
 import birt_aignosis from "../assets/images/aboutUs/birth_aignosis.png";
 import Footer from "./Footer";
@@ -215,7 +216,7 @@ const AboutUs = () => {
             <div className="flex flex-col  ml-5 w-[69%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src={doctor1}
+                src={vission}
                 alt="Blog section featured image"
                 className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
               />
@@ -253,7 +254,7 @@ const AboutUs = () => {
             <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src={doctor1}
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/DSC_7765.jpeg"
                 alt="Blog section featured image"
                 className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
               />
