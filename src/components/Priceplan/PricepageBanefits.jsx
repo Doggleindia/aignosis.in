@@ -1,9 +1,6 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
-import card1 from "../../assets/pricepage/image.png"; // Make sure this path is correct
-import card2 from "../../assets/pricepage/image1.png"; // Make sure this path is correct
-import card3 from "../../assets/pricepage/card.png"; // Make sure this path is correct
 
 
 const PricepageBenefits = () => {
