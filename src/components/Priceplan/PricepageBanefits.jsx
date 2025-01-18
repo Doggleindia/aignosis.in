@@ -1,6 +1,9 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
+import card1 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png"; // Make sure this path is correct
+import card2 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png"; // Make sure this path is correct
+import card3 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png"; // Make sure this path is correct
 
 
 const PricepageBenefits = () => {
