@@ -672,9 +672,9 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               {/* Therapy Options */}
               <div className="mt-4">
-                <h1 className="text-xl font-bold text-white text-left px-2">
+                <span className="text-xl font-bold text-white text-left px-2">
                   Add Therapy
-                </h1>
+                </span>
                 <div className="flex flex-wrap justify-center gap-4 mt-4">
                   {/* Therapy Cards */}
                   {Array(3)
@@ -992,9 +992,9 @@ const PriceBody = ({ selectedOption }) => {
               </div> */}
               {/* Therapy Options */}
               <div className="mt-4">
-                <h1 className="text-xl font-bold text-white text-left px-2">
+                <span className="text-xl font-bold text-white text-left px-2">
                   Add Therapy
-                </h1>
+                </span>
                 <div className="flex flex-wrap justify-center gap-4 mt-4">
                   {/* Therapy Cards */}
                   {Array(3)
