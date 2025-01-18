@@ -1,10 +1,6 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
-import card1 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png"; // Make sure this path is correct
-import card2 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png"; // Make sure this path is correct
-import card3 from "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png"; // Make sure this path is correct
-
 
 const PricepageBenefits = () => {
     const cardData = [
@@ -124,7 +120,7 @@ const PricepageBenefits = () => {
                         {/* First Item */}
                         <div className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card1}
+                                src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png'
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -134,7 +130,7 @@ const PricepageBenefits = () => {
                         {/* Second Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card2}
+                                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png"
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -144,7 +140,7 @@ const PricepageBenefits = () => {
                         {/* Third Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card3}
+                                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png"
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
