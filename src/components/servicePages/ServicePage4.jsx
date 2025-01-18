@@ -116,9 +116,9 @@ const ServicePage4 = () => {
                             <h1 className="text-lg sm:text-4xl md:text-5xl mt-2 font-medium font-raleway">
                                 Help Your Child Build Everyday Skills
                             </h1>
-                            <h1 className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
+                            <h2 className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
                                 Online Speech Therapy with 24/7 Support in 8 Languages!
-                            </h1>
+                            </h2>
                         </div>
                         {/* Image Section */}
                         <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
@@ -136,9 +136,9 @@ const ServicePage4 = () => {
                                     <GoArrowUpRight />
                                 </div>
                             </div>
-                            <h1 className="text-white text-xs sm:text-base font-semibold text-center">
+                            <h2 className="text-white text-xs sm:text-base font-semibold text-center">
                                 Rated 4.5/5 by Parents
-                            </h1>
+                            </h2>
                         </div>
                     </div>
                     <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
@@ -148,16 +148,16 @@ const ServicePage4 = () => {
                     <div className="w-full md:w-[50%] h-auto p-[3vw]">
                         <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                             <div>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What is Occupational Therapy?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>Occupational therapy helps children develop essential skills to handle daily tasks through motor skill development, balance, and sensory management, addressing hyperactivity and coordination challenges.</h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>What is Occupational Therapy?</h2>
+                                <h2 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>Occupational therapy helps children develop essential skills to handle daily tasks through motor skill development, balance, and sensory management, addressing hyperactivity and coordination challenges.</h2>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>Why is Early Diagnosis Important?</h1>
-                                <h1 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-semibold'>Why is Early Diagnosis Important?</h2>
+                                <h2 className='mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]'>It allows us to develop customized therapy solutions and ensure a smooth transition into school.</h2>
                             </div>
                             <div className='mt-6'>
-                                <h1 className='2xl:text-2xl md:text-xl text-lg text-left font-medium'>Our therapy activities:
-                                </h1>
+                                <h2 className='2xl:text-2xl md:text-xl text-lg text-left font-medium'>Our therapy activities:
+                                </h2>
                                 <div className='pl-[2vw] mt-6 2xl:text-base md:text-sm text-xs text-left'>
                                     {[
                                         "Interactive play with games and visuals",
@@ -169,16 +169,16 @@ const ServicePage4 = () => {
 
 
                                     ].map((service, index) => (
-                                        <h1 key={index} className='mt-6 mr-[1vw]'>{service}</h1>
+                                        <h2 key={index} className='mt-6 mr-[1vw]'>{service}</h2>
                                     ))}
                                 </div>
                             </div>
                         </div>
                         <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
-                            <h1 className='mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h1>
-                            <h1 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center'>Support for Every Age Group</h1>
+                            <h2 className='mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway'>“The Best Time to Start is NOW”</h2>
+                            <h2 className=' mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center'>Support for Every Age Group</h2>
                             <div className='mt-6 flex flex-col justify-center items-center pl-[2vw]'>
-                                <h1 className='2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway'>Common Concerns We Address:</h1>
+                                <h2 className='2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway'>Common Concerns We Address:</h2>
                                 <div className='pl-[1vw] 2xl:text-base md:text-sm text-xs mt-6'>
                                     {[
                                         "Sensory Processing Disorder",
@@ -192,7 +192,7 @@ const ServicePage4 = () => {
 
 
                                     ].map((specialty, index) => (
-                                        <h1 key={index} className='mt-6'>{specialty}</h1>
+                                        <h2 key={index} className='mt-6'>{specialty}</h2>
                                     ))}
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ const ServicePage4 = () => {
                                         background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
                                     }}
                                 ></span>
-                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
+                                <h2 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h2>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -214,9 +214,9 @@ const ServicePage4 = () => {
                                 ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='mt-5 2xl:text-5xl md:text-3xl font-medium'>Why choose us</h1>
-                                <h1 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h1>
-                                <h1 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>  = Enhanced Progress!</h1>
+                                <h2 className='mt-5 2xl:text-5xl md:text-3xl font-medium'>Why choose us</h2>
+                                <h2 className='mt-3 2xl:text-base md:text-sm'>Early Intervention + Consistent Practice </h2>
+                                <h2 className='font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]'>  = Enhanced Progress!</h2>
                             </div>
 
                             <div className=''>
@@ -242,11 +242,11 @@ const ServicePage4 = () => {
                                         />
 
                                         {/* Heading Content - Visible on hover */}
-                                        <h1
+                                        <h2
                                             className="text-black absolute text-[10px] font-medium left-[9vw] -top-[2vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             Expertise from <br /> Licensed <br /> Psychologists
-                                        </h1>
+                                        </h2>
                                     </div>
 
                                     {/* Group for pos2 */}
@@ -261,11 +261,11 @@ const ServicePage4 = () => {
                                             src={cloud1}
                                             alt="" loading="lazy"
                                         />
-                                        <h1
+                                        <h2
                                             className="text-black absolute text-[10px] font-medium left-[22vw] -top-[1vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             Personalized <br /> Therapy <br /> Sessions for You
-                                        </h1>
+                                        </h2>
                                     </div>
 
                                     {/* Group for pos3 */}
@@ -280,11 +280,11 @@ const ServicePage4 = () => {
                                             src={cloud1}
                                             alt="" loading="lazy"
                                         />
-                                        <h1
+                                        <h2
                                             className="text-black z-20 absolute text-[10px] font-medium left-[8.6vw] top-[7.5vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             24/7 Support and <br /> Guidance Available
-                                        </h1>
+                                        </h2>
                                     </div>
 
                                     {/* Group for pos4 */}
@@ -299,11 +299,11 @@ const ServicePage4 = () => {
                                             src={cloud1}
                                             alt="" loading="lazy"
                                         />
-                                        <h1
+                                        <h2
                                             className="text-black absolute z-20 text-[10px] font-medium left-[21vw] top-[9vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         >
                                             Confidential <br /> and Secure <br /> Environment
-                                        </h1>
+                                        </h2>
                                     </div>
 
                                     {/* Other elements such as arrows */}
@@ -328,7 +328,7 @@ const ServicePage4 = () => {
                                         background: "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)"
                                     }}
                                 ></span>
-                                <h1 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h1>
+                                <h2 className='text-[#F1C6FE] 2xl:text-base md:text-sm'>Advantages</h2>
                                 <span
                                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -337,7 +337,7 @@ const ServicePage4 = () => {
                                 ></span>
                             </div>
                             <div className=" justify-center w-full items-center flex flex-col">
-                                <h1 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h1>
+                                <h2 className='2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium'>Benefits of Our Service:</h2>
                             </div>
                             <div className=" w-[42vw] max-sm:w-[80vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
                                 <table className="w-full text-left text-gray-200">
@@ -406,8 +406,8 @@ const ServicePage4 = () => {
                         <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
                             <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
 
-                            <h1 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h1>
-                            <h1 className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</h1>
+                            <h2 className='2xl:text-xl md:text-lg mt-10 font-semibold font-manrope '>Book an online consultation </h2>
+                            <h2 className='2xl:text-xl md:text-lg font-semibold font-manrope'>Today</h2>
                             <form className="mt-[2vw] 2xl:text-base md:text-sm px-[2vw] flex flex-col justify-center items-center space-y-4">
                                 <input
                                     type="text"
@@ -435,18 +435,18 @@ const ServicePage4 = () => {
                                     </div>
                                 </Link>
                             </form>
-                            <h1 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h1>
+                            <h2 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h2>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <FaPhoneAlt />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h1>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h2>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <IoIosMail />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h1>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h2>
                             </div>
                             <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#3ad345]'>
                                 <FaWhatsapp />
-                                <h1 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h1>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h2>
                             </div>
                         </div>
                     </div>
