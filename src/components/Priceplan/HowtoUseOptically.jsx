@@ -28,10 +28,10 @@ const HowToUseOptically = () => {
     );
 
     const cards = [
-        { title: 'Observe Natural Behaviors', description: 'A calm environment helps capture your child’s authentic responses.', image_url:card1 },
-        { title: 'Early Screening, Better Outcomes', description: 'Detecting early signs ensures timely intervention and improved development.' ,image_url:card2 },
-        { title: 'Keep it Relaxed', description: 'Ensure your child is comfortable and engaged for the best results.', image_url:card3 },
-        { title: 'One Step at a Time', description: 'One screening session is enough to provide valuable insights', image_url:card4 },
+        { title: 'Observe Natural Behaviors', description: 'A calm environment helps capture your child’s authentic responses.', image_url:"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card1.png" },
+        { title: 'Early Screening, Better Outcomes', description: 'Detecting early signs ensures timely intervention and improved development.' ,image_url:"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card2.png" },
+        { title: 'Keep it Relaxed', description: 'Ensure your child is comfortable and engaged for the best results.', image_url:"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card3.png" },
+        { title: 'One Step at a Time', description: 'One screening session is enough to provide valuable insights', image_url:"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card4.png" },
     ];
 
     return (
