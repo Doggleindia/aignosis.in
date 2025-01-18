@@ -40,11 +40,11 @@ const BlogSidebar = ({ blogData }) => {
           }}
         ></span>
       </div>
-      <h2 className="text-[#F6E8FB] md:text-left text-center font-raleway text-4xl">
+      <h1 className="text-[#F6E8FB] md:text-left text-center font-raleway text-4xl">
         Read our pages on parenting strategies, skill training & on various
         topics.
-      </h2>
-      <ul className="space-y-2 flex flex-col font-raleway  list-disc mt-6 md:pl-6  max-sm:flex max-sm:overflow-x-auto max-sm:flex-nowrap max-sm:list-none">
+      </h1>
+      {/* <ul className="space-y-2 flex flex-col font-raleway  list-disc mt-6 md:pl-6  max-sm:flex max-sm:overflow-x-auto max-sm:flex-nowrap max-sm:list-none">
         {categories.map((category, index) => (
          <li
          key={index}
@@ -59,7 +59,7 @@ const BlogSidebar = ({ blogData }) => {
        
            
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };

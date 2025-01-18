@@ -79,9 +79,9 @@ const BookScreening = () => {
 
         {/* Title Section */}
         <div className="text-center max-w-2xl">
-          <h1 className="md:text-3xl 2xl:text-5xl font-semibold mb-2">
+          <h2 className="md:text-3xl 2xl:text-5xl font-semibold mb-2">
             Book a Screening:
-          </h1>
+          </h2>
           <p className="text-2xl  italic font-light">
             Take the First Step Towards Early Intervention
           </p>
@@ -163,7 +163,7 @@ const BookScreening = () => {
                 image={pic1}
                 title="Assessments & Evaluation"
                 description="Educational, Psychological & Social Skills Assessment"
-                onClick={() => handleNavigation("/servicepage1")}
+                onClick={() => handleNavigation("/assessments-evaluation")}
 
               />
             </div>
@@ -173,7 +173,7 @@ const BookScreening = () => {
                 image={pic2}
                 title="Speech & Language"
                 description="Support for Speech Delays & Communication Needs"
-                onClick={() => handleNavigation("/servicepage1")}
+                onClick={() => handleNavigation("/speech-language")}
 
               />
             </div>
@@ -183,7 +183,7 @@ const BookScreening = () => {
                 image={pic3}
                 title="Behaviour Therapy"
                 description="Guidance for Anxiety & Behavioral Health"
-                onClick={() => handleNavigation("/servicepage1")}
+                onClick={() => handleNavigation("/behaviour-therapy")}
 
               />
             </div>
@@ -193,7 +193,7 @@ const BookScreening = () => {
                 image={pic4}
                 title="Occupational Therapy"
                 description="Motor Skills Independence & Confidence Building"
-                onClick={() => handleNavigation("/servicepage1")}
+                onClick={() => handleNavigation("/occupational-therapy")}
 
               />
             </div>
@@ -203,7 +203,7 @@ const BookScreening = () => {
                 image={pic5}
                 title="Special Education"
                 description="Academic Support in Core Subjects"
-                onClick={() => handleNavigation("/servicepage1")}
+                onClick={() => handleNavigation("/special-education")}
 
               />
             </div>

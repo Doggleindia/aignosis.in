@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HomePageCard from "./HomePageCard";
 import { motion } from "framer-motion";
-import member from "../../assets/images/aboutUs/member.png";
-import p1 from "../../assets/PopUps/p1.png";
-import p2 from "../../assets/PopUps/p2.png";
 import firstanimation from "../../assets/homepage/neuron.mp4";
 import m1 from "../../assets/mock1.png";
 import m2 from "../../assets/mock2.png";
@@ -13,14 +10,7 @@ import m2 from "../../assets/mock2.png";
 const Homefirst = () => {
   const [showContent, setShowContent] = useState(false);
 
-  // useEffect(() => {
-  //   // Delay showing content until the video animation is complete
-  //   const timeout = setTimeout(() => {
-  //     setShowContent(true);
-  //   }, 10000); // Adjust timing based on the video duration
-
-  //   return () => clearTimeout(timeout);
-  // }, []);
+ 
   useEffect(() => {
     // Disable scrolling while the video is playing
     document.body.style.overflow = "hidden";
@@ -97,7 +87,7 @@ const Homefirst = () => {
                 visible: { opacity: 1, y: 0 },
               }}
             >
-              for Your Child’s
+              For Your Child’s
             </motion.h1>
             <motion.h1
               className="text-white ml-2 font-montserrat  font-semibold tracking- mt-2 text-3xl md:text-5xl text-center"
@@ -122,31 +112,9 @@ const Homefirst = () => {
   return (
     <>
 
-      {/* Video animation section */}
-      {/* {!showContent && (
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "-100%" }}
-            transition={{ duration: 1, ease: "easeInOut", delay: 10 }}
-            className="absolute  inset-0 w-full h-full z-20 pointer-events-none"
-          >
-            <video
-              src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/hero%20section.mp4?alt=media&token=06672c0e-6f06-4f5f-b3bf-94d221392c97"
-              className="absolute  w-full h-full object-cover"
-              autoPlay
-              muted
-            />
-          </motion.div>
-        )} */}
-
+   
       {showContent && (
         <>
-          {/* <div className="absolute bottom-[7vw] left-[5vw]">
-            <img src={p1} alt="" srcset="" />
-          </div>
-          <div className="absolute bottom-[17vw] right-[5vw]">
-            <img src={p2} alt="" srcset="" />
-          </div> */}
           <motion.div
             initial="hidden"
             animate="visible"

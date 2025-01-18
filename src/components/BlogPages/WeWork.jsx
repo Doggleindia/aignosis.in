@@ -14,6 +14,7 @@ import {
 import BlogFooter from "./BlogFooter";
 import BlogContent from "./BlogContent";
 import { useParams } from "react-router-dom";
+import SEO from "../config/Seo.jsx";
 const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
@@ -126,6 +127,12 @@ const WeWork = () => {
     },
   ];
   return (
+    <>
+     <SEO
+    canonicalUrl={'https://aignosis.in/blog'}
+    metaDescription={'Stay updated with the latest insights on autism, AI-powered assessments, and special education. Explore expert articles on Aignosis Blog for valuable knowledge.'}
+    pageTitle={'Aignosis Blog | Insights on Autism, AI, and Special Education'}
+    />
     <div className="bg-[#1A0C25] md:p-2 max-sm:pt-2">
       <Header />
       <div className="bg-[#1A0C25] mt-[5vw] min-h-screen">
@@ -210,8 +217,9 @@ const WeWork = () => {
         <BlogFooter />
       </div>
     </div>
+    </>
   );
-  vdkd;
+  
 };
 
 export default WeWork;

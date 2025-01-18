@@ -12,9 +12,9 @@ const Divider = ({ title, desc, subtitle }) => {
                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
             }}
           ></span>
-          <h1 className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
+          <h3 className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
             {title}
-          </h1>
+          </h3>
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{
@@ -42,9 +42,9 @@ const Divider = ({ title, desc, subtitle }) => {
                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
             }}
           ></span>
-          <h1 className="text-[24px] text-[#F1C6FE] text-center font-medium max-sm:text-sm">
+          <h3 className="text-[24px] text-[#F1C6FE] text-center font-medium max-sm:text-sm">
             {title}
-          </h1>
+          </h3>
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{

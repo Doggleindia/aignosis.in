@@ -367,7 +367,7 @@ const AboutContent = {
     {
       id: 4,
       blogimg: blogimg19, // Image URL for the blog can be inserted here
-      author: "Raksheet",
+      author: "Pranav",
       image: blogimg10,
       time: "1 day ago",
       title: "Speech Therapy Tips for Children with Autism",
@@ -464,7 +464,7 @@ const AboutContent = {
       id: 5,
       blogimg: blogimg20,
       image: blogimg11,
-      author: "kinnu",
+      author: "kishore",
       time: "4 days ago",
       title:
         "Speech Therapy Exercises for People with Autism That Can be Practiced at Home",
@@ -643,7 +643,7 @@ const AboutContent = {
       id: 6,
       blogimg: blogimg21,
       image: blogimg12,
-      author: "khnnu",
+      author: "kunal",
       time: "6 days ago",
       title: "Speech Therapy Lesson Plans and Materials for Autism",
       pageTitle:
@@ -848,7 +848,7 @@ const AboutContent = {
       id: 7,
       blogimg: blogimg22,
       image: blogimg13,
-      author: "khnnu",
+      author: "sachin",
       time: "6 days ago",
       title: "How Speech Therapy Helps Children with Autism Build Confidence",
       pageTitle: "How Speech Therapy Builds Confidence in Children with Autism",
@@ -945,7 +945,7 @@ const AboutContent = {
       id: 8,
       blogimg: blogimg23,
       image: blogimg14,
-      author: "khnnu",
+      author: "Samarth",
       time: "6 days ago",
       title:
         "Occupational Therapy for Autism: Overview, Goals, Benefits, and Disadvantages",
@@ -1083,7 +1083,7 @@ const AboutContent = {
       id: 9,
       blogimg: blogimg24,
       image: blogimg15,
-      author: "khnnu",
+      author: "Piyush",
       time: "6 days ago",
       title:
         "Effective Speech Therapy Treatments: Improving Communication Skills in Children",
@@ -1192,7 +1192,7 @@ const AboutContent = {
       id: 10,
       blogimg: blogimg4,
       image: blogimg5,
-      author: "khnnu",
+      author: "Harsh",
       time: "just now",
       title:
         "Down Syndrome vs. Autism: Key Differences in Characteristics and Behavior",

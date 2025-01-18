@@ -7,7 +7,7 @@ const Trusted = () => {
 
         <div className='flex justify-center items-center' >
           <img src={img5} className='w-[100px]' alt="" />
-          <h1 className='text-[#F6E8FB] font-raleway text-[48px] md:mr-[20px] max-sm:text-[24px]'>Trusted by Experts in Autism Detection</h1>
+          <h3 className='text-[#F6E8FB] font-raleway text-[48px] md:mr-[20px] max-sm:text-[24px]'>Trusted by Experts in Autism Detection</h3>
         </div>
         <div className='flex  gap-8 flex-col'>
           <div className='fle justify-center items-center mx-auto max-sm:w-full md:w-[800px]'>

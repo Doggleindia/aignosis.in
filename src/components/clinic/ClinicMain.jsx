@@ -8,8 +8,15 @@ import Reports from './Reports';
 import Awards from './Awards';
 import Endrosed from './Endrosed';
 import BlogFooter from '../BlogPages/BlogFooter';
+import SEO from '../config/Seo';
 const ClinicMain = () => {
   return (
+    <>
+    <SEO
+    canonicalUrl={'https://aignosis.in/clinic'}
+    metaDescription={'Visit Aignosis Autism Clinic for expert care and accurate diagnosis. Our specialists offer personalized solutions for autism treatment and support.'}
+    pageTitle={'Aignosis Autism Clinic | Expert Care & Diagnosis'}
+    />
     <div className='overflow-x-hidden'>
       <Header />
 
@@ -46,9 +53,9 @@ const ClinicMain = () => {
           {/* Right Side: Text */}
           <div className="flex-1 flex flex-col justify-center text-[#F6E8FB] space-y-6">
             <div className="flex items-center">
-              <h1 className="text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold ">
+              <span className="text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold ">
                 Welcome to AIGNOSIS
-              </h1>
+              </span>
               {/* <img
                 src={img2}
                 alt="Money Icon"
@@ -70,9 +77,9 @@ const ClinicMain = () => {
 
         <div className="flex flex-col items-center justify-center min-h-screen bg-[#1A0C25] p-1 md:p-8 text-white font-raleway">
           {/* Centered Heading */}
-          <h1 className=" md:text-5xl text-center mb-8 text-[#F6E8FB] text-[24px]">
+          <span className=" md:text-5xl text-center mb-8 text-[#F6E8FB] text-[24px]">
             Key Features and Our Solutions
-          </h1>
+          </span>
 
           {/* Content Section */}
           <div className="flex flex-col md:flex-row items-center justify-between w-full  space-y-8 md:space-y-0 md:space-x-[60px]">
@@ -181,6 +188,7 @@ const ClinicMain = () => {
       </div>
       <BlogFooter />
     </div>
+    </>
   )
 }
 

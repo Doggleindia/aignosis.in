@@ -40,9 +40,9 @@ const ContactPage = () => {
         <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580] max-sm:rounded-[7rem]">
           <div className='w-full flex-col h-[15vw] max-sm:h-[50vw] justify-center flex items-center'>
             <div className="">
-              <h1 className='text-center 2xl:text-7xl md:text-5xl max-sm:text-2xl font-semibold leading-[3rem]'>
+              <span className='text-center 2xl:text-7xl md:text-5xl max-sm:text-2xl font-semibold leading-[3rem]'>
                 Get in Touch with Ai.gnosis
-              </h1>
+              </span>
             </div>
             <div className='px-[5vw]'>
               <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>
@@ -62,9 +62,9 @@ const ContactPage = () => {
               ></iframe>
             </div>
             <div className="w-[100%] md:w-[40%] px-[4vw] h-[70%]">
-              <h1 className='2xl:text-base md:text-sm text-xs'>
+              <span className='2xl:text-base md:text-sm text-xs'>
                 Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-              </h1>
+              </span>
               <form
                 ref={form}
                 onSubmit={sendEmail}
