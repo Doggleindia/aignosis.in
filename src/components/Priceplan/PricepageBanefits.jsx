@@ -97,9 +97,9 @@ const PricepageBenefits = () => {
         </div>
     );
     const data = [
-        { imageUrl: card1, title: 'Early Detection for Better Outcomes' },
-        { imageUrl: card2, title: 'Personalized Therapy Recommendations' },
-        { imageUrl: card3, title: 'Improved Social Skills & Communication' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png", title: 'Early Detection for Better Outcomes' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png", title: 'Personalized Therapy Recommendations' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png", title: 'Improved Social Skills & Communication' },
 
         // Add more items as needed
     ];
