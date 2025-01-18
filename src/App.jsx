@@ -32,6 +32,7 @@ import Priceplan from './components/Priceplan';
 import BrainMain from './components/homeBrain/BrainMain';
 
 import FromDoctor from './components/FromDoctor';
+import Dashboard from './components/Dashboard/Dashboard';
 // import AuthRoute from './components/config/AuthRoute';
 
 
@@ -53,6 +54,7 @@ const App = () => {
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
         <Route path='/priceplan' element={<PriceMain />} /> 
         <Route path='/fromdoctor' element={<FromDoctor/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
 
 
         <Route path="/prices" element={ <Priceplan />} />
