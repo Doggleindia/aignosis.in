@@ -11,8 +11,8 @@ const MemberCard = ({title,subtitle, desc, src}) => {
         />
         <div className="flex flex-col bg-[#43284C4D] px-5 py-9 ">
           <div className="flex font-bold text-xl ">{title}</div>
-          { <span className="font-medium text-sm  block pt-2">{subtitle}</span> }
-          {<span className="pt-4 block text-[12px] ">{desc}</span> }
+          { <span className="font-medium text-[10px]  block pt-2">{subtitle}</span> }
+          {<span className="pt-4 block text-[8px] ">{desc}</span> }
         </div>
       </div>
     </>

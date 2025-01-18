@@ -1,4 +1,5 @@
 import React from "react";
+
 const Divider = ({ title, desc, subtitle }) => {
   return (
     <>
@@ -15,6 +16,7 @@ const Divider = ({ title, desc, subtitle }) => {
           <h3 className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
             {title}
           </h3>
+          
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{
@@ -23,7 +25,7 @@ const Divider = ({ title, desc, subtitle }) => {
             }}
           ></span>
         </div>
-
+        
         <span className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </span>
