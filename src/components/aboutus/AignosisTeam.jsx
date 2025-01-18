@@ -19,11 +19,22 @@ const AignosisTeam = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div className="flex rounded-2xl py-[5vw] mt-[8vw] flex-col my-8 max-sm:mx-2 mx-8 border border-solid bg-gray-800 bg-opacity-30 border-white border-opacity-10 min-h-auto">
-                <Divider
-                    title="Our Project team"
-                    subtitle={"The Minds Behind Ai.gnosis"}
-                    desc={"Working together for a brighter future."}
-                />
+            <Divider
+    title="Our Project team"
+    subtitle="The Minds Behind Ai.gnosis"
+    desc={
+        <>
+            At Aignosis, we are driven by the vision to revolutionize early detection of neurodevelopmental disorders through cutting-edge AI technology.
+            <br />
+            Our passionate and diverse team brings together expertise in healthcare, artificial intelligence, and entrepreneurship to make autism screening.
+            <br />
+            <div className="text-center">accessible, affordable, and scalable for every child.</div>
+        </>
+    }
+/>
+
+
+
                 <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw]  gap-4 px-10">
                     <MemberCard
                         title="Divyansh ​Mangal"
@@ -40,7 +51,7 @@ const AignosisTeam = () => {
                     />
                 </div>
                 <div className="flex flex-col mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
-                    <span className="text-center text-3xl font-semibold w-full">Advisors</span>
+                    <span className="text-center text-3xl font-semibold w-full">Advisory Board</span>
                     <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
                         <MemberCard
                             title="Dr. S. Sitaraman"
