@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import StepCount from "./StepCount";
 import { Link } from 'react-router-dom';
 import CalibrationPage from './CalibrationPage';
 

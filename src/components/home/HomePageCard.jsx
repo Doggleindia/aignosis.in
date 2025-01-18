@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const HomePageCard = ({ imageSrc, title, description }) => {
+const HomePageCard = ({ imageSrc, title, description,urlredirect }) => {
   return (
-    <div className="border border-[#B740A1] p-4 my-8 mx-4 rounded-[30px] flex text-[#0D0C0A] bg-transparent">
+    <Link to={urlredirect} className="border border-[#B740A1] p-4 my-8 mx-4 rounded-[30px] flex text-[#0D0C0A] bg-transparent">
       <div className="flex w-[30vw] items-center justify-center flex-row">
         <img
           src={imageSrc}
@@ -14,7 +15,7 @@ const HomePageCard = ({ imageSrc, title, description }) => {
           <p className="block text-sm text-[#F6E8FB]">{description}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

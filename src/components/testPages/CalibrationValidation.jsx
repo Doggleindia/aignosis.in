@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import valid_img from  '../../assets/valid_img.png'
-import StepProgress from './StepProgress'
 import CalibrationResult from './CalibrationResult';
 
 const CalibrationValidation = () => {

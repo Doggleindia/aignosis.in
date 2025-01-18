@@ -10,6 +10,7 @@ import img5 from "../../assets/homepage/image4.png";
 import p3 from "../../assets/PopUps/p3.png";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,10 +120,10 @@ const OpenAI = () => {
                         description="Has DIFFICULTY scribbling or drawing"
                     />                </div>
             </div>
-            <p className='text-center text-[9px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
-            <button className='flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope text-sm md:text-2xl xl:text-lg text-white'>
+            <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
+            <Link to={'/prices'} className='w-[20%] max-sm:w-[60%] flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope text-sm md:text-2xl xl:text-lg text-white'>
                 Start Your Child’s Assessment
-            </button>
+            </Link>
         </>
     );
 };
