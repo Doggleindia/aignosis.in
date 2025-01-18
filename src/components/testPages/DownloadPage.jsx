@@ -1,8 +1,28 @@
-import React from 'react';
-import StepProgress from './StepProgress';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { AppContext } from "../aignosisintegration/AppContext";
 
 const DownloadPage = () => {
+    const {testData, setTestData} = useContext(AppContext);
+    const { isaascore, mchatScore, carsscore } = testData || {};
+    console.log(testData);
+    console.log("MCHAT: "+testData.mchatScore);
+    console.log(isaascore);
+    const getSeverityLevel = (score, type) => {
+      if (type === 'isaa') {
+        if (score >= 90) return 'High';
+        if (score >= 60) return 'Moderate';
+        return 'Low';
+      } else if (type === 'mchat') {
+        if (score >= 8) return 'High';
+        if (score >= 3) return 'Moderate';
+        return 'Low';
+      } else if (type === 'cars') {
+        if (score >= 37) return 'High';
+        if (score >= 30) return 'Moderate';
+        return 'Low';
+      }
+      return 'Unknown';
+    };
   return (
     <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen text-center">
       {/* Step Progress Indicator */}
@@ -31,13 +51,27 @@ const DownloadPage = () => {
           out to our team. We're committed to empowering you and your child on this journey!
         </p>
       </div>
-
+       {/* Scores and Severity Display */}
+      <div className="mt-10 text-[#F6E8FB] text-lg font-montserrat font-medium">
+        <div>
+          INCLEN Score: {testData.inclenFullScore || 'N/A'} 
+        </div>
+        <div>
+          ISAA Score: {isaascore || 'N/A'} 
+        </div>
+        <div>
+          M-CHAT Score: {mchatScore || 'N/A'} 
+        </div>
+        <div>
+          CARS Score: {carsscore || 'N/A'} 
+        </div>
+      </div>
       {/* Download Button */}
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <a href='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Reports.pdf?alt=media&token=4b491bc6-5c98-490c-bd2c-a5909ed69d04' target='_blank' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
           Download your report
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

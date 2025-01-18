@@ -5,17 +5,20 @@ import sideleft from "../assets/images/aboutUs/about.png";
 import doctor1 from "../assets/homepage/white screen.png";
 import doctor2 from "../assets/images/aboutUs/doctors2.svg";
 import doctor3 from "../assets/images/aboutUs/doctors3.svg";
+import vission from "./aboutus/vission.jpg";
 import blog_icon from "../assets/images/aboutUs/blog_icon.png";
 import birt_aignosis from "../assets/images/aboutUs/birth_aignosis.png";
 import Footer from "./Footer";
 import AignosisTeam from "./aboutus/AignosisTeam";
-import Divider from "./aboutus/Divider";
+// import Divider from "./aboutus/Divider";
 import Awards from "./clinic/Awards";
 import Endrosed from "./clinic/Endrosed";
 import BlogFooter from "./BlogPages/BlogFooter";
+import SEO from "./config/Seo";
+import arrow from './aboutus/arrow.png'
+import ContactPage from "./aboutus/ContactPage";
 
-
-const TeamMember = ({ name, img, description, height }) => (
+const TeamMember = ({ name, img, description, height  }) => (
   <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
     <div className="w-full h-[50vw] sm:h-[30vw] md:h-[20vw] bg-[#D9D9D947] flex justify-center items-center">
       <img src={img} className="w-full h-full object-cover" alt="" />
@@ -33,13 +36,86 @@ const TeamMember = ({ name, img, description, height }) => (
     </div>
   </div>
 );
+const Divider = ({ title, desc, subtitle , img }) => {
+  return (
+    <>
+      <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
+        {/* DIVIDER CODE */}
+        <div className="flex flex-row justify-center items-center space-x-4">
+          <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+
+          <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
+            {title}
+          </span>
+          <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+        </div>
+        
+        <h1 className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
+          {subtitle}
+        </h1>
+        <span className="font-inter text-white p-1 text-1xl">
+          {" "}
+          {desc}
+        </span>
+      </div>
+      <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
+        {/* DIVIDER CODE */}
+        <div className="flex flex-row justify-center items-center space-x-4">
+          <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+          <h3 className="text-[24px] text-[#F1C6FE] text-center font-medium max-sm:text-sm">
+            {title}
+          </h3>
+          <span
+            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+            style={{
+              background:
+                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+            }}
+          ></span>
+        </div>
+
+        <span className="font-raleway text-center text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
+          {subtitle}
+        </span>
+        <span className="font-inter text-center text-white p-1 text-1xl">
+          {" "}
+          {desc}
+        </span>
+      </div>
+    </>
+  );
+};
 
 const AboutUs = () => {
   return (
+    <>
+    <SEO
+    canonicalUrl={"https://aignosis.in/about-us"}
+    metaDescription={"Learn about Aignosis and our mission to provide innovative AI-driven autism care solutions. Discover how we support families with early autism detection and care."}
+    pageTitle={"About Us | Aignosis - AI Autism Care Solutions"}
+    />
     <div className="bg-[#1A0C25] max-sm:px-2 font-montserrat text-white">
       <div className="pt-28 pb-8">
         <Header />
-        <Divider title="About Us" desc=' Working together for a brighter future.' subtitle=' Ai.gnosis – Empowering Early Detection' />
+        <Divider title="About Us" desc=' Working together for a brighter future.'  subtitle=' Ai.gnosis – Empowering Early Detection' />
 
       </div>
 
@@ -111,10 +187,10 @@ const AboutUs = () => {
         </div>
       </div>
       <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
-        <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700PX]  mr-2 max-md:pl-5">
+        <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700px]  mr-2 max-md:pl-5">
           <div className="flex gap-5 max-md:flex-col">
-            <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-              <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
+            <div className="flex flex-col w-[50%] max-md:ml-0  max-md:w-full">
+              <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
                 <div className="rounded-lg w-[90px] p-2 "
                   style={{
                     background: `radial-gradient(
@@ -142,7 +218,7 @@ const AboutUs = () => {
             <div className="flex flex-col  ml-5 w-[69%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src={doctor1}
+                src={vission}
                 alt="Blog section featured image"
                 className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
               />
@@ -180,7 +256,7 @@ const AboutUs = () => {
             <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src={doctor1}
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/DSC_7765.jpeg"
                 alt="Blog section featured image"
                 className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
               />
@@ -188,13 +264,58 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+      <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-[8vw] items-center justify-center mt-[4vw]">
+  <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6 max-w-[700px] mr-2 max-md:pl-5">
+    <div className="flex gap-5 max-md:flex-col">
+      <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+        <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
+          <div className="rounded-lg w-[90px] p-2"
+            style={{
+              background: `radial-gradient(
+                100% 100% at 50% -4950%, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0) 100%
+              ), rgba(255, 255, 255, 0.2)`,
+            }}
+          >
+            <img
+              loading="lazy"
+              src={arrow}
+              alt="Purpose section icon"
+              className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px]"
+            />
+          </div>
+          <div className="mt-8 text-xl font-semibold leading-none text-white">
+            Purpose
+          </div>
+          <div className="self-stretch font-inter mt-6 text-sm tracking-wide leading-5 text-white text-opacity-80">
+            To bridge the gap between late diagnosis and timely intervention, ensuring that every child’s unique potential is recognized and nurtured. By making autism screening accessible to all, we strive to transform lives, enhance developmental outcomes, and contribute to a more inclusive society.
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+        <img
+          loading="lazy"
+          src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_3535.JPG"
+          alt="Purpose section featured image"
+          className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
       <div className="px-[5vw]">
         <AignosisTeam />
+      </div>
+      <div>
+        <ContactPage/>
       </div>
       {/* <Awards />
       <Endrosed /> */}
       <BlogFooter />
     </div>
+    </>
   );
 };
 

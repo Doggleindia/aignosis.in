@@ -11,9 +11,9 @@ const ContactServicePage = () => {
                 <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580]">
                     <div className='w-full flex-col h-[15vw] justify-center flex items-center'>
                         <div className="bg-[#1A0C25]">
-                            <h1 className='max-sm:pb-[76px] text-center 2xl:text-7xl md:text-5xl text-3xl font-semibold leading-[3rem]'>
+                            <span className='max-sm:pb-[76px] text-center 2xl:text-7xl md:text-5xl text-3xl font-semibold leading-[3rem]'>
                                 Get in Touch with Ai.gnosis
-                            </h1>
+                            </span>
                         </div>
                         <div className='px-[5vw]'>
                             <p className='text-center mt-[2vw] 2xl:text-base md:text-sm text-xs'>
@@ -33,9 +33,9 @@ const ContactServicePage = () => {
                             ></iframe>
                         </div>
                         <div className=" w-[100%] md:w-[40%] px-[4vw] h-[70%]">
-                            <h1 className='2xl:text-base md:text-sm text-xs'>
+                            <span className='2xl:text-base md:text-sm text-xs'>
                                 Simply fill in your details below, and we’ll get back to you as soon as possible. You can also find us on the map, showcasing our headquarters and partner locations. For immediate assistance, feel free to call or email us directly!
-                            </h1>
+                            </span>
                             <div className="max-sm:hidden">
                                 <form className=" max-sm:hidden mt-4 2xl:text-base md:text-sm space-y-4">
                                     <input

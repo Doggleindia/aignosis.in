@@ -2,9 +2,16 @@ import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import BlogFooter from './BlogPages/BlogFooter';
+import SEO from './config/Seo';
 
 const PrivacyPolicy = () => {
   return (
+    <>
+    <SEO
+    canonicalUrl={'https://aignosis.in/privacy-policy'}
+    metaDescription={'Read Aignosis Privacy Policy to learn how we protect your data, ensure privacy, and comply with regulations. Trust our commitment to confidentiality.'}
+    pageTitle={'https://aignosis.in/privacy-policy'}
+    />
     <div className='bg-[#1A0C25]'>
       <Header />
       <div className="min-h-screen text-white px-6 max-sm:py-[20vw] py-[10vw] sm:px-16 font-montserrat">
@@ -186,6 +193,7 @@ const PrivacyPolicy = () => {
       </div>
       <BlogFooter />
     </div>
+    </>
   );
 };
 

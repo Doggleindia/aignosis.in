@@ -41,9 +41,9 @@ const FromDoctor = () => {
                                             "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                                     }}
                                 ></span>
-                                <h1 className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
+                                <span className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
                                     From Doctors
-                                </h1>
+                                </span>
                                 <span
                                     className="h-[6px] w-[100px] rounded-full max-sm:w-[60px]"
                                     style={{
@@ -52,7 +52,7 @@ const FromDoctor = () => {
                                     }}
                                 ></span>
                             </div>
-                            <h1 className='font-raleway mt-5 text-4xl'>The right support at the right time <br /> makes all the difference.</h1>
+                            <span className='font-raleway mt-5 text-4xl'>The right support at the right time <br /> makes all the difference.</span>
                             <p className='mt-5  leading-[1.2vw]'>Connect with an expert therapist for personalized virtual sessions, where children learn <br /> practical skills through activities, games, and worksheets to achieve their goals faster.</p>
                             {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                 <div
@@ -73,7 +73,7 @@ const FromDoctor = () => {
 
                                         <div className="flex justify-between items-center">
                                             <div className="flex flex-col">
-                                                <h1 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h1>
+                                                <h3 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h3>
                                                 <span className="text-xs text-[#CACED9]"> Pediatrician & Developmental Expert</span>
                                             </div>
 
@@ -96,7 +96,7 @@ const FromDoctor = () => {
 
                                         <div className="flex justify-between items-center">
                                             <div className="flex flex-col">
-                                                <h1 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h1>
+                                                <h3 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h3>
                                                 <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi
                                                 </span>
                                             </div>
@@ -125,7 +125,7 @@ const FromDoctor = () => {
                                                 <div className="flex justify-between items-center">
                                                     {/* Left Side */}
                                                     <div className="flex flex-col">
-                                                        <h1 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h1>
+                                                        <h3 className="text-base text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h3>
                                                         <span className="text-xs text-[#CACED9]">Pediatrician & Developmental Expert</span>
                                                     </div>
                                                     {/* Placeholder */}
@@ -148,7 +148,7 @@ const FromDoctor = () => {
                                                 <div className="flex justify-between items-center">
                                                     {/* Left Side */}
                                                     <div className="flex flex-col">
-                                                        <h1 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h1>
+                                                        <h2 className="text-base text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h2>
                                                         <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi</span>
                                                     </div>
                                                     {/* Placeholder */}
@@ -173,9 +173,9 @@ const FromDoctor = () => {
                                                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                                         }}
                                     ></span>
-                                    <h1 className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
+                                    <span className="text-[16px] text-[#F1C6FE] font-medium max-sm:text-sm">
                                         From Parents
-                                    </h1>
+                                    </span>
                                     <span
                                         className="h-[6px] w-[100px] rounded-full max-sm:w-[60px]"
                                         style={{
@@ -184,7 +184,7 @@ const FromDoctor = () => {
                                         }}
                                     ></span>
                                 </div>
-                                <h1 className='font-raleway mt-5 text-4xl'>Stories of Support and Success</h1>
+                                <span className='font-raleway mt-5 text-4xl'>Stories of Support and Success</span>
                                 <p className='mt-5  leading-[1.2vw]'>Discover how AI.Gnosis has empowered parents with the tools and insights they <br /> need to make informed decisions for their children’s future.</p>
                                 {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                     <div
@@ -202,7 +202,7 @@ const FromDoctor = () => {
 
                                             <div className="flex justify-between items-center">
                                                 <div className="flex flex-col">
-                                                    <h1 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h1>
+                                                    <h3 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h3>
                                                     <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
                                                 </div>
 
@@ -226,7 +226,7 @@ const FromDoctor = () => {
 
                                             <div className="flex justify-between items-center">
                                                 <div className="flex flex-col">
-                                                    <h1 className="text-base text-[#CACED9] font-semibold">Priya patil,</h1>
+                                                    <h3 className="text-base text-[#CACED9] font-semibold">Priya patil,</h3>
                                                     <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
                                                 </div>
 
@@ -254,7 +254,7 @@ const FromDoctor = () => {
                                                     <div className="flex justify-between items-center">
                                                         {/* Left Side */}
                                                         <div className="flex flex-col">
-                                                            <h1 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h1>
+                                                            <h3 className="text-base text-[#CACED9] font-semibold">Neha Sharma,</h3>
                                                             <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
                                                         </div>
                                                         {/* Placeholder */}
@@ -277,7 +277,7 @@ const FromDoctor = () => {
                                                     <div className="flex justify-between items-center">
                                                         {/* Left Side */}
                                                         <div className="flex flex-col">
-                                                            <h1 className="text-base text-[#CACED9] font-semibold">Priya patil,</h1>
+                                                            <h3 className="text-base text-[#CACED9] font-semibold">Priya patil,</h3>
                                                             <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
                                                         </div>
                                                         {/* Placeholder */}
@@ -321,7 +321,7 @@ const FromDoctor = () => {
                                             "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                                     }}
                                 ></span>
-                                <h1 className="text-sm text-[#F1C6FE] font-medium">From Doctors</h1>
+                                <h3 className="text-sm text-[#F1C6FE] font-medium">From Doctors</h3>
                                 <span
                                     className="h-[4px] w-[50px] rounded-full"
                                     style={{
@@ -330,9 +330,9 @@ const FromDoctor = () => {
                                     }}
                                 ></span>
                             </div>
-                            <h1 className="font-raleway text-xl text-start">
+                            <h3 className="font-raleway text-xl text-start">
                                 Trusted by Experts in Autism Detection
-                            </h1>
+                            </h3>
                             <p className="text-start text-xs">
                                 Hear how AI.Gnosis has transformed early autism detection for healthcare
                                 professionals, improving accuracy and patient care in clinics worldwide.
@@ -354,7 +354,7 @@ const FromDoctor = () => {
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h1 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h1>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>
@@ -371,7 +371,7 @@ const FromDoctor = () => {
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h1 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h1>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>
@@ -389,7 +389,7 @@ const FromDoctor = () => {
                                             "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                                     }}
                                 ></span>
-                                <h1 className="text-sm text-[#F1C6FE] font-medium">From Parents</h1>
+                                <span className="text-sm text-[#F1C6FE] font-medium">From Parents</span>
                                 <span
                                     className="h-[4px] w-[50px] rounded-full"
                                     style={{
@@ -398,8 +398,8 @@ const FromDoctor = () => {
                                     }}
                                 ></span>
                             </div>
-                            <h1 className="font-raleway text-xl text-right">
-                                Trusted by Experts in Autism Detection                            </h1>
+                            <h3 className="font-raleway text-xl text-right">
+                                Trusted by Experts in Autism Detection                            </h3>
                             <p className="text-center text-xs">
                                 Hear how AI.Gnosis has transformed early autism detection for healthcare
                                 professionals, improving accuracy and patient care in clinics worldwide.
@@ -421,7 +421,7 @@ const FromDoctor = () => {
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h1 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h1>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>
@@ -438,7 +438,7 @@ const FromDoctor = () => {
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h1 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h1>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
                                         <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
                                     </div>
                                 </div>

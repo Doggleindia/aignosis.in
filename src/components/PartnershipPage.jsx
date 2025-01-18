@@ -65,7 +65,7 @@ const PartnershipPage = () => {
                                     "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
                             }}
                         ></span>
-                        <h1 className="text-[#EDD0E7]">Connect with Sales</h1>
+                        <spam className="text-[#EDD0E7]">Connect with Sales</spam>
                         <span
                             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                             style={{
@@ -75,9 +75,9 @@ const PartnershipPage = () => {
                         ></span>
                     </div>
                     <div className="px-4 md:px-[8vw] mb-4 text-center">
-                        <h1 className='2xl:text-5xl md:text-3xl tracking-tight font-semibold md:leading-[3rem]'>
+                        <span className='2xl:text-5xl md:text-3xl tracking-tight font-semibold md:leading-[3rem]'>
                             If you are a healthcare provider, payor, or caregiver <br /> and want to partner with Ai.gnosis, let’s talk!
-                        </h1>
+                        </span>
                     </div>
                     <div className='px-4 2xl:text-lg mt-4 md:text-xs md:px-[20vw] text-center'>
                         <p>Emphasis on partnerships within India, focusing on integration with local healthcare.</p>
@@ -109,7 +109,7 @@ const PartnershipPage = () => {
                             style={{ background: 'radial-gradient(circle, #43284C 0%, #1A0C25 100%)' }} // Apply radial gradient 43284C 1A0C25 here
                         >
 
-                            <h1 className="2xl:text-2xl border-l-2 pl-6 border-[#811F67] text-lg md:text-lg font-semibold text-white">{item.title}</h1>
+                            <h3 className="2xl:text-2xl border-l-2 pl-6 border-[#811F67] text-lg md:text-lg font-semibold text-white">{item.title}</h3>
                             <p className="mt-2 md:text-xs test-sm 2xl:text-lg text-white p-2 ">{item.description}</p>
                             <div className="w-full h-1 border-b-2 border-[#811F67] mt-5"></div>
                         </div>
@@ -125,9 +125,9 @@ const PartnershipPage = () => {
             {/* Contact Form Section */}
             <div className="w-full flex flex-col justify-center items-center md:px-4 mb-10">
                 <div className="w-full text-center px-[10vw] md:px-[25vw]">
-                    <h1 className="2xl:text-xl font-medium md:text-2xl mb-10 max-sm:text-center">
+                    <h3 className="2xl:text-xl font-medium md:text-2xl mb-10 max-sm:text-center">
                         Fill up the form, and our team will respond promptly to assist you.
-                    </h1>
+                    </h3>
                     <form className="space-y-4 md:px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
                         <input type="text" placeholder="Your Name*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
                         <input type="age" placeholder="Your Age*" className="w-full px-4 py-2 bg-[#2521276B]  rounded-md" />
