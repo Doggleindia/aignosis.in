@@ -41,9 +41,9 @@ const sessionsData = [
 
 const Sessions = () => {
   return (
-    <div className="w-full font-manrope py-10 px-5">
+    <div className="w-full font-manrope py-10 md:px-5">
       <h2 className="text-white text-base font-semibold mb-6">Sessions</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-6 mx-auto">
         {sessionsData.map((session, index) => (
           <div
             key={index}
@@ -56,10 +56,10 @@ const Sessions = () => {
                 className="w-16 h-16"
               />
             </div>
-            <h3 className="text-white text-base font-semibold mb-2">
+            <h3 className="text-white text-xs md:text-base font-semibold mb-2">
               {session.title}
             </h3>
-            <p className="text-white text-xs">{session.subtitle}</p>
+            <p className="text-white text-[8px] md:text-xs">{session.subtitle}</p>
           </div>
         ))}
       </div>
