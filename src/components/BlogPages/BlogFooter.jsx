@@ -30,6 +30,10 @@ const BlogFooter = () => {
                 {" "}
                 <li>Contact us</li>
               </Link>
+              <Link to={'/career'}>
+                {" "}
+                <li>career</li>
+              </Link>
             </ul>
           </div>
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import StepProgress from './StepProgress'
 import bluetick_img from  '../../assets/bluetick_img.png'
 import { Link } from 'react-router-dom'
 import { GoArrowUpRight } from 'react-icons/go'

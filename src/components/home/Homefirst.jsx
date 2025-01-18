@@ -161,11 +161,13 @@ const Homefirst = () => {
               className="flex flex-row"
             >
               <HomePageCard
+              urlredirect ='/prices'
                 imageSrc={m1}
                 title="Get your child tested now"
                 description="Empowering Clinics with Advanced Autism Detection Tools"
               />
               <HomePageCard
+              urlredirect={'/clinic'}
                 imageSrc={m2}
                 title="For doctors"
                 description="Empowering Clinics with Advanced Autism Detection Tools"
