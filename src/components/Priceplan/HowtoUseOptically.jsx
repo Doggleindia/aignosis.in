@@ -1,8 +1,5 @@
 import React from 'react';
-import card1 from "../../assets/pricepage/card1.png"
-import card2 from "../../assets/pricepage/card2.png"
-import card3 from "../../assets/pricepage/card3.png"
-import card4 from "../../assets/pricepage/card4.png"
+
 
 const HowToUseOptically = () => {
     const Divider = ({ title }) => (
