@@ -1,13 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaFacebook, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 const BlogFooter = () => {
   return (
     <div>
-      <footer className="bg-[#811F67] px-[10vw] text-white py-10">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-[1vw] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:space-y-6">
+      <footer className="bg-[#811F67] px-[10vw] text-white py-[10vh]">
+        <div className="container justify-center mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-[1vw] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:space-y-6">
           {/* Pages Section */}
-          <div className="max-sm:w-full max-sm:text-center">
+          <div className="max-sm:w-full max-sm:text-left">
+            <div className="relative inline-block">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
+              <Link
+                to="/"
+                onClick={() => handleLinkClick("/")}
+                className="relative md:text-2xl 2xl:text-3xl font-semibold tracking-wide text-white z-10"
+              >
+                Ai.gnosis
+              </Link>
+            </div>
+            <p className="mt-5 " >AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. </p>
+            <h3 className="mt-5 text-lg font-medium">Follow us</h3>
+            <ul className="space-x-4 hidden justify-start items-start pt-4 max-sm:pl-0 md:flex max-sm:space-y-0 flex-row max-sm:flex-row max-sm:space-x-4">
+              <li>
+                <a
+                  href="https://www.instagram.com/aignosis.in?igsh=MTU0dmUybjViOTIzZw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaInstagram size={26} className="text-pink-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/19HxXZyVyE/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaFacebook size={26} className="text-blue-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://youtube.com/@aignosis?si=gozM9TLj4ZToY5-k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaYoutube size={26} className="text-red-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/aignosisai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaLinkedin size={26} className="text-blue-500" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="max-sm:w-full max-sm:text-left">
             <h3 className="text-lg font-semibold mb-4">Pages</h3>
             <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               <Link to="/">
@@ -38,7 +95,7 @@ const BlogFooter = () => {
           </div>
 
           {/* Information Section */}
-          <div className="max-sm:w-full max-sm:text-center">
+          <div className="max-sm:w-full max-sm:text-left">
             <h3 className="text-lg font-semibold mb-4">Information</h3>
             <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               {/* <li>Brand Story</li> */}
@@ -62,26 +119,24 @@ const BlogFooter = () => {
           </div>
 
           {/* Customer Service Section */}
-          <div className="max-sm:w-full max-sm:text-center">
+          {/* <div className="max-sm:w-full max-sm:text-center">
             <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
             <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               <Link to={"/about-us"}>
                 {" "}
                 <li>Our Team</li>
               </Link>
-              {/* <li>My Account</li>
-              <li>FAQ</li> */}
               <Link to={"/blog"}>
                 {" "}
                 <li>Blog</li>
               </Link>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Us Section */}
-          <div className="max-sm:w-full max-sm:text-center">
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <address className="not-italic space-y-2 max-sm:text-center">
+          <div className="max-sm:w-full max-sm:text-left">
+            <h3 className="text-lg text-left font-semibold mb-4">Contact Us</h3>
+            <address className="not-italic space-y-2 max-sm:text-left">
               <p>
                 Plot No. 741, Mahavir Nagar-Ist, Mandir Marg, Tonk Road,
                 Durgapura, Jaipur, Rajasthan 302018
@@ -89,7 +144,7 @@ const BlogFooter = () => {
               <p>+91-9024788312 / +91-9983432333</p>
               <p>info@momshome.in</p>
             </address>
-            <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
+            {/* <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               <Link
                 to={
                   "https://www.instagram.com/aignosis.in?igsh=MTU0dmUybjViOTIzZw=="
@@ -107,8 +162,57 @@ const BlogFooter = () => {
               <Link to={'https://www.linkedin.com/company/aignosisai/'}> 
                 <li>Linkedin</li>
               </Link>{" "}
+            </ul> */}
+          </div>
+          <div className="max-sm:w-full block md:hidden max-sm:text-left">
+            <h3 className="mt-5 text-lg font-medium">Follow us</h3>
+            <ul className="space-x-4 justify-start items-start pt-4 max-sm:pl-0 flex max-sm:space-y-0 flex-row max-sm:flex-row max-sm:space-x-4">
+              <li>
+                <a
+                  href="https://www.instagram.com/aignosis.in?igsh=MTU0dmUybjViOTIzZw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaInstagram size={26} className="text-pink-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/19HxXZyVyE/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaFacebook size={26} className="text-blue-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://youtube.com/@aignosis?si=gozM9TLj4ZToY5-k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaYoutube size={26} className="text-red-600" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/aignosisai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <FaLinkedin size={26} className="text-blue-500" />
+                </a>
+              </li>
             </ul>
           </div>
+          <div className="border-t-2 md:hidden flex justify-center items-center w-full border-[#F6E8FB80]">
+            <h3 className="text-[10px] mt-4">All rights reserved . powered by aignosis</h3>
+          </div>
+          
         </div>
       </footer>
     </div>
