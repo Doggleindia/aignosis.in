@@ -39,13 +39,13 @@ const Header = () => {
     setActiveLink(path);
   };
 
-  
+
 
   useEffect(() => {
     const checkAuth = async () => {
       const token = localStorage.getItem("authToken");
       try {
-        console.log(authUser,"authUser1");
+        console.log(authUser, "authUser1");
         // Verify the token with the backend
         const response = await axiosInstance.post(
           "/verifyJwt",
@@ -55,10 +55,10 @@ const Header = () => {
               Authorization: `Bearer ${token}`, // Add the token in the headers
             },
           });
-          setAuthUser(true)
+        setAuthUser(true)
 
         if (!response.data.success) {
-          console.log(authUser,"authUser2");
+          console.log(authUser, "authUser2");
           // Token verification failed, redirect to login
           setAuthUser(false)
         }
@@ -71,8 +71,8 @@ const Header = () => {
     checkAuth();
   }, []);
 
-  console.log(authUser,"authUser");
-  
+  console.log(authUser, "authUser");
+
 
   return (
     <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
@@ -99,13 +99,11 @@ const Header = () => {
             <Link
               to=""
               onClick={() => handleServiceClick("/assessments-evaluation")} // Updated function name
-              className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-                selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
-              }`} // Updated condition
+              className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
+                }`} // Updated condition
             >
               Services
             </Link>
-
             {/* Dropdown menu */}
             {isHovered && (
               <div
@@ -124,9 +122,8 @@ const Header = () => {
                     <Link
                       to="/assessments-evaluation"
                       onClick={() => handleServiceClick("/service1")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
-                        activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
-                      }`}
+                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
+                        }`}
                       aria-label="/assessments-evaluation"
                     >
                       Assessments & Evaluation
@@ -136,9 +133,8 @@ const Header = () => {
                     <Link
                       to="/speech-language"
                       onClick={() => handleServiceClick("/speech-language")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
-                        activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                      }`}
+                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                        }`}
                       aria-label="Service 2"
                     >
                       Speech & Language
@@ -148,9 +144,8 @@ const Header = () => {
                     <Link
                       to="/behaviour-therapy"
                       onClick={() => handleServiceClick("/behaviour-therapy")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
-                        activeLink === "/behaviour-therapy" ? "text-[#B740A1]" : ""
-                      }`}
+                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/behaviour-therapy" ? "text-[#B740A1]" : ""
+                        }`}
                       aria-label="Service 3"
                     >
                       Behaviour Therapy
@@ -160,9 +155,8 @@ const Header = () => {
                     <Link
                       to="/occupational-therapy"
                       onClick={() => handleServiceClick("/occupational-therapy")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${
-                        activeLink === "/occupational-therapy" ? "text-[#B740A1]" : ""
-                      }`}
+                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/occupational-therapy" ? "text-[#B740A1]" : ""
+                        }`}
                       aria-label="Service 4"
                     >
                       Occupational Therapy
@@ -172,9 +166,8 @@ const Header = () => {
                     <Link
                       to="/special-education"
                       onClick={() => handleServiceClick("/special-education")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${
-                        activeLink === "/service5" ? "text-[#B740A1]" : ""
-                      }`}
+                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/service5" ? "text-[#B740A1]" : ""
+                        }`}
                       aria-label="special-education"
                     >
                       Special Education
@@ -187,63 +180,59 @@ const Header = () => {
           <Link
             to="/about-us"
             onClick={() => handleLinkClick("/about-us")}
-            
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/about-us" ? "border-b-2 border-white" : ""
-            }`}
+
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/about-us" ? "border-b-2 border-white" : ""
+              }`}
           >
             About Us
           </Link>
           <Link
             to="/prices"
             onClick={() => handleLinkClick("/prices")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/prices" ? "border-b-2 border-white" : ""
-            }`}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/prices" ? "border-b-2 border-white" : ""
+              }`}
           >
             Prices
           </Link>
           <Link
             to="/clinic"
             onClick={() => handleLinkClick("/clinic")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/clinic" ? "border-b-2 border-white" : ""
-            }`}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/clinic" ? "border-b-2 border-white" : ""
+              }`}
           >
             Clinic
           </Link>
           <Link
             to="/blog"
-           
+
             onClick={() => handleLinkClick("/blog")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${
-              activeLink === "/blog" ? "border-b-2 border-white" : ""
-            }`}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/blog" ? "border-b-2 border-white" : ""
+              }`}
           >
             Blogs
           </Link>
           {authUser ? (
-          <div
-            onClick={handleNavigate}
-            className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
-          >
-            <span className="2xl:text-base md:text-sm">
-              Book an appointment
-            </span>
-            <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
-              <GoArrowUpRight />
+            <div
+              onClick={handleNavigate}
+              className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+            >
+              <span className="2xl:text-base md:text-sm">
+                Book an appointment
+              </span>
+              <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
+                <GoArrowUpRight />
+              </div>
             </div>
-          </div>
-          ):(
-          <Link
-            // to='/login'
-            // onClick={() => handleLinkClick("/login")}
-            className="border border-[#B740A1] p-2 px-11 rounded-[30px]"
-          >
-            <span className="2xl:text-base md:text-sm m-auto text-2xl text-white">
-              Log in
-            </span>
-          </Link>
+          ) : (
+            <Link
+              // to='/login'
+              // onClick={() => handleLinkClick("/login")}
+              className="border border-[#B740A1] p-2 px-11 rounded-[30px]"
+            >
+              <span className="2xl:text-base md:text-sm m-auto text-2xl text-white">
+                Log in
+              </span>
+            </Link>
           )}
         </div>
 
@@ -276,7 +265,7 @@ const Header = () => {
               HOME
             </Link>
 
-          
+
 
             {/* ABOUT Link */}
             <Link
@@ -306,13 +295,13 @@ const Header = () => {
             </Link>
 
 
-  {/* SERVICES Dropdown */}
-  <div className="flex flex-col text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]">
+            {/* SERVICES Dropdown */}
+            <div className="flex flex-col text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]">
               <div
                 onClick={() =>
                   setIsServicesDropdownOpen(!isServicesDropdownOpen)
                 }
-                // className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
+              // className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
               >
                 SERVICES
                 <span>{isServicesDropdownOpen ? "▾" : "▸"}</span>
@@ -321,7 +310,7 @@ const Header = () => {
                 <div className="ml-4 mt-2 flex flex-col gap-2">
                   <Link
                     to="/assessments-evaluation"
-                    
+
                     className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
                   >
                     Assessments & Evaluation
@@ -356,7 +345,7 @@ const Header = () => {
             </div>
 
 
-          
+
             {/* Book Appointment Button */}
             <div
               onClick={handleNavigate}

@@ -8,21 +8,21 @@ import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
 const HomepageMain = () => {
   return (
-    
-<>
-<SEO
+
+    <>
+      <SEO
         pageTitle="AI-Powered Early Autism Screening Tools | Aignosis"
         canonicalUrl="https://aignosis.in/"
         metaDescription="Explore AI-powered tools by Aignosis for early autism screening, diagnosis, and detection. Revolutionize autism care with advanced technology."
       />
 
-    <div className="bg-[#1A0C25] overflow-x-hidden">
-      <Homepage />
-      <WhatsAppButton />
-      <Laptop />
-      <ContactPage />
-      <BlogFooter />
-    </div>
+      <div className="bg-[#1A0C25] overflow-x-hidden">
+        <Homepage />
+        <WhatsAppButton />
+        <Laptop />
+        <ContactPage />
+        <BlogFooter />
+      </div>
     </>
     // </AnimatedIntro>
   );
