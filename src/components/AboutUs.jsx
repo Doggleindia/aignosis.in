@@ -17,6 +17,10 @@ import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
 import arrow from './aboutus/arrow.png'
 import ContactPage from "./aboutus/ContactPage";
+import eye from './aboutus/eye.png'
+import ship from './aboutus/ship.png'
+import bear from './aboutus/bear.png'
+import anim from './aboutus/anim.png'
 
 const TeamMember = ({ name, img, description, height  }) => (
   <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
@@ -39,9 +43,12 @@ const TeamMember = ({ name, img, description, height  }) => (
 const Divider = ({ title, desc, subtitle , img }) => {
   return (
     <>
+    
       <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
+      
         {/* DIVIDER CODE */}
         <div className="flex flex-row justify-center items-center space-x-4">
+        
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{
@@ -49,7 +56,7 @@ const Divider = ({ title, desc, subtitle , img }) => {
                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
             }}
           ></span>
-
+           
           <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
             {title}
           </span>
@@ -65,11 +72,16 @@ const Divider = ({ title, desc, subtitle , img }) => {
         <h1 className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </h1>
+        
         <span className="font-inter text-white p-1 text-1xl">
           {" "}
           {desc}
         </span>
+        <span className="relative top-[-13vw] left-[-22vw]">
+          <img src={anim} className="hidden md:block max-sm:w-[50px]justify-start scale-[.5] transform scale-x-[-1]"/>
+         </span>
       </div>
+      
       <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
         {/* DIVIDER CODE */}
         <div className="flex flex-row justify-center items-center space-x-4">
@@ -91,7 +103,7 @@ const Divider = ({ title, desc, subtitle , img }) => {
             }}
           ></span>
         </div>
-
+        
         <span className="font-raleway text-center text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </span>
@@ -105,6 +117,7 @@ const Divider = ({ title, desc, subtitle , img }) => {
 };
 
 const AboutUs = () => {
+  
   return (
     <>
     <SEO
@@ -119,26 +132,30 @@ const AboutUs = () => {
 
       </div>
 
-      <div className=" max-sm:p-4 flex max-sm:flex-col gap-6 justify-center">
-        <img
-          src={sideleft}
-          alt="about"
-          className="rounded-3xl w-[400px] h-[400px] object-cover"
-        />
-        <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
-          <span className="font-medium">How it all began</span>
-          {/* <span className="pt-4 block">
-            Embark on a journey through our narrative, where innovation meets
-            purpose.
-          </span> */}
-          <span className="pt-4 block">
-            We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
-          </span>
-          <span className="pt-4 block">
-            That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
-          </span>
-        </div>
-      </div>
+      <div className="max-sm:p-4 flex max-sm:flex-col gap-6 justify-center relative">
+  <img
+    src={sideleft}
+    alt="about"
+    className="rounded-3xl w-[400px] h-[400px] object-cover"
+  />
+  <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
+    <span className="font-medium">How it all began</span>
+    <span className="pt-4 block">
+      We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
+    </span>
+    <span className="pt-4 relative">
+      That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
+      <img src={bear} className="hidden md:block scale-[.4] mt-[-12vw] ml-[32vw] -rotate-45" />
+    </span>
+  </div>
+
+ 
+  <div className="absolute top-0 right-0 w-[15%] h-full bg-[#B740A1A6] opacity-65 blur-[120px] rounded-xl"></div>
+
+  
+  <div className="absolute max-sm:top-[110vw] max-sm:right-[1vw] max-sm:w-[50%] sm:w-[30%] max-sm:w-[100%] sm:h-[100%] h-[40%] max-sm:bg-[#B740A1A6] opacity-65 blur-[80px] rounded-xl"></div>
+</div>
+
 
       {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
         <div className="flex max-sm:pt-4 flex-col items-start">
@@ -186,6 +203,7 @@ const AboutUs = () => {
           /> */}
         </div>
       </div>
+      
       <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
         <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700px]  mr-2 max-md:pl-5">
           <div className="flex gap-5 max-md:flex-col">
@@ -202,7 +220,7 @@ const AboutUs = () => {
                 >
                   <img
                     loading="lazy"
-                    src={blog_icon}
+                    src={eye}
                     alt="Blog section icon"
                     className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
                   />
@@ -240,7 +258,7 @@ const AboutUs = () => {
                 >
                   <img
                     loading="lazy"
-                    src={blog_icon}
+                    src={ship}
                     alt="Blog section icon"
                     className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
                   />
@@ -304,6 +322,14 @@ const AboutUs = () => {
     </div>
   </div>
 </div>
+
+<div className="w-[90%] bg-[#B7407D] bg-opacity-30 mt-[4vw]  m-auto rounded-full h-1 dark:bg-gray-700">
+  <div
+    className="bg-[#B7407D] bg-opacity-100 h-1 rounded-full"
+    style={{ width: '50%' }}
+  ></div>
+</div>
+
 
       <div className="px-[5vw]">
         <AignosisTeam />

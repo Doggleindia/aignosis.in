@@ -40,6 +40,7 @@ import Error from "./components/aignosisintegration/Error";
 import DataCollectionPage from "./components/aignosisintegration/DataCollectionPage";
 import Report from "./components/ReportPages/page1";
 import Dashboard from './components/Dashboard/Dashboard';
+
 // import AuthRoute from './components/config/AuthRoute';
 
 const App = () => {
@@ -85,6 +86,7 @@ const App = () => {
         <Route path="/dataCollection" element={<DataCollectionPage />} />
         <Route path="/download" element={<Report />} />
         <Route path='/dashboard' element={<Dashboard/>} />
+        
       </Routes>
     </Router>
   );
