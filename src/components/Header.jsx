@@ -41,35 +41,35 @@ const Header = () => {
 
 
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const token = localStorage.getItem("authToken");
-      try {
-        console.log(authUser, "authUser1");
-        // Verify the token with the backend
-        const response = await axiosInstance.post(
-          "/verifyJwt",
-          {}, // Empty body for the POST request
-          {
-            headers: {
-              Authorization: `Bearer ${token}`, // Add the token in the headers
-            },
-          });
-        setAuthUser(true)
+   useEffect(() => {
+     const checkAuth = async () => {
+       const token = localStorage.getItem("authToken");
+       try {
+         console.log(authUser, "authUser1");
+         // Verify the token with the backend
+         const response = await axiosInstance.post(
+           "/verifyJwt",
+           {}, // Empty body for the POST request
+           {
+             headers: {
+               Authorization: `Bearer ${token}`, // Add the token in the headers
+             },
+           });
+         setAuthUser(true)
 
-        if (!response.data.success) {
-          console.log(authUser, "authUser2");
-          // Token verification failed, redirect to login
-          setAuthUser(false)
-        }
-      } catch (error) {
-        console.error("Token verification failed:", error);
-        setAuthUser(false)
-      }
-    };
+         if (!response.data.success) {
+           console.log(authUser, "authUser2");
+           // Token verification failed, redirect to login
+           setAuthUser(false)
+         }
+       } catch (error) {
+         console.error("Token verification failed:", error);
+         setAuthUser(false)
+       }
+     };
 
-    checkAuth();
-  }, []);
+     checkAuth();
+   }, []);
 
   console.log(authUser, "authUser");
 
@@ -211,18 +211,30 @@ const Header = () => {
           >
             Blogs
           </Link>
+          <Link
+            to="/dashboard"
+            onClick={toggleMenu}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/dashboard" ? "border-b-2 border-white" : ""
+            }`}
+          >
+            Dashboard
+          </Link>
           {authUser ? (
-            <div
-              onClick={handleNavigate}
-              className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
-            >
-              <span className="2xl:text-base md:text-sm">
-                Book an appointment
-              </span>
-              <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
-                <GoArrowUpRight />
+            <>
+
+              <div
+                onClick={handleNavigate}
+                className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+              >
+                <span className="2xl:text-base md:text-sm">
+                  Book an appointment
+                </span>
+                <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
+                  <GoArrowUpRight />
+                </div>
               </div>
-            </div>
+
+            </>
           ) : (
             <Link
               // to='/login'
@@ -383,12 +395,21 @@ const Header = () => {
             Blogs
           </Link>
           {authUser ? (
-            <div
-              onClick={handleNavigate}
-              className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
-            >
-              Book an appointment
-            </div>
+            <>
+              <div
+                onClick={handleNavigate}
+                className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
+              >
+                Book an appointment
+              </div>
+              <Link
+                to="/dashboard"
+                onClick={toggleMenu}
+                className="w-full text-white text-lg p-3 mt-5 rounded-full text-center border border-[#B740A1]"
+              >
+                Dashboard
+              </Link>
+            </>
           ) : (
             <>
               <Link
