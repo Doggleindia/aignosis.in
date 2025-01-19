@@ -244,121 +244,162 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="flex justify-center items-center">
-          <div
-            className="md:hidden flex flex-col mt-2 pb-4"
-            style={{
-              background:
-                "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
-              width: "100%",
-              borderRadius: "8px",
-              padding: "0.3rem",
+        <div className="absolute text-left p-6 top-[6.8vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+          <Link
+            to="/"
+            onClick={() => {
+              handleLinkClick("/");
+              toggleMenu();
             }}
+            className={`text-lg p-4 w-full text-left ${activeLink === "/" ? "text-[#B740A1]" : ""
+              }`}
           >
-            {/* HOME Link */}
-            <Link
-              to="/"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-2 border-b-2 p-2 border-[#952981] `}
-            >
-              HOME
-            </Link>
+            Home
+          </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div
+            className="relative text-lg p-4 w-full text-left"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            Services
+            {dropdownOpen && (
+              <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+                <Link
+                  to="/assessments-evaluation"
+                  onClick={() => {
+                    handleLinkClick("/assessments-evaluation");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
+                    }`}
+                >
+                  Assessments & Evaluation
+                </Link>
+                <div className="border-t-2 w-full border-[#952981]"></div>
 
+                <Link
+                  to="/speech-language"
+                  onClick={() => {
+                    handleLinkClick("/speech-language");
+                    toggleMenu();
+                  }}
+                  className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                    }`}
+                >
+                  Speech & Language
+                </Link>
+                <div className="border-t-2 w-full border-[#952981]"></div>
 
+                <Link
+                  to="/behaviour-therapy"
+                  onClick={() => {
+                    handleLinkClick("/behaviour-therapy");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/behaviour-therapy" ? "text-[#B740A1]" : ""
+                    }`}
+                >
+                  Behaviour Therapy
+                </Link>
+                <div className="border-t-2 w-full border-[#952981]"></div>
 
-            {/* ABOUT Link */}
-            <Link
-              to="/about-us"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/prices"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              PRICES
-            </Link>
-            <Link
-              to="/clinic"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              CLINIC
-            </Link>
-            {/* BLOGS Link */}
-            <Link
-              to="/blog"
-              className={`text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]`}
-            >
-              BLOGS
-            </Link>
+                <Link
+                  to="/occupational-therapy"
+                  onClick={() => {
+                    handleLinkClick("/occupational-therapy");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/occupational-therapy" ? "text-[#B740A1]" : ""
+                    }`}
+                >
+                  Occupational Therapy
+                </Link>
+                <div className="border-t-2 w-full border-[#952981]"></div>
 
-
-            {/* SERVICES Dropdown */}
-            <div className="flex flex-col text-sm font-raleway text-[#F6E8FB] mt-4  border-b-2 p-2 border-[#952981]">
-              <div
-                onClick={() =>
-                  setIsServicesDropdownOpen(!isServicesDropdownOpen)
-                }
-              // className="cursor-pointer  text-sm font-raleway text-[#F6E8FB] flex justify-between items-center"
-              >
-                SERVICES
-                <span>{isServicesDropdownOpen ? "▾" : "▸"}</span>
+                <Link
+                  to="/special-education"
+                  onClick={() => {
+                    handleLinkClick("/special-education");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/special-education" ? "text-[#B740A1]" : ""
+                    }`}
+                >
+                  Special Education
+                </Link>
               </div>
-              {isServicesDropdownOpen && (
-                <div className="ml-4 mt-2 flex flex-col gap-2">
-                  <Link
-                    to="/assessments-evaluation"
+            )}
+          </div>
+          <div className="border-t-2 w-full border-[#952981]"></div>
+          <Link
+            to="/about-us"
+            onClick={() => {
+              handleLinkClick("/about-us");
+              toggleMenu();
+            }}
+            className={` text-lg p-4 w-full text-left ${activeLink === "/about-us" ? "text-[#B740A1]" : ""
+              }`}
+          >
+            About Us
+          </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
 
-                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
-                  >
-                    Assessments & Evaluation
-                  </Link>
-                  <Link
-                    to="/speech-language"
-                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
-                  >
-                    Speech & Language
-                  </Link>
-                  <Link
-                    to="/behaviour-therapy"
-                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
-                  >
-                    Behaviour Therapy
-                  </Link>
-                  <Link
-                    to="/occupational-therapy"
-                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
-                  >
-                    Occupational Therapy
-                  </Link>
-                  <Link
-                    to="/special-education"
-                    className="text-sm text-[#F6E8FB] hover:text-[#B740A1]"
-                  >
-                    Special Education
-                  </Link>
-                </div>
-              )}
-              {/* <p className=" border-b-2 p-2 border-[#952981]"></p> */}
-            </div>
+          <Link
+            to="/prices"
+            onClick={() => {
+              handleLinkClick("/prices");
+              toggleMenu();
+            }}
+            className={` text-lg p-4 w-full text-left ${activeLink === "/prices" ? "text-[#B740A1]" : ""
+              }`}
+          >
+            Prices
+          </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
 
+          <Link
+            to="/clinic"
+            onClick={() => {
+              handleLinkClick("/clinic");
+              toggleMenu();
+            }}
+            className={` text-lg p-4 w-full text-left ${activeLink === "/clinic" ? "text-[#B740A1]" : ""
+              }`}
+          >
+            Clinic
+          </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
 
-
-            {/* Book Appointment Button */}
+          <Link
+            to="/blog"
+            onClick={() => {
+              handleLinkClick("/blog");
+              toggleMenu();
+            }}
+            className={`text-lg p-4 w-full text-left ${activeLink === "/blog" ? "text-[#B740A1]" : ""
+              }`}
+          >
+            Blogs
+          </Link>
+          {authUser ? (
             <div
               onClick={handleNavigate}
-              className="w-full mt-6 flex justify-center items-center gap-2 rounded-full cursor-pointer h-[2.5rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+              className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
             >
-              <span className="text-sm text-center text-[#0D0C0A] group-hover:text-white">
-                Book an appointment
-              </span>
-              <div className="w-[3rem] h-[2rem] flex justify-center items-center rounded-full bg-[#B740A1] text-white group-hover:bg-white group-hover:text-black">
-                <GoArrowUpRight />
-              </div>
+              Book an appointment
             </div>
-          </div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                onClick={toggleMenu}
+                className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
+              >
+                Log in
+              </Link>
+            </>
+          )}
         </div>
       )}
     </div>
