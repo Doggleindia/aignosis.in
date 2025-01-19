@@ -13,7 +13,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [selectedService, setSelectedService] = useState(""); // Renamed state variable
-  const [authUser, setAuthUser] = useState(true); // Authenticated user
+  const [authUser, setAuthUser] = useState(false); // Authenticated user
   // Menu visibility
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
   const navigate = useNavigate();
@@ -42,35 +42,35 @@ const Header = () => {
     setActiveLink(path);
   };
 
-  // useEffect(() => {
-  //   const checkAuth = async () => {
-  //     const token = localStorage.getItem("authToken");
-  //     try {
-  //       console.log(authUser, "authUser1");
-  //       // Verify the token with the backend
-  //       const response = await axiosInstance.post(
-  //         "/verifyJwt",
-  //         {}, // Empty body for the POST request
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${token}`, // Add the token in the headers
-  //           },
-  //         });
-  //       setAuthUser(true)
+   useEffect(() => {
+     const checkAuth = async () => {
+       const token = localStorage.getItem("authToken");
+       try {
+         console.log(authUser, "authUser1");
+         // Verify the token with the backend
+         const response = await axiosInstance.post(
+           "/verifyJwt",
+           {}, // Empty body for the POST request
+           {
+             headers: {
+               Authorization: `Bearer ${token}`, // Add the token in the headers
+             },
+           });
+         setAuthUser(true)
 
-  //       if (!response.data.success) {
-  //         console.log(authUser, "authUser2");
-  //         // Token verification failed, redirect to login
-  //         setAuthUser(false)
-  //       }
-  //     } catch (error) {
-  //       console.error("Token verification failed:", error);
-  //       setAuthUser(false)
-  //     }
-  //   };
-
-  //   checkAuth();
-  // }, []);
+         if (!response.data.success) {
+           console.log(authUser, "authUser2");
+           // Token verification failed, redirect to login
+           setAuthUser(false)
+         }
+       } catch (error) {
+         console.error("Token verification failed:", error);
+         setAuthUser(false)
+       }
+     }
+     checkAuth();
+   }, []);
+   
   console.log(authUser, "authUser");
   return (
     <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
@@ -570,13 +570,13 @@ const Header = () => {
               >
                 Book an appointment
               </div>
-              <Link
+              {/* <Link
                 to="/dashboard"
                 onClick={toggleMenu}
                 className="w-full text-white text-lg p-3 mt-5 rounded-full text-center border border-[#B740A1]"
               >
                 Dashboard
-              </Link>
+              </Link> */}
             </>
           ) : (
             <>
