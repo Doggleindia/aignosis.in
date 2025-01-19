@@ -5,7 +5,7 @@ import animal from "../../assets/animal.png";
 import img1 from "../../assets/homepage/image i1.png";
 import img2 from "../../assets/ZenBook Duo 15.png";
 import img3 from "../../assets/homepage/image i3.png";
-import img4 from "../../assets/homepage/image i4.png";
+import img4 from "../../assets/image69.png";
 import gsap from "gsap";
 import p4 from "../../assets/PopUps/p.png";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

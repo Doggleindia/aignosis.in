@@ -1,13 +1,13 @@
 
 import Header from "./Header";
 
-import sideleft from "../assets/images/aboutUs/about.png";
+import sideleft from "../assets/founder.png";
 import doctor1 from "../assets/homepage/white screen.png";
 import doctor2 from "../assets/images/aboutUs/doctors2.svg";
 import doctor3 from "../assets/images/aboutUs/doctors3.svg";
 import vission from "./aboutus/vission.jpg";
 import blog_icon from "../assets/images/aboutUs/blog_icon.png";
-import birt_aignosis from "../assets/images/aboutUs/birth_aignosis.png";
+import birt_aignosis from "../assets/dna.png";
 import Footer from "./Footer";
 import AignosisTeam from "./aboutus/AignosisTeam";
 // import Divider from "./aboutus/Divider";
@@ -178,12 +178,12 @@ const AboutUs = () => {
             Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
           </span>
         </div>
-        <div className="flex hidden lg:block items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
-          {/* <img
+        <div className="flex lg:block items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+          <img
             src={birt_aignosis}
             alt="about"
-            className=" w-[600px] h-[600px] object-cover"
-          /> */}
+            className=" w-full scale-[.9] rounded-3xl h-full object-cover"
+          />
         </div>
       </div>
       <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">

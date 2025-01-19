@@ -39,41 +39,36 @@ const Header = () => {
     setActiveLink(path);
   };
 
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = localStorage.getItem("authToken");
+      try {
+        console.log(authUser, "authUser1");
+        // Verify the token with the backend
+        const response = await axiosInstance.post(
+          "/verifyJwt",
+          {}, // Empty body for the POST request
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Add the token in the headers
+            },
+          });
+        setAuthUser(true)
 
+        if (!response.data.success) {
+          console.log(authUser, "authUser2");
+          // Token verification failed, redirect to login
+          setAuthUser(false)
+        }
+      } catch (error) {
+        console.error("Token verification failed:", error);
+        setAuthUser(false)
+      }
+    };
 
-   useEffect(() => {
-     const checkAuth = async () => {
-       const token = localStorage.getItem("authToken");
-       try {
-         console.log(authUser, "authUser1");
-         // Verify the token with the backend
-         const response = await axiosInstance.post(
-           "/verifyJwt",
-           {}, // Empty body for the POST request
-           {
-             headers: {
-               Authorization: `Bearer ${token}`, // Add the token in the headers
-             },
-           });
-         setAuthUser(true)
-
-         if (!response.data.success) {
-           console.log(authUser, "authUser2");
-           // Token verification failed, redirect to login
-           setAuthUser(false)
-         }
-       } catch (error) {
-         console.error("Token verification failed:", error);
-         setAuthUser(false)
-       }
-     };
-
-     checkAuth();
-   }, []);
-
+    checkAuth();
+  }, []);
   console.log(authUser, "authUser");
-
-
   return (
     <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
@@ -211,17 +206,18 @@ const Header = () => {
           >
             Blogs
           </Link>
-          <Link
-            to="/dashboard"
-            onClick={toggleMenu}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/dashboard" ? "border-b-2 border-white" : ""
-            }`}
-          >
-            Dashboard
-          </Link>
+          <div className="">
+            <Link
+              to="/dashboard"
+              onClick={toggleMenu}
+              className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/dashboard" ? "border-b-2 border-white" : ""
+                }`}
+            >
+              Dashboard
+            </Link>
+          </div>
           {authUser ? (
             <>
-
               <div
                 onClick={handleNavigate}
                 className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
