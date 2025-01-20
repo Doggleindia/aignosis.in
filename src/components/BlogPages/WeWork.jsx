@@ -18,7 +18,7 @@ import SEO from "../config/Seo.jsx";
 import Newnavbar from "../Newnavbar";
 const WeWork = () => {
   const { id } = useParams();
-  const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
+  const blog = aboutContent.blogs.find((b) => b.id === (id));
   console.log(blog, "aboutContent");
   const { pageTitle, image } = blog;
   const [openMilestone, setOpenMilestone] = useState(null);
@@ -156,7 +156,7 @@ const WeWork = () => {
 
         <div>
         </div>
-        <div className="flex flex-col gap-6  p-[10vw]  max-w-[3xl]">
+        <div className="flex flex-col gap-6  p-[10vw] max-sm:p-[0] max-w-[3xl]">
           <BlogContent aboutContent={aboutContent} />
 
           <div>

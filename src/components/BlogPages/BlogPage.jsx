@@ -17,20 +17,24 @@ const BlogFooter = lazy(() => import("./BlogFooter"));
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 20;
-  const cardData = {
-    image: blogimg1, // Replace with actual image URL
-    title: "Understanding Autism: A Guide for Family and Friends",
-    author: "Vinay",
-    time: "a min ago",
-    category: "Category",
-    description:
-      "Offer insights into what autism is and provide practical advice on how loved ones can offer support, understand communication differences, and build stronger relationships with autistic individuals.",
-  };
-  const firstblog = aboutContent.blogs.find((b) => b.id === 1);
+  const [searchInput, setSearchInput] = useState(""); // State for search input
+  const [filteredBlogs, setFilteredBlogs] = useState(aboutContent.blogs);
+ 
+  const firstblog = aboutContent.blogs.find((b) => b.id === "early-signs-of-autism-in-children");
   console.log(firstblog, "blogData");
+  
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchInput(query);
+    const filtered = aboutContent.blogs.filter((post) =>
+      post.title.toLowerCase().includes(query)
+    );
+    setFilteredBlogs(filtered);
   };
 
   const navigate = useNavigate();
@@ -50,25 +54,52 @@ const BlogPage = () => {
       <div>
         <Header />
       </div>
-      <div className="bg-[#1A0C25] min-h-screen font-raleway  ">
-        <div className="flex max-sm:flex-col gap-2 bg-[#1A0C25] p-6">
-          <div className=" md:w-1/4 mt-[4vw] ">
-            <BlogSidebar blogData={blog} />
-          </div>
-          <div className=" w-full md:w-3/4 mt-[8vw]">
-            <section className="bg-[#1A0C25] border border-[#9C00AD66] p-8 rounded-lg  md:max-w-4xl mx-auto">
-              {/* Section Header */}
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-semibold text-[#F6E8FB]">
-                  Featured Posts
-                </h2>
-                <a
-                  href="#"
-                  className="text-sm text-[#F6E8FB] hover:text-purple-400 flex items-center"
-                >
-                  More <span className="ml-1">→</span>
-                </a>
-              </div>
+      <div className="bg-[#1A0C25] min-h-screen font-raleway">
+  <div className="flex max-sm:flex-col gap-2 bg-[#1A0C25] p-6">
+    {/* Sidebar */}
+    <div className="md:w-1/4 mt-[4vw]">
+      <BlogSidebar blogData={blog} />
+    </div>
+
+    {/* Main Content */}
+    <div className="w-full md:w-3/4 mt-[8vw]">
+      {/* Search Bar */}
+      <div className="bg-[#1A0C25] border border-[#9C00AD66] p-4 rounded-lg md:max-w-4xl mx-auto mb-6">
+      <input
+                  type="text"
+                  value={searchInput}
+                  onChange={handleSearchChange}
+                  placeholder=" Search blog posts"
+                  className="w-full p-3 rounded-lg bg-[#1A0C25] text-[#F6E8FB] text-center border border-[#9C00AD66] focus:outline-none focus:ring-2 focus:ring-purple-400"
+                />
+      </div>
+      {searchInput && (
+  <div className="text-center text-[#F6E8FB] mb-4">
+    <p className="text-sm">
+      Showing results for: <span className="font-bold text-purple-400">{searchInput}: results below feature post</span>
+    </p>
+  </div>
+)}
+
+      {/* Section */}
+      {!searchInput && (
+      <section className="bg-[#1A0C25] border border-[#9C00AD66] p-8 rounded-lg md:max-w-4xl mx-auto">
+        {/* Section Header */}
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-semibold text-[#F6E8FB]">
+            Featured Posts
+          </h2>
+          <a
+            href="/blog/early-signs-of-autism-in-children"
+            className="text-sm text-[#F6E8FB] hover:text-purple-400 flex items-center"
+          >
+            More <span className="ml-1">→</span>
+          </a>
+        </div>
+      
+   
+ 
+
 
               {/* Featured Post */}
               <div
@@ -93,29 +124,27 @@ const BlogPage = () => {
               </div>
             </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-[8vw] md:mt-[2vw] rounded-lg max-w-4xl mx-auto">
-             {aboutContent.blogs.map((cardData, index) => (
-                <BlogCard
-                handleCardClick={handleCardClick}
-                cardData={cardData}
-                key={index} // Unique key for each item
-                image={cardData.blogimg}
-                title={cardData.title}
-                author={cardData.author}
-                time={cardData.time}
-                description={cardData.metaDescription}
-            />
-            ))}
-           </div>
+)}
 
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-[8vw] md:mt-[2vw] rounded-lg max-w-4xl mx-auto">
+  {filteredBlogs.map((cardData, index) => (
+    <BlogCard
+      handleCardClick={handleCardClick}
+      cardData={cardData}
+      key={index} // Unique key for each item
+      image={cardData.blogimg}
+      title={cardData.title}
+      author={cardData.author}
+      time={cardData.time}
+      description={cardData.metaDescription}
+    />
+  ))}
+</div>
+
+            
           </div>
         </div>
-        <BlogCategory/>
+       
         <div className="bg-gradient-to-b from-[#241E22] my-[10vw] to-[#43284C] h-[300px] flex flex-col justify-center items-center gap-4 text-white ">
           <p className="text-2xl max-sm:text-lg font-montserrat">HOW WE WORK</p>
           <p className="text-2xl max-sm:text-lg max-sm:p-4 font-montserrat">
