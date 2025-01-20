@@ -15,6 +15,7 @@ import BlogFooter from "./BlogFooter";
 import BlogContent from "./BlogContent";
 import { useParams } from "react-router-dom";
 import SEO from "../config/Seo.jsx";
+import Newnavbar from "../Newnavbar";
 const WeWork = () => {
   const { id } = useParams();
   const blog = aboutContent.blogs.find((b) => b.id === parseInt(id));
@@ -128,6 +129,7 @@ const WeWork = () => {
   ];
   return (
     <>
+    <Newnavbar/>
      <SEO
     canonicalUrl={'https://aignosis.in/blog'}
     metaDescription={'Stay updated with the latest insights on autism, AI-powered assessments, and special education. Explore expert articles on Aignosis Blog for valuable knowledge.'}

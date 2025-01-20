@@ -33,6 +33,7 @@ import BlogFooter from '../BlogPages/BlogFooter';
 import service5 from '../../assets/servicepage/image.png';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 
 
 const ServicePage5 = () => {
@@ -90,7 +91,7 @@ const ServicePage5 = () => {
 
     return (
         <>
-        
+        <Newnavbar/>
         <SEO
         pageTitle={"AI Autism Diagnosis & Special Education Support | Aignosis"}
         canonicalUrl={"https://aignosis.in/special-education"}

@@ -21,6 +21,7 @@ import eye from './aboutus/eye.png'
 import ship from './aboutus/ship.png'
 import bear from './aboutus/bear.png'
 import anim from './aboutus/anim.png'
+import Newnavbar from "./Newnavbar";
 
 const TeamMember = ({ name, img, description, height }) => (
   <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
@@ -120,6 +121,9 @@ const AboutUs = () => {
   
   return (
     <>
+    <div>
+    <Newnavbar/>
+    </div>
       <SEO
         canonicalUrl={"https://aignosis.in/about-us"}
         metaDescription={"Learn about Aignosis and our mission to provide innovative AI-driven autism care solutions. Discover how we support families with early autism detection and care."}

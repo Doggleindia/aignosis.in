@@ -4,6 +4,7 @@ import blogimg1 from "../../assets/blogimg1.png";
 import aboutContent from "../aboutus/AboutContent.js";
 import blog from "./BlogData";
 import SEO from "../config/Seo.jsx";
+import Newnavbar from "../Newnavbar";
 
 // Lazy-loaded components
 const BlogSidebar = lazy(() => import("./BlogSidebar"));
@@ -39,6 +40,7 @@ const BlogPage = () => {
 
   return (
     <>
+    <Newnavbar/>
     <SEO
     canonicalUrl={'https://aignosis.in/blog'}
     metaDescription={'Stay updated with the latest insights on autism, AI-powered assessments, and special education. Explore expert articles on Aignosis Blog for valuable knowledge.'}
