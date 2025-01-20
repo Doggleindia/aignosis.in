@@ -442,7 +442,7 @@ const PriceBody = ({ selectedOption }) => {
               to families navigating similar paths."
             </p> */}
           </div>
-          <div className="mt-4 font-montserrat">
+          {/* <div className="mt-4 font-montserrat">
             <span>700₹</span>
             <div className="text-[9px]">
               <span className="text-[#F6E8FB]">originally ₹2000</span>
@@ -451,7 +451,7 @@ const PriceBody = ({ selectedOption }) => {
               <span className="text-[#F6E8FB]">Detailed Explanation</span>
               <span className="text-[#F6E8FB]">Easy & fast procedure</span>
             </div>
-          </div>
+          </div> */}
           <div className="mt-4">
             <span>Benefits</span>
           </div>
@@ -619,7 +619,7 @@ const PriceBody = ({ selectedOption }) => {
               </div>
 
               {/* Pricing */}
-              <div className="text-left w-full px-2 font-montserrat">
+              {/* <div className="text-left w-full px-2 font-montserrat">
                 <h1 className="text-2xl">700₹</h1>
                 <div className="text-[10px] mt-2 text-[#FFFEF8]">
                   <p>originally ₹2000</p>
@@ -628,7 +628,7 @@ const PriceBody = ({ selectedOption }) => {
                   <p>Detailed Explanation</p>
                   <p>Easy & fast procedure</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Benefits */}
               <div className="mt-4">
