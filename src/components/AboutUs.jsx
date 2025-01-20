@@ -179,7 +179,7 @@ const AboutUs = () => {
         </div>
       </div> */}
 
-      <div className="flex max-sm:flex-row items-center px-10 justify-center mt-[8vw] ">
+      <div className="flex max-sm:flex-col max-sm:gap-[4vw] items-center px-10 justify-center mt-[8vw] ">
         <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 max-sm:p-[5vw] max-sm:pl-[4vw] max-sm:pt-[3vw] max-sm:w-[100%] max-sm:h-[400px] from-[#241E22] to-[#43284C]">
           <span className="font-medium font-raleway text-2xl">
             The Goal of aignosis
@@ -195,11 +195,11 @@ const AboutUs = () => {
             Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
           </span>
         </div>
-        <div className="flex lg:block items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+        <div className="flex lg:block flex-wrap items-end w-[50%] max-sm:w-[100%] h-[500px] max-sm:p-[2vw] max-sm:h-[60vw] max-sm:mt-[-25vw] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
           <img
             src={birt_aignosis}
             alt="about"
-            className=" w-full scale-[.9] rounded-3xl h-full object-cover"
+            className=" w-full scale-[.9] max-sm:scale-[1] max-sm:object-cover max-sm:rounded-[0px] max-sm:h-[55vw] rounded-3xl h-full object-cover"
           />
         </div>
       </div>

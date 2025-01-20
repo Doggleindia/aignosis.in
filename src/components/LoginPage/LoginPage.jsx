@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoginOtp from "./LoginOtp";
 import fetchData from "../config/fetchData";
 
+
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -63,6 +64,7 @@ console.log(response,"statusresponse");
 
   return (
     <>
+    
       {!showOtpPage ? (
         <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
           {/* Pink Gradient Radiant Effect */}
