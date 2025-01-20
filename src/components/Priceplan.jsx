@@ -12,6 +12,7 @@ import CustomerLove2 from './Priceplan/CustomerLove2';
 import Features from './homeBrain/Features';
 import FactorImpacting from './Priceplan/FactorImpacting';
 import SEO from './config/Seo'
+import Offer from './offer';
 
 const Priceplan = () => {
   const [selectedOption, setSelectedOption] = useState('Assessment');

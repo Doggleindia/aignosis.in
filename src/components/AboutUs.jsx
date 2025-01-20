@@ -22,7 +22,7 @@ import ship from './aboutus/ship.png'
 import bear from './aboutus/bear.png'
 import anim from './aboutus/anim.png'
 
-const TeamMember = ({ name, img, description, height  }) => (
+const TeamMember = ({ name, img, description, height }) => (
   <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
     <div className="w-full h-[50vw] sm:h-[30vw] md:h-[20vw] bg-[#D9D9D947] flex justify-center items-center">
       <img src={img} className="w-full h-full object-cover" alt="" />
@@ -40,7 +40,7 @@ const TeamMember = ({ name, img, description, height  }) => (
     </div>
   </div>
 );
-const Divider = ({ title, desc, subtitle , img }) => {
+const Divider = ({ title, desc, subtitle, img }) => {
   return (
     <>
     
@@ -68,7 +68,7 @@ const Divider = ({ title, desc, subtitle , img }) => {
             }}
           ></span>
         </div>
-        
+
         <h1 className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </h1>
@@ -120,17 +120,17 @@ const AboutUs = () => {
   
   return (
     <>
-    <SEO
-    canonicalUrl={"https://aignosis.in/about-us"}
-    metaDescription={"Learn about Aignosis and our mission to provide innovative AI-driven autism care solutions. Discover how we support families with early autism detection and care."}
-    pageTitle={"About Us | Aignosis - AI Autism Care Solutions"}
-    />
-    <div className="bg-[#1A0C25] max-sm:px-2 font-montserrat text-white">
-      <div className="pt-28 pb-8">
-        <Header />
-        <Divider title="About Us" desc=' Working together for a brighter future.'  subtitle=' Ai.gnosis – Empowering Early Detection' />
+      <SEO
+        canonicalUrl={"https://aignosis.in/about-us"}
+        metaDescription={"Learn about Aignosis and our mission to provide innovative AI-driven autism care solutions. Discover how we support families with early autism detection and care."}
+        pageTitle={"About Us | Aignosis - AI Autism Care Solutions"}
+      />
+      <div className="bg-[#1A0C25] max-sm:px-2 font-montserrat text-white">
+        <div className="pt-28 pb-8">
+          <Header />
+          <Divider title="About Us" desc=' Working together for a brighter future.' subtitle=' Ai.gnosis – Empowering Early Detection' />
 
-      </div>
+        </div>
 
       <div className="max-sm:p-4 flex max-sm:flex-col gap-6 justify-center relative">
   <img
@@ -157,7 +157,7 @@ const AboutUs = () => {
 </div>
 
 
-      {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
+        {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
         <div className="flex max-sm:pt-4 flex-col items-start">
           <img
             src={doctor1}

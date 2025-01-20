@@ -164,7 +164,7 @@ const Homefirst = () => {
 
           <div
 
-            className="body w-[90%] h-screen flex-col m-auto justify-center align-center items-center flex md:hidden">
+            className="body w-[90%] h-full py-[20vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
             {/* Welcome Text */}
             <span
              

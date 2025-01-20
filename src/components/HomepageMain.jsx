@@ -6,6 +6,7 @@ import ContactPage from "./ContactPage";
 import WhatsAppButton from "./WhatsAppButton";
 import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
+import Offer from "./offer";
 const HomepageMain = () => {
   return (
 
@@ -18,6 +19,7 @@ const HomepageMain = () => {
 
       <div className="bg-[#1A0C25] overflow-x-hidden">
         <Homepage />
+        <Offer/>
         <WhatsAppButton />
         <Laptop />
         <ContactPage />

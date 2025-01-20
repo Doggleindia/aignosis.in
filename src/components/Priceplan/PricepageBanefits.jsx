@@ -1,10 +1,14 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
-import img2 from "../../assets/Featured.png"; // Make sure this path is correct
+import img2 from "../../assets/Featured.png";
+import f1 from "../../assets/pricepage/f1.png";
+import f2 from "../../assets/pricepage/f2.png";
+import f3 from "../../assets/pricepage/f3.png";
 
 const PricepageBenefits = () => {
     const cardData = [
         {
+            image:f1,
             name: "Anaya",
             age: "3.8 year",
             location: "Bengaluru",
@@ -27,6 +31,7 @@ const PricepageBenefits = () => {
             ],
         },
         {
+            image:f2,
             name: "Aarav",
             age: "4.5 year",
             location: "Mumbai",
@@ -49,6 +54,7 @@ const PricepageBenefits = () => {
             ],
         },
         {
+            image:f3,
             name: "Vivaan",
             age: "5.1 year",
             location: "Delhi",
@@ -178,7 +184,7 @@ const PricepageBenefits = () => {
                         >
                             {/* Image Section */}
                             <div className="w-[90%] absolute top-4 flex items-center justify-center h-[40%]">
-                                <img src={img2} alt={`Card ${index}`} className="rounded-lg shadow-md" />
+                                <img src={card.image} alt={`Card ${index}`} className="rounded-lg shadow-md" />
                             </div>
 
                             {/* Badge */}
@@ -272,7 +278,7 @@ const PricepageBenefits = () => {
                         >
                             {/* Image Section */}
                             <div className="w-full sm:w-[90%] flex items-center justify-center h-[40%]">
-                                <img src={img2} alt={`Card ${index}`} className="rounded-lg shadow-md" />
+                                <img src={card.image} alt={`Card ${index}`} className="rounded-lg shadow-md" />
                             </div>
 
                             {/* Badge */}
