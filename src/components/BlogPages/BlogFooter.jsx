@@ -210,9 +210,33 @@ const BlogFooter = () => {
             </ul>
           </div>
           <div className="border-t-2 md:hidden flex justify-center items-center w-full border-[#F6E8FB80]">
-            <h3 className="text-[10px] mt-4">All rights reserved . powered by aignosis</h3>
+            <h3 className="text-[10px] mt-4"><h3 className="text-[10px] mt-4"> <p>
+              &copy; 2024{' '}
+              <a
+                href="https://doggleindia.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Doggleindia
+              </a>
+              . All rights reserved.
+            </p></h3></h3>
           </div>
-          
+        </div>
+        <div className="border-t-2 mt-[5vw] hidden md:flex justify-center items-center w-full border-[#F6E8FB80]">
+          <h3 className="text-[10px] mt-4"> <p>
+            &copy; 2024{' '}
+            <a
+              href="https://doggleindia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Doggleindia
+            </a>
+            . All rights reserved.
+          </p></h3>
         </div>
       </footer>
     </div>

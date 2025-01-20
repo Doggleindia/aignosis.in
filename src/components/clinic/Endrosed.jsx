@@ -66,7 +66,7 @@ const Endrosed = () => {
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top top",
+        start: "top end",
         end: () => `+=${horizontalScroll.scrollWidth}`, // Length of horizontal scroll
         pin: true, // Pin the container during the animation
         scrub: true, // Smooth transition while scrolling

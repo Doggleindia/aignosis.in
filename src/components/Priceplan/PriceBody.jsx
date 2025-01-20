@@ -385,28 +385,28 @@ const PriceBody = ({ selectedOption }) => {
 
   const therapyCards = [
     {
-      amount: 24000,
-      discount: "10% Off!",
-      sessions: 15,
-      sessionCost: 1600,
-      validity: "3-Month Validity",
-      savings: 3000,
-    },
-    {
-      amount: 18000,
-      discount: "15% Off!",
+      amount: 5000,
+      discount: "Get 50% off by applying code",
       sessions: 10,
-      sessionCost: 1800,
-      validity: "2-Month Validity",
-      savings: 2000,
+      sessionCost: 500,
+      validity: "3-Month Validity",
+      savings: 5000,
     },
     {
-      amount: 12000,
-      discount: "20% Off!",
-      sessions: 5,
-      sessionCost: 2000,
-      validity: "1-Month Validity",
-      savings: 1000,
+      amount: 7500,
+      discount: "Get 50% off by applying code",
+      sessions: 15,
+      sessionCost: 500,
+      validity: "3-Month Validity",
+      savings: 7500,
+    },
+    {
+      amount: 10000,
+      discount: "Get 50% off by applying code",
+      sessions: 20,
+      sessionCost: 500,
+      validity: "3-Month Validity",
+      savings: 10000,
     },
   ];
   return (
@@ -484,21 +484,21 @@ const PriceBody = ({ selectedOption }) => {
           <div className="mt-5">
             <div className="flex gap-5">
               <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
-                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <span className="text-xs">33% Off!</span>
+                <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <span className="text-xs">Get 50% off by applying code</span>
                 </div>
                 <h2 className="mt-3">Aignosis Screening – Standard</h2>
                 <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h3>
-                <span className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></span>
+                <span className="mt-3 font-manrope">499 <span className="text-[10px]">(₹999)</span></span>
                 <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
               <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
-                <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <span className="text-xs">33% Off!</span>
+                <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                  <span className="text-xs">Get 50% off by applying code</span>
                 </div>
                 <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
                 <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h3>
-                <span className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></span>
+                <span className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></span>
                 <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
             </div>
@@ -518,7 +518,7 @@ const PriceBody = ({ selectedOption }) => {
                 >
                   <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                     <div className="text-center mb-4">
-                      <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                      <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
                         {card.discount} Off!
                       </span>
                     </div>
@@ -530,8 +530,8 @@ const PriceBody = ({ selectedOption }) => {
                         </span>
                       </p>
 
-                          <p className="text-xs mt-2">{card.sessions}Month Validity</p>
-                          <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
+                          <p className="text-xs mt-2">{card.validity}</p>
+                          <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
                           <p className="text-xs font-bold mt-2">
                             Save ₹{card.savings} overall!
                           </p>
@@ -834,7 +834,7 @@ const PriceBody = ({ selectedOption }) => {
                     >
                       <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                         <div className="text-center mb-4">
-                          <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                          <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
                             {card.discount} Off!
                           </span>
                         </div>
