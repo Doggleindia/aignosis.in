@@ -414,7 +414,7 @@ const PriceBody = ({ selectedOption }) => {
       {selectedOption === 'Assessment' ? (
         <div>
           <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 2xl:px-[5vw] md:px-10">
-            <div className="flex sticky gap-12 top-4">
+            <div className="flex gap-12 top-4">
               <div className="flex w-[15%] flex-col gap-4">
                 <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>
                 <div className="w-[10vw] h-[10vw] bg-[#D9D9D9]"></div>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Router, Route, and Routes
 import HomepageMain from "./components/HomepageMain"; // Import the HomepageMain component
 import AboutUs from "./components/AboutUs";
 import PartnershipPage from "./components/PartnershipPage";
 import PatientHistory from "./components/PatientHistory"; // Import the combined PatientHistory component
-
+import Offer from "./components/Offer"; // Import the Offer component
 import TestMain from "./components/testPages/TestMain";
 import VideoPlayback from "./components/testPages/VideoPlayback";
 import CalibrationPage from "./components/testPages/CalibrationPage";
@@ -44,9 +44,36 @@ import Profile from "./components/Dashboard/Profile";
 // import AuthRoute from './components/config/AuthRoute';
 
 const App = () => {
+  const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60); // 10 minutes in seconds
+  const [isOfferVisible, setIsOfferVisible] = useState(true);
+
+  // Countdown timer logic
+  useEffect(() => {
+    if (!isOfferVisible || offerTimeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+      setOfferTimeLeft((prevTime) => prevTime - 1);
+    }, 1000);
+
+    // Cleanup the interval on unmount
+    return () => clearInterval(timer);
+  }, [isOfferVisible, offerTimeLeft]);
+
+  // Auto-hide when timer reaches 0
+  useEffect(() => {
+    if (offerTimeLeft <= 0) {
+      setIsOfferVisible(false);
+    }
+  }, [offerTimeLeft]);
   return (
     <Router>
       <ScrollToTop />
+      {isOfferVisible && (
+        <Offer
+          timeLeft={offerTimeLeft}
+          onClose={() => setIsOfferVisible(false)}
+        />
+      )}
       <Routes>
         {" "}
         {/* Use Routes to define all your routes */}
@@ -85,9 +112,8 @@ const App = () => {
         <Route path="/Error" element={<Error />} />
         <Route path="/dataCollection" element={<DataCollectionPage />} />
         <Route path="/download" element={<Report />} />
-        <Route path='/dashboard' element={<Dashboard/>} />
-        <Route path='/profile' element={<Profile/>} />
-
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </Router>
   );
