@@ -1,10 +1,6 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png"; // Make sure this path is correct
-import card1 from "../../assets/pricepage/image.png"; // Make sure this path is correct
-import card2 from "../../assets/pricepage/image1.png"; // Make sure this path is correct
-import card3 from "../../assets/pricepage/card.png"; // Make sure this path is correct
-
 
 const PricepageBenefits = () => {
     const cardData = [
@@ -97,9 +93,9 @@ const PricepageBenefits = () => {
         </div>
     );
     const data = [
-        { imageUrl: card1, title: 'Early Detection for Better Outcomes' },
-        { imageUrl: card2, title: 'Personalized Therapy Recommendations' },
-        { imageUrl: card3, title: 'Improved Social Skills & Communication' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png", title: 'Early Detection for Better Outcomes' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png", title: 'Personalized Therapy Recommendations' },
+        { imageUrl: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png", title: 'Improved Social Skills & Communication' },
 
         // Add more items as needed
     ];
@@ -124,7 +120,7 @@ const PricepageBenefits = () => {
                         {/* First Item */}
                         <div className="p-4 rounded-lg shadow-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card1}
+                                src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png'
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -134,7 +130,7 @@ const PricepageBenefits = () => {
                         {/* Second Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card2}
+                                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png"
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
@@ -144,7 +140,7 @@ const PricepageBenefits = () => {
                         {/* Third Item */}
                         <div className="p-4 rounded-lg flex flex-col justify-center items-center w-[200px]">
                             <img
-                                src={card3}
+                                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png"
                                 alt="Child health"
                                 className="w-full h-[10vw] scale-[1.2] rounded-lg object-cover"
                             />
