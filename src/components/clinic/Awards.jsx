@@ -69,10 +69,8 @@ const Awards = () => {
       </div>
       <div className="relative mt-10 overflow-hidden w-full p-6">
         <div
-          className="flex gap-6 animate-marquee whitespace-nowrap"
-          style={{
-            animation: "marquee 20s linear infinite",
-          }}
+          className="flex gap-6 animate-marquee md:animate-marqueeMd whitespace-nowrap"
+          
         >
           <div className="flex gap-6">
             <AwardCard imageSrc={img1} altText="First Award" />
