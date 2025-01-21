@@ -23,22 +23,22 @@ const ReportPage3 = () => {
           margin-bottom: 20px;
         }
 
-        .section {
-          display: flex;
-          flex-direction: row;
-          background-color: #593E6754;
-          border-radius: 10px;
-          padding: 30px;
-          margin-bottom: 30px;
-          width: 100%;
-          max-width: 1200px;
-          height: auto;
-          align-items: center;
-          justify-content: center;
-          opacity: 1;
-          margin-left: auto;
-          margin-right: auto;
-        }
+          .section {
+            display: flex;
+            flex-direction: row;
+            background-color: #593E6754;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            margin-left: auto;
+            margin-right: auto;
+          }
 
         .section-left {
           flex: 1;

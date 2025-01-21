@@ -22,7 +22,9 @@ export default {
         montserrat: ['Montserrat', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
-        cormorant: ['CormorantGaramond', 'sans-serif'], // Fixed key to follow standard naming
+        cormorant: ['CormorantGaramond', 'sans-serif'], 
+        playfair: ['PlayfairDisplay', 'sans-serif'], 
+        
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(94.68deg, #1E0923 -0.01%, rgba(117, 35, 137, 0.04) 97.09%)',
