@@ -4,7 +4,7 @@ import HomepageMain from "./components/HomepageMain"; // Import the HomepageMain
 import AboutUs from "./components/AboutUs";
 import PartnershipPage from "./components/PartnershipPage";
 import PatientHistory from "./components/PatientHistory"; // Import the combined PatientHistory component
-import Offer from "./components/Offer"; // Import the Offer component
+import Offer from "./components/Offer.jsx"; // Import the Offer component
 import TestMain from "./components/testPages/TestMain";
 import VideoPlayback from "./components/testPages/VideoPlayback";
 import CalibrationPage from "./components/testPages/CalibrationPage";
