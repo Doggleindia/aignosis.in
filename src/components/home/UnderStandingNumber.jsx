@@ -63,13 +63,13 @@ const UnderStandingNumber = () => {
                     title="1 in 68"
                     subtitle="children experience developmental delays"
                     description="Early identification is crucial for support"
-                    link="/blog/11"
+                    link="/blog/early-detection-diagnosis-autism-india"
                 />
                 <Card
                     title="1 in 10"
                     subtitle="children are autistic in India"
                     description="Autism awareness and early detection can make a difference."
-                    link="/blog/12"
+                    link="/blog/developmental-delay-identification-management-primary-care"
                 />
             </div>
         </div>
