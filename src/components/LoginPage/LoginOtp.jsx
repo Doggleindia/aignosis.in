@@ -1,11 +1,14 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import fetchData from "../config/fetchData";  // Assuming you have this function to make API calls
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginOtp = ({ goBack, phoneNumber }) => {
   const [otp, setOtp] = useState(["", "", "", "","", ""]); // For OTP input
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showOtpPage, setShowOtpPage] = useState(false);
 
   const otpInputs = useRef([]);  // Ref to track OTP input fields
 
@@ -46,12 +49,12 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
       setErrorMessage(""); // Clear previous error messages
 
       const payload = {
-        phoneNumber,
+        email:phoneNumber,
         otp: otpValue,
       };
 
       const { response, error } = await fetchData({
-        url: "http://localhost:5500/api/auth/verify",
+        url: "/api/otp/verifyOtp",
         method: "POST",
         data: payload,
       });

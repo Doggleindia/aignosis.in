@@ -3,7 +3,7 @@ import HomePageCard from "./HomePageCard";
 
 import m1 from "../../assets/mock1.png";
 import m2 from "../../assets/mock2.png";
-import sharks from "../../assets/Sharks.png"
+import sharks from "../../assets/7.png"
 
 
 const Homefirst = () => {

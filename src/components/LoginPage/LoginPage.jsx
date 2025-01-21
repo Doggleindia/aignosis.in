@@ -1,30 +1,31 @@
 import React, { useState } from "react";
 import LoginOtp from "./LoginOtp";
 import fetchData from "../config/fetchData";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  
 
-  const handlePhoneChange = (e) => {
-    let value = e.target.value;
-  
-    // Ensure the "+91" prefix is always present
-    if (!value.startsWith("+91")) {
-      value = "+91" + value.replace(/^\D+/g, ""); // Remove non-digit characters at the start
-    }
-  
-    if (/^\+91\d{0,10}$/.test(value)) {
-      setPhoneNumber(value);
-      setIsButtonEnabled(value.length === 13);
-    }
-  };
-  
+  // const handlePhoneChange = (e) => {
+  //   let value = e.target.value;
+
+  //   // Ensure the "+91" prefix is always present
+  //   if (!value.startsWith("+91")) {
+  //     value = "+91" + value.replace(/^\D+/g, ""); // Remove non-digit characters at the start
+  //   }
+
+  //   if (/^\+91\d{0,10}$/.test(value)) {
+  //     setPhoneNumber(value);
+  //     setIsButtonEnabled(value.length === 13);
+  //   }
+  // };
+
   // const handlePhoneChange = (e) => {
   //   const value = e.target.value;
 
@@ -34,37 +35,53 @@ const LoginPage = () => {
   //     setIsButtonEnabled(value.length === 13);
   //   }
   // };
-  console.log("phoneNumber",phoneNumber);
-  
+  // console.log("phoneNumber",phoneNumber);
 
-  const SendOtp = async() => {
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsButtonEnabled(emailRegex.test(value)); // Enable button if valid
+  };
+  const SendOtp = async () => {
     try {
-    setLoading(true);
-    setErrorMessage("");
-    const payload = { phoneNumber: phoneNumber };
-    const {response,error} = await fetchData(
-      {
-        url:'/api/auth/login',
-        method:'POST',
-        data:payload
+      setLoading(true);
+      setErrorMessage("");
+      const payload = { email: email };
+  
+      const { response, error } = await fetchData({
+        url: "/api/otp/sendOtp",
+        method: "POST",
+        data: payload,
+      });
+  
+      setLoading(false);
+  
+      if (response) {
+        console.log("OTP Response:", response);
+  
+        // Check for `status` and navigate to OTP page if true
+        if (response.status) {
+          setShowOtpPage(true);
+        } else {
+          setErrorMessage(response.message || "Failed to send OTP. Please try again.");
+        }
+      } else if (error) {
+        setErrorMessage(error.message || "Failed to send OTP. Please try again.");
       }
-    )
-    setLoading(false);
-console.log(response,"statusresponse");
-
-    if (response) {
-      setShowOtpPage(response.status);
-    } else if (error) {
-      setErrorMessage(error.message || "Failed to send OTP. Please try again.");
-    }
     } catch (error) {
-      console.log(error),"error in sending otp";
+      setLoading(false);
+      console.error("Error in sending OTP:", error);
+      setErrorMessage("An error occurred while sending OTP. Please try again.");
     }
-  }
+  };
+  
 
   return (
     <>
-    
+     <ToastContainer />
       {!showOtpPage ? (
         <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
           {/* Pink Gradient Radiant Effect */}
@@ -77,7 +94,8 @@ console.log(response,"statusresponse");
                 Ai.gnosis
               </h1>
               <h2 className="mt-4 text-lg sm:text-xl lg:text-2xl xl:text-3xl max-sm:text-base md:text-2xl">
-                Early Autism Detection Made<br /> Easy & Accurate
+                Early Autism Detection Made
+                <br /> Easy & Accurate
               </h2>
 
               {/* Round Gradient behind the text */}
@@ -105,10 +123,11 @@ console.log(response,"statusresponse");
                 <div className="relative">
                   <input
                     type="text"
-                    value={phoneNumber}
-                    onChange={handlePhoneChange}
+                    value={email}
+                    onChange={handleEmailChange}
                     className="block w-full sm:w-[17vw] xl:w-[15vw] pl-10 pr-4 py-2 text-sm xl:text-base border border-gray-300 rounded-full shadow-sm focus:ring-[#811F67] focus:border-[#811F67] max-sm:text-xs max-sm:pl-8 max-sm:py-1 md:text-base md:w-[20vw]"
-                    placeholder="📞 Phone number"
+                    placeholder=" Enter your email"
+                    // placeholder="📞 Phone number"
                   />
                 </div>
               </div>
@@ -122,16 +141,13 @@ console.log(response,"statusresponse");
                 disabled={!isButtonEnabled}
                 onClick={SendOtp}
               >
-                  {loading ? "Sending..." : "Send OTP"}
+                {loading ? "Sending..." : "Send OTP"}
               </button>
             </div>
           </div>
         </div>
       ) : (
-        <LoginOtp
-          phoneNumber={phoneNumber}
-          goBack={() => setShowOtpPage(false)}
-        />
+        <LoginOtp phoneNumber={email} goBack={() => setShowOtpPage(false)} />
       )}
     </>
   );

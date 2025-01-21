@@ -6,7 +6,7 @@ import ContactPage from "./ContactPage";
 import WhatsAppButton from "./WhatsAppButton";
 import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
-import Offer from "./offer";
+import Offer from "./Offer";
 import Newnavbar from "./Newnavbar";
 import Flyer from "./Flyer";
 const HomepageMain = () => {
