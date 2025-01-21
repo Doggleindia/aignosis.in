@@ -5,6 +5,7 @@ import pic from "../../assets/pic4.png"
 import Sessions from './Sessions';
 import Header from '../Header';
 import { FaUserEdit } from "react-icons/fa";
+import Newnavbar from '../Newnavbar';
 
 const Profile = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false); // State for popup visibility
@@ -19,8 +20,9 @@ const Profile = () => {
 
     return (
         <>
+        <Newnavbar/>
             <Header />
-            <div className='w-full text-white px-5 md:px-10 py-10 font-manrope pt-[8vh] md:pt-[12vh] min-h-screen h-full bg-[#2B1B2D]'>
+            <div className='w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] min-h-screen h-full bg-[#2B1B2D]'>
                 <div className="w-full h-full md:block hidden">
                     <div
                         className="w-full h-[7vw] flex items-center rounded-3xl justify-between px-[5vw]"
