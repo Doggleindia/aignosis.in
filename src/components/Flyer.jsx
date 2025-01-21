@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import shark from "../2.png";
 
 const Flyer = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -21,27 +22,46 @@ const Flyer = () => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-8/12 lg:w-6/12 flex flex-col md:flex-row overflow-hidden">
-        {/* Left Section (Image/Offer) */}
-        <div className="bg-[#1A0C25] text-white p-6 flex-1 flex flex-col justify-center items-center">
-          <h1 className="text-2xl md:text-3xl font-[Passion One] text-[#8EADFC] font-bold mb-2">SHARK TANK</h1>
-          <h2 className="text-xl md:text-2xl font-[Passion One] font-bold text-yellow-500 mb-2">INDIA</h2>
-          <h3 className="text-4xl md:text-5xl font-bold mb-4">50% off</h3>
-          <p
-  className="text-sm md:text-base py-2 px-4 rounded-lg mb-2 font-semibold"
-  style={{
-    background: "linear-gradient(90deg, #9C00AD 0%, rgba(241, 198, 254, 0.46) 100%)",
-  }}
->
-  On your first screening
-</p>
-
-          <p className="text-sm md:text-base">Free consultation for First 1000 users</p>
+        {/* Left Section (Image with Content Overlay) */}
+        <div className="relative text-white p-6 flex-1 flex flex-col justify-center items-center">
+          {/* Shark Image */}
+          <img
+            src={shark}
+            className="absolute inset-0 w-full h-full object-fit"
+            alt="Shark"
+          />
+          {/* Overlay Content */}
+          <div className="relative z-10 text-center">
+            <h1 className="text-2xl md:text-3xl font-[Passion One] text-[#8EADFC] font-bold mb-2">
+              SHARK TANK
+            </h1>
+            <h2 className="text-xl md:text-2xl font-[Passion One] font-bold text-yellow-500 mb-2">
+              INDIA
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-4">50% off</h3>
+            <p
+              className="text-sm md:text-base py-2 px-4 rounded-lg mb-2 font-semibold"
+              style={{
+                background:
+                  "linear-gradient(90deg, #9C00AD 0%, rgba(241, 198, 254, 0.46) 100%)",
+              }}
+            >
+              On your first screening
+            </p>
+            <p className="text-sm md:text-base">
+              Free consultation for First 1000 users
+            </p>
+          </div>
+          {/* Overlay Background */}
+          <div className="absolute inset-0 bg-[#1A0C25] opacity-80"></div>
         </div>
 
         {/* Right Section (Form) */}
-        <div className="p-6  bg-[#063756] flex-1">
+        <div className="p-6 bg-[#063756] flex-1">
           <div className="flex justify-between items-center text-center mb-4">
-            <h3 className="text-lg md:text-xl text-center ml-[4vw] text-white max-sm:ml-[12vw] font-bold">Know your child better</h3>
+            <h3 className="text-lg md:text-xl text-center ml-[4vw] text-white max-sm:ml-[12vw] font-bold">
+              Know your child better
+            </h3>
             <button
               className="text-gray-500 hover:text-gray-800 text-xl"
               onClick={closePopup}
@@ -83,7 +103,7 @@ const Flyer = () => {
             </button>
           </form>
           <p className="text-xs text-white mt-4">
-          Para se cadastrar, você nos informará o seu nome e endereço de e-mail e o número de telefone celular e, ao clicar em “Enviar”
+          Para se cadastrar, você nos informará o seu nome e endereço de e-mail e o número de telefone celular e, ao clicar em “Enviar”, você declara que está ciente e aceita os termos e condições da Política de Privacidade da Connect Parts e poderá receber e-mails, ligações ou mensagens com ofertas e anúncios das empresas do Grupo Connect Parts e parceiros autorizados. Você sempre poderá realizar seu descadastro através do link correspondente em nossos e-mails ou entrando diretamente em contato conosco.
           </p>
         </div>
       </div>

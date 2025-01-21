@@ -41,6 +41,8 @@ import DataCollectionPage from "./components/aignosisintegration/DataCollectionP
 import Report from "./components/ReportPages/page1";
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from "./components/Dashboard/Profile";
+import Profile1 from "./components/Dashboard/Profile1";
+import Orderhistory from "./components/Dashboard/Orderhistory";
 
 // import AuthRoute from './components/config/AuthRoute';
 
@@ -115,6 +117,8 @@ const App = () => {
         <Route path="/download" element={<Report />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/profile1' element={<Profile1 />} />
+        <Route path='/orderhistory' element={<Orderhistory />} />
       </Routes>
     </Router>
   );

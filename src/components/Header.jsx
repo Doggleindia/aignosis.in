@@ -73,7 +73,7 @@ const Header = () => {
    
   console.log(authUser, "authUser");
   return (
-    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw]  flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
+    <div className="text-white w-full bg-[#1A0C25] 2xl:h-[4vw]  flex items-center justify-center md:h-[4vw] mt-[2.1vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md bg-opacity-60">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
@@ -254,12 +254,30 @@ const Header = () => {
                         <li>
                           <Link
                             to="/profile"
-                            onClick={() => handleServiceClick("/speech-language")}
+                            onClick={() => handleServiceClick("/profile")}
                             className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
                               }`}
                             aria-label="Service 2"
                           >
                             Profile
+                          </Link>
+                          <Link
+                            to="/profile1"
+                            onClick={() => handleServiceClick("/profile1")}
+                            className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                              }`}
+                            aria-label="Service 2"
+                          >
+                            Profile1
+                          </Link>
+                          <Link
+                            to="/orderhistory"
+                            onClick={() => handleServiceClick("/orderhistory")}
+                            className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                              }`}
+                            aria-label="Service 2"
+                          >
+                            Order History
                           </Link>
                         </li>
                         {/* <li>
@@ -520,6 +538,31 @@ const Header = () => {
                     >
                       Profile
                     </Link>
+                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    <Link
+                      to="/profile1"
+                      onClick={() => {
+                        handleLinkClick("/profile1");
+                        toggleMenu();
+                      }}
+                      className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                        }`}
+                    >
+                      Profile1
+                    </Link>
+                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    <Link
+                      to="/orderhistory"
+                      onClick={() => {
+                        handleLinkClick("/orderhistory");
+                        toggleMenu();
+                      }}
+                      className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
+                        }`}
+                    >
+                      Order History
+                    </Link>
+                          <div className="border-t-2 w-full border-[#952981]"></div>
                     {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
 
                     {/* <Link
