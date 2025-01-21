@@ -17,6 +17,11 @@ import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
 import arrow from './aboutus/arrow.png'
 import ContactPage from "./aboutus/ContactPage";
+import eye from './aboutus/eye.png'
+import ship from './aboutus/ship.png'
+import bear from './aboutus/bear.png'
+import anim from './aboutus/anim.png'
+import Newnavbar from "./Newnavbar";
 
 const TeamMember = ({ name, img, description, height }) => (
   <div className="w-[80%] sm:w-[30%] md:w-[20%] text-center flex flex-col items-center mx-auto">
@@ -39,9 +44,12 @@ const TeamMember = ({ name, img, description, height }) => (
 const Divider = ({ title, desc, subtitle, img }) => {
   return (
     <>
+    
       <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
+      
         {/* DIVIDER CODE */}
         <div className="flex flex-row justify-center items-center space-x-4">
+        
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{
@@ -49,7 +57,7 @@ const Divider = ({ title, desc, subtitle, img }) => {
                 "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
             }}
           ></span>
-
+           
           <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
             {title}
           </span>
@@ -65,11 +73,16 @@ const Divider = ({ title, desc, subtitle, img }) => {
         <h1 className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </h1>
+        
         <span className="font-inter text-white p-1 text-1xl">
           {" "}
           {desc}
         </span>
+        <span className="relative top-[-13vw] left-[-22vw]">
+          <img src={anim} className="hidden md:block max-sm:w-[50px]justify-start scale-[.5] transform scale-x-[-1]"/>
+         </span>
       </div>
+      
       <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
         {/* DIVIDER CODE */}
         <div className="flex flex-row justify-center items-center space-x-4">
@@ -91,7 +104,7 @@ const Divider = ({ title, desc, subtitle, img }) => {
             }}
           ></span>
         </div>
-
+        
         <span className="font-raleway text-center text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
           {subtitle}
         </span>
@@ -105,8 +118,12 @@ const Divider = ({ title, desc, subtitle, img }) => {
 };
 
 const AboutUs = () => {
+  
   return (
     <>
+    <div>
+    <Newnavbar/>
+    </div>
       <SEO
         canonicalUrl={"https://aignosis.in/about-us"}
         metaDescription={"Learn about Aignosis and our mission to provide innovative AI-driven autism care solutions. Discover how we support families with early autism detection and care."}
@@ -119,26 +136,30 @@ const AboutUs = () => {
 
         </div>
 
-        <div className=" max-sm:p-4 flex max-sm:flex-col gap-6 justify-center">
-          <img
-            src={sideleft}
-            alt="about"
-            className="rounded-3xl w-[400px] h-[400px] object-cover"
-          />
-          <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
-            <span className="font-medium">How it all began</span>
-            {/* <span className="pt-4 block">
-            Embark on a journey through our narrative, where innovation meets
-            purpose.
-          </span> */}
-            <span className="pt-4 block">
-              We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
-            </span>
-            <span className="pt-4 block">
-              That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
-            </span>
-          </div>
-        </div>
+      <div className="max-sm:p-4 flex max-sm:flex-col gap-6 justify-center relative">
+  <img
+    src={sideleft}
+    alt="about"
+    className="rounded-3xl w-[400px] h-[400px] object-cover"
+  />
+  <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
+    <span className="font-medium">How it all began</span>
+    <span className="pt-4 block">
+      We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
+    </span>
+    <span className="pt-4 relative">
+      That’s when we realized something needed to change. We wanted to create a way to help identify these issues early, so children could receive the right support at the right time. And that’s how Aignosis was born.
+      <img src={bear} className="hidden md:block scale-[.4] mt-[-12vw] ml-[32vw] -rotate-45" />
+    </span>
+  </div>
+
+ 
+  <div className="absolute top-0 right-0 w-[15%] h-full bg-[#B740A1A6] opacity-65 blur-[120px] rounded-xl"></div>
+
+  
+  <div className="absolute max-sm:top-[110vw] max-sm:right-[1vw] max-sm:w-[50%] sm:w-[30%] max-sm:w-[100%] sm:h-[100%] h-[40%] max-sm:bg-[#B740A1A6] opacity-65 blur-[80px] rounded-xl"></div>
+</div>
+
 
         {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
         <div className="flex max-sm:pt-4 flex-col items-start">
@@ -162,180 +183,168 @@ const AboutUs = () => {
         </div>
       </div> */}
 
-        <div className="hidden md:flex max-sm:flex-row items-center px-10 justify-center mt-[8vw] ">
-          <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 max-sm:p-[5vw] max-sm:pl-[4vw] max-sm:pt-[3vw] max-sm:w-[100%] max-sm:h-[400px] from-[#241E22] to-[#43284C]">
-            <span className="font-medium font-raleway text-2xl">
-              The Goal of aignosis
-            </span>
-            {/* <span className="pt-4 block font-manrope">
+      <div className="flex max-sm:flex-col max-sm:gap-[4vw] items-center px-10 justify-center mt-[8vw] ">
+        <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 max-sm:p-[5vw] max-sm:pl-[4vw] max-sm:pt-[3vw] max-sm:w-[100%] max-sm:h-[400px] from-[#241E22] to-[#43284C]">
+          <span className="font-medium font-raleway text-2xl">
+            The Goal of aignosis
+          </span>
+          {/* <span className="pt-4 block font-manrope">
             Embark on a journey through our narrative, where innovation meets
             purpose.
           </span> */}
-            <span className="pt-4 block max-sm:text-[2.5vw] font-manrope">
-              At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
-            </span>
-            <span className="pt-4 block max-sm:text-[2.5vw]  font-manrope">
-              Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
-            </span>
-          </div>
-          <div className="flex lg:block items-end w-[50%] h-[500px] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
-            <img
-              src={birt_aignosis}
-              alt="about"
-              className=" w-full scale-[.9] rounded-3xl h-full object-cover"
-            />
-          </div>
+          <span className="pt-4 block max-sm:text-[2.5vw] font-manrope">
+            At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
+          </span>
+          <span className="pt-4 block max-sm:text-[2.5vw]  font-manrope">
+            Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
+          </span>
         </div>
-        <div className="flex flex-col mb-10 items-center md:hidden px-4 py-8 mt-[8vw] bg-gradient-to-b from-[#241E22] to-[#43284C]">
-          <div className="flex items-center justify-center w-full max-w-lg my-8">
-            <img
-              src={birt_aignosis}
-              alt="about"
-              className="w-full rounded-3xl h-auto object-cover"
-            />
-          </div>
-          <div className="flex flex-col items-start w-full max-w-lg h-auto bg-gradient-to-b p-8 rounded-xl">
-            <span className="font-medium font-raleway text-xl">
-              The Goal of Aignosis
-            </span>
-            <span className="pt-4 block text-sm font-manrope">
-              At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
-            </span>
-            <span className="pt-4 block text-sm font-manrope">
-              Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
-            </span>
-          </div>
-
+        <div className="flex lg:block flex-wrap items-end w-[50%] max-sm:w-[100%] h-[500px] max-sm:p-[2vw] max-sm:h-[60vw] max-sm:mt-[-25vw] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
+          <img
+            src={birt_aignosis}
+            alt="about"
+            className=" w-full scale-[.9] max-sm:scale-[1] max-sm:object-cover max-sm:rounded-[0px] max-sm:h-[55vw] rounded-3xl h-full object-cover"
+          />
         </div>
-        <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
-          <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700px]  mr-2 max-md:pl-5">
-            <div className="flex gap-5 max-md:flex-col">
-              <div className="flex flex-col w-[50%] max-md:ml-0  max-md:w-full">
-                <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
-                  <div className="rounded-lg w-[90px] p-2 "
-                    style={{
-                      background: `radial-gradient(
+      </div>
+      
+      <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
+        <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700px]  mr-2 max-md:pl-5">
+          <div className="flex gap-5 max-md:flex-col">
+            <div className="flex flex-col w-[50%] max-md:ml-0  max-md:w-full">
+              <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
+                <div className="rounded-lg w-[90px] p-2 "
+                  style={{
+                    background: `radial-gradient(
                       100% 100% at 50% -4950%, 
                       rgba(255, 255, 255, 0.3) 0%, 
                       rgba(255, 255, 255, 0) 100%
                     ), rgba(255, 255, 255, 0.2)`,
-                    }}
-                  >
-                    <img
-                      loading="lazy"
-                      src={blog_icon}
-                      alt="Blog section icon"
-                      className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
-                    />
-                  </div>
-                  <div className="mt-8 text-xl font-semibold leading-none text-white">
-                    Vision
-                  </div>
-                  <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
-                    To create a world where every child has the opportunity to thrive through early detection and personalized developmental support, breaking barriers to accessibility and affordability in autism screening.
-                  </div>
+                  }}
+                >
+                  <img
+                    loading="lazy"
+                    src={eye}
+                    alt="Blog section icon"
+                    className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
+                  />
+                </div>
+                <div className="mt-8 text-xl font-semibold leading-none text-white">
+                  Vision
+                </div>
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
+                  To create a world where every child has the opportunity to thrive through early detection and personalized developmental support, breaking barriers to accessibility and affordability in autism screening.
                 </div>
               </div>
-              <div className="flex flex-col  ml-5 w-[69%] max-md:ml-0 max-md:w-full">
-                <img
-                  loading="lazy"
-                  src={vission}
-                  alt="Blog section featured image"
-                  className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
-                />
-              </div>
+            </div>
+            <div className="flex flex-col  ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+              <img
+                loading="lazy"
+                src={vission}
+                alt="Blog section featured image"
+                className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+              />
             </div>
           </div>
-          <div className="pl-8 rounded-xl max-sm:mt-4 overflow-hidden bg-white bg-opacity-10 max-sm:pb-6  max-w-[700px] max-md:pl-5">
-            <div className="flex gap-5 max-md:flex-col">
-              <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-                <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
-                  <div className="rounded-lg w-[90px] p-2 "
-                    style={{
-                      background: `radial-gradient(
+        </div>
+        <div className="pl-8 rounded-xl max-sm:mt-4 overflow-hidden bg-white bg-opacity-10 max-sm:pb-6  max-w-[700px] max-md:pl-5">
+          <div className="flex gap-5 max-md:flex-col">
+            <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+              <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
+                <div className="rounded-lg w-[90px] p-2 "
+                  style={{
+                    background: `radial-gradient(
                       100% 100% at 50% -4950%, 
                       rgba(255, 255, 255, 0.3) 0%, 
                       rgba(255, 255, 255, 0) 100%
                     ), rgba(255, 255, 255, 0.2)`,
-                    }}
-                  >
-                    <img
-                      loading="lazy"
-                      src={blog_icon}
-                      alt="Blog section icon"
-                      className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
-                    />
-                  </div>
-                  <div className="mt-8 text-xl font-semibold leading-none text-white">
-                    Mission
-                  </div>
-                  <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
-                    To revolutionize early autism detection by leveraging AI and cutting-edge technology to deliver accurate, affordable, and non-invasive screening solutions. We aim to empower families, educators, and clinicians with actionable insights, fostering early intervention.
-                  </div>
+                  }}
+                >
+                  <img
+                    loading="lazy"
+                    src={ship}
+                    alt="Blog section icon"
+                    className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px] "
+                  />
+                </div>
+                <div className="mt-8 text-xl font-semibold leading-none text-white">
+                  Mission
+                </div>
+                <div className="self-stretch font-inter mt-6 text-sm  tracking-wide leading-5 text-white text-opacity-80">
+                  To revolutionize early autism detection by leveraging AI and cutting-edge technology to deliver accurate, affordable, and non-invasive screening solutions. We aim to empower families, educators, and clinicians with actionable insights, fostering early intervention.
                 </div>
               </div>
-              <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
-                <img
-                  loading="lazy"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/DSC_7765.jpeg"
-                  alt="Blog section featured image"
-                  className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
-                />
-              </div>
+            </div>
+            <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+              <img
+                loading="lazy"
+                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/DSC_7765.jpeg"
+                alt="Blog section featured image"
+                className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+              />
             </div>
           </div>
         </div>
-        <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-[8vw] items-center justify-center mt-[4vw]">
-          <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6 max-w-[700px] mr-2 max-md:pl-5">
-            <div className="flex gap-5 max-md:flex-col">
-              <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
-                <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
-                  <div className="rounded-lg w-[90px] p-2"
-                    style={{
-                      background: `radial-gradient(
+      </div>
+      <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-[8vw] items-center justify-center mt-[4vw]">
+  <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6 max-w-[700px] mr-2 max-md:pl-5">
+    <div className="flex gap-5 max-md:flex-col">
+      <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+        <div className="flex flex-col max-sm:mt-4 max-sm:pb-1 items-start self-stretch my-auto max-md:mt-10">
+          <div className="rounded-lg w-[90px] p-2"
+            style={{
+              background: `radial-gradient(
                 100% 100% at 50% -4950%, 
                 rgba(255, 255, 255, 0.3) 0%, 
                 rgba(255, 255, 255, 0) 100%
               ), rgba(255, 255, 255, 0.2)`,
-                    }}
-                  >
-                    <img
-                      loading="lazy"
-                      src={arrow}
-                      alt="Purpose section icon"
-                      className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px]"
-                    />
-                  </div>
-                  <div className="mt-8 text-xl font-semibold leading-none text-white">
-                    Purpose
-                  </div>
-                  <div className="self-stretch font-inter mt-6 text-sm tracking-wide leading-5 text-white text-opacity-80">
-                    To bridge the gap between late diagnosis and timely intervention, ensuring that every child’s unique potential is recognized and nurtured. By making autism screening accessible to all, we strive to transform lives, enhance developmental outcomes, and contribute to a more inclusive society.
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
-                <img
-                  loading="lazy"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_3535.JPG"
-                  alt="Purpose section featured image"
-                  className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
-                />
-              </div>
-            </div>
+            }}
+          >
+            <img
+              loading="lazy"
+              src={arrow}
+              alt="Purpose section icon"
+              className="object-contain rounded-2xl aspect-[1.04] justify-center w-[90px]"
+            />
+          </div>
+          <div className="mt-8 text-xl font-semibold leading-none text-white">
+            Purpose
+          </div>
+          <div className="self-stretch font-inter mt-6 text-sm tracking-wide leading-5 text-white text-opacity-80">
+            To bridge the gap between late diagnosis and timely intervention, ensuring that every child’s unique potential is recognized and nurtured. By making autism screening accessible to all, we strive to transform lives, enhance developmental outcomes, and contribute to a more inclusive society.
           </div>
         </div>
-
-        <div className="px-[5vw]">
-          <AignosisTeam />
-        </div>
-        <div>
-          <ContactPage />
-        </div>
-        {/* <Awards />
-      <Endrosed /> */}
-        <BlogFooter />
       </div>
+      <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+        <img
+          loading="lazy"
+          src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_3535.JPG"
+          alt="Purpose section featured image"
+          className="object-contain grow w-full aspect-[0.95] max-md:mt-10 max-md:max-w-full"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="w-[90%] bg-[#B7407D] bg-opacity-30 mt-[4vw]  m-auto rounded-full h-1 dark:bg-gray-700">
+  <div
+    className="bg-[#B7407D] bg-opacity-100 h-1 rounded-full"
+    style={{ width: '50%' }}
+  ></div>
+</div>
+
+
+      <div className="px-[5vw]">
+        <AignosisTeam />
+      </div>
+      <div>
+        <ContactPage/>
+      </div>
+      {/* <Awards />
+      <Endrosed /> */}
+      <BlogFooter />
+    </div>
     </>
   );
 };

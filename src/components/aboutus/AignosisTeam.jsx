@@ -20,9 +20,9 @@ const AignosisTeam = () => {
         <Suspense fallback={<div>Loading...</div>}>
             <div className="flex rounded-2xl py-[5vw] mt-[8vw] flex-col my-8 max-sm:mx-2 mx-8 border border-solid bg-gray-800 bg-opacity-30 border-white border-opacity-10 min-h-auto">
             <Divider
-    title="Our Project team"
-    subtitle="The Minds Behind Ai.gnosis"
-    desc={
+             title="Our Project team"
+             subtitle="The Minds Behind Ai.gnosis"
+             desc={
         <>
             At Aignosis, we are driven by the vision to revolutionize early detection of neurodevelopmental disorders through cutting-edge AI technology.
             <br />

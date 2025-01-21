@@ -11,18 +11,18 @@ const Benefits = () => {
     <div className="text-center mb-12">
       {/* Gradient Pink Lines */}
       <div className="flex items-center justify-center gap-4">
-        <div className="h-1 w-20 bg-gradient-to-l from-pink-500 to-transparent rounded-full"></div>
-        <span className="text-white font-semibold tracking-widest">Benefits</span>
-        <div className="h-1 w-20 bg-gradient-to-r from-pink-500 to-transparent rounded-full"></div>
+        <div className="h-1 w-20 bg-gradient-to-l max-sm:mt-[4vw] from-pink-500 to-transparent rounded-full"></div>
+        <span className="text-white font-semibold max-sm:mt-[4vw] tracking-widest">Benefits</span>
+        <div className="h-1 w-20 bg-gradient-to-r max-sm:mt-[4vw] from-pink-500 to-transparent rounded-full"></div>
       </div>
   
       {/* Title */}
-      <h2 className="text-3xl font-bold text-white mt-4">Employee Benefits</h2>
+      <h2 className="text-3xl font-bold text-white max-sm:mt-[1vw] mt-4">Employee Benefits</h2>
     </div>
 
-      <div className="px-4">
+      <div className="px-4 ">
         {/* First Row */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8">
+        <div className="flex flex-wrap justify-center gap-8 mb-8 m">
           {/* Benefit 1 */}
           <div className="w-64 h-48 bg-[radial-gradient(circle,_#1A0C25_20%,_#43284C_100%)] rounded-lg flex flex-col items-center justify-center shadow-lg">
             <div className="w-16 h-16  flex items-center justify-center">

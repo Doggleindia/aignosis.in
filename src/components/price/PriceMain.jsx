@@ -6,11 +6,13 @@ import Header from '../Header'
 import Footer from '../Footer'
 import ContactPage from '../ContactPage'
 import BlogFooter from '../BlogPages/BlogFooter'
+import Newnavbar from '../Newnavbar'
 
 
 const PriceMain = () => {
   return (
     <>
+    <Newnavbar/>
     <div className='bg-[#1A0C25]'>
         <Header/>
         <ChoosePlan />

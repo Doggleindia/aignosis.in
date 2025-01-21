@@ -5,7 +5,7 @@ import DOMPurify from "dompurify"; // Import DOMPurify
 
 const BlogContent = ({ aboutContent }) => {
   const { id } = useParams();
-  const blog = aboutContent.blogs.find((b) => b.id === Number(id));
+  const blog = aboutContent.blogs.find((b) => b.id === (id));
 
   if (!blog) {
     return <p>Blog not found.</p>;
@@ -42,7 +42,7 @@ const BlogContent = ({ aboutContent }) => {
         <meta property="og:type" content="article" />
       </Helmet>
 
-      <div className="flex flex-col gap-5 px-4 lg:px-8">
+      <div className="flex flex-col gap-5 px-4 lg:px-8 max-sm:px-[8vw]">
         {/* Blog Title */}
         <h1 className="text-[#F6E8FB] font-raleway text-[32px]">{title}</h1>
         

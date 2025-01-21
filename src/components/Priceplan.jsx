@@ -13,6 +13,7 @@ import Features from './homeBrain/Features';
 import FactorImpacting from './Priceplan/FactorImpacting';
 import SEO from './config/Seo'
 import Offer from './offer';
+import Newnavbar from './Newnavbar';
 
 const Priceplan = () => {
   const [selectedOption, setSelectedOption] = useState('Assessment');
@@ -23,6 +24,7 @@ const Priceplan = () => {
 
   return (
     <>
+    <Newnavbar/>
    <SEO
    canonicalUrl={"https://aignosis.in/prices"}
    metaDescription={"Check out Aignosis' competitive pricing for autism assessments, psychological evaluations, and specialized care solutions. Affordable services for parents."}

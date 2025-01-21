@@ -33,6 +33,7 @@ import BlogFooter from '../BlogPages/BlogFooter';
 import service2 from '../../assets/servicepage/image 68.png';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 
 
 const ServicePage2 = () => {
@@ -88,6 +89,7 @@ const ServicePage2 = () => {
 
     return (
         <>
+        <Newnavbar/>
         <SEO
         canonicalUrl='https://aignosis.in/speech-language'
         metaDescription={'Find expert speech therapy for autistic children and accurate autism diagnosis near you. Aignosis offers personalized care and advanced solutions.'}

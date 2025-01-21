@@ -33,6 +33,7 @@ import BlogFooter from '../BlogPages/BlogFooter';
 import service4 from '../../assets/servicepage/image 70.png';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 
 
 const ServicePage4 = () => {
@@ -93,6 +94,7 @@ const ServicePage4 = () => {
 
     return (
         <>
+        <Newnavbar/>
     <SEO
     pageTitle={'Occupational Therapy for Autism | Aignosis'}
     canonicalUrl={'https://aignosis.in/occupational-therapy'}

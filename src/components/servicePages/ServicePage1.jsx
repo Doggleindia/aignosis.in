@@ -37,6 +37,7 @@ import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 
 
 const ServicePage1 = () => {
@@ -92,6 +93,7 @@ const ServicePage1 = () => {
 
     return (
         <>
+        <Newnavbar/>
         <SEO
         metaDescription='Explore AI-powered autism assessment tools, psychological evaluations, and care solutions for parents. Aignosis transforms autism diagnosis and care.'
         canonicalUrl='https://aignosis.in/assessments-evaluation'

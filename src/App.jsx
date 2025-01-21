@@ -41,6 +41,7 @@ import DataCollectionPage from "./components/aignosisintegration/DataCollectionP
 import Report from "./components/ReportPages/page1";
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from "./components/Dashboard/Profile";
+
 // import AuthRoute from './components/config/AuthRoute';
 
 const App = () => {

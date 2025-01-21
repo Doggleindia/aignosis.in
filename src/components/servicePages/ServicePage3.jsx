@@ -34,6 +34,7 @@ import BlogFooter from '../BlogPages/BlogFooter';
 import service3 from '../../assets/servicepage/image 69.png';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 
 const ServicePage3 = () => {
 
@@ -88,6 +89,7 @@ const ServicePage3 = () => {
 
     return (
         <>
+        <Newnavbar/>
         <SEO
         canonicalUrl={'https://aignosis.in/behaviour-therapy'}
         metaDescription={'Learn about early intervention, occupational therapy, and signs of autism in toddlers. Explore behavior therapy solutions at Aignosis for autism care.'}
