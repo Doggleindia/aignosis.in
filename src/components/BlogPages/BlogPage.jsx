@@ -76,7 +76,7 @@ const BlogPage = () => {
       {searchInput && (
   <div className="text-center text-[#F6E8FB] mb-4">
     <p className="text-sm">
-      Showing results for: <span className="font-bold text-purple-400">{searchInput}: results below feature post</span>
+      Showing results for: <span className="font-bold text-purple-400">{searchInput}</span>
     </p>
   </div>
 )}

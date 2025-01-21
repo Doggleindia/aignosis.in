@@ -9,21 +9,53 @@ const Newnavbar = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+      setCurrentSlide((prevSlide) => prevSlide + 1);
     }, 2000); // Change every 2 seconds
+
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
+
+  useEffect(() => {
+    if (currentSlide === slides.length) {
+      // Disable animation temporarily for the reset
+      setTimeout(() => {
+        setIsAnimating(false);
+        setCurrentSlide(0);
+      }, 500); // Wait for the slide transition before resetting
+
+      // Re-enable animation after reset
+      setTimeout(() => {
+        setIsAnimating(true);
+      }, 600); // Slight delay to avoid visual glitches
+    }
+  }, [currentSlide, slides.length]);
 
   return (
-    <div className="bg-[#1A0C25] text-white text-center fixed top-0 w-full z-50 h-8 flex items-center">
+    <div className="bg-[#1A0C25] text-white text-center fixed top-0 w-full z-50 h-8 flex items-center overflow-hidden">
       <div
-        className="transition-transform duration-500 ease-in-out w-full"
-        key={currentSlide}
+        className={`flex ${
+          isAnimating ? "transition-transform duration-500 ease-in-out" : ""
+        }`}
+        style={{
+          transform: `translateX(-${(currentSlide % (slides.length + 1)) * 100}%)`,
+        }}
       >
-        <p className="font-bold text-sm md:text-base">{slides[currentSlide]}</p>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="w-full flex-shrink-0 text-sm md:text-base font-bold flex justify-center items-center"
+          >
+            {slide}
+          </div>
+        ))}
+        {/* Add a duplicate of the first slide at the end */}
+        <div className="w-full flex-shrink-0 text-sm md:text-base font-bold flex justify-center items-center">
+          {slides[0]}
+        </div>
       </div>
     </div>
   );

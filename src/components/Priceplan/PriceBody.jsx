@@ -567,8 +567,8 @@ const PriceBody = ({ selectedOption }) => {
                   <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button
-                        //   onClick={handleBuyNowClick}
-                        // onClick={handlePayment}
+                          // onClick={handleBuyNowClick}
+                        onClick={handlePayment}
                         className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                       >
                         Buy now
@@ -716,7 +716,7 @@ const PriceBody = ({ selectedOption }) => {
                   Add to cart
                 </button>
                 <button
-                  onClick={handleBuyNowClick}
+                  onClick={handlePayment}
                   className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
                 >
                   Buy now
@@ -884,7 +884,7 @@ const PriceBody = ({ selectedOption }) => {
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button
                         //   onClick={handleBuyNowClick}
-                        // onClick={handlePayment}
+                        onClick={handlePayment}
                         className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                       >
                         Buy now

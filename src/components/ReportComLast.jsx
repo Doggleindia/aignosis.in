@@ -2,7 +2,7 @@ import React from 'react';
 import Page1 from "./ReportPages/page1"
 import Page2 from "./ReportPages/page2"
 import Page3 from "./ReportPages/page3"
-const ReportComLast = () => {
+const  ReportComLast = () => {
     return (
         <div className=''>
             

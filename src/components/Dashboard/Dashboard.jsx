@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaBell } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import pic from "../../assets/pic4.png"
 import Sessions from './Sessions';
 import Header from '../Header';
+import Newnavbar from '../Newnavbar';
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
+
+   const [isEditing, setIsEditing] = useState(false);
+   const toggleEdit = () => {
+    setIsEditing((prev) => !prev);
+};
+
   return (
     <> 
+    <Newnavbar/>
       <Header/>
-      <div className='w-full text-white px-5 md:px-10 py-10 font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]'>
+      <div className='w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]'>
         <div className="w-full h-full md:block hidden">
           <div
             className="w-full h-[7vw] flex items-center rounded-3xl justify-between px-[5vw]"
@@ -35,15 +44,90 @@ const Dashboard = () => {
               <FaBell />
             </div>
           </div>
+
+
+           {isEditing ? (
+                                  <div className="mt-4 relative border-2 border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
+                                      <h2 className="text-lg font-bold mb-4">Add Personal Info (Guardian)</h2>
+                                      <form>
+                                          <div className="grid grid-cols-1 pr-[20vw] md:grid-cols-2 gap-6 text-sm">
+                                              <input
+                                                  type="text"
+                                                  placeholder="Name"
+                                                  className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                              />
+                                              <input
+                                                  type="text"
+                                                  placeholder="User name"
+                                                  className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                              />
+                                              <input
+                                                  type="text"
+                                                  placeholder="Mobile number"
+                                                  className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                              />
+                                              <input
+                                                  type="email"
+                                                  placeholder="Email"
+                                                  className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                              />
+                                              <input
+                                                  type="date"
+                                                  placeholder="Date of birth"
+                                                  className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                              />
+                                              <select className="w-full p-2 rounded bg-[#3D253F] text-white">
+                                                  <option value="">Gender</option>
+                                                  <option value="male">Male</option>
+                                                  <option value="female">Female</option>
+                                                  <option value="other">Other</option>
+                                              </select>
+                                          </div>
+                                          <div className="mt-4 flex justify-between items-center">
+                                              <div>
+                                                  <label className="block mb-2">Profile Picture</label>
+                                                  <div className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+                                                      <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                                                          <FaPlus />
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              
+                                          </div>
+                                      </form>
+                                      <div className="absolute bottom-10 right-10">
+                                      <div className="flex space-x-4">
+                                                  <button
+                                                      type="submit"
+                                                      className="border border-[#9C00AD] px-6 py-2 rounded-full text-white"
+                                                  >
+                                                      Save
+                                                  </button>
+                                              </div>
+                                      </div>
+                                      <div className="absolute top-10 right-10">
+                                                  <button
+                                                      type="button"
+                                                      onClick={() => setIsEditing(false)}
+                                                      className="border border-red-500 px-6 py-2 rounded-full text-white"
+                                                  >
+                                                      Cancel
+                                                  </button>
+                                              </div>
+                                  </div>
+          
+                              ) : (
+                                  <>
           <div className="mt-5 px-5">
             <h3 className='font-semibold'>Dashboard</h3>
             <div className="border-b-2 my-2 border-[#B859EA]"></div>
           </div>
           <div className="mt-16 px-5">
             <h3 className='font-semibold'>Profile</h3>
-            <div className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+            <div onClick={toggleEdit} className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
               <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
-                <FaPlus />
+                <FaPlus   />
               </div>
             </div>
           </div>
@@ -86,7 +170,19 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+          </>
+      )}
         </div>
+       
+
+
+
+
+
+
+
+
+        
         <div className="w-full h-full md:hidden block py-4">
           {/* Avatar Section */}
           <div
@@ -111,6 +207,80 @@ const Dashboard = () => {
             </div>
           </div>
 
+
+{isEditing ? (
+                        <div className="mt-4 relative border-2 border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
+                            <h2 className="text-lg font-bold mb-4">Add Personal Info (Guardian)</h2>
+                            <form>
+                                <div className="grid grid-cols-1 pr-[20vw] md:grid-cols-2 gap-6 text-sm">
+                                    <input
+                                        type="text"
+                                        placeholder="Name"
+                                        className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="User name"
+                                        className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Mobile number"
+                                        className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                    />
+                                    <input
+                                        type="date"
+                                        placeholder="Date of birth"
+                                        className="w-full p-2 rounded bg-[#3D253F] text-white"
+                                    />
+                                    <select className="w-full p-2 rounded bg-[#3D253F] text-white">
+                                        <option value="">Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div className="mt-4 flex justify-between items-center">
+                                    <div>
+                                        <label className="block mb-2">Profile Picture</label>
+                                        <div className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+                                            <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                                                <FaPlus />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </form>
+                            <div className="absolute bottom-10 right-10">
+                            <div className="flex space-x-4">
+                                        <button
+                                            type="submit"
+                                            className="border border-[#9C00AD] px-6 py-2 rounded-full text-white"
+                                        >
+                                            Save
+                                        </button>
+                                    </div>
+                            </div>
+                            <div className="absolute top-10 right-10">
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsEditing(false)}
+                                            className="border border-red-500 px-6 py-2 rounded-full text-white"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                        </div>
+
+                    ) : (
+<>
           {/* Dashboard Section */}
           <div className="mt-5">
             <h3 className="font-semibold text-sm">Dashboard</h3>
@@ -118,9 +288,9 @@ const Dashboard = () => {
           </div>
 
           {/* Profile Section */}
-          <div className="mt-10">
+          <div className="mt-10" >
             <h3 className="font-semibold text-sm">Profile</h3>
-            <div className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+            <div  onClick={toggleEdit} className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
               <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
                 <FaPlus />
               </div>
@@ -151,12 +321,14 @@ const Dashboard = () => {
               <button className="text-white text-center font-bold text-xl">Act now</button>
             </div>
           </div>
+
+          </>)}
         </div>
 
         <Sessions />
-        <button className="w-full border-2 flex justify-center items-center border-zinc-500 py-4">
+        <Link to={'/prices'} className="w-full border-2 flex justify-center items-center border-zinc-500 py-4">
           <h3 className='font-bold'>Book Now</h3>
-        </button>
+        </Link>
       </div>
     </>
   )

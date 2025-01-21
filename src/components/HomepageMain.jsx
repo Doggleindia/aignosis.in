@@ -8,10 +8,12 @@ import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
 import Offer from "./Offer";
 import Newnavbar from "./Newnavbar";
+import Flyer from "./Flyer";
 const HomepageMain = () => {
   return (
 
     <>
+    <Flyer/>
     <Newnavbar/>
       <SEO
         pageTitle="AI-Powered Early Autism Screening Tools | Aignosis"

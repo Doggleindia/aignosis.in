@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from 'react';
 
 const Offer = () => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(() => {
+        const isDismissed = sessionStorage.getItem('offerDismissed');
+        return !isDismissed;
+    });
     const [timeLeft, setTimeLeft] = useState(() => {
-        // Retrieve the stored time from sessionStorage (or use default if not found)
         const savedTime = sessionStorage.getItem('offerTime');
         return savedTime ? parseInt(savedTime, 10) : 10 * 60; // Default to 10 minutes
     });
 
     // Countdown timer logic
     useEffect(() => {
-        if (!isVisible || timeLeft <= 0) return; // Stop countdown if banner is not visible or time is up
+        if (!isVisible || timeLeft <= 0) return;
 
         const timer = setInterval(() => {
             setTimeLeft((prevTime) => {
                 const newTime = prevTime - 1;
-                sessionStorage.setItem('offerTime', newTime); // Store time in sessionStorage
+                sessionStorage.setItem('offerTime', newTime);
                 return newTime;
             });
         }, 1000);
 
-        // Cleanup interval
         return () => clearInterval(timer);
     }, [isVisible, timeLeft]);
 
-    // Hide banner when time runs out
     useEffect(() => {
         if (timeLeft <= 0) {
             setIsVisible(false);
         }
     }, [timeLeft]);
 
-    // Format time for display (mm:ss)
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
@@ -41,21 +40,24 @@ const Offer = () => {
         };
     };
 
+    const handleDismiss = () => {
+        setIsVisible(false);
+        sessionStorage.setItem('offerDismissed', 'true');
+    };
+
     const { minutes, seconds } = formatTime(timeLeft);
 
-    // Scroll event listener to toggle visibility
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const shouldHide = scrollPosition > 300 && scrollPosition < 600; // Adjust values as needed
-            setIsVisible(!shouldHide);
-        };
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const scrollPosition = window.scrollY;
+    //         const shouldHide = scrollPosition > 300 && scrollPosition < 600;
+    //         setIsVisible(!shouldHide);
+    //     };
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        // Cleanup listener on unmount
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, []);
 
     return (
         isVisible && (
@@ -88,7 +90,7 @@ const Offer = () => {
                         </div>
                     </div>
                     <button
-                        onClick={() => setIsVisible(false)}
+                        onClick={handleDismiss}
                         className="ml-4 text-sm font-bold text-red-500 hover:text-red-700"
                     >
                         ✕
@@ -98,7 +100,7 @@ const Offer = () => {
                     <div className="flex items-center px-2 justify-between w-full">
                         <span className="text-sm font-semibold">OFFER ENDS IN</span>
                         <button
-                            onClick={() => setIsVisible(false)}
+                            onClick={handleDismiss}
                             className="text-sm font-bold text-red-500 hover:text-red-700"
                         >
                             ✕

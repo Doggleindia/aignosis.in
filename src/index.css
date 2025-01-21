@@ -19,6 +19,11 @@
     src: url('./assets/fonts/CormorantGaramond-Regular.ttf') format('truetype');
     font-style: normal;
   }
+  @font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('./assets/fonts/PlayfairDisplay.ttf') format('truetype');
+    font-style: normal;
+  }
 
 
   

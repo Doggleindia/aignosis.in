@@ -42,6 +42,17 @@ import Report from "./components/ReportPages/page1";
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from "./components/Dashboard/Profile";
 
+import Profile1 from "./components/Dashboard/Profile1";
+import Orderhistory from "./components/Dashboard/Orderhistory";
+
+import Page1 from "./components/report pages/Page1";
+import Page2 from "./components/report pages/Page2";
+import Page3 from "./components/report pages/Page3";
+import Page4 from "./components/report pages/Page4";
+import Page5 from "./components/report pages/Page5";
+import GeneratePDF from "./components/report pages/GeneratePDF";
+
+
 // import AuthRoute from './components/config/AuthRoute';
 
 const App = () => {
@@ -115,6 +126,19 @@ const App = () => {
         <Route path="/download" element={<Report />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
+
+        <Route path='/profile1' element={<Profile1 />} />
+        <Route path='/orderhistory' element={<Orderhistory />} />
+
+
+        <Route path='/page1' element={<Page1 />} />
+        <Route path='/page2' element={<Page2 />} />
+        <Route path='/page3' element={<Page3 />} />
+        <Route path='/page4' element={<Page4 />} />
+        <Route path='/page5' element={<Page5 />} />
+        <Route path='/Generatepdf' element={<GeneratePDF />} />
+
+       
       </Routes>
     </Router>
   );
