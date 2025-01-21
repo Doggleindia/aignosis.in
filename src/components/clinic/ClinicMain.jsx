@@ -13,9 +13,11 @@ import img24 from "../../assets/clinic/img24.png"
 import img25 from "../../assets/clinic/img25.png"
 
 import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
 const ClinicMain = () => {
   return (
     <>
+    <Newnavbar/>
       <SEO
         canonicalUrl={'https://aignosis.in/clinic'}
         metaDescription={'Visit Aignosis Autism Clinic for expert care and accurate diagnosis. Our specialists offer personalized solutions for autism treatment and support.'}

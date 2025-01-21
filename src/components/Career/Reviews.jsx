@@ -56,14 +56,14 @@ const Reviews = () => {
       {/* Call-to-Action Section */}
       <div className="text-center w-full font-[Raleway] mt-[10vw]">
   <p
-    className="text-xl p-6 rounded-lg"
+    className="text-xl font-[Raleway] max-sm:text-[3vw] p-6 rounded-lg"
     style={{
       background:
         "linear-gradient(90deg, rgba(117, 35, 137, 0.5) 0%, #1E0923 50%, rgba(117, 35, 137, 0.04) 100%), linear-gradient(270deg, rgba(117, 35, 137, 0.5) 0%, #1E0923 50%, rgba(117, 35, 137, 0.04) 100%)",
     }}
   >
     Join us and become part of a team that’s not just building a platform but
-    shaping <br/> the future of autism care. Your work here truly matters.
+    shaping  the future of autism care. Your work here truly matters.
   </p>
 </div>
 

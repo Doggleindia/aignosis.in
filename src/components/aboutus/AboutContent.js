@@ -25,7 +25,7 @@ import blogimg24 from "./99.png";
 const AboutContent = {
   blogs: [
     {
-      id: 1,
+      id: "early-signs-of-autism-in-children",
       blogimg: blogimg16,
       image: blogimg7,
       author: "Raksheet",
@@ -156,7 +156,7 @@ const AboutContent = {
     },
 
     {
-      id: 2,
+      id: "early-intervention-for-autism-care",
       blogimg: blogimg17,
       image: blogimg8,
       author: "Dakshit",
@@ -272,7 +272,7 @@ const AboutContent = {
       },
     },
     {
-      id: 3,
+      id: "how-ai-is-transforming-early-autism-diagnosis",
       blogimg: blogimg18,
       image: blogimg9,
       author: "Saket",
@@ -365,7 +365,7 @@ const AboutContent = {
       ],
     },
     {
-      id: 4,
+      id: "speech-therapy-tips-children-autism",
       blogimg: blogimg19, // Image URL for the blog can be inserted here
       author: "Pranav",
       image: blogimg10,
@@ -461,7 +461,7 @@ const AboutContent = {
       ],
     },
     {
-      id: 5,
+      id: "speech-therapy-exercises-autism-at-home",
       blogimg: blogimg20,
       image: blogimg11,
       author: "kishore",
@@ -640,7 +640,7 @@ const AboutContent = {
       },
     },
     {
-      id: 6,
+      id: "speech-therapy-lesson-plans-materials-autism",
       blogimg: blogimg21,
       image: blogimg12,
       author: "kunal",
@@ -845,7 +845,7 @@ const AboutContent = {
       },
     },
     {
-      id: 7,
+      id: "speech-therapy-confidence-autism",
       blogimg: blogimg22,
       image: blogimg13,
       author: "sachin",
@@ -942,7 +942,7 @@ const AboutContent = {
       externalLink: "https://www.autismspeaks.org/speech-language-therapy",
     },
     {
-      id: 8,
+      id: "occupational-therapy-autism-overview-benefits",
       blogimg: blogimg23,
       image: blogimg14,
       author: "Samarth",
@@ -1080,7 +1080,7 @@ const AboutContent = {
       externalLink: "https://www.autismspeaks.org/occupational-therapy",
     },
     {
-      id: 9,
+      id: "speech-therapy-treatments-communication-skills",
       blogimg: blogimg24,
       image: blogimg15,
       author: "Piyush",
@@ -1189,7 +1189,7 @@ const AboutContent = {
       },
     },
     {
-      id: 10,
+      id: "down-syndrome-vs-autism-key-difference",
       blogimg: blogimg4,
       image: blogimg5,
       author: "Harsh",
@@ -1306,7 +1306,7 @@ const AboutContent = {
       external_link: "https://www.autismspeaks.org/what-autism",
     },
     {
-      id: 11,
+      id: "early-detection-diagnosis-autism-india",
       blogimg: blogimg2,
       image: blogimg2,
       author: "IAC",
@@ -1395,7 +1395,7 @@ const AboutContent = {
       },
     },
     {
-      id: 12,
+      id: "developmental-delay-identification-management-primary-care",
       blogimg: blogimg3,
       image: blogimg3,
       author: "Ying Ying Choo, Pratibha Agarwal",

@@ -6,11 +6,13 @@ import ContactPage from "./ContactPage";
 import WhatsAppButton from "./WhatsAppButton";
 import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
-import Offer from "./offer";
+import Offer from "./Offer";
+import Newnavbar from "./Newnavbar";
 const HomepageMain = () => {
   return (
 
     <>
+    <Newnavbar/>
       <SEO
         pageTitle="AI-Powered Early Autism Screening Tools | Aignosis"
         canonicalUrl="https://aignosis.in/"

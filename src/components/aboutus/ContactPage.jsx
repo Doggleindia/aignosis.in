@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
-import { GoArrowUpRight } from 'react-icons/go';
-import { FaMapMarkerAlt, FaPhoneAlt, FaCalendarAlt } from 'react-icons/fa';
-import { IoIosMail } from 'react-icons/io';
+import tiger from './tiger.png'
 import emailjs from "emailjs-com";
 const ContactPage = () => {
 
@@ -49,6 +47,7 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="w-full h-full pb-10 md:h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center flex-start">
+            <img src={tiger} className='hidden md:block scale-[.5] mt-[45vw]'/>
             <div className="w-[100%] md:w-[40%] h-[90%]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1634778192933!2d75.8266295!3d26.8983064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6958f6f2e59%3A0xe378dd988aba33b0!2sBabylon%20Children&#39;s%20Hospital%20%7C%20BEST%20CHILD%20HOSPITAL%20IN%20JAIPUR%20%7C%20CHILD%20DOCTOR%20IN%20JAIPUR!5e0!3m2!1sen!2sin!4v1731096209878!5m2!1sen!2sin"
