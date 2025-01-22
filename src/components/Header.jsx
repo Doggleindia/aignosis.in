@@ -335,7 +335,7 @@ const Header = () => {
             <Link
   to="/login"
   onClick={() => handleLinkClick("/login")}
-  className="group border border-[#B740A1] p-2 px-4 rounded-[30px]"
+  className="group border border-[#B740A1] p-2 px-4 hover:bg-pink-500 rounded-[30px]"
 >
   <span className="flex items-center 2xl:text-base md:text-sm m-auto text-xl text-white">
     Log in

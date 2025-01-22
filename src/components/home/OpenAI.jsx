@@ -123,14 +123,18 @@ const OpenAI = () => {
                     />                </div>
             </div>
             <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
-            <Link to={'/prices'} className='w-[20%] max-sm:w-[60%] flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope max-sm:text-[3vw]  xl:text-sm text-white'>
-            
-                              
-                Start Your Child’s Assessment
-                <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] ml-[2vw] rounded-full bg-[#B740A1] ">
-                <GoArrowUpRight />
-                            </div>
-            </Link>
+            <Link
+  to="/prices"
+  className="group w-[20%] max-sm:w-[60%] flex justify-center items-center hover:bg-pink-500 border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope max-sm:text-[3vw] xl:text-sm text-white"
+>
+  Start Your Child’s Assessment
+  <div
+    className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black group-hover:bg-white text-xl flex justify-center items-center 2xl:h-[2.5rem] ml-[2vw] rounded-full bg-[#B740A1] transition-colors duration-300"
+  >
+    <GoArrowUpRight />
+  </div>
+</Link>
+
         </>
     );
 };

@@ -34,7 +34,13 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const [orderConfirmed, setOrderConfirmed] = useState(false); 
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardSelect = (id, price) => {
+    setSelectedCard(id); // Update the selected card ID
+    
+  };
 
   const handleNextStep = () => {
     if (step === 3) {
@@ -705,7 +711,8 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex flex-col gap-5">
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
+                  onClick={() => handleCardSelect(5, 499)}>
                     <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">Shark tank 50% off</h1>
                     </div>
@@ -714,12 +721,13 @@ const PriceBody = ({ selectedOption }) => {
                     <h1 className="mt-3 font-manrope">₹499 <span className="text-[10px]">(₹999)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6"onClick={() => handleCardSelect(5, 1899)}>
                     <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">Shark tank 50% off</h1>
                     </div>
                     <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
                     <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
+                    <h1 className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></h1>
                     <h1 className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
