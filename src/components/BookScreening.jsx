@@ -47,7 +47,7 @@ const BookScreening = () => {
 
   return (
 
-    <div className='flex items-center justify-center 2xl:px-[10rem] 2xl:py-[6rem] md:px-[5rem] md:py-[5rem] m-2 max-sm:mt-[10vw] ' style={{ background: 'rgba(26, 12, 37, 1)' }}>
+    <div className='flex items-center justify-center 2xl:px-[10rem] 2xl:py-[6rem] md:px-[5rem] md:py-[5rem] m-2 max-sm:m-[2rem] max-sm:mt-[10vw] ' style={{ background: 'rgba(26, 12, 37, 1)' }}>
 
       <div
         className="min-h-screen bg-gradient-to-b py-[5rem] md:px-[5rem] border rounded-[6rem] border-[#B740A16B] w-[95vw] from-purple-900 to-purple-800 text-white p-10 flex flex-col items-center"
@@ -82,7 +82,7 @@ const BookScreening = () => {
           <h2 className="md:text-3xl 2xl:text-5xl font-semibold mb-2">
             Book a Screening:
           </h2>
-          <p className="text-2xl  italic font-light">
+          <p className="text-2xl font-bold font-[Raleway]">
             Take the First Step Towards Early Intervention
           </p>
         </div>
@@ -95,11 +95,7 @@ const BookScreening = () => {
                 Why Early Screening Matters
               </h2>
               <p className="text-md max-sm:text-sm leading-relaxed">
-                Our screening process provides parents with vital insights for
-                early autism detection, helping you take proactive steps in
-                supporting your child’s development. Easily book an appointment
-                through our form to connect with experts for personalized
-                guidance.
+              We understand how important your child’s development is to you, and our screening process is designed to provide parents with meaningful insights for early autism detection. Early screening can empower you to take proactive steps in supporting your child’s unique journey. We’re here to guide you every step of the way. Simply book a test to connect with caring experts for personalized support and a free consultation. 
               </p>
             </div>
 
@@ -107,9 +103,7 @@ const BookScreening = () => {
             <div className="mt-10 md:pr-[5rem] 2xl:pr-[15rem] max-w-3xl">
               <h2 className="text-2xl max-sm:text-xl font-semibold mb-4">How it Helps You:</h2>
               <p className="text-md max-sm:text-sm leading-relaxed">
-                Screening identifies early signs of autism, empowering parents
-                with knowledge to make informed decisions. Scheduling today helps
-                create a foundation of support for your child’s growth.
+Early screening plays a crucial role in identifying the first signs of autism, giving you the knowledge and clarity to make informed decisions about your child’s care. Taking action today helps build a strong foundation of understanding and support, fostering your child’s growth and future development. We’re here to walk alongside you on this important journey.
               </p>
             </div>
 

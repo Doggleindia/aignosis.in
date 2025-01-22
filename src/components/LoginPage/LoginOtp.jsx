@@ -64,15 +64,18 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
       if (response) {
         // Store token in localStorage
         localStorage.setItem("authToken", response.token);
+        toast.success("OTP verified successfully! Redirecting...");
         // Redirect or handle successful login
         window.location.href = "/";  // Redirect to home or dashboard
       } else if (error) {
         setErrorMessage(error.message || "OTP verification failed. Please try again.");
+        toast.error(error.message || "OTP verification failed. Please try again.");
       }
     } catch (error) {
       setLoading(false);
       console.error("Error during OTP verification", error);
       setErrorMessage("An error occurred during OTP verification. Please try again.");
+      toast.error("An error occurred during OTP verification. Please try again.");
     }
   };
 

@@ -11,6 +11,8 @@ import p3 from "../../assets/PopUps/p3.png";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { GoArrowUpRight } from "react-icons/go";
+import flag from './redflag.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,16 +40,16 @@ const OpenAI = () => {
         <>
             <div className="relative">
                 <Divider
-                    title='Act now'
-                    desc='Virtue AI is a decentralized AI platform built on the OneChain blockchain. It allows users to run AI learning models on the blockchain in a secure, transparent, and accessible way.'
-                    subtitle='Upto 1 in 5 children are at risk of developmental delays'
+                    title='Did you know?'
+                    desc='*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)'
+                    subtitle='1 in 5 children experience developmental delay !'
                 />
                 {/* Desktop view */}
                 <div className='hidden lg:flex flex-row mx-8 wrap justify-center items-center m-auto'>
                     <AiCard
                         imageSrc={img1}
                         date="3 month old"
-                        title=""
+                        title={flag}
                         description="Does NOT follow moving objects with eyes"
                     />
                     <AiCard
@@ -121,8 +123,13 @@ const OpenAI = () => {
                     />                </div>
             </div>
             <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
-            <Link to={'/prices'} className='w-[20%] max-sm:w-[60%] flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope text-sm md:text-2xl xl:text-lg text-white'>
+            <Link to={'/prices'} className='w-[20%] max-sm:w-[60%] flex justify-center items-center border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope max-sm:text-[3vw]  xl:text-sm text-white'>
+            
+                              
                 Start Your Child’s Assessment
+                <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] ml-[2vw] rounded-full bg-[#B740A1] ">
+                <GoArrowUpRight />
+                            </div>
             </Link>
         </>
     );

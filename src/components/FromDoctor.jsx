@@ -52,8 +52,8 @@ const FromDoctor = () => {
                                     }}
                                 ></span>
                             </div>
-                            <span className='font-raleway mt-5 text-4xl'>The right support at the right time <br /> makes all the difference.</span>
-                            <p className='mt-5  leading-[1.2vw]'>Connect with an expert therapist for personalized virtual sessions, where children learn <br /> practical skills through activities, games, and worksheets to achieve their goals faster.</p>
+                            <span className='font-raleway mt-5 text-4xl'>Expert Voices </span>
+                            <p className='mt-5  leading-[1.2vw]'>Hear from healthcare professionals who've experienced how our tool supports <br/> early understanding  and better outcomes.</p>
                             {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                 <div
                                     className="flex rounded-3xl w-[50%] h-[15vw] p-8 text-white"
@@ -160,10 +160,11 @@ const FromDoctor = () => {
                                 </div>
                             </div>
                         </div>
-
+                       
                     </div>
+                    <div className="absolute top-[835vw] right-[90vw] w-[15%] h-full bg-[#B740A1A6] opacity-55 blur-[120px] rounded-xl"></div>
                     <div className="py-[5vw]">
-                        <div className="w-full h-[30vw] gap-8 px-[5vw] flex mt-[5vw]">
+                        <div className="w-full h-[30vw] px-[10vw] flex mt-[5vw]">
                             <div className="w-full overflow-x-auto h-full">
                                 <div className="flex flex-row justify-start items-center space-x-4">
                                     <span
@@ -184,8 +185,8 @@ const FromDoctor = () => {
                                         }}
                                     ></span>
                                 </div>
-                                <span className='font-raleway mt-5 text-4xl'>Stories of Support and Success</span>
-                                <p className='mt-5  leading-[1.2vw]'>Discover how AI.Gnosis has empowered parents with the tools and insights they <br /> need to make informed decisions for their children’s future.</p>
+                                <span className='font-raleway mt-5 text-4xl'>Real Families, Real Stories </span>
+                                <p className='mt-5  leading-[1.2vw]'>Every milestone matters in a child's development. Here's what families like yours have to say about their experience with us..</p>
                                 {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                     <div
                                         className="flex rounded-3xl w-[30vw] h-[15vw] p-8 text-white"
@@ -331,11 +332,10 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <h3 className="font-raleway text-xl text-start">
-                                Trusted by Experts in Autism Detection
+                            Expert Voices 
                             </h3>
                             <p className="text-start text-xs">
-                                Hear how AI.Gnosis has transformed early autism detection for healthcare
-                                professionals, improving accuracy and patient care in clinics worldwide.
+                            Hear from healthcare professionals who've experienced how our tool supports early understanding and better outcomes.
                             </p>
                             <div className="w-full">
                                 <img src={img} alt="" srcset="" />
@@ -399,10 +399,9 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <h3 className="font-raleway text-xl text-right">
-                                Trusted by Experts in Autism Detection                            </h3>
+                            Real Families, Real Stories                            </h3>
                             <p className="text-center text-xs">
-                                Hear how AI.Gnosis has transformed early autism detection for healthcare
-                                professionals, improving accuracy and patient care in clinics worldwide.
+                            Every milestone matters in a child's development. Here's what families like yours have to say about their experience with us.
                             </p>
                             <div className="w-full">
                                 <img src={img1} alt="" srcset="" />

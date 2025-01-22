@@ -60,19 +60,23 @@ const LoginPage = () => {
       setLoading(false);
   
       if (response) {
+
         console.log("OTP Response:", response);
-  
+        toast.success("OTP sent successfully!");
         // Check for `status` and navigate to OTP page if true
         if (response.status) {
           setShowOtpPage(true);
         } else {
+          toast.error(response.message || "Failed to send OTP. Please try again.");
           setErrorMessage(response.message || "Failed to send OTP. Please try again.");
         }
       } else if (error) {
+        toast.error(response.message || "Failed to send OTP. Please try again.");
         setErrorMessage(error.message || "Failed to send OTP. Please try again.");
       }
     } catch (error) {
       setLoading(false);
+      toast.error("An error occurred while sending OTP. Please try again.");
       console.error("Error in sending OTP:", error);
       setErrorMessage("An error occurred while sending OTP. Please try again.");
     }

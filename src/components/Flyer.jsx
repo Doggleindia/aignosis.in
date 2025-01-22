@@ -103,7 +103,7 @@ const Flyer = () => {
             </button>
           </form>
           <p className="text-xs text-white mt-4">
-          Para se cadastrar, você nos informará o seu nome e endereço de e-mail e o número de telefone celular e, ao clicar em “Enviar”, você declara que está ciente e aceita os termos e condições da Política de Privacidade da Connect Parts e poderá receber e-mails, ligações ou mensagens com ofertas e anúncios das empresas do Grupo Connect Parts e parceiros autorizados. Você sempre poderá realizar seu descadastro através do link correspondente em nossos e-mails ou entrando diretamente em contato conosco.
+          This privacy policy (the "Privacy Policy") applies to your use of the website of Aignosis hosted at Aignosis Artificial Intelligence Private Limited, the Services (as defined under the Aignosis "Terms of Use") and Aignosis applications on mobile platforms (Android, Blackberry, Windows Phone, iOS, etc.) (collectively ("AIGNOSIS" or "WEBSITE")), but does not apply to any third-party websites that may be linked to them, or any relationships you may have with the businesses listed on Aignosis.
           </p>
         </div>
       </div>
