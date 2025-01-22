@@ -10,21 +10,21 @@ const Brain = () => {
       <div className='flex max-sm:flex-col  justify-center gap-[8vw] items-centergap-8   max-sm:mx-2' >
         <div className="absolute inset-0 bg-[#B740A1] w-[40vw] sm:w-[40vw] h-[20vw] sm:h-[10vw] top-[50%] -left-[20%]  opacity-65 blur-[120px] rounded-xl"></div>
         <div className='flex flex-col max-sm:justify-center max-sm:items-center gap-4'>
-          <div className='flex flex-col'>
-            <p className='font-raleway text-[48px] text-[#ffff]'>
+          <div className='flex flex-col justify-center items-center h-full '>
+            {/* <p className='font-raleway text-[48px] text-[#ffff]'>
               Made for
             </p>
-            <p className='text-[#C4C4C4] text-[16px]'>Live Data</p>
+            <p className='text-[#C4C4C4] text-[16px]'>Live Data</p> */}
           </div>
-          <div className='w-[350px] max-sm:w-[200px]'>
+          <div className='w-[350px] mb-[5vw] max-sm:w-[200px]'>
             <img src={brain_img} alt="" />
           </div>
         </div>
 
-        <div className='flex max-sm:flex-col max-sm:justify-center max-sm:items-center gap-[4vw]'>
+        <div className='flex max-sm:flex-col max-sm:justify-center max-sm:items-center gap-[2vw]'>
           {/* card1  column*/}
-          <div className='flex flex-col gap-4 mt-[2vw]'>
-            <div className="bg-gradient-to-b  p-6 rounded-lg text-white w-80 shadow-lg"
+          <div className='flex flex-col gap-[2vw] mt-[6vw]'>
+            <div className="bg-gradient-to- p-6 rounded-lg text-white w-80 shadow-lg"
               style={{
                 background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #241E22 0%, #43284C 100%)"
               }} >
@@ -62,7 +62,7 @@ const Brain = () => {
           </div>
 
           {/* card 2 column */}
-          <div className='flex gap-4 flex-col'>
+          <div className='flex gap-[2vw] mt-[3vw] flex-col'>
             <div className="bg-gradient-to-b  p-6 rounded-lg text-white w-80 shadow-lg" style={{
               background: "radial-gradient(101.54% 60.98% at 50% 39.02%, #241E22 0%, #43284C 100%)"
             }}>
