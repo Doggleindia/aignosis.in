@@ -241,8 +241,8 @@ const Homefirst = () => {
           </div>
          
           <div className="w-full 2xl:py-[10vw] md:py-[5vw]">
-          <div className="absolute top-[30vw] right-0 w-[15%] h-full bg-[#B740A1A6] opacity-45 blur-[120px] rounded-xl"></div>
-            <img className="w-full h-full" src={sharks} alt="" srcset="" />
+          <div className="absolute top-[30vw] right-0 w-[15%] h-full bg-[#B740A1A6]  opacity-45 blur-[120px] rounded-xl"></div>
+            <img className="w-full h-full max-sm:h-[20vw] " src={sharks} alt="" srcset="" />
           </div>
         </>
       
