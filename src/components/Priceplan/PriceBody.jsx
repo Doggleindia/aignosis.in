@@ -19,7 +19,13 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const [orderConfirmed, setOrderConfirmed] = useState(false); 
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardSelect = (id, price) => {
+    setSelectedCard(id); // Update the selected card ID
+    
+  };
 
   const handleNextStep = () => {
     if (step === 3) {
@@ -490,27 +496,47 @@ const PriceBody = ({ selectedOption }) => {
             </div>
           </div>
           <div className="mt-5">
-            <div className="flex gap-5">
-              <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6"  onClick={() => handleCardSelect(4, 499)}>
-                <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <span className="text-xs">Get 50% off by applying code</span>
-                </div>
-                <h2 className="mt-3">Aignosis Screening – Standard</h2>
-                <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h3>
-                <span className="mt-3 font-manrope">499 <span className="text-[10px]">(₹999)</span></span>
-                <span className="text-xs">(MRP incl. all taxes)</span>
-              </div>
-              <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6"   onClick={() => handleCardSelect(5, 1899)}>
-                <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                  <span className="text-xs">Get 50% off by applying code</span>
-                </div>
-                <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
-                <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h3>
-                <span className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></span>
-                <span className="text-xs">(MRP incl. all taxes)</span>
-              </div>
-            </div>
+      <div className="flex gap-5">
+        {/* Card 1 */}
+        <div
+          className={`w-[50%] h-full border ${
+            selectedCard === 4 ? "border-[#B740A1]" : "border-[#5455694D]"
+          } bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6`}
+          onClick={() => handleCardSelect(4, 499)}
+        >
+          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <span className="text-xs">Get 50% off by applying code</span>
           </div>
+          <h2 className="mt-3">Aignosis Screening – Standard</h2>
+          <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h3>
+          <span className="mt-3 font-manrope">
+            ₹499 <span className="text-[10px]">(₹999)</span>
+          </span>
+          <span className="text-xs">(MRP incl. all taxes)</span>
+        </div>
+
+        {/* Card 2 */}
+        <div
+          className={`w-[60%] h-full border ${
+            selectedCard === 5 ? "border-[#B740A1]" : "border-[#5455694D]"
+          } bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6`}
+          onClick={() => handleCardSelect(5, 1899)}
+        >
+          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <span className="text-xs">Get 50% off by applying code</span>
+          </div>
+          <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
+          <h3 className="text-[9px]">
+            Includes Autism Screening Test + Expert Consultation + Personalized
+            Home Therapy Plan + Assessments with 3 Therapy Sessions
+          </h3>
+          <span className="mt-3 font-manrope">
+            ₹1,899 <span className="text-[10px]">(₹3,899)</span>
+          </span>
+          <span className="text-xs">(MRP incl. all taxes)</span>
+        </div>
+      </div>
+    </div>
           <div className="mt-5">
             <div className="">
               <span className="text-2xl font-semibold text-white">Add Therapy</span>
@@ -526,7 +552,7 @@ const PriceBody = ({ selectedOption }) => {
                 >
                   <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                     <div className="text-center mb-4">
-                      <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
+                      <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
                         {card.discount} Off!
                       </span>
                     </div>
@@ -654,7 +680,7 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex flex-col gap-5">
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6"
+                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
                   onClick={() => handleCardSelect(5, 499)}>
                     <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">33% Off!</h1>
@@ -664,7 +690,7 @@ const PriceBody = ({ selectedOption }) => {
                     <h1 className="mt-3 font-manrope">₹499 <span className="text-[10px]">(₹1,899)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6"onClick={() => handleCardSelect(5, 1899)}>
+                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6"onClick={() => handleCardSelect(5, 1899)}>
                     <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">33% Off!</h1>
                     </div>
