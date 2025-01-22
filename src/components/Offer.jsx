@@ -121,9 +121,9 @@ const Offer = () => {
                                 <span className="text-xs">Seconds</span>
                             </div>
                         </div>
-                        <button className="mt-3 px-6 py-2 text-sm rounded-full bg-gradient-to-r from-[#D24074] to-[#6518B4] text-white">
+                    <Link to="/prices" className="mt-3 px-6 py-2 text-sm rounded-full bg-gradient-to-r from-[#D24074] to-[#6518B4] text-white">
                             Book Now
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </>
