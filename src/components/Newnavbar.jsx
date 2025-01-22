@@ -35,7 +35,7 @@ const Newnavbar = () => {
   }, [currentSlide, slides.length]);
 
   return (
-    <div className="bg-[#1A0C25] text-white text-center fixed top-0 w-full z-50 h-8 flex items-center overflow-hidden">
+    <div className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center fixed top-0 w-full z-50 h-14 flex items-center overflow-hidden">
       <div
         className={`flex ${
           isAnimating ? "transition-transform duration-500 ease-in-out" : ""
@@ -47,7 +47,7 @@ const Newnavbar = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="w-full flex-shrink-0 text-sm md:text-base font-bold flex justify-center items-center"
+            className="w-full flex-shrink-0 text-sm md:text-base font-semibold flex justify-center items-center"
           >
             {slide}
           </div>
