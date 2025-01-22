@@ -361,11 +361,19 @@ const PriceBody = ({ selectedOption }) => {
             currency: "INR",
           };
           try {
-            const { data } = await axios.post(
-              "/api/payment/verify",
-              verificationData
+            console.log("come in verify");
+            const { data } = await axiosInstance.post(
+              "/api/payment/verify-payment",
+              verificationData,
+              {
+                headers: {
+                  Authorization: `Bearer ${storedToken}`,
+                },
+              }
             );
             setPaymentStatus(data.message || "Payment successful!");
+            console.log(data,"Paymentdata");
+            
           } catch (error) {
             setPaymentStatus("Payment verification failed.");
           }
