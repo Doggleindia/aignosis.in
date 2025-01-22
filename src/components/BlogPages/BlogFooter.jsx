@@ -20,7 +20,6 @@ const BlogFooter = () => {
               </Link>
             </div>
             <p className="mt-5 " >AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. </p>
-            <h3 className="mt-5 text-lg font-medium">Follow us</h3>
             <ul className="space-x-4 hidden justify-start items-start pt-4 max-sm:pl-0 md:flex max-sm:space-y-0 flex-row max-sm:flex-row max-sm:space-x-4">
               <li>
                 <a
@@ -89,7 +88,7 @@ const BlogFooter = () => {
               </Link>
               <Link to={'/career'}>
                 {" "}
-                <li>career</li>
+                <li>Career</li>
               </Link>
             </ul>
           </div>
