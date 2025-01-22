@@ -4,6 +4,7 @@ import HomePageCard from "./HomePageCard";
 import m1 from "../../assets/mock1.png";
 import m2 from "../../assets/mock2.png";
 import sharks from "../../assets/7.png"
+import star from './star.png'
 
 
 const Homefirst = () => {
@@ -114,33 +115,38 @@ const Homefirst = () => {
 
         <>
           <div className={`relative z-0 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}>
-            <span
-             
-              className="justify-center block tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]"
-            >
-              WELCOME TO AIGNOSIS
-            </span>
+          <span
+  className="flex justify-center items-center tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]"
+>
+  <img 
+    src={star} 
+    className="scale-[.3] mr-[-1vw] max-sm:scale-[.4]" 
+    alt="star" 
+  />
+  WELCOME TO AIGNOSIS
+</span>
+
+
             <span
              
               className="text-white font-bold text-5xl pt-[20px] font-manrope"
             >
-              Early Autism Detection Made
+              Your journey with Aignosis! 
             </span>
             <span
               
               className="text-[#811f67] font-bold text-5xl font-manrope"
             >
-              Easy & Accurate
+              Helping you understand your child better 
+
             </span>
             <p
            
               className="text-white px-[20vw] font-raleway font-md text-center p-[10px]"
             >
-              AI.Gnosis offers AI-powered tools for early autism detection,
-              providing actionable insights for parents and caregivers. Backed
-              by clinical research and cutting-edge technology to ensure
-              reliability, accuracy, and peace of mind—accessible from the
-              comfort of your home or with professional guidance.
+              AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. This will help you identify the signs of autism and other neurodevelopmental concerns from the comfort of your own home, giving you insights when they matter most. 
+              Keeping your family’s needs in mind, we have created a tool that ensures accuracy and reliability without being invasive. 
+
             </p>
 
             {/* home page Card */}
@@ -167,31 +173,35 @@ const Homefirst = () => {
             className="body w-[90%] h-full py-[20vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
             {/* Welcome Text */}
             <span
-             
-              className="justify-center block font-manrope text-sm font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4">
-              Welcome to Aignosis
-            </span>
+  className="flex justify-center items-center font-manrope text-sm font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4"
+>
+  <img 
+    src={star} 
+    className="scale-[.3] max-sm:mr-[-2vw] max-sm:scale-[.4]" 
+    alt="star" 
+  />
+  Welcome to Aignosis
+</span>
+
 
             {/* Main Heading */}
             <h1
              
               className="text-white font-bold text-2xl font-manrope text-center mt-2 ">
-              Early Autism Detection Made
+              Your journey with Aignosis!
             </h1>
             <h2
                className="text-[#811f67] font-extrabold text-3xl font-manrope text-center mb-6">
-              Easy & Accurate
+              Helping you understand your child better
             </h2>
 
             {/* Description */}
             <p
              
               className="text-white font-raleway font-normal text-center text-sm leading-relaxed mb-8">
-              AI.Gnosis offers AI-powered tools for early autism detection,
-              providing actionable insights for parents and caregivers. Backed
-              by clinical research and cutting-edge technology to ensure
-              reliability, accuracy, and peace of mind—accessible from the
-              comfort of your home or with professional guidance.
+              AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. This will help you identify the signs of autism and other neurodevelopmental concerns from the comfort of your own home, giving you insights when they matter most. 
+              Keeping your family’s needs in mind, we have created a tool that ensures accuracy and reliability without being invasive. 
+
             </p>
 
             {/* Buttons for Cards */}
@@ -229,7 +239,9 @@ const Homefirst = () => {
               </button>
             </div>
           </div>
+         
           <div className="w-full 2xl:py-[10vw] md:py-[5vw]">
+          <div className="absolute top-[30vw] right-0 w-[15%] h-full bg-[#B740A1A6] opacity-45 blur-[120px] rounded-xl"></div>
             <img className="w-full h-full" src={sharks} alt="" srcset="" />
           </div>
         </>

@@ -36,8 +36,8 @@ const ContactPage = () => {
   return (
     <>
       {/* Contact Form Section */}
-      <div id='contact' className='2xl:h-[50vw] max-sm:mt-[60px] h-full md:h-[70vw] text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
-        <div className="w-full h-[90%] flex justify-center items-center flex-col border-t rounded-[14rem] border-[#B874B580] max-sm:rounded-[7rem]">
+      <div id='contact' className='2xl:h-[50vw] max-sm:mt-[60px] h-full md:h-[70vw]  text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25]'>
+        <div className="w-full h-[90%] flex justify-center items-center flex-col border-t max-sm:m-[1.5rem] rounded-[14rem] border-[#B874B580] max-sm:rounded-[7rem]">
           <div className='w-full flex-col h-[15vw] max-sm:h-[50vw] justify-center flex items-center'>
             <div className="">
               <span className='text-center 2xl:text-7xl md:text-5xl max-sm:text-2xl font-semibold leading-[3rem]'>
