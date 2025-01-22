@@ -145,18 +145,7 @@ const BlogPage = () => {
           </div>
         </div>
        
-        <div className="bg-gradient-to-b from-[#241E22] my-[10vw] to-[#43284C] h-[300px] flex flex-col justify-center items-center gap-4 text-white ">
-          <p className="text-2xl max-sm:text-lg font-montserrat">HOW WE WORK</p>
-          <p className="text-2xl max-sm:text-lg max-sm:p-4 font-montserrat">
-            Rigorously trained & tested. Clinically validated. Peer-reviewed.
-          </p>
-          <Link
-            to="/blog/howWeWork"
-            className="bg-transparent border border-[#9C00AD] text-white px-6 py-2 rounded-full hover:bg-purple-500 hover:text-white transition"
-          >
-            Study Summary
-          </Link>
-        </div>
+        
         <BlogFooter />
       </div>
       </Suspense>

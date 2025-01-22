@@ -5,6 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import axiosInstance from "./config/axiosInstance";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -73,7 +74,7 @@ const Header = () => {
    
   console.log(authUser, "authUser");
   return (
-    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[3.3vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md">
+    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
@@ -333,14 +334,18 @@ const Header = () => {
             </>
           ) : (
             <Link
-               to='/login'
-               onClick={() => handleLinkClick("/login")}
-              className="border border-[#B740A1] p-2 px-11 rounded-[30px]"
-            >
-              <span className="2xl:text-base md:text-sm m-auto text-2xl text-white">
-                Log in
-              </span>
-            </Link>
+  to="/login"
+  onClick={() => handleLinkClick("/login")}
+  className="group border border-[#B740A1] p-2 px-4 rounded-[30px]"
+>
+  <span className="flex items-center 2xl:text-base md:text-sm m-auto text-xl text-white">
+    Log in
+    <div className="w-[1.8rem] h-[1.8rem] flex justify-center items-center text-white text-xl bg-[#B740A1] rounded-full ml-2 group-hover:bg-white group-hover:text-black transition duration-300">
+      <GoArrowUpRight />
+    </div>
+  </span>
+</Link>
+
           )}
         </div>
 
