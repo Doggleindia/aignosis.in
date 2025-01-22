@@ -3,7 +3,7 @@ import axios from "axios";
 import axiosInstance from "./axiosInstance";
 // import useAuth from "@/Hook/useAuth";
 
-const fetchData = async ({ url, method, data = {},storedToken }) => {
+const fetchData = async ({ url, method, data = {}, storedToken }) => {
   // const {storedToken} = useAuth()
   const source = axios.CancelToken.source();
   try {
@@ -13,9 +13,10 @@ const fetchData = async ({ url, method, data = {},storedToken }) => {
       method,
       data: method.toLowerCase() === "get" ? undefined : data, // Only include data for non-GET requests
       params: method.toLowerCase() === "get" ? data : undefined, // For GET reqsuests, use data as query params
-      // headers: {
-      //   Authorization: `Bearer ${storedToken}`, // Add the Authorization header
-      // },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${storedToken}`, // Add token to Authorization header
+      },
       cancelToke: source.token,
     });
     return { response: result.data, error: null, loading: false };

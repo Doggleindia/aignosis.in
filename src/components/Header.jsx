@@ -72,7 +72,6 @@ const Header = () => {
      checkAuth();
    }, []);
    
-  console.log(authUser, "authUser");
   return (
     <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
@@ -253,7 +252,7 @@ const Header = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
+                          {/* <Link
                             to="/profile"
                             onClick={() => handleServiceClick("/profile")}
                             className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
@@ -261,7 +260,7 @@ const Header = () => {
                             aria-label="Service 2"
                           >
                             Profile
-                          </Link>
+                          </Link> */}
                           <Link
                             to="/profile1"
                             onClick={() => handleServiceClick("/profile1")}
@@ -520,7 +519,7 @@ const Header = () => {
                 {dropdownOpen2 && (
                   <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
                     <Link
-                      to="/assessments-evaluation"
+                      to="/dashboard"
                       onClick={() => {
                         handleLinkClick("/dashboard");
                         toggleMenu();
@@ -530,9 +529,9 @@ const Header = () => {
                     >
                       User Dashboard
                     </Link>
-                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
 
-                    <Link
+                    {/* <Link
                       to="/profile"
                       onClick={() => {
                         handleLinkClick("/speech-language");
@@ -542,7 +541,7 @@ const Header = () => {
                         }`}
                     >
                       Profile
-                    </Link>
+                    </Link> */}
                     <div className="border-t-2 w-full border-[#952981]"></div>
                     <Link
                       to="/profile1"
