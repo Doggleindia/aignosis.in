@@ -15,6 +15,7 @@ import raj from "./raj.jpeg";
 import amit from './amit.jpeg'
 
 
+
 const AignosisTeam = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>

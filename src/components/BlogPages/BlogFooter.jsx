@@ -138,11 +138,11 @@ const BlogFooter = () => {
             <h3 className="text-lg text-left font-semibold mb-4">Contact Us</h3>
             <address className="not-italic space-y-2 max-sm:text-left">
               <p>
-                Plot No. 741, Mahavir Nagar-Ist, Mandir Marg, Tonk Road,
-                Durgapura, Jaipur, Rajasthan 302018
+              Registered Office: 311, Adarsh Nagar
+               Jaipur, Rajasthan, 302004
               </p>
-              <p>+91-9024788312 / +91-9983432333</p>
-              <p>info@momshome.in</p>
+              <p>+91 8209860578</p>
+              <p>isupport@aignosis.in</p>
             </address>
             {/* <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               <Link

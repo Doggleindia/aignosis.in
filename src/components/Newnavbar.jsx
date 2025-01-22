@@ -1,62 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import newimage from '../newimage.png'; // Import the background image
+import star from '../star.png'; // Import the star image
 
 const Newnavbar = () => {
   const slides = [
-    "Offer 1: Get 50% off on all items!",
-    "Offer 2: Free shipping on orders over $50!",
-    "Offer 3: Buy 1 Get 1 Free on select items!",
-    "Offer 4: Exclusive deals for members only!",
+    "GET FLAT 50% OFF THIS WEEK - USE CODE SHARK50 AT CHECKOUT ",
+    "GET FLAT 50% OFF THIS WEEK - USE CODE SHARK50 AT CHECKOUT ",
+    "GET FLAT 50% OFF THIS WEEK - USE CODE SHARK50 AT CHECKOUT ",
+    "GET FLAT 50% OFF THIS WEEK - USE CODE SHARK50 AT CHECKOUT ",
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const navbarRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => prevSlide + 1);
-    }, 2000); // Change every 2 seconds
+    const calculateSlideWidth = () => {
+      if (navbarRef.current) {
+        const navbarWidth = navbarRef.current.offsetWidth;
+        const numSlides = Math.floor(navbarWidth / 300); // Adjust the width of each slide
+        setSlideWidth(navbarWidth / numSlides);
+      }
+    };
 
-    return () => clearInterval(interval);
+    calculateSlideWidth();
+    window.addEventListener("resize", calculateSlideWidth);
+
+    return () => window.removeEventListener("resize", calculateSlideWidth);
   }, []);
 
-  useEffect(() => {
-    if (currentSlide === slides.length) {
-      // Disable animation temporarily for the reset
-      setTimeout(() => {
-        setIsAnimating(false);
-        setCurrentSlide(0);
-      }, 500); // Wait for the slide transition before resetting
-
-      // Re-enable animation after reset
-      setTimeout(() => {
-        setIsAnimating(true);
-      }, 600); // Slight delay to avoid visual glitches
-    }
-  }, [currentSlide, slides.length]);
-
   return (
-    <div className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center fixed top-0 w-full z-50 h-14 flex items-center overflow-hidden">
+    <div
+      ref={navbarRef}
+      className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center max-sm:h-6 fixed top-0 w-full z-50 h-8 flex items-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${newimage})`,  // Set the background image
+        backgroundSize: "cover",  // Ensure the background image covers the entire div
+        backgroundPosition: "center",  // Center the image in the div
+      }}
+    >
       <div
-        className={`flex ${
-          isAnimating ? "transition-transform duration-500 ease-in-out" : ""
-        }`}
+        className="flex animate-scroll"  // Apply animation here
         style={{
-          transform: `translateX(-${(currentSlide % (slides.length + 1)) * 100}%)`,
+          transform: `translateX(0)`, // Keep it at 0 to avoid resetting
         }}
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="w-full flex-shrink-0 text-sm md:text-base font-semibold flex justify-center items-center"
+            className="flex-shrink-0 text-sm md:text-base font-semibold flex justify-center items-center mr-4"  // Added margin-right for space between slides
           >
-            {slide}
+            <img src={star} alt="star" className="w-4 h-4 mr-2" /> {/* Star icon in front of the text */}
+            <span>
+              GET FLAT <span className="text-[#B740A1]">50%</span> OFF THIS WEEK - USE CODE SHARK50 AT CHECKOUT
+            </span>
           </div>
         ))}
         {/* Add a duplicate of the first slide at the end */}
-        <div className="w-full flex-shrink-0 text-sm md:text-base font-bold flex justify-center items-center">
+        <div className="flex-shrink-0 text-sm md:text-base font-bold flex justify-center items-center mr-4">
+          <img src={star} alt="star" className="w-4 h-4 mr-2" /> {/* Star icon in front of the text */}
           {slides[0]}
         </div>
       </div>
+
+      {/* Add the CSS for continuous scrolling animation */}
+      <style jsx>{`
+        @keyframes scroll-text {
+          0% {
+            transform: translateX(100%);  /* Start from the right side */
+          }
+          50% {
+            transform: translateX(0);  /* In the middle of the scroll */
+          }
+          100% {
+            transform: translateX(-100%);  /* Move to the left side */
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll-text 30s linear infinite; /* Continuous scrolling */
+        }
+      `}</style>
     </div>
   );
 };

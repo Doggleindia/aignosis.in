@@ -47,7 +47,7 @@ const BookScreening = () => {
 
   return (
 
-    <div className='flex items-center justify-center 2xl:px-[10rem] 2xl:py-[6rem] md:px-[5rem] md:py-[5rem] m-2 max-sm:mt-[10vw] ' style={{ background: 'rgba(26, 12, 37, 1)' }}>
+    <div className='flex items-center justify-center 2xl:px-[10rem] 2xl:py-[6rem] md:px-[5rem] md:py-[5rem] m-2 max-sm:m-[2rem] max-sm:mt-[10vw] ' style={{ background: 'rgba(26, 12, 37, 1)' }}>
 
       <div
         className="min-h-screen bg-gradient-to-b py-[5rem] md:px-[5rem] border rounded-[6rem] border-[#B740A16B] w-[95vw] from-purple-900 to-purple-800 text-white p-10 flex flex-col items-center"

@@ -53,7 +53,7 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <span className='font-raleway mt-5 text-4xl'>Expert Voices </span>
-                            <p className='mt-5  leading-[1.2vw]'>Hear from healthcare professionals who've experienced how our tool supports early understanding and better outcomes.</p>
+                            <p className='mt-5  leading-[1.2vw]'>Hear from healthcare professionals who've experienced how our tool supports <br/> early understanding  and better outcomes.</p>
                             {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                 <div
                                     className="flex rounded-3xl w-[50%] h-[15vw] p-8 text-white"
@@ -160,10 +160,11 @@ const FromDoctor = () => {
                                 </div>
                             </div>
                         </div>
-
+                       
                     </div>
+                    <div className="absolute top-[835vw] right-[90vw] w-[15%] h-full bg-[#B740A1A6] opacity-55 blur-[120px] rounded-xl"></div>
                     <div className="py-[5vw]">
-                        <div className="w-full h-[30vw] gap-8 px-[5vw] flex mt-[5vw]">
+                        <div className="w-full h-[30vw] px-[10vw] flex mt-[5vw]">
                             <div className="w-full overflow-x-auto h-full">
                                 <div className="flex flex-row justify-start items-center space-x-4">
                                     <span

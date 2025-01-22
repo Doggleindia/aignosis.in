@@ -11,6 +11,7 @@ import BlogFooter from '../BlogPages/BlogFooter';
 import img23 from "../../assets/clinic/img 23.png"
 import img24 from "../../assets/clinic/img24.png"
 import img25 from "../../assets/clinic/img25.png"
+import star from '../home/star.png'
 
 import SEO from '../config/Seo';
 import Newnavbar from '../Newnavbar';
@@ -59,9 +60,11 @@ const ClinicMain = () => {
             {/* Right Side: Text */}
             <div className="flex-1 flex flex-col justify-center text-[#F6E8FB] space-y-6">
               <div className="flex items-center">
-                <span className="text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold ">
-                  Welcome to AIGNOSIS
-                </span>
+              <span className="flex items-center text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold">
+  <img src={star} className="mr-[-.8vw] scale-[.5]" alt="star" /> {/* Add margin to the right of the image */}
+  Welcome to AIGNOSIS
+</span>
+
                 {/* <img
                 src={img2}
                 alt="Money Icon"
@@ -69,7 +72,7 @@ const ClinicMain = () => {
               /> */}
               </div>
               <div>
-                <h1 className='font-manrope text-[rgba(255,255,255,0.75)] leading-[4vw] text-[65px] max-sm:text-[30px]'>Enhance Your Care
+                <h1 className='font-manrope text-[rgba(255,255,255,0.75)] leading-[4vw] text-[65px] max-sm:text-[20px]'>Enhance Your Care
                   with Aignosis</h1>
                 <p className='font-raleway text-[20px] mt-5'>Leverage cutting-edge tools and data-driven insights to provide better care for your patients. Partner with us to revolutionize your practice.</p>
               </div>
