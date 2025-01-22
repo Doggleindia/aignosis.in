@@ -483,7 +483,7 @@ const PriceBody = ({ selectedOption }) => {
           </div>
           <div className="mt-5">
             <div className="flex gap-5">
-              <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+              <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6"  onClick={() => handleCardSelect(4, 499)}>
                 <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                   <span className="text-xs">Get 50% off by applying code</span>
                 </div>
@@ -492,7 +492,7 @@ const PriceBody = ({ selectedOption }) => {
                 <span className="mt-3 font-manrope">499 <span className="text-[10px]">(₹999)</span></span>
                 <span className="text-xs">(MRP incl. all taxes)</span>
               </div>
-              <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+              <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6"   onClick={() => handleCardSelect(5, 1899)}>
                 <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                   <span className="text-xs">Get 50% off by applying code</span>
                 </div>
@@ -579,11 +579,7 @@ const PriceBody = ({ selectedOption }) => {
                 <div className="flex mt-5 gap-4">
                   {/* Add to Cart Button */}
                   <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
-                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                        Add to cart
-                      </button>
-                    </div>
+                  
                   </div>
                 </div>
               </div>
@@ -650,22 +646,23 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex flex-col gap-5">
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6"
+                  onClick={() => handleCardSelect(5, 499)}>
                     <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">33% Off!</h1>
                     </div>
                     <h1 className="mt-3">Aignosis Screening – Standard</h1>
                     <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                    <h1 className="mt-3 font-manrope">₹599 <span className="text-[10px]">(₹1,199)</span></h1>
+                    <h1 className="mt-3 font-manrope">₹499 <span className="text-[10px]">(₹1,899)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
-                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                  <div className="w-full h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6"onClick={() => handleCardSelect(5, 1899)}>
                     <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">33% Off!</h1>
                     </div>
                     <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
                     <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                    <h1 className="mt-3 font-manrope">₹2,899 <span className="text-[10px]">(₹3,899)</span></h1>
+                    <h1 className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
                 </div>
@@ -711,9 +708,6 @@ const PriceBody = ({ selectedOption }) => {
               <div className="flex flex-wrap justify-center gap-4 mt-4">
                 <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                   Share
-                </button>
-                <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-                  Add to cart
                 </button>
                 <button
                   onClick={handlePayment}
