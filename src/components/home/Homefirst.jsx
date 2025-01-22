@@ -124,23 +124,22 @@ const Homefirst = () => {
              
               className="text-white font-bold text-5xl pt-[20px] font-manrope"
             >
-              Early Autism Detection Made
+              Your journey with Aignosis! 
             </span>
             <span
               
               className="text-[#811f67] font-bold text-5xl font-manrope"
             >
-              Easy & Accurate
+              Helping you understand your child better 
+
             </span>
             <p
            
               className="text-white px-[20vw] font-raleway font-md text-center p-[10px]"
             >
-              AI.Gnosis offers AI-powered tools for early autism detection,
-              providing actionable insights for parents and caregivers. Backed
-              by clinical research and cutting-edge technology to ensure
-              reliability, accuracy, and peace of mind—accessible from the
-              comfort of your home or with professional guidance.
+              AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. This will help you identify the signs of autism and other neurodevelopmental concerns from the comfort of your own home, giving you insights when they matter most. 
+              Keeping your family’s needs in mind, we have created a tool that ensures accuracy and reliability without being invasive. 
+
             </p>
 
             {/* home page Card */}
@@ -176,22 +175,20 @@ const Homefirst = () => {
             <h1
              
               className="text-white font-bold text-2xl font-manrope text-center mt-2 ">
-              Early Autism Detection Made
+              Your journey with Aignosis!
             </h1>
             <h2
                className="text-[#811f67] font-extrabold text-3xl font-manrope text-center mb-6">
-              Easy & Accurate
+              Helping you understand your child better
             </h2>
 
             {/* Description */}
             <p
              
               className="text-white font-raleway font-normal text-center text-sm leading-relaxed mb-8">
-              AI.Gnosis offers AI-powered tools for early autism detection,
-              providing actionable insights for parents and caregivers. Backed
-              by clinical research and cutting-edge technology to ensure
-              reliability, accuracy, and peace of mind—accessible from the
-              comfort of your home or with professional guidance.
+              AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. This will help you identify the signs of autism and other neurodevelopmental concerns from the comfort of your own home, giving you insights when they matter most. 
+              Keeping your family’s needs in mind, we have created a tool that ensures accuracy and reliability without being invasive. 
+
             </p>
 
             {/* Buttons for Cards */}

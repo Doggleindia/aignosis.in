@@ -1,6 +1,7 @@
 import React from 'react'
 import img10 from "../../assets/prescription_img.png";
 import img11 from "../../assets/prescription2_img.png";
+import { GoArrowUpRight } from "react-icons/go";
 
 const Reports = () => {
   return (
@@ -29,7 +30,12 @@ const Reports = () => {
           Download in-depth reports on autism research, strategies, and resources. <br /> Gain valuable insights to better understand the condition and explore effective <br /> approaches for support and development.
         </p>
         <div className="w-full justify-center md:justify-start items-center flex">
-          <button className='text-center rounded-full text-white text-sm w-[50vw] md:w-[12vw] border p-2 border-[#B740A1]'>Download sample report</button>
+        <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
+                                                <a href="" className='text-white text-sm'>Download sample report</a>
+                                                <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
+                                                    <GoArrowUpRight />
+                                                </div>
+                                                </div>
         </div>
       </div>
       <div className='md:w-[40vw] md:px-10 px-[26vw] w-full'>

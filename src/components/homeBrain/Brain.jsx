@@ -10,12 +10,7 @@ const Brain = () => {
       <div className='flex max-sm:flex-col  justify-center gap-[8vw] items-centergap-8   max-sm:mx-2' >
         <div className="absolute inset-0 bg-[#B740A1] w-[40vw] sm:w-[40vw] h-[20vw] sm:h-[10vw] top-[50%] -left-[20%]  opacity-65 blur-[120px] rounded-xl"></div>
         <div className='flex flex-col max-sm:justify-center max-sm:items-center gap-4'>
-          <div className='flex flex-col'>
-            <p className='font-raleway text-[48px] text-[#ffff]'>
-              Made for
-            </p>
-            <p className='text-[#C4C4C4] text-[16px]'>Live Data</p>
-          </div>
+          
           <div className='w-[350px] max-sm:w-[200px]'>
             <img src={brain_img} alt="" />
           </div>
@@ -30,10 +25,10 @@ const Brain = () => {
               }} >
               <div className='flex'>
                 <div className="w-2 h-6 bg-[#1FCFF1] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Catch Issues Early, Prevent Bigger Challenges</h3>
+                <h3 className="text-lg font-semibold">Early understanding, Better support </h3>
               </div>
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                Early intervention helps identify developmental concerns before they turn into bigger problems, saving time and money on more intensive treatments later.
+              Early awareness helps us understand your child's unique needs in their early years. The sooner we recognise opportunities for support, the better we can nurture their development and help them thrive - making each step of their journey easier and more effective.
               </p>
               <div className="relative mt-6">
                 {/* Dot symbol */}
@@ -47,10 +42,11 @@ const Brain = () => {
             }}>
               <div className='flex'>
                 <div className="w-1 h-6 bg-[#9945FF] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Affordable and Accessible</h3>
+                <h3 className="text-lg font-semibold">Nurturing Your Child's Journey 
+                </h3>
               </div>
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                Our early detection test is cost-effective and can be easily accessed, ensuring that children get the help they need without expensive treatments or long waiting times.
+              Every milestone in your child's early years is a window of opportunity. Early intervention helps them build confidence, develop skills, and discover unique strengths at their own pace - creating a strong foundation for all their tomorrows.
               </p>
               <div className="relative mt-6">
                 
@@ -68,11 +64,11 @@ const Brain = () => {
             }}>
               <div className='flex'>
                 <div className="w-1 h-6 bg-[#FFD512] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Maximize Your Child’s Potential</h3>
+                <h3 className="text-lg font-semibold">Growing Together, Joyfully</h3>
               </div>
 
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                The sooner you start, the better the chances of your child reaching their full potential. Early intervention leads to better skills, faster learning, and more confidence.
+              Early identification helps create more moments of connection with your child. As they develop their unique ways of expressing and engaging, families often find daily life becomes more harmonious.
 
               </p>
               <div className="relative mt-6">
@@ -87,10 +83,12 @@ const Brain = () => {
             }}>
               <div className='flex'>
                 <div className="w-1 h-6 bg-[#19FB9B] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Improved Quality of Life for Families</h3>
+                <h3 className="text-lg font-semibold">Support Within Reach</h3>
               </div>
               <p className="mt-2 ml-4 mb-6 text-[#C4C4C4] text-sm">
-              By addressing concerns early, both children and their families experience less stress, better communication, and smoother transitions into school and social settings.
+              We believe every family deserves peace of mind. That's why we've made early detection accessible and straightforward - offering timely insights from the comfort of your home, without long waits or complicated processes.
+
+
               </p>
               {/* <div className="mt-6 text-4xl ">0 %</div>
               <p className="text-sm mt-1 uppercase">Net carbon impact</p> */}

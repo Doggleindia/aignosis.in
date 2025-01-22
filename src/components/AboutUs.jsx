@@ -193,11 +193,11 @@ const AboutUs = () => {
             purpose.
           </span> */}
           <span className="pt-4 block max-sm:text-[2.5vw] font-manrope">
-            At Aignosis, we believe every child deserves an early start for a brighter future. Early detection and timely support can make all the difference. With our service, you can get fast, accurate autism screening using just a standard webcam and receive personalized insights to guide early intervention for your child.
+          At Aignosis, our mission is to ensure that every child has the opportunity to thrive by meeting their developmental milestones. We aim to identify children who may be struggling early on and provide the tools to enable timely interventions. Our goal is to make a profound impact by supporting parents, empowering families, and equipping clinicians with the resources to provide the care every child deserves
+
+
           </span>
-          <span className="pt-4 block max-sm:text-[2.5vw]  font-manrope">
-            Track progress with detailed reports that empower both parents and doctors to take quick action. Our approach includes connecting you with an experienced therapist for 1x1 interactive virtual sessions, where children learn practical techniques they can use in real life. With engaging activities, games, and worksheets, children can achieve their goals faster and more effectively.
-          </span>
+          
         </div>
         <div className="flex lg:block flex-wrap items-end w-[50%] max-sm:w-[100%] h-[500px] max-sm:p-[2vw] max-sm:h-[60vw] max-sm:mt-[-25vw] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
           <img

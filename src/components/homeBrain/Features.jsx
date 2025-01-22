@@ -144,13 +144,9 @@ const Features = () => {
                 Privacy and Comfort at Home
               </h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
-                Complete the test from the comfort of your own home, ensuring
-                privacy for both you and your child.
+              We respect your comfort and ensure your family’s privacy. There is no need to visit a clinic and wait in lines - conduct the assessment at your home! 
               </p>
-              <p className="text-[#C4C4C4] text-xs mt-2">
-                No need to visit a clinic—conduct the entire process in a
-                relaxed environment, making it stress-free.
-              </p>
+              
             </div>
           </div>
           <div className="w-[30vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
@@ -175,15 +171,11 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img2} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
-              <h4 className="font-bold text-lg mt-4">Accurate diagnosis</h4>
+              <h4 className="font-bold text-lg mt-4">Trusted Guidance</h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
-                Our AI-driven system provides precise, reliable results to
-                ensure accurate early diagnosis.
+              We combine advanced technology with years of clinical research to provide gentle, thoughtful insights about your child's development. Our approach has been carefully designed with leading experts to give you a clear and reliable understanding. 
               </p>
-              <p className="text-[#C4C4C4] text-xs mt-2">
-                Backed by experts, you can trust the system for accurate
-                insights into your child’s development.
-              </p>
+             
             </div>
           </div>
         </div>
@@ -207,15 +199,11 @@ const Features = () => {
               }}
             ></div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[4vw]">
-              <h4 className="font-bold text-lg mt-4">Fast & easy test</h4>
+              <h4 className="font-bold text-lg mt-4">Easy Journey</h4>
               <p className="text-[#C4C4C4] text-xs mt-4">
-                Get results in minutes, with an easy-to-follow process that
-                anyone can complete.
+              ​​With clear guidance every step of the way, our testing process takes just minutes - all from the comfort of your home, at a time that works best for you and your child.
               </p>
-              <p className="text-[#C4C4C4] text-xs mt-2">
-                Simple instructions make the test quick and hassle-free,
-                ensuring a smooth experience.
-              </p>
+              
             </div>
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
               <img className="object-contain w-[50%] h-full" src={img3} alt="" />
@@ -244,16 +232,13 @@ const Features = () => {
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[7vw]">
               <h4 className="font-bold text-lg mt-4">
-                Non-Invasive Testing with Just Your Webcam
+              Your space, their pace
               </h4>
               <p className="text-[#C4C4C4] text-xs px-[1vw] mt-4">
-                The test is non-invasive, requiring only a standard webcam—no
-                needles or complex equipment.
+              All we need is your webcam and a few moments with your child. They'll engage with friendly animations while staying comfortable at home - it's as simple as watching their favourite show together. No special equipment, no clinical settings, just natural interaction in your familiar space.
+
               </p>
-              <p className="text-[#C4C4C4] text-xs px-[1vw] mt-2">
-                The child remains comfortable, simply interacting with the
-                screen during the test for an easy experience.
-              </p>
+              
             </div>
           </div>
         </div>

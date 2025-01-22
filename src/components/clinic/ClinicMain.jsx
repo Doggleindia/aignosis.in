@@ -102,8 +102,16 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p> */}
                 {/* <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-                <p className="mt-4 font-manrope">
-                  Our solution empowers early identification of developmental disorders such as autism, enabling timely interventions when they are most impactful. By detecting delays at the earliest stages, we offer children the best chance for optimal development, providing families and healthcare professionals with a crucial head start in managing these conditions.              </p>
+                 <h2 className='font-bold text-xl'>Effortless Screening Setup
+                 </h2>
+                 <ul className="mt-4 font-manrope list-disc pl-5">
+  <li>A plug-and-play developmental screening solution using webcams.</li>
+  <li>Quick integration into existing clinic/hospital systems without additional hardware costs.</li>
+  <li>Provides holistic, data-driven insights about each child's growth.</li>
+  <li>Allows digital connection with psychologists for detailed assessments.</li>
+</ul>
+
+
               </div>
             </div>
           </div>
@@ -120,9 +128,14 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p>
               <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-                <p className="mt-4 font-manrope">
-                  Built on a foundation of clinical research and expert validation, our system ensures the accuracy and reliability of every diagnosis. It integrates effortlessly into pediatric practices, streamlining workflows with minimal disruption while delivering fast, precise results that enhance efficiency and care quality.
-                </p>
+               <h2 className='font-bold text-xl'>Accurate Diagnosis at your Clinic.
+
+                 </h2>
+                 <ul className="mt-4 font-manrope list-disc pl-5">
+  <li>Proprietary AI algorithms analyze subtle biomarkers (e.g., gaze, attention, facial expressions) for early detection of autism and other neurodevelopmental disorders.</li>
+  <li>Results provided within minutes, enabling swift clinical decision-making with therapeutic intervention.</li>
+</ul>
+
               </div>
               {/* Left Image */}
               <div className="flex-shrink-0">
@@ -156,9 +169,14 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p>
               <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-                <p className="mt-4 font-manrope">
-                  Aignosis is designed to be both scalable and affordable, making it an ideal choice for clinics of any size seeking to expand their early screening capabilities. With remote access to patient data, pediatricians can maintain continuous oversight and deliver timely follow-ups, ensuring comprehensive care that adapts to the needs of today's healthcare environment.
-                </p>
+               <h2 className='font-bold text-xl'>Enhanced Patient Engagement
+                 </h2>
+                 <ul className="mt-4 font-manrope list-disc pl-5">
+  <li>Interactive and child-friendly screening videos ensure high cooperation rates with the child getting screened without even knowing.</li>
+  <li>Non-invasive, stress-free process for both children and parents.</li>
+  <li>No need for detailed, expensive diagnosis.</li>
+</ul>
+
               </div>
             </div>
           </div>
