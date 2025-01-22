@@ -317,7 +317,7 @@ const Dashboard = () => {
             )}
           </div>
         </div>
-        <div className="w-full h-full md:hidden mt-[10vw] block py-4">
+        <div className="w-full h-full md:hidden block py-4">
           {/* Avatar Section */}
           <div
             className="w-full h-20 flex items-center rounded-2xl justify-between px-4"
@@ -335,124 +335,128 @@ const Dashboard = () => {
                 <p className="text-white text-xs">+9876543567</p>
               </div>
             </div>
-            {/* Notification Icon */}
             <div className="text-white text-xl">
               <FaBell />
             </div>
           </div>
+
+          {/* Edit Profile Form */}
           {isEditing ? (
-            <div className="mt-4 relative border-2 border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
-              <h2 className="text-lg font-bold mb-4">Add Personal Info (Guardian)</h2>
+            <div className="relative border-2 mt-[5vw] border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
+              <h2 className="text-lg font-bold mb-4">
+                {isUpdating ? "Edit Personal Info" : "Add Personal Info (Guardian)"}
+              </h2>
               <form>
-                <div className="grid grid-cols-1 pr-[20vw] md:grid-cols-2 gap-6 text-sm">
+                <div className="grid grid-cols-1 pr-[20vw] gap-6 text-sm">
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Name"
                     className="w-full p-2 rounded bg-[#3D253F] text-white"
                   />
                   <input
                     type="text"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleInputChange}
                     placeholder="User name"
                     className="w-full p-2 rounded bg-[#3D253F] text-white"
                   />
                   <input
                     type="text"
-                    placeholder="Mobile number"
+                    name="age"
+                    value={formData.age}
+                    onChange={handleInputChange}
+                    placeholder="Age"
                     className="w-full p-2 rounded bg-[#3D253F] text-white"
                   />
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Email"
                     className="w-full p-2 rounded bg-[#3D253F] text-white"
                   />
                   <input
                     type="date"
+                    name="dob"
+                    value={formData.dob}
+                    onChange={handleInputChange}
                     placeholder="Date of birth"
                     className="w-full p-2 rounded bg-[#3D253F] text-white"
                   />
-                  <select className="w-full p-2 rounded bg-[#3D253F] text-white">
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleInputChange}
+                    className="w-full p-2 rounded bg-[#3D253F] text-white"
+                  >
                     <option value="">Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
+
                 <div className="mt-4 flex justify-between items-center">
-                  <div>
-                    <label className="block mb-2">Profile Picture</label>
-                    <div className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
-                      <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
-                        <FaPlus />
-                      </div>
-                    </div>
-                  </div>
+                  <label className="block mb-2">Profile Picture</label>
+                  <input
+                    type="file"
+                    name="profilePic"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="w-full p-2 rounded bg-[#3D253F] text-white"
+                  />
                 </div>
-              </form>
-              <div className="absolute bottom-10 right-10">
-                <div className="flex space-x-4">
+
+                <div className="mt-4 flex space-x-4">
                   <button
-                    type="submit"
+                    type="button"
+                    onClick={handleSaveProfile}
                     className="border border-[#9C00AD] px-6 py-2 rounded-full text-white"
                   >
-                    Save
+                    {isUpdating ? "Update" : "Save"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsEditing(false)}
+                    className="border border-red-500 px-6 py-2 rounded-full text-white"
+                  >
+                    Cancel
                   </button>
                 </div>
-              </div>
-              <div className="absolute top-10 right-10">
-                <button
-                  type="button"
-                  onClick={() => setIsEditing(false)}
-                  className="border border-red-500 px-6 py-2 rounded-full text-white"
-                >
-                  Cancel
-                </button>
-              </div>
+              </form>
             </div>
-
           ) : (
-            <>
-              {/* Dashboard Section */}
-              <div className="mt-5">
-                <h3 className="font-semibold text-sm">Dashboard</h3>
-                <div className="border-b-2 my-2 border-[#B859EA]"></div>
-              </div>
+            <div>
+              {/* Display Profiles */}
+              <h3 className="font-semibold mt-[10vw] text-sm">Profile</h3>
 
-              {/* Profile Section */}
-              <div className="mt-10" >
-                <h3 className="font-semibold text-sm">Profile</h3>
+              {/* Profile List */}
+              <div className="grid grid-cols-3">
                 <div onClick={toggleEdit} className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
                   <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
                     <FaPlus />
                   </div>
                 </div>
-              </div>
 
-              {/* Notification Banner */}
-              <div
-                className="w-full flex flex-col justify-between items-start mt-6 rounded-lg p-4"
-                style={{
-                  background: 'linear-gradient(to left, #4B1056, #280834)',
-                }}
-              >
-                <div className="flex space-x-4 items-center">
-                  <div className="w-[100px] h-full">
-                    <img src={pic} alt="Child Icon" className="w-full h-full" />
+                {profiles.map((profile) => (
+                  <div
+                    key={profile._id}
+                    onClick={() => toggleEdit(profile)}
+                    className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md"
+                  >
+                    <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
+                      <h3 className="font-bold text-xl">{profile.name.charAt(0)}</h3>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white text-sm font-medium">
-                      Upto 1 in 5 children are at risk of developmental delays**
-                    </p>
-                    <p className="text-white text-xs font-medium mt-1">
-                      Take 5 minutes to check if your child is achieving key milestones on time
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-center items-center w-full mt-4">
-                  <button className="text-white text-center font-bold text-xl">Act now</button>
-                </div>
+                ))}
               </div>
-
-            </>)}
+            </div>
+          )}
         </div>
         <Sessions />
         <Link to={'/prices'} className="w-full border-2 flex justify-center items-center border-zinc-500 py-4">

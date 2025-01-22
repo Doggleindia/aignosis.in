@@ -117,9 +117,9 @@ const PricepageBenefits = () => {
                 {/* Carousel Section */}
                 <div className="flex h-full w-full justify-center items-center mt-10">
                     {/* Left Arrow */}
-                    <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
+                    {/* <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
                         <span className="text-white text-xl">{'<'}</span>
-                    </button>
+                    </button> */}
 
                     {/* Carousel Items */}
                     <div className="flex gap-[3vw] justify-center items-center overflow-hidden w-[80%] px-4">
@@ -163,9 +163,9 @@ const PricepageBenefits = () => {
 
                     </div>
                     {/* Right Arrow */}
-                    <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
+                    {/* <button className="flex justify-center items-center bg-pink-700 px-4 py-3 rounded-full shadow-md hover:scale-105 transition">
                         <span className="text-white text-xl">{'>'}</span>
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <div className="hidden md:block pt-5 pb-5">
