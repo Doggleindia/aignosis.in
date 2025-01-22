@@ -102,9 +102,9 @@ const Flyer = () => {
               Get now
             </button>
           </form>
-          <p className="text-xs text-white mt-4">
+          {/* <p className="text-xs text-white mt-4">
           This privacy policy (the "Privacy Policy") applies to your use of the website of Aignosis hosted at Aignosis Artificial Intelligence Private Limited, the Services (as defined under the Aignosis "Terms of Use") and Aignosis applications on mobile platforms (Android, Blackberry, Windows Phone, iOS, etc.) (collectively ("AIGNOSIS" or "WEBSITE")), but does not apply to any third-party websites that may be linked to them, or any relationships you may have with the businesses listed on Aignosis.
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
