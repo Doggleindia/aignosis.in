@@ -10,7 +10,7 @@ const stepData = [
     bgColor: "#43284C4D",
     step: "Step 1",
     title: "Quick Screening Process",
-    description: "The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. This quick process ensures minimal disruption while providing essential insights into your child’s developmental progress.",
+    description: "The developmental screening test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. The process ensures minimal disruption and essential insights into your child’s developmental progress.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png",
   },
@@ -18,31 +18,31 @@ const stepData = [
     bgColor: "#5d15758c",
     step: "Step 2",
     title: "Detailed Assessment",
-    description: "Powered by advanced AI, the test delivers reliable results, giving parents confidence in the screening outcomes. Our technology analyzes key developmental indicators to provide an accurate understanding of potential autism traits.",
+    description: "We blend state-of-the-art technology with real understanding of child development. While your little one enjoys playful moments on screen, our smart tools observe key milestones naturally - turning friendly interactions into meaningful guidance for your family's journey.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg",
   },
   {
     bgColor: "#2e093a8c",
     step: "Step 3",
-    title: "Final Insights",
-    description: "The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.",
+    title: "A Complete Picture",
+    description: "We believe in combining the best of both worlds - our advanced screening tools and expert human insight. After the initial assessment, a qualified psychologist reviews your child's interactions and provides professional observations. This dual approach helps create a thorough understanding of your child's developmental path.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg",
   },
   {
     bgColor: "#5E3C69",
     step: "Step 4",
-    title: "Final Insights",
-    description: "Early detection is crucial in supporting your child’s growth. By identifying developmental signs early, the Ai.gnosis Autism Test empowers parents to take proactive steps and seek guidance, fostering a supportive path for their child’s future.",
+    title: "Your Path Forward ",
+    description: "Based on your child's unique assessment, our expert team designs a personalized blend of therapies and support strategies. From early intervention and behavioural guidance to occupational training, we create a comprehensive approach that grows with your child, ensuring they receive the right support at the right time.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg",
   },
   {
     bgColor: "#952981",
     step: "Step 5",
-    title: "Final Insights",
-    description: "The test is completely non-invasive, making it comfortable for children. With a simple approach, we ensure a stress-free experience that prioritizes your child’s well-being throughout the process.",
+    title: "Growth & Progress",
+    description: "Our commitment doesn't end with the assessment. We provide continuous guidance, track progress milestones, and adjust support strategies as your child grows. Regular check-ins ensure the plan evolves with your child's changing needs.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg",
   },
@@ -102,7 +102,7 @@ const Endrosed = () => {
                   <img className="w-full h-full object-cover" src={step.image2} alt="Screen Content" />
                 </div>
               </div>
-              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">{step.description}</h4>
+              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[15vw]">{step.description}</h4>
             </div>
           ))}
         </div>
