@@ -4,6 +4,7 @@ import brain_img from '../../assets/brain_img.png';
 
 const Brain = () => {
   return (
+
     <div className="bg-[#1A0C25] relative min-h-screen font-raleway p-[4vw] max-sm:p-[6vw]">
       {/* Top Gradient */}
       <div
@@ -29,6 +30,7 @@ const Brain = () => {
           <div className="flex flex-col gap-4 mt-[2vw]">
             <div
               className="bg-gradient-to-b p-6 rounded-lg text-white w-80 shadow-lg"
+
               style={{
                 background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #241E22 0%, #43284C 100%)',
               }}
@@ -61,6 +63,7 @@ const Brain = () => {
             </div>
           </div>
 
+
           {/* Card Column 2 */}
           <div className="flex flex-col gap-4">
             <div
@@ -70,6 +73,7 @@ const Brain = () => {
               }}
             >
               <div className="flex">
+
                 <div className="w-1 h-6 bg-[#FFD512] mr-2 rounded"></div>
                 <h3 className="text-lg font-semibold">Growing Together, Joyfully</h3>
               </div>

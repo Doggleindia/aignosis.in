@@ -10,7 +10,10 @@ const stepData = [
     bgColor: "#43284C4D",
     step: "Step 1",
     title: "Quick Screening Process",
+
     description: "The developmental screening test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. The process ensures minimal disruption and essential insights into your child’s developmental progress. ",
+
+    
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png",
   },
@@ -25,7 +28,9 @@ const stepData = [
   {
     bgColor: "#2e093a8c",
     step: "Step 3",
-    title: "Final Insights",
+
+    title: "A Complete Picture",
+
     description: "We believe in combining the best of both worlds - our advanced screening tools and expert human insight. After the initial assessment, a qualified psychologist reviews your child's interactions and provides professional observations. This dual approach helps create a thorough understanding of your child's developmental path.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg",
@@ -33,7 +38,9 @@ const stepData = [
   {
     bgColor: "#5E3C69",
     step: "Step 4",
-    title: "Final Insights",
+
+    title: "Your Path Forward ",
+
     description: "Based on your child's unique assessment, our expert team designs a personalized blend of therapies and support strategies. From early intervention and behavioural guidance to occupational training, we create a comprehensive approach that grows with your child, ensuring they receive the right support at the right time.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg",
@@ -41,8 +48,10 @@ const stepData = [
   {
     bgColor: "#952981",
     step: "Step 5",
-    title: "Final Insights",
-    description: "Our commitment doesn't end with the assessment. We provide continuous guidance, track progress milestones, and adjust support strategies as your child grows. Regular check-ins ensure the plan evolves with your child's changing needs..",
+
+    title: "Growth & Progress",
+    description: "Our commitment doesn't end with the assessment. We provide continuous guidance, track progress milestones, and adjust support strategies as your child grows. Regular check-ins ensure the plan evolves with your child's changing needs.",
+
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg",
   },
@@ -102,7 +111,7 @@ const Endrosed = () => {
                   <img className="w-full h-full object-cover" src={step.image2} alt="Screen Content" />
                 </div>
               </div>
-              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[10vw]">{step.description}</h4>
+              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[15vw]">{step.description}</h4>
             </div>
           ))}
         </div>

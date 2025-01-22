@@ -57,13 +57,15 @@ const Awards = () => {
         ></span>
       </div>
       <div className='flex flex-col'>
+
         <div className='flex justify-center mt-[1vw] items-center' >
           
           <h4 className='text-[#F6E8FB] font-raleway mt-4 md:mt-0 text-center text-[48px] leading-7 md:leading-[1.2vw] max-sm:text-[24px] md:mr-[20px]'>Supported  and featured by</h4>
+
         </div>
         <div className='flex justify-center items-center mt-[2vw] mx-auto md:w-[800px]'>
 
-          <p className='text-[#F6E8FB] leading-5 mt-4 md:mt-0 md:leading-[1.2vw] font-light text-base text-center'>AI.Gnosis is backed by renowned organizations, medical experts, and technology pioneers committed to advancing early autism detection and intervention worldwide."</p>
+          <p className='text-[#F6E8FB] leading-5 mt-4 md:mt-8 md:leading-[1.2vw] font-light text-base text-center'>AI.Gnosis is backed by renowned organizations, medical experts, and technology pioneers committed to advancing early autism detection and intervention worldwide."</p>
         </div>
 
       </div>

@@ -82,7 +82,7 @@ const Features = () => {
     gsap.to(card, {
       rotationX: 0,
       rotationY: 0,
-      transformPerspective: 1000,
+      transformPerspective: 10000,
       ease: "power2.out",
       duration: 0.5,
     });
@@ -112,9 +112,9 @@ const Features = () => {
           <img src={p4} className="w-[100px] hidden md:block max-sm:w-[50px] -mt-10" alt="" ref={p3Ref}/>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center  gap-4 p-4">
+      <div className="flex flex-col mt-[3vw] justify-center items-center  gap-[1.5vw] p-4">
         {/* Blank Divs */}
-        <div className="flex max-sm:flex-col gap-4">
+        <div className="flex max-sm:flex-col gap-[1.5vw]">
           <div
             className="w-[40vw] h-[35vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"
             ref={(el) => addToRefs(el, cardRefs)}
@@ -179,7 +179,7 @@ const Features = () => {
             </div>
           </div>
         </div>
-        <div className="flex max-sm:flex-col gap-4">
+        <div className="flex max-sm:flex-col gap-[1.5vw]">
           <div className="w-[30vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
             onMouseMove={(e) =>
               handleMouseMove(e, cardRefs.current[2], lightRefs.current[2])
