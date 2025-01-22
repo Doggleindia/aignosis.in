@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Offer = () => {
     const [isVisible, setIsVisible] = useState(() => {
@@ -83,9 +84,11 @@ const Offer = () => {
                         </span>
                         <div className="relative w-[10vw] flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4] opacity-60">
                             <div className="w-full rounded-full p-[2px] bg-[#38253D]">
-                                <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                                    Book Now
-                                </button>
+                           
+<Link to="/prices" className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+    Book Now
+</Link>
+
                             </div>
                         </div>
                     </div>
@@ -118,9 +121,9 @@ const Offer = () => {
                                 <span className="text-xs">Seconds</span>
                             </div>
                         </div>
-                        <button className="mt-3 px-6 py-2 text-sm rounded-full bg-gradient-to-r from-[#D24074] to-[#6518B4] text-white">
+                    <Link to="/prices" className="mt-3 px-6 py-2 text-sm rounded-full bg-gradient-to-r from-[#D24074] to-[#6518B4] text-white">
                             Book Now
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </>

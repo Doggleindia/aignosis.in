@@ -21,7 +21,7 @@ const Profile = () => {
 
     return (
         <>
-        <Newnavbar/>
+            <Newnavbar />
             <Header />
             <div className='w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] min-h-screen h-full bg-[#2B1B2D]'>
                 <div className="w-full h-full md:block hidden">
@@ -96,29 +96,27 @@ const Profile = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    
                                 </div>
                             </form>
                             <div className="absolute bottom-10 right-10">
-                            <div className="flex space-x-4">
-                                        <button
-                                            type="submit"
-                                            className="border border-[#9C00AD] px-6 py-2 rounded-full text-white"
-                                        >
-                                            Save
-                                        </button>
-                                    </div>
+                                <div className="flex space-x-4">
+                                    <button
+                                        type="submit"
+                                        className="border border-[#9C00AD] px-6 py-2 rounded-full text-white"
+                                    >
+                                        Save
+                                    </button>
+                                </div>
                             </div>
                             <div className="absolute top-10 right-10">
-                                        <button
-                                            type="button"
-                                            onClick={() => setIsEditing(false)}
-                                            className="border border-red-500 px-6 py-2 rounded-full text-white"
-                                        >
-                                            Cancel
-                                        </button>
-                                    </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setIsEditing(false)}
+                                    className="border border-red-500 px-6 py-2 rounded-full text-white"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
                         </div>
 
                     ) : (
@@ -142,8 +140,8 @@ const Profile = () => {
                                             <FaUserEdit onClick={toggleEdit} className='absolute cursor-pointer bottom-0 right-0' />
                                         </div>
                                     </div>
-                                    <div className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
-                                        <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                                    <div className="w-[12vw]  h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+                                        <div className="w-14 cursor-pointer flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
                                             <FaPlus />
                                         </div>
                                     </div>
@@ -193,7 +191,7 @@ const Profile = () => {
                         </>
                     )}
                 </div>
-              
+
             </div>
         </>
     )
