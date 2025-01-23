@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import newimage from '../newimage.png'; // Import the background image
 import star from '../star.png'; // Import the star image
 
 const Newnavbar = () => {
@@ -33,7 +32,7 @@ const Newnavbar = () => {
       ref={navbarRef}
       className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center max-sm:h-6 fixed top-0 w-full z-50 h-8 flex items-center overflow-hidden"
       style={{
-        backgroundImage: `url(${newimage})`,  // Set the background image
+        backgroundImage: `url(${"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/newimage.png"})`,  // Set the background image
         backgroundSize: "cover",  // Ensure the background image covers the entire div
         backgroundPosition: "center",  // Center the image in the div
       }}

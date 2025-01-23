@@ -51,6 +51,8 @@ import Page3 from "./components/report pages/Page3";
 import Page4 from "./components/report pages/Page4";
 import Page5 from "./components/report pages/Page5";
 import GeneratePDF from "./components/report pages/GeneratePDF";
+import HoweWork from "./components/BlogPages/Howework";
+import Therapy from "./components/Therapy";
 
 
 // import AuthRoute from './components/config/AuthRoute';
@@ -103,7 +105,7 @@ const App = () => {
         {/* Updated route for PatientHistory */}
         <Route path="/priceplan" element={<PriceMain />} />
         <Route path="/fromdoctor" element={<FromDoctor />} />
-        <Route path="/prices" element={<Priceplan />} />
+        <Route path="/test" element={<Priceplan />} />
         <Route path="/report" element={<ReportComLast />} />
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/blog" element={<BlogPage />} />
@@ -137,6 +139,10 @@ const App = () => {
         <Route path='/page4' element={<Page4 />} />
         <Route path='/page5' element={<Page5 />} />
         <Route path='/Generatepdf' element={<GeneratePDF />} />
+        <Route path='/Howework' element={<HoweWork />} />
+        <Route path='/therapy' element={<Therapy />} />
+    
+        
 
        
       </Routes>

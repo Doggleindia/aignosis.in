@@ -45,43 +45,52 @@ const Divider = ({ title, desc, subtitle, img }) => {
   return (
     <>
     
-      <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
-      
-        {/* DIVIDER CODE */}
-        <div className="flex flex-row justify-center items-center space-x-4">
-        
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-           
-          <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
-            {title}
-          </span>
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-        </div>
+    <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto]  justify-center px-4 md:px-0">
+  {/* DIVIDER CODE */}
+  <div className="flex flex-row justify-center  items-center space-x-4">
+    <span
+      className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+      style={{
+        background:
+          "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+      }}
+    ></span>
 
-        <h1 className="font-raleway text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
-          {subtitle}
-        </h1>
-        
-        <span className="font-inter text-white p-1 text-1xl">
-          {" "}
-          {desc}
-        </span>
-        <span className="relative top-[-13vw] left-[-22vw]">
-          <img src={anim} className="hidden md:block max-sm:w-[50px]justify-start scale-[.5] transform scale-x-[-1]"/>
-         </span>
-      </div>
+    <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
+      {title}
+    </span>
+    <span
+      className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+      style={{
+        background:
+          "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+      }}
+    ></span>
+  </div>
+
+  {/* CONTENT ALIGNMENT */}
+  <div className="flex flex-row items-center mr-[11vw] mt-[-6vw] justify-center w-full space-x-4 mt-4">
+    {/* Animation/Image */}
+    <span>
+      <img
+        src={anim}
+        alt="Animation"
+        className="hidden md:block max-sm:w-[50px]  scale-[.5] transform scale-x-[-1]"
+      />
+    </span>
+
+    {/* Subtitle */}
+    <h1 className="font-raleway text-[#F6E8FB] font-bold mr-[20vw]  max-sm:text-xl text-3xl">
+      {subtitle}
+    </h1>
+  </div>
+
+  {/* Description */}
+  <span className="font-inter text-white p-1 text-1xl  mt-[-6vw]">
+    {desc}
+  </span>
+</div>
+
       
       <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
         {/* DIVIDER CODE */}
@@ -136,13 +145,13 @@ const AboutUs = () => {
 
         </div>
 
-      <div className="max-sm:p-4 flex max-sm:flex-col gap-6 justify-center relative">
+      <div className="max-sm:p-4 flex max-sm:flex-col mt-[3vw] gap-6 justify-center relative">
   <img
     src={sideleft}
     alt="about"
     className="rounded-3xl w-[400px] h-[400px] object-cover"
   />
-  <div className="md:w-[50%] flex flex-col justify-center max-sm:pt-4 px-4 p-3">
+  <div className="md:w-[50%] flex flex-col justify-center  max-sm:pt-4 px-4 p-3">
     <span className="font-medium">How it all began</span>
     <span className="pt-4 block">
       We started Aignosis because, as children of pediatricians, we saw how challenging it was for many kids to get an early autism diagnosis. Working at a child development center, we witnessed how much of a difference early intervention could make, but many children missed that opportunity. It was frustrating to see kids struggle because of delayed diagnoses.
