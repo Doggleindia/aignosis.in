@@ -63,7 +63,7 @@ const Offer = () => {
     return (
         isVisible && (
             <>
-                <div className="fixed hidden bottom-0 z-50 font-raleway left-0 right-0 md:flex items-center justify-between px-6 py-2 bg-gradient-to-t from-[#43284C] to-[#241E22] text-white shadow-lg transition-all duration-500">
+                <div className="fixed hidden bottom-0 z-50 font-raleway left-0 right-0 md:flex items-center justify-between px-5 py-2 bg-gradient-to-t from-[#43284C] to-[#241E22] text-white shadow-lg transition-all duration-500">
                     <div className="flex items-center">
                         <span className="mr-10 text-base font-semibold">OFFER ENDS IN</span>
                         <div className="flex space-x-3">

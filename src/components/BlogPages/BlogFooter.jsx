@@ -137,8 +137,8 @@ const BlogFooter = () => {
             <h3 className="text-lg text-left font-semibold mb-4">Contact Us</h3>
             <address className="not-italic space-y-2 max-sm:text-left">
               <p>
-              Registered Office: 311, Adarsh Nagar
-               Jaipur, Rajasthan, 302004
+                Registered Office: 311, Adarsh Nagar
+                Jaipur, Rajasthan, 302004
               </p>
               <p>+91 8209860578</p>
               <p>isupport@aignosis.in</p>
@@ -209,33 +209,36 @@ const BlogFooter = () => {
             </ul>
           </div>
           <div className="border-t-2 md:hidden flex justify-center items-center w-full border-[#F6E8FB80]">
-            <h3 className="text-[10px] mt-4"><h3 className="text-[10px] mt-4"> <p>
+            <h3 className="text-[10px] text-center mt-4"> <p>
               &copy; 2024{' '}
+              All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
               <a
                 href="https://doggleindia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                Doggleindia
+                {' '} Doggleindia
               </a>
-              . All rights reserved.
-            </p></h3></h3>
+            </p>
+            </h3>
           </div>
         </div>
         <div className="border-t-2 mt-[5vw] hidden md:flex justify-center items-center w-full border-[#F6E8FB80]">
-          <h3 className="text-[10px] mt-4"> <p>
+          <h3 className="text-[10px] text-center mt-4"> <p>
             &copy; 2024{' '}
+            All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
             <a
               href="https://doggleindia.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline"
             >
-              Doggleindia
+              {' '}Doggleindia
             </a>
-            . All rights reserved.
-          </p></h3>
+          </p>
+
+          </h3>
         </div>
       </footer>
     </div>

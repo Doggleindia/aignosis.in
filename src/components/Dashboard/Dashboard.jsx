@@ -132,8 +132,6 @@ const Dashboard = () => {
             },
           }
         );
-
-
         // Update the profile in the local state
         setProfiles((prevProfiles) =>
           prevProfiles.map((profile) =>
@@ -182,21 +180,40 @@ const Dashboard = () => {
               background: "linear-gradient(to right, #B740A1, #9C00AD)",
             }}
           >
-            {/* Avatar Section */}
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">V</span>
+                {profiles.length > 0 && profiles[0].profilePicUrl ? (
+                  <div className="w-full h-full bg-gray-500 overflow-hidden rounded-full flex items-center justify-center">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={profiles[0].profilePicUrl}
+                      alt="Profile"
+                    />
+                  </div>
+
+                ) : (
+                  <div className="w-full h-full bg-gray-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-lg">?</span> {/* Default placeholder */}
+                  </div>
+                )}
               </div>
               <div>
                 <h2 className="text-white text-base font-medium">Welcome</h2>
-                <p className="text-white font-bold text-xl">Vinay Prasad</p>
-                <p className="text-white text-xs">+9876543567</p>
+                {profiles.length > 0 ? (
+                  <>
+                    <p className="text-white font-bold text-xl">{profiles[0].name}</p>
+                    <p className="text-white text-xs">{profiles[0].email}</p>
+                  </>
+                ) : (
+                  <p className="text-white text-xs">No profile data available</p>
+                )}
               </div>
             </div>
+
             {/* Notification Icon */}
-            <div className="text-white text-2xl">
+            {/* <div className="text-white text-2xl">
               <FaBell />
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -289,31 +306,69 @@ const Dashboard = () => {
                 </form>
               </div>
             ) : (
-              <div className="mt-5 px-5">
-                <h3 className="font-semibold">Profiles</h3>
-                <div className="grid grid-cols-6 gap-4">
-                  {profiles.map((profile) => (
+              <>
+                <div className="mt-5 px-5">
+                  <h3 className="font-semibold">Profiles</h3>
+                  <div className="grid grid-cols-6 gap-4">
+                    {profiles.map((profile) => (
+                      <div
+                        key={profile._id}
+                        className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md cursor-pointer"
+                        onClick={() => toggleEdit(profile)}
+                      >
+                        <div className="w-14 flex relative overflow-hidden justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                          <img className="w-full h-full object-cover" src={profile.profilePicUrl} alt="" />
+                        </div>
+                      </div>
+                    ))}
                     <div
-                      key={profile._id}
+                      onClick={() => toggleEdit()}
                       className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md cursor-pointer"
-                      onClick={() => toggleEdit(profile)}
                     >
-                      <div className="w-14 flex relative justify-center items-center h-14 bg-[#9C00AD] rounded-full">
-                        <h3 className="font-bold text-xl">{profile.name.charAt(0)}</h3>
-                        <FaUserEdit className="absolute cursor-pointer bottom-0 right-0" />
+                      <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                        <FaPlus />
                       </div>
                     </div>
-                  ))}
+                  </div>
+
+                </div>
+                <div className="mt-5 px-5">
                   <div
-                    onClick={() => toggleEdit()}
-                    className="w-[12vw] h-[12vw] bg-[#3D253F] flex justify-center items-center mt-5 rounded-md cursor-pointer"
+                    className="w-full h-[5vw] flex items-center justify-between px-10  mt-4"
+                    style={{
+                      background: 'linear-gradient(to left, #4B1056, #280834)',
+                    }}
                   >
-                    <div className="w-14 flex justify-center items-center h-14 bg-[#9C00AD] rounded-full">
-                      <FaPlus />
+                    {/* Left Section */}
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10">
+                        <img
+                          src={pic}
+                          alt="Child Icon"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-sm">
+                          Upto 1 in 5 children are at risk of developmental delays**
+                        </p>
+                        <p className="text-white font-medium mt-1 text-xs">
+                          Take 5 minutes to check if your child is achieving key milestones on time
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right Section */}
+                    <div className="flex items-center space-x-8">
+                      <button className="text-white font-bold text-xl">
+                        Take test now
+                      </button>
+                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20">
+                        <FaPlus size={12} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div></>
             )}
           </div>
         </div>
@@ -327,17 +382,36 @@ const Dashboard = () => {
           >
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-white text-base">V</span>
+                {profiles.length > 0 && profiles[0].profilePicUrl ? (
+                  <img
+                    className="w-full h-full object-cover rounded-full"
+                    src={profiles[0].profilePicUrl}
+                    alt="Profile"
+                  />
+                ) : (
+                  <span className="text-white text-base">
+                    {profiles.length > 0 && profiles[0].name ? profiles[0].name[0] : "?"}
+                  </span> // Use the first letter of the name or a fallback
+                )}
               </div>
               <div>
                 <h2 className="text-white text-sm font-medium">Welcome</h2>
-                <p className="text-white font-bold text-lg">Vinay Prasad</p>
-                <p className="text-white text-xs">+9876543567</p>
+                {profiles.length > 0 ? (
+                  <>
+                    <p className="text-white font-bold text-lg">{profiles[0].name}</p>
+                    <p className="text-white text-xs">
+                      {profiles[0].email || "+1234567890"} {/* Default to phone if email is not available */}
+                    </p>
+                  </>
+                ) : (
+                  <p className="text-white text-xs">No profile data available</p>
+                )}
               </div>
             </div>
-            <div className="text-white text-xl">
+
+            {/* <div className="text-white text-xl">
               <FaBell />
-            </div>
+            </div> */}
           </div>
 
           {/* Edit Profile Form */}
@@ -437,7 +511,7 @@ const Dashboard = () => {
 
               {/* Profile List */}
               <div className="grid grid-cols-3">
-                <div onClick={toggleEdit} className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+                <div onClick={() => toggleEdit()} className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
                   <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
                     <FaPlus />
                   </div>
@@ -455,6 +529,41 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
+              <div className="mt-5 px-3">
+                <div
+                  className="w-full h-auto flex flex-col items-start justify-between px-4 py-3 space-y-4 sm:flex-row sm:items-center sm:px-8 sm:py-5"
+                  style={{
+                    background: 'linear-gradient(to left, #4B1056, #280834)',
+                  }}
+                >
+                  {/* Left Section */}
+                  <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10">
+                      <img
+                        src={pic}
+                        alt="Child Icon"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-white font-medium text-xs sm:text-sm">
+                        Upto 1 in 5 children are at risk of developmental delays**
+                      </p>
+                      <p className="text-white font-medium mt-1 text-xs sm:text-sm">
+                        Take 5 minutes to check if your child is achieving key milestones on time
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right Section */}
+                  <div className="flex items-center justify-center w-full">
+                    <button className="text-white text-center font-bold text-lg sm:text-xl">
+                      Take test now
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
           )}
         </div>

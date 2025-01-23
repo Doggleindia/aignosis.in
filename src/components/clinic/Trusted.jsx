@@ -25,8 +25,8 @@ const Trusted = () => {
                 </p>
                 <hr className="border-t border-[#811F67] my-4" />
                 <div className="mt-4 flex justify-between">
-                  <div><p className="font-semibold text-lg">Dr. Rohan Mehta</p>
-                    <p className="text-sm text-gray-400">Pediatric Neurologist</p>
+                  <div><p className="font-semibold text-lg">Dr. V Ajay kumar</p>
+                    <p className="text-sm text-gray-400"> Pediatrician & Developmental Expert</p>
                   </div>
                 </div>
               </div>
@@ -39,19 +39,13 @@ const Trusted = () => {
                 </p>
                 <hr className="border-t border-[#811F67] my-4" />
                 <div className="mt-4 flex justify-between">
-                  <div><p className="font-semibold text-lg">Dr. Rohan Mehta</p>
-                    <p className="text-sm text-gray-400">Pediatric Neurologist</p>
+                  <div><p className="font-semibold text-lg">Dr. Ramesh Agarwal</p>
+                    <p className="text-sm text-gray-400">Head of Child Development, AIIMS Delhi</p>
                     </div>
                 </div>
               </div>
             </div>
-
-
           </div>
-
-
-
-
         </div>
       </div>
     </div>

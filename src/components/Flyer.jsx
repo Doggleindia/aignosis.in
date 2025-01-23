@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import shark from "../2.png";
+
 
 const Flyer = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -26,7 +26,7 @@ const Flyer = () => {
         <div className="relative text-white p-6 flex-1 flex flex-col justify-center items-center">
           {/* Shark Image */}
           <img
-            src={shark}
+            src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/sharks.png"
             className="absolute inset-0 w-full h-full object-fit"
             alt="Shark"
           />

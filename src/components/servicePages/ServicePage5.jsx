@@ -30,7 +30,7 @@ import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
 import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
-import service5 from '../../assets/servicepage/image.png';
+import service5 from '../../assets/servicepage/special.jpg';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
 import Newnavbar from '../Newnavbar';
@@ -118,7 +118,7 @@ const ServicePage5 = () => {
                             </h2>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[80%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[80%] mt-[2vw] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src={service5}
                                 alt=""
