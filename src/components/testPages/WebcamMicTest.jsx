@@ -130,13 +130,58 @@ const WebcamMicTest = () => {
             <h2 className="text-2xl font-semibold text-[#292738] font-manrope max-sm:text-xl">Webcam & Microphone test</h2>
 
             {/* Webcam Preview or Snapshot Display */}
-            <div className="w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
+            {/* <div className="w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
               {snapshotTaken ? (
                 <img src={snapshot} alt="Snapshot" className="w-full h-full object-cover" />
               ) : (
                 <video ref={videoRef} className="w-full h-full object-cover" muted style={{ maxWidth: '500px', maxHeight: '300px' }} ></video>
               )}
+            </div> */}
+            <div 
+              style={{
+                position: 'relative',
+                width: '90vw', 
+                maxWidth: '400px', 
+                // maxHeight:'300px',
+                // height:'50vh',
+                paddingTop: '30.25%',  // Aspect ratio for 16:9
+                backgroundColor: '#D9D9D9',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden'
+              }}
+            >
+              {snapshotTaken ? (
+                <img 
+                  src={snapshot} 
+                  alt="Snapshot" 
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }} 
+                />
+              ) : (
+                <video 
+                  ref={videoRef} 
+                  muted
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              )}
             </div>
+
 
             {/* Canvas for snapshot */}
             <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
