@@ -7,7 +7,7 @@ import WhatsAppButton from "./WhatsAppButton";
 import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
 import Offer from "./offer";
-const HomepageMain = () => {
+const Homepagemain = () => {
   return (
 
     <>
@@ -30,4 +30,4 @@ const HomepageMain = () => {
   );
 };
 
-export default HomepageMain;
+export default Homepagemain;
