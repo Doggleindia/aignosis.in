@@ -51,7 +51,7 @@ import Page3 from "./components/report pages/Page3";
 import Page4 from "./components/report pages/Page4";
 import Page5 from "./components/report pages/Page5";
 import GeneratePDF from "./components/report pages/GeneratePDF";
-import HoweWork from "./components/BlogPages/Howework";
+import HoweWork from "./components/BlogPages/Howework.jsx";
 import Therapy from "./components/Therapy";
 
 
