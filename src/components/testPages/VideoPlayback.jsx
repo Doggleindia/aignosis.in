@@ -23,7 +23,7 @@ const VideoPlayback = () => {
 
   const { testData, setTestData } = useContext(AppContext);
 
-  const SERVER_MIDDLEWARE_ENDPOINT = "https://34.100.202.94:443";
+  const SERVER_MIDDLEWARE_ENDPOINT = "https://35.207.211.80";
 
   useEffect(() => {
     window.history.pushState(null, null, window.location.href);
