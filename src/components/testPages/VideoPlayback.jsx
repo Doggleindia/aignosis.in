@@ -251,8 +251,10 @@ const VideoPlayback = () => {
   };
 
   const handleVideoEnd = async () => {
+    alert('Please wait...');
     setIsVideoEnded(true);
     stopRecording();
+
   };
 
   return (
