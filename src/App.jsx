@@ -51,7 +51,7 @@ import Page3 from "./components/report pages/Page3";
 import Page4 from "./components/report pages/Page4";
 import Page5 from "./components/report pages/Page5";
 import GeneratePDF from "./components/report pages/GeneratePDF";
-import HoweWork from "./components/BlogPages/Howework.jsx";
+import Howework from "./components/BlogPages/Howework.jsx";
 import Therapy from "./components/Therapy";
 
 
@@ -139,7 +139,7 @@ const App = () => {
         <Route path='/page4' element={<Page4 />} />
         <Route path='/page5' element={<Page5 />} />
         <Route path='/Generatepdf' element={<GeneratePDF />} />
-        <Route path='/Howework' element={<HoweWork />} />
+        <Route path='/Howework' element={<Howework />} />
         <Route path='/therapy' element={<Therapy />} />
     
         
