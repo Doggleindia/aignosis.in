@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { encryptVideo } from "../aignosisintegration/EncryptionUtils";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { useContext } from "react";
@@ -21,39 +21,30 @@ const VideoPlayback = () => {
   const recordedChunksRef = useRef([]);
   const videoStreamRef = useRef(null);
 
-  const {testData, setTestData} = useContext(AppContext);
+  const { testData, setTestData } = useContext(AppContext);
 
-  // const SERVER_MIDDLEWARE_ENDPOINT = "http://localhost:8000";
-  const SERVER_MIDDLEWARE_ENDPOINT = "http://localhost:8000";
+  const SERVER_MIDDLEWARE_ENDPOINT = "https://35.207.211.80";
+
   useEffect(() => {
-    // Push the current location to history to override back behavior
     window.history.pushState(null, null, window.location.href);
-    console.log(testData);
-  
+
     const handleBackButton = () => {
-      navigate("/calibrationpage"); // Redirect to calibration page
+      navigate("/calibrationpage");
     };
-  
-    // Listen for the popstate event
+
     window.addEventListener("popstate", handleBackButton);
-  
+
     return () => {
       window.removeEventListener("popstate", handleBackButton);
     };
   }, [navigate]);
 
-  useEffect(()=>{
-    console.log('VIDEO PLAYBACK TEST DATA', testData);
-  }, [])
+  useEffect(() => {
+    console.log("VIDEO PLAYBACK TEST DATA", testData);
+  }, []);
 
   const cleanupMediaStream = () => {
-    console.log("Starting cleanup");
-
     if (webcamRef.current && webcamRef.current.srcObject) {
-      console.log(
-        "Cleaning up webcamRef tracks:",
-        webcamRef.current.srcObject.getTracks().length
-      );
       const tracks = webcamRef.current.srcObject.getTracks();
       tracks.forEach((track) => {
         track.stop();
@@ -62,10 +53,6 @@ const VideoPlayback = () => {
     }
 
     if (videoStreamRef.current) {
-      console.log(
-        "Cleaning up videoStreamRef tracks:",
-        videoStreamRef.current.getTracks().length
-      );
       const tracks = videoStreamRef.current.getTracks();
       tracks.forEach((track) => {
         track.stop();
@@ -80,15 +67,13 @@ const VideoPlayback = () => {
     if (recordedChunksRef.current) {
       recordedChunksRef.current = [];
     }
-
-    console.log("Cleanup complete");
   };
 
   const startWebcamRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
-        audio: false
+        audio: false,
       });
 
       videoStreamRef.current = stream;
@@ -107,12 +92,11 @@ const VideoPlayback = () => {
 
       mediaRecorder.start(1000);
       setIsRecording(true);
-      console.log("Webcam Recording");
     } catch (error) {
-      console.error('Error accessing webcam:', error);
-      alert('Error accessing webcam. Please ensure you have granted camera permissions.');
-
-      //TODO: redirect to "take assessment page"
+      console.error("Error accessing webcam:", error);
+      alert(
+        "Error accessing webcam. Please ensure you have granted camera permissions."
+      );
     }
   };
 
@@ -120,18 +104,16 @@ const VideoPlayback = () => {
     try {
       setIsUploading(true);
 
-      // Encrypt the video before uploading
       const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
         .map((b) => b.toString(16).padStart(2, "0"))
         .join("");
+
       const encryptedBlob = await encryptVideo(blob, aesKey);
 
-      // Make sure that we are getting the JWK format return in this fetch call
       const jwk = await fetch(
         SERVER_MIDDLEWARE_ENDPOINT + "/rest/return_rsa_public_key/"
       ).then((res) => res.json());
 
-      // Import the JWK key
       const publicKey = await window.crypto.subtle.importKey(
         "jwk",
         jwk,
@@ -153,15 +135,13 @@ const VideoPlayback = () => {
 
       const formData = new FormData();
       formData.append("video", encryptedBlob, "encrypted-test.bin");
-      formData.append("encrypted_aes_key", new Blob([encryptedKey], { type: 'application/octet-stream' }));
+      formData.append(
+        "encrypted_aes_key",
+        new Blob([encryptedKey], { type: "application/octet-stream" }),
+        "encrypted_aes_key.bin"
+      );
       formData.append("patient_uid", testData.PATIENT_UID);
       formData.append("transaction_id", testData.TRANSACTION_ID);
-
-      const formDataString = Array.from(formData.entries())
-        .map(([key, value]) => `${key}=${value}`)
-        .join("&");
-
-      console.log('form data string is', formDataString);
 
       const response = await fetch(
         SERVER_MIDDLEWARE_ENDPOINT + "/rest/test/video_data/",
@@ -169,29 +149,29 @@ const VideoPlayback = () => {
           method: "POST",
           body: formData,
         }
-      ).catch((err) => {
-        console.log("Failed to upload video: " + err);
-        // TODO: redirect to take assessment page
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upload video");
-        // TODO: redirect to take assessment page
-      }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          } else {
+            
+            navigate('/test/fillup');
+          }
+          return response.json();
+        })
+        .catch((err) => {
+          throw new Error("Video save response was not ok" + err);
+        });
 
       cleanupMediaStream();
       setIsUploading(false);
-
-      // window.location.replace('/catcalibration');
-      navigate("/catcalibration");
     } catch (error) {
       console.error("Error uploading video:", error);
+
       cleanupMediaStream();
       setIsUploading(false);
-      window.location.replace("/catcalibration");
-      alert("Failed to upload video. Please try again.");
 
-      console.log("Failed to Upload Video");
+      navigate("/Error");
     }
   };
 
@@ -229,22 +209,17 @@ const VideoPlayback = () => {
           type: "video/webm",
         });
 
-        console.log("Uploading Video");
         uploadRecording(blob);
-        
       };
     }
   };
 
   const handleVideoLoadedData = () => {
     setIsVideoLoaded(true);
-    console.log("Video loaded successfully.");
-    // Enter fullscreen mode automatically
     if (videoRef.current) {
       videoRef.current
         .play()
         .then(() => {
-          console.log("Video is playing.");
           videoRef.current.requestFullscreen().catch((err) => {
             console.error("Failed to enter fullscreen mode:", err);
           });
@@ -268,35 +243,31 @@ const VideoPlayback = () => {
       resumeRecording();
     }
     setIsVideoPlaying(true);
-    console.log("Video is playing.");
   };
 
   const handleVideoPause = () => {
     pauseRecording();
     setIsVideoPlaying(false);
-    console.log("Video is paused.");
   };
 
   const handleVideoEnd = async () => {
+    alert('Please wait...');
     setIsVideoEnded(true);
     stopRecording();
 
-    navigate('/catcalibration')
   };
 
   return (
     <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-      {/* Hidden webcam video element */}
       <video ref={webcamRef} autoPlay playsInline muted className="hidden" />
       <video
         ref={videoRef}
-        // src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Test_Vid_2.mp4?alt=media&token=d1444252-00c9-463a-a5f8-ee4129f2b211"
         src={
           testData.videolanguage === "English"
-           ? "https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Test_Vid_2.mp4?alt=media&token=d1444252-00c9-463a-a5f8-ee4129f2b211"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V5.mp4"
             : testData.videolanguage === "Hindi"
-            ? "samplevideo.mp4"
-            : ""
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
+            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
         }
         controls
         autoPlay={false}
@@ -307,7 +278,6 @@ const VideoPlayback = () => {
         onEnded={handleVideoEnd}
         style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
       />
-      {/* Recording indicator */}
       <div className="absolute top-4 right-4 z-20 flex items-center space-x-2 bg-black bg-opacity-50 px-4 py-2 rounded-full">
         <div
           className={`w-3 h-3 rounded-full ${
@@ -329,90 +299,11 @@ const VideoPlayback = () => {
             Next
           </button>
         ) : (
-          <p className="text-white">
-            {isVideoPlaying
-              ? "Playing..."
-              : isVideoLoaded
-              ? "Paused"
-              : "Loading video..."}
-          </p>
+          <p className="text-white text-3xl">Please watch the video</p>
         )}
       </div>
     </div>
   );
-  
 };
 
 export default VideoPlayback;
-
-// import React, { useRef, useState } from 'react';
-
-// const VideoPlayback = () => {
-//   const videoRef = useRef(null);
-//   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-//   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-//   const [isVideoEnded, setIsVideoEnded] = useState(false);
-
-//   const handleVideoLoadedData = () => {
-//     setIsVideoLoaded(true);
-//     console.log('Video loaded successfully.');
-//   };
-
-//   const handleVideoPlay = () => {
-//     if (!isVideoLoaded) {
-//       videoRef.current?.pause();
-//       alert('Please wait for the video to load completely before starting.');
-//       return;
-//     }
-//     setIsVideoPlaying(true);
-//     console.log('Video is playing.');
-//   };
-
-//   const handleVideoPause = () => {
-//     setIsVideoPlaying(false);
-//     console.log('Video is paused.');
-//   };
-
-//   const handleVideoEnd = () => {
-//     setIsVideoEnded(true);
-//     console.log('Video ended.');
-//   };
-
-//   // Handle video errors or interruptions
-//   const handleError = () => {
-//     console.error('An error occurred during video playback.');
-//   };
-
-//   return (
-//     <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-//       <video
-//         ref={videoRef}
-//         src="https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Aignosis_Test_Vid_2.mp4?alt=media&token=d1444252-00c9-463a-a5f8-ee4129f2b211"
-//         controls
-//         autoPlay={false}
-//         className="w-full h-full object-cover"
-//         onLoadedData={handleVideoLoadedData}
-//         onPlay={handleVideoPlay}
-//         onPause={handleVideoPause}
-//         onEnded={handleVideoEnd}
-//         onError={handleError}
-//       />
-//       <div className="absolute bottom-10">
-//         {isVideoEnded ? (
-//           <button
-//             onClick={() => {
-//               window.location.replace('/catcalibration');
-//             }}
-//             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
-//           >
-//             Next
-//           </button>
-//         ) : (
-//           <p className="text-white">{isVideoPlaying ? 'Playing...' : isVideoLoaded ? 'Paused' : 'Loading video...'}</p>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default VideoPlayback;
