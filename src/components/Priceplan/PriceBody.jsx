@@ -531,7 +531,7 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex gap-5">
-                  <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                  <div className="w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6">
                     <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <span className="text-xs">Get 50% off by applying code</span>
                     </div>
@@ -540,7 +540,7 @@ const PriceBody = ({ selectedOption }) => {
                     <span className="mt-3 font-manrope">499 <span className="text-[10px]">(₹999)</span></span>
                     <span className="text-xs">(MRP incl. all taxes)</span>
                   </div>
-                  <div className="w-[60%] h-full border bg-[#43284C4D] border-[#5455694D] rounded-3xl p-6">
+                  <div className="w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6">
                     <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <span className="text-xs">Get 50% off by applying code</span>
                     </div>
@@ -564,9 +564,9 @@ const PriceBody = ({ selectedOption }) => {
                         }`}
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
-                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white  w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                         <div className="text-center mb-4">
-                          <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
+                          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
                             {card.discount} Off!
                           </span>
                         </div>
@@ -748,7 +748,7 @@ const PriceBody = ({ selectedOption }) => {
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
                       <div className="mb-2">
-                        <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
                           {card.discount}
                         </span>
                       </div>
@@ -923,7 +923,7 @@ const PriceBody = ({ selectedOption }) => {
                     >
                       <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                         <div className="text-center mb-4">
-                          <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
+                          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
                             {card.discount} Off!
                           </span>
                         </div>
