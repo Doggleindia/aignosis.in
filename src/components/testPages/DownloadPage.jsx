@@ -1,5 +1,6 @@
 import React, { useContext , useEffect } from "react";
 import { AppContext } from "../aignosisintegration/AppContext";
+import { Link } from "react-router-dom";
 
 const DownloadPage = () => {
     const {testData, setTestData} = useContext(AppContext);
@@ -108,7 +109,7 @@ const DownloadPage = () => {
         </p>
       </div>
        {/* Scores and Severity Display */}
-      <div className="mt-10 text-[#F6E8FB] text-lg font-montserrat font-medium">
+      {/* <div className="mt-10 text-[#F6E8FB] text-lg font-montserrat font-medium">
         <div>
           INCLEN Score: {testData.inclenFullScore || 'N/A'} 
         </div>
@@ -121,13 +122,20 @@ const DownloadPage = () => {
         <div>
           CARS Score: {carsscore || 'N/A'} 
         </div>
-      </div>
+      </div> */}
       {/* Download Button */}
       {/* <div className="mt-10">
         <a href='https://firebasestorage.googleapis.com/v0/b/wedmonkey-d6e0e.appspot.com/o/Reports.pdf?alt=media&token=4b491bc6-5c98-490c-bd2c-a5909ed69d04' target='_blank' className=" text-[#F6E8FB] text-lg font-montserrat font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 border border-[#9C00AD]">
           Download your report
         </a>
       </div> */}
+       <Link
+                to="/"
+                className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
+          transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
+              >
+                Exit Test
+              </Link>
     </div>
   );
 };
