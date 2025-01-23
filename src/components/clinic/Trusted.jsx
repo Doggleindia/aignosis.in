@@ -45,13 +45,7 @@ const Trusted = () => {
                 </div>
               </div>
             </div>
-
-
           </div>
-
-
-
-
         </div>
       </div>
     </div>

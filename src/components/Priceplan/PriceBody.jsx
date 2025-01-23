@@ -34,12 +34,12 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false); 
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCardSelect = (id, price) => {
     setSelectedCard(id); // Update the selected card ID
-    
+
   };
 
   const handleNextStep = () => {
@@ -531,7 +531,7 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex gap-5">
-                  <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
+                  <div className="w-[50%] h-full border-2 bg-[#43284C4D] border-[#B7407D54] rounded-3xl p-6">
                     <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <span className="text-xs">Get 50% off by applying code</span>
                     </div>
@@ -551,22 +551,21 @@ const PriceBody = ({ selectedOption }) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="">
                 <div className="">
                   <span className="text-2xl font-semibold text-white">Add Therapy</span>
                 </div>
-                <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
+                <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
                   {/* Card 1 */}
                   {therapyCards.map((card, index) => (
                     <div
                       key={index}
-                      className={`therapy-card ${selectedCard === index ? "selected" : ""
-                        }`}
+                      className={`therapy-card ${selectedCard === index ? " border-2 rounded-full border-[#B7407D54]" : ""}`}
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
-                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                      <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                         <div className="text-center mb-4">
-                          <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
+                          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-2">
                             {card.discount} Off!
                           </span>
                         </div>
@@ -711,8 +710,8 @@ const PriceBody = ({ selectedOption }) => {
               </div>
               <div className="mt-5">
                 <div className="flex flex-col gap-5">
-                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
-                  onClick={() => handleCardSelect(5, 499)}>
+                  <div className="w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
+                    onClick={() => handleCardSelect(5, 499)}>
                     <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">Shark tank 50% off</h1>
                     </div>
@@ -721,7 +720,7 @@ const PriceBody = ({ selectedOption }) => {
                     <h1 className="mt-3 font-manrope">₹499 <span className="text-[10px]">(₹999)</span></h1>
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
-                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6"onClick={() => handleCardSelect(5, 1899)}>
+                  <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6" onClick={() => handleCardSelect(5, 1899)}>
                     <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                       <h1 className="text-xs">Shark tank 50% off</h1>
                     </div>
@@ -743,12 +742,12 @@ const PriceBody = ({ selectedOption }) => {
                   {therapyCards.map((card, index) => (
                     <div
                       key={index}
-                      className={`therapy-card ${selectedCard === index ? "selected" : ""
+                      className={`p-8 rounded-3xl w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
                         }`}
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
                       <div className="mb-2">
-                        <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
                           {card.discount}
                         </span>
                       </div>
@@ -803,32 +802,32 @@ const PriceBody = ({ selectedOption }) => {
       ) : (
         <div className="">
           <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 2xl:px-[5vw] md:px-10">
-          <div className="flex">
-                {/* Left Column: Thumbnails */}
-                <div className="flex w-[20%] overflow-hidden flex-col gap-4">
-                  {images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
-                      onClick={() => setSelectedImage(image)} // Update selected image on click
-                    >
-                      <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Right Column: Display Selected Image */}
-                <div className="flex ml-[1vw] w-[40vw] h-[43.75vw] overflow-hidden">
-                  <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]">
-                    <img
-                      className="w-full h-full object-cover"
-                      src={selectedImage || images[0]} // Default to the first image if none is selected
-                      alt="Selected"
-                    />
+            <div className="flex">
+              {/* Left Column: Thumbnails */}
+              <div className="flex w-[20%] overflow-hidden flex-col gap-4">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
+                    onClick={() => setSelectedImage(image)} // Update selected image on click
+                  >
+                    <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
                   </div>
+                ))}
+              </div>
+
+              {/* Right Column: Display Selected Image */}
+              <div className="flex ml-[1vw] w-[40vw] h-[43.75vw] overflow-hidden">
+                <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={selectedImage || images[0]} // Default to the first image if none is selected
+                    alt="Selected"
+                  />
                 </div>
               </div>
-            <div className="w-[45%] pr-4">
+            </div>
+            <div className="w-[40%] pr-4">
               <div className="flex flex-col">
                 <h1 className="text-4xl">
                   Select best therapy plan  For Your Child's Needs
@@ -910,20 +909,19 @@ const PriceBody = ({ selectedOption }) => {
               </div> */}
               <div className="mt-5">
                 <div className="">
-                  <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+                  <span className="text-2xl font-semibold text-white">Add Therapy</span>
                 </div>
-                <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
+                <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
                   {/* Card 1 */}
                   {therapyCards.map((card, index) => (
                     <div
                       key={index}
-                      className={`therapy-card ${selectedCard === index ? "selected" : ""
-                        }`}
+                      className={`therapy-card ${selectedCard === index ? " border-2 rounded-full border-[#B7407D54]" : ""}`}
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
-                      <div className="bg-[#43284C4D]  rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                      <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                         <div className="text-center mb-4">
-                          <span className="bg-pink-500 text-xs rounded-full px-1 py-1">
+                          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-2">
                             {card.discount} Off!
                           </span>
                         </div>
@@ -935,8 +933,8 @@ const PriceBody = ({ selectedOption }) => {
                             </span>
                           </p>
 
-                          <p className="text-xs mt-2">{card.sessions}Month Validity</p>
-                          <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
+                          <p className="text-xs mt-2">{card.validity}</p>
+                          <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
                           <p className="text-xs font-bold mt-2">
                             Save ₹{card.savings} overall!
                           </p>
@@ -972,7 +970,7 @@ const PriceBody = ({ selectedOption }) => {
                   <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button
-                        //   onClick={handleBuyNowClick}
+                        // onClick={handleBuyNowClick}
                         onClick={handlePayment}
                         className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                       >
@@ -1119,12 +1117,12 @@ const PriceBody = ({ selectedOption }) => {
                   {therapyCards.map((card, index) => (
                     <div
                       key={index}
-                      className={`therapy-card ${selectedCard === index ? "selected" : ""
+                      className={`p-8 rounded-3xl w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
                         }`}
                       onClick={() => handleCardSelect(index, card.amount)}
                     >
                       <div className="mb-2">
-                        <span className="bg-pink-500 text-xs rounded-full px-2 py-1">
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
                           {card.discount}
                         </span>
                       </div>
