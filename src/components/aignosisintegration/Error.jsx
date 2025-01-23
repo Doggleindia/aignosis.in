@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Error = () => {
   const errorStyle = {
@@ -47,7 +48,13 @@ const Error = () => {
         We deeply value your presence and sincerely apologize for the inconvenience caused. At Aignosis, your experience is of utmost importance to us, and we strive to ensure a seamless journey. Unfortunately, something went wrong during the process. We kindly request you to go through the process again to complete your task. Rest assured, our team is working diligently to improve and prevent such interruptions in the future. Thank you for your patience and understanding.
         </p>
       </div>
-      
+      <Link
+          to="/"
+          className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
+    transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
+        >
+          Exit Test
+        </Link>
     </div>
   );
 };

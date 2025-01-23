@@ -3,6 +3,7 @@ import Footer from './Footer';
 import Header from './Header';
 import BlogFooter from './BlogPages/BlogFooter';
 import SEO from './config/Seo';
+import Newnavbar from './Newnavbar';
 
 const PrivacyPolicy = () => {
   return (
@@ -13,6 +14,7 @@ const PrivacyPolicy = () => {
     pageTitle={'https://aignosis.in/privacy-policy'}
     />
     <div className='bg-[#1A0C25]'>
+      <Newnavbar/>
       <Header />
       <div className="min-h-screen text-white px-6 max-sm:py-[20vw] py-[10vw] sm:px-16 font-montserrat">
         <div className="md:max-w-4xl mx-auto">

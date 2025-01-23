@@ -14,12 +14,7 @@ import { FaMedium } from "react-icons/fa6";
 import Header from '../Header';
 import Footer from '../Footer'
 import { Link } from 'react-router-dom';
-import service1 from '../../assets/servicepage/image 67.png';
-
-
-
-
-
+import service1 from '../../assets/servicepage/assesment.jpg';
 import pos1 from '../../assets/images/pos1.png';
 import pos2 from '../../assets/images/pos2.png';
 import pos3 from '../../assets/images/pos3.png';
@@ -120,7 +115,7 @@ const ServicePage1 = () => {
                             </h2>
                         </div>
                         {/* Image Section */}
-                        <div className="w-[70%] sm:w-[40vw] mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        <div className="w-[70%]  mt-[2vw] sm:w-[40vw] mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src={service1}
                                 alt="Child’s Learning Potential"

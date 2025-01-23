@@ -10,6 +10,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
+  const [dropdownOpen3, setDropdownOpen3] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -185,12 +186,20 @@ const Header = () => {
             About Us
           </Link>
           <Link
-            to="/prices"
+            to="/test"
             onClick={() => handleLinkClick("/prices")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/prices" ? "border-b-2 border-white" : ""
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/test" ? "border-b-2 border-white" : ""
               }`}
           >
-            Prices
+            Test
+          </Link>
+          <Link
+            to="/therapy"
+            onClick={() => handleLinkClick("/prices")}
+            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/therapy" ? "border-b-2 border-white" : ""
+              }`}
+          >
+            Therapy
           </Link>
           <Link
             to="/clinic"
@@ -200,15 +209,48 @@ const Header = () => {
           >
             Clinic
           </Link>
-          <Link
-            to="/blog"
+          <div className="relative group">
+  <button className="text-sm md:text-base font-raleway text-[#F6E8FB] hover:underline">
+    Blog
+  </button>
+  <div
+    className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out hidden group-hover:block"
+    style={{
+      background:
+        "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
+      padding: "1rem 0",
+      borderRadius: "8px",
+    }}
+  >
+    <ul className="space-y-2 flex flex-col justify-center items-center">
+      <li>
+        <Link
+          to="/blog"
+          onClick={() => handleLinkClick("/blog")}
+          className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/blog" ? "text-[#B740A1]" : ""
+            }`}
+          aria-label="Blogs"
+        >
+          Blogs
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/Howework"
+          onClick={() => handleLinkClick("/Howework")}
+          className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""
+            }`}
+          aria-label="How We Work"
+        >
+          How We Work
+        </Link>
+      </li>
+    </ul>
+  </div>
+</div>
 
-            onClick={() => handleLinkClick("/blog")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/blog" ? "border-b-2 border-white" : ""
-              }`}
-          >
-            Blogs
-          </Link>
+
+          
 
           {authUser ? (
             <>
@@ -268,7 +310,7 @@ const Header = () => {
                               }`}
                             aria-label="Service 2"
                           >
-                            Profile1
+                            Profile
                           </Link>
                           <Link
                             to="/orderhistory"
@@ -464,15 +506,27 @@ const Header = () => {
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
           <Link
-            to="/prices"
+            to="/test"
             onClick={() => {
-              handleLinkClick("/prices");
+              handleLinkClick("/test");
               toggleMenu();
             }}
-            className={` text-lg p-4 w-full text-left ${activeLink === "/prices" ? "text-[#B740A1]" : ""
+            className={` text-lg p-4 w-full text-left ${activeLink === "/test" ? "text-[#B740A1]" : ""
               }`}
           >
-            Prices
+            Test
+          </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
+          <Link
+            to="/therapy"
+            onClick={() => {
+              handleLinkClick("/therapy");
+              toggleMenu();
+            }}
+            className={` text-lg p-4 w-full text-left ${activeLink === "/therapy" ? "text-[#B740A1]" : ""
+              }`}
+          >
+            Therapy
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
 
@@ -489,17 +543,52 @@ const Header = () => {
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
 
+          
+          <div
+      className="relative text-lg p-4 w-full text-left"
+      onClick={() => setDropdownOpen3(!dropdownOpen3)} // Toggle dropdown
+    >
+      <span className="flex justify-between items-center">
+        Blog
+        {dropdownOpen3 ? (
+          <RiArrowDropUpLine size={30} />
+        ) : (
+          <RiArrowDropDownLine size={30} />
+        )}
+      </span>
+      {dropdownOpen3 && (
+        <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+          {/* Blogs Link */}
           <Link
             to="/blog"
             onClick={() => {
               handleLinkClick("/blog");
               toggleMenu();
             }}
-            className={`text-lg p-4 w-full text-left ${activeLink === "/blog" ? "text-[#B740A1]" : ""
-              }`}
+            className={`block p-4 ${activeLink === "/blog" ? "text-[#B740A1]" : ""}`}
           >
             Blogs
           </Link>
+          <div className="border-t-2 w-full border-[#952981]"></div>
+
+          {/* How We Work Link */}
+        
+
+          {/* Additional Blog Categories */}
+          <Link
+            to="/Howework"
+            onClick={() => {
+              handleLinkClick("/case-studies");
+              toggleMenu();
+            }}
+            className={`block p-4 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""}`}
+          >
+            How We Work
+          </Link>
+          
+        </div>
+      )}
+    </div>
 
 
           {authUser ? (

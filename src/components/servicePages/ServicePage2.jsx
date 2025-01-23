@@ -30,7 +30,7 @@ import ScrollToTop from "../ScrollToTop";
 import { useEffect } from "react";
 import ContactServicePage from '../ContactServicePage';
 import BlogFooter from '../BlogPages/BlogFooter';
-import service2 from '../../assets/servicepage/image 68.png';
+import service2 from '../../assets/servicepage/speech.jpg';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
 import Newnavbar from '../Newnavbar';
@@ -114,8 +114,8 @@ const ServicePage2 = () => {
                                 Online Speech Therapy with 24/7 Support in 8 Languages!
                             </p>
                         </div>
-                        {/* Image Section */}
-                        <div className="w-[90%] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
+                        {/* Image Section */} 
+                        <div className="w-[90%] mt-[2vw] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
                             <img
                                 src={service2}
                                 alt=""

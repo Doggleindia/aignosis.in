@@ -1,9 +1,52 @@
-import React from 'react';
-import img1 from "../../assets/image.png";
+import React, { useState } from "react";
+import img1 from "../../assets/review.jpg";
+import img2 from "../../assets/image (29).jpg";
+import img3 from "../../assets/image (31).jpg";
+
 import { Link } from "react-router-dom";
 
 
 const CustomerLove = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const testimonials = [
+        {
+            text: "“I was skeptical at first, but Aignosis made the entire screening process simple and stress-free for my son. The detailed report and therapy recommendations were exactly what we needed.”",
+            rating: 4.9,
+            name: "Priya Khanna",
+            profession: "Mother",
+            image: img1, // Replace with actual image URLs
+        },
+        {
+            text: "Aignosis not only gave us clarity about our child’s behavior but also empowered us with steps to improve his focus and social interaction. This is such a useful tool for parents!",
+            rating: 5.0,
+            name: "Akash Verma",
+            profession: "Father",
+            image: img2, // Replace with actual image URLs
+        },
+        {
+            text: "“The screening was so easy to do at home. The detailed report provided valuable insights about my daughter’s developmental patterns. Highly recommend it to every parent.”",
+            rating: 4.9,
+            name: "Sneha Gupta",
+            profession: "Mother",
+            image: img3,
+        },
+    ];
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+        );
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const currentTestimonial = testimonials[currentIndex];
+
+
     const Divider = ({ title }) => (
         <div className="flex flex-row justify-center items-center space-x-4 mb-3 mt-10">
             <span
@@ -35,36 +78,40 @@ const CustomerLove = () => {
                     Customer Love
                 </h5>
                 {/* Carousel Section */}
-                <div className="flex items-center justify-center mt-12">
+                <div className="flex items-center justify-center mt-8 md:mt-12">
                     {/* Left Arrow */}
-                    <button className="bg-[#711D64] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                    <button
+                        className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center"
+                        onClick={handlePrev}
+                    >
                         &lt;
                     </button>
 
                     {/* Card */}
                     <div
-                        className="flex flex-row rounded-3xl w-[80%] h-[30vw] p-8 text-white mx-4"
+                        className="flex flex-col md:flex-row rounded-3xl w-[90%] md:w-[80%] h-auto md:h-[30vw] p-6 md:p-8 text-white mx-2 md:mx-4"
                         style={{
-                            background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)',
+                            background: "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
                         }}
-                    >                    {/* Text Section */}
-                        <div className="flex-1 flex flex-col justify-between pr-7">
-                            <p className="text-base">
-                                Aignosis helped us understand our child’s development better. The insights were so accurate and the personalized therapy plan has made such a difference in just a few weeks!”
-                            </p>
-                            <div className="w-full h-[4px] mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
-                            <div className="flex items-center justify-between px-10">
-                                <div className="">
-                                    <span className="text-sm text-[#CACED9]">4.9 Ratings</span>
-                                    <div className="flex items-center">
+                    >
+                        {/* Text Section */}
+                        <div className="flex-1 flex flex-col justify-between pr-0 md:pr-7">
+                            <p className="text-sm md:text-base">{currentTestimonial.text}</p>
+                            <div className="w-full h-[2px] md:h-[4px] mt-4 md:mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
+                            <div className="flex flex-col md:flex-row items-center justify-between mt-4 md:mt-0 px-0 md:px-10">
+                                <div className="text-center md:text-left">
+                                    <span className="text-sm text-[#CACED9]">
+                                        {currentTestimonial.rating} Ratings
+                                    </span>
+                                    <div className="flex items-center justify-center md:justify-start">
                                         <span className="text-yellow-400">★★★★★</span>
                                     </div>
                                 </div>
-                                <div>
+                                <div className="mt-2 md:mt-0 text-center md:text-right">
                                     <span className="text-sm text-white">
-                                        Meera Sharma
+                                        {currentTestimonial.name}
                                         <span className="block text-[#CACED9] mt-2 text-xs">
-                                            Pediatric Neurologist
+                                            {currentTestimonial.profession}
                                         </span>
                                     </span>
                                 </div>
@@ -72,17 +119,20 @@ const CustomerLove = () => {
                         </div>
 
                         {/* Image Section */}
-                        <div className="flex-1 flex items-center justify-center">
+                        <div className="flex-1 flex items-center justify-center mt-4 md:mt-0">
                             <img
-                                src={img1}
-                                alt="Customer Love"
-                                className="rounded-lg object-cover h-full w-full"
+                                src={currentTestimonial.image}
+                                alt={currentTestimonial.name}
+                                className="rounded-lg object-cover h-32 md:h-full w-full"
                             />
                         </div>
                     </div>
 
                     {/* Right Arrow */}
-                    <button className="bg-[#711D64] text-white w-10 h-10 rounded-full flex items-center justify-center">
+                    <button
+                        className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center"
+                        onClick={handleNext}
+                    >
                         &gt;
                     </button>
                 </div>
@@ -97,7 +147,10 @@ const CustomerLove = () => {
                 {/* Carousel Section */}
                 <div className="flex items-center justify-center mt-8 md:mt-12">
                     {/* Left Arrow */}
-                    <button className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                    <button
+                        className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center"
+                        onClick={handlePrev}
+                    >
                         &lt;
                     </button>
 
@@ -105,27 +158,27 @@ const CustomerLove = () => {
                     <div
                         className="flex flex-col md:flex-row rounded-3xl w-[90%] md:w-[80%] h-auto md:h-[30vw] p-6 md:p-8 text-white mx-2 md:mx-4"
                         style={{
-                            background: 'radial-gradient(circle, #1A0C25 20%, #43284C 100%)',
+                            background: "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
                         }}
                     >
                         {/* Text Section */}
                         <div className="flex-1 flex flex-col justify-between pr-0 md:pr-7">
-                            <p className="text-sm md:text-base">
-                                Aignosis helped us understand our child’s development better. The insights were so accurate and the personalized therapy plan has made such a difference in just a few weeks!
-                            </p>
+                            <p className="text-sm md:text-base">{currentTestimonial.text}</p>
                             <div className="w-full h-[2px] md:h-[4px] mt-4 md:mt-[10vw] flex justify-center items-center bg-[#811F67]"></div>
                             <div className="flex flex-col md:flex-row items-center justify-between mt-4 md:mt-0 px-0 md:px-10">
                                 <div className="text-center md:text-left">
-                                    <span className="text-sm text-[#CACED9]">4.9 Ratings</span>
+                                    <span className="text-sm text-[#CACED9]">
+                                        {currentTestimonial.rating} Ratings
+                                    </span>
                                     <div className="flex items-center justify-center md:justify-start">
                                         <span className="text-yellow-400">★★★★★</span>
                                     </div>
                                 </div>
                                 <div className="mt-2 md:mt-0 text-center md:text-right">
                                     <span className="text-sm text-white">
-                                        Meera Sharma
+                                        {currentTestimonial.name}
                                         <span className="block text-[#CACED9] mt-2 text-xs">
-                                            Pediatric Neurologist
+                                            {currentTestimonial.profession}
                                         </span>
                                     </span>
                                 </div>
@@ -135,20 +188,22 @@ const CustomerLove = () => {
                         {/* Image Section */}
                         <div className="flex-1 flex items-center justify-center mt-4 md:mt-0">
                             <img
-                                src={img1}
-                                alt="Customer Love"
-                                className="rounded-lg object-cover h-32 md:h-full w-full"
+                                src={currentTestimonial.image}
+                                alt={currentTestimonial.name}
+                                className="rounded-lg object-cover h-38 md:h-full w-full"
                             />
                         </div>
                     </div>
 
                     {/* Right Arrow */}
-                    <button className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                    <button
+                        className="bg-[#711D64] text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center"
+                        onClick={handleNext}
+                    >
                         &gt;
                     </button>
                 </div>
             </div>
-
             <div
                 className="bg-gradient-to-b from-[#241E22] to-[#43284C] h-[300px] my-[5vw] flex flex-col justify-center items-center gap-4 text-white font-manrope"
             >

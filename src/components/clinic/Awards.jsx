@@ -1,15 +1,36 @@
 import React, { useEffect, useRef } from "react";
 import img7 from "../../assets/clinic/img7.png";
-import img1 from "../../assets/homepage/image a1.png";
-import img2 from "../../assets/homepage/image a2.png";
-import img3 from "../../assets/homepage/image a3.png";
-import img4 from "../../assets/homepage/image a4.png";
-import img5 from "../../assets/homepage/image a5.png";
+import img1 from "../../assets/homepage/image a7.png"; // shark tank
+import img2 from "../../assets/homepage/image a2.png"; //no number
+import img3 from "../../assets/homepage/image a3.png"; //no number
+import img4 from "../../assets/a30.png"; //cmie AIIMS Delhi
+import img5 from "../../assets/homepage/a20.png"; // car dekho
 import img6 from "../../assets/homepage/image a6.png";
-import img11 from "../../assets/homepage/image a7.png";
-import img8 from "../../assets/homepage/image a8.png";
+import img11 from "../../assets/homepage/a13.png"; //  fitt
+import img8 from "../../assets/homepage/a12.png"; //  IIHMR Univ..
 import img9 from "../../assets/homepage/image a9.png";
 import img10 from "../../assets/homepage/image a10.png";
+import img12 from "../../assets/a23.png"; // Babylon Hospital
+import img13 from "../../assets/a22.png"; // rajasthan fostering
+import img14 from "../../assets/a25.png"; // google-cloud
+import img15 from "../../assets/a29.png"; // DOITC
+import img16 from "../../assets/a28.png"; // nvidia 
+import img17 from "../../assets/a27.png"; //aws start-up
+import img18 from "../../assets/a26.png"; // seed-fund scheme
+import img19 from "../../assets/homepage/a21.png"; // bits pilani
+import img20 from "../../assets/homepage/a19.png"; // news18 rajasthan
+import img21 from "../../assets/homepage/a15.png"; //mphasis
+import img22 from "../../assets/homepage/image a8.png";
+import img23 from "../../assets/homepage/a16.png"; //virigina tech
+import img24 from "../../assets/homepage/image a10.png"; // wadhwani foundation
+import img25 from "../../assets/a24.png"; //merit-y start-up hub
+import img26 from "../../assets/a26.png";
+import img27 from "../../assets/homepage/a17.png"; // dainik vashkar
+import img28 from "../../assets/homepage/a11.png"; // patrika rajasthan
+import img29 from "../../assets/a29.png";  //no number
+import img30 from "../../assets/a30.png";  //no number
+
+
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -19,22 +40,22 @@ import AwardCard from './AwardCard';
 const Awards = () => {
   const p3Ref = useRef(null);  // Create a reference for p3 image
 
-    useEffect(() => {
-        // GSAP animation for p3 image
-        gsap.fromTo(p3Ref.current, 
-            { opacity: 0, x: -200 }, 
-            {
-                opacity: 1,
-                x: 0,
-                scrollTrigger: {
-                    trigger: p3Ref.current,
-                    start: "top 80%",  // Animation starts when p3 image top reaches 80% of the viewport height
-                    end: "top center", // Animation ends when p3 image top reaches the center of the viewport
-                    scrub: true,
-                }
-            }
-        );
-    }, []);
+  useEffect(() => {
+    // GSAP animation for p3 image
+    gsap.fromTo(p3Ref.current,
+      { opacity: 0, x: -600 },
+      {
+        opacity: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: p3Ref.current,
+          start: "top 80%",  // Animation starts when p3 image top reaches 80% of the viewport height
+          end: "top center", // Animation ends when p3 image top reaches the center of the viewport
+          scrub: true,
+        }
+      }
+    );
+  }, []);
   return (
     <div className='bg-[#1A0C25] relative w-full p-[5vw] '>
       <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
@@ -59,7 +80,7 @@ const Awards = () => {
       <div className='flex flex-col'>
 
         <div className='flex justify-center mt-[1vw] items-center' >
-          
+
           <h4 className='text-[#F6E8FB] font-raleway mt-4 md:mt-0 text-center text-[48px] leading-7 md:leading-[1.2vw] max-sm:text-[24px] md:mr-[20px]'>Supported  and featured by</h4>
 
         </div>
@@ -69,28 +90,32 @@ const Awards = () => {
         </div>
 
       </div>
-      <div className="relative mt-10 overflow-hidden w-full p-6">
-        <div
-          className="flex gap-6 animate-marquee md:animate-marqueeMd whitespace-nowrap"
-          
-        >
-          <div className="flex gap-6">
-            <AwardCard imageSrc={img1} altText="First Award" />
-            <AwardCard imageSrc={img2} altText="Second Award" />
-            <AwardCard imageSrc={img3} altText="Third Award" />
-            <AwardCard imageSrc={img4} altText="Fourth Award" />
-            <AwardCard imageSrc={img5} altText="Fifth Award" />
-          </div>
-          <div className="flex gap-6">
-            <AwardCard imageSrc={img6} altText="Sixth Award" />
-            <AwardCard imageSrc={img8} altText="Seventh Award" />
-            <AwardCard imageSrc={img9} altText="Eighth Award" />
-            <AwardCard imageSrc={img10} altText="Ninth Award" />
-            <AwardCard imageSrc={img11} altText="Tenth Award" />
-          </div>
+      <div className="relative mt-10 w-full">
+        <div className="flex gap-6 animate-marquee whitespace-nowrap">
+          {[...Array(2)].map((_, index) => (
+            <React.Fragment key={index}>
+              {[ // Array of image groups to avoid repetition
+                [img1, img2, img3, img5],
+                [img6, img8, img9, img10, img11],
+                [img12, img13, img14, img15, img16],
+                [img17, img18, img19, img21, img22],
+                [img23, img24, img25, img26, img27],
+                [img28, img29, img30]
+              ].map((imageGroup, groupIndex) => (
+                <div className="flex gap-6" key={`${index}-${groupIndex}`}>
+                  {imageGroup.map((image, subIndex) => (
+                    <AwardCard
+                      key={`${index}-${groupIndex}-${subIndex}`}
+                      imageSrc={image}
+                      altText={`Award ${groupIndex * 5 + subIndex + 1}`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </React.Fragment>
+          ))}
         </div>
       </div>
-
 
     </div>
   )

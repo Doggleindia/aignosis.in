@@ -1,33 +1,13 @@
 import blogimg1 from "../../assets/blogimg1.png";
 import blogimg2 from "./aut.jpg";
 import blogimg3 from "./aut3.webp";
-import blogimg4 from "./00.png";
-import blogimg5 from "./10.png";
-import blogimg7 from "./1.png";
-import blogimg8 from "./2.png";
-import blogimg9 from "./3.png";
-import blogimg10 from "./4.png";
-import blogimg11 from "./5.png";
-import blogimg12 from "./6.png";
-import blogimg13 from "./7.png";
-import blogimg14 from "./8.png";
-import blogimg15 from "./9.png";
-import blogimg16 from "./11.png";
-import blogimg17 from "./22.png";
-import blogimg18 from "./33.png";
-import blogimg19 from "./44.png";
-import blogimg20 from "./55.png";
-import blogimg21 from "./66.png";
-import blogimg22 from "./77.png";
-import blogimg23 from "./88.png";
-import blogimg24 from "./99.png";
 
 const AboutContent = {
   blogs: [
     {
       id: "early-signs-of-autism-in-children",
-      blogimg: blogimg16,
-      image: blogimg7,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/11.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/1.png",
       author: "Raksheet",
       time: "1 day ago",
       title: "Early Signs of Autism in Children: A Parent's Guide",
@@ -57,7 +37,7 @@ const AboutContent = {
           "Discover the early signs of autism in children, the importance of early intervention, and how to support your child effectively.",
       },
       imageOptimization: {
-        fileName: blogimg16,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/11.png",
         altText:
           "A child sitting with a parent, engaging in play, demonstrating early signs of autism",
       },
@@ -157,8 +137,8 @@ const AboutContent = {
 
     {
       id: "early-intervention-for-autism-care",
-      blogimg: blogimg17,
-      image: blogimg8,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/22.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.png",
       author: "Dakshit",
       time: "2 days ago",
       title:
@@ -192,7 +172,7 @@ const AboutContent = {
           "Explore how early intervention for autism supports children’s developmental growth and provides practical autism care solutions.",
       },
       imageOptimization: {
-        fileName: blogimg17,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/22.png",
         altText:
           "Child receiving early intervention therapy for autism with a therapist",
       },
@@ -273,8 +253,8 @@ const AboutContent = {
     },
     {
       id: "how-ai-is-transforming-early-autism-diagnosis",
-      blogimg: blogimg18,
-      image: blogimg9,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/33.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.png",
       author: "Saket",
       time: "3 day ago",
       title: "How AI Is Transforming Early Autism Diagnosis",
@@ -312,7 +292,7 @@ const AboutContent = {
           "Explore how AI-powered tools are improving early autism diagnosis, enhancing accuracy, and helping healthcare providers deliver personalized interventions.",
       },
       imageOptimization: {
-        fileName: blogimg18,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/33.png",
         altText:
           "AI-based autism diagnosis using advanced machine learning algorithms for early detection",
       },
@@ -366,9 +346,9 @@ const AboutContent = {
     },
     {
       id: "speech-therapy-tips-children-autism",
-      blogimg: blogimg19, // Image URL for the blog can be inserted here
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/44.png", // Image URL for the blog can be inserted here
       author: "Pranav",
-      image: blogimg10,
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.png",
       time: "1 day ago",
       title: "Speech Therapy Tips for Children with Autism",
       pageTitle:
@@ -396,7 +376,7 @@ const AboutContent = {
           "Explore helpful speech therapy tips for children with autism. Learn how to support your child’s communication development with expert techniques.",
       },
       imageOptimization: {
-        fileName: blogimg19,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/44.png",
         altText:
           "A speech therapist using visual aids with a child on the autism spectrum.",
       },
@@ -462,8 +442,8 @@ const AboutContent = {
     },
     {
       id: "speech-therapy-exercises-autism-at-home",
-      blogimg: blogimg20,
-      image: blogimg11,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/55.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.png",
       author: "kishore",
       time: "4 days ago",
       title:
@@ -494,7 +474,7 @@ const AboutContent = {
           "Discover practical speech therapy exercises for autism that you can do at home. Help your child improve communication skills with simple, proven methods.",
       },
       imageOptimization: {
-        fileName: blogimg20,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/55.png",
         altText:
           "Parent practicing speech therapy exercises with a child with autism at home.",
       },
@@ -641,8 +621,8 @@ const AboutContent = {
     },
     {
       id: "speech-therapy-lesson-plans-materials-autism",
-      blogimg: blogimg21,
-      image: blogimg12,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/66.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/6.png",
       author: "kunal",
       time: "6 days ago",
       title: "Speech Therapy Lesson Plans and Materials for Autism",
@@ -672,7 +652,7 @@ const AboutContent = {
           "Create engaging lesson plans and gather essential materials for speech therapy for autism. Help your child thrive with these proven strategies.",
       },
       imageOptimization: {
-        fileName: blogimg21,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/66.png",
         altText:
           "A therapist using materials to teach a child with autism during a speech therapy session.",
       },
@@ -846,8 +826,8 @@ const AboutContent = {
     },
     {
       id: "speech-therapy-confidence-autism",
-      blogimg: blogimg22,
-      image: blogimg13,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/77.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/7.png",
       author: "sachin",
       time: "6 days ago",
       title: "How Speech Therapy Helps Children with Autism Build Confidence",
@@ -876,7 +856,7 @@ const AboutContent = {
           "Explore how speech therapy helps children with autism build confidence by improving communication, encouraging social interactions, and fostering emotional growth.",
       },
       imageOptimization: {
-        fileName: blogimg22,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/77.png",
         altText:
           "A child with autism practicing speech therapy to build confidence in social settings.",
       },
@@ -943,8 +923,8 @@ const AboutContent = {
     },
     {
       id: "occupational-therapy-autism-overview-benefits",
-      blogimg: blogimg23,
-      image: blogimg14,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/88.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/8.png",
       author: "Samarth",
       time: "6 days ago",
       title:
@@ -978,7 +958,7 @@ const AboutContent = {
           "Explore the role of occupational therapy in autism treatment, including its ability to help with sensory challenges, fine motor skills, social interactions, and daily life skills.",
       },
       imageOptimization: {
-        fileName: blogimg23,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/88.png",
         altText:
           "A child with autism participating in occupational therapy to improve sensory and motor skills.",
       },
@@ -1081,8 +1061,8 @@ const AboutContent = {
     },
     {
       id: "speech-therapy-treatments-communication-skills",
-      blogimg: blogimg24,
-      image: blogimg15,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/99.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/9.png",
       author: "Piyush",
       time: "6 days ago",
       title:
@@ -1114,7 +1094,7 @@ const AboutContent = {
           "Explore effective speech therapy treatments that help children develop language and social skills for better communication.",
       },
       imageOptimization: {
-        fileName: blogimg24,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/99.png",
         altText:
           "A speech therapist working with a child to improve communication skills.",
       },
@@ -1190,8 +1170,8 @@ const AboutContent = {
     },
     {
       id: "down-syndrome-vs-autism-key-difference",
-      blogimg: blogimg4,
-      image: blogimg5,
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/00.png",
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/10.png",
       author: "Harsh",
       time: "just now",
       title:
@@ -1222,7 +1202,7 @@ const AboutContent = {
           "Explore the essential differences between Down syndrome and autism in behavior, characteristics, and support needs.",
       },
       imageOptimization: {
-        fileName: blogimg4,
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/00.png",
         altText:
           "Comparison chart showing differences between Down syndrome and autism.",
       },

@@ -18,7 +18,7 @@ import Newnavbar from '../Newnavbar';
 const ClinicMain = () => {
   return (
     <>
-    <Newnavbar/>
+      <Newnavbar />
       <SEO
         canonicalUrl={'https://aignosis.in/clinic'}
         metaDescription={'Visit Aignosis Autism Clinic for expert care and accurate diagnosis. Our specialists offer personalized solutions for autism treatment and support.'}
@@ -60,10 +60,10 @@ const ClinicMain = () => {
             {/* Right Side: Text */}
             <div className="flex-1 flex flex-col justify-center text-[#F6E8FB] space-y-6">
               <div className="flex items-center">
-              <span className="flex items-center text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold">
-  <img src={star} className="mr-[-.8vw] scale-[.5]" alt="star" /> {/* Add margin to the right of the image */}
-  Welcome to AIGNOSIS
-</span>
+                <span className="flex items-center text-sm md:text-[16px] leading-tight text-[#9C00AD] font-bold">
+                  <img src={star} className="mr-[-.8vw] scale-[.5]" alt="star" /> {/* Add margin to the right of the image */}
+                  Welcome to AIGNOSIS
+                </span>
 
                 {/* <img
                 src={img2}
@@ -105,14 +105,14 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p> */}
                 {/* <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-                 <h2 className='font-bold text-xl'>Effortless Screening Setup
-                 </h2>
-                 <ul className="mt-4 font-manrope list-disc pl-5">
-  <li>A plug-and-play developmental screening solution using webcams.</li>
-  <li>Quick integration into existing clinic/hospital systems without additional hardware costs.</li>
-  <li>Provides holistic, data-driven insights about each child's growth.</li>
-  <li>Allows digital connection with psychologists for detailed assessments.</li>
-</ul>
+                <h2 className='font-bold text-xl'>Effortless Screening Setup
+                </h2>
+                <ul className="mt-4 font-manrope list-disc pl-5">
+                  <li>A plug-and-play developmental screening solution using webcams.</li>
+                  <li>Quick integration into existing clinic/hospital systems without additional hardware costs.</li>
+                  <li>Provides holistic, data-driven insights about each child's growth.</li>
+                  <li>Allows digital connection with psychologists for detailed assessments.</li>
+                </ul>
 
 
               </div>
@@ -131,13 +131,13 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p>
               <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-               <h2 className='font-bold text-xl'>Accurate Diagnosis at your Clinic.
+                <h2 className='font-bold text-xl'>Accurate Diagnosis at your Clinic.
 
-                 </h2>
-                 <ul className="mt-4 font-manrope list-disc pl-5">
-  <li>Proprietary AI algorithms analyze subtle biomarkers (e.g., gaze, attention, facial expressions) for early detection of autism and other neurodevelopmental disorders.</li>
-  <li>Results provided within minutes, enabling swift clinical decision-making with therapeutic intervention.</li>
-</ul>
+                </h2>
+                <ul className="mt-4 font-manrope list-disc pl-5">
+                  <li>Proprietary AI algorithms analyze subtle biomarkers (e.g., gaze, attention, facial expressions) for early detection of autism and other neurodevelopmental disorders.</li>
+                  <li>Results provided within minutes, enabling swift clinical decision-making with therapeutic intervention.</li>
+                </ul>
 
               </div>
               {/* Left Image */}
@@ -172,13 +172,13 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p>
               <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-               <h2 className='font-bold text-xl'>Enhanced Patient Engagement
-                 </h2>
-                 <ul className="mt-4 font-manrope list-disc pl-5">
-  <li>Interactive and child-friendly screening videos ensure high cooperation rates with the child getting screened without even knowing.</li>
-  <li>Non-invasive, stress-free process for both children and parents.</li>
-  <li>No need for detailed, expensive diagnosis.</li>
-</ul>
+                <h2 className='font-bold text-xl'>Enhanced Patient Engagement
+                </h2>
+                <ul className="mt-4 font-manrope list-disc pl-5">
+                  <li>Interactive and child-friendly screening videos ensure high cooperation rates with the child getting screened without even knowing.</li>
+                  <li>Non-invasive, stress-free process for both children and parents.</li>
+                  <li>No need for detailed, expensive diagnosis.</li>
+                </ul>
 
               </div>
             </div>
