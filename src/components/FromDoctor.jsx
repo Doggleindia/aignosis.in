@@ -2,7 +2,7 @@ import React from 'react';
 import img from '../assets/images/doctor.png';
 import img1 from '../assets/images/doctor img.png';
 import Divider from './aboutus/Divider';
-import img2 from "../assets/homepage/image 144.png";
+import img2 from "../assets/dr_expertphoto.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,9 +28,9 @@ const FromDoctor = () => {
                     }}>
                 </div>
                 <div className="">
-                    <div className="w-full h-[30vw] px-[5vw] flex mt-[3vw]">
-                        <div className="w-[75%] h-full">
-                            <img className='object-contain w-full h-full' src={img2} alt="" srcset="" />
+                    <div className="w-full h-[30vw] px-[5vw] gap-14 flex mt-[3vw]">
+                        <div className="w-[75%] overflow-hidden rounded-3xl h-full">
+                            <img className='object-cover w-full h-full' src={img2} alt="" srcset="" />
                         </div>
                         <div className="w-[50%] h-full">
                             <div className="flex flex-row justify-start items-center space-x-4">
@@ -53,7 +53,7 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <span className='font-raleway mt-5 text-4xl'>Expert Voices </span>
-                            <p className='mt-5  leading-[1.2vw]'>Hear from healthcare professionals who've experienced how our tool supports <br/> early understanding  and better outcomes.</p>
+                            <p className='mt-5  leading-[1.2vw]'>Hear from healthcare professionals who've experienced how our tool supports <br /> early understanding  and better outcomes.</p>
                             {/* <div className="flex mt-10 gap-10 overflow-x-auto">
                                 <div
                                     className="flex rounded-3xl w-[50%] h-[15vw] p-8 text-white"
@@ -129,7 +129,6 @@ const FromDoctor = () => {
                                                         <span className="text-xs text-[#CACED9]">Pediatrician & Developmental Expert</span>
                                                     </div>
                                                     {/* Placeholder */}
-                                                    <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,7 +151,6 @@ const FromDoctor = () => {
                                                         <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi</span>
                                                     </div>
                                                     {/* Placeholder */}
-                                                    <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,11 +158,11 @@ const FromDoctor = () => {
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                     <div className="absolute top-[835vw] right-[90vw] w-[15%] h-full bg-[#B740A1A6] opacity-55 blur-[120px] rounded-xl"></div>
                     <div className="py-[5vw]">
-                        <div className="w-full h-[30vw] px-[10vw] flex mt-[5vw]">
+                        <div className="w-full gap-14 h-[30vw] px-[10vw] flex mt-[5vw]">
                             <div className="w-full overflow-x-auto h-full">
                                 <div className="flex flex-row justify-start items-center space-x-4">
                                     <span
@@ -259,7 +257,6 @@ const FromDoctor = () => {
                                                             <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
                                                         </div>
                                                         {/* Placeholder */}
-                                                        <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -282,7 +279,6 @@ const FromDoctor = () => {
                                                             <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
                                                         </div>
                                                         {/* Placeholder */}
-                                                        <div className="w-[60px] h-[40px] bg-[#FFFFFF22] rounded-md"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,8 +286,8 @@ const FromDoctor = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[75%] h-full">
-                                <img className='object-contain w-full h-full' src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png" alt="" srcset="" />
+                            <div className="w-[75%] rounded-3xl overflow-hidden h-full">
+                                <img className='object-cover w-full h-full' src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png" alt="" srcset="" />
                             </div>
                         </div>
                     </div>
@@ -302,7 +298,6 @@ const FromDoctor = () => {
                         background: 'linear-gradient(to top, #09121A 0%, #09121A00 100%)',
                     }}
                 ></div>
-
             </div>
             <div className="block md:hidden bg-[#1A0C25] text-white h-full w-full">
                 <div
@@ -332,13 +327,13 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <h3 className="font-raleway text-xl text-start">
-                            Expert Voices 
+                                Expert Voices
                             </h3>
                             <p className="text-start text-xs">
-                            Hear from healthcare professionals who've experienced how our tool supports early understanding and better outcomes.
+                                Hear from healthcare professionals who've experienced how our tool supports early understanding and better outcomes.
                             </p>
                             <div className="w-full">
-                                <img src={img} alt="" srcset="" />
+                                <img src={img2} alt="" srcset="" />
                             </div>
                             <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
                                 <div
@@ -348,14 +343,12 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <p className="text-xs">
-                                        <span className="text-pink-400">AI Gnosis</span> has revolutionized
-                                        the way we approach autism diagnosis in our clinic. The AI tools are
-                                        not only accurate but also incredibly user-friendly, making our workflow more efficient.
+                                    "As a pediatrician with over 40 years of experience, I believe early detection of autism and developmental disorders is critical. This test is a groundbreaking tool that allows us to detect early signs with high accuracy. It empowers parents to take action sooner, improving outcomes for children."
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
-                                        <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. S. Sitaraman,</h3>
+                                        <span className="text-xs text-[#CACED9]">Pediatrician & Developmental Expert</span>
                                     </div>
                                 </div>
                                 <div
@@ -365,14 +358,12 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <p className="text-xs">
-                                        <span className="text-pink-400">AI Gnosis</span> has revolutionized
-                                        the way we approach autism diagnosis in our clinic. The AI tools are
-                                        not only accurate but also incredibly user-friendly, making our workflow more efficient.
+                                    "The early autism detection test is a significant step forward in pediatric care. It offers a non-invasive, cost-effective, and efficient way to screen children for neurodevelopmental disorders. I wholeheartedly support this initiative, as it provides essential data for timely intervention."
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
-                                        <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Ramesh Agarwal,</h3>
+                                        <span className="text-xs text-[#CACED9]">Head of Child Development, AIIMS Delhi</span>
                                     </div>
                                 </div>
                             </div>
@@ -399,12 +390,12 @@ const FromDoctor = () => {
                                 ></span>
                             </div>
                             <h3 className="font-raleway text-xl text-right">
-                            Real Families, Real Stories                            </h3>
+                                Real Families, Real Stories                            </h3>
                             <p className="text-center text-xs">
-                            Every milestone matters in a child's development. Here's what families like yours have to say about their experience with us.
+                                Every milestone matters in a child's development. Here's what families like yours have to say about their experience with us.
                             </p>
                             <div className="w-full">
-                                <img src={img1} alt="" srcset="" />
+                                <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png" alt="" srcset="" />
                             </div>
                             <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
                                 <div
@@ -414,14 +405,12 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <p className="text-xs">
-                                        <span className="text-pink-400">AI Gnosis</span> has revolutionized
-                                        the way we approach autism diagnosis in our clinic. The AI tools are
-                                        not only accurate but also incredibly user-friendly, making our workflow more efficient.
+                                    "As a pediatrician with over 40 years of experience, I believe early detection of autism and developmental disorders is critical. This test is a groundbreaking tool that allows us to detect early signs with high accuracy. It empowers parents to take action sooner, improving outcomes for children."
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
-                                        <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Neha Sharma,</h3>
+                                        <span className="text-xs text-[#CACED9]">Mother of 4 year old</span>
                                     </div>
                                 </div>
                                 <div
@@ -431,14 +420,12 @@ const FromDoctor = () => {
                                     }}
                                 >
                                     <p className="text-xs">
-                                        <span className="text-pink-400">AI Gnosis</span> has revolutionized
-                                        the way we approach autism diagnosis in our clinic. The AI tools are
-                                        not only accurate but also incredibly user-friendly, making our workflow more efficient.
+                                    "The early autism detection test is a significant step forward in pediatric care. It offers a non-invasive, cost-effective, and efficient way to screen children for neurodevelopmental disorders. I wholeheartedly support this initiative, as it provides essential data for timely intervention."
                                     </p>
                                     <div className="w-full h-[.5px] my-2 mt-10 bg-pink-400"></div>
                                     <div className="flex flex-col">
-                                        <h3 className="text-sm text-[#CACED9] font-semibold">Dr. Rohan Mehta,</h3>
-                                        <span className="text-xs text-[#CACED9]">Pediatric Neurologist</span>
+                                        <h3 className="text-sm text-[#CACED9] font-semibold">Priya patil, </h3>
+                                        <span className="text-xs text-[#CACED9]">Mother of 3 yr old</span>
                                     </div>
                                 </div>
                             </div>

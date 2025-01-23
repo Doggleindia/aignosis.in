@@ -3,7 +3,8 @@ import axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CalendarWithSidebar = () => {
     const token = localStorage.getItem("authToken");
     const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
@@ -64,12 +65,12 @@ const CalendarWithSidebar = () => {
         console.log();
         
         if (!therapyName || !timing || !doctorId) {
-            alert("Please fill in all fields.");
+            toast.error("Please fill in all fields.");
             return;
         }
     
         if (!token) {
-            alert("You must be logged in to book a session.");
+            toast.error("You must be logged in to book a session.");
             return;
         }
         console.log(therapyName);
@@ -91,20 +92,17 @@ const CalendarWithSidebar = () => {
                     },
                 }
             );
-    
-            // Handle success response
-            alert(response.data.message);
+            toast.success(response.data.message);
             closePopup();
         } catch (error) {
-            console.error("Error booking session:", error.response ? error.response.data : error.message);
-            alert("Error booking session.");
+            toast.error("Error booking session.");
         }        
     };
     
 
     return (
         <div className="min-h-screen bg-[#2B1B2D] text-white flex flex-col md:flex-row">
-            {/* Main Calendar */}
+            <ToastContainer />
             <div className="flex-1 p-4">
                 <div className="flex justify-between mb-4">
                     {/* Month and Year Selectors */}

@@ -86,7 +86,7 @@ const UnderStandingNumber = () => {
             />
             <div className="flex md:flex-row flex-col justify-center mt-[6vw] mb-[4vw]">
                 <Card
-                    title="1 in 68"
+                    title="1 in 10"
                     subtitle="children experience developmental delays"
                     description="Early identification is crucial for support"
 
@@ -95,7 +95,7 @@ const UnderStandingNumber = () => {
 
                 />
                 <Card
-                    title="1 in 10"
+                    title="1 in 68"
                     subtitle="children are autistic in India"
                     description="Autism awareness and early detection can make a difference."
 

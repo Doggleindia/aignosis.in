@@ -1,9 +1,9 @@
 import React from 'react';
 import img1 from "../../assets/image.png";
 import img2 from "../../assets/Featured.png";
-import f1 from "../../assets/pricepage/f1.png";
-import f2 from "../../assets/pricepage/f2.png";
-import f3 from "../../assets/pricepage/f3.png";
+import f1 from "../../assets/image (21).jpg";
+import f2 from "../../assets/image (25).jpg";
+import f3 from "../../assets/image (24).jpg";
 
 const PricepageBenefits = () => {
     const cardData = [
@@ -188,9 +188,9 @@ const PricepageBenefits = () => {
                             </div>
 
                             {/* Badge */}
-                            <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                            {/* <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
                                 {card.age}
-                            </div>
+                            </div> */}
 
                             {/* Text Section */}
                             <div className="p-4 px-6 mt-[15vw] w-full">

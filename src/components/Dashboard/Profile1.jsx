@@ -172,13 +172,13 @@ const Profile1 = () => {
                 <h3 className="font-semibold">Profile</h3>
           
                 {/* Right Section: P1 */}
-                <div className="w-14 flex relative justify-center items-center h-14 bg-[#9C00AD] rounded-full">
+                {/* <div className="w-14 flex relative justify-center items-center h-14 bg-[#9C00AD] rounded-full">
                   <h3 className="font-bold">P1</h3>
                   <FaUserEdit
                     onClick={toggleEdit}
                     className="absolute cursor-pointer bottom-0 right-0"
                   />
-                </div>
+                </div> */}
               </div>
 
               <div className="border-b-2 my-2 border-[#B859EA]"></div>
