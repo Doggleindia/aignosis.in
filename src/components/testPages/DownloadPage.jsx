@@ -1,5 +1,6 @@
 import React, { useContext , useEffect } from "react";
 import { AppContext } from "../aignosisintegration/AppContext";
+import { Link } from "react-router-dom";
 
 const DownloadPage = () => {
     const {testData, setTestData} = useContext(AppContext);
@@ -128,6 +129,13 @@ const DownloadPage = () => {
           Download your report
         </a>
       </div> */}
+       <Link
+                to="/"
+                className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
+          transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
+              >
+                Exit Test
+              </Link>
     </div>
   );
 };
