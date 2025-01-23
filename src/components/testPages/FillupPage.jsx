@@ -6,9 +6,9 @@ import DatePicker from 'rsuite/DatePicker';
 // (Optional) Import component styles. If you are using Less, import the `index.less` file. 
 import 'rsuite/DatePicker/styles/index.css';
 import { differenceInYears, differenceInMonths } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
-
+import { data } from "autoprefixer";
 
 export const FillupPage = () => {
 
@@ -86,11 +86,12 @@ export const FillupPage = () => {
       } else {
         setTestData({
           ...testData,
+          patientDOB:dob,
           patientName: document.getElementById("patient-name-input").value,
         });
 
         console.log("going to  data collection", testData.dataCollectionMode);
-        navigate("/dataCollection");
+        navigate("/download");
       }
     } catch (error) {
       console.error("Permission denied for webcam and microphone:", error);
@@ -253,7 +254,7 @@ export const FillupPage = () => {
                 /> */}
                 
                 {/* Data Collection Mode Section */}
-                <div className="text-white">
+                {/* <div className="text-white">
                   <h3 className="font-semibold mb-2 text-sm">
                     Data Collection Mode
                   </h3>
@@ -304,7 +305,7 @@ export const FillupPage = () => {
                 </div>
                 <h3 className="font-semibold mb-2 text-sm text-white">
                     Fill Google Form Instead? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_dXebCWKaocA7KpAxWJAyHGfEwsqiDvAgXk0tj4ZQa0bYhg/viewform">click here</a>
-                  </h3>      
+                  </h3>       */}
                 <div className="flex justify-center items-center gap-2 max-sm:flex-col">
                   <Link
                     to="/prices"
