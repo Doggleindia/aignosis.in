@@ -1,34 +1,34 @@
 import React, { useEffect, useRef } from "react";
 import img7 from "../../assets/clinic/img7.png";
-import img1 from "../../assets/homepage/image a1.png";
-import img2 from "../../assets/homepage/image a2.png";
-import img3 from "../../assets/homepage/image a3.png";
-import img4 from "../../assets/homepage/image a4.png";
-import img5 from "../../assets/homepage/image a5.png";
+import img1 from "../../assets/homepage/image a7.png"; // shark tank
+import img2 from "../../assets/homepage/image a2.png"; //no number
+import img3 from "../../assets/homepage/image a3.png"; //no number
+import img4 from "../../assets/a30.png"; //cmie AIIMS Delhi
+import img5 from "../../assets/homepage/a20.png"; // car dekho
 import img6 from "../../assets/homepage/image a6.png";
-import img11 from "../../assets/homepage/image a7.png";
-import img8 from "../../assets/homepage/image a8.png";
+import img11 from "../../assets/homepage/a13.png"; //  fitt
+import img8 from "../../assets/homepage/a12.png"; //  IIHMR Univ..
 import img9 from "../../assets/homepage/image a9.png";
 import img10 from "../../assets/homepage/image a10.png";
-import img12 from "../../assets/homepage/a11.png";
-import img13 from "../../assets/homepage/a12.png";
-import img14 from "../../assets/homepage/a13.png";
-import img15 from "../../assets/homepage/a14.png";
-import img16 from "../../assets/homepage/a16.png";
-import img17 from "../../assets/homepage/a17.png";
-import img18 from "../../assets/homepage/a18.png";
-import img19 from "../../assets/homepage/a19.png";
-import img20 from "../../assets/homepage/a20.png";
-import img21 from "../../assets/homepage/a21.png";
-import img22 from "../../assets/a22.png";
-import img23 from "../../assets/a23.png";
-import img24 from "../../assets/a24.png";
-import img25 from "../../assets/a25.png";
+import img12 from "../../assets/a23.png"; // Babylon Hospital
+import img13 from "../../assets/a22.png"; // rajasthan fostering
+import img14 from "../../assets/a25.png"; // google-cloud
+import img15 from "../../assets/a29.png"; // DOITC
+import img16 from "../../assets/a28.png"; // nvidia 
+import img17 from "../../assets/a27.png"; //aws start-up
+import img18 from "../../assets/a26.png"; // seed-fund scheme
+import img19 from "../../assets/homepage/a21.png"; // bits pilani
+import img20 from "../../assets/homepage/a19.png"; // news18 rajasthan
+import img21 from "../../assets/homepage/a15.png"; //mphasis
+import img22 from "../../assets/homepage/image a8.png";
+import img23 from "../../assets/homepage/a16.png"; //virigina tech
+import img24 from "../../assets/homepage/image a10.png"; // wadhwani foundation
+import img25 from "../../assets/a24.png"; //merit-y start-up hub
 import img26 from "../../assets/a26.png";
-import img27 from "../../assets/a27.png";
-import img28 from "../../assets/a28.png";
-import img29 from "../../assets/a29.png";
-import img30 from "../../assets/a30.png";
+import img27 from "../../assets/homepage/a17.png"; // dainik vashkar
+import img28 from "../../assets/homepage/a11.png"; // patrika rajasthan
+import img29 from "../../assets/a29.png";  //no number
+import img30 from "../../assets/a30.png";  //no number
 
 
 import gsap from "gsap";
