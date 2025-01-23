@@ -373,7 +373,7 @@ const PriceBody = ({ selectedOption }) => {
       );
 
       const options = {
-        key: "rzp_test_v6tbOXA491rzAG",
+        key: "rzp_live_bJB6v4FhsKMk9Y",
         amount: order.amount,
         currency: order.currency,
         name: "Test Payment",
