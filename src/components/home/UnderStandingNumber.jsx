@@ -86,21 +86,21 @@ const UnderStandingNumber = () => {
             />
             <div className="flex md:flex-row flex-col justify-center mt-[6vw] mb-[4vw]">
                 <Card
-                    title="1 in 68"
+                    // title="1 in 68"
                     subtitle="children experience developmental delays"
                     description="Early identification is crucial for support"
 
-                    link="/blog/early-detection-diagnosis-autism-india"
-                    externalLink="https://www.indiaautismcenter.org/early-detection-and-diagnosis-of-autism-in-india-importance-and-challenges/#:~:text=According%20to%20a%202021%20study,ratio%20of%20approximately%203%3A1"
+                    // link="/blog/early-detection-diagnosis-autism-india"
+                    // externalLink="https://www.indiaautismcenter.org/early-detection-and-diagnosis-of-autism-in-india-importance-and-challenges/#:~:text=According%20to%20a%202021%20study,ratio%20of%20approximately%203%3A1"
 
                 />
                 <Card
-                    title="1 in 10"
+                    // title="1 in 10"
                     subtitle="children are autistic in India"
                     description="Autism awareness and early detection can make a difference."
 
-                    link="/blog/developmental-delay-identification-management-primary-care"
-                    externalLink="https://pmc.ncbi.nlm.nih.gov/articles/PMC6441684/"
+                    // link="/blog/developmental-delay-identification-management-primary-care"
+                    // externalLink="https://pmc.ncbi.nlm.nih.gov/articles/PMC6441684/"
 
                 />
             </div>
