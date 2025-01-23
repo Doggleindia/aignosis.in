@@ -35,33 +35,23 @@ const Priceplan = () => {
         <div className="w-full mt-[5vw] hidden md:block h-full">
           <div className="w-full p-10 flex ml-6 gap-10">
             <button
-              className={` ${selectedOption === 'Assessment' ? ' border-b-2 border-[#811F67]' : ''}`}
+              className=""
               onClick={() => handleOptionChange('Assessment')}
             >
               Assessments
             </button>
-            <button
-              className={`${selectedOption === 'Therapy' ? 'border-b-2 border-[#811F67]' : ''}`}
-              onClick={() => handleOptionChange('Therapy')}
-            >
-              Therapy
-            </button>
+           
           </div>
         </div>
         <div className="w-full mt-10 md:hidden h-full">
           <div className="w-full p-4 flex justify-around gap-4">
             <button
-              className={` ${selectedOption === 'Assessment' ? ' border-b-2 border-[#811F67]' : ''} text-white font-bold`}
+              className=""
               onClick={() => handleOptionChange('Assessment')}
             >
               Assessments
             </button>
-            <button
-              className={`${selectedOption === 'Therapy' ? ' border-b-2 border-[#811F67]' : ''} text-white font-bold`}
-              onClick={() => handleOptionChange('Therapy')}
-            >
-              Therapy
-            </button>
+           
           </div>
         </div>
         <PriceBody selectedOption={selectedOption} />

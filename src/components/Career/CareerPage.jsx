@@ -5,10 +5,12 @@ import Reviews from './Reviews'
 import Form from './Form'
 import Footer from '../Footer'
 import Header from '../Header'
+import Newnavbar from '../Newnavbar'
 
 const CareerPage = () => {
   return (
     < >
+    <Newnavbar/>
       <Header/>
       <Heading/>
       <Benefits/>
