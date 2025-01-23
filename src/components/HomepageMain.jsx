@@ -9,7 +9,7 @@ import SEO from "./config/Seo";
 import Offer from "./Offer";
 import Newnavbar from "./Newnavbar";
 import Flyer from "./Flyer";
-const HomepageMain = () => {
+const Homepagemain = () => {
   return (
 
     <>
@@ -34,4 +34,4 @@ const HomepageMain = () => {
   );
 };
 
-export default HomepageMain;
+export default Homepagemain;
