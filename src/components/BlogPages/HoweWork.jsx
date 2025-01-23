@@ -8,7 +8,7 @@ import Newnavbar from "../Newnavbar";
 import background from './background.png'
 
 
-const HoweWork = () => {
+const Howework = () => {
   const [openMilestone, setOpenMilestone] = useState(null);
 
   // Static hardcoded data
@@ -231,4 +231,4 @@ const HoweWork = () => {
   );
 };
 
-export default HoweWork;
+export default Howework;
