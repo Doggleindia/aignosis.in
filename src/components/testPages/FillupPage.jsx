@@ -91,7 +91,7 @@ export const FillupPage = () => {
         });
 
         console.log("going to  data collection", testData.dataCollectionMode);
-        navigate("/download");
+        navigate("/thankyou");
       }
     } catch (error) {
       console.error("Permission denied for webcam and microphone:", error);

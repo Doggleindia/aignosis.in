@@ -292,7 +292,7 @@ const VideoPlayback = () => {
         {isVideoEnded ? (
           <button
             onClick={() => {
-              window.location.replace("/download");
+              navigate('/test/fillup');
             }}
             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
           >
