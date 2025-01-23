@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Router, Route, and Routes
-import HomepageMain from "./components/HomepageMain"; // Import the HomepageMain component
+import HomepageMain from "./components/Homepagemain"; // Import the HomepageMain component
 import AboutUs from "./components/AboutUs";
 import PartnershipPage from "./components/PartnershipPage";
 import PatientHistory from "./components/PatientHistory"; // Import the combined PatientHistory component
