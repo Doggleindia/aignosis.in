@@ -268,7 +268,7 @@ const Header = () => {
                               }`}
                             aria-label="Service 2"
                           >
-                            Profile1
+                            Profile
                           </Link>
                           <Link
                             to="/orderhistory"
