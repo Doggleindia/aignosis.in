@@ -16,18 +16,17 @@ import axiosInstance from "../config/axiosInstance";
 import "./PriceBody.css"
 import most from './most.png'
 
-import p1 from "../../assets/pricepage/p1.png"
-import p2 from "../../assets/pricepage/p2.png"
-import p3 from "../../assets/pricepage/p3.png"
-import p4 from "../../assets/pricepage/o4.png"
-import p5 from "../../assets/pricepage/p5.png"
+import p1 from "../../assets/assesment/1.png"
+import p2 from "../../assets/assesment/2.png"
+import p3 from "../../assets/assesment/3.png"
+import p4 from "../../assets/assesment/4.png"
+import p5 from "../../assets/assesment/5.png"
 
-import t1 from "../../assets/pricepage/t1.png"
-import t2 from "../../assets/pricepage/t2.png"
-import t3 from "../../assets/pricepage/t3.png"
-import t4 from "../../assets/pricepage/t4.png"
-import t5 from "../../assets/pricepage/t5.png"
-import monthsToQuarters from "date-fns/monthsToQuarters";
+import t1 from "../../assets/child therapy/5.png"
+import t2 from "../../assets/child therapy/6.png"
+import t3 from "../../assets/child therapy/7.png"
+import t4 from "../../assets/child therapy/8.png"
+import t5 from "../../assets/child therapy/9.png"
 
 
 

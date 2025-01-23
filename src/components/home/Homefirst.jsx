@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import HomePageCard from "./HomePageCard";
 import { Link } from "react-router-dom";
-import m1 from "../../assets/mock1.png";
-import m2 from "../../assets/mock2.png";
+import m1 from "../../assets/h1.png";
+import m2 from "../../assets/h2.png";
 import sharks from "../../assets/7.png"
 import star from './star.png'
 

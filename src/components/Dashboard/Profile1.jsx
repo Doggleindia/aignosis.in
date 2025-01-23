@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBell, FaPlus, FaUserEdit } from "react-icons/fa";
 import Newnavbar from '../Newnavbar';
 import Header from '../Header';
 import Profile2 from './Profile2';
 import Profile3 from './Profile3';
 import Profile4 from './Profile4';
+import axios from 'axios';  // Import axios at the top
+import { Link } from 'react-router-dom';
+import Booking from './Booking';
 
 const Profile1 = () => {
-  
+  const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
+  const token = localStorage.getItem("authToken");
+  const [profiles, setProfiles] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
 
@@ -18,6 +23,23 @@ const Profile1 = () => {
   const toggleEdit = () => {
     setIsEditing((prev) => !prev);
   };
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/profiles`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        setProfiles(response.data.profiles); // Set the fetched profiles
+      } catch (err) {
+        console.error('Error fetching profiles:', err);
+        setError('Error fetching profiles');
+      }
+    };
+    fetchProfiles();
+  }, [token]);
 
   return (
     <>
@@ -35,12 +57,31 @@ const Profile1 = () => {
             {/* Avatar Section */}
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">V</span>
+                {profiles.length > 0 && profiles[0].profilePicUrl ? (
+                  <div className="w-full h-full bg-gray-500 overflow-hidden rounded-full flex items-center justify-center">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={profiles[0].profilePicUrl}
+                      alt="Profile"
+                    />
+                  </div>
+
+                ) : (
+                  <div className="w-full h-full bg-gray-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-lg">?</span> {/* Default placeholder */}
+                  </div>
+                )}
               </div>
               <div>
                 <h2 className="text-white text-base font-medium">Welcome</h2>
-                <p className="text-white font-bold text-xl">Vinay Prasad</p>
-                <p className="text-white text-xs">+9876543567</p>
+                {profiles.length > 0 ? (
+                  <>
+                    <p className="text-white font-bold text-xl">{profiles[0].name}</p>
+                    <p className="text-white text-xs">{profiles[0].email}</p>
+                  </>
+                ) : (
+                  <p className="text-white text-xs">No profile data available</p>
+                )}
               </div>
             </div>
             {/* Notification Icon */}
@@ -121,14 +162,14 @@ const Profile1 = () => {
               {/* Dashboard Container */}
               <div className="mt-5 px-5">
                 <h3 className="font-semibold">
-                  Dashboard-<span className="text-[#9C00AD]">Profile</span>
+                  <Link to="/dashboard">Dashboard</Link>  -<span className="text-[#9C00AD] ml-1"><Link to="/profile1">Profiles</Link></span>
                 </h3>
               </div>
           
               {/* Profile and P1 Container */}
               <div className="mt-5 px-5 flex flex-wrap items-center justify-between">
                 {/* Left Section: Profile */}
-                <h3 className="font-semibold">Profile 1</h3>
+                <h3 className="font-semibold">Profile</h3>
           
                 {/* Right Section: P1 */}
                 <div className="w-14 flex relative justify-center items-center h-14 bg-[#9C00AD] rounded-full">
@@ -179,7 +220,11 @@ const Profile1 = () => {
                   <span className="ml-2">My reports</span>
                 </button>
               </div>
-
+              {activeButton === 1 && (
+                <div>
+                  <Booking />
+                </div>
+              )}    
               {activeButton === 2 && (
                 <div>
                   <Profile2 />
