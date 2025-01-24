@@ -18,6 +18,7 @@ import most from './most.png'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa6";
 
 import p1 from "../../assets/assesment/1.png"
 import p2 from "../../assets/assesment/2.png"
@@ -560,7 +561,7 @@ const PriceBody = ({ selectedOption }) => {
                 </div>
               </div>
             </div>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <div className="flex gap-5">
                 <div className="w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6">
                   <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
@@ -587,7 +588,6 @@ const PriceBody = ({ selectedOption }) => {
                 <span className="text-2xl font-semibold text-white">Add Therapy</span>
               </div>
               <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
-                {/* Card 1 */}
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
@@ -595,7 +595,6 @@ const PriceBody = ({ selectedOption }) => {
                       }`}
                     onClick={() => handleCardSelect(index, card.amount)}
                   >
-                    {/* "Most Popular" image tag for the second card */}
                     {index === 1 && (
                       <img
                         src={most}
@@ -632,7 +631,6 @@ const PriceBody = ({ selectedOption }) => {
 
               </div>
               <div className="flex mt-5 gap-4">
-                {/* Share Button */}
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
                     onClick={() => {
@@ -641,7 +639,7 @@ const PriceBody = ({ selectedOption }) => {
                           .share({
                             title: "Check this out!",
                             text: "I found something interesting for you.",
-                            url: window.location.href, // Current page URL
+                            url: window.location.href,
                           })
                           .then(() => console.log("Content shared successfully"))
                           .catch((error) => console.error("Error sharing content", error));
@@ -668,16 +666,30 @@ const PriceBody = ({ selectedOption }) => {
                 </div>
               </div>
               <div className="flex mt-5 gap-4">
-                {/* Add to Cart Button */}
-                {/* <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
                         Add to cart
                       </button>
                     </div>
-                  </div> */}
+                  </div> 
               </div>
+            </div> */}
+            <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
+              <h3 className="text-lg font-semibold">Coming Soon</h3>
+              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
+              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
+              <a
+                href="https://wa.me/+918209860578"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
+              >
+                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
+              </a>
             </div>
+
+
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
@@ -752,7 +764,7 @@ const PriceBody = ({ selectedOption }) => {
                   Improved Focus & Learning                  </span>
               </div>
             </div>
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <div className="flex flex-col gap-5">
                 <div className="w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
                   onClick={() => handleCardSelect(5, 499)}>
@@ -775,14 +787,13 @@ const PriceBody = ({ selectedOption }) => {
                   <h1 className="text-xs">(MRP incl. all taxes)</h1>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* Therapy Options */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
               <div className="flex flex-wrap justify-center gap-4 mt-4">
-                {/* Therapy Cards */}
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
@@ -790,7 +801,6 @@ const PriceBody = ({ selectedOption }) => {
                       }`}
                     onClick={() => handleCardSelect(index, card.amount)}
                   >
-                    {/* Add "Most Popular" image tag for the second card */}
                     {index === 1 && (
                       <img
                         src={most}
@@ -821,7 +831,6 @@ const PriceBody = ({ selectedOption }) => {
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap justify-center gap-4 mt-4">
               <button onClick={() => {
                 if (navigator.share) {
@@ -840,23 +849,32 @@ const PriceBody = ({ selectedOption }) => {
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                 Share
               </button>
-              {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+               <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                   Add to cart
-                </button> */}
+                </button> 
               <button
                 onClick={handlePayment}
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order
               </button>
+            </div> */}
+            <div className="flex w-full border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[8vw]">
+              <h3 className="text-lg font-semibold">Coming Soon</h3>
+              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
+              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
+              <a
+                href="https://wa.me/+918209860578"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
+              >
+                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
 
       {/* <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} /> */}
       {paymentStatus && <p className="payment-status">{paymentStatus}</p>}
