@@ -59,7 +59,7 @@ const Therapy = () => {
         <PricepageBanefits />
         <HowitWorks />
         <HowtoUseOptically />
-        <CustomerLove />
+        {/* <CustomerLove /> */}
         <Features />
         <FactorImpacting />
         <ContactPage />
