@@ -44,35 +44,47 @@ const Header = () => {
     setActiveLink(path);
   };
 
-   useEffect(() => {
-     const checkAuth = async () => {
-       const token = localStorage.getItem("authToken");
-       try {
-         console.log(authUser, "authUser1");
-         // Verify the token with the backend
-         const response = await axiosInstance.post(
-           "/verifyJwt",
-           {}, // Empty body for the POST request
-           {
-             headers: {
-               Authorization: `Bearer ${token}`, // Add the token in the headers
-             },
-           });
-         setAuthUser(true)
+  const handleLogout = () => {
+    // Remove token from local storage
+    localStorage.removeItem("authToken");
 
-         if (!response.data.success) {
-           console.log(authUser, "authUser2");
-           // Token verification failed, redirect to login
-           setAuthUser(false)
-         }
-       } catch (error) {
-         console.error("Token verification failed:", error);
-         setAuthUser(false)
-       }
-     }
-     checkAuth();
-   }, []);
-   
+    // Clear other user-related data if necessary
+    setAuthUser(null); // Update state to reflect logged-out status
+
+    // Redirect to login page
+    window.location.href = "/";
+  };
+
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = localStorage.getItem("authToken");
+      try {
+        console.log(authUser, "authUser1");
+        // Verify the token with the backend
+        const response = await axiosInstance.post(
+          "/verifyJwt",
+          {}, // Empty body for the POST request
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Add the token in the headers
+            },
+          });
+        setAuthUser(true)
+
+        if (!response.data.success) {
+          console.log(authUser, "authUser2");
+          // Token verification failed, redirect to login
+          setAuthUser(false)
+        }
+      } catch (error) {
+        console.error("Token verification failed:", error);
+        setAuthUser(false)
+      }
+    }
+    checkAuth();
+  }, []);
+
   return (
     <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-20 transition-transform duration-300 translate-y-0 backdrop-blur-md">
       <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] 2xl:py-[10px]">
@@ -210,47 +222,47 @@ const Header = () => {
             Clinic
           </Link>
           <div className="relative group">
-  <button className="text-sm md:text-base font-raleway text-[#F6E8FB] hover:underline">
-    Blog
-  </button>
-  <div
-    className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out hidden group-hover:block"
-    style={{
-      background:
-        "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
-      padding: "1rem 0",
-      borderRadius: "8px",
-    }}
-  >
-    <ul className="space-y-2 flex flex-col justify-center items-center">
-      <li>
-        <Link
-          to="/blog"
-          onClick={() => handleLinkClick("/blog")}
-          className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/blog" ? "text-[#B740A1]" : ""
-            }`}
-          aria-label="Blogs"
-        >
-          Blogs
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/Howework"
-          onClick={() => handleLinkClick("/Howework")}
-          className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""
-            }`}
-          aria-label="How We Work"
-        >
-          How We Work
-        </Link>
-      </li>
-    </ul>
-  </div>
-</div>
+            <button className="text-sm md:text-base font-raleway text-[#F6E8FB] hover:underline">
+              Blog
+            </button>
+            <div
+              className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out hidden group-hover:block"
+              style={{
+                background:
+                  "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
+                padding: "1rem 0",
+                borderRadius: "8px",
+              }}
+            >
+              <ul className="space-y-2 flex flex-col justify-center items-center">
+                <li>
+                  <Link
+                    to="/blog"
+                    onClick={() => handleLinkClick("/blog")}
+                    className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/blog" ? "text-[#B740A1]" : ""
+                      }`}
+                    aria-label="Blogs"
+                  >
+                    Blogs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Howework"
+                    onClick={() => handleLinkClick("/Howework")}
+                    className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""
+                      }`}
+                    aria-label="How We Work"
+                  >
+                    How We Work
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
 
 
-          
+
 
           {authUser ? (
             <>
@@ -356,6 +368,12 @@ const Header = () => {
                       </Link>
                     </li> */}
                       </ul>
+                      <button
+                        onClick={handleLogout}
+                        className="border-b-2 border-[#952981] w-[18vw] p-3 md:text-base hover:text-[#B740A1]  transition duration-200"
+                      >
+                        Logout
+                      </button>
                     </div>
                   )}
                 </div>
@@ -375,17 +393,17 @@ const Header = () => {
             </>
           ) : (
             <Link
-  to="/login"
-  onClick={() => handleLinkClick("/login")}
-  className="group border border-[#B740A1] p-2 px-4 hover:bg-pink-500 rounded-[30px]"
->
-  <span className="flex items-center 2xl:text-base md:text-sm m-auto text-xl text-white">
-    Log in
-    <div className="w-[1.8rem] h-[1.8rem] flex justify-center items-center text-white text-xl bg-[#B740A1] rounded-full ml-2 group-hover:bg-white group-hover:text-black transition duration-300">
-      <GoArrowUpRight />
-    </div>
-  </span>
-</Link>
+              to="/login"
+              onClick={() => handleLinkClick("/login")}
+              className="group border border-[#B740A1] p-2 px-4 hover:bg-pink-500 rounded-[30px]"
+            >
+              <span className="flex items-center 2xl:text-base md:text-sm m-auto text-xl text-white">
+                Log in
+                <div className="w-[1.8rem] h-[1.8rem] flex justify-center items-center text-white text-xl bg-[#B740A1] rounded-full ml-2 group-hover:bg-white group-hover:text-black transition duration-300">
+                  <GoArrowUpRight />
+                </div>
+              </span>
+            </Link>
 
           )}
         </div>
@@ -542,58 +560,65 @@ const Header = () => {
             Clinic
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
-
-          
           <div
-      className="relative text-lg p-4 w-full text-left"
-      onClick={() => setDropdownOpen3(!dropdownOpen3)} // Toggle dropdown
-    >
-      <span className="flex justify-between items-center">
-        Blog
-        {dropdownOpen3 ? (
-          <RiArrowDropUpLine size={30} />
-        ) : (
-          <RiArrowDropDownLine size={30} />
-        )}
-      </span>
-      {dropdownOpen3 && (
-        <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
-          {/* Blogs Link */}
-          <Link
-            to="/blog"
-            onClick={() => {
-              handleLinkClick("/blog");
-              toggleMenu();
-            }}
-            className={`block p-4 ${activeLink === "/blog" ? "text-[#B740A1]" : ""}`}
+            className="relative text-lg p-4 w-full text-left"
+            onClick={() => setDropdownOpen3(!dropdownOpen3)} // Toggle dropdown
           >
-            Blogs
-          </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+            <span className="flex justify-between items-center">
+              Blog
+              {dropdownOpen3 ? (
+                <RiArrowDropUpLine size={30} />
+              ) : (
+                <RiArrowDropDownLine size={30} />
+              )}
+            </span>
+            {dropdownOpen3 && (
+              <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+                {/* Blogs Link */}
+                <Link
+                  to="/blog"
+                  onClick={() => {
+                    handleLinkClick("/blog");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/blog" ? "text-[#B740A1]" : ""}`}
+                >
+                  Blogs
+                </Link>
+                <div className="border-t-2 w-full border-[#952981]"></div>
 
-          {/* How We Work Link */}
-        
+                {/* How We Work Link */}
 
-          {/* Additional Blog Categories */}
-          <Link
-            to="/Howework"
-            onClick={() => {
-              handleLinkClick("/case-studies");
-              toggleMenu();
-            }}
-            className={`block p-4 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""}`}
-          >
-            How We Work
-          </Link>
-          
-        </div>
-      )}
-    </div>
+
+                {/* Additional Blog Categories */}
+                <Link
+                  to="/Howework"
+                  onClick={() => {
+                    handleLinkClick("/case-studies");
+                    toggleMenu();
+                  }}
+                  className={`block p-4 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""}`}
+                >
+                  How We Work
+                </Link>
+
+              </div>
+            )}
+
+          </div>
 
 
           {authUser ? (
             <>
               <div className="border-t-2 w-full border-[#952981]"></div>
+              <button
+                onClick={handleLogout}
+                className="text-lg p-4 w-full text-left"
+              >
+                Logout
+              </button>
+              <div className="border-t-2 w-full border-[#952981]"></div>
+
               <div
                 className="relative text-lg p-4 w-full text-left"
                 onClick={() => setDropdownOpen2(!dropdownOpen2)}
@@ -655,7 +680,7 @@ const Header = () => {
                     >
                       Order History
                     </Link>
-                          <div className="border-t-2 w-full border-[#952981]"></div>
+                    <div className="border-t-2 w-full border-[#952981]"></div>
                     {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
 
                     {/* <Link
