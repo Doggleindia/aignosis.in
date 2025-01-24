@@ -573,8 +573,8 @@ const PriceBody1 = ({ selectedOption }) => {
                     <h1 className="text-xs">(MRP incl. all taxes)</h1>
                   </div>
                 </div>
-              </div> */}
-            {/* <div className="mt-5">
+              </div>  */}
+            <div className="mt-5">
               <div className="">
                 <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
               </div>
@@ -656,20 +656,19 @@ const PriceBody1 = ({ selectedOption }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex mt-5 gap-4">
-]                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+              {/* <div className="flex mt-5 gap-4">
+                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
                         Add to cart
                       </button>
                     </div>
                   </div> 
-              </div>
-            </div> */}
-            <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
+              </div> */}
+            </div>
+            {/* <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
               <h3 className="text-lg font-semibold">Coming Soon</h3>
               <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
-              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
               <a
                 href="https://wa.me/+918209860578"
                 target="_blank"
@@ -678,7 +677,7 @@ const PriceBody1 = ({ selectedOption }) => {
               >
                 <FaWhatsapp /> <span className="text-sm">Chat Now</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
@@ -796,7 +795,7 @@ const PriceBody1 = ({ selectedOption }) => {
                   Improved Focus & Learning                  </span>
               </div>
             </div>
-            {/* <div className="mt-4">
+            <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
@@ -836,9 +835,9 @@ const PriceBody1 = ({ selectedOption }) => {
                 ))}
 
               </div>
-            </div> */}
+            </div>
 
-            {/* <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <div className="flex flex-wrap justify-center gap-4 mt-4">
               <button onClick={() => {
                 if (navigator.share) {
                   navigator
@@ -856,20 +855,19 @@ const PriceBody1 = ({ selectedOption }) => {
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                 Share
               </button>
-               <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+               {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                   Add to cart
-                </button> 
+                </button>  */}
               <button
                 onClick={handlePayment}
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order
               </button>
-            </div> */}
-            <div className="flex w-full border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[8vw]">
+            </div>
+            {/* <div className="flex w-full border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[8vw]">
               <h3 className="text-lg font-semibold">Coming Soon</h3>
               <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
-              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
               <a
                 href="https://wa.me/+918209860578"
                 target="_blank"
@@ -878,7 +876,7 @@ const PriceBody1 = ({ selectedOption }) => {
               >
                 <FaWhatsapp /> <span className="text-sm">Chat Now</span>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
