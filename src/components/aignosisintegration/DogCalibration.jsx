@@ -53,11 +53,11 @@ const DogCalibration = () => {
     [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
-  const audio = new Audio(`/dog_bark.wav?timestamp=${Date.now()}`);
+  const audio = new Audio(`src/assets/dog_bark.wav?timestamp=${Date.now()}`);
   useEffect(() => {
     // const audio = new Audio("/dog_bark.wav");
     // Initialize and play the audio in a loop
-
+    
 
     const handleFirstInteraction = () => {
       const docElm = document.documentElement;
@@ -75,7 +75,7 @@ const DogCalibration = () => {
           docElm.msRequestFullscreen();
         }
       };
-  
+      
       requestFullScreen();
   
       // Remove the event listener after first interaction
@@ -85,16 +85,18 @@ const DogCalibration = () => {
     document.addEventListener('click', handleFirstInteraction);
   document.addEventListener('touchstart', handleFirstInteraction);
 
+  const handleAudioPlay = () => {
+    console.log("Audio playing");
+    audio.loop = true; // Enable looping
+    audio.play().catch((error) => console.error("Audio play error:", error));
+  };
+
+  // handleAudioPlay();
+  // Wait for the audio to be fully loaded
+  audio.addEventListener("canplaythrough", handleAudioPlay);
 
 
-
-    const handleAudioPlay = () => {
-      audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
-    };
-
-    // Wait for the audio to be fully loaded
-    audio.addEventListener("canplaythrough", handleAudioPlay);
+    
     // save patient uid and tid in context
     setTestData({
       ...testData,
