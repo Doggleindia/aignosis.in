@@ -51,6 +51,7 @@ import Page3 from "./components/report pages/Page3";
 import Page4 from "./components/report pages/Page4";
 import Page5 from "./components/report pages/Page5";
 import GeneratePDF from "./components/report pages/GeneratePDF";
+import DownloadPage from "./components/testPages/DownloadPage";
 import Howework from "./components/BlogPages/Howework.jsx";
 import Therapy from "./components/Therapy";
 
@@ -129,6 +130,7 @@ const App = () => {
         <Route path="/download" element={<Report />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/thankyou' element={<DownloadPage />} />
 
         <Route path='/profile1' element={<Profile1 />} />
         <Route path='/orderhistory' element={<Orderhistory />} />

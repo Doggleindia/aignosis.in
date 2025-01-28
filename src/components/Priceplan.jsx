@@ -58,7 +58,7 @@ const Priceplan = () => {
         <PricepageBanefits />
         <HowitWorks />
         <HowtoUseOptically />
-        <CustomerLove />
+        {/* <CustomerLove /> */}
         <Features />
         <FactorImpacting />
         <ContactPage />
