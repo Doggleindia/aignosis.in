@@ -23,7 +23,7 @@ const Homepagemain = () => {
         <Homepage />
         <Offer/>
         <WhatsAppButton />
-        <Laptop />
+        {/* <Laptop /> */}
         <ContactPage />
         <BlogFooter />
       </div>
