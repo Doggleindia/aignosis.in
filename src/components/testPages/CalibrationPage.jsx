@@ -252,7 +252,7 @@ export default CalibrationPage;
   
 //       cleanupMediaStream();
 //       setIsUploading(false);
-//       window.location.replace('/download');
+//       window.location.replace('/thankyou');
 //     } catch (error) {
 //       console.error('Error uploading video:', error);
 //       cleanupMediaStream();
@@ -438,7 +438,7 @@ export default CalibrationPage;
 //           {isVideoEnded && !isUploading && (
 //             <button
 //               onClick={()=>{
-//                 window.location.replace('/download');
+//                 window.location.replace('/thankyou');
 //               }} 
 //               className="absolute bottom-10 px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors z-20"
 //             >

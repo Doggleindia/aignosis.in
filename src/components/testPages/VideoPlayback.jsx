@@ -264,10 +264,10 @@ const VideoPlayback = () => {
         ref={videoRef}
         src={
           testData.videolanguage === "English"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V5.mp4"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_english_v6.mp4"
             : testData.videolanguage === "Hindi"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
-            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_hindi_v6.mp4"
+            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_hindi_v6.mp4"
         }
         controls
         autoPlay={false}
@@ -292,7 +292,7 @@ const VideoPlayback = () => {
         {isVideoEnded ? (
           <button
             onClick={() => {
-              window.location.replace("/download");
+              navigate('/test/fillup');
             }}
             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
           >
