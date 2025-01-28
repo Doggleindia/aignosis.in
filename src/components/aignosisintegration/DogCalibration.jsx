@@ -77,7 +77,8 @@ const DogCalibration = () => {
       };
       
       requestFullScreen();
-  
+      audio.addEventListener("canplaythrough", handleAudioPlay);
+
       // Remove the event listener after first interaction
       document.removeEventListener('click', handleFirstInteraction);
       document.removeEventListener('touchstart', handleFirstInteraction);
@@ -93,7 +94,7 @@ const DogCalibration = () => {
 
   // handleAudioPlay();
   // Wait for the audio to be fully loaded
-  audio.addEventListener("canplaythrough", handleAudioPlay);
+  // audio.addEventListener("canplaythrough", handleAudioPlay);
 
 
     
