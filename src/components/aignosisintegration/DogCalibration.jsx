@@ -53,18 +53,50 @@ const DogCalibration = () => {
     [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
-  const audio = new Audio(`/dog_bark.wav?timestamp=${Date.now()}`);
+  const audio = new Audio(`src/assets/dog_bark.wav?timestamp=${Date.now()}`);
   useEffect(() => {
     // const audio = new Audio("/dog_bark.wav");
     // Initialize and play the audio in a loop
+    
 
-    const handleAudioPlay = () => {
-      audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
+    const handleFirstInteraction = () => {
+      const docElm = document.documentElement;
+      
+      const requestFullScreen = () => {
+        if (docElm.requestFullscreen) {
+          docElm.requestFullscreen().catch(err => {
+            console.warn('Fullscreen request failed:', err);
+          });
+        } else if (docElm.mozRequestFullScreen) {
+          docElm.mozRequestFullScreen();
+        } else if (docElm.webkitRequestFullScreen) {
+          docElm.webkitRequestFullScreen();
+        } else if (docElm.msRequestFullscreen) {
+          docElm.msRequestFullscreen();
+        }
+      };
+      
+      requestFullScreen();
+  
+      // Remove the event listener after first interaction
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
     };
+    document.addEventListener('click', handleFirstInteraction);
+  document.addEventListener('touchstart', handleFirstInteraction);
 
-    // Wait for the audio to be fully loaded
-    audio.addEventListener("canplaythrough", handleAudioPlay);
+  const handleAudioPlay = () => {
+    console.log("Audio playing");
+    audio.loop = true; // Enable looping
+    audio.play().catch((error) => console.error("Audio play error:", error));
+  };
+
+  // handleAudioPlay();
+  // Wait for the audio to be fully loaded
+  audio.addEventListener("canplaythrough", handleAudioPlay);
+
+
+    
     // save patient uid and tid in context
     setTestData({
       ...testData,
@@ -107,6 +139,29 @@ const DogCalibration = () => {
     return () => {
       audio.pause();
       // audio.currentTime = 0; // Reset audio
+
+
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+      if (document.fullscreenElement) {
+        try {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+          }
+        } catch (err) {
+          console.warn('Could not exit fullscreen', err);
+        }
+      }
+
+
+
+
     };
   }, []);
   const handleNextButtonClick = () => {

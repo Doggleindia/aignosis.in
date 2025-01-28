@@ -49,7 +49,7 @@ const PatientHistoryForm4 = () => {
 
       // Navigate to the final submission page or the next form
       // Change to your final route
-      navigate("/download");
+      navigate("/thankyou");
     } catch (error) {
       console.error("Error during navigation:", error);
       // Optionally, display an error message to the user
