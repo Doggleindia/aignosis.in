@@ -15,6 +15,11 @@ import { FaCcMastercard } from "react-icons/fa";
 import axiosInstance from "../config/axiosInstance";
 import "./PriceBody.css"
 import most from './most.png'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa6";
+
 
 import p1 from "../../assets/pricepage/p1.png"
 import p2 from "../../assets/pricepage/p2.png"
@@ -35,12 +40,12 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false); 
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCardSelect = (id, price) => {
     setSelectedCard(id); // Update the selected card ID
-    
+
   };
 
   const handleNextStep = () => {
@@ -327,6 +332,7 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 };
 
 const PriceBody1 = ({ selectedOption }) => {
+  const navigate = useNavigate(); // Initialize navigation
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [amount, setAmount] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -342,8 +348,6 @@ const PriceBody1 = ({ selectedOption }) => {
     setAmount(cardAmount); // Update the selected amount
   };
 
-  console.log(amount, "amount");
-
   const handleBuyNowClick = () => {
     if (!amount) {
       alert("Please select a plan before proceeding.");
@@ -356,12 +360,26 @@ const PriceBody1 = ({ selectedOption }) => {
     setIsPopupVisible(false);
   };
   const storedToken = localStorage.getItem("authToken");
-  console.log(storedToken), "storedToken";
 
   const handlePayment = async () => {
-    try {
-      console.log("enter first");
+    // Check if the user is logged in
+    if (!storedToken) {
+      // Show a toast message
 
+      toast.error("You need to log in to proceed with the payment.");
+
+      // Redirect after a brief delay to allow the toast message to show
+      setTimeout(() => {
+        navigate("/login");
+      }, 2500); // Adjust the delay as needed (e.g., 1500ms)
+      return; // Exit the function
+    }
+
+
+    try {
+      console.log("Initiating payment process...");
+
+      // Create order on the backend
       const { data: order } = await axiosInstance.post(
         "/api/payment/create-order",
         { amount },
@@ -372,8 +390,9 @@ const PriceBody1 = ({ selectedOption }) => {
         }
       );
 
+      // Set up Razorpay options
       const options = {
-        key: "rzp_test_v6tbOXA491rzAG",
+        key: "rzp_live_bJB6v4FhsKMk9Y",
         amount: order.amount,
         currency: order.currency,
         name: "Test Payment",
@@ -387,8 +406,9 @@ const PriceBody1 = ({ selectedOption }) => {
             amount,
             currency: "INR",
           };
+
           try {
-            console.log("come in verify");
+            console.log("Verifying payment...");
             const { data } = await axiosInstance.post(
               "/api/payment/verify-payment",
               verificationData,
@@ -399,9 +419,9 @@ const PriceBody1 = ({ selectedOption }) => {
               }
             );
             setPaymentStatus(data.message || "Payment successful!");
-            console.log(data, "Paymentdata");
-
+            console.log("Payment verified:", data);
           } catch (error) {
+            console.error("Payment verification failed:", error);
             setPaymentStatus("Payment verification failed.");
           }
         },
@@ -414,7 +434,7 @@ const PriceBody1 = ({ selectedOption }) => {
       razorpay.open();
     } catch (error) {
       console.error("Payment initiation failed:", error);
-      alert("Failed to initiate payment. Please try again.");
+      toast.error("Failed to initiate payment. Please try again.");
     }
   };
 
@@ -446,54 +466,54 @@ const PriceBody1 = ({ selectedOption }) => {
   ];
   return (
     <>
-      
-        <div className="">
-          <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 2xl:px-[5vw] md:px-10">
+      <ToastContainer />
+      <div className="">
+        <div className=" hidden md:flex w-full h-full font-raleway 2xl:p-10 md:p-4 2xl:px-[5vw] md:px-10">
           <div className="flex">
-                {/* Left Column: Thumbnails */}
-                <div className="flex w-[20%] overflow-hidden flex-col gap-4">
-                  {images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
-                      onClick={() => setSelectedImage(image)} // Update selected image on click
-                    >
-                      <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
-                    </div>
-                  ))}
+            {/* Left Column: Thumbnails */}
+            <div className="flex w-[20%] overflow-hidden flex-col gap-4">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
+                  onClick={() => setSelectedImage(image)} // Update selected image on click
+                >
+                  <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
                 </div>
+              ))}
+            </div>
 
-                {/* Right Column: Display Selected Image */}
-                <div className="flex ml-[1vw] w-[40vw] h-[43.75vw] overflow-hidden">
-                  <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]">
-                    <img
-                      className="w-full h-full object-cover"
-                      src={selectedImage || images[0]} // Default to the first image if none is selected
-                      alt="Selected"
-                    />
-                  </div>
-                </div>
+            {/* Right Column: Display Selected Image */}
+            <div className="flex ml-[1vw] w-[40vw] h-[43.75vw] overflow-hidden">
+              <div className="w-[40vw] h-[43.75vw] bg-[#D9D9D9]">
+                <img
+                  className="w-full h-full object-cover"
+                  src={selectedImage || images[0]} // Default to the first image if none is selected
+                  alt="Selected"
+                />
               </div>
-            <div className="w-[45%] pr-4">
-              <div className="flex flex-col">
-                <h1 className="text-4xl">
-                  Select best therapy plan  For Your Child's Needs
+            </div>
+          </div>
+          <div className="w-[40%] pr-4">
+            <div className="flex flex-col">
+              <h1 className="text-4xl">
+                Select best therapy plan  For Your Child's Needs
 
-                </h1>
-                <p className=" text-xs mt-4  pr-6 font-montserrat text-[#F6E8FB]">
-                  Find the ideal support plan tailored to your child’s unique journey. Our options are designed to provide targeted guidance,whether for developmental assessments, therapy, or academic support, ensuring a comprehensive approach to their growth and success.
-                </p>
+              </h1>
+              <p className=" text-xs mt-4  pr-6 font-montserrat text-[#F6E8FB]">
+                Find the ideal support plan tailored to your child’s unique journey. Our options are designed to provide targeted guidance,whether for developmental assessments, therapy, or academic support, ensuring a comprehensive approach to their growth and success.
+              </p>
 
-                <p className=" text-xs mt-4 pr-6 font-montserrat italic text-[#F6E8FB]">
-                  "Looking to support another child’s journey? You can also gift this assessment, offering meaningful support and valuable insights to families navigating similar paths."
-                </p>
-                {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
+              <p className=" text-xs mt-4 pr-6 font-montserrat italic text-[#F6E8FB]">
+                "Looking to support another child’s journey? You can also gift this assessment, offering meaningful support and valuable insights to families navigating similar paths."
+              </p>
+              {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
               this assessment, offering meaningful support and valuable insights
               to families navigating similar paths."
             </p> */}
-              </div>
-              {/* <div className="mt-4 font-montserrat">
+            </div>
+            {/* <div className="mt-4 font-montserrat">
                 <h1>700₹</h1>
                 <div className="text-[9px]">
                   <h1 className="text-[#F6E8FB]">originally ₹2000</h1>
@@ -503,10 +523,10 @@ const PriceBody1 = ({ selectedOption }) => {
                   <h1 className="text-[#F6E8FB]">Easy & fast procedure</h1>
                 </div>
               </div> */}
-              {/* <div className="mt-4">
+            {/* <div className="mt-4">
                 <h1>Benefits</h1>
               </div> */}
-              {/* <div className="">
+            {/* <div className="">
                 <div className="">
                   <div className="mt-2 flex gap-4">
                     <h1 className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
@@ -532,7 +552,7 @@ const PriceBody1 = ({ selectedOption }) => {
                   </div>
                 </div>
               </div> */}
-              {/* <div className="mt-5">
+            {/* <div className="mt-5">
                 <div className="flex gap-5">
                   <div className="w-[50%] h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
                     <div className="w-[5vw] h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
@@ -554,145 +574,157 @@ const PriceBody1 = ({ selectedOption }) => {
                   </div>
                 </div>
               </div> */}
-              <div className="mt-5">
-                <div className="">
-                  <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+            {/* <div className="mt-5">
+              <div className="">
+                <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+              </div>
+              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
+                {therapyCards.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
+                      }`}
+                    onClick={() => handleCardSelect(index, card.amount)}
+                  >
+                    {index === 1 && (
+                      <img
+                        src={most}
+                        alt="Most Popular"
+                        className="absolute top-[-15px] left-[-15px] w-20 h-auto"
+                      />
+                    )}
+
+                    <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                      <div className="text-center mb-4">
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
+                          {card.discount} Off!
+                        </span>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-lg font-semibold">
+                          ₹{card.amount}{" "}
+                          <span className="line-through text-gray-400">
+                            ₹{card.amount + card.savings}
+                          </span>
+                        </p>
+
+                        <p className="text-xs mt-2">{card.validity}</p>
+                        <p className="text-xs">
+                          {card.sessions} Sessions at ₹{card.sessionCost}/session
+                        </p>
+                        <p className="text-xs font-bold mt-2">
+                          Save ₹{card.savings} overall!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+              <div className="flex mt-5 gap-4">
+                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
+                  <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                    onClick={() => {
+                      if (navigator.share) {
+                        navigator
+                          .share({
+                            title: "Check this out!",
+                            text: "I found something interesting for you.",
+                            url: window.location.href, // Current page URL
+                          })
+                          .then(() => console.log("Content shared successfully"))
+                          .catch((error) => console.error("Error sharing content", error));
+                      } else {
+                        alert("Web Share API is not supported in your browser.");
+                      }
+                    }}
+                  >
+                    <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                      Share
+                    </button>
+                  </div>
                 </div>
-                <div className="flex mt-6 overflow-x-auto scrollbar-hidden gap-4">
-                  {/* Card 1 */}
-                  {therapyCards.map((card, index) => (
-  <div
-    key={index}
-    className={`relative therapy-card ${selectedCard === index ? "selected" : ""}`}
-    onClick={() => handleCardSelect(index, card.amount)}
-  >
-    {/* "Most Popular" image tag for the second card */}
-    {index === 1 && (
-      <img
-        src={most}
-        alt="Most Popular"
-        className="absolute top-[-15px] left-[-15px] w-20 h-auto"
-      />
-    )}
-
-    <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
-      <div className="text-center mb-4">
-        <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
-          {card.discount} Off!
-        </span>
-      </div>
-      <div className="text-center">
-        <p className="text-lg font-semibold">
-          ₹{card.amount}{" "}
-          <span className="line-through text-gray-400">
-            ₹{card.amount + card.savings}
-          </span>
-        </p>
-
-        <p className="text-xs mt-2">{card.sessions} Month Validity</p>
-        <p className="text-xs">15 Sessions at ₹{card.sessionCost}/session</p>
-        <p className="text-xs font-bold mt-2">
-          Save ₹{card.savings} overall!
-        </p>
-      </div>
-    </div>
-  </div>
-))}
-
-                </div>
-                <div className="flex mt-5 gap-4">
-                  {/* Share Button */}
-                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
-                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
-                      onClick={() => {
-                        if (navigator.share) {
-                          navigator
-                            .share({
-                              title: "Check this out!",
-                              text: "I found something interesting for you.",
-                              url: window.location.href, // Current page URL
-                            })
-                            .then(() => console.log("Content shared successfully"))
-                            .catch((error) => console.error("Error sharing content", error));
-                        } else {
-                          alert("Web Share API is not supported in your browser.");
-                        }
-                      }}
+                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
+                  <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
+                    <button
+                      //   onClick={handleBuyNowClick}
+                      onClick={handlePayment}
+                      className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                     >
-                      <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                        Share
-                      </button>
-                    </div>
-                  </div>
-                  <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
-                    <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                      <button
-                        //   onClick={handleBuyNowClick}
-                        onClick={handlePayment}
-                        className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
-                      >
-                        Buy now
-                      </button>
-                    </div>
+                      Pre order
+                    </button>
                   </div>
                 </div>
-                <div className="flex mt-5 gap-4">
-                  {/* Add to Cart Button */}
-                  {/* <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
+              </div>
+              <div className="flex mt-5 gap-4">
+]                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
                     <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                       <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
                         Add to cart
                       </button>
                     </div>
-                  </div> */}
-                </div>
+                  </div> 
               </div>
+            </div> */}
+            <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
+              <h3 className="text-lg font-semibold">Coming Soon</h3>
+              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
+              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
+              <a
+                href="https://wa.me/+918209860578"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
+              >
+                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
+              </a>
             </div>
           </div>
-          <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
-            <div className="flex flex-col gap-4 items-center">
-              {/* Center Image */}
-              <div className="w-[90vw] h-[80vw] bg-[#D9D9D9]">
-                <img
-                  className="w-full h-full object-center"
-                  src={selectedImage || images[0]} // Default to the first image if none is selected
-                  alt="Selected"
-                />
-              </div>
+        </div>
+        <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
+          <div className="flex flex-col gap-4 items-center">
+            {/* Center Image */}
+            <div className="w-[90vw] h-[80vw] bg-[#D9D9D9]">
+              <img
+                className="w-full h-full object-center"
+                src={selectedImage || images[0]} // Default to the first image if none is selected
+                alt="Selected"
+              />
+            </div>
 
-              {/* Left Column */}
-              <div className="flex gap-2 w-full mt-4">
-                {images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="w-[20vw] h-[20vw] bg-[#D9D9D9] cursor-pointer"
-                    onClick={() => setSelectedImage(image)} // Update selected image on click
-                  >
-                    <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
-                  </div>
-                ))}
-              </div>
-              {/* Text Content */}
-              <div className="text-left mt-4 px-2">
-                <span className="text-xl font-bold">
-                  Select Perfect Plan For Your Child's Needs
-                </span>
-                <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
-                  Find the ideal support plan tailored to your child’s unique
-                  journey. Our options are designed to provide targeted guidance,
-                  whether for developmental assessments, therapy, or academic
-                  support, ensuring a comprehensive approach to their growth and
-                  success.
-                </p>
-                <p className="italic text-xs mt-2 text-[#F6E8FB]">
-                  "Looking to support another child’s journey? You can also gift
-                  this assessment, offering meaningful support and valuable insights
-                  to families navigating similar paths."
-                </p>
-              </div>
+            {/* Left Column */}
+            <div className="flex gap-2 w-full mt-4">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="w-[20vw] h-[20vw] bg-[#D9D9D9] cursor-pointer"
+                  onClick={() => setSelectedImage(image)} // Update selected image on click
+                >
+                  <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
+                </div>
+              ))}
+            </div>
+            {/* Text Content */}
+            <div className="text-left mt-4 px-2">
+              <span className="text-xl font-bold">
+                Select Perfect Plan For Your Child's Needs
+              </span>
+              <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
+                Find the ideal support plan tailored to your child’s unique
+                journey. Our options are designed to provide targeted guidance,
+                whether for developmental assessments, therapy, or academic
+                support, ensuring a comprehensive approach to their growth and
+                success.
+              </p>
+              <p className="italic text-xs mt-2 text-[#F6E8FB]">
+                "Looking to support another child’s journey? You can also gift
+                this assessment, offering meaningful support and valuable insights
+                to families navigating similar paths."
+              </p>
+            </div>
 
-              {/* Pricing */}
-              {/* <div className="text-left w-full px-2 font-montserrat">
+            {/* Pricing */}
+            {/* <div className="text-left w-full px-2 font-montserrat">
                 <span className="text-2xl">700₹</span>
                 <div className="text-[10px] mt-2 text-[#FFFEF8]">
                   <p>originally ₹2000</p>
@@ -703,8 +735,8 @@ const PriceBody1 = ({ selectedOption }) => {
                 </div>
               </div> */}
 
-              {/* Benefits */}
-              {/* <div className="mt-4">
+            {/* Benefits */}
+            {/* <div className="mt-4">
                 <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
@@ -721,7 +753,7 @@ const PriceBody1 = ({ selectedOption }) => {
                   </span>
                 </div>
               </div> */}
-              {/* <div className="mt-5">
+            {/* <div className="mt-5">
                 <div className="flex flex-col gap-5">
                   <div className="w-full h-full border bg-[#43284C4D] border-[#B740A1] rounded-3xl p-6">
                     <div className="w-[15vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
@@ -743,107 +775,115 @@ const PriceBody1 = ({ selectedOption }) => {
                   </div>
                 </div>
               </div> */}
-              <div className="mt-4">
-                <span className="text-lg text-left px-2 font-semibold">Benefits</span>
-                <div className="mt-4 flex flex-wrap justify-center gap-2">
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Better Social Skills & Communication
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Stronger Emotional Connection
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Happier Families with Clear Guidance
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Boosted Confidence & Happiness
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Faster Developmental Growth                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                    Improved Focus & Learning                  </span>
-                </div>
-              </div>
-              {/* Therapy Options */}
-              <div className="mt-4">
-                <span className="text-xl font-bold text-white text-left px-2">
-                  Add Therapy
+            <div className="mt-4">
+              <span className="text-lg text-left px-2 font-semibold">Benefits</span>
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Better Social Skills & Communication
                 </span>
-                <div className="flex flex-wrap justify-center gap-4 mt-4">
-                  {/* Therapy Cards */}
-                  {therapyCards.map((card, index) => (
-  <div
-    key={index}
-    className={`relative therapy-card ${selectedCard === index ? "selected" : ""}`}
-    onClick={() => handleCardSelect(index, card.amount)}
-  >
-    {/* "Most Popular" image tag for the second card */}
-    {index === 1 && (
-      <img
-        src={most}
-        alt="Most Popular"
-        className="absolute top-[-20px] left-[-15px] w-20 h-auto"
-      />
-    )}
-
-    <div className="mb-2">
-      <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
-        {card.discount}
-      </span>
-    </div>
-    <div>
-      <p className="text-lg font-semibold">
-        ₹{card.amount}{" "}
-        <span className="line-through text-gray-400">₹{card.amount + card.savings}</span>
-      </p>
-      <p className="text-xs mt-2">{card.validity}</p>
-      <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
-      <p className="text-xs font-bold mt-2">
-        Save ₹{card.savings} overall!
-      </p>
-    </div>
-  </div>
-))}
-
-                </div>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Stronger Emotional Connection
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Happier Families with Clear Guidance
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Boosted Confidence & Happiness
+                </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Faster Developmental Growth                  </span>
+                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
+                  Improved Focus & Learning                  </span>
               </div>
-              {/* Benefits */}
-
-
-              {/* Action Buttons */}
+            </div>
+            {/* <div className="mt-4">
+              <span className="text-xl font-bold text-white text-left px-2">
+                Add Therapy
+              </span>
               <div className="flex flex-wrap justify-center gap-4 mt-4">
-                <button onClick={() => {
-                  if (navigator.share) {
-                    navigator
-                      .share({
-                        title: "Check this out!",
-                        text: "I found something interesting for you.",
-                        url: window.location.href, // Current page URL
-                      })
-                      .then(() => console.log("Content shared successfully"))
-                      .catch((error) => console.error("Error sharing content", error));
-                  } else {
-                    alert("Web Share API is not supported in your browser.");
-                  }
-                }}
-                  className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-                  Share
-                </button>
-                {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-                  Add to cart
-                </button> */}
-                <button
-                  onClick={handlePayment}
-                  className="w-[85%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
-                >
-                  Buy now
-                </button>
+                {therapyCards.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
+                      }`}
+                    onClick={() => handleCardSelect(index, card.amount)}
+                  >
+                    {index === 1 && (
+                      <img
+                        src={most}
+                        alt="Most Popular"
+                        className="absolute top-[-20px] left-[-15px] w-20 h-auto"
+                      />
+                    )}
+
+                    <div className="mb-2">
+                      <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
+                        {card.discount}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold">
+                        ₹{card.amount}{" "}
+                        <span className="line-through text-gray-400">₹{card.amount + card.savings}</span>
+                      </p>
+                      <p className="text-xs mt-2">{card.validity}</p>
+                      <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
+                      <p className="text-xs font-bold mt-2">
+                        Save ₹{card.savings} overall!
+                      </p>
+                    </div>
+                  </div>
+                ))}
+
               </div>
+            </div> */}
+
+            {/* <div className="flex flex-wrap justify-center gap-4 mt-4">
+              <button onClick={() => {
+                if (navigator.share) {
+                  navigator
+                    .share({
+                      title: "Check this out!",
+                      text: "I found something interesting for you.",
+                      url: window.location.href, // Current page URL
+                    })
+                    .then(() => console.log("Content shared successfully"))
+                    .catch((error) => console.error("Error sharing content", error));
+                } else {
+                  alert("Web Share API is not supported in your browser.");
+                }
+              }}
+                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                Share
+              </button>
+               <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+                  Add to cart
+                </button> 
+              <button
+                onClick={handlePayment}
+                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
+              >
+                Pre order
+              </button>
+            </div> */}
+            <div className="flex w-full border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[8vw]">
+              <h3 className="text-lg font-semibold">Coming Soon</h3>
+              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
+              {/* <h1 className="mt-2 font-medium text-sm">Enquire on WhatsApp</h1> */}
+              <a
+                href="https://wa.me/+918209860578"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
+              >
+                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
+              </a>
             </div>
           </div>
         </div>
+      </div>
 
-    
+
 
       {/* <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} /> */}
       {paymentStatus && <p className="payment-status">{paymentStatus}</p>}

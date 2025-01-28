@@ -83,7 +83,7 @@ const HowitWorks = () => {
                     <div className="w-full absolute top-[10vw] right-12 flex items-center justify-end h-[20vw]">
                         <div className="w-[13vw] p-2 h-auto">
                             <span className='text-[20px]'>Step 5</span>
-                            <p className='text-[12px] text-[#CACED9]'>Receive Insights Get a detailed report with recommendations and free consultation. Next section add animation and it should be moving slowly</p>
+                            <p className='text-[12px] text-[#CACED9]'>Receive Insights Get a detailed report with recommendations and free consultation.</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[20vw]">
                             <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />

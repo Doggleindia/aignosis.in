@@ -9,12 +9,10 @@ import SEO from "./config/Seo";
 import Offer from "./Offer";
 import Newnavbar from "./Newnavbar";
 import Flyer from "./Flyer";
-const HomepageMain = () => {
+const Homepagemain = () => {
   return (
 
     <>
-    <Flyer/>
-    <Newnavbar/>
       <SEO
         pageTitle="AI-Powered Early Autism Screening Tools | Aignosis"
         canonicalUrl="https://aignosis.in/"
@@ -25,7 +23,7 @@ const HomepageMain = () => {
         <Homepage />
         <Offer/>
         <WhatsAppButton />
-        {/* <Laptop /> */}
+        <Laptop />
         <ContactPage />
         <BlogFooter />
       </div>
@@ -34,4 +32,4 @@ const HomepageMain = () => {
   );
 };
 
-export default HomepageMain;
+export default Homepagemain;
