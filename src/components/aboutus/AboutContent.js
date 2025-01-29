@@ -1,6 +1,8 @@
 import blogimg1 from "../../assets/blogimg1.png";
 import blogimg2 from "./aut.jpg";
 import blogimg3 from "./aut3.webp";
+import blog13 from './blog13.jpg'
+import blogbg from './blog13 bg.jpeg'
 
 const AboutContent = {
   blogs: [
@@ -1475,6 +1477,94 @@ const AboutContent = {
         },
       },
     },
+    {
+      id: "revolutionizing-autism-diagnosis-aignosis",
+      blogimg: blog13,
+      image: blogbg,
+      author: "Divyansh Mangal, Raksheet Jain",
+      time: "January 29, 2025",
+      title: "AIGNOSIS: Transforming Autism Diagnosis in India with Cutting-Edge Technology",
+      pageTitle: "Revolutionizing Child Development with AIGNOSIS: Early Autism Diagnosis Redefined",
+      metaDescription: "Discover how AIGNOSIS, co-founded by Divyansh Mangal and Raksha Jain, is revolutionizing autism diagnosis with a 95% accurate screening tool. Learn about their journey, clinical success, and Shark Tank experience.",
+      permalink: "www.example.com/revolutionizing-autism-diagnosis-aignosis",
+      keywords: [
+        "autism diagnosis",
+        "early autism screening",
+        "child development technology",
+        "autism screening tool",
+        "clinical validation",
+      ],
+      lsi_keywords: [
+        "early autism detection",
+        "pediatric centers",
+        "autism diagnosis technology",
+        "innovation in child healthcare",
+      ],
+      og_metadata: {
+        og_image: "aignosis-early-autism-diagnosis.jpg",
+        og_title: "Revolutionizing Autism Diagnosis: The AIGNOSIS Journey",
+        og_description: "Learn how AIGNOSIS, led by Divyansh Mangal and Raksha Jain, is transforming child development with its innovative autism screening tool, achieving 95% accuracy and reshaping early diagnosis in India.",
+      },
+      imageOptimization: {
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_2255.JPG",
+        altText: "AIGNOSIS screening tool for early autism diagnosis in children",
+      },
+      content: [
+        {
+          sectionTitle: "Introduction",
+          text: "For Divyansh Mangal and Raksha Jain, co-founders of AIGNOSIS, the challenges of autism diagnosis in India were deeply personal. The lengthy and inefficient process of diagnosing autism motivated them to build a solution that could transform child development and healthcare in India. This blog explores their journey, achievements, and vision for revolutionizing early autism diagnosis in the country.",
+        },
+        {
+          sectionTitle: "The Problem: A Lengthy and Complex Process",
+          text: "The existing autism diagnosis process is fraught with challenges. Long waiting times—often stretching to four or five weeks—and the requirement of dedicating an entire day for an accurate diagnosis have made the process burdensome for families. These delays can have significant consequences, as early intervention is crucial for children with autism to reach their full potential. Recognizing this critical gap, Divyansh and Raksha set out to create a solution that would redefine the way autism is diagnosed.",
+        },
+        {
+          sectionTitle: "The Vision: Accessible and Efficient Autism Screening",
+          text: "The vision of AIGNOSIS was clear from the start: to develop a tool that could efficiently screen for autism and make it accessible at all pediatric centers. This mission was not just about convenience; it was about ensuring that every child, regardless of their location, had access to early and accurate autism detection.",
+        },
+        {
+          sectionTitle: "Building the Solution: Collaboration and Expertise",
+          text: "To bring their vision to life, the co-founders collaborated with leading experts from ICAD and Dr. S. Sitaraman, whose insights were instrumental in shaping the tool’s features. Combining this expertise with their technological know-how, they developed a screening tool designed to transform the diagnostic landscape. Mentorship and guidance from industry leaders like Mr. Rajneesh Bhandari and Amit Jain, CEO of Car Dekho Group, further propelled their journey, refining their product and strategy.",
+        },
+        {
+          sectionTitle: "Validation Through Clinical Studies",
+          text: "One of the most significant milestones for AIGNOSIS was the successful completion of a clinical study involving over 390 students. The tool achieved a remarkable 95% accuracy rate, a testament to its potential to revolutionize autism diagnosis. This validation was not just a technical achievement; it was a moment of hope for countless families across India.",
+        },
+        {
+          sectionTitle: "The Shark Tank Experience: A Turning Point",
+          text: "As lifelong fans of Shark Tank, Divyansh and Raksha saw an opportunity to take their mission to the next level by participating in Season 4 of the show. Their journey to the Shark Tank stage was fueled by determination and a belief in their vision. The exposure and momentum gained from this experience marked a pivotal moment for AIGNOSIS, positioning the startup as a leader in the field of child development technology.",
+        },
+        {
+          sectionTitle: "Looking Ahead: Transforming Child Development in India",
+          text: "With initial funding, clinical validation, and the support of mentors and institutions, AIGNOSIS is now poised to scale its impact. The startup’s goal is to make early autism detection a reality for every child in India, ensuring that no family has to endure unnecessary delays in seeking the care their child needs.",
+        },
+        {
+          sectionTitle: "Conclusion",
+          text: "AIGNOSIS is more than just a technological innovation; it is a beacon of hope for families navigating the challenges of autism diagnosis. Driven by the shared passion of its founders and supported by a robust network of experts and institutions, AIGNOSIS is set to transform child development in India. By making early autism screening accessible and efficient, AIGNOSIS is not just filling a gap—it is creating a future where every child can thrive.",
+        },
+      ],
+      seo: {
+        keywords: [
+          "autism diagnosis",
+          "early autism screening",
+          "child development technology",
+          "autism screening tool",
+          "clinical validation",
+        ],
+        lsi_keywords: [
+          "early autism detection",
+          "autism diagnosis technology",
+          "innovation in child healthcare",
+          "pediatric centers",
+        ],
+        target_keyword_frequency: "1.5%-2%",
+        keyword_frequency: {
+          primary: "autism diagnosis (10-12 times)",
+          secondary: "early autism screening (4 times)",
+        },
+      },
+    },
+    
   ],
 };
 
