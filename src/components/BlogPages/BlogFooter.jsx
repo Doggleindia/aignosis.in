@@ -141,7 +141,7 @@ const BlogFooter = () => {
                 Jaipur, Rajasthan, 302004
               </p>
               <p>+91 8209860578</p>
-              <p>isupport@aignosis.in</p>
+              <p>support@aignosis.in</p>
             </address>
             {/* <ul className="space-y-2 list-disc pl-[2vw] max-sm:pl-0 max-sm:list-none">
               <Link
@@ -210,7 +210,7 @@ const BlogFooter = () => {
           </div>
           <div className="border-t-2 md:hidden flex justify-center items-center w-full border-[#F6E8FB80]">
             <h3 className="text-[10px] text-center mt-4"> <p>
-              &copy; 2024{' '}
+              &copy; 2025{' '}
               All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
               <a
                 href="https://doggleindia.com/"
@@ -226,7 +226,7 @@ const BlogFooter = () => {
         </div>
         <div className="border-t-2 mt-[5vw] hidden md:flex justify-center items-center w-full border-[#F6E8FB80]">
           <h3 className="text-[10px] text-center mt-4"> <p>
-            &copy; 2024{' '}
+            &copy; 2025{' '}
             All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
             <a
               href="https://doggleindia.com/"
