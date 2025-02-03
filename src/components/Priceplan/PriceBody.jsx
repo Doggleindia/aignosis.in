@@ -365,6 +365,7 @@ const PriceBody = ({ selectedOption }) => {
   // console.log(storedToken), "storedToken";
 
   const handlePayment = async () => {
+    console.log('import.meta.env.KEY_ID',import.meta.env.KEY_ID)
     // Check if the user is logged in
     if (!storedToken) {
       // Show a toast message
@@ -395,7 +396,8 @@ const PriceBody = ({ selectedOption }) => {
 
       // Set up Razorpay options
       const options = {
-        key: "rzp_live_bJB6v4FhsKMk9Y",
+       
+        key: import.meta.env.KEY_ID,
         amount: order.amount,
         currency: order.currency,
         name: "Test Payment",
