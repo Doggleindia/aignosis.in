@@ -54,6 +54,7 @@ const BlogContent = ({ aboutContent }) => {
           {(ogMetadata?.ogImage || imageOptimization?.fileName) && (
             <div className="flex gap-2 mt-2">
               <img
+              loading="lazy"
                 src={imageOptimization?.fileName}
                 alt={imageOptimization?.altText || ""}
                 className="w-[800px] h-[300px] text-white object-cover max-sm:object-contain"

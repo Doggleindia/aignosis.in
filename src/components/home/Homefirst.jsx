@@ -169,7 +169,7 @@ const Homefirst = () => {
         </div>
 
         <div
-          className="body w-[90%] h-full py-[20vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
+          className="body w-[90%] h-full py-[8vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
           {/* Welcome Text */}
           <span
             className="flex justify-center items-center font-manrope text-sm font-medium text-[#9C00AD] text-center tracking-widest uppercase mb-4"
@@ -247,7 +247,7 @@ const Homefirst = () => {
 
         <div className="w-full 2xl:py-[10vw] md:py-[5vw]">
           <div className="absolute top-[30vw] right-0 w-[15%] h-full bg-[#B740A1A6] opacity-45 blur-[120px] rounded-xl"></div>
-          <img className="w-full h-full" src={sharks} alt="" srcset="" />
+          <img className="w-full h-full max-sm:h-[14vh]" src={sharks} alt="" srcset="" />
         </div>
       </>
 

@@ -49,7 +49,7 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
       setErrorMessage(""); // Clear previous error messages
 
       const payload = {
-        email:phoneNumber,
+        phoneNumber:phoneNumber,
         otp: otpValue,
       };
 

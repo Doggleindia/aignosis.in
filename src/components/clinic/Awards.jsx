@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import img7 from "../../assets/clinic/img7.png";
 import img1 from "../../assets/homepage/image a7.png"; // shark tank
 import img2 from "../../assets/homepage/image a2.png"; //no number
 import img3 from "../../assets/homepage/image a3.png"; //no number
-import img4 from "../../assets/a30.png"; //cmie AIIMS Delhi
 import img5 from "../../assets/homepage/a20.png"; // car dekho
 import img6 from "../../assets/homepage/image a6.png";
 import img11 from "../../assets/homepage/a13.png"; //  fitt
@@ -18,7 +16,6 @@ import img16 from "../../assets/a28.png"; // nvidia
 import img17 from "../../assets/a27.png"; //aws start-up
 import img18 from "../../assets/a26.png"; // seed-fund scheme
 import img19 from "../../assets/homepage/a21.png"; // bits pilani
-import img20 from "../../assets/homepage/a19.png"; // news18 rajasthan
 import img21 from "../../assets/homepage/a15.png"; //mphasis
 import img22 from "../../assets/homepage/image a8.png";
 import img23 from "../../assets/homepage/a16.png"; //virigina tech
@@ -90,32 +87,32 @@ const Awards = () => {
         </div>
 
       </div>
-      <div className="relative mt-10 w-full">
-        <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          {[...Array(2)].map((_, index) => (
-            <React.Fragment key={index}>
-              {[ // Array of image groups to avoid repetition
-                [img1, img2, img3, img5],
-                [img6, img8, img9, img10, img11],
-                [img12, img13, img14, img15, img16],
-                [img17, img18, img19, img21, img22],
-                [img23, img24, img25, img26, img27],
-                [img28, img29, img30]
-              ].map((imageGroup, groupIndex) => (
-                <div className="flex gap-6" key={`${index}-${groupIndex}`}>
-                  {imageGroup.map((image, subIndex) => (
-                    <AwardCard
-                      key={`${index}-${groupIndex}-${subIndex}`}
-                      imageSrc={image}
-                      altText={`Award ${groupIndex * 5 + subIndex + 1}`}
-                    />
-                  ))}
-                </div>
-              ))}
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
+      <div className="relative mt-10 w-full overflow-hidden">
+  <div className="marquee-container animate-marquee">
+    {[...Array(2)].map((_, index) => (
+      <React.Fragment key={index}>
+        {[ // Image Groups
+          [img1, img2, img3, img5],
+          [img6, img8, img9, img10, img11],
+          [img12, img13, img14, img15, img16],
+          [img17, img18, img19, img21, img22],
+          [img23, img24, img25, img26, img27],
+          [img28, img29, img30]
+        ].map((imageGroup, groupIndex) => (
+          <div className="flex gap-6" key={`${index}-${groupIndex}`}>
+            {imageGroup.map((image, subIndex) => (
+              <AwardCard
+                key={`${index}-${groupIndex}-${subIndex}`}
+                imageSrc={image}
+                altText={`Award ${groupIndex * 5 + subIndex + 1}`}
+              />
+            ))}
+          </div>
+        ))}
+      </React.Fragment>
+    ))}
+  </div>
+</div>
 
     </div>
   )

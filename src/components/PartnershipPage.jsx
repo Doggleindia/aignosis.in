@@ -66,44 +66,66 @@ const PartnershipPage = () => {
     };
   }, []);
 
-  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
+    if (name === "phone") {
+      // Allow only digits and limit to 10 characters
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      setData((prevData) => ({
+        ...prevData,
+        phone: numericValue,
+      }));
+    } else{
     setData((prevData) => ({
       ...prevData,
       [name]: name === "age" ? Number(value) : value, // Ensure age is a number
     }));
+  }
   };
 
   // Function to send data to the API
   const contact = async (e) => {
     e.preventDefault();
+     // Check if phone number is exactly 10 digits
+  if (data.phone.length !== 10) {
+    toast.error("Phone number must be exactly 10 digits!");
+    return;
+  }
 
     try {
       setLoading(true);
-      const { response } = await fetchData({
-        url: "https://aignosis-backend.onrender.com/api/otp/contact-us",
-        method: "POST",
+      const {response} = await fetchData({
+        url: '/api/otp/contact-us',
+        method: 'POST',
         data,
       });
-      console.log("API response:", response);
+      console.log('API response:', response);
+      if(response.status == 200){
+        toast.success("Message sent successfully!");
+      }
       setLoading(false);
       // alert('Message sent successfully!');
-
+         
       // Reset the form after successful submission
       setData({
-        name: "",
-        age: "",
-        city: "",
-        phone: "",
-        message: "",
+        name: '',
+        age: '',
+        city: '',
+        phone: '',
+        message: '',
       });
-
-      toast.success("Message sent successfully");
+    
+   
     } catch (err) {
-      console.error("Error sending message:", err);
-      toast.success("Failed to send the message. Please try again.");
+      console.error('Error sending message:', err.message);
+      toast.error("Failed to send the message. Please try again.");
+      setData({
+        name: '',
+        age: '',
+        city: '',
+        phone: '',
+        message: '',
+      });
       // alert('Failed to send the message. Please try again.');
     }
   };

@@ -143,8 +143,9 @@ const WeWork = () => {
   <div className="absolute inset-0 bg-black opacity-40"></div>
   {/* Overlay */}
   <img
+  loading="lazy"
     src={image}
-    className="w-full h-[300px] object-fill"
+    className="w-full h-[450px] object-fill"
   />
   <p
   className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-3xl"
@@ -159,12 +160,11 @@ const WeWork = () => {
         <div className="flex flex-col gap-6  p-[10vw] max-sm:p-[0] max-w-[3xl]">
           <BlogContent aboutContent={aboutContent} />
 
-          <div>
+          {/* <div>
             <div className="md:ml-[4vw] p-8 rounded-lg">
               {milestones.map((milestone, index) => (
                 <div key={index} className="mb-8">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-6">
+                                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center">
                       <div className="w-10 h-10 flex items-center justify-center border border-[#9C00AD] rounded-full text-white mr-4">
                         <span className="text-base font-bold">
@@ -175,7 +175,7 @@ const WeWork = () => {
                         {milestone.title}
                       </h2>
                     </div>
-                    {/* Toggle Icon */}
+                   
                     <span
                       className="text-[#F6E8FB] text-2xl cursor-pointer"
                       onClick={() => handleToggle(index)}
@@ -184,7 +184,7 @@ const WeWork = () => {
                     </span>
                   </div>
 
-                  {/* Content (conditionally shown) */}
+                  
                   {openMilestone === index && (
                     <p className="text-[#F6E8FB] font-raleway pl-[4vw] leading-relaxed mb-6">
                       {milestone.content}
@@ -193,9 +193,9 @@ const WeWork = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="bg-gradient-to-b from-[#241E22] to-[#43284C] p-[5vw] px-[10vw] rounded-lg text-white">
+        {/* <div className="bg-gradient-to-b from-[#241E22] to-[#43284C] p-[5vw] px-[10vw] rounded-lg text-white">
           <h2 className="text-2xl font-bold mb-4">References</h2>
           <ol className="list-inside space-y-4">
             {references.map((reference, index) => {
@@ -215,7 +215,7 @@ const WeWork = () => {
               );
             })}
           </ol>
-        </div>
+        </div> */}
         <BlogFooter />
       </div>
     </div>

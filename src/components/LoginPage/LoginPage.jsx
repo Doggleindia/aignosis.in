@@ -6,8 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  // const [email, setEmail] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,16 +26,23 @@ const LoginPage = () => {
   //   }
   // };
 
-  // const handlePhoneChange = (e) => {
-  //   const value = e.target.value;
+  const handlePhoneChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
 
-  //   // Ensure the phone number always starts with "+91"
-  //   if ( /^\+91\d{0,10}$/.test(value)) {
-  //     setPhoneNumber(value);
-  //     setIsButtonEnabled(value.length === 13);
-  //   }
-  // };
-  // console.log("phoneNumber",phoneNumber);
+    // Ensure "+91" is always present at the start
+    if (!value.startsWith("91")) {
+      value = "91" + value;
+    }
+
+    // Extract the last 10 digits (excluding "91" prefix)
+    if (value.length > 12) {
+      value = value.slice(0, 12); // Limit to "+91" + 10 digits
+    }
+
+    setPhoneNumber("+" + value);
+    setIsButtonEnabled(value.length === 12); // Enable button only when "+91" + 10 digits
+  };
+  console.log("phoneNumber", phoneNumber);
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -49,30 +56,37 @@ const LoginPage = () => {
     try {
       setLoading(true);
       setErrorMessage("");
-      const payload = { email: email };
-  
+      const payload = { phoneNumber: phoneNumber };
+
       const { response, error } = await fetchData({
         url: "/api/otp/sendOtp",
         method: "POST",
         data: payload,
       });
-  
-      setLoading(false);
-  
-      if (response) {
 
+      setLoading(false);
+
+      if (response) {
         console.log("OTP Response:", response);
         toast.success("OTP sent successfully!");
         // Check for `status` and navigate to OTP page if true
         if (response.status) {
           setShowOtpPage(true);
         } else {
-          toast.error(response.message || "Failed to send OTP. Please try again.");
-          setErrorMessage(response.message || "Failed to send OTP. Please try again.");
+          toast.error(
+            response.message || "Failed to send OTP. Please try again."
+          );
+          setErrorMessage(
+            response.message || "Failed to send OTP. Please try again."
+          );
         }
       } else if (error) {
-        toast.error(response.message || "Failed to send OTP. Please try again.");
-        setErrorMessage(error.message || "Failed to send OTP. Please try again.");
+        toast.error(
+          response.message || "Failed to send OTP. Please try again."
+        );
+        setErrorMessage(
+          error.message || "Failed to send OTP. Please try again."
+        );
       }
     } catch (error) {
       setLoading(false);
@@ -81,11 +95,10 @@ const LoginPage = () => {
       setErrorMessage("An error occurred while sending OTP. Please try again.");
     }
   };
-  
 
   return (
     <>
-     <ToastContainer />
+      <ToastContainer />
       {!showOtpPage ? (
         <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
           {/* Pink Gradient Radiant Effect */}
@@ -127,11 +140,10 @@ const LoginPage = () => {
                 <div className="relative">
                   <input
                     type="text"
-                    value={email}
-                    onChange={handleEmailChange}
+                    value={phoneNumber}
+                    onChange={handlePhoneChange}
                     className="block w-full sm:w-[17vw] xl:w-[15vw] pl-10 pr-4 py-2 text-sm xl:text-base border border-gray-300 rounded-full shadow-sm focus:ring-[#811F67] focus:border-[#811F67] max-sm:text-xs max-sm:pl-8 max-sm:py-1 md:text-base md:w-[20vw]"
-                    placeholder=" Enter your email"
-                    // placeholder="📞 Phone number"
+                    placeholder="📞 Phone number"
                   />
                 </div>
               </div>
@@ -151,7 +163,10 @@ const LoginPage = () => {
           </div>
         </div>
       ) : (
-        <LoginOtp phoneNumber={email} goBack={() => setShowOtpPage(false)} />
+        <LoginOtp
+          phoneNumber={phoneNumber}
+          goBack={() => setShowOtpPage(false)}
+        />
       )}
     </>
   );

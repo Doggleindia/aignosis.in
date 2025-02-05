@@ -21,25 +21,41 @@ const ContactPage = () => {
   // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
+    if (name === "phone") {
+      // Allow only digits and limit to 10 characters
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      setData((prevData) => ({
+        ...prevData,
+        phone: numericValue,
+      }));
+    } else{
     setData((prevData) => ({
       ...prevData,
       [name]: name === "age" ? Number(value) : value, // Ensure age is a number
     }));
+  }
   };
 
   // Function to send data to the API
   const contact = async (e) => {
     e.preventDefault();
+     // Check if phone number is exactly 10 digits
+  if (data.phone.length !== 10) {
+    toast.error("Phone number must be exactly 10 digits!");
+    return;
+  }
 
     try {
       setLoading(true);
       const {response} = await fetchData({
-        url: 'https://aignosis-backend.onrender.com/api/otp/contact-us',
+        url: '/api/otp/contact-us',
         method: 'POST',
         data,
       });
       console.log('API response:', response);
+      if(response.status == 200){
+        toast.success("Message sent successfully!");
+      }
       setLoading(false);
       // alert('Message sent successfully!');
          
@@ -51,12 +67,18 @@ const ContactPage = () => {
         phone: '',
         message: '',
       });
-      
-      toast.success(
-        "Message sent successfully");
+    
+   
     } catch (err) {
-      console.error('Error sending message:', err);
-      toast.success("Failed to send the message. Please try again.");
+      console.error('Error sending message:', err.message);
+      toast.error("Failed to send the message. Please try again.");
+      setData({
+        name: '',
+        age: '',
+        city: '',
+        phone: '',
+        message: '',
+      });
       // alert('Failed to send the message. Please try again.');
     }
   };
@@ -82,7 +104,7 @@ const ContactPage = () => {
           <div className="w-full h-full pb-10 md:h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
             <div className="w-[100%] md:w-[40%] h-[90%]">
               <iframe
-                src="https://www.google.com/maps/embed?...[Your Google Maps Embed URL]..."
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1632856469087!2d75.8265625!3d26.898312500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b17869bccecd663%3A0xda5f864a40498db5!2sAignosis!5e0!3m2!1sen!2sin!4v1738730292539!5m2!1sen!2sin"  referrerpolicy="no-referrer-when-downgrade"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
