@@ -7,6 +7,101 @@ import blogbg from './blog13 bg.jpeg'
 const AboutContent = {
   blogs: [
     {
+      id: "early-autism-screening-tools",
+      blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aboutus.png",
+      image: "blogbg",
+      author: "Divyansh Mangal, Raksheet Jain",
+      time: "February 6, 2025",
+      title: "Early Autism Screening Tools: The Key to Timely Intervention",
+      pageTitle: "Early Autism Screening Tools: Ensuring Timely Intervention for Better Development",
+      metaDescription: "Discover how early autism screening tools, like Aignosis, help parents detect developmental differences early. Learn about AI-powered analysis and remote accessibility for effective intervention.",
+      permalink: "www.example.com/early-autism-screening-tools",
+      keywords: [
+        "early autism screening",
+        "autism detection",
+        "Aignosis",
+        "child development technology",
+        "AI-powered analysis"
+      ],
+      lsi_keywords: [
+        "early intervention",
+        "autism diagnosis technology",
+        "pediatric centers",
+        "remote autism screening"
+      ],
+      og_metadata: {
+        og_image: "aignosis-early-autism-diagnosis.jpg",
+        og_title: "Early Autism Screening: The Future of Child Development",
+        og_description: "Explore how Aignosis is transforming autism diagnosis with AI-driven tools and virtual therapy sessions, making early intervention more accessible."
+      },
+      imageOptimization: {
+        fileName: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aboutus.png",
+        altText: "AIGNOSIS screening tool for early autism diagnosis in children"
+      },
+      content: [
+        {
+          sectionTitle: "Introduction",
+          text: "Detecting autism early is critical for ensuring children acquire the proper interventions at the right time. With improvements in era, early autism screening tools have grow to be extra handy, allowing dad and mom and caregivers to discover developmental variations from an early stage. The right equipment not best helps in early detection but additionally pave the manner for powerful interventions that enhance an infant's long-time period development."
+        },
+        {
+          sectionTitle: "Why Early Screening Matters",
+          text: "Autism Spectrum Disorder (ASD) impacts communique, behavior, and social interactions. Research shows that early intervention leads to significantly better results in language capabilities, cognitive capabilities, and social development. Traditional autism analysis may be time-ingesting, frequently requiring more than one in-character reviews. However, modern screening tools simplify the technique, making it faster and greater convenience for mother and father to search for steering.."
+        },
+        {
+          sectionTitle: "Innovative Early Autism Screening Tools",
+          text: "Today, advanced screening tools leverage technology to assess developmental milestones remotely. These tools use behavioral analysis, parental questionnaires, and AI-driven assessments to detect early signs of autism. These equipment are designed to apprehend early signs of autism through behavioral analysis, parental questionnaires, and AI-driven exams."
+        },
+        {
+          sectionTitle: "Key Features of Effective Screening Tools",
+          text: `• User-Friendly: Designed for easy use by parents and caregivers.
+                 • Evidence-Based: Scientifically validated for accurate results.
+                 • AI-Powered Analysis: Uses advanced algorithms to identify subtle developmental patterns.
+                 • Remote Accessibility: Allows parents to conduct screenings from home.
+                 • Personalized Insights: Provides tailored reports and intervention strategies.`
+        },
+        {
+          sectionTitle: "Aignosis: Pioneering Early Autism Detection",
+          text: `One of the only and progressive equipment available today is <a href="https://aignosis.in" class="underline hover:underline" target="_blank" rel="noopener noreferrer"> Aignosis </a>, a modern platform devoted to early autism detection and intervention. Aignosis utilizes webcam-based screening generation to offer accurate and green autism checks. Unlike conventional screening techniques, Aignosis offers a seamless and interactive experience, making it less difficult for dad and mom to screen their infant’s progress.`
+        },
+        {
+          sectionTitle: "How Aignosis Stands Out",
+          text: `<a href="https://aignosis.in/test" class="underline hover:underline" target="_blank" rel="noopener noreferrer"> Advanced AI Screening </a> Aignosis employs AI-pushed analytics to discover early signs of autism with excessive accuracy.Comprehensive Reports: Parents receive certain insights and development monitoring.Virtual Therapy Sessions: Access expert therapists for personalized intervention, which include speech therapy, occupational therapy, and conduct therapy.Engaging Activities: Interactive games and worksheets designed to support a toddler’s developmental wishes.Convenient & Reliable: No long wait times—display screen your child from domestic with instantaneous expert comments.`
+        },
+        {
+          sectionTitle: "Aignosis and Shark Tank",
+          text: `<a href="https://aignosis.in/" class="underline hover:underline" target="_blank" rel="noopener noreferrer"> Aignosis </a> has gained substantial attention inside the autism community, and its progressive technique has been recognized on Shark Tank. Parents looking for dependable early autism detection can now study extra approximately Aignosis Shark Tank, which highlights its present day technology and impact. Sharktank autism discussions have showcased how Aignosis is revolutionizing early detection and intervention For the ones following Aignosis sharktank updates, it’s clean that this answer is making waves in the enterprise. Whether you’ve heard about Autism sharktank or seen Sharktank aignosis within the news, Aignosis keeps to lead the manner in handy autism screening. The presence of Autism Shark Tank solutions underscores the significance of leveraging era to help kids receive well timed assist`
+        },
+        {
+          sectionTitle: "The Future of Autism Screening",
+          text: "Technology-driven solutions like Aignosis are making early autism detection more effective and accessible than ever. Parents no longer need to navigate complex diagnostic procedures alone—Aignosis offers a streamlined, research-backed approach to identifying and addressing developmental differences."
+        },
+        {
+          sectionTitle: "Conclusion",
+          text: "If you're looking for a reliable, research-backed early autism screening tool, Aignosis is your trusted partner in ensuring timely intervention and long-term developmental success. Explore Aignosis today and take the first step in empowering your child’s future!"
+        }
+      ],
+      seo: {
+        keywords: [
+          "early autism screening",
+          "autism detection",
+          "Aignosis",
+          "child development technology",
+          "AI-powered analysis"
+        ],
+        lsi_keywords: [
+          "early intervention",
+          "autism diagnosis technology",
+          "pediatric centers",
+          "remote autism screening"
+        ],
+        target_keyword_frequency: "1.5%-2%",
+        keyword_frequency: {
+          primary: "early autism screening (10-12 times)",
+          secondary: "Aignosis (4 times)"
+        }
+      }
+    }
+    ,{
       id: "revolutionizing-autism-diagnosis-aignosis",
       blogimg: blog13,
       image: blogbg,
