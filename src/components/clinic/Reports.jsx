@@ -3,6 +3,7 @@ import img10 from "../../assets/r1.png";
 import img11 from "../../assets/r2.png";
 import img12 from "../../assets/r3.png";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 const Reports = () => {
   return (
@@ -32,7 +33,7 @@ const Reports = () => {
         </p>
         <div className="w-full justify-center md:justify-start items-center flex">
           <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-            <a href="" className='text-white text-sm'>Download sample report</a>
+            <Link to="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738867064278_optimized_images.pdf" className='text-white text-sm'>Download sample report</Link>
             <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
               <GoArrowUpRight />
             </div>
