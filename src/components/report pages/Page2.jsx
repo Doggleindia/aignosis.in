@@ -20,7 +20,7 @@ const Page2 = () => {
         { label: 'Joint Attention', value: 80 },
     ];
     return (
-        <div className="flex flex-col font-manrope items-center p-8 bg-gray-100 min-h-screen">
+        <div className=" pdf-imageflex flex-col font-manrope items-center p-8 bg-gray-100 min-h-screen">
             <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm] relative">
                 <div className="absolute p-8 top-0 left-0 w-full">
                     <h1 className='text-left text-sm'>Detailed Featured report</h1>
