@@ -20,7 +20,7 @@ const BlogPage = () => {
   const [searchInput, setSearchInput] = useState(""); // State for search input
   const [filteredBlogs, setFilteredBlogs] = useState(aboutContent.blogs);
  
-  const firstblog = aboutContent.blogs.find((b) => b.id === "revolutionizing-autism-diagnosis-aignosis");
+  const firstblog = aboutContent.blogs.find((b) => b.id === "early-autism-screening-tools");
   console.log(firstblog, "blogData");
   
 

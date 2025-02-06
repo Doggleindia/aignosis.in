@@ -111,55 +111,51 @@ const ComponentToPrint = React.forwardRef((props, ref) => (
 
 
 
-
-
-
 const GeneratePDF = () => {
     const componentRef = useRef();  
-      const generatePDF = async () => {
-        const images = document.querySelectorAll(".pdf-image"); // Select all images
+    const generatePDF = async () => {
+        const images = document.querySelectorAll(".pdf-image"); 
         if (!images.length) {
-          console.error("No images found!");
-          return;
+            console.error("No images found!");
+            return;
         }
-      
+  
         const pdf = new jsPDF("p", "mm", "a4");
-        const pageWidth = 210; // A4 width in mm
-        const pageHeight = 297; // A4 height in mm
-        const margin = 10; // Margin from edges
-        const imgMaxWidth = pageWidth - 2 * margin;
-        const imgMaxHeight = pageHeight - 2 * margin;
-      
+        const pageWidth = 210; 
+        const pageHeight = 297; 
+  
         for (let i = 0; i < images.length; i++) {
-          const imgElement = images[i];
-      
-          try {
-            const canvas = await html2canvas(imgElement, {
-              useCORS: true,
-              scale: 1, // Lower scale for smaller file size
-            });
-      
-            const imgData = canvas.toDataURL("image/jpeg", 0.6); // JPEG with 60% quality
-      
-            // Maintain aspect ratio
-            const imgRatio = canvas.width / canvas.height;
-            let imgWidth = imgMaxWidth;
-            let imgHeight = imgMaxWidth / imgRatio;
-      
-            if (imgHeight > imgMaxHeight) {
-              imgHeight = imgMaxHeight;
-              imgWidth = imgMaxHeight * imgRatio;
+            const imgElement = images[i];
+  
+            try {
+                const canvas = await html2canvas(imgElement, {
+                    useCORS: true,
+                    scale: 3, // High-quality rendering
+                    backgroundColor: null,
+                    width: imgElement.clientWidth, 
+                    height: imgElement.clientHeight
+                });
+  
+                const imgData = canvas.toDataURL("image/jpeg", 0.8); // 80% quality
+  
+                // 🛠 Force Full A4 Size
+                if (i !== 0) pdf.addPage();
+                pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, pageHeight, undefined, "FAST");
+  
+            } catch (error) {
+                console.error("Error generating PDF page:", error);
             }
-      
-            if (i !== 0) pdf.addPage(); // Add new page for every image except the first one
-            pdf.addImage(imgData, "JPEG", (pageWidth - imgWidth) / 2, (pageHeight - imgHeight) / 2, imgWidth, imgHeight);
-          } catch (error) {
-            console.error("Error loading image:", error);
-          }
         }
-      
-        pdf.save("images.pdf");
-      };
+  
+        pdf.save("optimized_images.pdf");
+    };
+  
+  
+  
+  
+    
+
+
       
     return (
       <div className="text-center">
