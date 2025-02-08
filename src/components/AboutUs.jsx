@@ -209,11 +209,7 @@ const AboutUs = () => {
           
         </div>
         <div className="flex lg:block flex-wrap items-end w-[50%] max-sm:w-[100%] h-[500px] max-sm:p-[2vw] max-sm:h-[60vw] max-sm:mt-[-25vw] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]">
-          <img
-            src={birt_aignosis}
-            alt="about"
-            className=" w-full scale-[.9] max-sm:scale-[1] max-sm:object-cover max-sm:rounded-[0px] max-sm:h-[55vw] rounded-3xl h-full object-cover"
-          />
+          
         </div>
       </div>
       

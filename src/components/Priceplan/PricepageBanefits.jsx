@@ -4,6 +4,12 @@ import img2 from "../../assets/Featured.png";
 import f1 from "../../assets/image (21).jpg";
 import f2 from "../../assets/image (25).jpg";
 import f3 from "../../assets/image (24).jpg";
+import p1 from '../../assets/images/81.png';
+import p2 from '../../assets/images/82.png';
+import p3 from '../../assets/images/83.png';
+import p4 from '../../assets/images/91.png';
+import p5 from '../../assets/images/92.png';
+import p6 from '../../assets/images/93.png';
 
 const PricepageBenefits = () => {
     const cardData = [
@@ -12,6 +18,11 @@ const PricepageBenefits = () => {
             name: "Anaya",
             age: "3.8 year",
             location: "Bengaluru",
+            image1:[
+                p1,
+                p2,
+                p3
+            ],
             goals: [
                 "Clearer Speech",
                 "Improved Social Interactions",
@@ -35,6 +46,11 @@ const PricepageBenefits = () => {
             name: "Aarav",
             age: "4.5 year",
             location: "Mumbai",
+            image1:[
+                p4,
+                p5,
+                p6
+            ],
             goals: [
                 "Improved Communication Skills",
                 "Reduced Screen Time",
@@ -58,6 +74,11 @@ const PricepageBenefits = () => {
             name: "Vivaan",
             age: "5.1 year",
             location: "Delhi",
+            image1:[
+                p1,
+                p2,
+                p3
+            ],
             goals: [
                 "Better Social Engagement",
                 "Improved Focus",
@@ -204,13 +225,20 @@ const PricepageBenefits = () => {
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
                                 <span className="text-base font-semibold text-white">
-                                    Development Goal:
-                                </span>
-                                <ul className="text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
-                                    {card.goals.map((goal, i) => (
-                                        <li key={i}>{goal}</li>
-                                    ))}
-                                </ul>
+                                 Development Goal:
+                                 </span>
+
+                                <ul className="text-[8.9px] text-center mt-2 text-[#CACED9] gap-4 flex flex-row ml-4">
+                                {card.goals.map((goal, i) => (
+                                <li key={i} className="flex items-center gap-2">
+                                 {card.image1[i] && (
+                                 <img src={card.image1[i]} alt="goal icon" className="w-6 h-6" />
+                                    )}
+                                  <span>{goal}</span>
+                                    </li>
+                                ))}
+                                 </ul>
+
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 
@@ -296,15 +324,20 @@ const PricepageBenefits = () => {
                                 </span>
                                 <span className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</span>
                                 <div className="border-t border-[#B740A180] my-2"></div>
+                                <span className="text-base font-semibold text-white">
+                                 Development Goal:
+                                 </span>
 
-                                <span className="text-sm sm:text-base font-semibold text-white">
-                                    Development Goal:
-                                </span>
-                                <ul className="text-xs sm:text-[10px] mt-2 text-[#CACED9] list-disc ml-4">
-                                    {card.goals.map((goal, i) => (
-                                        <li key={i}>{goal}</li>
-                                    ))}
-                                </ul>
+                                <ul className="text-[8.9px] text-center mt-2 text-[#CACED9] gap-4 flex flex-row ml-4">
+                                {card.goals.map((goal, i) => (
+                                <li key={i} className="flex items-center gap-2">
+                                 {card.image1[i] && (
+                                 <img src={card.image1[i]} alt="goal icon" className="w-6 h-6" />
+                                    )}
+                                  <span>{goal}</span>
+                                    </li>
+                                ))}
+                                 </ul>
 
                                 <div className="border-t border-[#B740A180] my-2"></div>
 

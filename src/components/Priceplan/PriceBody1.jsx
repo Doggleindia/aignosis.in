@@ -340,7 +340,7 @@ const PriceBody1 = ({ selectedOption }) => {
   const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image
   const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
 
-  const images = [t1, t2, t3, t4, t5]; // Image array
+  const images = ["https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/120.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/130.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/140.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/150.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/160.png"]; // Image array
   const images2 = [p1, p2, p3, p4, p5]; // Image array
 
   const handleCardSelect = (cardIndex, cardAmount) => {

@@ -11,10 +11,12 @@ import PartnershipPage from "../PartnershipPage";
 import FromDoctor from "../FromDoctor";
 import Homefirst from "./Homefirst";
 import UnderStandingNumber from "./UnderStandingNumber";
+import Flyer from "../Flyer";
 
 const HeroSection = () => {
   return (
     <>
+    <Flyer/>
       <Homefirst/>
       <OpenAI /> 
       <UnderStandingNumber/>

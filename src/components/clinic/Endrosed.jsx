@@ -10,7 +10,7 @@ const stepData = [
     bgColor: "#43284C4D",
     step: "Step 1",
     title: "Quick Screening Process",
-    description: "The developmental screening test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. The process ensures minimal disruption and essential insights into your child’s developmental progress. ",
+    description: "In just 5 mins, you child watches a video and with all the comfort we rule out any possibilites of developmental delay",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png",
   },
