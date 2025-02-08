@@ -41,14 +41,15 @@ const Homefirst = () => {
         className="relative w-full h-full">
 
 <div
-        className="absolute h-full inset-0 bg-cover bg-center mt-16 bg-no-repeat transition-opacity duration-1000"
+        className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "cover",
           backgroundRepeat: "no-repeat",
-          opacity: fade ? 0.3 : 0, // Fade-in and fade-out effect
+          opacity: fade ? 0.2 : 0, // Fade-in and fade-out effect
           transition: "opacity .2s ease-in-out",
+        
         }}
       ></div>
       

@@ -377,10 +377,11 @@ const PriceBody = ({ selectedOption }) => {
   const handlePayment = async () => {
     console.log('import.meta.env.KEY_ID',import.meta.env.KEY_ID)
     // Check if the user is logged in
+    console.log(!storedToken,"tokenverification")
     if (!storedToken) {
+      console.log("tokenverification")
       // Show a toast message
-
-      toast.error("You need to log in to proceed with the payment.");
+      // toast.error("You need to log in to proceed with the payment.");
 
       // Redirect after a brief delay to allow the toast message to show
       setTimeout(() => {
@@ -448,6 +449,8 @@ const PriceBody = ({ selectedOption }) => {
       const razorpay = new window.Razorpay(options);
       razorpay.open();
     } catch (error) {
+      console.log("check")
+      navigate('/login')
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
     }
@@ -495,7 +498,7 @@ const PriceBody = ({ selectedOption }) => {
                     className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                     onClick={() => setSelectedImage2(image)} // Update selected image on click
                   >
-                    <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
+                    <img className="w-full h-full object-cover" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
                   </div>
                 ))}
               </div>

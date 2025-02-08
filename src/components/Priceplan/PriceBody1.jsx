@@ -363,15 +363,13 @@ const PriceBody1 = ({ selectedOption }) => {
 
   const handlePayment = async () => {
     // Check if the user is logged in
+    console.log("check2",storedToken)
     if (!storedToken) {
       // Show a toast message
-
-      toast.error("You need to log in to proceed with the payment.");
+      // toast.error("You need to log in to proceed with the payment.");
 
       // Redirect after a brief delay to allow the toast message to show
-      setTimeout(() => {
-        navigate("/login");
-      }, 2500); // Adjust the delay as needed (e.g., 1500ms)
+      navigate("/login");
       return; // Exit the function
     }
 
@@ -490,6 +488,7 @@ const PriceBody1 = ({ selectedOption }) => {
                   className="w-full h-full object-cover"
                   src={selectedImage || images[0]} // Default to the first image if none is selected
                   alt="Selected"
+                  loading="lazy"
                 />
               </div>
             </div>
