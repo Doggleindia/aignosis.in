@@ -339,15 +339,25 @@ const PriceBody = ({ selectedOption }) => {
   const [paymentStatus, setPaymentStatus] = useState("");
   const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image
   const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
+  const [selectedCard1, setSelectedCard1] = useState(null); // For first section
+
+
 
   const images = [t1, t2, t3, t4, t5]; // Image array
   const images2 = [p1, p2, p3, p4, p5]; // Image array
 
   const handleCardSelect = (cardIndex, cardAmount) => {
     setSelectedCard(cardIndex); // Highlight the selected card
-    setAmount(cardAmount); // Update the selected amount
+    setAmount(cardAmount);
+    setSelectedCard1(null); // Update the selected amount
   };
 
+
+
+  const handleCardClick = (cardIndex) => {
+    setSelectedCard1(cardIndex);
+    setSelectedCard(null);
+  };
   // console.log(amount, "amount");
 
   const handleBuyNowClick = () => {
@@ -564,27 +574,47 @@ const PriceBody = ({ selectedOption }) => {
               </div>
             </div>
             <div className="mt-5">
-              <div className="flex gap-5">
-                <div className="w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6">
-                  <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <span className="text-xs">Get 50% off by applying code</span>
-                  </div>
-                  <h2 className="mt-3">Aignosis Screening – Standard</h2>
-                  <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h3>
-                  <span className="mt-3 font-manrope">499 <span className="text-[10px]">(₹999)</span></span>
-                  <span className="text-xs">(MRP incl. all taxes)</span>
-                </div>
-                <div className="w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6">
-                  <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <span className="text-xs">Get 50% off by applying code</span>
-                  </div>
-                  <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
-                  <h3 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h3>
-                  <span className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></span>
-                  <span className="text-xs">(MRP incl. all taxes)</span>
-                </div>
-              </div>
-            </div>
+      <div className="flex gap-5">
+        <div
+          className={`w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+            selectedCard1 === 8 ? "border-[#B740A1]" : "border-[#5455694D]"
+          }`}
+          onClick={() => handleCardClick(8)}
+        >
+          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <span className="text-xs">Get 50% off by applying code</span>
+          </div>
+          <h2 className="mt-3">Aignosis Screening – Standard</h2>
+          <h3 className="text-[9px]">
+            Includes Autism Screening Test + Expert Consultation
+          </h3>
+          <span className="mt-3 font-manrope">
+            ₹499 <span className="text-[10px]">(₹999)</span>
+          </span>
+          <span className="text-xs">(MRP incl. all taxes)</span>
+        </div>
+
+        <div
+          className={`w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+            selectedCard1 === 9 ? "border-[#B740A1]" : "border-[#5455694D]"
+          }`}
+          onClick={() => handleCardClick(9)}
+        >
+          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <span className="text-xs">Get 50% off by applying code</span>
+          </div>
+          <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
+          <h3 className="text-[9px]">
+            Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan +
+            Assessments with 3 Therapy Sessions
+          </h3>
+          <span className="mt-3 font-manrope">
+            ₹1,899 <span className="text-[10px]">(₹3,899)</span>
+          </span>
+          <span className="text-xs">(MRP incl. all taxes)</span>
+        </div>
+      </div>
+    </div>
             <div className="">
               <div className="">
                 <span className="text-2xl font-semibold text-white">Add Therapy</span>
@@ -765,30 +795,46 @@ const PriceBody = ({ selectedOption }) => {
                   Improved Focus & Learning                  </span>
               </div>
             </div>
-            {/* <div className="mt-5">
-              <div className="flex flex-col gap-5">
-                <div className="w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer border-[#B740A1] rounded-3xl p-6"
-                  onClick={() => handleCardSelect(5, 499)}>
-                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <h1 className="text-xs">Shark tank 50% off</h1>
-                  </div>
-                  <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                  <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-                  <h1 className="mt-3 font-manrope">₹499 <span className="text-[10px]">(₹999)</span></h1>
-                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
-                </div>
-                <div className="w-full h-full border bg-[#43284C4D] hover:cursor-pointer border-[#5455694D] rounded-3xl p-6" onClick={() => handleCardSelect(5, 1899)}>
-                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <h1 className="text-xs">Shark tank 50% off</h1>
-                  </div>
-                  <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                  <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions</h1>
-                  <h1 className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                  <h1 className="mt-3 font-manrope">₹1,899 <span className="text-[10px]">(₹3,899)</span></h1>
-                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
-                </div>
-              </div>
-            </div> */}
+            <div className="mt-5">
+      <div className="flex flex-col gap-5">
+        <div
+          className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+            selectedCard === 6 ? "border-[#B740A1]" : "border-[#5455694D]"
+          }`}
+          onClick={() => handleCardSelect(6)}
+        >
+          <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <h1 className="text-xs">Shark tank 50% off</h1>
+          </div>
+          <h1 className="mt-3">Aignosis Screening – Standard</h1>
+          <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
+          <h1 className="mt-3 font-manrope">
+            ₹499 <span className="text-[10px]">(₹999)</span>
+          </h1>
+          <h1 className="text-xs">(MRP incl. all taxes)</h1>
+        </div>
+
+        <div
+          className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+            selectedCard === 5 ? "border-[#B740A1]" : "border-[#5455694D]"
+          }`}
+          onClick={() => handleCardSelect(5)}
+        >
+          <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+            <h1 className="text-xs">Shark tank 50% off</h1>
+          </div>
+          <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+          <h1 className="text-[9px]">
+            Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan +
+            Assessments with 3 Therapy Sessions
+          </h1>
+          <h1 className="mt-3 font-manrope">
+            ₹1,899 <span className="text-[10px]">(₹3,899)</span>
+          </h1>
+          <h1 className="text-xs">(MRP incl. all taxes)</h1>
+        </div>
+      </div>
+    </div>
             {/* Therapy Options */}
             <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">

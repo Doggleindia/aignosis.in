@@ -9,111 +9,12 @@ import star from './star.png'
 
 const Homefirst = () => {
 
-
-  // useEffect(() => {
-  //   // Disable scrolling while the video is playing
-  //   document.body.style.overflow = "hidden";
-
-  //   // Delay showing content until the video animation is complete
-  //   const timeout = setTimeout(() => {
-  //     setShowContent(true);
-  //     document.body.style.overflow = "auto";
-  //   }, 4000); // Adjust timing based on the video duration
-
-  //   return () => {
-  //     clearTimeout(timeout);
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, []);
-
-  // // Animation variants
-  // const textVariants = {
-  //   hidden: { opacity: 0, y: 50 },
-  //   visible: (delay) => ({
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: { duration: 1, delay },
-  //   }),
-  // };
-
-  // const cardVariants = {
-  //   hidden: { opacity: 0, scale: 0.2 },
-  //   visible: (delay) => ({
-  //     opacity: 1,
-  //     scale: 1,
-  //     transition: { duration: 1, delay },
-  //   }),
-  // };
-
-
-  // if (!showContent) {
-  //   return (
-  //     <motion.div
-  //       initial={{ y: 0 }}
-  //       animate={{ y: "-100%" }}
-  //       transition={{ duration: 1, ease: "easeInOut", delay: 3 }}
-  //       className="w-full h-screen bg-black z-30 relative flex justify-center items-center">
-  //       <motion.div
-  //         className="absolute z-40 flex justify-center items-center"
-  //         initial="hidden"
-  //         animate="visible"
-  //         variants={{
-  //           hidden: { opacity: 0, y: 20 },
-  //           visible: {
-  //             opacity: 1,
-  //             y: 0,
-  //             transition: {
-  //               staggerChildren: 1,
-  //               ease: [0.42, 0, 0.58, 1],
-  //             },
-  //           },
-  //         }}
-  //       >
-  //         <div className="flex flex-col md:flex-row">
-  //           <motion.h1
-  //             className="text-white font-montserrat font-semibold tracking- text-3xl mt-2 md:text-5xl text-center"
-  //             variants={{
-  //               hidden: { opacity: 0, y: 20 },
-  //               visible: { opacity: 1, y: 0 },
-  //             }}
-  //           >
-  //             Frontier AI
-  //           </motion.h1>
-  //           <motion.h1
-  //             className="text-white ml-2 font-montserrat  font-semibold tracking- text-3xl mt-2 md:text-5xl text-center"
-  //             variants={{
-  //               hidden: { opacity: 0, y: 20 },
-  //               visible: { opacity: 1, y: 0 },
-  //             }}
-  //           >
-  //             For Your Child’s
-  //           </motion.h1>
-  //           <motion.h1
-  //             className="text-white ml-2 font-montserrat  font-semibold tracking- mt-2 text-3xl md:text-5xl text-center"
-  //             variants={{
-  //               hidden: { opacity: 0, y: 20 },
-  //               visible: { opacity: 1, y: 0 },
-  //             }}
-  //           >
-  //             {" "}Best Development
-  //           </motion.h1>
-  //         </div>
-  //       </motion.div>
-  //       <video
-  //         src={firstanimation}
-  //         className="absolute w-full h-full object-cover"
-  //         autoPlay
-  //         muted
-  //       />
-  //     </motion.div>
-  //   );
-  // }
   return (
     <>
-
-
-
       <>
+      <div
+        className="relative w-full h-full">
+      
         <div className={`relative z-0 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}>
           <span
             className="flex justify-center items-center tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]"
@@ -157,16 +58,19 @@ const Homefirst = () => {
             <HomePageCard
               urlredirect='/prices'
               imageSrc={m1}
-              title="Get your child tested now"
-              description="Empowering Clinics with Advanced Autism Detection Tools"
+              title="For Parents"
+              description="Early awareness opens doors to timely support and brighter possibilities"
             />
             <HomePageCard
               urlredirect={'/clinic'}
               imageSrc={m2}
               title="For doctors"
-              description="Empowering Clinics with Advanced Autism Detection Tools"
+              description="Empowering clinics with advanced early detection tools"
             />            </div>
         </div>
+        </div>
+
+        
 
         <div
           className="body w-[90%] h-full py-[8vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
