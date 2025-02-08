@@ -10,10 +10,7 @@ const stepData = [
     bgColor: "#43284C4D",
     step: "Step 1",
     title: "Quick Screening Process",
-
     description: "The developmental screening test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes. The process ensures minimal disruption and essential insights into your child’s developmental progress. ",
-
-    
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png",
   },
@@ -28,9 +25,7 @@ const stepData = [
   {
     bgColor: "#2e093a8c",
     step: "Step 3",
-
     title: "A Complete Picture",
-
     description: "We believe in combining the best of both worlds - our advanced screening tools and expert human insight. After the initial assessment, a qualified psychologist reviews your child's interactions and provides professional observations. This dual approach helps create a thorough understanding of your child's developmental path.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg",
@@ -38,9 +33,7 @@ const stepData = [
   {
     bgColor: "#5E3C69",
     step: "Step 4",
-
-    title: "Your Path Forward ",
-
+    title: "Your Path Forward",
     description: "Based on your child's unique assessment, our expert team designs a personalized blend of therapies and support strategies. From early intervention and behavioural guidance to occupational training, we create a comprehensive approach that grows with your child, ensuring they receive the right support at the right time.",
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg",
@@ -48,10 +41,8 @@ const stepData = [
   {
     bgColor: "#952981",
     step: "Step 5",
-
     title: "Growth & Progress",
     description: "Our commitment doesn't end with the assessment. We provide continuous guidance, track progress milestones, and adjust support strategies as your child grows. Regular check-ins ensure the plan evolves with your child's changing needs.",
-
     image1: laptop,
     image2: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg",
   },
@@ -62,41 +53,48 @@ const Endrosed = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const horizontalScroll = horizontalScrollRef.current;
+    const updateScrollTrigger = () => {
+      const horizontalScroll = horizontalScrollRef.current;
+      const container = containerRef.current;
 
-    // Ensure horizontalScroll's width matches child widths
-    gsap.set(horizontalScroll, {
-      width: () => `${horizontalScroll.children.length * 100}vw`,
-    });
+      if (!horizontalScroll || !container) return;
 
-    // Set up GSAP ScrollTrigger
-    gsap.to(horizontalScroll, {
-      x: () => -(horizontalScroll.scrollWidth - window.innerWidth),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top end",
-        end: () => `+=${horizontalScroll.scrollWidth}`, // Length of horizontal scroll
-        pin: true, // Pin the container during the animation
-        scrub: true, // Smooth transition while scrolling
-        anticipatePin: 1,
-      },
-    });
+      const totalWidth = stepData.length * window.innerWidth;
 
-    // Cleanup function
+      gsap.set(horizontalScroll, {
+        width: `${totalWidth}px`, // Ensure width is set properly
+      });
+
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Clear old triggers
+
+      gsap.to(horizontalScroll, {
+        x: () => -(totalWidth - window.innerWidth), // Scroll the exact width
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          end: `+=${totalWidth}`, // Set exact scroll length
+          pin: true,
+          scrub: 1, // Smooth scrolling
+          anticipatePin: 1,
+          invalidateOnRefresh: true, // Recalculate on resize
+        },
+      });
+    };
+
+    updateScrollTrigger();
+    window.addEventListener("resize", updateScrollTrigger);
+
     return () => {
+      window.removeEventListener("resize", updateScrollTrigger);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
     <div>
-      {/* Horizontal Scroll Section */}
-      <div ref={containerRef} className="w-full h-screen">
-        <div
-          ref={horizontalScrollRef}
-          className="flex h-screen overflow-hidden"
-        >
+      <div ref={containerRef} className="w-full h-screen overflow-hidden">
+        <div ref={horizontalScrollRef} className="flex h-screen overflow-hidden">
           {stepData.map((step, index) => (
             <div
               key={index}
@@ -111,7 +109,9 @@ const Endrosed = () => {
                   <img className="w-full h-full object-cover" src={step.image2} alt="Screen Content" />
                 </div>
               </div>
-              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[15vw]">{step.description}</h4>
+              <h4 className="text-white mt-2 text-center text-sm md:text-base leading-6 font-manrope px-[15vw]">
+                {step.description}
+              </h4>
             </div>
           ))}
         </div>

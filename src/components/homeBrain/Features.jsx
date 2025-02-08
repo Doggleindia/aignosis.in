@@ -62,8 +62,8 @@ const Features = () => {
     const normalizedY = (mouseY / rect.height) * 2 - 1; // Range: -1 to 1
 
     // Limit rotation to -60 to 60 degrees
-    const rotationX = normalizedY * 60;
-    const rotationY = normalizedX * -60;
+    const rotationX = normalizedY * 10;
+    const rotationY = normalizedX * -10;
 
     // Animate the specific card
     gsap.to(card, {
@@ -143,7 +143,7 @@ const Features = () => {
               <h4 className="font-bold text-lg mt-4">
                 Privacy and Comfort at Home
               </h4>
-              <p className="text-[#C4C4C4] text-xs mt-4">
+              <p className="text-[#C4C4C4] text-xs text-center mt-4">
               We respect your comfort and ensure your family’s privacy. There is no need to visit a clinic and wait in lines - conduct the assessment at your home! 
               </p>
               
@@ -172,7 +172,7 @@ const Features = () => {
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
               <h4 className="font-bold text-lg mt-4">Trusted Guidance</h4>
-              <p className="text-[#C4C4C4] text-xs mt-4">
+              <p className="text-[#C4C4C4] text-xs text-center mt-2">
               We combine advanced technology with years of clinical research to provide gentle, thoughtful insights about your child's development. Our approach has been carefully designed with leading experts to give you a clear and reliable understanding. 
               </p>
              
@@ -200,7 +200,7 @@ const Features = () => {
             ></div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[4vw]">
               <h4 className="font-bold text-lg mt-4">Easy Journey</h4>
-              <p className="text-[#C4C4C4] text-xs mt-4">
+              <p className="text-[#C4C4C4] text-xs text-center mt-4">
               ​​With clear guidance every step of the way, our testing process takes just minutes - all from the comfort of your home, at a time that works best for you and your child.
               </p>
               
@@ -234,7 +234,7 @@ const Features = () => {
               <h4 className="font-bold text-lg mt-4">
               Your space, their pace
               </h4>
-              <p className="text-[#C4C4C4] text-xs px-[1vw] mt-4">
+              <p className="text-[#C4C4C4] text-xs text-center px-[1vw] mt-4">
               All we need is your webcam and a few moments with your child. They'll engage with friendly animations while staying comfortable at home - it's as simple as watching their favourite show together. No special equipment, no clinical settings, just natural interaction in your familiar space.
 
               </p>

@@ -26,6 +26,10 @@ import img27 from "../../assets/homepage/a17.png"; // dainik vashkar
 import img28 from "../../assets/homepage/a11.png"; // patrika rajasthan
 import img29 from "../../assets/a29.png";  //no number
 import img30 from "../../assets/a30.png";  //no number
+import img31 from '../../assets/homepage/a14.png'
+import img32 from '../../assets/homepage/a18.png'
+import img33 from '../../assets/homepage/a19.png'
+import img34 from '../../assets/homepage/a21.png'
 
 
 import gsap from "gsap";
@@ -88,16 +92,16 @@ const Awards = () => {
 
       </div>
       <div className="relative mt-10 w-full overflow-hidden">
-  <div className="marquee-container animate-marquee">
+  <div className="marquee-container animate-marquee" style={{ animationDuration: '80s' }}>
     {[...Array(2)].map((_, index) => (
       <React.Fragment key={index}>
         {[ // Image Groups
-          [img1, img2, img3, img5],
-          [img6, img8, img9, img10, img11],
-          [img12, img13, img14, img15, img16],
-          [img17, img18, img19, img21, img22],
-          [img23, img24, img25, img26, img27],
-          [img28, img29, img30]
+          [img1, img22, img9, img28],
+          [img8, img11, img31, img24, img21],
+          [img23, img27, img32, img33, img5],
+          [img34, img13, img12, img25, img14],
+          [img18, img17, img16, img15, img30],
+          
         ].map((imageGroup, groupIndex) => (
           <div className="flex gap-6" key={`${index}-${groupIndex}`}>
             {imageGroup.map((image, subIndex) => (
