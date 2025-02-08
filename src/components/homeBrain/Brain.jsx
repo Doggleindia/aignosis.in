@@ -37,12 +37,10 @@ const Brain = () => {
             >
               <div className="flex">
                 <div className="w-2 h-6 bg-[#1FCFF1] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Early understanding, Better support</h3>
+                <h3 className="text-lg font-semibold">Catch Issues Early, Prevent Bigger Challenges</h3>
               </div>
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                Early awareness helps us understand your child's unique needs in their early years. The sooner we
-                recognise opportunities for support, the better we can nurture their development and help them thrive -
-                making each step of their journey easier and more effective.
+              Early intervention helps identify developmental concerns before they turn into bigger problems.
               </p>
             </div>
             <div
@@ -53,12 +51,11 @@ const Brain = () => {
             >
               <div className="flex">
                 <div className="w-1 h-6 bg-[#9945FF] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Nurturing Your Child's Journey</h3>
+                <h3 className="text-lg font-semibold">Maximize Your Child’s Potential
+                </h3>
               </div>
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                Every milestone in your child's early years is a window of opportunity. Early intervention helps them
-                build confidence, develop skills, and discover unique strengths at their own pace - creating a strong
-                foundation for all their tomorrows.
+              The sooner you start, the better the chances of your child reaching their full potential.
               </p>
             </div>
           </div>
@@ -75,11 +72,10 @@ const Brain = () => {
               <div className="flex">
 
                 <div className="w-1 h-6 bg-[#FFD512] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Growing Together, Joyfully</h3>
+                <h3 className="text-lg font-semibold">Affordable and Accessible</h3>
               </div>
               <p className="mt-2 ml-4 text-[#C4C4C4] text-sm">
-                Early identification helps create more moments of connection with your child. As they develop their
-                unique ways of expressing and engaging, families often find daily life becomes more harmonious.
+              Our experts provide home therapy plans for your kid, making parents co-therapists. 
               </p>
             </div>
             <div
@@ -90,12 +86,10 @@ const Brain = () => {
             >
               <div className="flex">
                 <div className="w-1 h-6 bg-[#19FB9B] mr-2 rounded"></div>
-                <h3 className="text-lg font-semibold">Support Within Reach</h3>
+                <h3 className="text-lg font-semibold">Improved Quality of Life for Families</h3>
               </div>
               <p className="mt-2 ml-4 mb-6 text-[#C4C4C4] text-sm">
-                We believe every family deserves peace of mind. That's why we've made early detection accessible and
-                straightforward - offering timely insights from the comfort of your home, without long waits or
-                complicated processes.
+              By addressing concerns early, both children and their families experience less stress and better communication.
               </p>
             </div>
           </div>

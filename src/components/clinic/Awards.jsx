@@ -30,6 +30,9 @@ import img31 from '../../assets/homepage/a14.png'
 import img32 from '../../assets/homepage/a18.png'
 import img33 from '../../assets/homepage/a19.png'
 import img34 from '../../assets/homepage/a21.png'
+import img35 from '../../assets/homepage/image a1.png'
+import img36 from '../../assets/homepage/image a4.png'
+import img37 from '../../assets/homepage/image90.avif'
 
 
 import gsap from "gsap";
@@ -92,15 +95,12 @@ const Awards = () => {
 
       </div>
       <div className="relative mt-10 w-full overflow-hidden">
-  <div className="marquee-container animate-marquee" style={{ animationDuration: '80s' }}>
+  <div className="marquee-container animate-marquee" style={{ animationDuration: '110s' }}>
     {[...Array(2)].map((_, index) => (
       <React.Fragment key={index}>
         {[ // Image Groups
-          [img1, img22, img9, img28],
-          [img8, img11, img31, img24, img21],
-          [img23, img27, img32, img33, img5],
-          [img34, img13, img12, img25, img14],
-          [img18, img17, img16, img15, img30],
+          [img1, img35, img9, img30, img5, img37 , img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28 , img1, img35, img9, img30, img5, img37, img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28],
+          
           
         ].map((imageGroup, groupIndex) => (
           <div className="flex gap-6" key={`${index}-${groupIndex}`}>

@@ -6,16 +6,54 @@ import m2 from "../../assets/h2.png";
 import sharks from "../../assets/7.png"
 import star from './star.png'
 
+const images = [
+  "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel1.png",
+  "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel2.png",
+  "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel3.jpeg",
+];
 
 const Homefirst = () => {
+  const [bgImage, setBgImage] = useState(images[0]);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false); // Start fade-out effect
+
+      setTimeout(() => {
+        setBgImage((prevImage) => {
+          const currentIndex = images.indexOf(prevImage);
+          const nextIndex = (currentIndex + 1) % images.length;
+          return images[nextIndex];
+        });
+        setFade(true); // Start fade-in effect
+      }, 500); // Wait for fade-out before changing the image
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup interval
+  }, []);
+
 
   return (
     <>
       <>
       <div
         className="relative w-full h-full">
+
+<div
+        className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "cover",
+          backgroundRepeat: "no-repeat",
+          opacity: fade ? 0.2 : 0, // Fade-in and fade-out effect
+          transition: "opacity .2s ease-in-out",
+        
+        }}
+      ></div>
       
-        <div className={`relative z-0 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}>
+        <div className={`relative z-10 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}>
           <span
             className="flex justify-center items-center tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]"
           >
@@ -45,8 +83,7 @@ const Homefirst = () => {
 
             className="text-white px-[20vw] font-raleway font-md text-center p-[10px]"
           >
-            AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of experiencing the world. This will help you identify the signs of autism and other neurodevelopmental concerns from the comfort of your own home, giving you insights when they matter most.
-            Keeping your family’s needs in mind, we have created a tool that ensures accuracy and reliability without being invasive.
+            Discover your child's developmental score in just 5 mins. The child watches a video and we are able to identify biomarkers which tells us subtle signs about his development.
 
           </p>
 

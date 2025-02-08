@@ -344,7 +344,7 @@ const PriceBody = ({ selectedOption }) => {
 
 
   const images = [t1, t2, t3, t4, t5]; // Image array
-  const images2 = [p1, p2, p3, p4, p5]; // Image array
+  const images2 = ["https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/401.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png"]; // Image array
 
   const handleCardSelect = (cardIndex, cardAmount) => {
     setSelectedCard(cardIndex); // Highlight the selected card
@@ -377,10 +377,11 @@ const PriceBody = ({ selectedOption }) => {
   const handlePayment = async () => {
     console.log('import.meta.env.KEY_ID',import.meta.env.KEY_ID)
     // Check if the user is logged in
+    console.log(!storedToken,"tokenverification")
     if (!storedToken) {
+      console.log("tokenverification")
       // Show a toast message
-
-      toast.error("You need to log in to proceed with the payment.");
+      // toast.error("You need to log in to proceed with the payment.");
 
       // Redirect after a brief delay to allow the toast message to show
       setTimeout(() => {
@@ -448,6 +449,8 @@ const PriceBody = ({ selectedOption }) => {
       const razorpay = new window.Razorpay(options);
       razorpay.open();
     } catch (error) {
+      console.log("check")
+      navigate('/login')
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
     }
@@ -457,7 +460,7 @@ const PriceBody = ({ selectedOption }) => {
   const therapyCards = [
     {
       amount: 5000,
-      discount: "Get 50% off by applying code",
+      discount: "Shark tank 50% off",
       sessions: 10,
       sessionCost: 500,
       validity: "3-Month Validity",
@@ -465,7 +468,7 @@ const PriceBody = ({ selectedOption }) => {
     },
     {
       amount: 7500,
-      discount: "Get 50% off by applying code",
+      discount: "Shark tank 50% off",
       sessions: 15,
       sessionCost: 500,
       validity: "3-Month Validity",
@@ -473,7 +476,7 @@ const PriceBody = ({ selectedOption }) => {
     },
     {
       amount: 10000,
-      discount: "Get 50% off by applying code",
+      discount: "Shark tank 50% off",
       sessions: 20,
       sessionCost: 500,
       validity: "3-Month Validity",
@@ -495,7 +498,7 @@ const PriceBody = ({ selectedOption }) => {
                     className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                     onClick={() => setSelectedImage2(image)} // Update selected image on click
                   >
-                    <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
+                    <img className="w-full h-full object-cover" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
                   </div>
                 ))}
               </div>
@@ -524,9 +527,7 @@ const PriceBody = ({ selectedOption }) => {
                 </span>
                 <span className="ml-2 text-sm">(Based on 106 reviews)</span>
               </div>
-              <p className="text-xs mt-4 font-montserrat text-[#F6E8FB]">
-                Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |
-              </p>
+              
 
               {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
@@ -544,35 +545,8 @@ const PriceBody = ({ selectedOption }) => {
               <span className="text-[#F6E8FB]">Easy & fast procedure</span>
             </div>
           </div> */}
-            <div className="mt-4">
-              <span>Benefits</span>
-            </div>
-            <div className="">
-              <div className="">
-                <div className="mt-2 flex gap-4">
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] text-center flex justify-center items-center">
-                    Better Social Skills & Communication
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                    Stronger Emotional Connection
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                    Happier Families with Clear Guidance
-                  </span>
-                </div>
-                <div className="mt-2 flex gap-4">
-                  <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                    Faster Developmental Growth
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 text-center rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                    Improved Focus & Learning
-                  </span>
-                  <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[11.5vw] flex justify-center items-center">
-                    Boosted Confidence & Happiness
-                  </span>
-                </div>
-              </div>
-            </div>
+            
+           
             <div className="mt-5">
       <div className="flex gap-5">
         <div
@@ -582,16 +556,16 @@ const PriceBody = ({ selectedOption }) => {
           onClick={() => handleCardClick(8)}
         >
           <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <span className="text-xs">Get 50% off by applying code</span>
+            <span className="text-xs">Shark tank 50% off </span>
           </div>
           <h2 className="mt-3">Aignosis Screening – Standard</h2>
           <h3 className="text-[9px]">
             Includes Autism Screening Test + Expert Consultation
           </h3>
           <span className="mt-3 font-manrope">
-            ₹499 <span className="text-[10px]">(₹999)</span>
+            ₹499 <span className="text-[10px] line-through">(₹999)</span>
           </span>
-          <span className="text-xs">(MRP incl. all taxes)</span>
+          <div className="text-xs">(MRP incl. all taxes)</div>
         </div>
 
         <div
@@ -601,7 +575,7 @@ const PriceBody = ({ selectedOption }) => {
           onClick={() => handleCardClick(9)}
         >
           <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <span className="text-xs">Get 50% off by applying code</span>
+            <span className="text-xs">Shark tank 50% off </span>
           </div>
           <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
           <h3 className="text-[9px]">
@@ -609,9 +583,9 @@ const PriceBody = ({ selectedOption }) => {
             Assessments with 3 Therapy Sessions
           </h3>
           <span className="mt-3 font-manrope">
-            ₹1,899 <span className="text-[10px]">(₹3,899)</span>
+            ₹1,899 <span className="text-[10px] line-through">(₹3,899)</span>
           </span>
-          <span className="text-xs">(MRP incl. all taxes)</span>
+          <div className="text-xs">(MRP incl. all taxes)</div>
         </div>
       </div>
     </div>
@@ -752,13 +726,13 @@ const PriceBody = ({ selectedOption }) => {
               <h1 className="text-xl font-bold">
                 Early Autism Screening for a Brighter Tomorrow
               </h1>
-              <p className="text-xs mt-2 font-montserrat text-[#F6E8FB]">
-                Accurate, AI-Driven Insights Tailored for Your Child | Detect Early Signs of Autism | Quick, Non-Invasive Screening | Personalized Therapy Recommendations | Clinically Validated | Affordable, Accessible, and Child-Friendly | India’s First AI-Powered Autism Screening Solution |                </p>
-              {/* <p className="italic text-xs mt-2 text-[#F6E8FB]">
-                  "Looking to support another child’s journey? You can also gift
-                  this assessment, offering meaningful support and valuable insights
-                  to families navigating similar paths."
-                </p> */}
+              <div className="flex items-center mt-2 text-[#F6E8FB]">
+                <span className="text-yellow-500 text-lg">4.9</span>
+                <span className="text-yellow-500 text-lg ml-1">
+                  ★★★★★
+                </span>
+                <span className="ml-2 text-sm">(Based on 106 reviews)</span>
+              </div>
             </div>
 
             {/* Pricing */}
@@ -774,27 +748,7 @@ const PriceBody = ({ selectedOption }) => {
               </div> */}
 
             {/* Benefits */}
-            <div className="mt-4">
-              <h1 className="text-lg text-left px-2 font-semibold">Benefits</h1>
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Better Social Skills & Communication
-                </span>
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Stronger Emotional Connection
-                </span>
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Happier Families with Clear Guidance
-                </span>
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Boosted Confidence & Happiness
-                </span>
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Faster Developmental Growth                  </span>
-                <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Improved Focus & Learning                  </span>
-              </div>
-            </div>
+           
             <div className="mt-5">
       <div className="flex flex-col gap-5">
         <div
@@ -809,7 +763,7 @@ const PriceBody = ({ selectedOption }) => {
           <h1 className="mt-3">Aignosis Screening – Standard</h1>
           <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
           <h1 className="mt-3 font-manrope">
-            ₹499 <span className="text-[10px]">(₹999)</span>
+            ₹499 <span className="text-[10px] line-through">(₹999)</span>
           </h1>
           <h1 className="text-xs">(MRP incl. all taxes)</h1>
         </div>
@@ -829,7 +783,7 @@ const PriceBody = ({ selectedOption }) => {
             Assessments with 3 Therapy Sessions
           </h1>
           <h1 className="mt-3 font-manrope">
-            ₹1,899 <span className="text-[10px]">(₹3,899)</span>
+            ₹1,899 <span className="text-[10px] line-through">(₹3,899)</span>
           </h1>
           <h1 className="text-xs">(MRP incl. all taxes)</h1>
         </div>

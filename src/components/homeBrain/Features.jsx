@@ -141,10 +141,10 @@ const Features = () => {
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[8vw]">
               <h4 className="font-bold text-lg mt-4">
-                Privacy and Comfort at Home
+              Comfort and Privacy of Home 
               </h4>
               <p className="text-[#C4C4C4] text-xs text-center mt-4">
-              We respect your comfort and ensure your family’s privacy. There is no need to visit a clinic and wait in lines - conduct the assessment at your home! 
+              Complete the test from the comfort of your own home, ensuring privacy for both you and your child. 
               </p>
               
             </div>
@@ -171,9 +171,9 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img2} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
-              <h4 className="font-bold text-lg mt-4">Trusted Guidance</h4>
+              <h4 className="font-bold text-lg mt-4">Accurate Diagnosis</h4>
               <p className="text-[#C4C4C4] text-xs text-center mt-2">
-              We combine advanced technology with years of clinical research to provide gentle, thoughtful insights about your child's development. Our approach has been carefully designed with leading experts to give you a clear and reliable understanding. 
+              Backed by experts, you can trust the system for accurate insights into your child’s development 
               </p>
              
             </div>
@@ -201,7 +201,7 @@ const Features = () => {
             <div className="flex flex-col text-white w-full justify-center items-center px-[4vw]">
               <h4 className="font-bold text-lg mt-4">Easy Journey</h4>
               <p className="text-[#C4C4C4] text-xs text-center mt-4">
-              ​​With clear guidance every step of the way, our testing process takes just minutes - all from the comfort of your home, at a time that works best for you and your child.
+              Get results in minutes, with an easy-to-follow process that anyone can complete.
               </p>
               
             </div>
@@ -231,11 +231,11 @@ const Features = () => {
               <img className="object-contain w-full h-full" src={img4} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[7vw]">
-              <h4 className="font-bold text-lg mt-4">
-              Your space, their pace
+              <h4 className="font-bold text-lg text-center mt-4">
+              Non-Invasive Testing with Just Your Webcam
               </h4>
               <p className="text-[#C4C4C4] text-xs text-center px-[1vw] mt-4">
-              All we need is your webcam and a few moments with your child. They'll engage with friendly animations while staying comfortable at home - it's as simple as watching their favourite show together. No special equipment, no clinical settings, just natural interaction in your familiar space.
+              The test is non-invasive, requiring only a standard webcam—no needles or complex equipment.
 
               </p>
               
