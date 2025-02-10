@@ -578,7 +578,7 @@ const PriceBody1 = ({ selectedOption }) => {
               <div className="">
                 <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
               </div>
-              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
+              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
@@ -590,7 +590,7 @@ const PriceBody1 = ({ selectedOption }) => {
                       <img
                         src={most}
                         alt="Most Popular"
-                        className="absolute top-[-15px] left-[-15px] w-20 h-auto"
+                        className="absolute -top-2 left-1/6 transform -translate-x-1/2 w-20"
                       />
                     )}
 
@@ -799,11 +799,11 @@ const PriceBody1 = ({ selectedOption }) => {
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
-              <div className="flex flex-wrap justify-center gap-4 mt-4">
+              <div className="flex flex-wrap justify-center gap-4 mt-4 ">
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
-                    className={`p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
+                    className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
                       }`}
                     onClick={() => handleCardSelect(index, card.amount)}
                   >
@@ -811,7 +811,7 @@ const PriceBody1 = ({ selectedOption }) => {
                       <img
                         src={most}
                         alt="Most Popular"
-                        className="absolute top-[-20px] left-[-15px] w-20 h-auto"
+                        className="absolute top-[-5px] left-1/5 transform -translate-x-1/2 w-16 sm:w-20"
                       />
                     )}
 

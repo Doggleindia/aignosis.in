@@ -95,7 +95,7 @@ const Awards = () => {
 
       </div>
       <div className="relative mt-10 w-full overflow-hidden">
-  <div className="marquee-container animate-marquee" style={{ animationDuration: '110s' }}>
+  <div className="marquee-container animate-marquee" style={{ animationDuration: '210s' }}>
     {[...Array(2)].map((_, index) => (
       <React.Fragment key={index}>
         {[ // Image Groups

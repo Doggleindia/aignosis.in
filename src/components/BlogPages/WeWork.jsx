@@ -145,7 +145,7 @@ const WeWork = () => {
   <img
   loading="lazy"
     src={image}
-    className="w-full h-[450px] object-fill"
+    className="w-full h-[450px] object-fit"
   />
   <p
   className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-3xl"

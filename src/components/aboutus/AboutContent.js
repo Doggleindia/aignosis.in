@@ -2,10 +2,117 @@ import blogimg2 from "./aut.jpg";
 import blogimg3 from "./aut3.webp";
 import blog13 from './blog13.jpg'
 import blogbg from './blog13 bg.jpeg'
+import blog1 from './blog1.webp';
+import blog2 from './blog2.jpg';
+import blog3 from './blog3.jpg'
 
 
 const AboutContent = {
   blogs: [
+    {
+      id: "ai-vs-traditional-autism-diagnosis",
+      blogimg: blog3,
+      image: blog2,
+      author: "Divyansh Mangal, Raksheet Jain",
+      time: "February 10, 2025",
+      title: "AI vs. Traditional Autism Diagnosis: What Parents Need to Know",
+      pageTitle: "AI vs. Traditional Autism Diagnosis: Choosing the Best for Your Child",
+      metaDescription: "Learn how AI-powered autism screening compares to traditional methods. Explore how Aignosis offers innovative solutions for early and effective diagnosis.",
+      permalink: "www.example.com/ai-vs-traditional-autism-diagnosis",
+      keywords: [
+        "AI autism diagnosis",
+        "traditional autism diagnosis",
+        "autism detection",
+        "Aignosis",
+        "child development"
+      ],
+      lsi_keywords: [
+        "early intervention",
+        "behavioral assessments",
+        "clinical evaluations",
+        "AI-powered screening tools"
+      ],
+      og_metadata: {
+        og_image: "ai-vs-traditional-autism-diagnosis.jpg",
+        og_title: "AI vs. Traditional Autism Diagnosis: The Future of Early Detection",
+        og_description: "Explore how Aignosis combines AI technology and traditional methods to provide accessible, timely, and accurate autism diagnosis."
+      },
+      imageOptimization: {
+        fileName: blog1,
+        altText: "AI vs Traditional Autism Diagnosis - Aignosis technology illustration"
+      },
+      content: [
+        {
+          sectionTitle: "Understanding Autism Diagnosis",
+          text: "Autism Spectrum Disorder (ASD) is a neurodevelopmental condition that impacts communication, social interaction, and conduct. Early diagnosis performs a critical function in supporting children get right of entry to timely interventions. Traditionally, autism prognosis involved in-person critiques by way of professionals, but AI-pushed answers are actually remodeling the landscape. Understanding the variations among AI-based and traditional autism analysis can assist parents make informed choices approximately their baby’s developmental journey."
+        },
+        {
+          sectionTitle: "Traditional Autism Diagnosis: The Standard Approach",
+          text: "Traditional autism diagnosis involves developmental screenings, comprehensive evaluations, and therapy assessments. While effective, this process can be time-intensive and subject to challenges like long wait times and accessibility issues. Developmental Screenings: Pediatricians use questionnaires like the M-CHAT (Modified Checklist for Autism in Toddlers) to identify early symptoms of autism. Comprehensive Evaluations: Conducted by means of psychologists, developmental pediatricians, or neurologists, these checks involve in-intensity behavioral observations.Speech and Occupational Therapy Assessments: Specialists analyze a child’s conversation and motor abilties to provide extra insights.Time-Intensive Process: Traditional prognosis often calls for more than one appointments over months, leading to capacity delays in intervention."
+        },
+        {
+          sectionTitle: "Challenges with Traditional Diagnosis",
+          text: `• Long Wait Times: Many families face delays due to a shortage of specialists.
+                 • Subjectivity: Clinician observations can vary, leading to potential misdiagnoses.
+                 • Accessibility: Rural areas often lack qualified professionals, making diagnosis difficult.`
+        },
+        {
+          sectionTitle: "AI-Powered Autism Diagnosis: A Game-Changer",
+          text: `AI-driven tools offer faster, more accessible, and accurate autism screening. Using <a href="https://aignosis.in/blog/early-autism-screening-tools" target="_blank" rel ="noopener noreferrer" class="underline hover:underline"> advanced algorithms </a> , AI identifies subtle developmental patterns, reducing bias and enhancing early detection.`
+        },
+        {
+          sectionTitle: "How AI-Based Autism Screening Works",
+          text: `<a href="https://aignosis.in/blog/how-ai-is-transforming-early-autism-diagnosis" target="_blank" rel="noopener noreferrer" class="underline hover:underline">
+                 Webcam-Based Behavioral Analysis
+                </a>: AI equipment like Aignosis use system gaining knowledge of to assess micro-behaviors and social cues thru video recordings.Data-Driven Insights: AI evaluates vast datasets to recognize patterns that would indicate ASD, lowering human bias.Instant Results: Parents acquire quick assessments without watching for professional appointments.Remote Accessibility: AI-based totally screenings can be executed from domestic, disposing of geographical obstacles.`
+        },
+        {
+          sectionTitle: "Advantages of AI-Driven Diagnosis",
+          text: `• Early Detection: Identifies signs of autism earlier than traditional methods.
+                 • Increased Accuracy: Advanced algorithms reduce subjectivity.
+                 • Cost-Effective: Eliminates the need for multiple specialist visits.
+                 • Continuous Monitoring: Tracks developmental progress over time.`
+        },
+        {
+          sectionTitle: "Aignosis: The Future of Autism Screening",
+          text: `<a href="https://aignosis.in" target="_blank" rel="noopener noreferrer" class="underline hover:underline">
+                 Aignosis
+                </a> is at the forefront of AI-powered autism detection, supplying dad and mom with an revolutionary, technological know-how-sponsored approach to early screening. By leveraging superior AI and webcam-primarily based era, Aignosis ensures:Quick and correct autism screening from domestic ,Comprehensive development tracking with certain reportsSeamless access to professional digital remedy classes Engaging developmental activities to support intervention.`
+        },
+        {
+          sectionTitle: "Which Approach is Right for Your Child?",
+          text: "While conventional autism diagnosis stays the gold trendy, AI-pushed gear provide a treasured supplement, in particular for early detection and accessibility. The best technique relies upon on a family’s desires:For immediate insights and early intervention → AI-powered screening like Aignosis can offer short evaluations.For a complete clinical prognosis → Traditional evaluations continue to be essential for a proper analysis and remedy making plans."
+        },
+        {
+          sectionTitle: "The Future of Autism Diagnosis",
+          text: "As AI generation continues to strengthen, the combination of AI with traditional diagnostic methods will beautify autism detection and intervention. An aggregate of AI’s efficiency and scientific information can ensure youngsters acquire well timed help and assets for gold standard improvement."
+        },
+        {
+          sectionTitle: "Conclusion",
+          text: "Aignosis is your trusted partner for reliable and timely autism screening. Take the first step towards empowering your child's future today!"
+        }
+      ],
+      seo: {
+        keywords: [
+          "AI autism diagnosis",
+          "traditional autism diagnosis",
+          "autism detection",
+          "Aignosis",
+          "child development"
+        ],
+        lsi_keywords: [
+          "early intervention",
+          "behavioral assessments",
+          "clinical evaluations",
+          "AI-powered screening tools"
+        ],
+        target_keyword_frequency: "1.5%-2%",
+        keyword_frequency: {
+          primary: "AI autism diagnosis (10-12 times)",
+          secondary: "Aignosis (4 times)"
+        }
+      }
+    },
     {
       id: "early-autism-screening-tools",
       blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aboutus.png",
@@ -100,11 +207,11 @@ const AboutContent = {
           secondary: "Aignosis (4 times)"
         }
       }
-    }
-    ,{
+    },
+    {
       id: "revolutionizing-autism-diagnosis-aignosis",
       blogimg: blog13,
-      image: blogbg,
+      image: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/BLOG+IMAGE.png",
       author: "Divyansh Mangal, Raksheet Jain",
       time: "January 29, 2025",
       title: "AIGNOSIS: Transforming Autism Diagnosis in India with Cutting-Edge Technology",
@@ -324,7 +431,6 @@ const AboutContent = {
         },
       ],
     },
-
     {
       id: "early-intervention-for-autism-care",
       blogimg: "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/22.png",

@@ -21,22 +21,23 @@ const Heading = () => {
             </button>
           </div>
   
-          {/* Right Section: Design */}
-          <div className="flex flex-col items-center justify-center max-sm:mt-[25vw] max-sm:h-[0vw] ">
-  {/* Container for boxes */}
+          
+          <div className="flex flex-col items-center justify-center max-sm:mt-[25vw] max-sm:h-[0vw]">
+  
   <div className="flex flex-wrap justify-center gap-6 w-full max-w-md">
-    {/* Line 1 - 4 Boxes */}
-    <div className="w-20 h-20 bg-gray-300 rounded max-sm:w-14 max-sm:h-14 shadow-md" />
-    <div className="w-20 h-20 bg-gray-300 rounded max-sm:w-14 max-sm:h-14 shadow-md" />
-    <div className="w-20 h-20 bg-gray-300 rounded max-sm:w-14 max-sm:h-14 shadow-md" />
-    <div className="w-20 h-20 bg-gray-300 rounded max-sm:w-14 max-sm:h-14 shadow-md" />
+    
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c1.png" alt="img1" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c2.png" alt="img2" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c3.png" alt="img3" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c4.png" alt="img4" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
 
-    {/* Line 2 - 3 Boxes */}
-    <div className="w-20 h-20 bg-gray-300 max-sm:w-14 max-sm:h-14 rounded shadow-md" />
-    <div className="w-20 h-20 bg-gray-300 max-sm:w-14 max-sm:h-14 rounded shadow-md" />
-    <div className="w-20 h-20 bg-gray-300 max-sm:w-14 max-sm:h-14 rounded shadow-md" />
+    
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c5.png" alt="img5" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c6.png" alt="img6" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
+    <img src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c7.png" alt="img7" className="w-20 h-20 rounded max-sm:w-14 max-sm:h-14 shadow-md object-cover" />
   </div>
 </div>
+
 
 
 
