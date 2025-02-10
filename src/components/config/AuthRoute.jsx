@@ -28,10 +28,12 @@ const AuthRoute = ({ children }) => {
 
         if (!response.data.success) {
           // Token verification failed, redirect to login
+          localStorage.removeItem("authToken");
           navigate("/login");
         }
       } catch (error) {
         console.error("Token verification failed:", error);
+        localStorage.removeItem("authToken");
         navigate("/login");
       }
     };

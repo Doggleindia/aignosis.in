@@ -36,18 +36,18 @@ const Homefirst = () => {
   return (
     <>
       <>
-        <div className="relative w-full h-full">
-          <div
-            className="absolute h-full inset-0 bg-cover bg-center mt-16 bg-no-repeat transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              opacity: fade ? 0.3 : 0, // Fade-in and fade-out effect
-              transition: "opacity .1s ease-in-out",
-            }}
-          ></div>
+      <div
+        className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "cover",
+          backgroundRepeat: "no-repeat",
+          opacity: fade ? 0.2 : 0, // Fade-in and fade-out effect
+          transition: "opacity .2s ease-in-out",
+        
+        }}
+      ></div>
 
           <div
             className={`relative z-10 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}

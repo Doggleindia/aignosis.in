@@ -122,7 +122,7 @@ const OpenAI = () => {
                         description="Has DIFFICULTY scribbling or drawing"
                     />                </div>
             </div>
-            <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p>
+            {/* <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p> */}
             <Link
   to="/prices"
   className="group w-[20%] max-sm:w-[60%] flex justify-center items-center hover:bg-pink-500 border-[#B740A1] p-4 my-4 border rounded-full m-auto font-manrope max-sm:text-[3vw] xl:text-sm text-white"
