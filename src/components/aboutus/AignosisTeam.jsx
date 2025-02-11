@@ -24,6 +24,8 @@ import logo9 from '../../assets/homepage/a20.png';
 import logo10 from '../../assets/homepage/image90.avif'
 import logo11 from '../../assets/images/sponsered/image 85.png';
 import logo12 from '../../assets/images/sponsered/image 71.png';
+import citation from '../../assets/members/citations.jpeg'
+import founders from '../../assets/members/founders.jpeg'
 
 const AignosisTeam = () => {
   return (
@@ -53,14 +55,14 @@ const AignosisTeam = () => {
             title="Divyansh ​Mangal"
             subtitle="Co Founder & CEO"
             desc="Divyansh Mangal is a passionate entrepreneur and AI researcher dedicated to transforming healthcare accessibility. With a strong academic foundation in Physics from BITS Pilani and Quantum Information Technology from the University of Gdansk"
-            src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_5761.PNG"
+            src={founders}
             logos={[logo1, logo2]}
           />
           <MemberCard
             title="Raksheet ​Jain"
             subtitle="Co-Founder & CTO"
             desc="Raksheet Jain is an AI specialist with a B.Tech in Artificial Intelligence from Virginia Tech and NMIMS Mumbai. His technical expertise spans deep learning and AI model development, with co-authored research on diabetic retinopathy detection."
-            src={member3}
+            src={founders}
             logos={[logo3, logo4]}
           />
         </div>
@@ -80,7 +82,7 @@ const AignosisTeam = () => {
               title="Dr. Ramesh Agrawal"
               subtitle="HOD mother & child block, AIIMS Delhi"
               desc="Dr. Ramesh Agrawal is a leading expert in pediatric healthcare, serving as the Head of the Child and Mother Block at AIIMS Delhi. With over 200 publications and 300+ research papers"
-              src={member6}
+              src={citation}
               logos={[logo6]}
             />
           </div>
@@ -96,7 +98,7 @@ const AignosisTeam = () => {
               title="Dr. Dhananajay Mangal"
               subtitle="Director & Consultant Pediatrician, Babylon Hospital, Jaipur"
               desc="Dr. Dhananjay Mangal brings over 27 years of pediatric healthcare experience and currently serves as the President of the Rajasthan Chapter of the Telemedicine Society of India."
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Dr+Dhananjay+Mangal.PNG"
+              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png"
               logos={[logo8]}
             />
           </div>
@@ -124,18 +126,25 @@ const AignosisTeam = () => {
               <MemberCard
                 title="Mr. Aman Gupta"
                 subtitle="Co-Founder & CMO, boAt"
-                desc="Aman Gupta is the Co-Founder and Chief Marketing Officer of boAt, one of India’s leading consumer electronics brands. With a strong background in business and marketing, he has played a crucial role in building boAt into a household name in the audio and wearable industry."
+                desc="Aman Gupta is the Co-Founder and Chief Marketing Officer of boAt, one of India’s leading consumer electronics brands. With a strong background in business and marketing.."
                 src={aman}
                 logos={[]}
               />
-
-              <MemberCard
+                
+                <MemberCard
+                title="Mr. Rajendra Setia"
+                subtitle="Strategic Mentor & Advisor"
+                desc="Rajendra Kumar Setia is the Managing Director and the Chief Executive Officer of SK fInance. He holds a bachelor’s degree in science from the University of Rajasthan, Jaipur, Rajasthan, India."
+                src={raj}
+                logos={[logo12]}
+              />
+              {/* <MemberCard
                 title="Mr. Nikhil Kamath"
                 subtitle="Co-Founder, Zerodha & True Beacon"
                 desc="Nikhil Kamath is the Co-Founder of Zerodha, India’s largest stock brokerage firm, and True Beacon, an asset management company. A self-taught trader, he is known for revolutionizing India’s investment landscape with commission-free trading and wealth management solutions."
-                src={nikhil}
+                src=""
                 logos={[]}
-              />
+              /> */}
             </div>
             <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
               <MemberCard
@@ -154,15 +163,7 @@ const AignosisTeam = () => {
                 logos={[]}
               />
             </div>
-            <div className="flex mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-[20vw]">
-              <MemberCard
-                title="Mr. Rajendra Setia"
-                subtitle="Strategic Mentor & Advisor"
-                desc="Rajendra Kumar Setia is the Managing Director and the Chief Executive Officer of SK fInance. He holds a bachelor’s degree in science from the University of Rajasthan, Jaipur, Rajasthan, India."
-                src={raj}
-                logos={[logo12]}
-              />
-            </div>
+            
           </div>
         </div>
       </div>

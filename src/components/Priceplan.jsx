@@ -14,6 +14,7 @@ import FactorImpacting from './Priceplan/FactorImpacting';
 import SEO from './config/Seo'
 import Offer from './Offer';
 import Newnavbar from './Newnavbar';
+import WhatsAppButton from './WhatsAppButton';
 
 const Priceplan = () => {
   const [selectedOption, setSelectedOption] = useState('Assessment');
@@ -55,6 +56,7 @@ const Priceplan = () => {
           </div>
         </div>
         <PriceBody selectedOption={selectedOption} />
+        <WhatsAppButton/>
         <PricepageBanefits />
         <HowitWorks />
         <HowtoUseOptically />

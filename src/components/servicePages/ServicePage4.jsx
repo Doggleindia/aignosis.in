@@ -34,6 +34,7 @@ import service4 from "../../assets/servicepage/occupation.jpg";
 import ContactPage from "../ContactPage";
 import SEO from "../config/Seo";
 import Newnavbar from "../Newnavbar";
+import WhatsAppButton from "../WhatsAppButton";
 
 const ServicePage4 = () => {
   useEffect(() => {
@@ -107,6 +108,7 @@ const ServicePage4 = () => {
 
       <div className="bg-[#1A0C25] font-montserrat text-white">
         <Header />
+        <WhatsAppButton/>
         <div className="h-full  w-full ">
           <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
             <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
