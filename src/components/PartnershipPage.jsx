@@ -6,6 +6,7 @@ import brain from "../assets/images/brain.png";
 import fetchData from "./config/fetchData";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import teddy from '../assets/PopUps/teddy.png'
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -227,9 +228,12 @@ const PartnershipPage = () => {
       {/* Contact Form Section */}
       <div className="w-full flex flex-col justify-center items-center md:px-4 mb-10">
         <div className="w-full text-center px-[10vw] md:px-[25vw]">
+          
           <h3 className="2xl:text-xl font-medium md:text-2xl mb-10 max-sm:text-center">
             Fill up the form, and our team will respond promptly to assist you.
+            
           </h3>
+        
           <form onSubmit={contact} className="space-y-4 md:px-5 flex flex-col items-center w-full justify-center md:text-sm 2xl:text-lg">
             <input
               type="text"

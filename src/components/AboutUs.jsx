@@ -332,14 +332,6 @@ const AboutUs = () => {
   </div>
 </div>
 
-<div className="w-[90%] bg-[#B7407D] bg-opacity-30 mt-[4vw]  m-auto rounded-full h-1 dark:bg-gray-700">
-  <div
-    className="bg-[#B7407D] bg-opacity-100 h-1 rounded-full"
-    style={{ width: '50%' }}
-  ></div>
-</div>
-
-
       <div className="px-[5vw]">
         <AignosisTeam />
       </div>

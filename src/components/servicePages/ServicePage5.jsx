@@ -128,7 +128,7 @@ const ServicePage5 = () => {
                         {/* CTA and Rating */}
                         <div className=" flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                             <div className="w-full max-sm:w-[50%] sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
-                                <a href="#" className="text-white text-xs sm:text-base">Get In Touch</a>
+                              <Link to="/test" className="text-white text-xs sm:text-base">Get In Touch</Link>
                                 <div className="w-[2rem] sm:w-[2.5rem] h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white text-lg group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">
                                     <GoArrowUpRight />
                                 </div>
@@ -436,18 +436,20 @@ const ServicePage5 = () => {
                                     </div>
                                 </Link>
                             </form>
-                            <h2 className='mt-[3vw] max-sm:py-[10px] 2xl:text-base md:text-sm font-medium'>Reach us at </h2>
-                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
+                            <div className='flex flex-col justify-start  items-start'>
+                            <h2 className='mt-[3vw] max-sm:py-[10px] justify-center mx-[auto] 2xl:text-base md:text-sm font-medium'>Reach us at </h2>
+                            <div className='w-full mt-[1vw] flex justify-start text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <FaPhoneAlt />
-                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+98876654334</h2>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium '>+91 8209860578</h2>
                             </div>
-                            <div className='w-full mt-[1vw] flex justify-center text-xs items-center gap-[1vw] text-[#811F67]'>
+                            <div className='w-full mt-[1vw] flex justify-start text-xs items-center gap-[1vw] text-[#811F67]'>
                                 <IoIosMail />
-                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>email@gamil.com</h2>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>support@aignosis.in</h2>
                             </div>
-                            <div className='w-full mt-[1vw] mb-10 flex justify-center text-xs items-center gap-[1vw] text-[#3ad345]'>
+                            <div className='w-full mt-[1vw] mb-10 flex justify-start text-xs items-center gap-[1vw] text-[#3ad345]'>
                                 <FaWhatsapp />
-                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+98876654334</h2>
+                                <h2 className='text-white 2xl:text-sm md:text-xs text-xs font-medium'>+91 8209860578</h2>
+                            </div>
                             </div>
                         </div>
                     </div>

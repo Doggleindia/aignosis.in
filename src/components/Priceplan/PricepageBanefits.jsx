@@ -201,20 +201,16 @@ const PricepageBenefits = () => {
                     {cardData.map((card, index) => (
                         <div
                             key={index}
-                            className="w-[22vw] relative flex flex-col items-center justify-center h-[45vw] rounded-xl bg-[#43284C4D]"
+                            className="w-[full] relative flex flex-col items-center justify-center h-[auto] rounded-xl bg-[#43284C4D]"
                         >
-                            {/* Image Section */}
-                            <div className="w-[90%] absolute top-4 flex items-center justify-center h-[40%]">
-                                <img src={card.image} alt={`Card ${index}`} className="rounded-lg shadow-md" />
-                            </div>
+                           
 
-                            {/* Badge */}
-                            {/* <div className="absolute top-2 right-2 bg-[#E87BFF] text-white text-[10px] font-bold px-2 py-1 rounded-full">
-                                {card.age}
-                            </div> */}
-
-                            {/* Text Section */}
+                           
                             <div className="p-4 px-6 mt-[15vw] w-full">
+                                 {/* Image Section */}
+                            <div className="w-[100%] absolute top-4 flex items-center justify-start ">
+                                <img src={card.image} alt={`Card ${index}`} className="w-[90%] h-[250px] rounded-lg shadow-md" />
+                            </div>
                                 <h4 className="text-[12px] text-[#CACED9]">
                                     <span className="text-[18px] text-white font-medium">
                                         {card.name}{" "}

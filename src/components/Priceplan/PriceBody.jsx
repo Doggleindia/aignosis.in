@@ -20,18 +20,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa6";
 
-import p1 from "../../assets/assesment/1.png"
-import p2 from "../../assets/assesment/2.png"
-import p3 from "../../assets/assesment/3.png"
-import p4 from "../../assets/assesment/4.png"
-import p5 from "../../assets/assesment/5.png"
-
 import t1 from "../../assets/child therapy/5.png"
 import t2 from "../../assets/child therapy/6.png"
 import t3 from "../../assets/child therapy/7.png"
 import t4 from "../../assets/child therapy/8.png"
 import t5 from "../../assets/child therapy/9.png"
 
+import pricelogo from '../../assets/assesment/pricelogo.png';
 
 
 const PaymentPopup = ({ isVisible, onClose }) => {
@@ -498,7 +493,7 @@ const PriceBody = ({ selectedOption }) => {
                     className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                     onClick={() => setSelectedImage2(image)} // Update selected image on click
                   >
-                    <img className="w-full h-full object-cover" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
+                    <img className=" max-sm:w-full w-[75%] h-full object-fill" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
                   </div>
                 ))}
               </div>
@@ -593,49 +588,50 @@ const PriceBody = ({ selectedOption }) => {
               <div className="">
                 <span className="text-2xl font-semibold text-white">Add Therapy</span>
               </div>
-              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4">
-                {therapyCards.map((card, index) => (
-                  <div
-                    key={index}
-                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
-                      }`}
-                    onClick={() => handleCardSelect(index, card.amount)}
-                  >
-                    {index === 1 && (
-                      <img
-                        src={most}
-                        alt="Most Popular"
-                        className="absolute top-[-15px] left-[-15px] w-20 h-auto"
-                      />
-                    )}
+              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
+  {therapyCards.map((card, index) => (
+    <div
+      key={index}
+      className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${
+        selectedCard === index ? "border-2 border-[#B7407D54]" : ""
+      } relative`}
+      onClick={() => handleCardSelect(index, card.amount)}
+    >
+      {index === 1 && (
+        <img
+          src={most}
+          alt="Most Popular"
+          className="absolute -top-2 left-1/6 transform -translate-x-1/2 w-20"
+        />
+      )}
 
-                    <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
-                      <div className="text-center mb-4">
-                        <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
-                          {card.discount} Off!
-                        </span>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-lg font-semibold">
-                          ₹{card.amount}{" "}
-                          <span className="line-through text-gray-400">
-                            ₹{card.amount + card.savings}
-                          </span>
-                        </p>
+      <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+        <div className="text-center mb-4">
+          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
+            {card.discount} Off!
+          </span>
+        </div>
+        <div className="text-center">
+          <p className="text-lg font-semibold">
+            ₹{card.amount}{" "}
+            <span className="line-through text-gray-400">
+              ₹{card.amount + card.savings}
+            </span>
+          </p>
 
-                        <p className="text-xs mt-2">{card.validity}</p>
-                        <p className="text-xs">
-                          {card.sessions} Sessions at ₹{card.sessionCost}/session
-                        </p>
-                        <p className="text-xs font-bold mt-2">
-                          Save ₹{card.savings} overall!
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+          <p className="text-xs mt-2">{card.validity}</p>
+          <p className="text-xs">
+            {card.sessions} Sessions at ₹{card.sessionCost}/session
+          </p>
+          <p className="text-xs font-bold mt-2">
+            Save ₹{card.savings} overall!
+          </p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
-              </div>
               <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
@@ -794,42 +790,49 @@ const PriceBody = ({ selectedOption }) => {
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
-              <div className="flex flex-wrap justify-center gap-4 mt-4">
-                {therapyCards.map((card, index) => (
-                  <div
-                    key={index}
-                    className={`p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
-                      }`}
-                    onClick={() => handleCardSelect(index, card.amount)}
-                  >
-                    {index === 1 && (
-                      <img
-                        src={most}
-                        alt="Most Popular"
-                        className="absolute top-[-20px] left-[-15px] w-20 h-auto"
-                      />
-                    )}
+              <div className="flex flex-wrap justify-center gap-4 mt-4 ">
+  {therapyCards.map((card, index) => (
+    <div
+      key={index}
+      className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
+        selectedCard === index ? "border-2 border-[#B7407D54]" : ""
+      }`}
+      onClick={() => handleCardSelect(index, card.amount)}
+    >
+      {/* "Most Popular" Badge (Only for index 1) */}
+      {index === 1 && (
+        <img
+          src={most}
+          alt="Most Popular"
+          className="absolute top-[-5px] left-1/5 transform -translate-x-1/2 w-16 sm:w-20"
+        />
+      )}
 
-                    <div className="mb-2">
-                      <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
-                        {card.discount}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-lg font-semibold">
-                        ₹{card.amount}{" "}
-                        <span className="line-through text-gray-400">₹{card.amount + card.savings}</span>
-                      </p>
-                      <p className="text-xs mt-2">{card.validity}</p>
-                      <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
-                      <p className="text-xs font-bold mt-2">
-                        Save ₹{card.savings} overall!
-                      </p>
-                    </div>
-                  </div>
-                ))}
+      {/* Discount Label */}
+      <div className="mb-2">
+        <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
+          {card.discount}
+        </span>
+      </div>
 
-              </div>
+      {/* Card Content */}
+      <div>
+        <p className="text-lg font-semibold">
+          ₹{card.amount}{" "}
+          <span className="line-through text-gray-400">
+            ₹{card.amount + card.savings}
+          </span>
+        </p>
+        <p className="text-xs mt-2">{card.validity}</p>
+        <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
+        <p className="text-xs font-bold mt-2">
+          Save ₹{card.savings} overall!
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 mt-4">

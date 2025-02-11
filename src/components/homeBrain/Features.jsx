@@ -9,6 +9,7 @@ import img4 from "../../assets/image69.png";
 import gsap from "gsap";
 import p4 from "../../assets/PopUps/p.png";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import p3 from '../../assets/PopUps/p3.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +105,7 @@ const Features = () => {
     <div className="bg-[#1A0C25] min-h-screen font-raleway  p-[4vw] ">
       <div>
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
-        <Divider title="Feature" desc="" subtitle="" />
+        <Divider title="Feature" desc="" titleImg={p3} subtitle="" />
         <div className="flex justify-center items-center">
           <h3 className="text-[#F6E8FB] font-bold font-raleway text-center max-sm:text-center text-[40px]  max-sm:text-[24px]">
             Our Approach to Key Features and Solutions

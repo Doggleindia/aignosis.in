@@ -33,6 +33,7 @@ import img34 from '../../assets/homepage/a21.png'
 import img35 from '../../assets/homepage/image a1.png'
 import img36 from '../../assets/homepage/image a4.png'
 import img37 from '../../assets/homepage/image90.avif'
+import teddy from '../../assets/PopUps/teddy.png'
 
 
 import gsap from "gsap";
@@ -80,6 +81,7 @@ const Awards = () => {
               "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
           }}
         ></span>
+        <img src={teddy} className="w-[70px] h-[70px] object-cover rotate-45" alt="star" />
       </div>
       <div className='flex flex-col'>
 
@@ -95,7 +97,7 @@ const Awards = () => {
 
       </div>
       <div className="relative mt-10 w-full overflow-hidden">
-  <div className="marquee-container animate-marquee" style={{ animationDuration: '110s' }}>
+  <div className="marquee-container animate-marquee" style={{ animationDuration: '210s' }}>
     {[...Array(2)].map((_, index) => (
       <React.Fragment key={index}>
         {[ // Image Groups

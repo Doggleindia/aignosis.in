@@ -5,6 +5,7 @@ import { IoIosMail } from 'react-icons/io';
 import fetchData from './config/fetchData';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import tiger from './aboutus/tiger.png';
 const ContactPage = () => {
 
   const [data, setData] = useState({
@@ -102,6 +103,7 @@ const ContactPage = () => {
             </div>
           </div>
           <div className="w-full h-full pb-10 md:h-[45vw] px-[5vw] gap-5 flex flex-col md:flex-row justify-center items-center">
+          <img src={tiger} className='hidden md:block scale-[.5] mt-[45vw]'/>
             <div className="w-[100%] md:w-[40%] h-[90%]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1632856469087!2d75.8265625!3d26.898312500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b17869bccecd663%3A0xda5f864a40498db5!2sAignosis!5e0!3m2!1sen!2sin!4v1738730292539!5m2!1sen!2sin"  referrerpolicy="no-referrer-when-downgrade"
