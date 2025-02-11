@@ -34,6 +34,7 @@ import service5 from '../../assets/servicepage/special.jpg';
 import ContactPage from '../ContactPage';
 import SEO from '../config/Seo';
 import Newnavbar from '../Newnavbar';
+import WhatsAppButton from '../WhatsAppButton';
 
 
 const ServicePage5 = () => {
@@ -99,6 +100,7 @@ const ServicePage5 = () => {
         />
         <div className='bg-[#1A0C25] font-montserrat text-white'>
             <Header />
+            <WhatsAppButton/>
             <div className='h-full w-full '>
 
                 <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">

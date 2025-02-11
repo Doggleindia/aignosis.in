@@ -15,6 +15,7 @@ import SEO from './config/Seo'
 import Offer from './Offer';
 import Newnavbar from './Newnavbar';
 import PriceBody1 from './Priceplan/PriceBody1';
+import WhatsAppButton from './WhatsAppButton';
 
 const Therapy = () => {
   const [selectedOption, setSelectedOption] = useState('Assessment');
@@ -57,6 +58,7 @@ const Therapy = () => {
         </div>
         <PriceBody1 selectedOption={selectedOption} />
         <PricepageBanefits />
+        <WhatsAppButton/>
         <HowitWorks />
         <HowtoUseOptically />
         {/* <CustomerLove /> */}

@@ -179,7 +179,7 @@ const Homefirst = () => {
           <div className="absolute top-[30vw] right-0 w-[15%] h-full bg-[#B740A1A6] opacity-45 blur-[120px] rounded-xl"></div>
           <img
             className="w-full h-full hidden sm:block"
-            src={sharks}
+            src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/banner.png"
             alt="Sharks Images"
           />
         </div>
