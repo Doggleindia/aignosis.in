@@ -6,7 +6,7 @@ const MemberCard = ({ title, subtitle, desc, src, logos = [] }) => {
       <img
         src={src}
         alt="about"
-        className="w-full lg:max-w-[150px] scale-[.8] h-full object-contain max-sm:aspect-[1/1]"
+        className="w-full lg:max-w-[300px] scale-[.8] h-full object-contain max-sm:aspect-[1/1]"
       />
       <div className="flex flex-col bg-[#43284C4D] px-5 py-9">
         <div className="flex font-bold text-xl">{title}</div>
