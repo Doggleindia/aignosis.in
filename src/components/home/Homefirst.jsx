@@ -5,6 +5,8 @@ import m1 from "../../assets/h1.png";
 import m2 from "../../assets/h2.png";
 import sharks from "../../assets/7.png";
 import star from "./star.png";
+import p2 from "../../assets/PopUps/p2.png";
+import p1 from "../../assets/PopUps/p1.png";
 
 const images = [
   "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel1.png",
@@ -36,44 +38,53 @@ const Homefirst = () => {
   return (
     <>
       <>
-      <div
-        className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "cover",
-          backgroundRepeat: "no-repeat",
-          opacity: fade ? 0.2 : 0, // Fade-in and fade-out effect
-          transition: "opacity .2s ease-in-out",
-        
-        }}
-      ></div>
+        <div
+          className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "cover",
+            backgroundRepeat: "no-repeat",
+            opacity: fade ? 0.2 : 0, // Fade-in and fade-out effect
+            transition: "opacity .2s ease-in-out",
+          }}
+        ></div>
 
-          <div
-            className={`relative z-10 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}
-          >
-            <span className="flex justify-center items-center tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]">
-              <img
-                src={star}
-                className="scale-[.3] mr-[-1vw] max-sm:scale-[.4]"
-                alt="star"
-              />
-              WELCOME TO AIGNOSIS
-            </span>
+        <div
+          className={`relative z-10 body w-[90%] h-full pt-[12vw] flex-col m-auto justify-center align-center items-center hidden md:flex`}
+        >
+          <span className="flex justify-center items-center tracking-[.3vw] text-sm font-bold font-raleway text-[#9C00AD]">
+            <img
+              src={star}
+              className="scale-[.3] mr-[-1vw] max-sm:scale-[.4]"
+              alt="star"
+            />
+            WELCOME TO AIGNOSIS
+          </span>
 
-            <span className="text-white font-bold text-5xl pt-[20px] font-manrope">
-              Your journey with Aignosis!
-            </span>
-            <span className="text-[#811f67] font-bold text-5xl font-manrope">
-              Helping you understand your child better
-            </span>
-            <p className="text-white px-[20vw] font-raleway font-md text-center p-[10px]">
+          <span className="text-white font-bold text-5xl pt-[20px] font-manrope">
+            Your journey with Aignosis!
+          </span>
+          <span className="text-[#811f67] font-bold text-5xl font-manrope">
+            Helping you understand your child better
+          </span>
+          <div className="flex items-center justify-center px-[20vw] ">
+            <p className="text-white font-raleway font-md text-center p-[10px]">
               Discover your child's developmental score in just 5 mins. The
               child watches a video and we are able to identify biomarkers which
-              tells us subtle signs about his development.
+              tell us subtle signs about his development.
             </p>
+            <img
+              src={p2}
+              alt="Development Score"
+              className="w-[100px] h-[100px]"
+            />
+          </div>
 
-            {/* home page Card */}
+          {/* home page Card */}
+          <div className="flex flex-row items-center space-x-6">
+            <img src={p1} alt="Description" className="w-[100px] h-[100px]" />
+
             <div className="flex flex-row">
               <HomePageCard
                 urlredirect="/prices"
@@ -82,14 +93,14 @@ const Homefirst = () => {
                 description="Early awareness opens doors to timely support and brighter possibilities"
               />
               <HomePageCard
-                urlredirect={"/clinic"}
+                urlredirect="/clinic"
                 imageSrc={m2}
                 title="For doctors"
                 description="Empowering clinics with advanced early detection tools"
-              />{" "}
+              />
             </div>
           </div>
-        
+        </div>
 
         <div className="body w-[90%] h-full py-[8vh] flex-col m-auto justify-center align-center items-center flex md:hidden">
           {/* Welcome Text */}
@@ -112,13 +123,9 @@ const Homefirst = () => {
 
           {/* Description */}
           <p className="text-white font-raleway font-normal text-center text-sm leading-relaxed mb-8">
-            AI.gnosis is here to offer AI-powered tools that help you understand
-            your child’s unique way of experiencing the world. This will help
-            you identify the signs of autism and other neurodevelopmental
-            concerns from the comfort of your own home, giving you insights when
-            they matter most. Keeping your family’s needs in mind, we have
-            created a tool that ensures accuracy and reliability without being
-            invasive.
+          Discover your child's developmental score in just 5 mins. The
+              child watches a video and we are able to identify biomarkers which
+              tell us subtle signs about his development.
           </p>
 
           {/* Buttons for Cards */}
@@ -175,7 +182,6 @@ const Homefirst = () => {
             src={sharks}
             alt="Sharks Images"
           />
-          
         </div>
       </>
     </>

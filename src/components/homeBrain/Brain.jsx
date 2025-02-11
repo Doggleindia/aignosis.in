@@ -1,6 +1,7 @@
 import React from 'react';
 import Divider from '../aboutus/Divider';
 import brain_img from '../../assets/brain_img.png';
+import star from '../../assets/PopUps/star.png'
 
 const Brain = () => {
   return (
@@ -14,7 +15,7 @@ const Brain = () => {
         }}
       ></div>
       
-      <Divider title="Transformative" desc="" subtitle="How early interventions can help" />
+      <Divider title="Transformative" belowTitleImg={star} desc="" subtitle="How early interventions can help" />
 
       <div className="flex max-sm:flex-col justify-center gap-[8vw] items-center max-sm:mx-2">
         <div className="absolute inset-0 bg-[#B740A1] w-[40vw] sm:w-[40vw] h-[20vw] sm:h-[10vw] top-[50%] -left-[20%] opacity-65 blur-[120px] rounded-xl"></div>
