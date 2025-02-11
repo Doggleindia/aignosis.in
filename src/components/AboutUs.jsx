@@ -45,85 +45,40 @@ const TeamMember = ({ name, img, description, height }) => (
 const Divider = ({ title, desc, subtitle, img }) => {
   return (
     <>
-      <div className="md:flex hidden flex-col items-center h-auto md:h-[auto] m-[auto]  justify-center px-4 md:px-0">
+      <div className="flex flex-col items-center h-auto w-full max-w-4xl mx-auto px-4">
         {/* DIVIDER CODE */}
-        <div className="flex flex-row justify-center  items-center space-x-4">
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-
-          <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
-            {title}
-          </span>
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
+        <div className="flex flex-row justify-center items-center space-x-4 w-full">
+          <span className="h-2 w-28 rounded-full sm:w-16 bg-gradient-to-r from-pink-400 to-transparent"></span>
+          <span className="text-lg sm:text-sm text-[#F1C6FE] font-medium">{title}</span>
+          <span className="h-2 w-28 rounded-full sm:w-16 bg-gradient-to-l from-pink-400 to-transparent"></span>
         </div>
 
         {/* CONTENT ALIGNMENT */}
-        <div className="flex flex-row items-center mr-[11vw] mt-[-6vw] justify-center w-full space-x-4 mt-4">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full space-y-4 md:space-y-0 md:space-x-4 mt-4">
           {/* Animation/Image */}
-          <span>
+          {img && (
             <img
-              src={anim}
+              src={img}
               alt="Animation"
-              className="hidden md:block max-sm:w-[50px]  scale-[.5] transform scale-x-[-1]"
+              className="w-24 sm:w-16 md:block hidden transform scale-x-[-1]"
             />
-          </span>
+          )}
 
           {/* Subtitle */}
-          <h1 className="font-raleway text-[#F6E8FB] font-bold mr-[20vw]  max-sm:text-xl text-3xl">
+          <h1 className="text-[#F6E8FB] font-bold text-xl sm:text-lg text-center md:text-left">
             {subtitle}
           </h1>
         </div>
 
         {/* Description */}
-        <span className="font-inter text-white p-1 text-1xl  mt-[-6vw]">
-          {desc}
-        </span>
-      </div>
-
-      <div className="flex md:hidden mt-[10vw] flex-col items-center h-auto md:h-[auto] m-[auto] justify-center px-4 md:px-0">
-        {/* DIVIDER CODE */}
-        <div className="flex flex-row justify-center items-center space-x-4">
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-          <h3 className="text-[24px] text-[#F1C6FE] text-center font-medium max-sm:text-sm">
-            {title}
-          </h3>
-          <span
-            className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-            style={{
-              background:
-                "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-            }}
-          ></span>
-        </div>
-
-        <span className="font-raleway text-center text-[#F6E8FB] font-bold p-2 max-sm:text-xl text-3xl">
-          {subtitle}
-        </span>
-        <span className="font-inter text-center text-white p-1 text-1xl">
-          {" "}
+        <span className="text-white text-center text-base sm:text-sm px-4 mt-4">
           {desc}
         </span>
       </div>
     </>
   );
 };
+
 
 const AboutUs = () => {
   return (

@@ -2,23 +2,32 @@ import React from "react";
 
 const MemberCard = ({ title, subtitle, desc, src, logos = [] }) => {
   return (
-    <div className="mx-2 h-[18vw] flex max-sm:inline-table justify-center border border-white border-opacity-10 lg:overflow-hidden">
-      <img
-        src={src}
-        alt="about"
-        className="w-full lg:max-w-[150px] scale-[.7] h-full object-contain max-sm:aspect-[1/1]"
-      />
-      <div className="flex flex-col bg-[#43284C4D] px-5 py-9">
-        <div className="flex font-bold text-xl">{title}</div>
-        <span className="font-medium text-[14px] block pt-2">{subtitle}</span>
-        <span className="pt-4 block text-[11px]">{desc}</span>
-        <div className="flex gap-2 mt-4 max-sm:justify-center">
+    <div className="flex flex-col lg:flex-row border border-white border-opacity-10 rounded-lg overflow-hidden bg-[#43284C] text-white max-w-4xl w-full mx-auto shadow-lg">
+      {/* Image Section */}
+      <div className="w-full lg:w-1/3 flex items-center justify-center p-4 bg-[#301C3A] h-full">
+        <img
+          src={src}
+          alt="Member"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Content Section */}
+      <div className="w-full lg:w-2/3 p-6 flex flex-col justify-between">
+        <div>
+          <h2 className="text-xl font-bold">{title}</h2>
+          <h3 className="text-md font-medium pt-2 text-gray-300">{subtitle}</h3>
+          <p className="text-sm pt-4 text-gray-400">{desc}</p>
+        </div>
+        
+        {/* Logos */}
+        <div className="flex gap-4 mt-6 flex-wrap">
           {logos.map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt="logo"
-              className="w-16 h-16 max-sm:w-8 max-sm:h-8 object-contain"
+              className="w-12 h-12 object-contain"
             />
           ))}
         </div>
