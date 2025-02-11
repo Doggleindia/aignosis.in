@@ -92,7 +92,7 @@ const FromDoctor = () => {
                     }}
                   >
                     {/* Testimonial Card 1 */}
-                    <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto">
+                    <div className="flex rounded-3xl w-[80%] h-[11vw] p-8 text-white mx-auto">
                       <div className="flex flex-col justify-between h-full">
                         {/* Testimonial Text */}
                         <p className="text-xs">
@@ -131,7 +131,7 @@ const FromDoctor = () => {
 
                     {/* Testimonial Card 2 */}
                     <div
-                      className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto"
+                      className="flex rounded-3xl w-[80%] h-[11vw] p-8 text-white mx-auto"
                       style={{
                         background:
                           "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
@@ -224,7 +224,7 @@ const FromDoctor = () => {
                       }}
                     >
                       {/* Testimonial Card 1 */}
-                      <div className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto">
+                      <div className="flex rounded-3xl w-[80%] h-[11vw] p-8 text-white mx-auto">
                         <div className="flex flex-col justify-between h-full">
                           {/* Testimonial Text */}
                           <p className="text-xs">
@@ -253,7 +253,7 @@ const FromDoctor = () => {
 
                       {/* Testimonial Card 2 */}
                       <div
-                        className="flex rounded-3xl w-[80%] h-[15vw] p-8 text-white mx-auto"
+                        className="flex rounded-3xl w-[80%] h-[11vw] p-8 text-white mx-auto"
                         style={{
                           background:
                             "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",

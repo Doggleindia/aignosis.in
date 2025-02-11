@@ -7,6 +7,7 @@ import icon5 from "../../assets/factorimpacting/img5.png";
 import icon6 from "../../assets/factorimpacting/img6.png";
 import icon7 from "../../assets/factorimpacting/img7.png";
 import icon8 from "../../assets/factorimpacting/img8.png";
+import outdor from "../../assets/factorimpacting/outdor.webp";
 
 // Add other icon imports here
 
@@ -51,6 +52,11 @@ const factorsData = [
         title: "8. Limited Physical Activity",
         subtitle: "A sedentary lifestyle impacts motor skill development and overall mental and physical well-being.",
     },
+    {
+        imageUrl: outdor,
+        title: "9. Lack of Outdoor Play",
+        subtitle:"Limited outdoor activities can reduce physical fitness, creativity, and social skills development, impacting overall well-being.",
+    },
     // Add more data objects for other cards
 ];
 
@@ -82,7 +88,7 @@ const FactorImpacting = () => {
                     {factorsData.map((factor, index) => (
                         <div key={index} className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: 'rgba(67, 40, 76, 0.3)' }}>
                             <div className="flex justify-center mb-4">
-                                <img src={factor.imageUrl} alt={factor.title} className="w-13 h-13" />
+                                <img src={factor.imageUrl} alt={factor.title} className="w-[73px] h-13" />
                             </div>
                             <h3 className="text-white text-lg font-semibold mb-2 text-center">{factor.title}</h3>
                             <p className="text-sm text-white text-center">{factor.subtitle}</p>

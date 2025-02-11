@@ -493,7 +493,7 @@ const PriceBody = ({ selectedOption }) => {
                     className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                     onClick={() => setSelectedImage2(image)} // Update selected image on click
                   >
-                    <img className="w-full h-full object-cover" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
+                    <img className=" max-sm:w-full w-[75%] h-full object-fill" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
                   </div>
                 ))}
               </div>

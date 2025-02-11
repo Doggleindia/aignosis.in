@@ -41,18 +41,20 @@ const HowitWorks = () => {
                             <p className='text-[12px] text-[#CACED9]'>Book Your Test Schedule the screening online or at a center.</p>
                         </div>
                         <div className="bg-[#D9D9D947]  relative w-[16vw] rounded-r-2xl h-[15vw]">
-                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
+                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" loading='lazy'/>
                             <div className="absolute -left-16 -top-4">
-                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
+                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset=""  loading='lazy'/>
 
                             </div>
                         </div>
                         <div className="w-[13vw] ml-5 p-2 h-auto">
-                            <span className='text-[20px]'>Step 3</span>
-                            <p className='text-[12px] text-[#CACED9]'>Run the Screening Follow simple steps to start the test.</p>
+                            <span className='text-[20px]'> Step 2</span>
+                            <p className='text-[12px] text-[#CACED9]'>
+                            Set Up the Environment Create a calm, distraction-free space.
+                            </p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
-                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
+                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" loading='lazy'/>
                             <div className="absolute -left-16 -top-4">
                                 <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
@@ -60,19 +62,19 @@ const HowitWorks = () => {
                     </div>
                     <div className="w-full flex items-center justify-start h-[15vw]">
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
-                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
+                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg' loading='lazy' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
                             <div className="absolute rotate-180 -right-16 -bottom-4">
-                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
+                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" loading='lazy' />
                             </div>
                         </div>
                         <div className="w-[13vw] ml-5  p-2 h-auto">
-                            <span className='text-[20px]'>Step 2</span>
-                            <p className='text-[12px] text-[#CACED9]'>Set Up the Environment Create a calm, distraction-free space.</p>
+                            <span className='text-[20px]'>Step 5</span>
+                            <p className='text-[12px] text-[#CACED9]'>Receive Insights Get a detailed report with recommendations and free consultation.</p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[15vw]">
-                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg' className='object-cover  rounded-r-2xl relative w-full h-full ' alt="" srcset="" />
+                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg' className='object-cover  rounded-r-2xl relative w-full h-full ' alt="" srcset="" loading='lazy'/>
                             <div className="absolute rotate-180 -right-16 -bottom-4">
-                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
+                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" loading='lazy' />
                             </div>
                         </div>
                         <div className="w-[13vw] p-2 ml-5 h-auto">
@@ -82,13 +84,16 @@ const HowitWorks = () => {
                     </div>
                     <div className="w-full absolute top-[10vw] right-12 flex items-center justify-end h-[20vw]">
                         <div className="w-[13vw] p-2 h-auto">
-                            <span className='text-[20px]'>Step 5</span>
-                            <p className='text-[12px] text-[#CACED9]'>Receive Insights Get a detailed report with recommendations and free consultation.</p>
+                            <span className='text-[20px]'>  Step 3</span>
+                            <p className='text-[12px] text-[#CACED9]'>
+
+                            Run the Screening Follow simple steps to start the test.
+                            </p>
                         </div>
                         <div className="bg-[#D9D9D947] relative w-[16vw] rounded-r-2xl h-[20vw]">
-                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
+                            <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg' loading='lazy' className='object-cover relative  rounded-r-2xl w-full h-full ' alt="" srcset="" />
                             <div className="absolute -left-16 -top-4">
-                                <img src={forward} className='object-contain scale-[.6]' alt="" srcset="" />
+                                <img src={forward} loading='lazy' className='object-contain scale-[.6]' alt="" srcset="" />
                             </div>
                         </div>
                     </div>
