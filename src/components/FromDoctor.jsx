@@ -92,7 +92,7 @@ const FromDoctor = () => {
                     }}
                   >
                     {/* Testimonial Card 1 */}
-                    <div className="flex rounded-3xl w-[80%] h-[11vw] p-8 text-white mx-auto">
+                    <div className="flex rounded-3xl w-[80%] h-[12vw] p-8 text-white mx-auto">
                       <div className="flex flex-col justify-between h-full">
                         {/* Testimonial Text */}
                         <p className="text-xs">
