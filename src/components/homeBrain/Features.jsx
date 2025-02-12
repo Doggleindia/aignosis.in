@@ -138,13 +138,13 @@ const Features = () => {
             ></div>
 
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
-              <img className="object-contain w-full h-full" src={img1} alt="" />
+              <img className="object-contain w-[300px] h-full" src={img1} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[8vw]">
               <h4 className="font-bold text-lg mt-4">
               Comfort and Privacy of Home 
               </h4>
-              <p className="text-[#C4C4C4] text-xs text-center mt-4">
+              <p className="text-[#C4C4C4] text-sm text-center mt-4">
               Complete the test from the comfort of your own home, ensuring privacy for both you and your child. 
               </p>
               
@@ -169,11 +169,11 @@ const Features = () => {
               }}
             ></div>
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
-              <img className="object-contain w-full h-full" src={img2} alt="" />
+              <img className="object-contain w-[300px] h-full" src={img2} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
               <h4 className="font-bold text-lg mt-4">Accurate Diagnosis</h4>
-              <p className="text-[#C4C4C4] text-xs text-center mt-2">
+              <p className="text-[#C4C4C4] text-sm text-center mt-2">
               Backed by experts, you can trust the system for accurate insights into your child’s development 
               </p>
              
@@ -201,13 +201,13 @@ const Features = () => {
             ></div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[4vw]">
               <h4 className="font-bold text-lg mt-4">Easy Journey</h4>
-              <p className="text-[#C4C4C4] text-xs text-center mt-4">
+              <p className="text-[#C4C4C4] text-sm text-center mt-4">
               Get results in minutes, with an easy-to-follow process that anyone can complete.
               </p>
               
             </div>
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
-              <img className="object-contain w-[50%] h-full" src={img3} alt="" />
+              <img className="object-contain w-[300px] h-full" src={img3} alt="" />
             </div>
           </div>
           <div className="w-[40vw] h-[35vw] md:h-[25vw] max-sm:w-[300px] max-sm:h-full p-4 bg-[#43284C4D] rounded-lg border border-[#5455694D]"ref={(el) => addToRefs(el, cardRefs)}
@@ -229,13 +229,13 @@ const Features = () => {
               }}
             ></div>
             <div className="h-[60%] w-full flex justify-center items-center p-2 pt-5">
-              <img className="object-contain w-full h-full" src={img4} alt="" />
+              <img className="object-contain w-[300px] h-full" src={img4} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[7vw]">
               <h4 className="font-bold text-lg text-center mt-4">
               Non-Invasive Testing with Just Your Webcam
               </h4>
-              <p className="text-[#C4C4C4] text-xs text-center px-[1vw] mt-4">
+              <p className="text-[#C4C4C4] text-sm text-center px-[1vw] mt-4">
               The test is non-invasive, requiring only a standard webcam—no needles or complex equipment.
 
               </p>
