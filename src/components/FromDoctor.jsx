@@ -33,10 +33,10 @@ const FromDoctor = () => {
           }}
         ></div>
         <div className="">
-          <div className="w-full h-[30vw] px-[5vw] gap-14 flex mt-[3vw]">
-            <div className="w-[75%] overflow-hidden rounded-3xl h-full">
+          <div className="w-full h-[25vw] px-[5vw] py-[0vw] gap-14 flex mt-[3vw]" >
+            <div >
               <img
-                className="object-cover w-full h-full"
+                className="object-fill w-full h-full"
                 src={img2}
                 alt=""
                 srcset=""
