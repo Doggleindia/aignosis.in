@@ -26,6 +26,8 @@ import logo11 from '../../assets/images/sponsered/image 85.png';
 import logo12 from '../../assets/images/sponsered/image 71.png';
 import citation from '../../assets/members/citations.jpeg'
 import founders from '../../assets/members/founders.jpeg'
+import raksheet from '../../assets/members/raksheet.jpeg';
+import divyansh from '../../assets/members/divyansh.jpeg'
 
 const AignosisTeam = () => {
   return (
@@ -55,14 +57,14 @@ const AignosisTeam = () => {
             title="Divyansh ​Mangal"
             subtitle="Co Founder & CEO"
             desc="Divyansh Mangal is a passionate entrepreneur and AI researcher dedicated to transforming healthcare accessibility. With a strong academic foundation in Physics from BITS Pilani and Quantum Information Technology from the University of Gdansk"
-            src={founders}
+            src={divyansh}
             logos={[logo1, logo2]}
           />
           <MemberCard
             title="Raksheet ​Jain"
             subtitle="Co-Founder & CTO"
             desc="Raksheet Jain is an AI specialist with a B.Tech in Artificial Intelligence from Virginia Tech and NMIMS Mumbai. His technical expertise spans deep learning and AI model development, with co-authored research on diabetic retinopathy detection."
-            src={founders}
+            src={raksheet}
             logos={[logo3, logo4]}
           />
         </div>

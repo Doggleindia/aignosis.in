@@ -33,7 +33,7 @@ const Reports = () => {
         </p>
         <div className="w-full justify-center md:justify-start items-center flex">
           <div className='w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300'>
-            <Link to="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738867064278_optimized_images.pdf" className='text-white text-sm'>Download sample report</Link>
+            <Link to="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/AIGNOSIS+SAMPLE+REPORT.pdf" className='text-white text-sm'>Download sample report</Link>
             <div className='w-[2.5rem] h-[2.5rem] justify-center flex items-center text-white text-xl group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]'>
               <GoArrowUpRight />
             </div>
