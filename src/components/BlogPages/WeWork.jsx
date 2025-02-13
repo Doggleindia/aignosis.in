@@ -145,10 +145,10 @@ const WeWork = () => {
   <img
   loading="lazy"
     src={image}
-    className="w-full h-[450px] object-fit"
+    className="w-full h-[200px] object-fit mb-4 max-sm:object-fit"
   />
   <p
-  className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-3xl"
+  className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-2xl"
   dangerouslySetInnerHTML={{ __html: sanitizedPageTitle }}
 ></p>
 </div>
@@ -157,7 +157,7 @@ const WeWork = () => {
 
         <div>
         </div>
-        <div className="flex flex-col gap-6  p-[10vw] max-sm:p-[0] max-w-[3xl]">
+        <div className="flex flex-col gap-6  p-[10vw] mb-8 max-sm:p-[0] max-w-[3xl]">
           <BlogContent aboutContent={aboutContent} />
 
           {/* <div>
