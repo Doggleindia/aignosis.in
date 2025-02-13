@@ -41,7 +41,7 @@ const App = () => {
         <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
 
         <Route path="/prices" element={<PriceMain />} />
-        <Route path="/report" element={<ReportComLast />} />
+        <Route path="/report" element={<ReportComLast />} /> 
         
         <Route path="/test/fillup" element={<TestMain />} />
         <Route path="/BlogPages" element={<BlogPage />} />
