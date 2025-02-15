@@ -87,11 +87,11 @@ export const FillupPage = () => {
         setTestData({
           ...testData,
           patientName: document.getElementById("patient-name-input").value,
-          patientDOB: dob,
+          patientDOB: dob.toString(),
         });
 
         // console.log("going to  data collection", testData.dataCollectionMode);
-        navigate("/calibrationpage");
+        navigate("/autismtest");
       }
     } catch (error) {
       console.error("Permission denied for webcam and microphone:", error);
