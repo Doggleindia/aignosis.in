@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
     PATIENT_UID: '',
     TRANSACTION_ID: '',
     patientName: '',
-    patienDOB: '',
+    patientDOB: '',
     inclenFormData: '',
     isaaFormData: '',
     carsFormData: '',
