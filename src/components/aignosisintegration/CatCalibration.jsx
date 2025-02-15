@@ -7,6 +7,7 @@ import Circle from "./Circle";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import BeatLoader from "react-spinners/BeatLoader"; // Ensure you import the BeatLoader component
 
+
 import {
   encryptCalibrationData,
   encryptPassword,
@@ -15,7 +16,7 @@ import { AppContext } from "./AppContext";
 import { useContext } from "react";
 
 const CatCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "http://localhost:8000/rest/calibration/data/";
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   const { testData } = useContext(AppContext);
@@ -152,10 +153,13 @@ const CatCalibration = () => {
       ]);
       setCurrentCircleIndex(currentCircleIndex + 1);
     } else {
+      
       // THIS IS THE FINAL CAT / DOG CLICK
       audio.loop = false;
       audio.pause();
       audio.currentTime = 0; // Reset audio
+
+
 
       setClickTimes((clicktimes) => [
         ...clicktimes,
