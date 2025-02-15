@@ -57,10 +57,10 @@ const VideoPlayback = () => {
   };
 
   useEffect(() => {
-    if (!sessionStorage.getItem("reloaded")) {
-      sessionStorage.setItem("reloaded", "true");
-      window.location.reload();
-    }
+    // if (!sessionStorage.getItem("reloaded")) {
+    //   sessionStorage.setItem("reloaded", "true");
+    //   window.location.reload();
+    // }
 
     // const params = new URLSearchParams(location.search);
     // const patient_uid = params.get("patient_uid");

@@ -4,73 +4,67 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import BeatLoader from "react-spinners/BeatLoader";
-import { encryptCalibrationData, encryptPassword } from "../config/EncryptionUtils";
+import {
+  encryptCalibrationData,
+  encryptPassword,
+} from "../config/EncryptionUtils";
 import { AppContext } from "../aignosisintegration/AppContext.jsx";
 import Circle from "./Circle";
 import dogpng from "../../assets/aignoisiai/dog_face.png";
 
-const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
-
 const DogCalibration = () => {
+  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
+  // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
+
+  // const [TRANSACTION_ID, ] = useState(uuidv4());
+  // const [PATIENT_UID, ] = useState(uuidv4());
   const [startTime, setStartTime] = useState();
   const [frameCaptureInterval, setFrameCaptureInterval] = useState();
   const [frames, setFrames] = useState([]);
   const [isCircleVisible, setIsCircleVisible] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // State for managing loading spinner
+
   const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
   const [parentDimensions, setParentDimensions] = useState([0, 0]);
-  const [videoResolution, setVideoResolution] = useState([640, 480]);
-  const [clickTimes, setClickTimes] = useState([]);
+
+  const [videoResolution, setVideoResolution] = useState([640, 480]); // Static resolution for sample images
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const [clickTimes, setClickTimes] = useState([]);
   const parentRef = useRef(null);
-  const navigate = useNavigate();
+
   const { testData, setTestData } = useContext(AppContext);
 
-  // Debug effect to monitor testData changes
-  useEffect(() => {
-    console.log("testData updated:", testData);
-  }, [testData]);
+  const navigate = useNavigate(); // Initialize navigate from useNavigate
 
   const circleCoordinates = [
-    [window.innerWidth / 2, window.innerHeight / 2],
-    [50, 50],
-    [50, window.innerHeight / 2],
-    [50, window.innerHeight - 100],
-    [window.innerWidth - 100, 50],
-    [window.innerWidth - 100, window.innerHeight / 2],
-    [window.innerWidth - 100, window.innerHeight - 100],
-    [window.innerWidth / 2, 50],
-    [window.innerWidth / 2, window.innerHeight - 100],
+    [window.innerWidth / 2, window.innerHeight / 2], // center
+    [50, 50], // left top
+    [50, window.innerHeight / 2], // left mid
+    [50, window.innerHeight - 100], // left bottom
+    [window.innerWidth - 100, 50], // right top
+    [window.innerWidth - 100, window.innerHeight / 2], // right mid
+    [window.innerWidth - 100, window.innerHeight - 100], // right bottom
+    [window.innerWidth / 2, 50], // mid top
+    [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
   const audio = new Audio(`/dog_bark.wav?timestamp=${Date.now()}`);
-
   useEffect(() => {
+    // const audio = new Audio("/dog_bark.wav");
+    // Initialize and play the audio in a loop
+
     const handleAudioPlay = () => {
-      audio.loop = true;
+      audio.loop = true; // Enable looping
       audio.play().catch((error) => console.error("Audio play error:", error));
     };
 
+    // Wait for the audio to be fully loaded
     audio.addEventListener("canplaythrough", handleAudioPlay);
 
-    // Initialize test data with new UUIDs
-    const initializeTestData = () => {
-      const newPatientUID = uuidv4();
-      const newTransactionID = uuidv4();
-      
-      setTestData(prevData => ({
-        ...prevData,
-        PATIENT_UID: newPatientUID,
-        TRANSACTION_ID: newTransactionID,
-      }));
-
-      console.log("Initialized UUIDs:", { newPatientUID, newTransactionID });
-    };
-
-    initializeTestData();
-
+    console.log("DOG CALIBRATION TEST DATA", testData);
+    // Get the webcam stream and metadata on mount
     if (parentRef.current) {
       const { clientWidth, clientHeight } = parentRef.current;
       setParentDimensions([clientWidth, clientHeight]);
@@ -83,231 +77,261 @@ const DogCalibration = () => {
       }
 
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+        });
+        videoRef.current.srcObject = stream;
 
-          videoRef.current.onloadedmetadata = () => {
-            setVideoResolution([
-              videoRef.current.videoWidth,
-              videoRef.current.videoHeight,
-            ]);
-          };
-        }
+        const handleMetadata = () => {
+          const width = videoRef.current.videoWidth;
+          const height = videoRef.current.videoHeight;
+          setVideoResolution([width, height]);
+        };
+
+        videoRef.current.onloadedmetadata = handleMetadata;
       } catch (error) {
         console.error("Webcam start error:", error);
       }
     };
 
     startWebcam();
-
-    // Cleanup function
     return () => {
       audio.pause();
-      if (frameCaptureInterval) {
-        clearInterval(frameCaptureInterval);
-      }
+      // audio.currentTime = 0; // Reset audio
     };
-  }, []);
-
-  const handleNextButtonClick = async () => {
-    const { PATIENT_UID, TRANSACTION_ID, calibration_encrypted_aes_key, videolanguage } = testData;
-    
-    console.log("Navigating with data:", {
+  }, [testData]);
+  const handleNextButtonClick = () => {
+    let {
       PATIENT_UID,
       TRANSACTION_ID,
       calibration_encrypted_aes_key,
+      videolanguage,
+      patientDOB,
+      patientName,
+    } = testData;
+    if (
+      PATIENT_UID &&
+      TRANSACTION_ID &&
+      calibration_encrypted_aes_key &&
       videolanguage
-    });
+    ) {
+      // const queryParams = new URLSearchParams({
+      //   patient_uid: PATIENT_UID,
+      //   transaction_id: TRANSACTION_ID,
+      //   calibration_encrypted_aes_key: calibration_encrypted_aes_key,
+      //   video_language: videolanguage,
+      //   patientDOB: patientDOB,
+      //   patientName: patientName,
+      // }).toString();
 
-    if (PATIENT_UID && TRANSACTION_ID && calibration_encrypted_aes_key && videolanguage) {
       navigate(`/video`);
     } else {
-      console.error("Missing required parameters:", {
-        PATIENT_UID,
-        TRANSACTION_ID,
-        calibration_encrypted_aes_key,
-        videolanguage
-      });
+      console.error("Missing required query parameters");
     }
   };
 
   const captureFrame = () => {
-    if (!canvasRef.current || !videoRef.current) {
-      console.warn("Frame capture failed: missing refs");
-      return null;
+    if (canvasRef.current && videoRef.current) {
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
+
+      canvas.width = videoRef.current.videoWidth;
+      canvas.height = videoRef.current.videoHeight;
+
+      context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+
+      const frameData = canvas.toDataURL("image/jpeg");
+      return frameData;
+    } else {
+      console.warn("Frame capture failed: canvasRef or videoRef is null");
+      // TODO: send back to take assignment page, with alert saying some error occurred
     }
-
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-
-    if (!context) {
-      console.warn("Failed to get canvas context");
-      return null;
-    }
-
-    canvas.width = videoRef.current.videoWidth;
-    canvas.height = videoRef.current.videoHeight;
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-    
-    return canvas.toDataURL("image/jpeg");
   };
 
   const handleCircleClick = async () => {
+    // const audio = new Audio("/dog_bark.mp3"); // Path to your audio file
+    // try {
+    //   await audio.play(); // Play the audio
+    // } catch (error) {
+    //   console.error("Audio play error:", error);
+    // }
+
     if (currentCircleIndex === 0) {
-      initializeCalibration();
-    } else if (currentCircleIndex < circleCoordinates.length - 1) {
-      recordClick();
+      // save patient uid and tid in context
+      setTestData({
+        ...testData,
+        PATIENT_UID: uuidv4(),
+        TRANSACTION_ID: uuidv4(),
+      });
+
+      setStartTime(Date.now());
+      setClickTimes((clicktimes) => [...clicktimes, 0.0]);
+      setFrameCaptureInterval(
+        setInterval(() => {
+          const frameData = captureFrame();
+          setFrames((prevFrames) => [...prevFrames, frameData]);
+        }, 33) // Adjusted to 33ms for ~30 fps
+      );
+      setCurrentCircleIndex(currentCircleIndex + 1);
+    } else if (
+      currentCircleIndex < circleCoordinates.length - 1 &&
+      currentCircleIndex > 0
+    ) {
+      setClickTimes((clicktimes) => [
+        ...clicktimes,
+        (Date.now() - startTime) / 1000,
+      ]);
+      setCurrentCircleIndex(currentCircleIndex + 1);
     } else {
-      await finalizeCalibration();
-    }
-  };
-
-  const initializeCalibration = () => {
-    const currentTime = Date.now();
-    setStartTime(currentTime);
-    setClickTimes([0.0]);
-    
-    const interval = setInterval(() => {
-      const frameData = captureFrame();
-      if (frameData) {
-        setFrames(prev => [...prev, frameData]);
+      // THIS IS THE LAST CLICK ON THE DOG / CAT
+      try {
+        console.log("stopping audio");
+        audio.loop = false;
+        audio.pause();
+        audio.currentTime = 0; // Reset audio
+      } catch (err) {
+        console.log("error stopping audio", err);
       }
-    }, 33);
 
-    setFrameCaptureInterval(interval);
-    setCurrentCircleIndex(prev => prev + 1);
-  };
-
-  const recordClick = () => {
-    if (!startTime) {
-      console.error("Start time not set");
-      return;
-    }
-
-    setClickTimes(prev => [...prev, (Date.now() - startTime) / 1000]);
-    setCurrentCircleIndex(prev => prev + 1);
-  };
-
-  const finalizeCalibration = async () => {
-    if (!startTime) {
-      console.error("Start time not set");
-      return;
-    }
-
-    try {
-      audio.loop = false;
-      audio.pause();
-      audio.currentTime = 0;
-
-      const finalClickTime = (Date.now() - startTime) / 1000;
-      setClickTimes(prev => [...prev, finalClickTime]);
+      setClickTimes((clicktimes) => [
+        ...clicktimes,
+        (Date.now() - startTime) / 1000,
+      ]);
+      var finalClickTimes = [...clickTimes, (Date.now() - startTime) / 1000];
       setIsCircleVisible(false);
 
-      const timeElapsed = finalClickTime;
-      const fps = Math.floor(frames.length / timeElapsed);
-
-      const calibrationData = createCalibrationData(fps);
-      await processAndSendData(calibrationData);
-      
-      if (frameCaptureInterval) {
-        clearInterval(frameCaptureInterval);
-      }
-    } catch (error) {
-      console.error("Error in finalizeCalibration:", error);
-      setIsLoading(false);
-      navigate("/Error");
-    }
-  };
-
-  const createCalibrationData = (fps) => {
-    const calibrationPoints = clickTimes.map((time, i) => {
-      const frameIndex = Math.floor(fps * time);
-      const nextFrameIndex = Math.min(frameIndex + 1, frames.length - 1);
-
-      return {
-        point: {
-          x: circleCoordinates[i][0],
-          y: circleCoordinates[i][1],
-          final: i === clickTimes.length - 1,
-        },
-        frames: [
-          {
-            timestamp: time,
-            frame: frames[frameIndex],
-          },
-          {
-            timestamp: time + 1/fps,
-            frame: frames[nextFrameIndex],
-          },
-        ],
-      };
-    });
-
-    return {
-      patient_uid: testData.PATIENT_UID,
-      transaction_id: testData.TRANSACTION_ID,
-      patient_name: testData.patientName,
-      patient_dob: testData.patientDOB,
-      camera_resolution: {
-        width: videoResolution[0],
-        height: videoResolution[1],
-      },
-      screen_resolution: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-      },
-      debug: true,
-      calibration_points: calibrationPoints,
-    };
-  };
-
-  const processAndSendData = async (calibrationData) => {
-    setIsLoading(true);
-
-    try {
-      const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-        .map(b => b.toString(16).padStart(2, "0"))
-        .join("");
-
-      const encryptedCalibrationPoints = await encryptCalibrationData(
-        calibrationData.calibration_points,
-        aesKey
+      const timeElapsed = (Date.now() - startTime) / 1000;
+      let fps = parseInt(
+        (frames.length / parseInt(timeElapsed.toString())).toString()
       );
 
-      const calibration_encrypted_aes_key = await encryptPassword(aesKey);
-
-      const finalData = {
-        ...calibrationData,
-        encrypted_calibration_points: encryptedCalibrationPoints,
-        calibration_encrypted_aes_key,
+      const calibrationData = {
+        patient_uid: testData.PATIENT_UID,
+        transaction_id: testData.TRANSACTION_ID,
+        patient_name: testData.patientName,
+        patient_dob: testData.patientDOB,
+        camera_resolution: {
+          width: videoResolution[0],
+          height: videoResolution[1],
+        },
+        screen_resolution: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        },
+        debug: true,
       };
 
-      // Wait for state update to complete
-      await new Promise(resolve => {
-        setTestData(prevData => {
-          const newData = {
-            ...prevData,
-            calibration_encrypted_aes_key,
-          };
-          resolve(newData);
-          return newData;
+      var calibration_points = [];
+      for (let i = 0; i < finalClickTimes.length; i++) {
+        let currentClickFramesList = [];
+        let frameRangeStartIndex = Math.floor(fps * finalClickTimes[i]);
+        currentClickFramesList.push({
+          timestamp: finalClickTimes[i],
+          frame: frames[frameRangeStartIndex],
+          // frame: "/DancingDog.png",
         });
-      });
-
-      const response = await axios.post(SERVER_MIDDLEWARE_URL, finalData, {
-        headers: { "Content-Type": "application/json" },
-      });
-
-      setIsLoading(false);
-      
-      if (response.status !== 200) {
-        throw new Error(`Server returned status ${response.status}`);
+        currentClickFramesList.push({
+          timestamp: finalClickTimes[i] + 1 / fps,
+          frame: frames[frameRangeStartIndex + 1],
+          // frame: "/DancingDog.png",
+        });
+        calibration_points.push({
+          point: {
+            x: circleCoordinates[i][0],
+            y: circleCoordinates[i][1],
+            final: i === finalClickTimes.length - 1,
+          },
+          frames: currentClickFramesList,
+        });
       }
-    } catch (error) {
-      console.error("Processing error:", error);
-      setIsLoading(false);
-      navigate("/Error");
+
+      console.log(
+        `FINAL CALIBRATION DATA BEFORE ENCRYPTION: ${JSON.stringify(
+          calibrationData
+        )}`
+      ); // Fixed template literal
+
+      // ENCRYPTION STARTS HERE
+
+      async function processAndSendData() {
+        setIsLoading(true); // Show spinner
+
+        try {
+          const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join("");
+
+          const encryptedCalibrationPoints = await encryptCalibrationData(
+            calibration_points,
+            aesKey
+          ).catch((error) => {
+            console.error("Failed to encrypt calibration points:", error);
+            throw error;
+          });
+
+          const calibration_encrypted_aes_key = await encryptPassword(
+            aesKey
+          ).catch((error) => {
+            console.error("Failed to encrypt password:", error);
+            throw error;
+          });
+
+          // Create final data object
+          const finalCalibrationData = {
+            ...calibrationData,
+            encrypted_calibration_points: encryptedCalibrationPoints,
+            calibration_encrypted_aes_key: calibration_encrypted_aes_key,
+          };
+
+          setTestData({
+            ...testData,
+            calibration_encrypted_aes_key: calibration_encrypted_aes_key,
+          });
+
+          // Convert to string and send
+          const calibrationDataString = JSON.stringify(finalCalibrationData);
+          console.log(`FINAL CALIBRATION DATA: ${calibrationDataString}`); // Fixed template literal
+
+          return axios
+            .request({
+              method: "POST",
+              url: SERVER_MIDDLEWARE_URL,
+              data: calibrationDataString,
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+            .then((response) => {
+              console.log(response);
+              setIsLoading(false);
+              if (response.status === 200) {
+                // pass
+              } else {
+                navigate("/Error Page");
+              }
+            })
+            .catch((error) => {
+              console.error("Processing error:", error);
+              navigate("/Error");
+              console.log(error);
+            });
+        } catch (error) {
+          console.error("Processing error:", error);
+          navigate("/Error");
+          console.log(error);
+        }
+      }
+
+      processAndSendData()
+        .then((response) => {
+          clearInterval(frameCaptureInterval);
+          console.log("Frame capturing stopped");
+        })
+        .catch((err) => {
+          clearInterval(frameCaptureInterval);
+          console.log("Frame capturing stopped");
+          console.log(err);
+        });
     }
   };
 
@@ -323,69 +347,78 @@ const DogCalibration = () => {
         backgroundColor: "#1b0c26",
       }}
     >
-      {isCircleVisible && parentDimensions[0] > 0 && parentDimensions[1] > 0 && (
-        <Circle
-          onClickHandler={handleCircleClick}
-          x={circleCoordinates[currentCircleIndex][0]}
-          y={circleCoordinates[currentCircleIndex][1]}
-          radius={50}
-          imageUrl={dogpng}
-        />
-      )}
+      {isCircleVisible &&
+        parentDimensions[0] > 0 &&
+        parentDimensions[1] > 0 && (
+          <Circle
+            onClickHandler={handleCircleClick}
+            x={circleCoordinates[currentCircleIndex][0]}
+            y={circleCoordinates[currentCircleIndex][1]}
+            radius={50}
+            imageUrl={dogpng}
+          />
+        )}
 
-      {!isCircleVisible && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          {isLoading ? (
-            <>
-              <BeatLoader color="#ffffff" size={15} />
-              <p
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  backgroundColor: "rgba(138, 0, 194, 0.6)",
-                  color: "white",
-                  padding: "12px 24px",
-                  borderRadius: "25px",
-                  border: "none",
-                  fontSize: "32px",
-                  fontWeight: "bold",
-                }}
-              >
-                Calibrating
-              </p>
-            </>
-          ) : (
-            <button
+      {/* Conditionally render spinner or button */}
+      {!isCircleVisible &&
+        (isLoading ? (
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <BeatLoader color="#ffffff" size={15} />
+            <br />
+            <p
+              className="mt-4"
               style={{
-                backgroundColor: "transparent",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                backgroundColor: "rgba(138, 0, 194, 0.6)",
                 color: "white",
                 padding: "12px 24px",
-                borderRadius: "50px",
-                border: "2px solid white",
+                borderRadius: "25px",
+                border: "none",
                 fontSize: "32px",
                 fontWeight: "bold",
                 cursor: "pointer",
-                transition: "background-color 0.3s ease, color 0.3s ease",
               }}
-              onClick={handleNextButtonClick}
             >
-              Next
-            </button>
-          )}
-        </div>
-      )}
+              {" "}
+              Calibrating
+            </p>
+          </div>
+        ) : (
+          <button
+            className="mt-4"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: "transparent", // Transparent background
+              color: "white",
+              padding: "12px 24px",
+              borderRadius: "50px", // Elliptical shape
+              border: "2px solid white", // White border
+              fontSize: "32px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              transition: "background-color 0.3s ease, color 0.3s ease",
+            }}
+            onClick={handleNextButtonClick}
+          >
+            Next
+          </button>
+        ))}
 
       <div style={{ display: "none", flex: 1 }}>
-        <video ref={videoRef} autoPlay playsInline />
+        <video ref={videoRef} autoPlay playsInline></video>
       </div>
       <canvas ref={canvasRef} style={{ flex: 1, display: "none" }} />
     </div>
