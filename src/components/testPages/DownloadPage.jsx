@@ -37,10 +37,10 @@ const DownloadPage = () => {
         alert('Invalid TRANSACTION_ID. Please enter a valid string.');
         return;
       }
-      if (typeof patientName !== 'string' || patientName.trim() === '') {
-        alert('Invalid patientName. Please enter a valid string.');
-        return;
-      }
+      // if (typeof patientName !== 'string' || patientName.trim() === '') {
+      //   alert('Invalid patientName. Please enter a valid string.');
+      //   return;
+      // }
       // Prepare sanitized data
       const patientuid = PATIENT_UID.trim();
       const transactionid = TRANSACTION_ID.trim();
@@ -88,24 +88,26 @@ const DownloadPage = () => {
       {/* Ai.gnosis Title with Glow Effect */}
       <div className="relative ">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-        <h1 className="relative text-5xl font-semibold text-[#E3E2E5] z-10 font-montserrat">
+        <h1 className="relative text-5xl font-semibold text-[#E3E2E5] z-10 font-montserrat ">
           Ai.gnosis
         </h1>
       </div>
 
       {/* Big Thank You Message */}
-      <div className="mt-4">
-        <h2 className="text-6xl font-bold text-[#FFFFFF] font-manrope">Thank you</h2>
+      <div className="mt-2">
+        <h2 className="text-8xl font-bold text-[#FFFFFF] font-manrope">Thank you</h2>
       </div>
 
       {/* Thank You Paragraph */}
       <div className="mt-6 max-w-2xl px-6 text-[#F6E8FB] font-raleway">
         <p className="text-lg text-center">
           Thank you for completing the assessment with Ai.gnosis! Your responses bring us one step
-          closer to understanding and supporting your child’s unique needs. Our advanced AI tools
-          are here to provide insights that can guide you toward the next steps with confidence. If
-          you have questions about the results or need further assistance, please feel free to reach
-          out to our team. We're committed to empowering you and your child on this journey!
+          closer to understanding and supporting your child’s unique needs. 
+          <br />
+          <br />
+          <span className="text-2xl font-bold text-[#FFFFFF] font-manrope">
+          Book Your Free Session Today
+          </span>
         </p>
       </div>
        {/* Scores and Severity Display */}
@@ -130,11 +132,11 @@ const DownloadPage = () => {
         </a>
       </div> */}
        <Link
-                to="/"
+                to="https://calendly.com/aignosis-support/30min"
                 className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center
           transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
               >
-                Exit Test
+                Book Session
               </Link>
     </div>
   );

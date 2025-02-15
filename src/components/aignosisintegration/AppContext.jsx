@@ -24,6 +24,8 @@ export const AppProvider = ({ children }) => {
     carsscore:'',
     isaascore:'',
     inclenscore:'',
+    calibration_encrypted_aes_key: '',
+    video_encrypted_aes_key: '',
   });
 
   // Pass the state and updater function to the provider

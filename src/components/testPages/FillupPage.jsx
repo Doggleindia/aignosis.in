@@ -9,10 +9,9 @@ import { differenceInYears, differenceInMonths } from "date-fns";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { data } from "autoprefixer";
+import { format } from "date-fns";
 
 export const FillupPage = () => {
-
-  
   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
   const [dob, setDob] = useState(null);
   const [, setAgeYears] = useState("");
@@ -84,20 +83,22 @@ export const FillupPage = () => {
       if (document.getElementById("patient-name-input").value == "" || !dob) {
         alert("Please enter all fields");
       } else {
+        console.log("patient dob in useState is ", dob);
         setTestData({
           ...testData,
-          patientDOB:dob,
           patientName: document.getElementById("patient-name-input").value,
+          patientDOB: dob,
         });
 
-        console.log("going to  data collection", testData.dataCollectionMode);
-        navigate("/thankyou");
+        // console.log("going to  data collection", testData.dataCollectionMode);
+        navigate("/calibrationpage");
       }
     } catch (error) {
       console.error("Permission denied for webcam and microphone:", error);
       alert("Please allow webcam and microphone access to proceed.");
     }
   };
+
 
   // Function to calculate age based on DOB
   const handleDateChange = (date) => {
@@ -110,6 +111,9 @@ export const FillupPage = () => {
     setAgeYears(years);
     setAgeMonths(months);
     setAgeFullYear(fullYear);
+    const formattedDate = date ? format(date, "ddMMyyyy") : "";
+    setDob(formattedDate);
+    console.log("Formatted DOB:");
   };
 
   // // Function to handle checkbox change

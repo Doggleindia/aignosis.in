@@ -4,28 +4,72 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { useContext } from "react";
+import BeatLoader from "react-spinners/BeatLoader"; // Ensure you import the BeatLoader component
 
 const VideoPlayback = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [, setIsVideoPlaying] = useState(false);
   const [isVideoEnded, setIsVideoEnded] = useState(false);
   const [hasStartedOnce, setHasStartedOnce] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
+  const [, setIsUploading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // State for managing loading spinner
+
   const webcamRef = useRef(null);
-  const calibrationVideoRef = useRef(null);
+  // const calibrationVideoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
   const videoStreamRef = useRef(null);
-
+  const fpsIntervalRef = useRef(null);
+  const [fps, setFps] = useState(0);
+  const frameTimes = useRef([]);
   const { testData, setTestData } = useContext(AppContext);
 
   const SERVER_MIDDLEWARE_ENDPOINT = "https://35.207.211.80";
 
+  const startFpsCalculation = () => {
+    let lastTime = performance.now();
+    let frameCount = 0;
+    
+    fpsIntervalRef.current = setInterval(() => {
+      const currentTime = performance.now();
+      const elapsed = currentTime - lastTime;
+      
+      if (elapsed >= 1000) { // Calculate every second
+        const currentFps = Math.round((frameCount * 1000) / elapsed);
+        setFps(currentFps);
+        frameCount = 0;
+        lastTime = currentTime;
+      }
+      frameCount++;
+    }, 1000 / 60); // Run at 60Hz
+  };
+
+  // Stop FPS calculation
+  const stopFpsCalculation = () => {
+    if (fpsIntervalRef.current) {
+      clearInterval(fpsIntervalRef.current);
+      fpsIntervalRef.current = null;
+    }
+  };
+
   useEffect(() => {
+    if (!sessionStorage.getItem("reloaded")) {
+      sessionStorage.setItem("reloaded", "true");
+      window.location.reload();
+    }
+
+    // const params = new URLSearchParams(location.search);
+    // const patient_uid = params.get("patient_uid");
+    // const transaction_id = params.get("transaction_id");
+    // const encrypted_key = params.get("encrypted_key");
+    // const video_language = params.get("video_language");
+    // const patientDOB = params.get("patientDOB");
+    // const patientName = params.get("patientName");
+
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
@@ -36,14 +80,19 @@ const VideoPlayback = () => {
 
     return () => {
       window.removeEventListener("popstate", handleBackButton);
+      stopFpsCalculation();
     };
-  }, [navigate]);
+  }, [location.search, setTestData, navigate]);
 
   useEffect(() => {
+    if (isLoading) {
+      console.log("Loader should be visible now!");
+    }
     console.log("VIDEO PLAYBACK TEST DATA", testData);
-  }, []);
+  }, [isLoading]);
 
   const cleanupMediaStream = () => {
+    stopFpsCalculation();
     if (webcamRef.current && webcamRef.current.srcObject) {
       const tracks = webcamRef.current.srcObject.getTracks();
       tracks.forEach((track) => {
@@ -68,7 +117,23 @@ const VideoPlayback = () => {
       recordedChunksRef.current = [];
     }
   };
-
+  // const calculateFps = () => {
+  //   const now = performance.now();
+  //   frameTimes.current.push(now);
+  
+  //   if (frameTimes.current.length > 10) {
+  //     frameTimes.current.shift();
+  //   }
+  
+  //   if (frameTimes.current.length > 1) {
+  //     const first = frameTimes.current[0];
+  //     const last = frameTimes.current[frameTimes.current.length - 1];
+  //     const fpsValue = (frameTimes.current.length - 1) / ((last - first) / 1000);
+  //     setFps(Math.round(fpsValue));
+  //   }
+  
+  //   requestAnimationFrame(calculateFps);
+  // };
   const startWebcamRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -92,6 +157,7 @@ const VideoPlayback = () => {
 
       mediaRecorder.start(1000);
       setIsRecording(true);
+      startFpsCalculation(); // Start FPS calculation when recording begins
     } catch (error) {
       console.error("Error accessing webcam:", error);
       alert(
@@ -101,14 +167,18 @@ const VideoPlayback = () => {
   };
 
   const uploadRecording = async (blob) => {
+    setIsLoading(true); // Show spinner
+    stopFpsCalculation(); // Stop FPS calculation before upload
+
     try {
+      setIsLoading(true); // Show spinner
       setIsUploading(true);
 
-      const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+      const videoAesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
         .map((b) => b.toString(16).padStart(2, "0"))
         .join("");
 
-      const encryptedBlob = await encryptVideo(blob, aesKey);
+      const videoEncryptedBlob = await encryptVideo(blob, videoAesKey);
 
       const jwk = await fetch(
         SERVER_MIDDLEWARE_ENDPOINT + "/rest/return_rsa_public_key/"
@@ -125,37 +195,41 @@ const VideoPlayback = () => {
         ["encrypt"]
       );
 
-      const encryptedKey = await window.crypto.subtle.encrypt(
+      const videoEncryptedAesKey = await window.crypto.subtle.encrypt(
         {
           name: "RSA-OAEP",
         },
         publicKey,
-        new TextEncoder().encode(aesKey)
+        new TextEncoder().encode(videoAesKey)
       );
 
       const formData = new FormData();
-      formData.append("video", encryptedBlob, "encrypted-test.bin");
+      formData.append("video", videoEncryptedBlob, "encrypted-test.bin");
       formData.append(
-        "encrypted_aes_key",
-        new Blob([encryptedKey], { type: "application/octet-stream" }),
+        "video_encrypted_aes_key",
+        new Blob([videoEncryptedAesKey], { type: "application/octet-stream" }),
         "encrypted_aes_key.bin"
       );
       formData.append("patient_uid", testData.PATIENT_UID);
       formData.append("transaction_id", testData.TRANSACTION_ID);
+      console.log("Uploading with FPS:", fps);
+      formData.append("fps", fps.toString()); // Convert fps to string
 
-      const response = await fetch(
-        SERVER_MIDDLEWARE_ENDPOINT + "/rest/test/video_data/",
-        {
-          method: "POST",
-          body: formData,
-        }
-      )
+      for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
+
+      await fetch(SERVER_MIDDLEWARE_ENDPOINT + "/rest/test/video_data/", {
+        method: "POST",
+        body: formData,
+      })
         .then((response) => {
+          setIsLoading(false);
           if (!response.ok) {
             throw new Error("Network response was not ok");
           } else {
-            
-            navigate('/test/fillup');
+            setIsLoading(false); // Show spinner
+            navigate("/thankyou");
           }
           return response.json();
         })
@@ -170,7 +244,7 @@ const VideoPlayback = () => {
 
       cleanupMediaStream();
       setIsUploading(false);
-
+      setIsLoading(false); // Show spinner
       navigate("/Error");
     }
   };
@@ -251,10 +325,8 @@ const VideoPlayback = () => {
   };
 
   const handleVideoEnd = async () => {
-    alert('Please wait...');
     setIsVideoEnded(true);
     stopRecording();
-
   };
 
   return (
@@ -263,11 +335,11 @@ const VideoPlayback = () => {
       <video
         ref={videoRef}
         src={
-          testData.videolanguage === "English"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_english_v6.mp4"
-            : testData.videolanguage === "Hindi"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_hindi_v6.mp4"
-            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/video_hindi_v6.mp4"
+          testData.videoLanguage === "English"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V5.mp4"
+            : testData.videoLanguage === "Hindi"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
+            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
         }
         controls
         autoPlay={false}
@@ -288,11 +360,40 @@ const VideoPlayback = () => {
           {isRecording ? "Recording" : "Not Recording"}
         </span>
       </div>
+      {isLoading && (
+        <div
+          className="absolute inset-0 flex flex-col justify-center items-center"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            zIndex: 50,
+          }}
+        >
+          <BeatLoader color="#ffffff" size={15} />
+          <p
+            className="mt-4"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: "rgba(138, 0, 194, 0.6)",
+              color: "white",
+              padding: "12px 24px",
+              borderRadius: "25px",
+              fontSize: "32px",
+              fontWeight: "bold",
+            }}
+          >
+            Loading
+          </p>
+        </div>
+      )}
+
       <div className="absolute bottom-10">
         {isVideoEnded ? (
           <button
             onClick={() => {
-              navigate('/test/fillup');
+              window.location.replace("/thankyou");
             }}
             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
           >
