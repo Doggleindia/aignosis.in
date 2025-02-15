@@ -148,7 +148,7 @@ const WeWork = () => {
     className="w-full h-[200px] object-fit mb-4 max-sm:object-fit"
   />
   <p
-  className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw] left-[4vw] max-sm:left-[8vw] text-2xl"
+  className="font-montserrat text-[#F6E8FB] font-bold absolute text-center top-[8vw] max-sm:top-[15vw]  left-[4vw] max-sm:left-[1vw] text-2xl"
   dangerouslySetInnerHTML={{ __html: sanitizedPageTitle }}
 ></p>
 </div>
