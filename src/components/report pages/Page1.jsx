@@ -19,9 +19,10 @@ const Page1 = () => {
     ];
 
     const progressData2 = [
-        { label: 'Social Preference', value: 85 },
-        { label: 'Eye Contact', value: 75 },
-        { label: 'Joint Attention', value: 80 },
+        // { label: 'Social Preference', value: 85 },
+        { label: 'Head Control', value: 78 },
+        // { label: 'Eye Contact', value: 75 },
+        // { label: 'Joint Attention', value: 80 },
     ];
 
     return (

@@ -5,19 +5,19 @@ import img3 from "../../assets/report/img6.png"
 
 const Page2 = () => {
     const progressData = [
-        { label: 'Social Preference', value: 85 },
-        { label: 'Eye Contact', value: 75 },
-        { label: 'Joint Attention', value: 80 },
-        { label: 'Gaze Hold', value: 70 },
+        { label: 'Name Call Response', value: 82 },
+        { label: 'evelopmental Skills Summar', value: 76 },
+        // { label: 'Visual Interest Response', value: 73 },
+        // { label: 'Audio and Speech Response', value: 70 },
     ];
 
     const progressData2 = [
-        { label: 'Social Preference', value: 85 },
-        { label: 'Joint Attention', value: 80 },
+        { label: 'Eye Area Expressivity', value: 82 },
+        { label: 'Lower Face Expressivity', value: 76 },
     ];
     const progressData3 = [
-        { label: 'Social Preference', value: 85 },
-        { label: 'Joint Attention', value: 80 },
+        { label: 'Emotional Range', value: 80 },
+        { label: 'Emotion Mirroring Score', value: 78 },
     ];
     return (
         <div className=" pdf-imageflex flex-col font-manrope items-center p-8 bg-white  min-h-screen">
@@ -33,7 +33,7 @@ const Page2 = () => {
                             <img src={img2} alt="" />
                             <div className="w-[12vw] p-4 h-[8vw] bg-[#EC9D14] flex flex-col items-center justify-center rounded-3xl">
                                 <h4 className='text-center'>Audio and Speech Response</h4>
-                                <h4>74%</h4>
+                                <h4>77.6%</h4>
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,8 @@ const Page2 = () => {
                         <div className="w-[10vw] flex flex-col justify-center items-center">
                             <img src={img3} alt="" />
                             <div className="w-[12vw] p-4 h-[8vw] bg-[#6B88FB] flex flex-col items-center justify-center rounded-3xl">
-                                <h4 className='text-center'> Movement and Posture</h4>
-                                <h4>78%</h4>
+                                <h4 className='text-center'> Facial Muscular Response</h4>
+                                <h4>79%</h4>
                             </div>
                         </div>
                     </div>
@@ -88,13 +88,13 @@ const Page2 = () => {
                         <div className="w-[10vw] flex flex-col justify-center items-center">
                             <img src={img3} alt="" />
                             <div className="w-[12vw] p-4 h-[8vw] bg-[#19C18C] flex flex-col items-center justify-center rounded-3xl">
-                                <h4 className='text-center'> Movement and Posture</h4>
-                                <h4>78%</h4>
+                                <h4 className='text-center'> Emotional and Mirroring Response</h4>
+                                <h4>79%</h4>
                             </div>
                         </div>
                     </div>
                     <div className="flex w-full h-full flex-col">
-                        {progressData2.map((item, index) => (
+                        {progressData3.map((item, index) => (
                             <div key={index} className="w-full h-[4vh] bg-[#19C18C5E] rounded-full mb-2">
                                 <div
                                     className="h-full bg-[#19C18C] rounded-full flex justify-between items-center p-1"

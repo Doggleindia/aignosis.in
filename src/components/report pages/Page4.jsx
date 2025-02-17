@@ -3,30 +3,67 @@ import React from 'react';
 const Page4 = () => {
     const tableData = [
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 80,
-            color: "bg-[#F32A2A]"
-        },
-        {
-            subskill: "Social Attention",
-            description: "Percentage of time the child gazed at the social half of the screen and the concentration of gaze on specific elements like people or toys.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Name Call Response",
+            description: "Tracks responsiveness to her name, indicating social awareness.",
+            percentage: 82,
+            color: "bg-[#4CAF50]",
+            explain: "Responds promptly, indicating good social awareness and engagement."
         },
         {
             subskill: "Attention to Speech",
-            description: "Correlation between the child’s gaze patterns and the alternating conversation in a movie featuring two actors.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            description: "Measures focus on speech, showing interest in auditory communication.",
+            percentage: 76,
+            color: "bg-[#66BB6A]",
+            explain: "Attends to speech, suggesting interest in communication."
         },
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Vocalization Frequency",
+            description: "Frequency of vocal sounds, showing comfort with vocal expression.",
+            percentage: 73,
+            color: "bg-[#66BB6A]",
+            explain: "Engages vocally, showing comfort and engagement in verbal interaction."
         },
+        {
+            subskill: "Vocalization Variety",
+            description: "Range of vocal sounds, indicating language development flexibility.",
+            percentage: 78,
+            color: "bg-[#4CAF50]",
+            explain: "Healthy variety of sounds, showing flexibility in vocal expression and early language development."
+        }
     ];
+    
+    const tableData1 = [
+        {
+            subskill: "Head Movement",
+            description: "Reflects attentiveness; balanced movement suggests focus.",
+            percentage: 78,
+            color: "bg-[#4CAF50]",
+            explain: "Shows controlled head movements, reflecting focused attentiveness."
+        },
+        {
+            subskill: "Body Movement",
+            description: "Measures body movement levels, indicating engagement or restlessness.",
+            percentage: 75,
+            color: "bg-[#66BB6A]",
+            explain: "Healthy body movement levels, indicating appropriate engagement."
+        },
+        {
+            subskill: "No Repetitive Movement",
+            description: "Absence of repetitive behaviors typically seen in neurotypical development.",
+            percentage: 85,
+            color: "bg-[#4CAF50]",
+            explain: "No repetitive movements observed, consistent with typical development."
+        },
+        {
+            subskill: "Movement Control",
+            description: "Assesses ability to regulate movements, indicating self-regulation and motor control.",
+            percentage: 77,
+            color: "bg-[#66BB6A]",
+            explain: "Good movement control, showing typical motor regulation."
+        }
+    ];
+    
+    
 
     return (
         <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
@@ -45,14 +82,14 @@ const Page4 = () => {
                             {/* Table Header */}
                             <thead>
                                 <tr className="text-left">
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Performance</th>
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Subskill</th>
-                                    <th className="p-2 text-[12px] font-medium border-b border-gray-300 text-center">Results</th>
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Feature</th>
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Percentile</th>
+                                    <th className="p-2 text-[12px] font-lg border-b border-gray-300 text-center">Explanation</th>
                                 </tr>
                             </thead>
                             {/* Table Body */}
                             <tbody>
-                                {tableData.map((row, index) => (
+                                {tableData1.map((row, index) => (
                                     <tr key={index} className="border-b border-gray-300">
                                         {/* Subskill */}
                                         <td className="p-4 text-[10px] text-gray-800 w-[35%] font-semibold border-r border-gray-300">
@@ -64,14 +101,14 @@ const Page4 = () => {
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
                                             <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-xs font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         {/* Results */}
-                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.description}</td>
+                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.explain}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -82,10 +119,10 @@ const Page4 = () => {
                         <table className="w-full border-collapse">
                             {/* Table Header */}
                             <thead>
-                                <tr className="text-left">
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Subskill</th>
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Performance</th>
-                                    <th className="p-2 text-[12px] font-medium border-b border-gray-300 text-center">Results</th>
+                            <tr className="text-left">
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Feature</th>
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Percentile</th>
+                                    <th className="p-2 text-[12px] font-lg border-b border-gray-300 text-center">Explanation</th>
                                 </tr>
                             </thead>
                             {/* Table Body */}
@@ -102,14 +139,14 @@ const Page4 = () => {
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
                                             <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-xs font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         {/* Results */}
-                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.description}</td>
+                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.explain}</td>
                                     </tr>
                                 ))}
                             </tbody>

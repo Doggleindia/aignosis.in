@@ -6,60 +6,77 @@ import img3 from "../../assets/report/img6.png";
 const Page3 = () => {
     const tableData = [
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 80,
-            color: "bg-[#F32A2A]"
+            subskill: "Social Preference",
+            description: "Indicates focus on social stimuli (people) over non-social elements, reflecting social interest levels.",
+            percentage: 95,
+            color: "bg-[#4CAF50]",
+            explain: "Shows strong social preference, suggesting healthy social engagement."
         },
         {
-            subskill: "Social Attention",
-            description: "Percentage of time the child gazed at the social half of the screen and the concentration of gaze on specific elements like people or toys.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Eye Contact",
+            description: "Tracks frequency and duration of eye contact, showing comfort with social interaction.",
+            percentage: 75,
+            color: "bg-[#66BB6A]",
+            explain: "Maintains good eye contact, indicating responsiveness in social interactions."
         },
         {
-            subskill: "Attention to Speech",
-            description: "Correlation between the child’s gaze patterns and the alternating conversation in a movie featuring two actors.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Joint Attention",
+            description: "Measures shared focus on an object or event with another person, a key skill for early communication.",
+            percentage: 60,
+            color: "bg-[#FFC107]",
+            explain: "Easily engages in joint attention, suggesting strong foundational communication skills."
         },
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Gaze Hold",
+            description: "Indicates duration of gaze on an object, reflecting attentiveness and sustained focus.",
+            percentage: 65,
+            color: "bg-[#66BB6A]",
+            explain: "Demonstrates sustained attention, indicating interest in surroundings."
         },
         {
-            subskill: "Social Attention",
-            description: "Percentage of time the child gazed at the social half of the screen and the concentration of gaze on specific elements like people or toys.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Gaze Speed",
+            description: "Assesses the speed of gaze shifts, which is associated with attentiveness and visual processing.",
+            percentage: 55,
+            color: "bg-[#FFC107]",
+            explain: "Displays typical gaze speed, reflecting balanced visual responsiveness."
         },
         {
-            subskill: "Attention to Speech",
-            description: "Correlation between the child’s gaze patterns and the alternating conversation in a movie featuring two actors.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Attention Shift Frequency",
+            description: "Frequency of attention shifts, suggesting cognitive flexibility and engagement.",
+            percentage: 63,
+            color: "bg-[#66BB6A]",
+            explain: "Balanced shift frequency, suggesting natural curiosity and engagement."
         },
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 80,
-            color: "bg-[#F32A2A]"
+            subskill: "Gaze Stability",
+            description: "Measures spread of gaze across different areas, showing exploration and focus distribution.",
+            percentage: 78,
+            color: "bg-[#4CAF50]",
+            explain: "Distributes gaze well, indicating healthy exploration of surroundings."
         },
         {
-            subskill: "Social Attention",
-            description: "Percentage of time the child gazed at the social half of the screen and the concentration of gaze on specific elements like people or toys.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Focal Points",
+            description: "Measures preference for gaze points, such as faces and social interactions.",
+            percentage: 62,
+            color: "bg-[#66BB6A]",
+            explain: "Focuses on multiple points, showing curiosity and attention to detail."
         },
         {
-            subskill: "Attention to Speech",
-            description: "Correlation between the child’s gaze patterns and the alternating conversation in a movie featuring two actors.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
+            subskill: "Screen Focus",
+            description: "Measures screen fixation to typical engagement levels, assessing attentional stability.",
+            percentage: 65,
+            color: "bg-[#66BB6A]",
+            explain: "Maintains attention on visual tasks, indicating good focus abilities."
         },
+        {
+            subskill: "Object Tracking",
+            description: "Observes ability to follow moving objects for visual-motor coordination.",
+            percentage: 60,
+            color: "bg-[#FFC107]",
+            explain: "Tracks objects smoothly, indicating typical visual-motor coordination skills."
+        }
     ];
+    
 
     return (
         <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
@@ -72,14 +89,14 @@ const Page3 = () => {
 
                 {/* Table */}
                 <div className="w-full border rounded-3xl p-4 border-[#CDAAE0] font-raleway">
-                    <h3 className='text-center text-sm font-bold mb-5'>Audio and Speech Response</h3>
+                    <h3 className='text-center text-sm font-bold mb-5'>Visual Interest Response</h3>
                     <table className="w-full border-collapse">
                         {/* Table Header */}
                         <thead>
                             <tr className="text-left">
-                                <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Subskill</th>
-                                <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Performance</th>
-                                <th className="p-2 text-[12px] font-medium border-b border-gray-300 text-center">Results</th>
+                                <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Feature</th>
+                                <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Percentile</th>
+                                <th className="p-2 text-[12px] font-lg border-b border-gray-300 text-center">Explanation</th>
                             </tr>
                         </thead>
                         {/* Table Body */}
@@ -96,14 +113,14 @@ const Page3 = () => {
                                     <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
                                         <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
                                             <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-xs font-bold shadow-md">
+                                                <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                     {row.percentage}%
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     {/* Results */}
-                                    <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.description}</td>
+                                    <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.explain}</td>
                                 </tr>
                             ))}
                         </tbody>
