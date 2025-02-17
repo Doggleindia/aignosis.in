@@ -13,7 +13,7 @@ import Circle from "./Circle";
 import dogpng from "../../assets/aignoisiai/dog_face.png";
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://prod.aignosismdw.in//rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "https://prod.aignosismdw.in/rest/calibration/data/";
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   // const [TRANSACTION_ID, ] = useState(uuidv4());
