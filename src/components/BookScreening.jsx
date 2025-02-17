@@ -64,7 +64,7 @@ const BookScreening = () => {
         style={{ background: "rgba(26, 12, 37, 1)" }}
       >
         {/* Top Navigation */}
-        <div className="flex justify-center items-center space-x-4 md:space-x-2 mb-8">
+        <div className="flex justify-center items-center space-x-4 max-sm:ml-[-8vw] md:space-x-2 mb-8">
           <img
             src={star}
             className="w-[70px] h-[70px] self-center max-sm:w-[30px] max-sm:h-[30px]"

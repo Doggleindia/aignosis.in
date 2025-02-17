@@ -6,7 +6,7 @@ import img3 from "../../assets/report/img6.png"
 const Page2 = () => {
     const progressData = [
         { label: 'Name Call Response', value: 82 },
-        { label: 'evelopmental Skills Summar', value: 76 },
+        { label: 'developmental Skills Summar', value: 76 },
         // { label: 'Visual Interest Response', value: 73 },
         // { label: 'Audio and Speech Response', value: 70 },
     ];
