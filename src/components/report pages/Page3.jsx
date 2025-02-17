@@ -102,12 +102,12 @@ const Page3 = () => {
                         {/* Table Body */}
                         <tbody>
                             {tableData.map((row, index) => (
-                                <tr key={index} className="border-b border-gray-300">
+                                <tr key={index} className="border-b border-gray-300 ]">
                                     {/* Subskill */}
                                     <td className="p-4 text-[10px] text-gray-800 w-[35%] font-semibold border-r border-gray-300">
                                         {row.subskill}
                                         <br />
-                                        <span className="font-normal text-gray-600 text-[8px]">{row.description}</span>
+                                        <span className="font-normal text-gray-600 text-[12px]">{row.description}</span>
                                     </td>
                                     {/* Performance */}
                                     <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">

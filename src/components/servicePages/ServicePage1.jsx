@@ -142,13 +142,13 @@ const ServicePage1 = () => {
             <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
           </div>
 
-          <div className="w-full min-h-screen h-full max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
+          <div className="w-full min-h-screen h-full max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white flex justify-center items-start flex-wrap md:flex-nowrap">
             <div className="w-full md:w-[50%] h-auto p-[3vw]">
               <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
                 <div>
-                  <span className="2xl:text-2xl md:text-xl text-lg text-left font-semibold">
+                  <div className="2xl:text-2xl md:text-xl text-lg text-left max-sm:text-left font-semibold">
                     What Are Assessments?
-                  </span>
+                  </div>
                   <h3 className="mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]">
                     Our comprehensive psycho-educational assessments help
                     identify your child's unique learning needs.

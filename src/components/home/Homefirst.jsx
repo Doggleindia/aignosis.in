@@ -39,7 +39,7 @@ const Homefirst = () => {
     <>
       <>
         <div
-          className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000"
+          className="absolute h-full inset-0 bg-cover  mt-16 bg-no-repeat transition-opacity duration-1000 hidden md:flex"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",

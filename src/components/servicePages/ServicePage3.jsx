@@ -197,7 +197,7 @@ const ServicePage3 = () => {
                 </h2>
                 <div className="mt-6 flex flex-col justify-center items-center pl-[2vw]">
                   <h2 className="2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway">
-                    Common Concerns We Address:
+                    We Address:
                   </h2>
                   <div className="pl-[1vw] 2xl:text-base md:text-sm text-xs mt-6">
                     {[
