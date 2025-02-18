@@ -10,6 +10,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { data } from "autoprefixer";
 import { format } from "date-fns";
+import Protectedpage from "./Protectedpage";
+
+
 
 export const FillupPage = () => {
   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
@@ -150,7 +153,8 @@ export const FillupPage = () => {
   };
   
   return (
-    <>
+    <Protectedpage>
+    
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center h-[110vh] ">
         {/* <StepProgress /> */}
         {!isBackInfoVisible ? (
@@ -334,7 +338,9 @@ export const FillupPage = () => {
           <CalibrationPage />
         )}
       </div>
-    </>
+      
+    
+    </Protectedpage>
   );
 };
 
