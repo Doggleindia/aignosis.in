@@ -5,6 +5,9 @@ import { DatePicker } from "antd";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { format } from "date-fns";
+import Protectedpage from "./Protectedpage";
+
+
 
 export const FillupPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -65,7 +68,8 @@ export const FillupPage = () => {
   };
 
   return (
-    <>
+    <Protectedpage>
+    
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center h-[110vh] ">
         {!isBackInfoVisible ? (
           <div className="flex flex-row max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0 max-sm:mb-[50px]">
@@ -136,7 +140,9 @@ export const FillupPage = () => {
           <CalibrationPage />
         )}
       </div>
-    </>
+      
+    
+    </Protectedpage>
   );
 };
 
