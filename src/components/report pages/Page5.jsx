@@ -3,18 +3,37 @@ import React from 'react';
 const Page5 = () => {
     const tableData = [
         {
-            subskill: "Facing Forward",
-            description: "Percentage of time the child faced the screen with open eyes, steady gaze, and stable face; used as a proxy for attention to the movies.",
-            percentage: 80,
-            color: "bg-[#F32A2A]"
+            subskill: "Eye Area Expressivity",
+            description: "Observes expressiveness in eye area, showing interest and emotional engagement.",
+            percentage: 83,
+            color: "bg-[#4CAF50]",
+            explain: "Clear eye expressivity, indicating strong emotional engagement."
         },
         {
-            subskill: "Social Attention",
-            description: "Percentage of time the child gazed at the social half of the screen and the concentration of gaze on specific elements like people or toys.",
-            percentage: 33,
-            color: "bg-[#F32A2A]"
-        },
+            subskill: "Lower Face Expressivity",
+            description: "Measures mouth expressiveness, reflecting emotional responsiveness.",
+            percentage: 75,
+            color: "bg-[#66BB6A]",
+            explain: "Good lower facial expressivity, showing responsiveness to social interactions."
+        }
     ];
+    const tableData1 = [
+        {
+            subskill: "Emotional Range",
+            description: "Shows variety in emotions displayed, indicating emotional adaptability and health",
+            percentage: 80,
+            color: "bg-[#4CAF50]",
+            explain: "Displays a broad range of emotions, reflecting healthy emotional adaptability."
+        },
+        {
+            subskill: "Emotion Mirroring",
+            description: "Measures ability to reflect others' emotions, showing empathy and social awareness.",
+            percentage: 78,
+            color: "bg-[#66BB6A]",
+            explain: "Mirrors emotions effectively, indicating social awareness and empathy."
+        }
+    ];
+    
 
     return (
         <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
@@ -32,10 +51,10 @@ const Page5 = () => {
                         <table className="w-full border-collapse">
                             {/* Table Header */}
                             <thead>
-                                <tr className="text-left">
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Performance</th>
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Subskill</th>
-                                    <th className="p-2 text-[12px] font-medium border-b border-gray-300 text-center">Results</th>
+                            <tr className="text-left">
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Feature</th>
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Percentile</th>
+                                    <th className="p-2 text-[12px] font-lg border-b border-gray-300 text-center">Explanation</th>
                                 </tr>
                             </thead>
                             {/* Table Body */}
@@ -52,14 +71,14 @@ const Page5 = () => {
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
                                             <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-xs font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         {/* Results */}
-                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.description}</td>
+                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.explain}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -70,15 +89,15 @@ const Page5 = () => {
                         <table className="w-full border-collapse">
                             {/* Table Header */}
                             <thead>
-                                <tr className="text-left">
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Subskill</th>
-                                    <th className="p-2 text-[12px] border-r font-medium border-b border-gray-300 text-center">Performance</th>
-                                    <th className="p-2 text-[12px] font-medium border-b border-gray-300 text-center">Results</th>
+                            <tr className="text-left">
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Feature</th>
+                                    <th className="p-2 text-[12px] border-r font-lg border-b border-gray-300 text-center">Percentile</th>
+                                    <th className="p-2 text-[12px] font-lg border-b border-gray-300 text-center">Explanation</th>
                                 </tr>
                             </thead>
                             {/* Table Body */}
                             <tbody>
-                                {tableData.map((row, index) => (
+                                {tableData1.map((row, index) => (
                                     <tr key={index} className="border-b border-gray-300">
                                         {/* Subskill */}
                                         <td className="p-4 text-[10px] text-gray-800 w-[35%] font-semibold border-r border-gray-300">
@@ -90,7 +109,7 @@ const Page5 = () => {
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
                                             <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-xs font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>

@@ -63,7 +63,7 @@ const Awards = () => {
   }, []);
   return (
     <div className='bg-[#1A0C25] relative w-full p-[5vw] '>
-      <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center space-x-4 ">
+      <div className="flex flex-row  justify-center  max-sm:mt-[15vw] items-center max-sm:ml-[15vw] space-x-4 ">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
           style={{
@@ -71,7 +71,7 @@ const Awards = () => {
               "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
           }}
         ></span>
-        <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-sm">
+        <span className="text-[24px] text-[#F1C6FE] font-medium  max-sm:text-sm">
           Endorsed
         </span>
         <span

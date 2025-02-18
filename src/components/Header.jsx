@@ -97,7 +97,7 @@ const Header = () => {
           <Link
             to="/"
             onClick={() => handleLinkClick("/")}
-            className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide text-white z-10"
+            className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide max-sm:top-[1vw] text-white z-10"
           >
             Ai.gnosis
           </Link>
@@ -412,7 +412,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="flex md:hidden items-center">
+        <div className="flex md:hidden items-center mt-2">
           <button onClick={toggleMenu} className="text-white text-3xl">
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
@@ -420,7 +420,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute text-left p-6 top-[6.8vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+        <div className="absolute text-left p-6 top-[6.5vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
           <Link
             to="/"
             onClick={() => {
