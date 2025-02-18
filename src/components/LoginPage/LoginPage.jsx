@@ -4,6 +4,7 @@ import fetchData from "../config/fetchData";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -97,7 +98,9 @@ const LoginPage = () => {
   };
 
   return (
-    <>
+   
+      <>
+    
       <ToastContainer />
       {!showOtpPage ? (
         <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
@@ -169,6 +172,7 @@ const LoginPage = () => {
         />
       )}
     </>
+    
   );
 };
 
