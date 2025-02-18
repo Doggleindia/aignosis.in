@@ -33,11 +33,11 @@ const Page1 = () => {
                     <div className="w-full border-t-2 mt-2 border-[#9C00AD]"></div>
                 </div>
 
-                <div className="w-full items-center justify-start flex mt-4">
+                <div className="w-full items-center justify-start  flex mt-4">
                     <div className="w-[25%]">
                         <img src={img1} alt="Patient Image" />
                     </div>
-                    <div className="font-playfair text-xs ml-5">
+                    <div className="font-playfair text-xs text-left ml-5">
                         <h3>Patient Details:</h3>
                         <h3>Name: Jinaya Sagar Kothari</h3>
                         <h3>Age: 3 years</h3>
