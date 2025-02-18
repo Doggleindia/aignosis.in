@@ -188,8 +188,9 @@ const VideoPlayback = () => {
 
 
       console.log("Uploading with FPS:", fps);
+      
       formData.append("fps", fps.toString()); // Convert fps to string
-
+      
       for (let pair of formData.entries()) {
         console.log(pair[0] + ': ' + pair[1]);
       }
@@ -203,7 +204,7 @@ const VideoPlayback = () => {
       );
 
       if (response.status === 200) {
-        navigate("/test/fillup");
+        navigate("/thankyou");
       } else {
         navigate("/Error");
       }
@@ -214,8 +215,7 @@ const VideoPlayback = () => {
       console.error("Error uploading video:", error);
       cleanupMediaStream();
       setIsUploading(false);
-      window.location.replace("/test/fillup");
-      alert("Failed to upload video. Please try again.");
+      navigate('/thankyou');
     }
   };
 
@@ -283,7 +283,7 @@ const VideoPlayback = () => {
   const handleVideoEnd = () => {
     setIsVideoEnded(true);
     stopRecording();
-    navigate("/test/fillup");
+    navigate("/thankyou");
   };
 
   const getVideoSource = () => {
@@ -324,7 +324,7 @@ const VideoPlayback = () => {
       <div className="absolute bottom-10">
         {isVideoEnded ? (
           <button
-            onClick={() => window.location.replace("/download")}
+            onClick={() => navigate("/thankyou")}
             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
           >
             Next
