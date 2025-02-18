@@ -13,7 +13,7 @@ import Circle from "./Circle";
 import dogpng from "../../assets/aignoisiai/dog_face.png";
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://prod.aignosismdw.in/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   // const [TRANSACTION_ID, ] = useState(uuidv4());
@@ -50,7 +50,8 @@ const DogCalibration = () => {
     [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
-  const audio = new Audio(`/dog_bark.wav?timestamp=${Date.now()}`);
+  const audio = new Audio(`public/audio/dog_bark.wav?timestamp=${Date.now()}`);
+
   useEffect(() => {
     // const audio = new Audio("/dog_bark.wav");
     // Initialize and play the audio in a loop
@@ -288,7 +289,7 @@ const DogCalibration = () => {
             x={circleCoordinates[currentCircleIndex][0]}
             y={circleCoordinates[currentCircleIndex][1]}
             radius={50}
-            imageUrl="/dog_face.png"
+            imageUrl={dogpng}
           />
         )}
 
