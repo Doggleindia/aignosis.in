@@ -141,7 +141,7 @@ const App = () => {
         <Route path='/page3' element={<Page3 />} />
         <Route path='/page4' element={<Page4 />} />
         <Route path='/page5' element={<Page5 />} />
-        <Route path='/Generatepdf' element={<GeneratePDF />} />
+        <Route path='/generatepdf' element={<GeneratePDF />} />
         <Route path='/Howework' element={<Howework />} />
         <Route path='/therapy' element={<Therapy />} />
     
