@@ -52,8 +52,24 @@ const DogCalibration = () => {
 
   const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
   useEffect(() => {
-    // const audio = new Audio("/dog_bark.wav");
-    // Initialize and play the audio in a loop
+    function goFullScreen() {
+      let elem = document.documentElement; // The whole page
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        // Firefox
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        // Chrome, Safari, Edge
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        // Internet Explorer
+        elem.msRequestFullscreen();
+      }
+    }
+
+    goFullScreen();
 
     const handleAudioPlay = () => {
       audio.loop = true; // Enable looping
