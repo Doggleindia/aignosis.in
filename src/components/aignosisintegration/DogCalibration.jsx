@@ -111,6 +111,7 @@ const DogCalibration = () => {
     };
 
     startWebcam();
+    audio.pause();
     return () => {
       audio.pause();
       // audio.currentTime = 0; // Reset audio
