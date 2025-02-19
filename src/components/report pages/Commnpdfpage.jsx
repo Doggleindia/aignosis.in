@@ -11,8 +11,8 @@ const Commnpdfpage = ({ src, alttext }) => {
   }, [src]);
 
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-100 min-h-screen">
-      <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm] flex justify-center items-center">
+    <div className="flex flex-col flex-wrap items-center p-8 bg-gray-100 min-h-screen">
+      <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm] flex flex-wrap justify-center items-center">
         {imageLoaded ? (
           <img  src={src} alt={alttext} className="pdf-image w-full h-auto" crossOrigin="anonymous" />
         ) : (
