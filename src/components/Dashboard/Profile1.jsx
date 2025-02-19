@@ -210,15 +210,7 @@ const Profile1 = () => {
                   <span>📋</span>
                   <span className="ml-2">My sessions</span>
                 </button>
-                <button
-                  onClick={() => handleClick(4)}
-                  className={`flex items-center px-4 py-2 bg-transparent text-white max-sm:w-[42vw] border-[#FB7CE4] border-[1px] rounded-md shadow-md ${
-                    activeButton === 4 ? "underline" : ""
-                  }`}
-                >
-                  <span>📑</span>
-                  <span className="ml-2">My reports</span>
-                </button>
+                
               </div>
               {activeButton === 1 && (
                 <div>
@@ -235,11 +227,7 @@ const Profile1 = () => {
                   <Profile3 />
                 </div>
               )}
-              {activeButton === 4 && (
-                <div>
-                  <Profile4 />
-                </div>
-              )}
+              
             </>
           )}
         </div>
