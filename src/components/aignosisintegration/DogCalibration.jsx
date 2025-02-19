@@ -45,40 +45,100 @@ const DogCalibration = () => {
     [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
+  // useEffect(() => {
+  //   const goFullScreen = () => {
+  //     if (document.documentElement.requestFullscreen) {
+  //       document.documentElement.requestFullscreen();
+  //     } else if (document.documentElement.mozRequestFullScreen) {
+  //       document.documentElement.mozRequestFullScreen();
+  //     } else if (document.documentElement.webkitRequestFullscreen) {
+  //       document.documentElement.webkitRequestFullscreen();
+  //     } else if (document.documentElement.msRequestFullscreen) {
+  //       document.documentElement.msRequestFullscreen();
+  //     }
+  //   };
+
+  //   goFullScreen();
+  // }, []);
+  // const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
+
+  // useEffect(() => {
+  //   // const audio = new Audio("/dog_bark.wav");
+  //   // Initialize and play the audio in a loop
+
+  //   const handleAudioPlay = () => {
+  //     audio.loop = true; // Enable looping
+  //     audio.play().catch((error) => console.error("Audio play error:", error));
+  //   };
+
+  //   // Wait for the audio to be fully loaded
+  //   audio.addEventListener("canplaythrough", handleAudioPlay);
+  //   // save patient uid and tid in context
+  //   setTestData({
+  //     ...testData,
+  //     PATIENT_UID: uuidv4(),
+  //     TRANSACTION_ID: uuidv4(),
+  //   });
+
+  //   console.log("DOG CALIBRATION TEST DATA", testData);
+  //   // Get the webcam stream and metadata on mount
+  //   if (parentRef.current) {
+  //     const { clientWidth, clientHeight } = parentRef.current;
+  //     setParentDimensions([clientWidth, clientHeight]);
+  //   }
+
+  //   const startWebcam = async () => {
+  //     if (!navigator.mediaDevices.getUserMedia) {
+  //       console.error("getUserMedia not supported");
+  //       return;
+  //     }
+
+  //     try {
+  //       const stream = await navigator.mediaDevices.getUserMedia({
+  //         video: true,
+  //       });
+  //       videoRef.current.srcObject = stream;
+
+  //       const handleMetadata = () => {
+  //         const width = videoRef.current.videoWidth;
+  //         const height = videoRef.current.videoHeight;
+  //         setVideoResolution([width, height]);
+  //       };
+
+  //       videoRef.current.onloadedmetadata = handleMetadata;
+  //     } catch (error) {
+  //       console.error("Webcam start error:", error);
+  //     }
+  //   };
+
+  //   startWebcam();
+  //   return () => {
+  //     audio.pause();
+  //     // audio.currentTime = 0; // Reset audio
+  //   };
+  // }, []);
+
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    const goFullScreen = () => {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      } else if (document.documentElement.mozRequestFullScreen) {
-        document.documentElement.mozRequestFullScreen();
-      } else if (document.documentElement.webkitRequestFullscreen) {
-        document.documentElement.webkitRequestFullscreen();
-      } else if (document.documentElement.msRequestFullscreen) {
-        document.documentElement.msRequestFullscreen();
+    function goFullScreen() {
+      let elem = document.documentElement; // The whole page
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        // Firefox
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        // Chrome, Safari, Edge
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        // Internet Explorer
+        elem.msRequestFullscreen();
       }
-    };
-  
+    }
+
     goFullScreen();
-  }, []);
-  const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
-
-  useEffect(() => {
-    // const audio = new Audio("/dog_bark.wav");
-    // Initialize and play the audio in a loop
-
-    const handleAudioPlay = () => {
-      audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
-    };
-
-    // Wait for the audio to be fully loaded
-    audio.addEventListener("canplaythrough", handleAudioPlay);
-    // save patient uid and tid in context
-    setTestData({
-      ...testData,
-      PATIENT_UID: uuidv4(),
-      TRANSACTION_ID: uuidv4(),
-    });
 
     console.log("DOG CALIBRATION TEST DATA", testData);
     // Get the webcam stream and metadata on mount
@@ -112,11 +172,26 @@ const DogCalibration = () => {
     };
 
     startWebcam();
+
+    audioRef.current = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
+
+    const audio = audioRef.current;
+    console.log(typeof audio);
+    console.log(audio);
+    const handleAudioPlay = () => {
+      audio.loop = true;
+      audio.play().catch((error) => console.error("Audio play error:", error));
+    };
+
+    audio.addEventListener("canplaythrough", handleAudioPlay);
+
     return () => {
       audio.pause();
-      // audio.currentTime = 0; // Reset audio
+      audio.currentTime = 0; // Reset audio position
+      audio.removeEventListener("canplaythrough", handleAudioPlay);
     };
-  }, []);
+  }, [testData]);
+
   const handleNextButtonClick = () => {
     navigate("/video"); // Navigate to the video page
   };
