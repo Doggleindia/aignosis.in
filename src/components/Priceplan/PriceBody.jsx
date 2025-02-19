@@ -36,7 +36,6 @@ const PaymentPopup = ({ isVisible, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  
 
   const handleCardSelect = (id, price) => {
     setSelectedCard(id); // Update the selected card ID
@@ -57,7 +56,6 @@ const PaymentPopup = ({ isVisible, onClose }) => {
   const handlePrevStep = () => {
     if (step > 1) setStep((prev) => prev - 1);
   };
-
 
   const handleClosePopup = () => {
     if (onClose) {
@@ -452,6 +450,26 @@ const PriceBody = ({ selectedOption }) => {
     }
   };
 
+  const testCards = [
+    {
+      id: 8,
+      discount: "Shark tank 50% off",
+      title: "Aignosis Screening – Standard",
+      subtitle: "Includes Autism Screening Test + Expert Consultation",
+      price: 499,
+      actualprice: 999,
+    },
+    {
+      id: 9,
+      discount: "Shark tank 50% off",
+      title: "Aignosis Screening – Comprehensive",
+      subtitle:
+        "Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions",
+      price: 1899,
+      actualprice: 3899,
+    },
+  ];
+
   const therapyCards = [
     {
       amount: 5000,
@@ -543,54 +561,33 @@ const PriceBody = ({ selectedOption }) => {
             </div>
           </div> */}
 
-            <div className="mt-5">
-              <div className="flex gap-5">
+            <div className="flex mt-6  gap-4 relative">
+              {testCards.map((card) => (
                 <div
-                  className={`w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-                    selectedCard1 === 8
-                      ? "border-[#B740A1]"
+                  key={card.id}
+                  className={`p-6 rounded-3xl w-[${
+                    card.id === 0 ? "50%" : "60%"
+                  }] h-full cursor-pointer bg-[#43284C4D] ${
+                    selectedCard === card.id
+                      ? "border-2 border-[#B740A1]"
                       : "border-[#5455694D]"
                   }`}
-                  onClick={() => handleCardClick(8)}
+                  onClick={() => handleCardSelect(card.id, card.price)}
                 >
                   <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <span className="text-xs">Shark tank 50% off </span>
+                    <span className="text-xs">{card.discount}</span>
                   </div>
-                  <h2 className="mt-3">Aignosis Screening – Standard</h2>
-                  <h3 className="text-[9px]">
-                    Includes Autism Screening Test + Expert Consultation
-                  </h3>
+                  <h2 className="mt-3">{card.title}</h2>
+                  <h3 className="text-[9px]">{card.subtitle}</h3>
                   <span className="mt-3 font-manrope">
-                    ₹499{" "}
-                    <span className="text-[10px] line-through">(₹999)</span>
+                    ₹{card.price}{" "}
+                    <span className="text-[10px] line-through">
+                      (₹{card.actualprice})
+                    </span>
                   </span>
                   <div className="text-xs">(MRP incl. all taxes)</div>
                 </div>
-
-                <div
-                  className={`w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-                    selectedCard1 === 9
-                      ? "border-[#B740A1]"
-                      : "border-[#5455694D]"
-                  }`}
-                  onClick={() => handleCardClick(9)}
-                >
-                  <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <span className="text-xs">Shark tank 50% off </span>
-                  </div>
-                  <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
-                  <h3 className="text-[9px]">
-                    Includes Autism Screening Test + Expert Consultation +
-                    Personalized Home Therapy Plan + Assessments with 3 Therapy
-                    Sessions
-                  </h3>
-                  <span className="mt-3 font-manrope">
-                    ₹1,899{" "}
-                    <span className="text-[10px] line-through">(₹3,899)</span>
-                  </span>
-                  <div className="text-xs">(MRP incl. all taxes)</div>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="">
               <div className="">
@@ -619,8 +616,8 @@ const PriceBody = ({ selectedOption }) => {
 
                     <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
                       <div className="text-center mb-4">
-                        <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
-                          {card.discount} Off!
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-4 py-1">
+                          {card.discount}
                         </span>
                       </div>
                       <div className="text-center">
@@ -687,7 +684,7 @@ const PriceBody = ({ selectedOption }) => {
                   </div>
                 </div>
               </div>
-               {/* <div className="flex mt-5 gap-4">
+              {/* <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                     <button onClick={handleBuyNowClick} className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
