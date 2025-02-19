@@ -72,8 +72,8 @@ const DogCalibration = () => {
     goFullScreen();
 
     const handleAudioPlay = () => {
-      audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
+      // audio.loop = true; // Enable looping
+      // audio.play().catch((error) => console.error("Audio play error:", error));
     };
 
     // Wait for the audio to be fully loaded
