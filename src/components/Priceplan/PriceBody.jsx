@@ -13,21 +13,20 @@ import { FaCcVisa } from "react-icons/fa";
 import { SiAmericanexpress } from "react-icons/si";
 import { FaCcMastercard } from "react-icons/fa";
 import axiosInstance from "../config/axiosInstance";
-import "./PriceBody.css"
-import most from './most.png'
+import "./PriceBody.css";
+import most from "./most.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa6";
 
-import t1 from "../../assets/child therapy/5.png"
-import t2 from "../../assets/child therapy/6.png"
-import t3 from "../../assets/child therapy/7.png"
-import t4 from "../../assets/child therapy/8.png"
-import t5 from "../../assets/child therapy/9.png"
+import t1 from "../../assets/child therapy/5.png";
+import t2 from "../../assets/child therapy/6.png";
+import t3 from "../../assets/child therapy/7.png";
+import t4 from "../../assets/child therapy/8.png";
+import t5 from "../../assets/child therapy/9.png";
 
-import pricelogo from '../../assets/assesment/pricelogo.png';
-
+import pricelogo from "../../assets/assesment/pricelogo.png";
 
 const PaymentPopup = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
@@ -37,10 +36,10 @@ const PaymentPopup = ({ isVisible, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  
 
   const handleCardSelect = (id, price) => {
     setSelectedCard(id); // Update the selected card ID
-
   };
 
   const handleNextStep = () => {
@@ -58,6 +57,8 @@ const PaymentPopup = ({ isVisible, onClose }) => {
   const handlePrevStep = () => {
     if (step > 1) setStep((prev) => prev - 1);
   };
+
+
   const handleClosePopup = () => {
     if (onClose) {
       onClose(); // Calling the onClose prop to handle the closing of the popup
@@ -336,18 +337,20 @@ const PriceBody = ({ selectedOption }) => {
   const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
   const [selectedCard1, setSelectedCard1] = useState(null); // For first section
 
-
-
   const images = [t1, t2, t3, t4, t5]; // Image array
-  const images2 = ["https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png"]; // Image array
+  const images2 = [
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png",
+  ]; // Image array
 
   const handleCardSelect = (cardIndex, cardAmount) => {
     setSelectedCard(cardIndex); // Highlight the selected card
     setAmount(cardAmount);
     setSelectedCard1(null); // Update the selected amount
   };
-
-
 
   const handleCardClick = (cardIndex) => {
     setSelectedCard1(cardIndex);
@@ -370,11 +373,11 @@ const PriceBody = ({ selectedOption }) => {
   // console.log(storedToken), "storedToken";
 
   const handlePayment = async () => {
-    console.log('import.meta.env.KEY_ID',import.meta.env.KEY_ID)
+    console.log("import.meta.env.KEY_ID", import.meta.env.KEY_ID);
     // Check if the user is logged in
-    console.log(!storedToken,"tokenverification")
+    console.log(!storedToken, "tokenverification");
     if (!storedToken) {
-      console.log("tokenverification")
+      console.log("tokenverification");
       // Show a toast message
       // toast.error("You need to log in to proceed with the payment.");
 
@@ -384,7 +387,6 @@ const PriceBody = ({ selectedOption }) => {
       }, 2500); // Adjust the delay as needed (e.g., 1500ms)
       return; // Exit the function
     }
-
 
     try {
       console.log("Initiating payment process...");
@@ -402,7 +404,6 @@ const PriceBody = ({ selectedOption }) => {
 
       // Set up Razorpay options
       const options = {
-       
         key: import.meta.env.KEY_ID,
         amount: order.amount,
         currency: order.currency,
@@ -444,13 +445,12 @@ const PriceBody = ({ selectedOption }) => {
       const razorpay = new window.Razorpay(options);
       razorpay.open();
     } catch (error) {
-      console.log("check")
-      navigate('/login')
+      console.log("check");
+      navigate("/login");
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
     }
   };
-
 
   const therapyCards = [
     {
@@ -493,7 +493,12 @@ const PriceBody = ({ selectedOption }) => {
                     className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                     onClick={() => setSelectedImage2(image)} // Update selected image on click
                   >
-                    <img className=" max-sm:w-full w-[75%] h-full object-fill" loading="" src={image} alt={`Thumbnail ${index + 1}`} />
+                    <img
+                      className=" max-sm:w-full w-[75%] h-full object-fill"
+                      loading=""
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                    />
                   </div>
                 ))}
               </div>
@@ -517,12 +522,9 @@ const PriceBody = ({ selectedOption }) => {
               </h1>
               <div className="flex items-center mt-2 text-[#F6E8FB]">
                 <span className="text-yellow-500 text-lg">4.9</span>
-                <span className="text-yellow-500 text-lg ml-1">
-                  ★★★★★
-                </span>
+                <span className="text-yellow-500 text-lg ml-1">★★★★★</span>
                 <span className="ml-2 text-sm">(Based on 106 reviews)</span>
               </div>
-              
 
               {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
               "Looking to support another child’s journey? You can also gift
@@ -540,101 +542,113 @@ const PriceBody = ({ selectedOption }) => {
               <span className="text-[#F6E8FB]">Easy & fast procedure</span>
             </div>
           </div> */}
-            
-           
-            <div className="mt-5">
-      <div className="flex gap-5">
-        <div
-          className={`w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-            selectedCard1 === 8 ? "border-[#B740A1]" : "border-[#5455694D]"
-          }`}
-          onClick={() => handleCardClick(8)}
-        >
-          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <span className="text-xs">Shark tank 50% off </span>
-          </div>
-          <h2 className="mt-3">Aignosis Screening – Standard</h2>
-          <h3 className="text-[9px]">
-            Includes Autism Screening Test + Expert Consultation
-          </h3>
-          <span className="mt-3 font-manrope">
-            ₹499 <span className="text-[10px] line-through">(₹999)</span>
-          </span>
-          <div className="text-xs">(MRP incl. all taxes)</div>
-        </div>
 
-        <div
-          className={`w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-            selectedCard1 === 9 ? "border-[#B740A1]" : "border-[#5455694D]"
-          }`}
-          onClick={() => handleCardClick(9)}
-        >
-          <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <span className="text-xs">Shark tank 50% off </span>
-          </div>
-          <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
-          <h3 className="text-[9px]">
-            Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan +
-            Assessments with 3 Therapy Sessions
-          </h3>
-          <span className="mt-3 font-manrope">
-            ₹1,899 <span className="text-[10px] line-through">(₹3,899)</span>
-          </span>
-          <div className="text-xs">(MRP incl. all taxes)</div>
-        </div>
-      </div>
-    </div>
+            <div className="mt-5">
+              <div className="flex gap-5">
+                <div
+                  className={`w-[50%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+                    selectedCard1 === 8
+                      ? "border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardClick(8)}
+                >
+                  <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                    <span className="text-xs">Shark tank 50% off </span>
+                  </div>
+                  <h2 className="mt-3">Aignosis Screening – Standard</h2>
+                  <h3 className="text-[9px]">
+                    Includes Autism Screening Test + Expert Consultation
+                  </h3>
+                  <span className="mt-3 font-manrope">
+                    ₹499{" "}
+                    <span className="text-[10px] line-through">(₹999)</span>
+                  </span>
+                  <div className="text-xs">(MRP incl. all taxes)</div>
+                </div>
+
+                <div
+                  className={`w-[60%] h-full border bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+                    selectedCard1 === 9
+                      ? "border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardClick(9)}
+                >
+                  <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                    <span className="text-xs">Shark tank 50% off </span>
+                  </div>
+                  <h2 className="mt-3">Aignosis Screening – Comprehensive</h2>
+                  <h3 className="text-[9px]">
+                    Includes Autism Screening Test + Expert Consultation +
+                    Personalized Home Therapy Plan + Assessments with 3 Therapy
+                    Sessions
+                  </h3>
+                  <span className="mt-3 font-manrope">
+                    ₹1,899{" "}
+                    <span className="text-[10px] line-through">(₹3,899)</span>
+                  </span>
+                  <div className="text-xs">(MRP incl. all taxes)</div>
+                </div>
+              </div>
+            </div>
             <div className="">
               <div className="">
-                <span className="text-2xl font-semibold text-white">Add Therapy</span>
+                <span className="text-2xl font-semibold text-white">
+                  Add Therapy
+                </span>
               </div>
               <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
-  {therapyCards.map((card, index) => (
-    <div
-      key={index}
-      className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${
-        selectedCard === index ? "border-2 border-[#B7407D54]" : ""
-      } relative`}
-      onClick={() => handleCardSelect(index, card.amount)}
-    >
-      {index === 1 && (
-        <img
-          src={most}
-          alt="Most Popular"
-          className="absolute -top-2 left-1/6 transform -translate-x-1/2 w-20"
-        />
-      )}
+                {therapyCards.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${
+                      selectedCard === index
+                        ? "border-2 border-[#B7407D54]"
+                        : ""
+                    } relative`}
+                    onClick={() => handleCardSelect(index, card.amount)}
+                  >
+                    {index === 1 && (
+                      <img
+                        src={most}
+                        alt="Most Popular"
+                        className="absolute -top-2 left-1/6 transform -translate-x-1/2 w-20"
+                      />
+                    )}
 
-      <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
-        <div className="text-center mb-4">
-          <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
-            {card.discount} Off!
-          </span>
-        </div>
-        <div className="text-center">
-          <p className="text-lg font-semibold">
-            ₹{card.amount}{" "}
-            <span className="line-through text-gray-400">
-              ₹{card.amount + card.savings}
-            </span>
-          </p>
+                    <div className="bg-[#43284C4D] rounded-lg p-4 text-white w-[90%] sm:w-[18vw] md:w-[22vw] lg:w-[15vw]">
+                      <div className="text-center mb-4">
+                        <span className="bg-[#B7407D54] text-xs rounded-full px-1 py-1">
+                          {card.discount} Off!
+                        </span>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-lg font-semibold">
+                          ₹{card.amount}{" "}
+                          <span className="line-through text-gray-400">
+                            ₹{card.amount + card.savings}
+                          </span>
+                        </p>
 
-          <p className="text-xs mt-2">{card.validity}</p>
-          <p className="text-xs">
-            {card.sessions} Sessions at ₹{card.sessionCost}/session
-          </p>
-          <p className="text-xs font-bold mt-2">
-            Save ₹{card.savings} overall!
-          </p>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                        <p className="text-xs mt-2">{card.validity}</p>
+                        <p className="text-xs">
+                          {card.sessions} Sessions at ₹{card.sessionCost}
+                          /session
+                        </p>
+                        <p className="text-xs font-bold mt-2">
+                          Save ₹{card.savings} overall!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
               <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
-                  <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                  <div
+                    className="w-full rounded-full p-[2px] bg-[#1A0C25]"
                     onClick={() => {
                       if (navigator.share) {
                         navigator
@@ -643,10 +657,16 @@ const PriceBody = ({ selectedOption }) => {
                             text: "I found something interesting for you.",
                             url: window.location.href,
                           })
-                          .then(() => console.log("Content shared successfully"))
-                          .catch((error) => console.error("Error sharing content", error));
+                          .then(() =>
+                            console.log("Content shared successfully")
+                          )
+                          .catch((error) =>
+                            console.error("Error sharing content", error)
+                          );
                       } else {
-                        alert("Web Share API is not supported in your browser.");
+                        alert(
+                          "Web Share API is not supported in your browser."
+                        );
                       }
                     }}
                   >
@@ -667,15 +687,15 @@ const PriceBody = ({ selectedOption }) => {
                   </div>
                 </div>
               </div>
-              {/* <div className="flex mt-5 gap-4">
+               {/* <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                    <button className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
+                    <button onClick={handleBuyNowClick} className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
                       Add to cart
                     </button>
                   </div>
                 </div>
-              </div> */}
+              </div>  */}
             </div>
             {/* <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
               <h3 className="text-lg font-semibold">Coming Soon</h3>
@@ -689,8 +709,6 @@ const PriceBody = ({ selectedOption }) => {
                 <FaWhatsapp /> <span className="text-sm">Chat Now</span>
               </a>
             </div> */}
-
-
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
@@ -712,7 +730,11 @@ const PriceBody = ({ selectedOption }) => {
                   className="w-[20vw] h-[20vw] bg-[#D9D9D9] cursor-pointer"
                   onClick={() => setSelectedImage2(image)} // Update selected image on click
                 >
-                  <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
+                  <img
+                    className="w-full h-full object-cover"
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                  />
                 </div>
               ))}
             </div>
@@ -724,9 +746,7 @@ const PriceBody = ({ selectedOption }) => {
               </h1>
               <div className="flex items-center mt-2 text-[#F6E8FB]">
                 <span className="text-yellow-500 text-lg">4.9</span>
-                <span className="text-yellow-500 text-lg ml-1">
-                  ★★★★★
-                </span>
+                <span className="text-yellow-500 text-lg ml-1">★★★★★</span>
                 <span className="ml-2 text-sm">(Based on 106 reviews)</span>
               </div>
             </div>
@@ -744,113 +764,129 @@ const PriceBody = ({ selectedOption }) => {
               </div> */}
 
             {/* Benefits */}
-           
-            <div className="mt-5">
-      <div className="flex flex-col gap-5">
-        <div
-          className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-            selectedCard === 6 ? "border-[#B740A1]" : "border-[#5455694D]"
-          }`}
-          onClick={() => handleCardSelect(6)}
-        >
-          <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <h1 className="text-xs">Shark tank 50% off</h1>
-          </div>
-          <h1 className="mt-3">Aignosis Screening – Standard</h1>
-          <h1 className="text-[9px]">Includes Autism Screening Test + Expert Consultation</h1>
-          <h1 className="mt-3 font-manrope">
-            ₹499 <span className="text-[10px] line-through">(₹999)</span>
-          </h1>
-          <h1 className="text-xs">(MRP incl. all taxes)</h1>
-        </div>
 
-        <div
-          className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-            selectedCard === 5 ? "border-[#B740A1]" : "border-[#5455694D]"
-          }`}
-          onClick={() => handleCardSelect(5)}
-        >
-          <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-            <h1 className="text-xs">Shark tank 50% off</h1>
-          </div>
-          <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-          <h1 className="text-[9px]">
-            Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan +
-            Assessments with 3 Therapy Sessions
-          </h1>
-          <h1 className="mt-3 font-manrope">
-            ₹1,899 <span className="text-[10px] line-through">(₹3,899)</span>
-          </h1>
-          <h1 className="text-xs">(MRP incl. all taxes)</h1>
-        </div>
-      </div>
-    </div>
+            <div className="mt-5">
+              <div className="flex flex-col gap-5">
+                <div
+                  className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+                    selectedCard === 6
+                      ? "border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardSelect(6)}
+                >
+                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                    <h1 className="text-xs">Shark tank 50% off</h1>
+                  </div>
+                  <h1 className="mt-3">Aignosis Screening – Standard</h1>
+                  <h1 className="text-[9px]">
+                    Includes Autism Screening Test + Expert Consultation
+                  </h1>
+                  <h1 className="mt-3 font-manrope">
+                    ₹499{" "}
+                    <span className="text-[10px] line-through">(₹999)</span>
+                  </h1>
+                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                </div>
+
+                <div
+                  className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
+                    selectedCard === 5
+                      ? "border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardSelect(5)}
+                >
+                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                    <h1 className="text-xs">Shark tank 50% off</h1>
+                  </div>
+                  <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
+                  <h1 className="text-[9px]">
+                    Includes Autism Screening Test + Expert Consultation +
+                    Personalized Home Therapy Plan + Assessments with 3 Therapy
+                    Sessions
+                  </h1>
+                  <h1 className="mt-3 font-manrope">
+                    ₹1,899{" "}
+                    <span className="text-[10px] line-through">(₹3,899)</span>
+                  </h1>
+                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
+                </div>
+              </div>
+            </div>
             {/* Therapy Options */}
             <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
               <div className="flex flex-wrap justify-center gap-4 mt-4 ">
-  {therapyCards.map((card, index) => (
-    <div
-      key={index}
-      className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
-        selectedCard === index ? "border-2 border-[#B7407D54]" : ""
-      }`}
-      onClick={() => handleCardSelect(index, card.amount)}
-    >
-      {/* "Most Popular" Badge (Only for index 1) */}
-      {index === 1 && (
-        <img
-          src={most}
-          alt="Most Popular"
-          className="absolute top-[-5px] left-1/5 transform -translate-x-1/2 w-16 sm:w-20"
-        />
-      )}
+                {therapyCards.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
+                      selectedCard === index
+                        ? "border-2 border-[#B7407D54]"
+                        : ""
+                    }`}
+                    onClick={() => handleCardSelect(index, card.amount)}
+                  >
+                    {/* "Most Popular" Badge (Only for index 1) */}
+                    {index === 1 && (
+                      <img
+                        src={most}
+                        alt="Most Popular"
+                        className="absolute top-[-5px] left-1/5 transform -translate-x-1/2 w-16 sm:w-20"
+                      />
+                    )}
 
-      {/* Discount Label */}
-      <div className="mb-2">
-        <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
-          {card.discount}
-        </span>
-      </div>
+                    {/* Discount Label */}
+                    <div className="mb-2">
+                      <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
+                        {card.discount}
+                      </span>
+                    </div>
 
-      {/* Card Content */}
-      <div>
-        <p className="text-lg font-semibold">
-          ₹{card.amount}{" "}
-          <span className="line-through text-gray-400">
-            ₹{card.amount + card.savings}
-          </span>
-        </p>
-        <p className="text-xs mt-2">{card.validity}</p>
-        <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
-        <p className="text-xs font-bold mt-2">
-          Save ₹{card.savings} overall!
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
-
+                    {/* Card Content */}
+                    <div>
+                      <p className="text-lg font-semibold">
+                        ₹{card.amount}{" "}
+                        <span className="line-through text-gray-400">
+                          ₹{card.amount + card.savings}
+                        </span>
+                      </p>
+                      <p className="text-xs mt-2">{card.validity}</p>
+                      <p className="text-xs">
+                        {card.sessions} Sessions at ₹{card.sessionCost}/session
+                      </p>
+                      <p className="text-xs font-bold mt-2">
+                        Save ₹{card.savings} overall!
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 mt-4">
-              <button onClick={() => {
-                if (navigator.share) {
-                  navigator
-                    .share({
-                      title: "Check this out!",
-                      text: "I found something interesting for you.",
-                      url: window.location.href, // Current page URL
-                    })
-                    .then(() => console.log("Content shared successfully"))
-                    .catch((error) => console.error("Error sharing content", error));
-                } else {
-                  alert("Web Share API is not supported in your browser.");
-                }
-              }}
-                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+              <button
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator
+                      .share({
+                        title: "Check this out!",
+                        text: "I found something interesting for you.",
+                        url: window.location.href, // Current page URL
+                      })
+                      .then(() => console.log("Content shared successfully"))
+                      .catch((error) =>
+                        console.error("Error sharing content", error)
+                      );
+                  } else {
+                    alert("Web Share API is not supported in your browser.");
+                  }
+                }}
+                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
+              >
                 Share
               </button>
               {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
