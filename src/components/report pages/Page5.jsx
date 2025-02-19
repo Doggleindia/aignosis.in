@@ -36,7 +36,7 @@ const Page5 = () => {
     
 
     return (
-        <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
+        <div className="pdf-image flex flex-wrap flex-col font-raleway items-center p-8 bg-white min-h-screen">
             <div className="pdf-page bg-white p-8 shadow-md rounded-md flex justify-center items-center w-[210mm] h-[297mm] relative">
                 {/* Header */}
                 <div className="absolute p-8 top-0 left-0 w-full">
