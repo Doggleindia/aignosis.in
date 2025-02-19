@@ -14,10 +14,7 @@ import dogpng from "../../assets/aignoisiai/dog_face.png";
 
 const DogCalibration = () => {
   const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
-  // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
-  // const [TRANSACTION_ID, ] = useState(uuidv4());
-  // const [PATIENT_UID, ] = useState(uuidv4());
   const [startTime, setStartTime] = useState();
   const [frameCaptureInterval, setFrameCaptureInterval] = useState();
   const [frames, setFrames] = useState([]);
@@ -35,6 +32,7 @@ const DogCalibration = () => {
   const parentRef = useRef(null);
 
   const { testData, setTestData } = useContext(AppContext);
+  
 
   const navigate = useNavigate(); // Initialize navigate from useNavigate
 
@@ -50,7 +48,9 @@ const DogCalibration = () => {
     [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
   ];
 
-  const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
+  // const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
+  const audioRef = useRef(null);
+
   useEffect(() => {
     function goFullScreen() {
       let elem = document.documentElement; // The whole page
@@ -70,14 +70,6 @@ const DogCalibration = () => {
     }
 
     goFullScreen();
-
-    const handleAudioPlay = () => {
-      audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
-    };
-
-    // Wait for the audio to be fully loaded
-    audio.addEventListener("canplaythrough", handleAudioPlay);
 
     console.log("DOG CALIBRATION TEST DATA", testData);
     // Get the webcam stream and metadata on mount
@@ -111,10 +103,23 @@ const DogCalibration = () => {
     };
 
     startWebcam();
-    audio.pause();
+
+    audioRef.current = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
+
+    const audio = audioRef.current;
+    console.log(typeof audio)
+    console.log(audio)
+    const handleAudioPlay = () => {
+      audio.loop = true;
+      audio.play().catch((error) => console.error("Audio play error:", error));
+    };
+
+    audio.addEventListener("canplaythrough", handleAudioPlay);
+
     return () => {
       audio.pause();
-      // audio.currentTime = 0; // Reset audio
+      audio.currentTime = 0; // Reset audio position
+      audio.removeEventListener("canplaythrough", handleAudioPlay);
     };
   }, [testData]);
   const handleNextButtonClick = () => {
@@ -132,15 +137,6 @@ const DogCalibration = () => {
       calibration_encrypted_aes_key &&
       videolanguage
     ) {
-      // const queryParams = new URLSearchParams({
-      //   patient_uid: PATIENT_UID,
-      //   transaction_id: TRANSACTION_ID,
-      //   calibration_encrypted_aes_key: calibration_encrypted_aes_key,
-      //   video_language: videolanguage,
-      //   patientDOB: patientDOB,
-      //   patientName: patientName,
-      // }).toString();
-
       navigate(`/video`);
     } else {
       console.error("Missing required query parameters");
@@ -166,12 +162,6 @@ const DogCalibration = () => {
   };
 
   const handleCircleClick = async () => {
-    // const audio = new Audio("/dog_bark.mp3"); // Path to your audio file
-    // try {
-    //   await audio.play(); // Play the audio
-    // } catch (error) {
-    //   console.error("Audio play error:", error);
-    // }
 
     if (currentCircleIndex === 0) {
       // save patient uid and tid in context
@@ -202,12 +192,16 @@ const DogCalibration = () => {
     } else {
       // THIS IS THE LAST CLICK ON THE DOG / CAT
       try {
-        console.log("stopping audio");
-        audio.loop = false;
-        audio.pause();
-        audio.currentTime = 0; // Reset audio
+        if (audioRef.current) {
+          audioRef.current.loop = false;
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+          console.log("Audio stopped successfully");
+        } else {
+          console.warn("Audio reference is null when attempting to stop");
+        }
       } catch (err) {
-        console.log("error stopping audio", err);
+        console.error("Error stopping audio:", err);
       }
 
       setClickTimes((clicktimes) => [
