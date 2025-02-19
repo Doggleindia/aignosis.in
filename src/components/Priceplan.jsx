@@ -39,18 +39,18 @@ const Priceplan = () => {
               className=""
               onClick={() => handleOptionChange('Assessment')}
             >
-              Assessments
+              Test
             </button>
            
           </div>
         </div>
-        <div className="w-full mt-10 md:hidden h-full">
+        <div className="w-full mt-16 md:hidden h-full">
           <div className="w-full p-4 flex justify-around gap-4">
             <button
               className=""
               onClick={() => handleOptionChange('Assessment')}
             >
-              Assessments
+              Test
             </button>
            
           </div>
