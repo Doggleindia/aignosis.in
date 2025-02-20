@@ -336,10 +336,10 @@ const VideoPlayback = () => {
         ref={videoRef}
         src={
           testData.videoLanguage === "English"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V5.mp4"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V7.mp4"
             : testData.videoLanguage === "Hindi"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
-            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V5.mp4"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
+            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
         }
         controls
         autoPlay={false}
