@@ -104,7 +104,7 @@ const FromDoctor = () => {
                           improving outcomes for children."
                         </p>
                         {/* Divider */}
-                        <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                        <div className="w-full h-[10px] mt-4 bg-pink-400"></div>
                         {/* Doctor Info */}
                         <div className="flex justify-between items-center">
                           {/* Left Side */}
@@ -234,7 +234,7 @@ const FromDoctor = () => {
                             much easier."
                           </p>
                           {/* Divider */}
-                          <div className="w-full h-[.5px] mt-4 bg-pink-400"></div>
+                          {/* <div className="w-full h-[.5px] mt-4 bg-pink-400"></div> */}
                           {/* Doctor Info */}
                           <div className="flex justify-between items-center">
                             {/* Left Side */}
@@ -346,7 +346,7 @@ const FromDoctor = () => {
               </div>
               <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
                 <div
-                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
+                  className="flex flex-col rounded-3xl  p-4 py-10 text-white min-w-full"
                   style={{
                     background:
                       "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
@@ -383,7 +383,7 @@ const FromDoctor = () => {
                         </div>
                 </div>
                 <div
-                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
+                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-full"
                   style={{
                     background:
                       "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
@@ -460,7 +460,7 @@ const FromDoctor = () => {
               </div>
               <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
                 <div
-                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
+                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-full"
                   style={{
                     background:
                       "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",
@@ -485,7 +485,7 @@ const FromDoctor = () => {
                   </div>
                 </div>
                 <div
-                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-[400px]"
+                  className="flex flex-col rounded-3xl p-4 py-10 text-white min-w-full"
                   style={{
                     background:
                       "radial-gradient(circle, #1A0C25 20%, #43284C 100%)",

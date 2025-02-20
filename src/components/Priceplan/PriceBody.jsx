@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ImCancelCircle } from "react-icons/im";
 import brain from "../../assets/brain payment.png";
 import { MdDeleteForever } from "react-icons/md";
@@ -326,7 +327,7 @@ const PaymentPopup = ({ isVisible, onClose }) => {
 };
 
 const PriceBody = ({ selectedOption }) => {
-  const navigate = useNavigate(); // Initialize navigation
+  const navigate = useNavigate(); 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [amount, setAmount] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -334,6 +335,27 @@ const PriceBody = ({ selectedOption }) => {
   const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image
   const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
   const [selectedCard1, setSelectedCard1] = useState(null); // For first section
+  
+  const testCards = [
+    {
+      id: 8,
+      discount: "Shark tank 50% off",
+      title: "Aignosis Screening – Standard",
+      subtitle: "Includes Autism Screening Test + Expert Consultation",
+      price: 499,
+      actualprice: 999,
+    },
+    {
+      id: 9,
+      discount: "Shark tank 50% off",
+      title: "Aignosis Screening – Comprehensive",
+      subtitle:
+        "Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions",
+      price: 1899,
+      actualprice: 3899,
+    },
+  ]; 
+ 
 
   const images = [t1, t2, t3, t4, t5]; // Image array
   const images2 = [
@@ -343,6 +365,9 @@ const PriceBody = ({ selectedOption }) => {
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png",
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png",
   ]; // Image array
+
+
+ 
 
   const handleCardSelect = (cardIndex, cardAmount) => {
     setSelectedCard(cardIndex); // Highlight the selected card
@@ -369,6 +394,8 @@ const PriceBody = ({ selectedOption }) => {
   };
   const storedToken = localStorage.getItem("authToken");
   // console.log(storedToken), "storedToken";
+
+  
 
   const handlePayment = async () => {
     console.log("import.meta.env.KEY_ID", import.meta.env.KEY_ID);
@@ -450,25 +477,8 @@ const PriceBody = ({ selectedOption }) => {
     }
   };
 
-  const testCards = [
-    {
-      id: 8,
-      discount: "Shark tank 50% off",
-      title: "Aignosis Screening – Standard",
-      subtitle: "Includes Autism Screening Test + Expert Consultation",
-      price: 499,
-      actualprice: 999,
-    },
-    {
-      id: 9,
-      discount: "Shark tank 50% off",
-      title: "Aignosis Screening – Comprehensive",
-      subtitle:
-        "Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions",
-      price: 1899,
-      actualprice: 3899,
-    },
-  ];
+ 
+  
 
   const therapyCards = [
     {
@@ -560,7 +570,11 @@ const PriceBody = ({ selectedOption }) => {
               <span className="text-[#F6E8FB]">Easy & fast procedure</span>
             </div>
           </div> */}
-
+             <div className="mt-4">
+                <span className="text-2xl font-semibold text-white">
+                  Test
+                </span>
+              </div>
             <div className="flex mt-6  gap-4 relative">
               {testCards.map((card) => (
                 <div
@@ -590,7 +604,7 @@ const PriceBody = ({ selectedOption }) => {
               ))}
             </div>
             <div className="">
-              <div className="">
+              <div className="mt-2">
                 <span className="text-2xl font-semibold text-white">
                   Add Therapy
                 </span>
@@ -709,7 +723,7 @@ const PriceBody = ({ selectedOption }) => {
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
-          <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col gap-2 items-center">
             {/* Center Image */}
             <div className="w-[90vw] h-[80vw] bg-[#D9D9D9]">
               <img
@@ -761,56 +775,38 @@ const PriceBody = ({ selectedOption }) => {
               </div> */}
 
             {/* Benefits */}
-
-            <div className="mt-5">
-              <div className="flex flex-col gap-5">
-                <div
-                  className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-                    selectedCard === 6
-                      ? "border-[#B740A1]"
-                      : "border-[#5455694D]"
-                  }`}
-                  onClick={() => handleCardSelect(6)}
-                >
-                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <h1 className="text-xs">Shark tank 50% off</h1>
-                  </div>
-                  <h1 className="mt-3">Aignosis Screening – Standard</h1>
-                  <h1 className="text-[9px]">
-                    Includes Autism Screening Test + Expert Consultation
-                  </h1>
-                  <h1 className="mt-3 font-manrope">
-                    ₹499{" "}
-                    <span className="text-[10px] line-through">(₹999)</span>
-                  </h1>
-                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
-                </div>
-
-                <div
-                  className={`w-full h-full border-2 bg-[#43284C4D] hover:cursor-pointer rounded-3xl p-6 ${
-                    selectedCard === 5
-                      ? "border-[#B740A1]"
-                      : "border-[#5455694D]"
-                  }`}
-                  onClick={() => handleCardSelect(5)}
-                >
-                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
-                    <h1 className="text-xs">Shark tank 50% off</h1>
-                  </div>
-                  <h1 className="mt-3">Aignosis Screening – Comprehensive</h1>
-                  <h1 className="text-[9px]">
-                    Includes Autism Screening Test + Expert Consultation +
-                    Personalized Home Therapy Plan + Assessments with 3 Therapy
-                    Sessions
-                  </h1>
-                  <h1 className="mt-3 font-manrope">
-                    ₹1,899{" "}
-                    <span className="text-[10px] line-through">(₹3,899)</span>
-                  </h1>
-                  <h1 className="text-xs">(MRP incl. all taxes)</h1>
-                </div>
+            <div className="mt-2 mb-[-2vw] text-left pr-80">
+            <div className="text-xl font-bold text-white mr-auto text-left px-2">
+                Test
               </div>
+              </div>
+            <div className="flex flex-col mt-6 gap-4 relative">
+              {testCards.map((card) => (
+                <div
+                  key={card.id}
+                  className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
+                    selectedCard === card.id
+                      ? "border-2 border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardSelect(card.id, card.price)}
+                >
+                  <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
+                    <span className="text-xs">{card.discount}</span>
+                  </div>
+                  <h2 className="mt-3">{card.title}</h2>
+                  <h3 className="text-[9px]">{card.subtitle}</h3>
+                  <span className="mt-3 font-manrope">
+                    ₹{card.price}{" "}
+                    <span className="text-[10px] line-through">
+                      (₹{card.actualprice})
+                    </span>
+                  </span>
+                  <div className="text-xs">(MRP incl. all taxes)</div>
+                </div>
+              ))}
             </div>
+
             {/* Therapy Options */}
             <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
