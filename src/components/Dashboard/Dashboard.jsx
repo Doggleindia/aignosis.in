@@ -3,7 +3,6 @@ import { FaBell } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import pic from "../../assets/pic4.png"
 import { FaUserEdit } from "react-icons/fa";
-
 import fetchData from "../config/fetchData";
 import Sessions from './Sessions';
 import Header from '../Header';
@@ -12,11 +11,67 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';  // Import axios at the top
 
 const Dashboard = () => {
-  const token = localStorage.getItem("authToken"); // Fetch the token from localStorage
-
+  const [paymentStatus, setPaymentStatus] = useState("");
+  const token = localStorage.getItem("authToken"); 
   const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
 
   const [profiles, setProfiles] = useState([]);
+  
+  const handleTakeTestNow = async () => {
+    const testPrice = 499; 
+
+    try {
+      console.log("Initiating payment process...");
+      const { data: order } = await axios.post(
+        `${API_BASE_URL}/api/payment/create-order`,
+        { amount: testPrice },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, 
+        amount: order.amount,
+        currency: order.currency,
+        name: "Aignosis Test Payment",
+        description: "Autism Screening Test",
+        order_id: order.id,
+        handler: async (response) => {
+          const verificationData = {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+            amount: testPrice,
+            currency: "INR",
+          };
+
+          try {
+            console.log("Verifying payment...");
+            const { data } = await axios.post(
+              `${API_BASE_URL}/api/payment/verify-payment`,
+              verificationData,
+              { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setPaymentStatus(data.message || "Payment successful!");
+            console.log("Payment verified:", data);
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            setPaymentStatus("Payment verification failed.");
+          }
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+    } catch (error) {
+      console.error("Payment initiation failed:", error);
+      alert("Failed to initiate payment. Please try again.");
+    }
+  };
+
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -360,7 +415,9 @@ const Dashboard = () => {
 
                     {/* Right Section */}
                     <div className="flex items-center space-x-8">
-                      <button className="text-white font-bold text-xl">
+                      <button 
+                      onClick={handleTakeTestNow} 
+                      className="text-white font-bold text-xl">
                         Take test now
                       </button>
                       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20">
@@ -557,7 +614,8 @@ const Dashboard = () => {
 
                   {/* Right Section */}
                   <div className="flex items-center justify-center w-full">
-                    <button className="text-white text-center font-bold text-lg sm:text-xl">
+                    <button onClick={handleTakeTestNow}
+                     className="text-white text-center font-bold text-lg sm:text-xl">
                       Take test now
                     </button>
                   </div>

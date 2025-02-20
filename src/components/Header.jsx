@@ -382,7 +382,7 @@ const Header = () => {
                 </div>
               </div>
               <Link
-                to={'/prices'}
+                to={'/test'}
                 className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
               >
                 <span className="2xl:text-base md:text-sm">
@@ -729,7 +729,7 @@ const Header = () => {
               <div className="border-t-2 w-full mb-5 border-[#952981]"></div>
 
               <Link
-                to={'/prices'}
+                to={'/test'}
                 className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
               >
                 Book an appointment

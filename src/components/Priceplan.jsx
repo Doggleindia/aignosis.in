@@ -35,23 +35,13 @@ const Priceplan = () => {
       <div className='bg-[#1A0C25] p-2 overflow-x-hidden text-white w-full h-full'>
         <div className="w-full mt-[5vw] hidden md:block h-full">
           <div className="w-full p-10 flex ml-6 gap-10">
-            <button
-              className=""
-              onClick={() => handleOptionChange('Assessment')}
-            >
-              Test
-            </button>
+            
            
           </div>
         </div>
         <div className="w-full mt-16 md:hidden h-full">
           <div className="w-full p-4 flex justify-around gap-4">
-            <button
-              className=""
-              onClick={() => handleOptionChange('Assessment')}
-            >
-              Test
-            </button>
+           
            
           </div>
         </div>
