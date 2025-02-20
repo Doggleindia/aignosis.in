@@ -58,7 +58,7 @@ useEffect(() => {
 
   console.log("Sanitized Data:", { patientuid, transactionid, patientname, patientdob: formattedDate });
 
-  fetch('https://script.google.com/macros/s/AKfycbxcFg05bQic8Gvz6N0VBmnjKScSqmDw5AsXUeQh79TxZQC8lT56aRqcjnuyD_RAAEZ5/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyFQTZ-ly_ct8er6GATLj5KBkm2-c4163nKDx5DkUt5JfFNcL85NHNNc68TMPFO5bXh/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
