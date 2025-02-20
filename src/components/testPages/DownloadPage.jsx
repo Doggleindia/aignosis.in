@@ -25,60 +25,54 @@ const DownloadPage = () => {
       return 'Unknown';
     };
 // Sending Data to Google Sheet
-    useEffect(() => {
-      const { PATIENT_UID, TRANSACTION_ID, patientName, patientDOB, hasSubmitted } = testData;
-      if(hasSubmitted==='true') return;
-      // Validate and sanitize the data
-      if (typeof PATIENT_UID !== 'string' || PATIENT_UID.trim() === '') {
-        alert('Invalid PATIENT_UID. Please enter a valid string.');
-        return;
-      }
-      if (typeof TRANSACTION_ID !== 'string' || TRANSACTION_ID.trim() === '') {
-        alert('Invalid TRANSACTION_ID. Please enter a valid string.');
-        return;
-      }
-      // if (typeof patientName !== 'string' || patientName.trim() === '') {
-      //   alert('Invalid patientName. Please enter a valid string.');
-      //   return;
-      // }
-      // Prepare sanitized data
-      const patientuid = PATIENT_UID.trim();
-      const transactionid = TRANSACTION_ID.trim();
-      const patientname = patientName.trim();
-      let patientdob = new Date(patientDOB); // Create a date object
-      const day = patientdob.getDate().toString().padStart(2, '0'); // Get the day with leading zero
-      const month = (patientdob.getMonth() + 1).toString().padStart(2, '0'); // Get the month with leading zero (Months are 0-indexed)
-      const year = patientdob.getFullYear(); // Get the year
-      const formattedDate = `${year}${month}${day}`; // Format as DD-MM-YYYY
-      patientdob=formattedDate;
-      console.log(patientdob);
-      console.log(formattedDate);
-      patientdob.toString();
-      console.log('Sanitized Data:', { patientuid, transactionid, patientname , patientdob});
-      // Submit the sanitized data
-      fetch('https://script.google.com/macros/s/AKfycbxcFg05bQic8Gvz6N0VBmnjKScSqmDw5AsXUeQh79TxZQC8lT56aRqcjnuyD_RAAEZ5/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ patientuid, transactionid, patientname , patientdob}),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            // throw new Error('Failed to submit data.');
-            console.log(response);
-          }
-          // alert('Data submitted successfully!');
-          console.log("Data Submitted");
-          setTestData({
-            ...testData,
-          });
-        })
-        .catch((error) => {
-          console.error('Error during fetch:', error);
-        });
-    },[]);
+useEffect(() => {
+  const { PATIENT_UID, TRANSACTION_ID, patientName, patientDOB, hasSubmitted } = testData;
+  
+  if (hasSubmitted === 'true') return;
+
+  // Ensure patientDOB is valid before sending data
+  if (!patientDOB || patientDOB.includes("NaNNaNNaN")) {
+    console.log("Waiting for patientDOB to load...");
+    return;
+  }
+
+  if (typeof PATIENT_UID !== 'string' || PATIENT_UID.trim() === '') {
+    alert('Invalid PATIENT_UID. Please enter a valid string.');
+    return;
+  }
+  if (typeof TRANSACTION_ID !== 'string' || TRANSACTION_ID.trim() === '') {
+    alert('Invalid TRANSACTION_ID. Please enter a valid string.');
+    return;
+  }
+
+  // Sanitize data
+  const patientuid = PATIENT_UID.trim();
+  const transactionid = TRANSACTION_ID.trim();
+  const patientname = patientName.trim();
+  
+  let patientdob = new Date(patientDOB);
+  const day = patientdob.getDate().toString().padStart(2, '0');
+  const month = (patientdob.getMonth() + 1).toString().padStart(2, '0');
+  const year = patientdob.getFullYear();
+  const formattedDate = `${year}${month}${day}`;
+
+  console.log("Sanitized Data:", { patientuid, transactionid, patientname, patientdob: formattedDate });
+
+  fetch('https://script.google.com/macros/s/AKfycbxcFg05bQic8Gvz6N0VBmnjKScSqmDw5AsXUeQh79TxZQC8lT56aRqcjnuyD_RAAEZ5/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ patientuid, transactionid, patientname, patientdob: formattedDate }),
+  })
+    .then((response) => {
+      console.log("Data Submitted");
+      setTestData({ ...testData, hasSubmitted: 'true' });
+    })
+    .catch((error) => {
+      console.error('Error during fetch:', error);
+    });
+
+}, [testData]); // Run only when testData updates
 
   return (
     <div className="bg-[#1A0C25] flex flex-col justify-center items-center min-h-screen text-center">
