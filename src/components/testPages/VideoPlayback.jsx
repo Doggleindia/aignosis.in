@@ -288,7 +288,7 @@ const VideoPlayback = () => {
 
   const getVideoSource = () => {
     const baseUrl = "https://d228sadnexesrp.cloudfront.net/Test_Videos/";
-    const version = "V5";
+    const version = "V7";
     return testData.videolanguage === "English"
       ? `${baseUrl}Aignosis_Test_vid_Eng_${version}.mp4`
       : `${baseUrl}Aignosis_Test_vid_Hindi_${version}.mp4`;
