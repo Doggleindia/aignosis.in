@@ -28,6 +28,10 @@ import citation from '../../assets/members/citations.jpeg'
 import founders from '../../assets/members/founders.jpeg'
 import raksheet from '../../assets/members/raksheet.jpeg';
 import divyansh from '../../assets/members/divyansh.jpeg'
+import lenskart from '../../assets/members/lenskart.png'
+import acko from '../../assets/members/acko logo.jpg'
+import boat from '../../assets/members/boat logo.jpg'
+import zerodha from '../../assets/members/zerodha logo.png'
 
 const AignosisTeam = () => {
   return (
@@ -130,7 +134,7 @@ const AignosisTeam = () => {
                 subtitle="Co-Founder & CMO, boAt"
                 desc="Aman Gupta is the Co-Founder and Chief Marketing Officer of boAt, one of India’s leading consumer electronics brands. With a strong background in business and marketing.."
                 src={aman}
-                logos={[]}
+                logos={[boat]}
               />
                 
                 <MemberCard
@@ -140,13 +144,7 @@ const AignosisTeam = () => {
                 src={raj}
                 logos={[logo12]}
               />
-              {/* <MemberCard
-                title="Mr. Nikhil Kamath"
-                subtitle="Co-Founder, Zerodha & True Beacon"
-                desc="Nikhil Kamath is the Co-Founder of Zerodha, India’s largest stock brokerage firm, and True Beacon, an asset management company. A self-taught trader, he is known for revolutionizing India’s investment landscape with commission-free trading and wealth management solutions."
-                src=""
-                logos={[]}
-              /> */}
+               
             </div>
             <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
               <MemberCard
@@ -154,7 +152,7 @@ const AignosisTeam = () => {
                 subtitle="Founder & CEO, Acko"
                 desc="Varun Dua is the Founder and CEO of Acko, a digital-first insurance company transforming India’s insurance industry with technology-driven, customer-centric solutions. With a vision to simplify insurance, he has positioned Acko as a leading insurtech startup in India."
                 src={varun}
-                logos={[]}
+                logos={[acko]}
               />
 
               <MemberCard
@@ -162,9 +160,18 @@ const AignosisTeam = () => {
                 subtitle="Founder & CEO, Lenskart"
                 desc="Peyush Bansal is the Founder and CEO of Lenskart, India’s largest eyewear retailer. With a mission to make quality eyewear accessible and affordable, he has led Lenskart’s growth into a tech-driven omnichannel platform, serving millions of customers across India."
                 src={peyush}
-                logos={[]}
+                logos={[lenskart]}
               />
             </div>
+            <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
+            <MemberCard
+                title="Mr. Nikhil Kamath"
+                subtitle="Co-Founder, Zerodha & True Beacon"
+                desc="Nikhil Kamath is the Co-Founder of Zerodha, India’s largest stock brokerage firm, and True Beacon, an asset management company. A self-taught trader, he is known for revolutionizing India’s investment landscape with commission-free trading and wealth management solutions."
+                src={nikhil}
+                logos={[zerodha]}
+              /> 
+              </div>
             
           </div>
         </div>

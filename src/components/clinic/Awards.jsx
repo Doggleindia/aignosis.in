@@ -34,6 +34,7 @@ import img35 from '../../assets/homepage/image a1.png'
 import img36 from '../../assets/homepage/image a4.png'
 import img37 from '../../assets/homepage/image90.avif'
 import teddy from '../../assets/PopUps/teddy.png'
+import wtfund from '../../assets/members/wtfund logo.jpg'
 
 
 import gsap from "gsap";
@@ -101,7 +102,7 @@ const Awards = () => {
     {[...Array(2)].map((_, index) => (
       <React.Fragment key={index}>
         {[ // Image Groups
-          [img1, img35, img9, img30, img5, img37 , img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28 , img1, img35, img9, img30, img5, img37, img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28],
+          [img1, img35, img9, img30, img5, img37 , img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28 , wtfund, img1, img35, img9, img30, img5, img37, img11, img8, img36, img6 ,img12, img13, img14, img15, img16, img17, img18, img34, img33, img21,img22, img23, img24, img26, img27, img28],
           
           
         ].map((imageGroup, groupIndex) => (
