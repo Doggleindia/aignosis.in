@@ -26,10 +26,9 @@ const Homefirst = () => {
   const isValid = () => {
     const fullName = fullNameRef.current?.value.replace(/\s/g, "") || "";
     const phoneNumber = phoneNumberRef.current?.value || "";
-    
+
     return fullName.length >= 5 && /^\d{10}$/.test(phoneNumber);
   };
-  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,7 +47,6 @@ const Homefirst = () => {
     return () => clearInterval(interval); // Cleanup interval
   }, []);
 
-  
   return (
     <>
       <>
@@ -190,7 +188,7 @@ const Homefirst = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute top-[-1vw] max-sm:top-[-14vw] left-4 flex items-center space-x-4 z-50 max-sm:hidden">
+          <div className="absolute top-0 left-4 flex items-center space-x-4 z-50 max-sm:hidden">
             <img
               className="w-32 h-16 max-sm:w-12 object-contain"
               src={hipaa}
@@ -212,45 +210,52 @@ const Homefirst = () => {
             />
           </div>
         </div>
-        <div className="w-full flex flex-col items-center gap-4 p-4">
-      
-      <input
-        type="text"
-        placeholder="Full Name"
-        ref={fullNameRef}
-        className="w-full sm:w-[300px] p-3 border border-[#9C00AD] text-white bg-transparent rounded-md focus:border-[#9C00AD] focus:ring-0 focus:outline-none"
-        onInput={() => isValid()}
-      />
+        <div className="w-full flex flex-col items-center gap-6 p-6">
+          {/* Container for inputs (Ensures proper alignment on desktop) */}
+          <div className="w-full max-w-[700px] flex flex-col sm:flex-row items-center gap-4">
+            <input
+              type="text"
+              placeholder="Full Name"
+              ref={fullNameRef}
+              className="w-full sm:w-[48%] p-3 border border-[#9C00AD] text-white bg-transparent rounded-md focus:border-[#9C00AD] focus:ring-0 focus:outline-none"
+              onInput={() => isValid()}
+            />
+            <div className="w-full sm:w-[48%] flex items-center border border-[#9C00AD] rounded-md p-3 bg-transparent">
+              <span className="pr-2 text-white text-xs whitespace-nowrap">
+                🇮🇳 +91
+              </span>
+              <input
+                type="text"
+                placeholder="WhatsApp Preferred"
+                ref={phoneNumberRef}
+                className="w-full text-white bg-transparent focus:outline-none placeholder-white/60"
+                onInput={() => isValid()}
+              />
+            </div>
+          </div>
 
-      <div className="w-full sm:w-[300px] flex items-center border border-[#9C00AD] rounded-md p-3 bg-transparent">
-        <span className="pr-2 text-white text-xs whitespace-nowrap">🇮🇳 +91</span>
-        <input
-          type="text"
-          placeholder="WhatsApp Preferred"
-          ref={phoneNumberRef}
-          className="w-full text-white bg-transparent focus:outline-none placeholder-white/60"
-          onInput={() => isValid()}
-        />
-      </div>
-
-      
-      <div className="w-full flex justify-center p-4">
-        <Link
-          to={isValid() ? "https://calendly.com/aignosis-support/30min" : "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button
-            className={`w-full sm:w-auto px-6 py-3 border border-[#9C00AD] text-white rounded-md transition-all ${
-              isValid() ? "hover:bg-white/20 opacity-100 cursor-pointer" : "opacity-50 cursor-not-allowed"
-            }`}
-            disabled={!isValid()}
-          >
-            Book a Free Demo
-          </button>
-        </Link>
-      </div>
-      </div>
+          {/* Button Container (Always below inputs) */}
+          <div className="w-full max-w-[700px] flex justify-center">
+            <Link
+              to={
+                isValid() ? "https://calendly.com/aignosis-support/30min" : "#"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button
+                className={`w-full sm:w-auto px-6 py-3 border border-[#9C00AD] text-white rounded-md transition-all ${
+                  isValid()
+                    ? "hover:bg-white/20 opacity-100 cursor-pointer"
+                    : "opacity-50 cursor-not-allowed"
+                }`}
+                disabled={!isValid()}
+              >
+                Book a Free Demo
+              </button>
+            </Link>
+          </div>
+        </div>
       </>
     </>
   );
