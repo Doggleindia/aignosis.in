@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [profiles, setProfiles] = useState([]);
   
   const handleTakeTestNow = async () => {
-    const testPrice = 499; 
+    const testPrice = 700; 
 
     try {
       console.log("Initiating payment process...");
