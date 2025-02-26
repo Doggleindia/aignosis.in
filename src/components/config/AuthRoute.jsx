@@ -25,7 +25,7 @@ const AuthRoute = ({ children }) => {
               Authorization: `Bearer ${token}`, // Add the token in the headers
             },
           });
-
+          localStorage.setItem("profile", response.data);
         if (!response.data.success) {
           // Token verification failed, redirect to login
           localStorage.removeItem("authToken");

@@ -9,14 +9,16 @@ import Header from '../Header';
 import Newnavbar from '../Newnavbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';  // Import axios at the top
+import ServicesCard from "../service/ServicesCard";
 
 const Dashboard = () => {
   const [paymentStatus, setPaymentStatus] = useState("");
   const token = localStorage.getItem("authToken"); 
   const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
+const userid = JSON.parse(localStorage.getItem("user"));
 
   const [profiles, setProfiles] = useState([]);
-  
+  console.log(userid,"userid")
   const handleTakeTestNow = async () => {
     const testPrice = 700; 
 
@@ -625,6 +627,7 @@ const Dashboard = () => {
             </div>
           )}
         </div>
+        <ServicesCard userId={userid._id} />
         <Sessions />
         <Link to={'/prices'} className="w-full border-2 flex justify-center items-center border-zinc-500 py-4">
           <h3 className='font-bold'>Book Now</h3>
