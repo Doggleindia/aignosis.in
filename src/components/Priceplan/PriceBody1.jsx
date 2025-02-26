@@ -362,77 +362,74 @@ const PriceBody1 = ({ selectedOption }) => {
   const storedToken = localStorage.getItem("authToken");
 
   const handlePayment = async () => {
-    // Check if the user is logged in
-    console.log("check2",storedToken)
-    if (!storedToken) {
-      // Show a toast message
-      // toast.error("You need to log in to proceed with the payment.");
-
-      // Redirect after a brief delay to allow the toast message to show
-      navigate("/login");
-      return; // Exit the function
+    if(selectedCard === null){
+      return toast.error("Please select a plan before proceeding.");
     }
 
+    if (!storedToken) {
+      toast.error("You need to log in to proceed with the payment.");
+      setTimeout(() => navigate("/login"), 2000);
+      return;
+    }
 
     try {
       console.log("Initiating payment process...");
+      const user = JSON.parse(localStorage.getItem('user'));
 
-      // Create order on the backend
-      const { data: order } = await axiosInstance.post(
+      const { data } = await axiosInstance.post(
         "/api/payment/create-order",
-        { amount },
-        {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
+        { user_id: user._id, service_type: "Therapy", amount, sessions: therapyCards[selectedCard].sessions, 
+          validity: 3  },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
-      // Set up Razorpay options
-      const options = {
-        key: "rzp_live_bJB6v4FhsKMk9Y",
-        amount: order.amount,
-        currency: order.currency,
-        name: "Test Payment",
-        description: "Test Transaction",
-        order_id: order.id,
-        handler: async (response) => {
-          const verificationData = {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            amount,
-            currency: "INR",
-          };
+      if (!data.success) {
+        throw new Error("Order creation failed");
+      }
 
+      const { id: order_id, amount: orderAmount, currency } = data.order;
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: orderAmount,
+        currency,
+        name: "Your Business Name",
+        description: `Payment for Therapy`,
+        order_id,
+        handler: async (response) => {
           try {
             console.log("Verifying payment...");
-            const { data } = await axiosInstance.post(
+            const verifyResponse = await axiosInstance.post(
               "/api/payment/verify-payment",
-              verificationData,
               {
-                headers: {
-                  Authorization: `Bearer ${storedToken}`,
-                },
-              }
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+              { headers: { Authorization: `Bearer ${storedToken}` } }
             );
-            setPaymentStatus(data.message || "Payment successful!");
-            console.log("Payment verified:", data);
+
+            if (verifyResponse.data.success) {
+              toast.success("Payment successful! Your service is activated.");
+              console.log("Payment verified:", verifyResponse.data);
+            } else {
+              toast.error("Payment verification failed. Please contact support.");
+            }
           } catch (error) {
             console.error("Payment verification failed:", error);
-            setPaymentStatus("Payment verification failed.");
+            toast.error("Payment verification failed.");
           }
         },
-        theme: {
-          color: "#3399cc",
-        },
+        prefill: { email: "user@example.com", contact: "9876543210" },
+        theme: { color: "#3399cc" },
       };
 
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
+      const razorpayInstance = new window.Razorpay(options);
+      razorpayInstance.open();
     } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
+      navigate("/login");
     }
   };
 
