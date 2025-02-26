@@ -60,7 +60,7 @@ const PriceBody = ({ selectedOption, }) => {
       console.log("Initiating payment process...");
       const { data } = await axiosInstance.post(
         "/api/payment/create-order",
-        { user_id: '65d8e1a3e8b8a1b47c789012', service_type: serviceType, amount, sessions: 3, 
+        { user_id: '67a79a186661e4cb964377ed', service_type: serviceType, amount, sessions: 3, 
           validity: 90  },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );

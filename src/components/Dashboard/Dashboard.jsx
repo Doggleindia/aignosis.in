@@ -1,92 +1,70 @@
 import React, { useState, useEffect } from "react";
 import { FaBell } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
-import pic from "../../assets/pic4.png"
+import pic from "../../assets/pic4.png";
 import { FaUserEdit } from "react-icons/fa";
 import fetchData from "../config/fetchData";
-import Sessions from './Sessions';
-import Header from '../Header';
-import Newnavbar from '../Newnavbar';
-import { Link } from 'react-router-dom';
-import axios from 'axios';  // Import axios at the top
+import Sessions from "./Sessions";
+import Header from "../Header";
+import Newnavbar from "../Newnavbar";
+import { Link } from "react-router-dom";
+import axios from "axios"; // Import axios at the top
 import ServicesCard from "../service/ServicesCard";
 
 const Dashboard = () => {
-  const [paymentStatus, setPaymentStatus] = useState("");
-  const token = localStorage.getItem("authToken"); 
+  const token = localStorage.getItem("authToken");
   const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
-const userid = JSON.parse(localStorage.getItem("user"));
-
+  const [services, setServices] = useState([]);
+  const [numTestsCompleted, setNumTestsCompleted] = useState(0);
+  const userId = JSON.parse(localStorage.getItem("user"));
+  const authToken = localStorage.getItem("authToken");
+  const TEST_API_URL = "https://35.207.211.80/rest/get_num_tests_used/";
   const [profiles, setProfiles] = useState([]);
-  console.log(userid,"userid")
-  const handleTakeTestNow = async () => {
-    const testPrice = 700; 
+  console.log(userId, "userid");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${API_BASE_URL}/api/service/${userId._id}`,
+          { headers: { Authorization: `Bearer ${authToken}` } }
+        );
+        setServices(response.data.services || []);
 
-    try {
-      console.log("Initiating payment process...");
-      const { data: order } = await axios.post(
-        `${API_BASE_URL}/api/payment/create-order`,
-        { amount: testPrice },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+        // Fetch the number of tests completed from external API
+        const testResponse = await axios.post(
+          TEST_API_URL,
+          { patient_uid:userId._id },
+          { headers: { "Content-Type": "application/json" } }
+        );
 
-      
-      const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, 
-        amount: order.amount,
-        currency: order.currency,
-        name: "Aignosis Test Payment",
-        description: "Autism Screening Test",
-        order_id: order.id,
-        handler: async (response) => {
-          const verificationData = {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            amount: testPrice,
-            currency: "INR",
-          };
+        if (testResponse.data.num_tests_completed !== undefined) {
+          setNumTestsCompleted(testResponse.data.num_tests_completed);
+        } else {
+          setNumTestsCompleted(0);
+        }
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError("Failed to fetch data.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-          try {
-            console.log("Verifying payment...");
-            const { data } = await axios.post(
-              `${API_BASE_URL}/api/payment/verify-payment`,
-              verificationData,
-              { headers: { Authorization: `Bearer ${token}` } }
-            );
-            setPaymentStatus(data.message || "Payment successful!");
-            console.log("Payment verified:", data);
-          } catch (error) {
-            console.error("Payment verification failed:", error);
-            setPaymentStatus("Payment verification failed.");
-          }
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-    } catch (error) {
-      console.error("Payment initiation failed:", error);
-      alert("Failed to initiate payment. Please try again.");
-    }
-  };
-
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/api/profiles`, {
           headers: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setProfiles(response.data.profiles); // Set the fetched profiles
       } catch (err) {
-        console.error('Error fetching profiles:', err);
-        setError('Error fetching profiles');
+        console.error("Error fetching profiles:", err);
+        setError("Error fetching profiles");
       }
     };
     fetchProfiles();
@@ -139,7 +117,6 @@ const userid = JSON.parse(localStorage.getItem("user"));
     setIsEditing(true);
   };
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -153,10 +130,6 @@ const userid = JSON.parse(localStorage.getItem("user"));
       ...prevData,
       profilePic: e.target.files[0],
     }));
-  };
-
-  const handleProfilePicChange = (e) => {
-    setProfilePic(e.target.files[0]); // Update profilePic in state
   };
 
   const handleSaveProfile = async (e) => {
@@ -217,18 +190,23 @@ const userid = JSON.parse(localStorage.getItem("user"));
     } catch (err) {
       console.error("Error saving profile:", err);
       setError(
-        err.response?.data?.message || "An error occurred while saving the profile."
+        err.response?.data?.message ||
+          "An error occurred while saving the profile."
       );
     }
   };
 
+  if (loading) return <p className="text-white">Loading dashboard...</p>;
+  if (error) return <p className="text-red-500">{error}</p>;
 
-
+  // Find the user's `total_sessions`
+  const totalSessions = services.length > 0 ? services[0].total_sessions : 0;
+  const isTestAvailable = numTestsCompleted < totalSessions;
   return (
     <>
       <Newnavbar />
       <Header />
-      <div className='w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]'>
+      <div className="w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]">
         <div className="w-full h-full md:block hidden">
           {/* Header */}
           <div
@@ -247,10 +225,10 @@ const userid = JSON.parse(localStorage.getItem("user"));
                       alt="Profile"
                     />
                   </div>
-
                 ) : (
                   <div className="w-full h-full bg-gray-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-lg">?</span> {/* Default placeholder */}
+                    <span className="text-white text-lg">?</span>{" "}
+                    {/* Default placeholder */}
                   </div>
                 )}
               </div>
@@ -258,11 +236,15 @@ const userid = JSON.parse(localStorage.getItem("user"));
                 <h2 className="text-white text-base font-medium">Welcome</h2>
                 {profiles.length > 0 ? (
                   <>
-                    <p className="text-white font-bold text-xl">{profiles[0].name}</p>
+                    <p className="text-white font-bold text-xl">
+                      {profiles[0].name}
+                    </p>
                     <p className="text-white text-xs">{profiles[0].email}</p>
                   </>
                 ) : (
-                  <p className="text-white text-xs">No profile data available</p>
+                  <p className="text-white text-xs">
+                    No profile data available
+                  </p>
                 )}
               </div>
             </div>
@@ -277,7 +259,9 @@ const userid = JSON.parse(localStorage.getItem("user"));
             {isEditing ? (
               <div className="mt-4 relative border-2 border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
                 <h2 className="text-lg font-bold mb-4">
-                  {isUpdating ? "Edit Personal Info" : "Add Personal Info (Guardian)"}
+                  {isUpdating
+                    ? "Edit Personal Info"
+                    : "Add Personal Info (Guardian)"}
                 </h2>
                 <form>
                   <div className="grid grid-cols-1 pr-[20vw] md:grid-cols-2 gap-6 text-sm">
@@ -374,7 +358,11 @@ const userid = JSON.parse(localStorage.getItem("user"));
                         onClick={() => toggleEdit(profile)}
                       >
                         <div className="w-14 flex relative overflow-hidden justify-center items-center h-14 bg-[#9C00AD] rounded-full">
-                          <img className="w-full h-full object-cover" src={profile.profilePicUrl} alt="" />
+                          <img
+                            className="w-full h-full object-cover"
+                            src={profile.profilePicUrl}
+                            alt=""
+                          />
                         </div>
                       </div>
                     ))}
@@ -387,13 +375,12 @@ const userid = JSON.parse(localStorage.getItem("user"));
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div className="mt-5 px-5">
                   <div
                     className="w-full h-[5vw] flex items-center justify-between px-10  mt-4"
                     style={{
-                      background: 'linear-gradient(to left, #4B1056, #280834)',
+                      background: "linear-gradient(to left, #4B1056, #280834)",
                     }}
                   >
                     {/* Left Section */}
@@ -407,27 +394,36 @@ const userid = JSON.parse(localStorage.getItem("user"));
                       </div>
                       <div>
                         <p className="text-white font-medium text-sm">
-                          Upto 1 in 5 children are at risk of developmental delays**
+                          Upto 1 in 5 children are at risk of developmental
+                          delays**
                         </p>
                         <p className="text-white font-medium mt-1 text-xs">
-                          Take 5 minutes to check if your child is achieving key milestones on time
+                          Take 5 minutes to check if your child is achieving key
+                          milestones on time
                         </p>
                       </div>
                     </div>
 
                     {/* Right Section */}
                     <div className="flex items-center space-x-8">
-                      <button 
-                      onClick={handleTakeTestNow} 
-                      className="text-white font-bold text-xl">
-                        Take test now
+                      <button className="text-white font-bold text-xl">
+                        {isTestAvailable ? (
+                          <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                            Take Test Now
+                          </button>
+                        ) : (
+                          <p className="mt-5 text-gray-400">
+                            No available sessions remaining.
+                          </p>
+                        )}
                       </button>
                       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20">
                         <FaPlus size={12} />
                       </div>
                     </div>
                   </div>
-                </div></>
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -436,7 +432,7 @@ const userid = JSON.parse(localStorage.getItem("user"));
           <div
             className="w-full h-20 flex items-center rounded-2xl justify-between px-4"
             style={{
-              background: 'linear-gradient(to right, #B740A1, #9C00AD)',
+              background: "linear-gradient(to right, #B740A1, #9C00AD)",
             }}
           >
             <div className="flex items-center space-x-4">
@@ -449,7 +445,9 @@ const userid = JSON.parse(localStorage.getItem("user"));
                   />
                 ) : (
                   <span className="text-white text-base">
-                    {profiles.length > 0 && profiles[0].name ? profiles[0].name[0] : "?"}
+                    {profiles.length > 0 && profiles[0].name
+                      ? profiles[0].name[0]
+                      : "?"}
                   </span> // Use the first letter of the name or a fallback
                 )}
               </div>
@@ -457,13 +455,18 @@ const userid = JSON.parse(localStorage.getItem("user"));
                 <h2 className="text-white text-sm font-medium">Welcome</h2>
                 {profiles.length > 0 ? (
                   <>
-                    <p className="text-white font-bold text-lg">{profiles[0].name}</p>
+                    <p className="text-white font-bold text-lg">
+                      {profiles[0].name}
+                    </p>
                     <p className="text-white text-xs">
-                      {profiles[0].email || "+1234567890"} {/* Default to phone if email is not available */}
+                      {profiles[0].email || "+1234567890"}{" "}
+                      {/* Default to phone if email is not available */}
                     </p>
                   </>
                 ) : (
-                  <p className="text-white text-xs">No profile data available</p>
+                  <p className="text-white text-xs">
+                    No profile data available
+                  </p>
                 )}
               </div>
             </div>
@@ -477,7 +480,9 @@ const userid = JSON.parse(localStorage.getItem("user"));
           {isEditing ? (
             <div className="relative border-2 mt-[5vw] border-[#C4C4C45E] w-full h-full bg-[#2B1B2D] text-sm text-white px-[4vw] py-6 rounded-md">
               <h2 className="text-lg font-bold mb-4">
-                {isUpdating ? "Edit Personal Info" : "Add Personal Info (Guardian)"}
+                {isUpdating
+                  ? "Edit Personal Info"
+                  : "Add Personal Info (Guardian)"}
               </h2>
               <form>
                 <div className="grid grid-cols-1 pr-[20vw] gap-6 text-sm">
@@ -570,7 +575,10 @@ const userid = JSON.parse(localStorage.getItem("user"));
 
               {/* Profile List */}
               <div className="grid grid-cols-3">
-                <div onClick={() => toggleEdit()} className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md">
+                <div
+                  onClick={() => toggleEdit()}
+                  className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md"
+                >
                   <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
                     <FaPlus />
                   </div>
@@ -583,7 +591,9 @@ const userid = JSON.parse(localStorage.getItem("user"));
                     className="w-24 h-24 bg-[#3D253F] flex justify-center items-center mt-5 rounded-md"
                   >
                     <div className="w-10 h-10 bg-[#9C00AD] flex justify-center items-center rounded-full">
-                      <h3 className="font-bold text-xl">{profile.name.charAt(0)}</h3>
+                      <h3 className="font-bold text-xl">
+                        {profile.name.charAt(0)}
+                      </h3>
                     </div>
                   </div>
                 ))}
@@ -592,7 +602,7 @@ const userid = JSON.parse(localStorage.getItem("user"));
                 <div
                   className="w-full h-auto flex flex-col items-start justify-between px-4 py-3 space-y-4 sm:flex-row sm:items-center sm:px-8 sm:py-5"
                   style={{
-                    background: 'linear-gradient(to left, #4B1056, #280834)',
+                    background: "linear-gradient(to left, #4B1056, #280834)",
                   }}
                 >
                   {/* Left Section */}
@@ -606,35 +616,44 @@ const userid = JSON.parse(localStorage.getItem("user"));
                     </div>
                     <div>
                       <p className="text-white font-medium text-xs sm:text-sm">
-                        Upto 1 in 5 children are at risk of developmental delays**
+                        Upto 1 in 5 children are at risk of developmental
+                        delays**
                       </p>
                       <p className="text-white font-medium mt-1 text-xs sm:text-sm">
-                        Take 5 minutes to check if your child is achieving key milestones on time
+                        Take 5 minutes to check if your child is achieving key
+                        milestones on time
                       </p>
                     </div>
                   </div>
 
                   {/* Right Section */}
                   <div className="flex items-center justify-center w-full">
-                    <button onClick={handleTakeTestNow}
-                     className="text-white text-center font-bold text-lg sm:text-xl">
-                      Take test now
-                    </button>
+                    {isTestAvailable ? (
+                      <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                        Take Test Now
+                      </button>
+                    ) : (
+                      <p className="mt-5 text-gray-400">
+                        No available sessions remaining.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
-
             </div>
           )}
         </div>
-        <ServicesCard userId={userid._id} />
+        <ServicesCard userId={userId._id} />
         <Sessions />
-        <Link to={'/prices'} className="w-full border-2 flex justify-center items-center border-zinc-500 py-4">
-          <h3 className='font-bold'>Book Now</h3>
+        <Link
+          to={"/prices"}
+          className="w-full border-2 flex justify-center items-center border-zinc-500 py-4"
+        >
+          <h3 className="font-bold">Book Now</h3>
         </Link>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
