@@ -44,7 +44,7 @@ const Dashboard = () => {
         }
       } catch (err) {
         console.error("Error fetching data:", err);
-        setError("Failed to fetch data.");
+        // setError("Failed to fetch data.");
       } finally {
         setLoading(false);
       }
@@ -409,9 +409,9 @@ const Dashboard = () => {
                     <div className="flex items-center space-x-8">
                       <button className="text-white font-bold text-xl">
                         {isTestAvailable ? (
-                          <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                          <Link to={'/test/fillup'} className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
                             Take Test Now
-                          </button>
+                          </Link>
                         ) : (
                           <p className="mt-5 text-gray-400">
                             No available sessions remaining.
