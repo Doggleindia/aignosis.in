@@ -64,6 +64,8 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
       if (response) {
         // Store token in localStorage
         localStorage.setItem("authToken", response.token);
+        localStorage.setItem("user", JSON.stringify(response.user));
+        JSON.stringify(response.user)
         toast.success("OTP verified successfully! Redirecting...");
         // Redirect or handle successful login
         window.location.href = "/dashboard";  // Redirect to home or dashboard
