@@ -376,6 +376,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
+              {isTestAvailable && 
                 <div className="mt-5 px-5">
                   <div
                     className="w-full h-[5vw] flex items-center justify-between px-10  mt-4"
@@ -423,6 +424,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
+              }
               </>
             )}
           </div>
@@ -598,6 +600,8 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
+
+            {isTestAvailable && 
               <div className="mt-5 px-3">
                 <div
                   className="w-full h-auto flex flex-col items-start justify-between px-4 py-3 space-y-4 sm:flex-row sm:items-center sm:px-8 sm:py-5"
@@ -640,6 +644,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+            }
             </div>
           )}
         </div>
