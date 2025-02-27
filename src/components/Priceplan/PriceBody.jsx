@@ -143,32 +143,32 @@ const PriceBody = () => {
       actualprice: 3899,
     },
   ];
-  const therapyCards = [
-    {
-      amount: 5000,
-      discount: "Shark tank 50% off",
-      sessions: 10,
-      sessionCost: 500,
-      validity: "30",
-      savings: 5000,
-    },
-    {
-      amount: 7500,
-      discount: "Shark tank 50% off",
-      sessions: 15,
-      sessionCost: 500,
-      validity: "45",
-      savings: 7500,
-    },
-    {
-      amount: 10000,
-      discount: "Shark tank 50% off",
-      sessions: 20,
-      sessionCost: 500,
-      validity: "90",
-      savings: 10000,
-    },
-  ];
+  // const therapyCards = [
+  //   {
+  //     amount: 5000,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 10,
+  //     sessionCost: 500,
+  //     validity: "30",
+  //     savings: 5000,
+  //   },
+  //   {
+  //     amount: 7500,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 15,
+  //     sessionCost: 500,
+  //     validity: "45",
+  //     savings: 7500,
+  //   },
+  //   {
+  //     amount: 10000,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 20,
+  //     sessionCost: 500,
+  //     validity: "90",
+  //     savings: 10000,
+  //   },
+  // ];
   return (
     <>
       <div>
@@ -247,12 +247,12 @@ const PriceBody = () => {
               ))}
             </div>
             <div className="">
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 <span className="text-2xl font-semibold text-white">
                   Add Therapy
                 </span>
-              </div>
-              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
+              </div> */}
+              {/* <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
                 {therapyCards.map((card, index) => (
                 <div
                 key={index}
@@ -297,7 +297,7 @@ const PriceBody = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
@@ -415,7 +415,7 @@ const PriceBody = () => {
             </div>
 
             {/* Therapy Options */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
@@ -428,7 +428,7 @@ const PriceBody = () => {
                   }`}
                   onClick={() => handleCardSelect(index, "therapy")}
                 >
-                    {/* "Most Popular" Badge (Only for index 1) */}
+                    
                     {index === 1 && (
                       <img
                         src={most}
@@ -437,14 +437,14 @@ const PriceBody = () => {
                       />
                     )}
 
-                    {/* Discount Label */}
+
                     <div className="mb-2">
                       <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
                         {card.discount}
                       </span>
                     </div>
 
-                    {/* Card Content */}
+                  
                     <div>
                       <p className="text-lg font-semibold">
                         ₹{card.amount}{" "}
@@ -465,7 +465,7 @@ const PriceBody = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="flex flex-wrap justify-center gap-4 mt-4">
               <button
