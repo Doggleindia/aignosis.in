@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
+
 import BeatLoader from "react-spinners/BeatLoader";
 import {
   encryptCalibrationData,
@@ -73,12 +74,12 @@ const DogCalibration = () => {
 
   //   // Wait for the audio to be fully loaded
   //   audio.addEventListener("canplaythrough", handleAudioPlay);
-  //   // save patient uid and tid in context
-  //   setTestData({
-  //     ...testData,
-  //     PATIENT_UID: uuidv4(),
-  //     TRANSACTION_ID: uuidv4(),
-  //   });
+  // // save patient uid and tid in context
+  // setTestData({
+  //   ...testData,
+  //   PATIENT_UID: uuidv4(),
+  //   TRANSACTION_ID: uuidv4(),
+  // });
 
   //   console.log("DOG CALIBRATION TEST DATA", testData);
   //   // Get the webcam stream and metadata on mount
@@ -121,6 +122,7 @@ const DogCalibration = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+
     function goFullScreen() {
       let elem = document.documentElement; // The whole page
 
@@ -215,16 +217,18 @@ const DogCalibration = () => {
   };
 
   const handleCircleClick = async () => {
-    // const audio = new Audio("/dog_bark.mp3"); // Path to your audio file
-    // try {
-    //   await audio.play(); // Play the audio
-    // } catch (error) {
-    //   console.error("Audio play error:", error);
-    // }
 
     if (currentCircleIndex === 0) {
+      setTestData({
+        ...testData,
+        PATIENT_UID: uuidv4(),
+        TRANSACTION_ID: uuidv4(),
+      });
+
       setStartTime(Date.now());
+      
       setClickTimes((clicktimes) => [...clicktimes, 0.0]);
+      
       setFrameCaptureInterval(
         setInterval(() => {
           const frameData = captureFrame();

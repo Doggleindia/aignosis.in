@@ -81,7 +81,7 @@ const arrayBufferToBase64 = (buffer) => {
   const encryptPassword = async (password) => {
     try {
       // Get and import RSA public key
-      const jwk = await fetch('https://prod.aignosismdw.in/rest/return_rsa_public_key').then(res => res.json()).catch(err=>console.log('wehgowgr' + err));
+      const jwk = await fetch('http://prod.aignosismdw.in/rest/return_rsa_public_key').then(res => res.json()).catch(err=>console.log('wehgowgr' + err));
       const publicKey = await window.crypto.subtle.importKey(
         'jwk',
         jwk,

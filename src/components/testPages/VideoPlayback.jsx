@@ -25,7 +25,7 @@ const VideoPlayback = () => {
 
   const fpsIntervalRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
-  const SERVER_MIDDLEWARE_ENDPOINT = "https://prod.aignosismdw.in";
+  const SERVER_MIDDLEWARE_ENDPOINT = "http://prod.aignosismdw.in";
 
   // Start FPS calculation when recording starts
   const startFpsCalculation = () => {
@@ -56,6 +56,9 @@ const VideoPlayback = () => {
 
   useEffect(() => {
     window.history.pushState(null, null, window.location.href);
+
+    
+
     console.log("testData is", testData);
 
     const handleBackButton = () => {
