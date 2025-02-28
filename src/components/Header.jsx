@@ -50,6 +50,7 @@ const Header = () => {
 
     // Clear other user-related data if necessary
     setAuthUser(null); // Update state to reflect logged-out status
+    sessionStorage.clear();
 
     // Redirect to login page
     window.location.href = "/";
@@ -89,8 +90,8 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-[100] transition-transform duration-300 translate-y-0 backdrop-blur-md">
-      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] max-sm:py-[3.3vw] 2xl:py-[10px]">
+    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] max-sm:h-[12vw] flex items-center justify-center max-sm:mt-[5.8vw] md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-[100] transition-transform duration-300 translate-y-0 backdrop-blur-md">
+      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] max-sm:mt-[-1.5vw] max-sm:py-[1vw] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
