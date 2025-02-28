@@ -4,9 +4,11 @@ import "./PriceBody.css";
 import most from "./most.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 const PriceBody = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [amount, setAmount] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -45,45 +47,91 @@ const PriceBody = () => {
   console.log(handleCardSelect, "handleCardSelect");
 
   const storedToken = localStorage.getItem("authToken");
-  const handlePayment = async () => {
-    if (setSelectedTherapyCard === null || setSelectedTestCard === null) {
+
+  useEffect(() => {
+    const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
+
+    console.log("Checking localStorage after redirect:", preOrderData); // ✅ Debugging
+
+    if (preOrderData) {
+      handlePayment(preOrderData.selectedCardType);
+    }
+  }, []);
+
+  const handlePayment = async (selectedCardType) => {
+    console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
+
+    const storedPreOrderData = JSON.parse(
+      localStorage.getItem("preOrderData")
+    ) || {
+      selectedCardType,
+      amount,
+      sessions,
+      validity,
+    };
+
+    if (!storedPreOrderData.selectedCardType) {
       return toast.error("Please select a plan before proceeding.");
     }
-  
+
+    const storedToken = localStorage.getItem("authToken");
+
     if (!storedToken) {
       toast.error("You need to log in to proceed with the payment.");
-      setTimeout(() => navigate("/login"), 2000);
+
+      const preOrderData = {
+        selectedCardType,
+        amount,
+        sessions,
+        validity,
+        fromPage: location.pathname, // ✅ Store current page
+      };
+
+      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+
+      navigate("/login");
       return;
     }
-  
+
     try {
       console.log("Initiating payment process...");
       const user = JSON.parse(localStorage.getItem("user"));
-  
+
       const { data } = await axiosInstance.post(
         "/api/payment/create-order",
         {
           user_id: user._id,
-          service_type: selectedCardType === "test" ? "Test" : "Therapy",
-          amount,
-          sessions,
-          validity,
+          service_type:
+            storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
+          amount: storedPreOrderData.amount,
+          sessions: storedPreOrderData.sessions,
+          validity: storedPreOrderData.validity,
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-  
+
       if (!data.success) {
         throw new Error("Order creation failed");
       }
-  
+
       const { id: order_id, amount: orderAmount, currency } = data.order;
-  
+
+      console.log("Order created successfully:", order_id);
+
+      if (!window.Razorpay) {
+        console.error("Razorpay is not loaded");
+        toast.error("Failed to load Razorpay. Please refresh and try again.");
+        return;
+      }
+
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
         currency,
         name: "Your Business Name",
-        description: `Payment for ${selectedCardType === "test" ? "Test" : "Therapy"}`,
+        description: `Payment for ${
+          storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"
+        }`,
         order_id,
         handler: async (response) => {
           try {
@@ -97,31 +145,36 @@ const PriceBody = () => {
               },
               { headers: { Authorization: `Bearer ${storedToken}` } }
             );
-  
+
             if (verifyResponse.data.success) {
               toast.success("Payment successful! Your service is activated.");
+
               setTimeout(() => navigate("/dashboard"), 2000);
-              console.log("Payment verified:", verifyResponse.data);
             } else {
-              toast.error("Payment verification failed. Please contact support.");
+              toast.error(
+                "Payment verification failed. Please contact support."
+              );
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
             toast.error("Payment verification failed.");
           }
         },
-        // prefill: { email: "user@example.com", contact: "99999999999" },
         theme: { color: "#3399cc" },
       };
-  
-      const razorpayInstance = new window.Razorpay(options);
-      razorpayInstance.open();
+
+      // ✅ Delay execution to ensure Razorpay loads
+      setTimeout(() => {
+        console.log("Opening Razorpay payment window...");
+        const razorpayInstance = new window.Razorpay(options);
+        razorpayInstance.open();
+      }, 1000);
     } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
-      navigate("/login");
     }
   };
+
   const testCards = [
     {
       id: 8,
@@ -223,13 +276,15 @@ const PriceBody = () => {
             </div>
             <div className="flex mt-6  gap-4 relative">
               {testCards.map((card, index) => (
-               <div
-               key={index}
-               className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
-                 selectedTestCard === index ? "border-2 border-[#B740A1]" : "border-[#5455694D]"
-               }`}
-               onClick={() => handleCardSelect(index, "test")}
-             >
+                <div
+                  key={index}
+                  className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
+                    selectedTestCard === index
+                      ? "border-2 border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardSelect(index, "test")}
+                >
                   <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                     <span className="text-xs">{card.discount}</span>
                   </div>
@@ -332,12 +387,19 @@ const PriceBody = () => {
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                     <button
+                      onClick={() => handlePayment(selectedCardType)}
+                      className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
+                    >
+                      Pre Order
+                    </button>
+
+                    {/* <button
                       // onClick={handleBuyNowClick}
                       onClick={handlePayment}
                       className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                     >
                       Pre order
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -390,14 +452,16 @@ const PriceBody = () => {
               </div>
             </div>
             <div className="flex flex-col mt-6 gap-4 relative">
-              {testCards.map((card,index) => (
+              {testCards.map((card, index) => (
                 <div
-                key={index}
-                className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
-                  selectedTestCard === index ? "border-2 border-[#B740A1]" : "border-[#5455694D]"
-                }`}
-                onClick={() => handleCardSelect(index, "test")}
-              >
+                  key={index}
+                  className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
+                    selectedTestCard === index
+                      ? "border-2 border-[#B740A1]"
+                      : "border-[#5455694D]"
+                  }`}
+                  onClick={() => handleCardSelect(index, "test")}
+                >
                   <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                     <span className="text-xs">{card.discount}</span>
                   </div>
@@ -491,7 +555,7 @@ const PriceBody = () => {
               </button>
 
               <button
-                onClick={handlePayment}
+                onClick={() => handlePayment(selectedCardType)}
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order

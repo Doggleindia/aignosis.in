@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axiosInstance from "../config/axiosInstance";
-import "./PriceBody.css"
-import most from './most.png'
+import "./PriceBody.css";
+import most from "./most.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 const PriceBody1 = ({ selectedOption }) => {
-  const navigate = useNavigate(); // Initialize navigation
+  const navigate = useNavigate();
+  const location = useLocation();
   const [amount, setAmount] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState("");
   const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image
 
-  const images = ["https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/120.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/130.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/140.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/150.png", "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/160.png"]; // Image array
+  const images = [
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/120.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/130.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/140.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/150.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/160.png",
+  ]; // Image array
 
   const handleCardSelect = (cardIndex, cardAmount) => {
     setSelectedCard(cardIndex); // Highlight the selected card
@@ -21,25 +30,63 @@ const PriceBody1 = ({ selectedOption }) => {
 
   const storedToken = localStorage.getItem("authToken");
 
-  const handlePayment = async () => {
-    if(selectedCard === null){
+  useEffect(() => {
+    const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
+    console.log("Checking localStorage after redirect:", preOrderData); // Debugging
+
+    if (preOrderData && preOrderData.selectedCardType === "therapy") {
+      handlePayment(preOrderData.selectedCard);
+    }
+  }, []);
+
+  const handlePayment = async (selectedCard) => {
+    console.log("handlePayment called for therapy plan:", selectedCard);
+
+    if (selectedCard === null) {
       return toast.error("Please select a plan before proceeding.");
+    }
+
+    const storedPreOrderData = JSON.parse(
+      localStorage.getItem("preOrderData")
+    ) || {
+      selectedCardType: "therapy",
+      selectedCard,
+      amount: therapyCards[selectedCard]?.amount,
+      sessions: therapyCards[selectedCard]?.sessions,
+      validity: 3,
+    };
+
+    if (!storedPreOrderData.amount || !storedPreOrderData.sessions) {
+      return toast.error("Invalid plan details. Please try again.");
     }
 
     if (!storedToken) {
       toast.error("You need to log in to proceed with the payment.");
-      setTimeout(() => navigate("/login"), 2000);
-      return;
+      const preOrderData = {
+        ...storedPreOrderData,
+        fromPage: location.pathname, // Store current page
+      };
+      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+      return navigate("/login");
     }
 
     try {
       console.log("Initiating payment process...");
-      const user = JSON.parse(localStorage.getItem('user'));
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (!user || !user._id) {
+        throw new Error("User data is missing. Please log in again.");
+      }
 
+      // Create order
       const { data } = await axiosInstance.post(
         "/api/payment/create-order",
-        { user_id: user._id, service_type: "Therapy", amount, sessions: therapyCards[selectedCard].sessions, 
-          validity: 3  },
+        {
+          user_id: user._id,
+          service_type: "Therapy",
+          amount: storedPreOrderData.amount,
+          sessions: storedPreOrderData.sessions,
+          validity: storedPreOrderData.validity,
+        },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
@@ -48,13 +95,22 @@ const PriceBody1 = ({ selectedOption }) => {
       }
 
       const { id: order_id, amount: orderAmount, currency } = data.order;
+      console.log("Order created successfully:", order_id);
 
+      if (!window.Razorpay) {
+        console.error("Razorpay is not loaded");
+        return toast.error(
+          "Failed to load Razorpay. Please refresh and try again."
+        );
+      }
+
+      // Razorpay options
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
         currency,
         name: "Your Business Name",
-        description: `Payment for Therapy`,
+        description: "Payment for Therapy",
         order_id,
         handler: async (response) => {
           try {
@@ -71,26 +127,28 @@ const PriceBody1 = ({ selectedOption }) => {
 
             if (verifyResponse.data.success) {
               toast.success("Payment successful! Your service is activated.");
+              localStorage.removeItem("preOrderData");
               setTimeout(() => navigate("/dashboard"), 2000);
-              console.log("Payment verified:", verifyResponse.data);
             } else {
-              toast.error("Payment verification failed. Please contact support.");
+              toast.error(
+                "Payment verification failed. Please contact support."
+              );
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
             toast.error("Payment verification failed.");
           }
         },
-        // prefill: { email: "user@example.com", contact: "99999999999" },
         theme: { color: "#3399cc" },
       };
 
+      // Open Razorpay payment window
+      console.log("Opening Razorpay payment window...");
       const razorpayInstance = new window.Razorpay(options);
       razorpayInstance.open();
     } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
-      navigate("/login");
     }
   };
 
@@ -134,9 +192,12 @@ const PriceBody1 = ({ selectedOption }) => {
                   className="w-[15vw] h-[10vw] bg-[#D9D9D9] cursor-pointer"
                   onClick={() => setSelectedImage(image)} // Update selected image on click
                 >
-                  <img className="max-sm:w-full w-[75%] h-full" src={image} alt={`Thumbnail ${index + 1}`} />
+                  <img
+                    className="max-sm:w-full w-[75%] h-full"
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                  />
                 </div>
-                
               ))}
             </div>
 
@@ -155,28 +216,37 @@ const PriceBody1 = ({ selectedOption }) => {
           <div className="w-[40%] pr-4">
             <div className="flex flex-col">
               <h1 className="text-4xl">
-                Select best therapy plan  For Your Child's Needs
-
+                Select best therapy plan For Your Child's Needs
               </h1>
               <p className=" text-xs mt-4  pr-6 font-montserrat text-[#F6E8FB]">
-                Find the ideal support plan tailored to your child’s unique journey. Our options are designed to provide targeted guidance,whether for developmental assessments, therapy, or academic support, ensuring a comprehensive approach to their growth and success.
+                Find the ideal support plan tailored to your child’s unique
+                journey. Our options are designed to provide targeted
+                guidance,whether for developmental assessments, therapy, or
+                academic support, ensuring a comprehensive approach to their
+                growth and success.
               </p>
 
               <p className=" text-xs mt-4 pr-6 font-montserrat italic text-[#F6E8FB]">
-                "Looking to support another child’s journey? You can also gift this assessment, offering meaningful support and valuable insights to families navigating similar paths."
+                "Looking to support another child’s journey? You can also gift
+                this assessment, offering meaningful support and valuable
+                insights to families navigating similar paths."
               </p>
-             
             </div>
             <div className="mt-5">
               <div className="">
-                <h1 className="text-2xl font-semibold text-white">Add Therapy</h1>
+                <h1 className="text-2xl font-semibold text-white">
+                  Add Therapy
+                </h1>
               </div>
               <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
-                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
-                      }`}
+                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${
+                      selectedCard === index
+                        ? "border-2 rounded-3xl border-[#B7407D54]"
+                        : ""
+                    }`}
                     onClick={() => handleCardSelect(index, card.amount)}
                   >
                     {index === 1 && (
@@ -201,9 +271,12 @@ const PriceBody1 = ({ selectedOption }) => {
                           </span>
                         </p>
 
-                        <p className="text-xs mt-2">{card.validity} -Days Validity</p>
+                        <p className="text-xs mt-2">
+                          {card.validity} -Days Validity
+                        </p>
                         <p className="text-xs">
-                          {card.sessions} Sessions at ₹{card.sessionCost}/session
+                          {card.sessions} Sessions at ₹{card.sessionCost}
+                          /session
                         </p>
                         <p className="text-xs font-bold mt-2">
                           Save ₹{card.savings} overall!
@@ -212,11 +285,11 @@ const PriceBody1 = ({ selectedOption }) => {
                     </div>
                   </div>
                 ))}
-
               </div>
               <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
-                  <div className="w-full rounded-full p-[2px] bg-[#1A0C25]"
+                  <div
+                    className="w-full rounded-full p-[2px] bg-[#1A0C25]"
                     onClick={() => {
                       if (navigator.share) {
                         navigator
@@ -225,10 +298,16 @@ const PriceBody1 = ({ selectedOption }) => {
                             text: "I found something interesting for you.",
                             url: window.location.href, // Current page URL
                           })
-                          .then(() => console.log("Content shared successfully"))
-                          .catch((error) => console.error("Error sharing content", error));
+                          .then(() =>
+                            console.log("Content shared successfully")
+                          )
+                          .catch((error) =>
+                            console.error("Error sharing content", error)
+                          );
                       } else {
-                        alert("Web Share API is not supported in your browser.");
+                        alert(
+                          "Web Share API is not supported in your browser."
+                        );
                       }
                     }}
                   >
@@ -241,7 +320,7 @@ const PriceBody1 = ({ selectedOption }) => {
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                     <button
                       //   onClick={handleBuyNowClick}
-                      onClick={handlePayment}
+                      onClick={() => handlePayment(selectedCard)}
                       className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                     >
                       Pre order
@@ -250,7 +329,6 @@ const PriceBody1 = ({ selectedOption }) => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
@@ -272,7 +350,11 @@ const PriceBody1 = ({ selectedOption }) => {
                   className="w-[20vw] h-[20vw] bg-[#D9D9D9] cursor-pointer"
                   onClick={() => setSelectedImage(image)} // Update selected image on click
                 >
-                  <img className="w-full h-full object-cover" src={image} alt={`Thumbnail ${index + 1}`} />
+                  <img
+                    className="w-full h-full object-cover"
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                  />
                 </div>
               ))}
             </div>
@@ -290,12 +372,14 @@ const PriceBody1 = ({ selectedOption }) => {
               </p>
               <p className="italic text-xs mt-2 text-[#F6E8FB]">
                 "Looking to support another child’s journey? You can also gift
-                this assessment, offering meaningful support and valuable insights
-                to families navigating similar paths."
+                this assessment, offering meaningful support and valuable
+                insights to families navigating similar paths."
               </p>
             </div>
             <div className="mt-4">
-              <span className="text-lg text-left px-2 font-semibold">Benefits</span>
+              <span className="text-lg text-left px-2 font-semibold">
+                Benefits
+              </span>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
                 <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
                   Better Social Skills & Communication
@@ -310,9 +394,11 @@ const PriceBody1 = ({ selectedOption }) => {
                   Boosted Confidence & Happiness
                 </span>
                 <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Faster Developmental Growth                  </span>
+                  Faster Developmental Growth{" "}
+                </span>
                 <span className="bg-[#43284C4D] px-2 py-2 rounded-lg text-[10px] w-[40%] text-center">
-                  Improved Focus & Learning                  </span>
+                  Improved Focus & Learning{" "}
+                </span>
               </div>
             </div>
             <div className="mt-4">
@@ -323,8 +409,11 @@ const PriceBody1 = ({ selectedOption }) => {
                 {therapyCards.map((card, index) => (
                   <div
                     key={index}
-                    className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${selectedCard === index ? "border-2 rounded-3xl border-[#B7407D54]" : ""
-                      }`}
+                    className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
+                      selectedCard === index
+                        ? "border-2 rounded-3xl border-[#B7407D54]"
+                        : ""
+                    }`}
                     onClick={() => handleCardSelect(index, card.amount)}
                   >
                     {index === 1 && (
@@ -343,43 +432,52 @@ const PriceBody1 = ({ selectedOption }) => {
                     <div>
                       <p className="text-lg font-semibold">
                         ₹{card.amount}{" "}
-                        <span className="line-through text-gray-400">₹{card.amount + card.savings}</span>
+                        <span className="line-through text-gray-400">
+                          ₹{card.amount + card.savings}
+                        </span>
                       </p>
-                      <p className="text-xs mt-2">{card.validity} -Days Validity</p>
-                      <p className="text-xs">{card.sessions} Sessions at ₹{card.sessionCost}/session</p>
+                      <p className="text-xs mt-2">
+                        {card.validity} -Days Validity
+                      </p>
+                      <p className="text-xs">
+                        {card.sessions} Sessions at ₹{card.sessionCost}/session
+                      </p>
                       <p className="text-xs font-bold mt-2">
                         Save ₹{card.savings} overall!
                       </p>
                     </div>
                   </div>
                 ))}
-
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 mt-4">
-              <button onClick={() => {
-                if (navigator.share) {
-                  navigator
-                    .share({
-                      title: "Check this out!",
-                      text: "I found something interesting for you.",
-                      url: window.location.href, // Current page URL
-                    })
-                    .then(() => console.log("Content shared successfully"))
-                    .catch((error) => console.error("Error sharing content", error));
-                } else {
-                  alert("Web Share API is not supported in your browser.");
-                }
-              }}
-                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+              <button
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator
+                      .share({
+                        title: "Check this out!",
+                        text: "I found something interesting for you.",
+                        url: window.location.href, // Current page URL
+                      })
+                      .then(() => console.log("Content shared successfully"))
+                      .catch((error) =>
+                        console.error("Error sharing content", error)
+                      );
+                  } else {
+                    alert("Web Share API is not supported in your browser.");
+                  }
+                }}
+                className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
+              >
                 Share
               </button>
-               {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
+              {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
                   Add to cart
                 </button>  */}
               <button
-                onClick={handlePayment}
+                onClick={() => handlePayment(selectedCard)}
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order
