@@ -81,7 +81,7 @@ const PriceBody1 = ({ selectedOption }) => {
             toast.error("Payment verification failed.");
           }
         },
-        prefill: { email: "user@example.com", contact: "9876543210" },
+        // prefill: { email: "user@example.com", contact: "99999999999" },
         theme: { color: "#3399cc" },
       };
 
