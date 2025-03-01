@@ -59,13 +59,13 @@ const Page1 = () => {
                     </div>
                     <div className="flex flex-col w-full sm:w-[50%]">
                         {progressData.map((item, index) => (
-                            <div key={index} className="w-full h-6 bg-[#BD35E54D] rounded-full mb-2">
+                            <div key={index} className="w-full h-10 bg-[#BD35E54D] rounded-full mb-2">
                                 <div
                                     className="h-full bg-[#BD35E5] rounded-full flex justify-between items-center p-1"
                                     style={{ width: `${item.value}%` }}
                                 >
                                     <h4 className="text-xs text-white ml-3">{item.label}</h4>
-                                    <div className="w-6 h-6 bg-white rounded-full flex justify-center items-center">
+                                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
                                         <h5 className="text-[10px] text-[#BD35E5] font-raleway">{item.value}%</h5>
                                     </div>
                                 </div>
@@ -85,13 +85,13 @@ const Page1 = () => {
                     </div>
                     <div className="flex flex-col w-full sm:w-[50%]">
                         {progressData2.map((item, index) => (
-                            <div key={index} className="w-full h-6 bg-[#B985A070] rounded-full mb-2">
+                            <div key={index} className="w-full h-10 bg-[#B985A070] rounded-full mb-2">
                                 <div
                                     className="h-full bg-[#EC378E] rounded-full flex justify-between items-center p-1"
                                     style={{ width: `${item.value}%` }}
                                 >
                                     <h4 className="text-xs text-white ml-3">{item.label}</h4>
-                                    <div className="w-6 h-6 bg-white rounded-full flex justify-center items-center">
+                                    <div className="w-10 h-10 bg-white rounded-full flex justify-center items-center">
                                         <h5 className="text-[10px] text-[#EC378E] font-raleway">{item.value}%</h5>
                                     </div>
                                 </div>

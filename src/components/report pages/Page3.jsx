@@ -50,9 +50,9 @@ const Page3 = () => {
 
                                     {/* Performance */}
                                     <td className="p-2 md:p-3 text-center w-[30%] border-r border-gray-300">
-                                        <div className="w-full max-w-[90px] h-4 md:h-5 mx-auto rounded-full bg-gray-200 relative">
+                                        <div className="w-full max-w-[90px] h-4 md:h-10 mx-auto rounded-full bg-gray-200 relative">
                                             <div className={`absolute top-0 left-0 h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                <div className="absolute right-0 w-6 h-6 -top-1 bg-white rounded-full flex items-center justify-center text-[0.5rem] font-bold shadow">
+                                                <div className="absolute right-0 w-10 h-10  bg-white rounded-full flex items-center justify-center text-[0.5rem] font-bold shadow">
                                                     {row.percentage}%
                                                 </div>
                                             </div>

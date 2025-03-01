@@ -409,8 +409,8 @@ const Dashboard = () => {
                     <div className="flex items-center space-x-8">
                       <button className="text-white font-bold text-xl">
                         {isTestAvailable ? (
-                          <Link to={'/test/fillup'} className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
-                            Take Test Now
+                          <Link to={'/test'} className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                            Book Now
                           </Link>
                         ) : (
                           <p className="mt-5 text-gray-400">
@@ -634,7 +634,7 @@ const Dashboard = () => {
                   <div className="flex items-center justify-center w-full">
                     {isTestAvailable ? (
                       <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
-                        Take Test Now
+                        Book Now
                       </button>
                     ) : (
                       <p className="mt-5 text-gray-400">
@@ -650,12 +650,12 @@ const Dashboard = () => {
         </div>
         <ServicesCard userId={userId._id} />
         <Sessions />
-        <Link
+        {/* <Link
           to={"/prices"}
           className="w-full border-2 flex justify-center items-center border-zinc-500 py-4"
         >
           <h3 className="font-bold">Book Now</h3>
-        </Link>
+        </Link> */}
       </div>
     </>
   );

@@ -4,13 +4,13 @@ import img2 from "../../assets/report/img5.png";
 import img3 from "../../assets/report/img6.png";
 
 const ProgressBar = ({ label, value, color, bgColor }) => (
-  <div className="w-full h-6 bg-opacity-50 rounded-full mb-2" style={{ backgroundColor: bgColor }}>
+  <div className="w-full h-10 bg-opacity-50 rounded-full mb-2" style={{ backgroundColor: bgColor }}>
     <div
       className="h-full rounded-full flex justify-between items-center p-1"
       style={{ width: `${value}%`, backgroundColor: color }}
     >
       <span className="text-xs text-white ml-3">{label}</span>
-      <span className="w-6 h-6 bg-white rounded-full flex justify-center items-center text-[10px] text-black">
+      <span className="w-10 h-10 bg-white rounded-full flex justify-center items-center text-[10px] text-black">
         {value}%
       </span>
     </div>
@@ -57,7 +57,7 @@ const Page2 = () => {
                   <h4 className="text-white font-bold text-sm sm:text-base">{score}</h4>
                 </div>
               </div>
-              <div className="w-full p-4 h-6 sm:w-[50%] flex flex-col rounded-full mb-2" >
+              <div className="w-full p-4 h-10 sm:w-[50%] flex flex-col rounded-full mb-2" >
                 {data.map((item, idx) => (
                   <ProgressBar key={idx} {...item} />
                 ))}

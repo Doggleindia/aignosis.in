@@ -99,9 +99,9 @@ const Page4 = () => {
                                         </td>
                                         {/* Performance */}
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
-                                            <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
+                                            <div className="w-[80%] h-10 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
@@ -137,9 +137,9 @@ const Page4 = () => {
                                         </td>
                                         {/* Performance */}
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
-                                            <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
+                                            <div className="w-[80%] h-10 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
