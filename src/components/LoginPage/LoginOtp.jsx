@@ -75,7 +75,7 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
           setTimeout(() => {
             console.log("Clearing preOrderData after redirection...");
             localStorage.removeItem("preOrderData");
-          }, 5000); // Give 3 seconds for the payment page to read it
+          }, 3000); // Give 3 seconds for the payment page to read it
           
           return;
         }
