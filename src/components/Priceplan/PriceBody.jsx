@@ -10,14 +10,13 @@ const PriceBody = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [amount, setAmount] = useState("");
-  const [selectedCard, setSelectedCard] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState("");
   const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
   const [sessions, setSessions] = useState(null);
   const [validity, setValidity] = useState(null);
   const [selectedCardType, setSelectedCardType] = useState(null);
   const [selectedTestCard, setSelectedTestCard] = useState(null);
-  const [selectedTherapyCard, setSelectedTherapyCard] = useState(null);
+  
   const images2 = [
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png",
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png",
@@ -26,28 +25,21 @@ const PriceBody = () => {
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png",
   ]; // Image array
 
-  const handleCardSelect = (cardIndex, type) => {
-    if (type === "test") {
-      setSelectedTestCard(cardIndex);
-      setSelectedTherapyCard(null);
-      setSelectedCardType("test");
-      setAmount(testCards[cardIndex].price);
-      setSessions(1); // Test usually has 1 session
-      setValidity(testCards[cardIndex].validity);
-    } else if (type === "therapy") {
-      setSelectedTherapyCard(cardIndex);
-      setSelectedCardType("therapy");
-      setSelectedTestCard(null);
-      setAmount(therapyCards[cardIndex].amount);
-      setSessions(therapyCards[cardIndex].sessions);
-      setValidity(therapyCards[cardIndex].validity);
+  const handleCardSelect = (cardIndex) => {
+    if (cardIndex < 0 || cardIndex >= testCards.length) {
+      console.error("Invalid card index:", cardIndex);
+      return;
     }
+  
+    setSelectedTestCard(cardIndex);
+    setSelectedCardType("test");
+    setAmount(testCards[cardIndex].price);
+    setSessions(1); // Test usually has 1 session
+    setValidity(testCards[cardIndex].validity);
   };
-
-  console.log(handleCardSelect, "handleCardSelect");
-
-  const storedToken = localStorage.getItem("authToken");
-
+  
+  console.log("handleCardSelect is defined:", typeof handleCardSelect === "function");
+  
   useEffect(() => {
     const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
 
@@ -57,6 +49,7 @@ const PriceBody = () => {
       handlePayment(preOrderData.selectedCardType);
     }
   }, []);
+  
 
   const handlePayment = async (selectedCardType) => {
     console.log("handlePayment called with:"); // ✅ Debugging
@@ -106,6 +99,7 @@ const PriceBody = () => {
 
     try {
       console.log("Initiating payment process...");
+  
       const user = JSON.parse(localStorage.getItem("user"));
       if (!user || !user._id) {
         throw new Error("User data is missing. Please log in again.");
@@ -114,8 +108,7 @@ const PriceBody = () => {
         "/api/payment/create-order",
         {
           user_id: user._id,
-          service_type:
-            storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
+          service_type: storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
           amount: storedPreOrderData.amount,
           sessions: storedPreOrderData.sessions,
           validity: storedPreOrderData.validity,
@@ -123,21 +116,18 @@ const PriceBody = () => {
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-
-      if (!data.success) {
-        throw new Error("Order creation failed");
-      }
-
+  
+      if (!data.success) throw new Error("Order creation failed");
+  
       const { id: order_id, amount: orderAmount, currency } = data.order;
-
       console.log("Order created successfully:", order_id);
-
+  
       if (!window.Razorpay) {
-        console.error("Razorpay is not loaded");
         toast.error("Failed to load Razorpay. Please refresh and try again.");
-        return;
+        return console.error("Razorpay is not loaded");
       }
-
+  
+      // Razorpay payment options
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
@@ -159,15 +149,12 @@ const PriceBody = () => {
               },
               { headers: { Authorization: `Bearer ${storedToken}` } }
             );
-
+  
             if (verifyResponse.data.success) {
               toast.success("Payment successful! Your service is activated.");
-
               setTimeout(() => navigate("/dashboard"), 2000);
             } else {
-              toast.error(
-                "Payment verification failed. Please contact support."
-              );
+              toast.error("Payment verification failed. Please contact support.");
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
@@ -176,19 +163,15 @@ const PriceBody = () => {
         },
         theme: { color: "#3399cc" },
       };
-
-      // ✅ Delay execution to ensure Razorpay loads
-      setTimeout(() => {
-        console.log("Opening Razorpay payment window...");
-        const razorpayInstance = new window.Razorpay(options);
-        razorpayInstance.open();
-      }, 1000);
+  
+      console.log("Opening Razorpay payment window...");
+      new window.Razorpay(options).open();
     } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
     }
   };
-
+  
   const testCards = [
     {
       id: 8,

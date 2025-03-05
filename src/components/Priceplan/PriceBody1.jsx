@@ -27,56 +27,60 @@ const PriceBody1 = ({ selectedOption }) => {
     setSelectedCard(cardIndex); // Highlight the selected card
     setAmount(cardAmount); // Update the selected amount
   };
-
-  const storedToken = localStorage.getItem("authToken");
-
+  
   useEffect(() => {
     const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
-    console.log("Checking localStorage after redirect:", preOrderData); // Debugging
-
-    if (preOrderData && preOrderData.selectedCardType === "therapy") {
+  
+    if (!preOrderData) return;
+  
+    console.log("Checking localStorage after redirect:", preOrderData);
+  
+    if (preOrderData.selectedCardType === "therapy") {
       handlePayment(preOrderData.selectedCard);
     }
-  }, []);
+  }, []); // Dependency array remains empty as no external state is required
+  
 
   const handlePayment = async (selectedCard) => {
     console.log("handlePayment called for therapy plan:", selectedCard);
-
+  
     if (selectedCard === null) {
       return toast.error("Please select a plan before proceeding.");
     }
-
-    const storedPreOrderData = JSON.parse(
-      localStorage.getItem("preOrderData")
-    ) || {
-      selectedCardType: "therapy",
-      selectedCard,
-      amount: therapyCards[selectedCard]?.amount,
-      sessions: therapyCards[selectedCard]?.sessions,
-      validity: 3,
-    };
-
-    if (!storedPreOrderData.amount || !storedPreOrderData.sessions) {
-      return toast.error("Invalid plan details. Please try again.");
-    }
-
-    if (!storedToken) {
+  
+    const storedToken = localStorage.getItem("authToken");
+    const user = JSON.parse(localStorage.getItem("user"));
+  
+    if (!storedToken || !user || !user._id) {
       toast.error("You need to log in to proceed with the payment.");
-      const preOrderData = {
-        ...storedPreOrderData,
-        fromPage: location.pathname, // Store current page
-      };
-      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+  
+      localStorage.setItem(
+        "preOrderData",
+        JSON.stringify({
+          selectedCardType: "therapy",
+          selectedCard,
+          amount: therapyCards[selectedCard]?.amount,
+          sessions: therapyCards[selectedCard]?.sessions,
+          validity: 3,
+          fromPage: location.pathname, // Store current page
+        })
+      );
+  
       return navigate("/login");
     }
-
+  
+    // Ensure valid plan details
+    const amount = therapyCards[selectedCard]?.amount;
+    const sessions = therapyCards[selectedCard]?.sessions;
+    const validity = 3;
+  
+    if (!amount || !sessions) {
+      return toast.error("Invalid plan details. Please try again.");
+    }
+  
     try {
       console.log("Initiating payment process...");
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (!user || !user._id) {
-        throw new Error("User data is missing. Please log in again.");
-      }
-
+  
       // Create order
       const { data } = await axiosInstance.post(
         "/api/payment/create-order",
@@ -90,22 +94,18 @@ const PriceBody1 = ({ selectedOption }) => {
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-
-      if (!data.success) {
-        throw new Error("Order creation failed");
-      }
-
+  
+      if (!data.success) throw new Error("Order creation failed");
+  
       const { id: order_id, amount: orderAmount, currency } = data.order;
       console.log("Order created successfully:", order_id);
-
+  
       if (!window.Razorpay) {
         console.error("Razorpay is not loaded");
-        return toast.error(
-          "Failed to load Razorpay. Please refresh and try again."
-        );
+        return toast.error("Failed to load Razorpay. Please refresh and try again.");
       }
-
-      // Razorpay options
+  
+      // Razorpay payment options
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
@@ -125,15 +125,13 @@ const PriceBody1 = ({ selectedOption }) => {
               },
               { headers: { Authorization: `Bearer ${storedToken}` } }
             );
-
+  
             if (verifyResponse.data.success) {
               toast.success("Payment successful! Your service is activated.");
               // localStorage.removeItem("preOrderData");
               setTimeout(() => navigate("/dashboard"), 2000);
             } else {
-              toast.error(
-                "Payment verification failed. Please contact support."
-              );
+              toast.error("Payment verification failed. Please contact support.");
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
@@ -142,16 +140,15 @@ const PriceBody1 = ({ selectedOption }) => {
         },
         theme: { color: "#3399cc" },
       };
-
-      // Open Razorpay payment window
+  
       console.log("Opening Razorpay payment window...");
-      const razorpayInstance = new window.Razorpay(options);
-      razorpayInstance.open();
+      new window.Razorpay(options).open();
     } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
     }
   };
+  
 
   const therapyCards = [
     {
