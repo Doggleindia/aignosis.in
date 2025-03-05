@@ -37,7 +37,7 @@ const PriceBody = () => {
     setSessions(1); // Test usually has 1 session
     setValidity(testCards[cardIndex].validity);
   };
-  
+  const storedToken = localStorage.getItem("authToken");
   console.log("handleCardSelect is defined:", typeof handleCardSelect === "function");
   
   useEffect(() => {
