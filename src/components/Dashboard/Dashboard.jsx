@@ -376,7 +376,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              {isTestAvailable && 
+              {/* {isTestAvailable &&  */}
                 <div className="mt-5 px-5">
                   <div
                     className="w-full h-[5vw] flex items-center justify-between px-10  mt-4"
@@ -408,15 +408,15 @@ const Dashboard = () => {
                     {/* Right Section */}
                     <div className="flex items-center space-x-8">
                       <button className="text-white font-bold text-xl">
-                        {isTestAvailable ? (
+                        {/* {isTestAvailable ? ( */}
                           <Link to={'/test'} className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
                             Book Now
                           </Link>
-                        ) : (
+                        {/* ) : (
                           <p className="mt-5 text-gray-400">
                             No available sessions remaining.
                           </p>
-                        )}
+                        )} */}
                       </button>
                       <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20">
                         <FaPlus size={12} />
@@ -424,7 +424,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              }
+              {/* } */}
               </>
             )}
           </div>
@@ -601,7 +601,7 @@ const Dashboard = () => {
                 ))}
               </div>
 
-            {isTestAvailable && 
+            {/* {isTestAvailable &&  */}
               <div className="mt-5 px-3">
                 <div
                   className="w-full h-auto flex flex-col items-start justify-between px-4 py-3 space-y-4 sm:flex-row sm:items-center sm:px-8 sm:py-5"
@@ -632,19 +632,18 @@ const Dashboard = () => {
 
                   {/* Right Section */}
                   <div className="flex items-center justify-center w-full">
-                    {isTestAvailable ? (
+                    {/* {isTestAvailable ? ( */}
                       <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                      <Link to={'/test'}>
                         Book Now
+                        </Link>
                       </button>
-                    ) : (
-                      <p className="mt-5 text-gray-400">
-                        No available sessions remaining.
-                      </p>
-                    )}
+                      
+                    
                   </div>
                 </div>
               </div>
-            }
+            {/* } */}
             </div>
           )}
         </div>
