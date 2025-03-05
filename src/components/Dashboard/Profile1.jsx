@@ -35,7 +35,7 @@ const Profile1 = () => {
         setProfiles(response.data.profiles); // Set the fetched profiles
       } catch (err) {
         console.error('Error fetching profiles:', err);
-        setError('Error fetching profiles');
+        // setError('Error fetching profiles');
       }
     };
     fetchProfiles();

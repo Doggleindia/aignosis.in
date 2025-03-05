@@ -86,6 +86,7 @@ const PriceBody1 = ({ selectedOption }) => {
           amount: storedPreOrderData.amount,
           sessions: storedPreOrderData.sessions,
           validity: storedPreOrderData.validity,
+          phoneNumber: user.phoneNumber,
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -109,7 +110,7 @@ const PriceBody1 = ({ selectedOption }) => {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
         currency,
-        name: "Your Business Name",
+        name: "Aignosis",
         description: "Payment for Therapy",
         order_id,
         handler: async (response) => {
@@ -127,7 +128,7 @@ const PriceBody1 = ({ selectedOption }) => {
 
             if (verifyResponse.data.success) {
               toast.success("Payment successful! Your service is activated.");
-              localStorage.removeItem("preOrderData");
+              // localStorage.removeItem("preOrderData");
               setTimeout(() => navigate("/dashboard"), 2000);
             } else {
               toast.error(

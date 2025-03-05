@@ -53,18 +53,20 @@ const PriceBody = () => {
 
     console.log("Checking localStorage after redirect:", preOrderData); // ✅ Debugging
 
-    if (preOrderData) {
+    if (preOrderData && preOrderData.selectedCardType === "test") {
       handlePayment(preOrderData.selectedCardType);
     }
   }, []);
 
   const handlePayment = async (selectedCardType) => {
-    console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
-
+    console.log("handlePayment called with:"); // ✅ Debugging
+    if (selectedCardType === null) {
+      return toast.error("Please select a plan before proceeding.");
+    }
     const storedPreOrderData = JSON.parse(
       localStorage.getItem("preOrderData")
     ) || {
-      selectedCardType,
+      selectedCardType:'test',
       amount,
       sessions,
       validity,
@@ -74,29 +76,40 @@ const PriceBody = () => {
       return toast.error("Please select a plan before proceeding.");
     }
 
-    const storedToken = localStorage.getItem("authToken");
 
-    if (!storedToken) {
-      toast.error("You need to log in to proceed with the payment.");
+    // if (!storedToken) {
+    //   toast.error("You need to log in to proceed with the payment.");
 
-      const preOrderData = {
-        selectedCardType,
-        amount,
-        sessions,
-        validity,
-        fromPage: location.pathname, // ✅ Store current page
-      };
+    //   const preOrderData = {
+    //     selectedCardType,
+    //     amount,
+    //     sessions,
+    //     validity,
+    //     fromPage: location.pathname, // ✅ Store current page
+    //   };
 
-      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+    //   localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
 
-      navigate("/login");
-      return;
-    }
+    //   navigate("/login");
+    //   return;
+    // }
+
+     if (!storedToken) {
+          toast.error("You need to log in to proceed with the payment.");
+          const preOrderData = {
+            ...storedPreOrderData,
+            fromPage: location.pathname, // Store current page
+          };
+          localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+          return navigate("/login");
+        }
 
     try {
       console.log("Initiating payment process...");
       const user = JSON.parse(localStorage.getItem("user"));
-
+      if (!user || !user._id) {
+        throw new Error("User data is missing. Please log in again.");
+      }
       const { data } = await axiosInstance.post(
         "/api/payment/create-order",
         {
@@ -106,6 +119,7 @@ const PriceBody = () => {
           amount: storedPreOrderData.amount,
           sessions: storedPreOrderData.sessions,
           validity: storedPreOrderData.validity,
+          phoneNumber: user.phoneNumber,
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -128,7 +142,7 @@ const PriceBody = () => {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderAmount,
         currency,
-        name: "Your Business Name",
+        name: "Aignosis",
         description: `Payment for ${
           storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"
         }`,

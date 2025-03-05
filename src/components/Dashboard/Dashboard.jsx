@@ -64,7 +64,7 @@ const Dashboard = () => {
         setProfiles(response.data.profiles); // Set the fetched profiles
       } catch (err) {
         console.error("Error fetching profiles:", err);
-        setError("Error fetching profiles");
+        // setError("Error fetching profiles");
       }
     };
     fetchProfiles();
@@ -196,8 +196,8 @@ const Dashboard = () => {
     }
   };
 
-  if (loading) return <p className="text-white">Loading dashboard...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+  // if (loading) return <p className="text-white">Loading dashboard...</p>;
+  // if (error) return <p className="text-red-500">{error}</p>;
 
   // Find the user's `total_sessions`
   const totalSessions = services.length > 0 ? services[0].total_sessions : 0;

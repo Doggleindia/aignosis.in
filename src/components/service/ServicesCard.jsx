@@ -29,7 +29,7 @@ const ServicesCard = ({ userId }) => {
   }, [userId]);
 
   if (loading) return <p className="text-white">Loading services...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+  // if (error) return <p className="text-red-500">{error}</p>;
 
   return (
     <div className="mt-5 px-5">
@@ -70,6 +70,11 @@ const ServicesCard = ({ userId }) => {
             <Link to={'/test/fillup'}>
             <button className="mt-4 w-full bg-[#811F67] hover:bg-[#B740A1] text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">
               Take Test Now
+            </button>
+            </Link>
+            <Link to={'https://calendly.com/aignosis-support/30min'} target="_blank" rel="noreferrer">
+            <button className="mt-4 w-full bg-[#811F67] hover:bg-[#B740A1] text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">
+              Book a Session
             </button>
             </Link>
           </div>
