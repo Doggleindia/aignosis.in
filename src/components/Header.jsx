@@ -421,7 +421,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute text-left p-6 top-[5.4vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+        <div className="absolute text-left p-6 top-[5.1vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
           <Link
             to="/"
             onClick={() => {
