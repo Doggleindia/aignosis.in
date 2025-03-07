@@ -41,137 +41,133 @@ const PriceBody = () => {
   console.log("handleCardSelect is defined:", typeof handleCardSelect === "function");
   
   useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
     const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
 
     console.log("Checking localStorage after redirect:", preOrderData); // ✅ Debugging
 
-    if (preOrderData && preOrderData.selectedCardType === "test") {
-      handlePayment(preOrderData.selectedCardType);
+    if (preOrderData && storedToken) {
+        console.log("User logged in, restarting payment...");
+        handlePayment(preOrderData.selectedCardType);
     }
-  }, []);
+}, []);
+
   
 
-  const handlePayment = async (selectedCardType) => {
-    console.log("handlePayment called with:"); // ✅ Debugging
-    if (selectedCardType === null) {
+const handlePayment = async (selectedCardType) => {
+  console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
+
+  if (!selectedCardType) {
       return toast.error("Please select a plan before proceeding.");
-    }
-    const storedPreOrderData = JSON.parse(
-      localStorage.getItem("preOrderData")
-    ) || {
-      selectedCardType:'test',
+  }
+
+  const storedToken = localStorage.getItem("authToken");
+
+  const storedPreOrderData = JSON.parse(localStorage.getItem("preOrderData")) || {
+      selectedCardType: "test",
       amount,
       sessions,
       validity,
-    };
+  };
 
-    if (!storedPreOrderData.selectedCardType) {
+  if (!storedPreOrderData.selectedCardType) {
       return toast.error("Please select a plan before proceeding.");
-    }
+  }
 
+  // 🔹 If user is not logged in, store data and redirect to login
+  if (!storedToken) {
+      toast.error("You need to log in to proceed with the payment.");
+      
+      const preOrderData = {
+          ...storedPreOrderData,
+          fromPage: location.pathname, // Store current page for redirection after login
+      };
 
-    // if (!storedToken) {
-    //   toast.error("You need to log in to proceed with the payment.");
+      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+      return navigate("/login");
+  }
 
-    //   const preOrderData = {
-    //     selectedCardType,
-    //     amount,
-    //     sessions,
-    //     validity,
-    //     fromPage: location.pathname, // ✅ Store current page
-    //   };
-
-    //   localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
-
-    //   navigate("/login");
-    //   return;
-    // }
-
-     if (!storedToken) {
-          toast.error("You need to log in to proceed with the payment.");
-          const preOrderData = {
-            ...storedPreOrderData,
-            fromPage: location.pathname, // Store current page
-          };
-          localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
-          return navigate("/login");
-        }
-
-    try {
+  try {
       console.log("Initiating payment process...");
-  
+
       const user = JSON.parse(localStorage.getItem("user"));
       if (!user || !user._id) {
-        throw new Error("User data is missing. Please log in again.");
+          throw new Error("User data is missing. Please log in again.");
       }
+
+      // 🔹 Step 1: Create an order
       const { data } = await axiosInstance.post(
-        "/api/payment/create-order",
-        {
-          user_id: user._id,
-          service_type: storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
-          amount: storedPreOrderData.amount,
-          sessions: storedPreOrderData.sessions,
-          validity: storedPreOrderData.validity,
-          phoneNumber: user.phoneNumber,
-        },
-        { headers: { Authorization: `Bearer ${storedToken}` } }
+          "/api/payment/create-order",
+          {
+              user_id: user._id,
+              service_type: storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
+              amount: storedPreOrderData.amount,
+              sessions: storedPreOrderData.sessions,
+              validity: storedPreOrderData.validity,
+              phoneNumber: user.phoneNumber,
+          },
+          { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-  
+
       if (!data.success) throw new Error("Order creation failed");
-  
+
       const { id: order_id, amount: orderAmount, currency } = data.order;
       console.log("Order created successfully:", order_id);
-  
+
       if (!window.Razorpay) {
-        toast.error("Failed to load Razorpay. Please refresh and try again.");
-        return console.error("Razorpay is not loaded");
+          toast.error("Failed to load Razorpay. Please refresh and try again.");
+          return console.error("Razorpay is not loaded");
       }
-  
-      // Razorpay payment options
+
+      // 🔹 Step 2: Initialize Razorpay
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount: orderAmount,
-        currency,
-        name: "Aignosis",
-        description: `Payment for ${
-          storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"
-        }`,
-        order_id,
-        handler: async (response) => {
-          try {
-            console.log("Verifying payment...");
-            const verifyResponse = await axiosInstance.post(
-              "/api/payment/verify-payment",
-              {
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-              },
-              { headers: { Authorization: `Bearer ${storedToken}` } }
-            );
-  
-            if (verifyResponse.data.success) {
-              toast.success("Payment successful! Your service is activated.");
-              setTimeout(() => navigate("/dashboard"), 2000);
-            } else {
-              toast.error("Payment verification failed. Please contact support.");
-            }
-          } catch (error) {
-            console.error("Payment verification failed:", error);
-            toast.error("Payment verification failed.");
-          }
-        },
-        theme: { color: "#3399cc" },
+          key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+          amount: orderAmount,
+          currency,
+          name: "Aignosis",
+          description: `Payment for ${storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"}`,
+          order_id,
+          handler: async (response) => {
+              try {
+                  console.log("Verifying payment...");
+
+                  // 🔹 Step 3: Verify payment
+                  const verifyResponse = await axiosInstance.post(
+                      "/api/payment/verify-payment",
+                      {
+                          razorpay_order_id: response.razorpay_order_id,
+                          razorpay_payment_id: response.razorpay_payment_id,
+                          razorpay_signature: response.razorpay_signature,
+                      },
+                      { headers: { Authorization: `Bearer ${storedToken}` } }
+                  );
+
+                  if (verifyResponse.data.success) {
+                      toast.success("Payment successful! Your service is activated.");
+                      
+                      // 🔹 Step 4: Clear preOrderData after successful payment
+                      localStorage.removeItem("preOrderData");
+                      
+                      setTimeout(() => navigate("/dashboard"), 2000);
+                  } else {
+                      toast.error("Payment verification failed. Please contact support.");
+                  }
+              } catch (error) {
+                  console.error("Payment verification failed:", error);
+                  toast.error("Payment verification failed.");
+              }
+          },
+          theme: { color: "#3399cc" },
       };
-  
+
       console.log("Opening Razorpay payment window...");
       new window.Razorpay(options).open();
-    } catch (error) {
+  } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
-    }
-  };
-  
+  }
+};
+
   const testCards = [
     {
       id: 8,

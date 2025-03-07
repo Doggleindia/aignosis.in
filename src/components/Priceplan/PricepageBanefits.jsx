@@ -318,7 +318,7 @@ const PricepageBenefits = () => {
                                     </span>
                                     {card.age}
                                 </span>
-                                <span className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</span>
+                                <div className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</div>
                                 <div className="border-t border-[#B740A180] my-2"></div>
                                 <span className="text-base font-semibold text-white">
                                  Development Goal:
