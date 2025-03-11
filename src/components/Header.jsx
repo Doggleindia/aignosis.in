@@ -111,14 +111,14 @@ const Header = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <Link
+            {/* <Link
               to=""
               onClick={() => handleServiceClick("/assessments-evaluation")} // Updated function name
               className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
                 }`} // Updated condition
             >
               Services
-            </Link>
+            </Link> */}
             {/* Dropdown menu */}
             {isHovered && (
               <div
@@ -209,14 +209,14 @@ const Header = () => {
           >
             Test
           </Link>
-          <Link
+          {/* <Link
             to="/therapy"
             onClick={() => handleLinkClick("/prices")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/therapy" ? "border-b-2 border-white" : ""
               }`}
           >
             Therapy
-          </Link>
+          </Link> */}
           <Link
             to="/clinic"
             onClick={() => handleLinkClick("/clinic")}
@@ -421,7 +421,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute text-left p-6 top-[6.5vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+        <div className="absolute text-left p-6 top-[5.1vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
           <Link
             to="/"
             onClick={() => {
@@ -433,19 +433,19 @@ const Header = () => {
           >
             Home
           </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
           <div
-            className="relative text-lg p-4 w-full text-left"
+            // className="relative text-lg p-4 w-full text-left"
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
-            <span className="flex justify-between items-center">
+            {/* <span className="flex justify-between items-center">
               Services
               {dropdownOpen ? (
                 <RiArrowDropUpLine size={30} />
               ) : (
                 <RiArrowDropDownLine size={30} />
               )}
-            </span>
+            </span> */}
             {dropdownOpen && (
               <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
                 <Link
@@ -539,7 +539,7 @@ const Header = () => {
             Test
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
-          <Link
+          {/* <Link
             to="/therapy"
             onClick={() => {
               handleLinkClick("/therapy");
@@ -549,7 +549,7 @@ const Header = () => {
               }`}
           >
             Therapy
-          </Link>
+          </Link> */}
           <div className="border-t-2 w-full border-[#952981]"></div>
 
           <Link
