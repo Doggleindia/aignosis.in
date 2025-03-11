@@ -3,12 +3,13 @@ import HomePageCard from "./HomePageCard";
 import { Link } from "react-router-dom";
 import m1 from "../../assets/h1.png";
 import m2 from "../../assets/h2.png";
-import sharks from "../../assets/7.png";
 import star from "./star.png";
 import p2 from "../../assets/PopUps/p2.png";
 import p1 from "../../assets/PopUps/p1.png";
 import hipaa from "../../assets/members/hipaa logo.jpg";
 import iso from "../../assets/members/iso logo.png";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const images = [
   "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel1.png",
@@ -19,7 +20,8 @@ const images = [
 const Homefirst = () => {
   const [bgImage, setBgImage] = useState(images[0]);
   const [fade, setFade] = useState(true);
-
+  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
   const fullNameRef = useRef(null);
   const phoneNumberRef = useRef(null);
 
@@ -46,6 +48,32 @@ const Homefirst = () => {
 
     return () => clearInterval(interval); // Cleanup interval
   }, []);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+    if (!isValid()) {
+      return toast.error("Enter valid name & phone number");
+    }
+
+
+    try {
+      const { data } = await axios.post(
+        `${API_BASE_URL}/api/flyer/submit`,
+       {name: fullNameRef.current.value,
+        phone: phoneNumberRef.current.value,}
+      );
+      toast.success(data.message);
+      fullNameRef.current.value = "";
+      phoneNumberRef.current.value = "";
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong");
+    }
+  };
+
 
   return (
     <>
@@ -217,6 +245,7 @@ const Homefirst = () => {
               type="text"
               placeholder="Full Name"
               ref={fullNameRef}
+              
               className="w-full sm:w-[48%] p-3 border border-[#9C00AD] text-white bg-transparent rounded-md focus:border-[#9C00AD] focus:ring-0 focus:outline-none"
               onInput={() => isValid()}
             />
@@ -244,11 +273,13 @@ const Homefirst = () => {
               rel="noopener noreferrer"
             >
               <button
+               onClick={handleSubmit}
                 className={`w-full sm:w-auto px-6 py-3 border border-[#9C00AD] text-white rounded-md transition-all ${
                   isValid()
                     ? "hover:bg-white/20 opacity-100 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
                 }`}
+                
                 disabled={!isValid()}
               >
                 Book a Free Demo
