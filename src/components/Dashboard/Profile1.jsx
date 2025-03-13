@@ -35,7 +35,7 @@ const Profile1 = () => {
         setProfiles(response.data.profiles); // Set the fetched profiles
       } catch (err) {
         console.error('Error fetching profiles:', err);
-        setError('Error fetching profiles');
+        // setError('Error fetching profiles');
       }
     };
     fetchProfiles();
@@ -183,7 +183,7 @@ const Profile1 = () => {
 
               <div className="border-b-2 my-2 border-[#B859EA]"></div>
               <div className="flex flex-wrap justify-between gap-4 mt-4">
-                <button
+                {/* <button
                   onClick={() => handleClick(1)}
                   className={`flex items-center px-4 py-2 bg-transparent text-white max-sm:w-[42vw] max-sm:h-[20vw] border-[#FB7CE4] border-[1px] rounded-md shadow-md ${
                     activeButton === 1 ? "underline" : ""
@@ -191,7 +191,7 @@ const Profile1 = () => {
                 >
                   <span>📅</span>
                   <span className="ml-2">Book my appointment</span>
-                </button>
+                </button> */}
                 <button
                   onClick={() => handleClick(2)}
                   className={`flex items-center px-4 py-2 bg-transparent text-white max-sm:w-[42vw] border-[#FB7CE4] border-[1px] rounded-md shadow-md ${
@@ -201,7 +201,7 @@ const Profile1 = () => {
                   <span>📄</span>
                   <span className="ml-2">My Assessments</span>
                 </button>
-                <button
+                {/* <button
                   onClick={() => handleClick(3)}
                   className={`flex items-center px-4 py-2 bg-transparent text-white max-sm:w-[42vw] max-sm:h-[20vw] border-[#FB7CE4] border-[1px] rounded-md shadow-md ${
                     activeButton === 3 ? "underline" : ""
@@ -209,7 +209,7 @@ const Profile1 = () => {
                 >
                   <span>📋</span>
                   <span className="ml-2">My sessions</span>
-                </button>
+                </button> */}
                 
               </div>
               {activeButton === 1 && (

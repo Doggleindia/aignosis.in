@@ -1,8 +1,10 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
-
+import { toast } from "react-toastify";
 const Flyer = () => {
   const [showPopup, setShowPopup] = useState(false);
-
+  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
   useEffect(() => {
     // Show the popup after 15 seconds
     const timer = setTimeout(() => {
@@ -16,29 +18,47 @@ const Flyer = () => {
     setShowPopup(false);
   };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+
+    try {
+      const { data } = await axios.post(
+        `${API_BASE_URL}/api/flyer/submit`,
+        formData
+      );
+      toast.success(data.message);
+      setFormData({ name: "", phone: "" }); // Reset form
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong");
+    }
+  };
+
   if (!showPopup) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-  <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-8/12 lg:w-6/12 flex flex-col md:flex-row overflow-hidden">
-    
-    {/* Left Section (Image with Content Overlay) */}
-    <div className="relative text-white p-6 flex-1 flex flex-col justify-center items-center">
-      
-      {/* Close Button (Visible on Mobile Only) */}
-      <button
-        className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl md:hidden z-20"
-        onClick={closePopup}
-      >
-        &times;
-      </button>
+      <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-8/12 lg:w-6/12 flex flex-col md:flex-row overflow-hidden">
+        {/* Left Section (Image with Content Overlay) */}
+        <div className="relative text-white p-6 flex-1 flex flex-col justify-center items-center">
+          {/* Close Button (Visible on Mobile Only) */}
+          <button
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl md:hidden z-20"
+            onClick={closePopup}
+          >
+            &times;
+          </button>
           {/* Shark Image */}
           <img
             src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/sharks.png"
             className="absolute inset-0 w-full h-full object-fit"
             alt="Shark"
           />
-          
+
           {/* Overlay Content */}
           <div className="relative z-10 text-center">
             <h1 className="text-2xl md:text-3xl font-[Passion One] text-[#8EADFC] font-bold mb-2">
@@ -72,7 +92,7 @@ const Flyer = () => {
             <h3 className="text-lg md:text-xl text-center ml-[4vw] text-white max-sm:ml-[12vw] font-bold">
               Know your child better
             </h3>
-            
+
             {/* Close Button (Visible on Desktop Only) */}
             <button
               className="text-gray-500 hover:text-gray-800 text-xl hidden md:block"
@@ -86,25 +106,23 @@ const Flyer = () => {
             100% Privacy. No spam. Only helpful updates.
           </p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
               <input
                 type="text"
                 id="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
             </div>
             <div>
-              <label htmlFor="phone" className="sr-only">
-                Phone number
-              </label>
               <input
                 type="text"
                 id="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Phone number"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />

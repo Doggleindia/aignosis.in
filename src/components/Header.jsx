@@ -50,6 +50,7 @@ const Header = () => {
 
     // Clear other user-related data if necessary
     setAuthUser(null); // Update state to reflect logged-out status
+    sessionStorage.clear();
 
     // Redirect to login page
     window.location.href = "/";
@@ -89,8 +90,8 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] flex items-center justify-center md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-[100] transition-transform duration-300 translate-y-0 backdrop-blur-md">
-      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] max-sm:py-[3.3vw] 2xl:py-[10px]">
+    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] max-sm:h-[12vw] flex items-center justify-center max-sm:mt-[5.6vw] md:h-[4vw] mt-[2vw] font-montserrat fixed top-0 z-[100] transition-transform duration-300 translate-y-0 backdrop-blur-md">
+      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] max-sm:mt-[-1.5vw] max-sm:py-[1vw] 2xl:py-[10px]">
         {/* Logo Section */}
         <div className="relative inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
@@ -110,14 +111,14 @@ const Header = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <Link
+            {/* <Link
               to=""
               onClick={() => handleServiceClick("/assessments-evaluation")} // Updated function name
               className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
                 }`} // Updated condition
             >
               Services
-            </Link>
+            </Link> */}
             {/* Dropdown menu */}
             {isHovered && (
               <div
@@ -208,14 +209,14 @@ const Header = () => {
           >
             Test
           </Link>
-          <Link
+          {/* <Link
             to="/therapy"
             onClick={() => handleLinkClick("/prices")}
             className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/therapy" ? "border-b-2 border-white" : ""
               }`}
           >
             Therapy
-          </Link>
+          </Link> */}
           <Link
             to="/clinic"
             onClick={() => handleLinkClick("/clinic")}
@@ -420,7 +421,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute text-left p-6 top-[6.5vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+        <div className="absolute text-left p-6 top-[5.1vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
           <Link
             to="/"
             onClick={() => {
@@ -432,19 +433,19 @@ const Header = () => {
           >
             Home
           </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
           <div
-            className="relative text-lg p-4 w-full text-left"
+            // className="relative text-lg p-4 w-full text-left"
             onClick={() => setDropdownOpen(!dropdownOpen)}
           >
-            <span className="flex justify-between items-center">
+            {/* <span className="flex justify-between items-center">
               Services
               {dropdownOpen ? (
                 <RiArrowDropUpLine size={30} />
               ) : (
                 <RiArrowDropDownLine size={30} />
               )}
-            </span>
+            </span> */}
             {dropdownOpen && (
               <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
                 <Link
@@ -538,7 +539,7 @@ const Header = () => {
             Test
           </Link>
           <div className="border-t-2 w-full border-[#952981]"></div>
-          <Link
+          {/* <Link
             to="/therapy"
             onClick={() => {
               handleLinkClick("/therapy");
@@ -548,7 +549,7 @@ const Header = () => {
               }`}
           >
             Therapy
-          </Link>
+          </Link> */}
           <div className="border-t-2 w-full border-[#952981]"></div>
 
           <Link

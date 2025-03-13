@@ -1,341 +1,173 @@
-import React, { useState , useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { ImCancelCircle } from "react-icons/im";
-import brain from "../../assets/brain payment.png";
-import { MdDeleteForever } from "react-icons/md";
-import { CiSquarePlus } from "react-icons/ci";
-import { CiSquareMinus } from "react-icons/ci";
-import { BsArrowRightShort } from "react-icons/bs";
-import { FaPaypal } from "react-icons/fa";
-import { FaCcAmazonPay } from "react-icons/fa";
-import { FaGooglePay } from "react-icons/fa";
-import { FaCcApplePay } from "react-icons/fa";
-import { FaCcVisa } from "react-icons/fa";
-import { SiAmericanexpress } from "react-icons/si";
-import { FaCcMastercard } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
 import axiosInstance from "../config/axiosInstance";
 import "./PriceBody.css";
 import most from "./most.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa6";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import t1 from "../../assets/child therapy/5.png";
-import t2 from "../../assets/child therapy/6.png";
-import t3 from "../../assets/child therapy/7.png";
-import t4 from "../../assets/child therapy/8.png";
-import t5 from "../../assets/child therapy/9.png";
-
-import pricelogo from "../../assets/assesment/pricelogo.png";
-
-const PaymentPopup = ({ isVisible, onClose }) => {
-  if (!isVisible) return null;
+const PriceBody = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [amount, setAmount] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState("");
+  const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
+  const [sessions, setSessions] = useState(null);
+  const [validity, setValidity] = useState(null);
+  const [selectedCardType, setSelectedCardType] = useState(null);
+  const [selectedTestCard, setSelectedTestCard] = useState(null);
+  
+  const images2 = [
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png",
+    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png",
+  ]; // Image array
 
-  const [step, setStep] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [orderConfirmed, setOrderConfirmed] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
-
-  const handleCardSelect = (id, price) => {
-    setSelectedCard(id); // Update the selected card ID
-  };
-
-  const handleNextStep = () => {
-    if (step === 3) {
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        setOrderConfirmed(true);
-      }, 2000); // Simulate a 2-second loading period
+  const handleCardSelect = (cardIndex) => {
+    if (cardIndex < 0 || cardIndex >= testCards.length) {
+      console.error("Invalid card index:", cardIndex);
       return;
     }
-    setStep((prev) => prev + 1);
+  
+    setSelectedTestCard(cardIndex);
+    setSelectedCardType("test");
+    setAmount(testCards[cardIndex].price);
+    setSessions(1); // Test usually has 1 session
+    setValidity(testCards[cardIndex].validity);
   };
+  const storedToken = localStorage.getItem("authToken");
+  console.log("handleCardSelect is defined:", typeof handleCardSelect === "function");
+  
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+    const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
 
-  const handlePrevStep = () => {
-    if (step > 1) setStep((prev) => prev - 1);
-  };
+    console.log("Checking localStorage after redirect:", preOrderData); // ✅ Debugging
 
-  const handleClosePopup = () => {
-    if (onClose) {
-      onClose(); // Calling the onClose prop to handle the closing of the popup
+    if (preOrderData && storedToken) {
+        console.log("User logged in, restarting payment...");
+        handlePayment(preOrderData.selectedCardType);
     }
+}, []);
+
+  
+
+const handlePayment = async (selectedCardType) => {
+  console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
+
+  if (!selectedCardType) {
+      return toast.error("Please select a plan before proceeding.");
+  }
+
+  const storedToken = localStorage.getItem("authToken");
+
+  const storedPreOrderData = JSON.parse(localStorage.getItem("preOrderData")) || {
+      selectedCardType: "test",
+      amount,
+      sessions,
+      validity,
   };
 
-  const renderStepContent = () => {
-    if (orderConfirmed) {
-      return (
-        <div className="text-center">
-          <h1 className="text-lg font-bold text-[#B740A1]">
-            Payment Successful!
-          </h1>
-          <p className="text-sm mt-2">
-            Thank you for your purchase. Your payment has been confirmed.
-          </p>
-        </div>
+  if (!storedPreOrderData.selectedCardType) {
+      return toast.error("Please select a plan before proceeding.");
+  }
+
+  // 🔹 If user is not logged in, store data and redirect to login
+  if (!storedToken) {
+      toast.error("You need to log in to proceed with the payment.");
+      
+      const preOrderData = {
+          ...storedPreOrderData,
+          fromPage: location.pathname, // Store current page for redirection after login
+      };
+
+      localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
+      return navigate("/login");
+  }
+
+  try {
+      console.log("Initiating payment process...");
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (!user || !user._id) {
+          throw new Error("User data is missing. Please log in again.");
+      }
+
+      // 🔹 Step 1: Create an order
+      const { data } = await axiosInstance.post(
+          "/api/payment/create-order",
+          {
+              user_id: user._id,
+              service_type: storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
+              amount: storedPreOrderData.amount,
+              sessions: storedPreOrderData.sessions,
+              validity: storedPreOrderData.validity,
+              phoneNumber: user.phoneNumber,
+          },
+          { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-    }
 
-    if (isLoading) {
-      return (
-        <div className="flex mb-[9.5vw] flex-col items-center justify-center h-full">
-          <div className="loader border-t-[#B740A1] border-4 border-gray-300 rounded-full w-12 h-12 animate-spin"></div>
-          <p className="mt-4 text-sm">Processing your payment...</p>
-        </div>
-      );
-    }
+      if (!data.success) throw new Error("Order creation failed");
 
-    switch (step) {
-      case 1:
-        return (
-          <div>
-            <h1 className="text-xs font-bold">Complete Registration Payment</h1>
-            <form className="mt-5 mb-5 grid gap-4 px-5">
-              <input
-                type="text"
-                placeholder="Your Name*"
-                className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs"
-              />
-              <input
-                type="email"
-                placeholder="Your Email*"
-                className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs"
-              />
-              <input
-                type="text"
-                placeholder="Phone number*"
-                className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs"
-              />
-              <div className="flex gap-3">
-                <input
-                  type="text"
-                  placeholder="Area/city"
-                  className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs"
-                />
-                <input
-                  type="text"
-                  placeholder="State"
-                  className="border border-[#9C00AD63] w-full px-4 py-2 rounded-sm text-xs"
-                />
-              </div>
-            </form>
-          </div>
-        );
-      case 2:
-        return (
-          <div>
-            <div className="p-2 mb-5 max-w-lg mx-auto">
-              <h1 className="font-medium text-xs mb-3">Payment Methods</h1>
-              <div className="space-y-2">
-                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
-                  <input
-                    type="radio"
-                    name="payment"
-                    className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
-                  />
-                  <div className="flex items-center justify-between w-full">
-                    <div>
-                      <p className="font-medium text-[12px]">
-                        Credit/Debit Cards
-                      </p>
-                      <p className="text-gray-500 text-[10px]">
-                        Pay with your Credit / Debit Card
-                      </p>
-                    </div>
-                    <div className="flex space-x-2">
-                      <FaCcVisa />
-                      <SiAmericanexpress />
-                      <FaCcMastercard />
-                    </div>
-                  </div>
-                </label>
+      const { id: order_id, amount: orderAmount, currency } = data.order;
+      console.log("Order created successfully:", order_id);
 
-                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
-                  <input
-                    type="radio"
-                    name="payment"
-                    className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
-                  />
-                  <div className="flex items-center justify-between w-full">
-                    <div>
-                      <p className="font-medium text-[12px]">
-                        Direct Bank Transfer
-                      </p>
-                      <p className="text-gray-500 text-[10px]">
-                        Make payment directly through bank account.
-                      </p>
-                    </div>
-                  </div>
-                </label>
+      if (!window.Razorpay) {
+          toast.error("Failed to load Razorpay. Please refresh and try again.");
+          return console.error("Razorpay is not loaded");
+      }
 
-                <label className="flex items-start gap-4 py-2 px-4 border rounded-md cursor-pointer hover:shadow-lg transition-shadow">
-                  <input
-                    type="radio"
-                    name="payment"
-                    className="mt-1 w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
-                  />
-                  <div className="flex items-center justify-between w-full">
-                    <div>
-                      <p className="font-medium text-[12px]">
-                        Other Payment Methods
-                      </p>
-                      <p className="text-gray-500 text-[10px]">
-                        Make payment through Gpay, Paypal, Paytm etc
-                      </p>
-                    </div>
-                    <div className="flex space-x-2">
-                      <FaPaypal />
-                      <FaCcAmazonPay />
-                      <FaGooglePay />
-                      <FaCcApplePay />
-                    </div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-        );
-      case 3:
-        return (
-          <div className="mb-[7vw]">
-            <h1 className="text-[14px] font-medium">Enter OTP</h1>
-            <p className="mt-4 text-center text-[12px] text-gray-600">
-              Enter your 4-digit card pin to confirm this payment
-            </p>
-            <div className="w-full flex justify-center gap-4 mt-6">
-              {Array(4)
-                .fill("")
-                .map((_, index) => (
-                  <input
-                    key={index}
-                    type="text"
-                    maxLength="1"
-                    className="w-12 h-12 border border-gray-300 rounded-md text-center text-lg focus:ring-2 focus:ring-purple-500 outline-none"
-                  />
-                ))}
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
+      // 🔹 Step 2: Initialize Razorpay
+      const options = {
+          key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+          amount: orderAmount,
+          currency,
+          name: "Aignosis",
+          description: `Payment for ${storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"}`,
+          order_id,
+          handler: async (response) => {
+              try {
+                  console.log("Verifying payment...");
 
-  return (
-    <div className="fixed inset-0 text-black z-50 font-manrope flex items-center justify-end bg-white bg-opacity-50">
-      <div className="bg-white p-8 h-screen w-[30%]">
-        <div className="flex text-[#B740A1] justify-between items-center">
-          <h1 className="text-[#B740A1] text-xs">Your Cart - 1 item</h1>
-          <ImCancelCircle onClick={handleClosePopup} />
-        </div>
-        <div className="border flex border-[#9C00AD63] rounded-2xl mt-5 w-full h-[10vw] p-4">
-          <div className="w-[10vw] rounded-2xl items-center justify-center flex h-full bg-[#9C00AD63]">
-            <img src={brain} alt="" />
-          </div>
-          <div className="text-black w-full py-2 px-4">
-            <div className="flex w-full justify-between items-center">
-              <h1 className="text-xs font-medium">Behavioral therapy</h1>
-              <MdDeleteForever />
-            </div>
-            <div className="flex w-full justify-between items-center">
-              <div className="">
-                <h1 className="text-[10px] mt-5">6-Month Validity</h1>
-                <h1 className="text-[10px]">30 Sessions at ₹600/session</h1>
-                <h1 className="text-[10px]">Save ₹8000 overall!</h1>
-              </div>
-              <h1 className="mt-[4vw] text-sm font-bold">Rs 46000</h1>
-            </div>
-          </div>
-        </div>
-        <div className="flex mt-5 gap-2 justify-center items-center w-full">
-          <p className="text-[10px]">
-            Explore educational trends, teaching strategies, and edtech
-            innovations that are Explore educational trends, teaching
-            strategies, and edtech innovations that are{" "}
-          </p>
-          <div className="border gap-2 flex items-center justify-center border-[#9C00AD63] px-2 py-2 w-[15vw]">
-            <h1>
-              <CiSquarePlus size={20} />
-            </h1>
-            <h1>1</h1>
-            <h1>
-              <CiSquareMinus size={20} />
-            </h1>
-          </div>
-        </div>
-        <div className="flex mt-3 gap-2 w-full">
-          <input
-            type="text"
-            placeholder="Enter coupon code"
-            className="border border-[#9C00AD63] w-full px-4 py-1 text-xs rounded-md"
-          />
-          <button className="bg-[#B740A1] text-white px-4 py-2 text-xs rounded-md ">
-            Apply
-          </button>
-        </div>
+                  // 🔹 Step 3: Verify payment
+                  const verifyResponse = await axiosInstance.post(
+                      "/api/payment/verify-payment",
+                      {
+                          razorpay_order_id: response.razorpay_order_id,
+                          razorpay_payment_id: response.razorpay_payment_id,
+                          razorpay_signature: response.razorpay_signature,
+                      },
+                      { headers: { Authorization: `Bearer ${storedToken}` } }
+                  );
 
-        {/* Price Details */}
-        <div className="mt-6">
-          <div className="flex justify-between text-sm">
-            <span className="text-[10px]">Subtotal</span>
-            <span className="text-[10px]">₹160.00</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-[10px]">Sales Tax (6.5%)</span>
-            <span className="text-[10px]">₹4.23</span>
-          </div>
-          <div className="flex justify-between text-sm font-bold">
-            <span className="text-[12px]">Total Due</span>
-            <span className="text-[12px]">₹164.23</span>
-          </div>
-        </div>
+                  if (verifyResponse.data.success) {
+                      toast.success("Payment successful! Your service is activated.");
+                      
+                      // 🔹 Step 4: Clear preOrderData after successful payment
+                      localStorage.removeItem("preOrderData");
+                      
+                      setTimeout(() => navigate("/dashboard"), 2000);
+                  } else {
+                      toast.error("Payment verification failed. Please contact support.");
+                  }
+              } catch (error) {
+                  console.error("Payment verification failed:", error);
+                  toast.error("Payment verification failed.");
+              }
+          },
+          theme: { color: "#3399cc" },
+      };
 
-        <div className="mt-5">{renderStepContent()}</div>
-        {!orderConfirmed && (
-          <div className="flex bg-[#F1C6FE94] items-center justify-between border-t py-4 px-5">
-            {step > 1 && (
-              <button
-                onClick={handlePrevStep}
-                className="text-black border border-[#9C00AD] px-4 py-1 rounded-full text-xs flex items-center gap-2"
-              >
-                <div className="w-6 h-6 rotate-180 text-white bg-[#B7407D] rounded-full flex justify-center items-center">
-                  <BsArrowRightShort size={20} />
-                </div>
-                Back
-              </button>
-            )}
-            <h1 className="text-sm font-bold">
-              ₹164.23{" "}
-              <span className="text-[10px] font-normal">Includes tax</span>
-            </h1>
-            <button
-              onClick={handleNextStep}
-              className="text-black border border-[#9C00AD] px-4 py-1 rounded-full text-xs flex items-center gap-2"
-            >
-              {step === 3 ? "Confirm" : "Next"}
-              <div className="w-6 h-6 text-white bg-[#B7407D] rounded-full flex justify-center items-center">
-                <BsArrowRightShort size={20} />
-              </div>
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+      console.log("Opening Razorpay payment window...");
+      new window.Razorpay(options).open();
+  } catch (error) {
+      console.error("Payment initiation failed:", error);
+      toast.error("Failed to initiate payment. Please try again.");
+  }
 };
 
-const PriceBody = ({ selectedOption }) => {
-  const navigate = useNavigate(); 
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [paymentStatus, setPaymentStatus] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null); // State to hold the selected image
-  const [selectedImage2, setSelectedImage2] = useState(null); // State to hold the selected image
-  const [selectedCard1, setSelectedCard1] = useState(null); // For first section
-  
   const testCards = [
     {
       id: 8,
@@ -343,6 +175,7 @@ const PriceBody = ({ selectedOption }) => {
       title: "Aignosis Screening – Standard",
       subtitle: "Includes Autism Screening Test + Expert Consultation",
       price: 700,
+      validity: "30",
       actualprice: 999,
     },
     {
@@ -352,160 +185,36 @@ const PriceBody = ({ selectedOption }) => {
       subtitle:
         "Includes Autism Screening Test + Expert Consultation + Personalized Home Therapy Plan + Assessments with 3 Therapy Sessions",
       price: 1899,
+      validity: "30",
       actualprice: 3899,
     },
-  ]; 
- 
-
-  const images = [t1, t2, t3, t4, t5]; // Image array
-  const images2 = [
-    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png",
-    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png",
-    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png",
-    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png",
-    "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png",
-  ]; // Image array
-
-
- 
-
-  const handleCardSelect = (cardIndex, cardAmount) => {
-    setSelectedCard(cardIndex); // Highlight the selected card
-    setAmount(cardAmount);
-    setSelectedCard1(null); // Update the selected amount
-  };
-
-  const handleCardClick = (cardIndex) => {
-    setSelectedCard1(cardIndex);
-    setSelectedCard(null);
-  };
-  // console.log(amount, "amount");
-
-  const handleBuyNowClick = () => {
-    if (!amount) {
-      alert("Please select a plan before proceeding.");
-      return;
-    }
-    setIsPopupVisible(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupVisible(false);
-  };
-  const storedToken = localStorage.getItem("authToken");
-  // console.log(storedToken), "storedToken";
-
-  
-
-  const handlePayment = async () => {
-    console.log("import.meta.env.KEY_ID", import.meta.env.KEY_ID);
-    // Check if the user is logged in
-    console.log(!storedToken, "tokenverification");
-    if (!storedToken) {
-      console.log("tokenverification");
-      // Show a toast message
-      // toast.error("You need to log in to proceed with the payment.");
-
-      // Redirect after a brief delay to allow the toast message to show
-      setTimeout(() => {
-        navigate("/login");
-      }, 2500); // Adjust the delay as needed (e.g., 1500ms)
-      return; // Exit the function
-    }
-
-    try {
-      console.log("Initiating payment process...");
-
-      // Create order on the backend
-      const { data: order } = await axiosInstance.post(
-        "/api/payment/create-order",
-        { amount },
-        {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
-      );
-
-      // Set up Razorpay options
-      const options = {
-        key: import.meta.env.KEY_ID,
-        amount: order.amount,
-        currency: order.currency,
-        name: "Test Payment",
-        description: "Test Transaction",
-        order_id: order.id,
-        handler: async (response) => {
-          const verificationData = {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            amount,
-            currency: "INR",
-          };
-
-          try {
-            console.log("Verifying payment...");
-            const { data } = await axiosInstance.post(
-              "/api/payment/verify-payment",
-              verificationData,
-              {
-                headers: {
-                  Authorization: `Bearer ${storedToken}`,
-                },
-              }
-            );
-            setPaymentStatus(data.message || "Payment successful!");
-            console.log("Payment verified:", data);
-          } catch (error) {
-            console.error("Payment verification failed:", error);
-            setPaymentStatus("Payment verification failed.");
-          }
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-    } catch (error) {
-      console.log("check");
-      navigate("/login");
-      console.error("Payment initiation failed:", error);
-      toast.error("Failed to initiate payment. Please try again.");
-    }
-  };
-
- 
-  
-
-  const therapyCards = [
-    {
-      amount: 5000,
-      discount: "Shark tank 50% off",
-      sessions: 10,
-      sessionCost: 500,
-      validity: "3-Month Validity",
-      savings: 5000,
-    },
-    {
-      amount: 7500,
-      discount: "Shark tank 50% off",
-      sessions: 15,
-      sessionCost: 500,
-      validity: "3-Month Validity",
-      savings: 7500,
-    },
-    {
-      amount: 10000,
-      discount: "Shark tank 50% off",
-      sessions: 20,
-      sessionCost: 500,
-      validity: "3-Month Validity",
-      savings: 10000,
-    },
   ];
+  // const therapyCards = [
+  //   {
+  //     amount: 5000,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 10,
+  //     sessionCost: 500,
+  //     validity: "30",
+  //     savings: 5000,
+  //   },
+  //   {
+  //     amount: 7500,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 15,
+  //     sessionCost: 500,
+  //     validity: "45",
+  //     savings: 7500,
+  //   },
+  //   {
+  //     amount: 10000,
+  //     discount: "Shark tank 50% off",
+  //     sessions: 20,
+  //     sessionCost: 500,
+  //     validity: "90",
+  //     savings: 10000,
+  //   },
+  // ];
   return (
     <>
       <div>
@@ -553,46 +262,28 @@ const PriceBody = ({ selectedOption }) => {
                 <span className="text-yellow-500 text-lg ml-1">★★★★★</span>
                 <span className="ml-2 text-sm">(Based on 106 reviews)</span>
               </div>
+            </div>
 
-              {/* <p className="italic text-xs mt-4 text-[#F6E8FB]">
-              "Looking to support another child’s journey? You can also gift
-              this assessment, offering meaningful support and valuable insights
-              to families navigating similar paths."
-            </p> */}
+            <div className="mt-4">
+              <span className="text-2xl font-semibold text-white">Test</span>
             </div>
-            {/* <div className="mt-4 font-montserrat">
-            <span>700₹</span>
-            <div className="text-[9px]">
-              <span className="text-[#F6E8FB]">originally ₹2000</span>
-              <span className="text-[#F6E8FB]">(Comprehensive Evaluation)</span>
-              <span className="text-[#F6E8FB]">Includes Formal Report</span>
-              <span className="text-[#F6E8FB]">Detailed Explanation</span>
-              <span className="text-[#F6E8FB]">Easy & fast procedure</span>
-            </div>
-          </div> */}
-             <div className="mt-4">
-                <span className="text-2xl font-semibold text-white">
-                  Test
-                </span>
-              </div>
             <div className="flex mt-6  gap-4 relative">
-              {testCards.map((card) => (
+              {testCards.map((card, index) => (
                 <div
-                  key={card.id}
-                  className={`p-6 rounded-3xl w-[${
-                    card.id === 0 ? "50%" : "60%"
-                  }] h-full cursor-pointer bg-[#43284C4D] ${
-                    selectedCard === card.id
+                  key={index}
+                  className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
+                    selectedTestCard === index
                       ? "border-2 border-[#B740A1]"
                       : "border-[#5455694D]"
                   }`}
-                  onClick={() => handleCardSelect(card.id, card.price)}
+                  onClick={() => handleCardSelect(index, "test")}
                 >
                   <div className="w-full h-[2vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                     <span className="text-xs">{card.discount}</span>
                   </div>
                   <h2 className="mt-3">{card.title}</h2>
                   <h3 className="text-[9px]">{card.subtitle}</h3>
+                  <p className="text-xs mt-2">{card.validity}-Days Validity</p>
                   <span className="mt-3 font-manrope">
                     ₹{card.price}{" "}
                     <span className="text-[10px] line-through">
@@ -604,22 +295,20 @@ const PriceBody = ({ selectedOption }) => {
               ))}
             </div>
             <div className="">
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 <span className="text-2xl font-semibold text-white">
                   Add Therapy
                 </span>
-              </div>
-              <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
+              </div> */}
+              {/* <div className="flex mt-6 h-full overflow-x-auto scrollbar-hidden gap-4 relative">
                 {therapyCards.map((card, index) => (
-                  <div
-                    key={index}
-                    className={`p-8 rounded-3xl w-full cursor-pointer bg-[#261431] ${
-                      selectedCard === index
-                        ? "border-2 border-[#B7407D54]"
-                        : ""
-                    } relative`}
-                    onClick={() => handleCardSelect(index, card.amount)}
-                  >
+                <div
+                key={index}
+                className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
+                  selectedTherapyCard === index ? "border-2 border-[#B7407D54]" : ""
+                }`}
+                onClick={() => handleCardSelect(index, "therapy")}
+              >
                     {index === 1 && (
                       <img
                         src={most}
@@ -642,7 +331,9 @@ const PriceBody = ({ selectedOption }) => {
                           </span>
                         </p>
 
-                        <p className="text-xs mt-2">{card.validity}</p>
+                        <p className="text-xs mt-2">
+                          {card.validity}-Days Validity
+                        </p>
                         <p className="text-xs">
                           {card.sessions} Sessions at ₹{card.sessionCost}
                           /session
@@ -654,7 +345,7 @@ const PriceBody = ({ selectedOption }) => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <div className="flex mt-5 gap-4">
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r opacity-60 from-[#D24074] to-[#6518B4]">
@@ -689,37 +380,23 @@ const PriceBody = ({ selectedOption }) => {
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                     <button
+                      onClick={() => handlePayment(selectedCardType)}
+                      className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
+                    >
+                      Pre Order
+                    </button>
+
+                    {/* <button
                       // onClick={handleBuyNowClick}
                       onClick={handlePayment}
                       className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                     >
                       Pre order
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
-              {/* <div className="flex mt-5 gap-4">
-                <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]  opacity-60">
-                  <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
-                    <button onClick={handleBuyNowClick} className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg">
-                      Add to cart
-                    </button>
-                  </div>
-                </div>
-              </div>  */}
             </div>
-            {/* <div className="flex border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[2vw]">
-              <h3 className="text-lg font-semibold">Coming Soon</h3>
-              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
-              <a
-                href="https://wa.me/+918209860578"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
-              >
-                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
-              </a>
-            </div> */}
           </div>
         </div>
         <div className="block md:hidden w-full h-full font-raleway p-4 gap-4">
@@ -762,34 +439,21 @@ const PriceBody = ({ selectedOption }) => {
               </div>
             </div>
 
-            {/* Pricing */}
-            {/* <div className="text-left w-full px-2 font-montserrat">
-                <h1 className="text-2xl">700₹</h1>
-                <div className="text-[10px] mt-2 text-[#FFFEF8]">
-                  <p>originally ₹2000</p>
-                  <p>(Comprehensive Evaluation)</p>
-                  <p>Includes Formal Report</p>
-                  <p>Detailed Explanation</p>
-                  <p>Easy & fast procedure</p>
-                </div>
-              </div> */}
-
-            {/* Benefits */}
             <div className="mt-2 mb-[-2vw] text-left pr-80">
-            <div className="text-xl font-bold text-white mr-auto text-left px-2">
+              <div className="text-xl font-bold text-white mr-auto text-left px-2">
                 Test
               </div>
-              </div>
+            </div>
             <div className="flex flex-col mt-6 gap-4 relative">
-              {testCards.map((card) => (
+              {testCards.map((card, index) => (
                 <div
-                  key={card.id}
+                  key={index}
                   className={`p-6 rounded-3xl w-full h-full cursor-pointer bg-[#43284C4D] ${
-                    selectedCard === card.id
+                    selectedTestCard === index
                       ? "border-2 border-[#B740A1]"
                       : "border-[#5455694D]"
                   }`}
-                  onClick={() => handleCardSelect(card.id, card.price)}
+                  onClick={() => handleCardSelect(index, "test")}
                 >
                   <div className="w-[40vw] h-[8vw] bg-[#B7407D54] rounded-full flex justify-center items-center">
                     <span className="text-xs">{card.discount}</span>
@@ -808,22 +472,20 @@ const PriceBody = ({ selectedOption }) => {
             </div>
 
             {/* Therapy Options */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <span className="text-xl font-bold text-white text-left px-2">
                 Add Therapy
               </span>
               <div className="flex flex-wrap justify-center gap-4 mt-4 ">
                 {therapyCards.map((card, index) => (
                   <div
-                    key={index}
-                    className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
-                      selectedCard === index
-                        ? "border-2 border-[#B7407D54]"
-                        : ""
-                    }`}
-                    onClick={() => handleCardSelect(index, card.amount)}
-                  >
-                    {/* "Most Popular" Badge (Only for index 1) */}
+                  key={index}
+                  className={`relative p-8 rounded-3xl cursor-pointer w-full bg-[#261431] ${
+                    selectedTherapyCard === index ? "border-2 border-[#B7407D54]" : ""
+                  }`}
+                  onClick={() => handleCardSelect(index, "therapy")}
+                >
+                    
                     {index === 1 && (
                       <img
                         src={most}
@@ -832,14 +494,14 @@ const PriceBody = ({ selectedOption }) => {
                       />
                     )}
 
-                    {/* Discount Label */}
+
                     <div className="mb-2">
                       <span className="bg-[#B7407D54] text-xs rounded-full px-2 py-1">
                         {card.discount}
                       </span>
                     </div>
 
-                    {/* Card Content */}
+                  
                     <div>
                       <p className="text-lg font-semibold">
                         ₹{card.amount}{" "}
@@ -847,7 +509,9 @@ const PriceBody = ({ selectedOption }) => {
                           ₹{card.amount + card.savings}
                         </span>
                       </p>
-                      <p className="text-xs mt-2">{card.validity}</p>
+                      <p className="text-xs mt-2">
+                        {card.validity}-Days Validity
+                      </p>
                       <p className="text-xs">
                         {card.sessions} Sessions at ₹{card.sessionCost}/session
                       </p>
@@ -858,7 +522,7 @@ const PriceBody = ({ selectedOption }) => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="flex flex-wrap justify-center gap-4 mt-4">
               <button
@@ -882,33 +546,17 @@ const PriceBody = ({ selectedOption }) => {
               >
                 Share
               </button>
-              {/* <button className="w-[40%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg">
-                  Add to cart
-                </button>  */}
+
               <button
-                onClick={handlePayment}
+                onClick={() => handlePayment(selectedCardType)}
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order
               </button>
             </div>
-            {/* <div className="flex w-full border-4 p-4 border-[#43284C4D] rounded-full flex-col justify-center items-center mt-[8vw]">
-              <h3 className="text-lg font-semibold">Coming Soon</h3>
-              <p className="text-sm mt-1">Stay tuned for exciting updates!</p>
-              <a
-                href="https://wa.me/+918209860578"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 p-2 px-[3vw] bg-green-500 text-white text-2xl rounded-full shadow hover:bg-green-600 transition-all flex items-center gap-2"
-              >
-                <FaWhatsapp /> <span className="text-sm">Chat Now</span>
-              </a>
-            </div> */}
           </div>
         </div>
       </div>
-
-      {/* <PaymentPopup isVisible={isPopupVisible} onClose={handleClosePopup} /> */}
       {paymentStatus && <p className="payment-status">{paymentStatus}</p>}
     </>
   );
