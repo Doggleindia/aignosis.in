@@ -26,7 +26,7 @@ export const FillupPage = () => {
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
-      navigate("/calibrationpage"); // Redirect to CalibrationPage on back press
+      navigate("/dashboard"); // Redirect to CalibrationPage on back press
     };
 
     window.addEventListener("popstate", handleBackButton);
