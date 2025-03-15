@@ -7,8 +7,6 @@ import { AppContext } from "../aignosisintegration/AppContext";
 import { format } from "date-fns";
 import Protectedpage from "./Protectedpage";
 
-
-
 export const FillupPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
@@ -37,19 +35,34 @@ export const FillupPage = () => {
   }, [navigate, selectedDate]);
 
   const handleNextClick = async () => {
-    if (document.getElementById("patient-name-input").value == "" || !dob) {
+
+    if (
+      document.getElementById("patient-name-input").value == "" ||
+      !dob ||
+      document.getElementById("guardian-pno-input").value == ""
+    ) {
       alert("Please enter all fields");
     } else {
+      // check valididity of parent phone  number
+
+      checkGuardianPnoValidity();
       setTestData({
         ...testData,
         patientName: document.getElementById("patient-name-input").value,
         patientDOB: dob,
+        guardianPno: document.getElementById("guardian-pno-input").value,
+        clinic_or_referrer_name: document.getElementById("referrer-name-input")
+          .value,
       });
 
-      console.log(testData)
+      console.log(testData);
       navigate("/autismtest");
     }
   };
+
+  function checkGuardianPnoValidity() {
+    console.log(document.getElementById("guardian-pno-input").value);
+  }
 
   function formatDate(date) {
     // Check if date is valid, and format it correctly using date-fns
@@ -64,19 +77,19 @@ export const FillupPage = () => {
     // Convert moment to JavaScript Date and format it
     const formattedDate = formatDate(date ? date.toDate() : null); // Convert moment to Date
     setDob(formattedDate);
-
   };
 
   return (
     <Protectedpage>
-    
       <div className="bg-[#1A0C25] flex flex-col justify-center items-center h-[110vh] ">
         {!isBackInfoVisible ? (
           <div className="flex flex-row max-sm:flex-col max-sm:justify-center items-center justify-between mt-[10px] max-sm:mt-0 max-sm:mb-[50px]">
             <div className="flex flex-col items-start space-y-[80px] px-8 max-sm:mt-[50px]">
               <div className="relative inline-block m-[auto]">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-                <span className="relative text-4xl font-semibold tracking-wide text-white z-10">Ai.gnosis</span>
+                <span className="relative text-4xl font-semibold tracking-wide text-white z-10">
+                  Ai.gnosis
+                </span>
               </div>
 
               <div className="flex flex-col space-y-4 max-w-sm ">
@@ -95,7 +108,8 @@ export const FillupPage = () => {
                 Welcome to Ai.gnosis early detection screener
               </h2>
               <p className="text-gray-400 text-sm mb-8 font-raleway text-center">
-                Ai.gnosis is an online platform that helps you detect early signs of developmental disorder in children.
+                Ai.gnosis is an online platform that helps you detect early
+                signs of developmental disorder in children.
               </p>
 
               <form className="space-y-4">
@@ -110,11 +124,43 @@ export const FillupPage = () => {
                   onChange={handleDateChange}
                   format="DD/MM/YYYY"
                   className="w-full text-white bg-[#1A0C25] border-[#B7407D4D] focus:ring-2 focus:ring-pink-500"
-                  placeholder="DD/MM/YYYY"
+                  placeholder="Date of Birth"
                   style={{
-                    color: 'black',
-                    backgroundColor: 'white'
+                    color: "black",
+                    backgroundColor: "white",
                   }}
+                />
+
+                {/* <div style={{ display: "flex", flexDirection: "row" }}>
+                  <input
+                    style={{ flex: 1, marginRight: 5, maxWidth: 30 }}
+                    id="pno-country"
+                    type="text"
+                    placeholder="Patient Guardian Phone"
+                    className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  />
+
+                  <input
+                    style={{ flex: 10, marginLeft: 5 }}
+                    id="guardian-pno-input"
+                    type="tel"
+                    placeholder="Patient Guardian Phone"
+                    className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  />
+                </div> */}
+
+                <input
+                  id="guardian-pno-input"
+                  type="tel"
+                  placeholder="Patient Guardian Phone"
+                  className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
+                />
+
+                <input
+                  id="referrer-name-input"
+                  type="text"
+                  placeholder="Clinic Name / Referred Doctor"
+                  className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
 
                 <div className="flex justify-center items-center gap-2 max-sm:flex-col">
@@ -140,10 +186,59 @@ export const FillupPage = () => {
           <CalibrationPage />
         )}
       </div>
-      
-    
     </Protectedpage>
   );
 };
 
 export default FillupPage;
+
+// import React, { useState, useEffect } from "react";
+
+// const countries = [
+//   "United States",
+//   "Canada",
+//   "United Kingdom",
+//   "Germany",
+//   "France",
+//   "India",
+//   "Australia",
+//   "Japan",
+//   "China",
+//   "Brazil",
+// ];
+
+// const CountryDropdown = () => {
+//   const [selectedCountry, setSelectedCountry] = useState("");
+
+//   useEffect(() => {
+//     if (selectedCountry) {
+//       console.log("Selected country changed to:", selectedCountry);
+//     }
+
+//   }, [selectedCountry]);
+
+//   return (
+//     <div className="flex flex-col gap-2 w-64">
+//       <label className="text-lg font-medium">Select a Country:</label>
+//       <select
+//         className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+//         value={selectedCountry}
+//         onChange={(e) => setSelectedCountry(e.target.value)}
+//       >
+//         <option value="" disabled>
+//           -- Select a Country --
+//         </option>
+//         {countries.map((country) => (
+//           <option key={country} value={country}>
+//             {country}
+//           </option>
+//         ))}
+//       </select>
+//       {selectedCountry && (
+//         <p className="text-green-600 mt-2">You selected: {selectedCountry}</p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default CountryDropdown;

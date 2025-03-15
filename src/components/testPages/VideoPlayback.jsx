@@ -57,19 +57,6 @@ const VideoPlayback = () => {
   };
 
   useEffect(() => {
-    // if (!sessionStorage.getItem("reloaded")) {
-    //   sessionStorage.setItem("reloaded", "true");
-    //   window.location.reload();
-    // }
-
-    // const params = new URLSearchParams(location.search);
-    // const patient_uid = params.get("patient_uid");
-    // const transaction_id = params.get("transaction_id");
-    // const encrypted_key = params.get("encrypted_key");
-    // const video_language = params.get("video_language");
-    // const patientDOB = params.get("patientDOB");
-    // const patientName = params.get("patientName");
-
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
