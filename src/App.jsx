@@ -4,7 +4,7 @@ import Homepagemain from "./components/Homepagemain"; // Import the HomepageMain
 import AboutUs from "./components/AboutUs";
 import PartnershipPage from "./components/PartnershipPage";
 import PatientHistory from "./components/PatientHistory"; // Import the combined PatientHistory component
-import Offer from "./components/Offer.jsx"; // Import the Offer component
+// import Offer from "./components/Offer.jsx"; // Import the Offer component
 import TestMain from "./components/testPages/TestMain";
 import VideoPlayback from "./components/testPages/VideoPlayback";
 import CalibrationPage from "./components/testPages/CalibrationPage";
@@ -62,7 +62,7 @@ import { useLocation } from "react-router-dom";
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
-  const [isOfferVisible, setIsOfferVisible] = useState(true);
+  const [isOfferVisible, setIsOfferVisible] = useState(false);
   const location = useLocation();
 
   const hiddenOfferPaths = [
