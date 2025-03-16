@@ -9,6 +9,8 @@ export const AppProvider = ({ children }) => {
   const [testData, setTestData] = useState({
     PATIENT_UID: '',
     TRANSACTION_ID: '',
+    guardianPno: '',
+    clinicOrReferrerName: '',
     patientName: '',
     patientDOB: '',
     inclenFormData: '',

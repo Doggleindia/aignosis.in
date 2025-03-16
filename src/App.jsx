@@ -4,7 +4,7 @@ import Homepagemain from "./components/Homepagemain"; // Import the HomepageMain
 import AboutUs from "./components/AboutUs";
 import PartnershipPage from "./components/PartnershipPage";
 import PatientHistory from "./components/PatientHistory"; // Import the combined PatientHistory component
-import Offer from "./components/Offer.jsx"; // Import the Offer component
+// import Offer from "./components/Offer.jsx"; // Import the Offer component
 import TestMain from "./components/testPages/TestMain";
 import VideoPlayback from "./components/testPages/VideoPlayback";
 import CalibrationPage from "./components/testPages/CalibrationPage";
@@ -54,15 +54,21 @@ import GeneratePDF from "./components/report pages/GeneratePDF";
 import DownloadPage from "./components/testPages/DownloadPage";
 import Howework from "./components/BlogPages/Howework.jsx";
 import Therapy from "./components/Therapy";
+import { useLocation } from "react-router-dom";
 
 
 // import AuthRoute from './components/config/AuthRoute';
 
-const App = () => {
-  const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60); // 10 minutes in seconds
-  const [isOfferVisible, setIsOfferVisible] = useState(true);
 
-  // Countdown timer logic
+const Layout = ({ children }) => {
+  const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
+  const [isOfferVisible, setIsOfferVisible] = useState(false);
+  const location = useLocation();
+
+  const hiddenOfferPaths = [
+    '/therapy','/generatepdf','/thankyou',"/download","/dataCollection","/Error" ,"/test/fillup","/video","/dogcalibration","/autismtest"
+  ];
+
   useEffect(() => {
     if (!isOfferVisible || offerTimeLeft <= 0) return;
 
@@ -70,25 +76,32 @@ const App = () => {
       setOfferTimeLeft((prevTime) => prevTime - 1);
     }, 1000);
 
-    // Cleanup the interval on unmount
     return () => clearInterval(timer);
   }, [isOfferVisible, offerTimeLeft]);
 
-  // Auto-hide when timer reaches 0
   useEffect(() => {
     if (offerTimeLeft <= 0) {
       setIsOfferVisible(false);
     }
   }, [offerTimeLeft]);
+
+  return (
+    <>
+      <ScrollToTop />
+      {isOfferVisible && !hiddenOfferPaths.includes(location.pathname) && (
+        <Offer timeLeft={offerTimeLeft} onClose={() => setIsOfferVisible(false)} />
+      )}
+      {children}
+    </>
+  );
+};
+
+const App = () => {
+ 
   return (
     <Router>
-      <ScrollToTop />
-      {isOfferVisible && (
-        <Offer
-          timeLeft={offerTimeLeft}
-          onClose={() => setIsOfferVisible(false)}
-        />
-      )}
+      <Layout>
+      
       <Routes>
         {" "}
         {/* Use Routes to define all your routes */}
@@ -141,7 +154,7 @@ const App = () => {
         <Route path='/page3' element={<Page3 />} />
         <Route path='/page4' element={<Page4 />} />
         <Route path='/page5' element={<Page5 />} />
-        <Route path='/Generatepdf' element={<GeneratePDF />} />
+        <Route path='/generatepdf' element={<GeneratePDF />} />
         <Route path='/Howework' element={<Howework />} />
         <Route path='/therapy' element={<Therapy />} />
     
@@ -149,6 +162,7 @@ const App = () => {
 
        
       </Routes>
+      </Layout>
     </Router>
   );
 };

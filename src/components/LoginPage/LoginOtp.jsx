@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import fetchData from "../config/fetchData";  // Assuming you have this function to make API calls
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const LoginOtp = ({ goBack, phoneNumber }) => {
+  const navigate = useNavigate()
   const [otp, setOtp] = useState(["", "", "", "","", ""]); // For OTP input
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,50 +37,63 @@ const LoginOtp = ({ goBack, phoneNumber }) => {
       }
     }
   };
-
   const handleSubmit = async () => {
-    const otpValue = otp.join(""); // Combine the OTP parts
-
+    const otpValue = otp.join(""); 
+  
     if (otpValue.length !== 6) {
       setErrorMessage("Please enter a valid 6-digit OTP");
       return;
     }
-
+  
     try {
       setLoading(true);
-      setErrorMessage(""); // Clear previous error messages
-
-      const payload = {
-        phoneNumber:phoneNumber,
-        otp: otpValue,
-      };
-
+      setErrorMessage(""); 
+  
+      const payload = { phoneNumber, otp: otpValue };
       const { response, error } = await fetchData({
         url: "/api/otp/verifyOtp",
         method: "POST",
         data: payload,
       });
-
+  
       setLoading(false);
-
+  
       if (response) {
-        // Store token in localStorage
         localStorage.setItem("authToken", response.token);
+        localStorage.setItem("user", JSON.stringify(response.user));
+  
         toast.success("OTP verified successfully! Redirecting...");
-        // Redirect or handle successful login
-        window.location.href = "/dashboard";  // Redirect to home or dashboard
+  
+        const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
+        if (preOrderData) {
+          toast.success("Redirecting to payment...");
+          
+          // ✅ Redirect first, DO NOT REMOVE preOrderData immediately
+          navigate(preOrderData.fromPage);
+        
+          // ✅ Use a delay to remove preOrderData AFTER the page loads
+          setTimeout(() => {
+            console.log("Clearing preOrderData after redirection...");
+            localStorage.removeItem("preOrderData");
+          }, 3000); // Give 3 seconds for the payment page to read it
+          
+          return;
+        }
+        
+        // ✅ Normal login goes to dashboard
+        navigate("/dashboard");
       } else if (error) {
-        setErrorMessage(error.message || "OTP verification failed. Please try again.");
-        toast.error(error.message || "OTP verification failed. Please try again.");
+        setErrorMessage(error.message || "OTP verification failed.");
+        toast.error(error.message || "OTP verification failed.");
       }
     } catch (error) {
       setLoading(false);
-      console.error("Error during OTP verification", error);
-      setErrorMessage("An error occurred during OTP verification. Please try again.");
-      toast.error("An error occurred during OTP verification. Please try again.");
+      setErrorMessage("An error occurred during OTP verification.");
+      toast.error("An error occurred during OTP verification.");
     }
   };
-
+  
+  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
       {/* Pink Gradient Radiant Effect */}

@@ -209,7 +209,7 @@ const PricepageBenefits = () => {
                             <div className="p-4 px-6 mt-[15vw] w-full">
                                  {/* Image Section */}
                             <div className="w-[100%] absolute top-4 flex items-center justify-start ">
-                                <img src={card.image} alt={`Card ${index}`} className="w-[90%] h-[250px] rounded-lg shadow-md" />
+                                <img src={card.image} alt={`Card ${index}`} className="w-[90%] h-[220px] rounded-lg shadow-md" />
                             </div>
                                 <h4 className="text-[12px] text-[#CACED9]">
                                     <span className="text-[18px] text-white font-medium">
@@ -318,7 +318,7 @@ const PricepageBenefits = () => {
                                     </span>
                                     {card.age}
                                 </span>
-                                <span className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</span>
+                                <div className="text-xs sm:text-[10px] text-[#CACED9]">{card.location}</div>
                                 <div className="border-t border-[#B740A180] my-2"></div>
                                 <span className="text-base font-semibold text-white">
                                  Development Goal:

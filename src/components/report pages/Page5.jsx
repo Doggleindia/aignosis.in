@@ -36,7 +36,7 @@ const Page5 = () => {
     
 
     return (
-        <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
+        <div className="pdf-image flex flex-wrap flex-col font-raleway items-center p-8 bg-white min-h-screen">
             <div className="pdf-page bg-white p-8 shadow-md rounded-md flex justify-center items-center w-[210mm] h-[297mm] relative">
                 {/* Header */}
                 <div className="absolute p-8 top-0 left-0 w-full">
@@ -65,20 +65,20 @@ const Page5 = () => {
                                         <td className="p-4 text-[10px] text-gray-800 w-[35%] font-semibold border-r border-gray-300">
                                             {row.subskill}
                                             <br />
-                                            <span className="font-normal text-gray-600 text-[8px]">{row.description}</span>
+                                            <span className="font-normal text-gray-600 text-[12px]">{row.description}</span>
                                         </td>
                                         {/* Performance */}
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
-                                            <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
+                                            <div className="w-[80%] h-10 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         {/* Results */}
-                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.explain}</td>
+                                        <td className="py-4 px-4 text-[12px] text-gray-800 w-[35%]">{row.explain}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -103,20 +103,20 @@ const Page5 = () => {
                                         <td className="p-4 text-[10px] text-gray-800 w-[35%] font-semibold border-r border-gray-300">
                                             {row.subskill}
                                             <br />
-                                            <span className="font-normal text-gray-600 text-[8px]">{row.description}</span>
+                                            <span className="font-normal text-gray-600 text-[12px]">{row.description}</span>
                                         </td>
                                         {/* Performance */}
                                         <td className="py-6 px-6 text-center w-[30%] border-r border-gray-300">
-                                            <div className="w-[80%] h-5 mx-auto rounded-full bg-gray-200">
+                                            <div className="w-[80%] h-10 mx-auto rounded-full bg-gray-200">
                                                 <div className={`flex justify-end items-center h-full rounded-full ${row.color}`} style={{ width: `${row.percentage}%` }}>
-                                                    <div className="flex justify-center items-center w-6 h-6 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
+                                                    <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white text-[0.5rem] font-bold shadow-md">
                                                         {row.percentage}%
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         {/* Results */}
-                                        <td className="py-4 px-4 text-[8px] text-gray-800 w-[35%]">{row.description}</td>
+                                        <td className="py-4 px-4 text-[12px] text-gray-800 w-[35%]">{row.description}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -133,7 +133,7 @@ const Page5 = () => {
                             <br />
                             <span>ID: Report Generation Date:</span>
                         </div>
-                        <span className="text-[10px]">Page 09</span>
+                        <span className="text-[10px]">Page 10</span>
                     </div>
                 </div>
             </div>

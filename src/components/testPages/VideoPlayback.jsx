@@ -303,7 +303,13 @@ const VideoPlayback = () => {
       <video ref={webcamRef} autoPlay playsInline muted className="hidden" />
       <video
         ref={videoRef}
-        src={getVideoSource()}
+        src={
+          testData.videoLanguage === "English"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V7.mp4"
+            : testData.videoLanguage === "Hindi"
+            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
+            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
+        }
         controls
         autoPlay={false}
         className="w-full h-full object-cover"

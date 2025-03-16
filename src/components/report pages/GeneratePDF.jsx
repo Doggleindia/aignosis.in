@@ -7,6 +7,7 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 import Page5 from './Page5';
 import Commnpdfpage from './Commnpdfpage';
+import watermark from '../../assets/report/watermark.png';
 
 const pdfData = [
     {
@@ -112,43 +113,74 @@ const ComponentToPrint = React.forwardRef((props, ref) => (
 
 
 const GeneratePDF = () => {
+    const [loading, setLoading] = useState(false);
     const componentRef = useRef();  
     const generatePDF = async () => {
-        const images = document.querySelectorAll(".pdf-image"); 
+        setLoading(true);
+        const images = document.querySelectorAll(".pdf-image");
+        
         if (!images.length) {
             console.error("No images found!");
+            setLoading(false);
             return;
         }
-  
+    
         const pdf = new jsPDF("p", "mm", "a4");
-        const pageWidth = 210; 
-        const pageHeight = 297; 
-  
+        const pageWidth = 218; 
+        const pageHeight = 297;
+    
         for (let i = 0; i < images.length; i++) {
             const imgElement = images[i];
-  
+    
             try {
+                // Capture the content as an image
                 const canvas = await html2canvas(imgElement, {
                     useCORS: true,
-                    scale: 3, // High-quality rendering
+                    scale: 5, // High-quality rendering
                     backgroundColor: null,
-                    width: imgElement.clientWidth, 
+                    width: imgElement.clientWidth,
                     height: imgElement.clientHeight
                 });
-  
+    
                 const imgData = canvas.toDataURL("image/jpeg", 0.8); // 80% quality
-  
-                // 🛠 Force Full A4 Size
+                const watermarkImg = await loadImage(watermark); // Load watermark image
+                
                 if (i !== 0) pdf.addPage();
+                
+                // Add main content image
                 pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, pageHeight, undefined, "FAST");
-  
+                
+                // Overlay watermark (centered & transparent)
+                pdf.addImage(watermarkImg, "PNG", 40, 80, 130, 130, undefined, "FAST");
+    
             } catch (error) {
                 console.error("Error generating PDF page:", error);
             }
         }
-  
-        pdf.save("optimized_images.pdf");
+    
+        pdf.save("watermarked_report.pdf");
+        setLoading(false);
     };
+    
+    // Helper function to load an image as base64
+    const loadImage = async (src) => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = "Anonymous"; // Enable CORS
+            img.src = src;
+            img.onload = () => {
+                const canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext("2d");
+                ctx.globalAlpha = 0.5; // Adjust watermark transparency
+                ctx.drawImage(img, 0, 0);
+                resolve(canvas.toDataURL("image/png"));
+            };
+            img.onerror = (error) => reject(error);
+        });
+    };
+    
   
   
   
@@ -160,8 +192,9 @@ const GeneratePDF = () => {
     return (
       <div className="text-center">
         <ComponentToPrint ref={componentRef} />
-        <button className="mt-5 px-4 py-2 bg-blue-600 text-white rounded" onClick={generatePDF}>
-          Generate PDF
+        <button className="mt-5 px-4 py-2 bg-blue-600 text-white rounded" onClick={generatePDF} disabled={loading}>
+          {loading ? "Generating ....." : "Generate PDF"}
+          {/* Generate PDF */}
         </button>
       </div>
     );

@@ -30,7 +30,7 @@ const Newnavbar = () => {
   return (
     <div
       ref={navbarRef}
-      className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center max-sm:h-6 fixed top-0 w-full z-50 h-8 flex items-center overflow-hidden"
+      className="bg-[#1A0C25]/60 backdrop-blur-md font-montserrat text-white text-center max-sm:h-6 fixed top-0 w-full z-[100] h-8 flex items-center overflow-hidden"
       style={{
         backgroundImage: `url(${"https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/newimage.png"})`,  // Set the background image
         backgroundSize: "cover",  // Ensure the background image covers the entire div
