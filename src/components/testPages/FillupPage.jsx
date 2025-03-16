@@ -51,7 +51,7 @@ export const FillupPage = () => {
         patientName: document.getElementById("patient-name-input").value,
         patientDOB: dob,
         guardianPno: document.getElementById("guardian-pno-input").value,
-        clinic_or_referrer_name: document.getElementById("referrer-name-input")
+        clinicOrReferrerName: document.getElementById("referrer-name-input")
           .value,
       });
 

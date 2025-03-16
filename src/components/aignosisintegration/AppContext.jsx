@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
     PATIENT_UID: '',
     TRANSACTION_ID: '',
     guardianPno: '',
-    clinic_or_referrer_name: '',
+    clinicOrReferrerName: '',
     patientName: '',
     patientDOB: '',
     inclenFormData: '',

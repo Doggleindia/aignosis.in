@@ -13,7 +13,7 @@ import Circle from "./Circle";
 import dogpng from "../../assets/aignoisiai/dog_face.png";
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "http://localhost:8000/rest/calibration/data/";
 
   const [startTime, setStartTime] = useState();
   const [frameCaptureInterval, setFrameCaptureInterval] = useState();
@@ -32,7 +32,6 @@ const DogCalibration = () => {
   const parentRef = useRef(null);
 
   const { testData, setTestData } = useContext(AppContext);
-  
 
   const navigate = useNavigate(); // Initialize navigate from useNavigate
 
@@ -107,8 +106,8 @@ const DogCalibration = () => {
     audioRef.current = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
 
     const audio = audioRef.current;
-    console.log(typeof audio)
-    console.log(audio)
+    console.log(typeof audio);
+    console.log(audio);
     const handleAudioPlay = () => {
       audio.loop = true;
       audio.play().catch((error) => console.error("Audio play error:", error));
@@ -162,7 +161,6 @@ const DogCalibration = () => {
   };
 
   const handleCircleClick = async () => {
-
     if (currentCircleIndex === 0) {
       // save patient uid and tid in context
       setTestData({
@@ -219,8 +217,8 @@ const DogCalibration = () => {
       const calibrationData = {
         patient_uid: testData.PATIENT_UID,
         transaction_id: testData.TRANSACTION_ID,
-        patient_name: testData.patientName,
-        patient_dob: testData.patientDOB,
+        // patient_name: testData.patientName,
+        // patient_dob: testData.patientDOB,
         camera_resolution: {
           width: videoResolution[0],
           height: videoResolution[1],
@@ -272,6 +270,22 @@ const DogCalibration = () => {
             .map((b) => b.toString(16).padStart(2, "0"))
             .join("");
 
+          // encrypting personal information
+          // this data includes: guardianPno, patientName, patientDob, clinic name or referrer name
+          const patientInfo = {
+            patientName: testData.patientName,
+            patientDOB: testData.patientDOB,
+            guardianPno: testData.guardianPno,
+            clinicOrReferrerName: testData.clinicOrReferrerName
+          }
+          const encryptedPatientInfo = await encryptCalibrationData(
+            patientInfo,
+            aesKey
+          ).catch(error => {
+            console.error("Failed to encrypt patient info:", error);
+            throw error;
+          });
+
           const encryptedCalibrationPoints = await encryptCalibrationData(
             calibration_points,
             aesKey
@@ -292,6 +306,7 @@ const DogCalibration = () => {
             ...calibrationData,
             encrypted_calibration_points: encryptedCalibrationPoints,
             calibration_encrypted_aes_key: calibration_encrypted_aes_key,
+            encryptedPatientInfo: encryptedPatientInfo,
           };
 
           setTestData({
