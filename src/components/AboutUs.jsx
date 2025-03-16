@@ -84,7 +84,7 @@ const AboutUs = () => {
   return (
     <>
       <div>
-        <Newnavbar />
+        
       </div>
       <SEO
         canonicalUrl={"https://aignosis.in/about-us"}

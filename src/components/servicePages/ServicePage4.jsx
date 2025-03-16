@@ -97,7 +97,7 @@ const ServicePage4 = () => {
 
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         pageTitle={"Occupational Therapy for Autism | Aignosis"}
         canonicalUrl={"https://aignosis.in/occupational-therapy"}
