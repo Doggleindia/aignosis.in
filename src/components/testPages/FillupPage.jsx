@@ -245,8 +245,7 @@ export const FillupPage = () => {
     if (
       document.getElementById("patient-name-input").value == "" ||
       !dob ||
-      document.getElementById("guardian-pno-input").value == "" ||
-      !consent
+      document.getElementById("guardian-pno-input").value == ""
     ) {
       alert("Please fill all fields and agree to the consent");
     } else {
@@ -379,7 +378,10 @@ export const FillupPage = () => {
           <div className="flex items-center">
             <Checkbox 
               checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
+              onChange={(e) => {
+                setConsent(e.target.checked);
+                setTestData({...testData, 'data_usage_consent': e.target.checked});
+              }}
               className="mr-3"
               style={{ color: 'white' }}
             />

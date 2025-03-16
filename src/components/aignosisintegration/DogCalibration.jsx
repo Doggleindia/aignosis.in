@@ -307,6 +307,7 @@ const DogCalibration = () => {
             encrypted_calibration_points: encryptedCalibrationPoints,
             calibration_encrypted_aes_key: calibration_encrypted_aes_key,
             encryptedPatientInfo: encryptedPatientInfo,
+            data_usage_consent: testData.data_usage_consent,
           };
 
           setTestData({
