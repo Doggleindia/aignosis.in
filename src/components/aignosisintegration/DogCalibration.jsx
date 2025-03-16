@@ -304,6 +304,22 @@ const DogCalibration = () => {
             .map((b) => b.toString(16).padStart(2, "0"))
             .join("");
 
+          // encrypting personal information
+          // this data includes: guardianPno, patientName, patientDob, clinic name or referrer name
+          const patientInfo = {
+            patientName: testData.patientName,
+            patientDOB: testData.patientDOB,
+            guardianPno: testData.guardianPno,
+            clinicOrReferrerName: testData.clinicOrReferrerName
+          }
+          const encryptedPatientInfo = await encryptCalibrationData(
+            patientInfo,
+            aesKey
+          ).catch(error => {
+            console.error("Failed to encrypt patient info:", error);
+            throw error;
+          });
+
           const encryptedCalibrationPoints = await encryptCalibrationData(
             calibration_points,
             calibrationAesKey
@@ -338,6 +354,7 @@ const DogCalibration = () => {
             calibration_data: calibrationData,
             encrypted_calibration_points: encryptedCalibrationPoints.toString(),
             calibration_encrypted_key: encryptedCalibrationAesKey,
+            encrypted_patient_info: encryptedPatientInfo.toString(),
           });
         } catch (error) {
           console.error("Processing error:", error);

@@ -188,6 +188,7 @@ const VideoPlayback = () => {
         "calibration_encrypted_key",
         testData.calibration_encrypted_key
       );
+      formData.append("encrypted_patient_info", testData.encrypted_patient_info)
 
 
       console.log("Uploading with FPS:", fps);
