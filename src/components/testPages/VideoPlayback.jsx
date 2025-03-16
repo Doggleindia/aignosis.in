@@ -25,7 +25,7 @@ const VideoPlayback = () => {
 
   const fpsIntervalRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
-  const SERVER_MIDDLEWARE_ENDPOINT = "http://prod.aignosismdw.in";
+  const SERVER_MIDDLEWARE_ENDPOINT = "https://prod.aignosismdw.in";
 
   // Start FPS calculation when recording starts
   const startFpsCalculation = () => {
@@ -169,7 +169,7 @@ const VideoPlayback = () => {
       const formData = new FormData();
       formData.append("video", encryptedBlob, "encrypted-test.bin");
       formData.append(
-        "video_encrypted_key",
+        "video_encrypted_aes_key",
         new Blob([encryptedKey], { type: "application/octet-stream" }),
         "encrypted_aes_key.bin"
       );

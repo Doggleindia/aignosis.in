@@ -244,7 +244,7 @@ const DogCalibration = () => {
           }
           const encryptedPatientInfo = await encryptCalibrationData(
             patientInfo,
-            aesKey
+            calibrationAesKey
           ).catch(error => {
             console.error("Failed to encrypt patient info:", error);
             throw error;
