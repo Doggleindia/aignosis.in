@@ -28,7 +28,8 @@ export const AppProvider = ({ children }) => {
     inclenscore:'',
     calibration_encrypted_aes_key: '',
     video_encrypted_aes_key: '',
-    encrypted_patient_info: ''
+    encrypted_patient_info: '',
+    data_usage_consent: false,
   });
 
   // Pass the state and updater function to the provider
