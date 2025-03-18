@@ -145,11 +145,6 @@ const DogCalibration = () => {
 
   const handleCircleClick = async () => {
     if (currentCircleIndex === 0) {
-      setTestData({
-        ...testData,
-        PATIENT_UID: uuidv4(),
-        TRANSACTION_ID: uuidv4(),
-      });
 
       setStartTime(Date.now());
       

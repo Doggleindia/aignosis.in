@@ -190,7 +190,6 @@
 
 // export default FillupPage;
 
-
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CalibrationPage from "./CalibrationPage";
@@ -214,7 +213,10 @@ export const FillupPage = () => {
 
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
-      console.log("Existing UID found "+ JSON.parse(localStorage.getItem("user")).phoneNumber)
+      console.log(
+        "Existing UID found " +
+          JSON.parse(localStorage.getItem("user")).phoneNumber
+      );
       setTestData({
         ...testData,
         PATIENT_UID: JSON.parse(localStorage.getItem("user")).phoneNumber,
@@ -227,7 +229,6 @@ export const FillupPage = () => {
         PATIENT_UID: uuidv4(),
         TRANSACTION_ID: uuidv4(),
       });
-
     }
     setDob(formatDate(selectedDate));
 
@@ -243,7 +244,7 @@ export const FillupPage = () => {
     return () => {
       window.removeEventListener("popstate", handleBackButton);
     };
-  }, [navigate, selectedDate]);
+  }, [navigate, selectedDate, consent]);
 
   const handleNextClick = async () => {
     if (
@@ -387,7 +388,7 @@ export const FillupPage = () => {
                 setConsent(e.target.checked);
                 setTestData({
                   ...testData,
-                  data_usage_consent: e.target.checked,
+                  data_usage_consent: e.target.checked
                 });
               }}
               className="mr-3"
