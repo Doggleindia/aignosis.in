@@ -185,10 +185,10 @@
 //         ) : (
 //           <CalibrationPage />
 //         )}
-        
+
 //         <div className="w-full bg-[#5e235b] py-3 px-4 flex items-center justify-center">
 //           <div className="flex items-center">
-//             <Checkbox 
+//             <Checkbox
 //               checked={consent}
 //               onChange={(e) => setConsent(e.target.checked)}
 //               className="mr-3"
@@ -198,7 +198,7 @@
 //           </div>
 //         </div>
 //       </div>
-      
+
 //     </Protectedpage>
 //   );
 // };
@@ -212,6 +212,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../aignosisintegration/AppContext";
 import { format } from "date-fns";
 import Protectedpage from "./Protectedpage";
+import { v4 as uuidv4 } from "uuid";
 
 export const FillupPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -225,6 +226,22 @@ export const FillupPage = () => {
   const { testData, setTestData } = useContext(AppContext);
 
   useEffect(() => {
+    if (localStorage.getItem("user") != null) {
+      console.log("Existing UID found "+ JSON.parse(localStorage.getItem("user")).phoneNumber)
+      setTestData({
+        ...testData,
+        PATIENT_UID: JSON.parse(localStorage.getItem("user")).phoneNumber,
+        TRANSACTION_ID: uuidv4(),
+      });
+    } else {
+      console.log("UID of current person is null...setting custom patient UID");
+      setTestData({
+        ...testData,
+        PATIENT_UID: uuidv4(),
+        TRANSACTION_ID: uuidv4(),
+      });
+
+    }
     setDob(formatDate(selectedDate));
 
     // Push initial state to prevent default navigation
@@ -255,7 +272,8 @@ export const FillupPage = () => {
         patientName: document.getElementById("patient-name-input").value,
         patientDOB: dob,
         guardianPno: document.getElementById("guardian-pno-input").value,
-        clinicOrReferrerName: document.getElementById("referrer-name-input").value,
+        clinicOrReferrerName: document.getElementById("referrer-name-input")
+          .value,
         consentGiven: consent,
       });
 
@@ -332,7 +350,7 @@ export const FillupPage = () => {
                       color: "black",
                       backgroundColor: "white",
                       width: "100%",
-                      borderColor: "#B7407D4D"
+                      borderColor: "#B7407D4D",
                     }}
                   />
 
@@ -373,19 +391,26 @@ export const FillupPage = () => {
             <CalibrationPage />
           )}
         </div>
-        
+
         <div className="w-full bg-[#5e235b] py-3 px-4 flex items-center justify-center">
           <div className="flex items-center">
-            <Checkbox 
+            <Checkbox
               checked={consent}
               onChange={(e) => {
                 setConsent(e.target.checked);
-                setTestData({...testData, 'data_usage_consent': e.target.checked});
+                setTestData({
+                  ...testData,
+                  data_usage_consent: e.target.checked,
+                });
               }}
               className="mr-3"
-              style={{ color: 'white' }}
+              style={{ color: "white" }}
             />
-            <div className="text-white">I give my consent for my data to be used for research purposes. I understand that my data will be securely stored, anonymized where necessary, and used to improve services and research outcomes.</div>
+            <div className="text-white">
+              I give my consent for my data to be used for research purposes. I
+              understand that my data will be securely stored, anonymized where
+              necessary, and used to improve services and research outcomes.
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
 import BeatLoader from "react-spinners/BeatLoader";
 import {
   encryptCalibrationData,
@@ -163,11 +162,7 @@ const DogCalibration = () => {
   const handleCircleClick = async () => {
     if (currentCircleIndex === 0) {
       // save patient uid and tid in context
-      setTestData({
-        ...testData,
-        PATIENT_UID: uuidv4(),
-        TRANSACTION_ID: uuidv4(),
-      });
+      
 
       setStartTime(Date.now());
       setClickTimes((clicktimes) => [...clicktimes, 0.0]);
