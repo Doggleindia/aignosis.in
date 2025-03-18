@@ -16,7 +16,7 @@ import { AppContext } from "./AppContext";
 import { useContext } from "react";
 
 const CatCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://prod.aignosismdw.in/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "http://localhost:8000/rest/calibration/data/";
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   const { testData } = useContext(AppContext);

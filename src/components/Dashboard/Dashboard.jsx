@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [numTestsCompleted, setNumTestsCompleted] = useState(0);
   const userId = JSON.parse(localStorage.getItem("user"));
   const authToken = localStorage.getItem("authToken");
-  const TEST_API_URL = "https://prod.aignosismdw.in/rest/get_num_tests_used/";
+  const TEST_API_URL = "http://localhost:8000/rest/get_num_tests_used/";
   const [profiles, setProfiles] = useState([]);
   console.log(userId, "userid");
   useEffect(() => {

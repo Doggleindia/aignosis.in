@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import baby from "./baby.png";
 
-const API_BASE_URL = "https://prod.aignosismdw.in/rest/";
+const API_BASE_URL = "http://localhost:8000/rest/";
 
 const Profile2 = () => {
   const userId = JSON.parse(localStorage.getItem("user"));
