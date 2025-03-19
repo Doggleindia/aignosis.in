@@ -28,7 +28,7 @@ const VideoPlayback = () => {
   const frameTimes = useRef([]);
   const { testData, setTestData } = useContext(AppContext);
 
-  const SERVER_MIDDLEWARE_ENDPOINT = "http://localhost:8000";
+  const SERVER_MIDDLEWARE_ENDPOINT = "https://35.207.211.80";
 
   const startFpsCalculation = () => {
     let lastTime = performance.now();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import baby from "./baby.png";
 
-const API_BASE_URL = "http://localhost:8000/rest/";
+const API_BASE_URL = "https://35.207.211.80/rest/";
 
 const Profile2 = () => {
   const userId = JSON.parse(localStorage.getItem("user"));
@@ -31,7 +31,7 @@ const Profile2 = () => {
     try {
       const response = await axios
         .post(
-          "http://localhost:8000/rest/get_transactions/",
+          "https://35.207.211.80/rest/get_transactions/",
           {
             patient_uid: userId.phoneNumber.toString(),
           },
