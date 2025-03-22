@@ -223,6 +223,7 @@ const DogCalibration = () => {
           height: window.innerHeight,
         },
         debug: true,
+        video_language: testData.videolanguage
       };
 
       var calibration_points = [];
