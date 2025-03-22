@@ -191,7 +191,7 @@ const PriceBody = () => {
       discount: "Shark tank 50% off",
       title: "Aignosis Screening – Comprehensive",
       subtitle:
-        "Includes Autism Screening Test + Expert Consultation + Assessments with 2 Therapy Sessions",
+        "Includes Autism Screening Test + Expert Consultation + Assessments with 2  Sessions",
       price: 1899,
       validity: "30",
       actualprice: 3899,
