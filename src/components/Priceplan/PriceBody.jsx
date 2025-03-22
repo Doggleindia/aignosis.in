@@ -16,7 +16,7 @@ const PriceBody = () => {
   const [validity, setValidity] = useState(null);
   const [selectedCardType, setSelectedCardType] = useState(null);
   const [selectedTestCard, setSelectedTestCard] = useState(null);
-  
+
   const images2 = [
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png",
     "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png",
@@ -30,7 +30,7 @@ const PriceBody = () => {
       console.error("Invalid card index:", cardIndex);
       return;
     }
-  
+
     setSelectedTestCard(cardIndex);
     setSelectedCardType("test");
     setAmount(testCards[cardIndex].price);
@@ -38,8 +38,11 @@ const PriceBody = () => {
     setValidity(testCards[cardIndex].validity);
   };
   const storedToken = localStorage.getItem("authToken");
-  console.log("handleCardSelect is defined:", typeof handleCardSelect === "function");
-  
+  console.log(
+    "handleCardSelect is defined:",
+    typeof handleCardSelect === "function"
+  );
+
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
@@ -47,66 +50,67 @@ const PriceBody = () => {
     console.log("Checking localStorage after redirect:", preOrderData); // ✅ Debugging
 
     if (preOrderData && storedToken) {
-        console.log("User logged in, restarting payment...");
-        handlePayment(preOrderData.selectedCardType);
+      console.log("User logged in, restarting payment...");
+      handlePayment(preOrderData.selectedCardType);
     }
-}, []);
+  }, []);
 
-  
+  const handlePayment = async (selectedCardType) => {
+    console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
 
-const handlePayment = async (selectedCardType) => {
-  console.log("handlePayment called with:", selectedCardType); // ✅ Debugging
-
-  if (!selectedCardType) {
+    if (!selectedCardType) {
       return toast.error("Please select a plan before proceeding.");
-  }
+    }
 
-  const storedToken = localStorage.getItem("authToken");
+    const storedToken = localStorage.getItem("authToken");
 
-  const storedPreOrderData = JSON.parse(localStorage.getItem("preOrderData")) || {
+    const storedPreOrderData = JSON.parse(
+      localStorage.getItem("preOrderData")
+    ) || {
       selectedCardType: "test",
       amount,
       sessions,
       validity,
-  };
+    };
 
-  if (!storedPreOrderData.selectedCardType) {
+    if (!storedPreOrderData.selectedCardType) {
       return toast.error("Please select a plan before proceeding.");
-  }
+    }
 
-  // 🔹 If user is not logged in, store data and redirect to login
-  if (!storedToken) {
+    // 🔹 If user is not logged in, store data and redirect to login
+    if (!storedToken) {
       toast.error("You need to log in to proceed with the payment.");
-      
+
       const preOrderData = {
-          ...storedPreOrderData,
-          fromPage: location.pathname, // Store current page for redirection after login
+        ...storedPreOrderData,
+        fromPage: location.pathname, // Store current page for redirection after login
       };
 
       localStorage.setItem("preOrderData", JSON.stringify(preOrderData));
       return navigate("/login");
-  }
+    }
 
-  try {
+    try {
       console.log("Initiating payment process...");
 
       const user = JSON.parse(localStorage.getItem("user"));
       if (!user || !user._id) {
-          throw new Error("User data is missing. Please log in again.");
+        throw new Error("User data is missing. Please log in again.");
       }
 
       // 🔹 Step 1: Create an order
       const { data } = await axiosInstance.post(
-          "/api/payment/create-order",
-          {
-              user_id: user._id,
-              service_type: storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
-              amount: storedPreOrderData.amount,
-              sessions: storedPreOrderData.sessions,
-              validity: storedPreOrderData.validity,
-              phoneNumber: user.phoneNumber,
-          },
-          { headers: { Authorization: `Bearer ${storedToken}` } }
+        "/api/payment/create-order",
+        {
+          user_id: user._id,
+          service_type:
+            storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy",
+          amount: storedPreOrderData.amount,
+          sessions: storedPreOrderData.sessions,
+          validity: storedPreOrderData.validity,
+          phoneNumber: user.phoneNumber,
+        },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
       if (!data.success) throw new Error("Order creation failed");
@@ -115,58 +119,62 @@ const handlePayment = async (selectedCardType) => {
       console.log("Order created successfully:", order_id);
 
       if (!window.Razorpay) {
-          toast.error("Failed to load Razorpay. Please refresh and try again.");
-          return console.error("Razorpay is not loaded");
+        toast.error("Failed to load Razorpay. Please refresh and try again.");
+        return console.error("Razorpay is not loaded");
       }
 
       // 🔹 Step 2: Initialize Razorpay
       const options = {
-          key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-          amount: orderAmount,
-          currency,
-          name: "Aignosis",
-          description: `Payment for ${storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"}`,
-          order_id,
-          handler: async (response) => {
-              try {
-                  console.log("Verifying payment...");
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: orderAmount,
+        currency,
+        name: "Aignosis",
+        description: `Payment for ${
+          storedPreOrderData.selectedCardType === "test" ? "Test" : "Therapy"
+        }`,
+        order_id,
+        handler: async (response) => {
+          try {
+            console.log("Verifying payment...");
 
-                  // 🔹 Step 3: Verify payment
-                  const verifyResponse = await axiosInstance.post(
-                      "/api/payment/verify-payment",
-                      {
-                          razorpay_order_id: response.razorpay_order_id,
-                          razorpay_payment_id: response.razorpay_payment_id,
-                          razorpay_signature: response.razorpay_signature,
-                      },
-                      { headers: { Authorization: `Bearer ${storedToken}` } }
-                  );
+            // 🔹 Step 3: Verify payment
+            const verifyResponse = await axiosInstance.post(
+              "/api/payment/verify-payment",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+              { headers: { Authorization: `Bearer ${storedToken}` } }
+            );
 
-                  if (verifyResponse.data.success) {
-                      toast.success("Payment successful! Your service is activated.");
-                      
-                      // 🔹 Step 4: Clear preOrderData after successful payment
-                      localStorage.removeItem("preOrderData");
-                      
-                      setTimeout(() => navigate("/dashboard"), 2000);
-                  } else {
-                      toast.error("Payment verification failed. Please contact support.");
-                  }
-              } catch (error) {
-                  console.error("Payment verification failed:", error);
-                  toast.error("Payment verification failed.");
-              }
-          },
-          theme: { color: "#3399cc" },
+            if (verifyResponse.data.success) {
+              toast.success("Payment successful! Your service is activated.");
+
+              // 🔹 Step 4: Clear preOrderData after successful payment
+              localStorage.removeItem("preOrderData");
+
+              setTimeout(() => navigate("/dashboard"), 2000);
+            } else {
+              toast.error(
+                "Payment verification failed. Please contact support."
+              );
+            }
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            toast.error("Payment verification failed.");
+          }
+        },
+        theme: { color: "#3399cc" },
       };
 
       console.log("Opening Razorpay payment window...");
       new window.Razorpay(options).open();
-  } catch (error) {
+    } catch (error) {
       console.error("Payment initiation failed:", error);
       toast.error("Failed to initiate payment. Please try again.");
-  }
-};
+    }
+  };
 
   const testCards = [
     {
@@ -380,7 +388,12 @@ const handlePayment = async (selectedCardType) => {
                 <div className="relative w-full flex justify-center items-center rounded-full p-[2px] bg-gradient-to-r from-[#D24074] to-[#6518B4]">
                   <div className="w-full rounded-full p-[2px] bg-[#1A0C25]">
                     <button
-                      // onClick={() => handlePayment(selectedCardType)}
+                      onClick={() =>
+                        window.open(
+                          "https://docs.google.com/forms/d/e/1FAIpQLSerENDa7bKynm9LWWphS8fo5mwKWbgZvaJeKKdTNC-xDijZ-Q/viewform?usp=sharing",
+                          "_blank"
+                        )
+                      }
                       className="w-full text-sm px-5 py-2 bg-transparent text-white rounded-lg"
                     >
                       Pre Order
@@ -548,7 +561,12 @@ const handlePayment = async (selectedCardType) => {
               </button>
 
               <button
-                onClick={() => handlePayment(selectedCardType)}
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSerENDa7bKynm9LWWphS8fo5mwKWbgZvaJeKKdTNC-xDijZ-Q/viewform?usp=sharing",
+                    "_blank"
+                  )
+                }
                 className="w-[100%] text-sm px-5 py-2 bg-gradient-to-r from-[#D2407480] to-[#6518B480] text-white rounded-lg"
               >
                 Pre order
