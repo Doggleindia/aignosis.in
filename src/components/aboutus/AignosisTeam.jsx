@@ -84,13 +84,13 @@ const AignosisTeam = () => {
               src={mem}
               logos={[logo5]}
             />
-            <MemberCard
+            {/* <MemberCard
               title="Dr. Ramesh Agrawal"
               subtitle="HOD mother & child block, AIIMS Delhi"
               desc="Dr. Ramesh Agrawal is a leading expert in pediatric healthcare, serving as the Head of the Child and Mother Block at AIIMS Delhi. With over 200 publications and 300+ research papers"
               src={citation}
               logos={[logo6]}
-            />
+            /> */}
           </div>
           <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
             <MemberCard
