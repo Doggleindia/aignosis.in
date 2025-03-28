@@ -25,7 +25,7 @@ const VideoPlayback = () => {
 
   const fpsIntervalRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
-  const SERVER_MIDDLEWARE_ENDPOINT = "http://localhost:8000";
+  const SERVER_MIDDLEWARE_ENDPOINT = "https://prod.aignosismdw.in";
 
   // Start FPS calculation when recording starts
   const startFpsCalculation = () => {
