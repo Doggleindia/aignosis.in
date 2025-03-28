@@ -30,7 +30,6 @@ export const AppProvider = ({ children }) => {
     video_encrypted_aes_key: '',
     data_usage_consent: false,
     encrypted_patient_info: '',
-    data_usage_consent: false,
   });
 
   // Pass the state and updater function to the provider
