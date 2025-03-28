@@ -106,9 +106,18 @@ const VideoPlayback = () => {
   };
   const startWebcamRecording = async () => {
     try {
+      // const stream = await navigator.mediaDevices.getUserMedia({
+      //   video: true,
+      //   audio: false,
+      // });
+
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: false,
+        video: {
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+          frameRate: { ideal: 60, min: 30 }
+        },
+        audio: true
       });
 
       videoStreamRef.current = stream;
@@ -307,9 +316,9 @@ const VideoPlayback = () => {
       <video
         ref={videoRef}
         src={
-          testData.videoLanguage === "English"
+          testData.videolanguage === "English"
             ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V7.mp4"
-            : testData.videoLanguage === "Hindi"
+            : testData.videolanguage === "Hindi"
             ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
             : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
         }

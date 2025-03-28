@@ -28,7 +28,7 @@ const Orderhistory = () => {
 
   return (
     <React.Fragment>
-      <Newnavbar />
+      
       <Header />
       <div className="w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] min-h-screen h-full bg-[#2B1B2D]">
         <div className="w-full h-full">

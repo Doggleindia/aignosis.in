@@ -91,7 +91,7 @@ const ServicePage1 = () => {
 
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         metaDescription="Explore AI-powered autism assessment tools, psychological evaluations, and care solutions for parents. Aignosis transforms autism diagnosis and care."
         canonicalUrl="https://aignosis.in/assessments-evaluation"

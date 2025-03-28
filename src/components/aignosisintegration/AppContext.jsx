@@ -28,6 +28,7 @@ export const AppProvider = ({ children }) => {
     inclenscore:'',
     calibration_encrypted_aes_key: '',
     video_encrypted_aes_key: '',
+    data_usage_consent: false,
     encrypted_patient_info: '',
     data_usage_consent: false,
   });

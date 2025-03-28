@@ -125,7 +125,7 @@ const Howework = () => {
 
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         canonicalUrl={"https://aignosis.in/blog"}
         metaDescription={

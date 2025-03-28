@@ -18,7 +18,7 @@ import Newnavbar from '../Newnavbar';
 const ClinicMain = () => {
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         canonicalUrl={'https://aignosis.in/clinic'}
         metaDescription={'Visit Aignosis Autism Clinic for expert care and accurate diagnosis. Our specialists offer personalized solutions for autism treatment and support.'}

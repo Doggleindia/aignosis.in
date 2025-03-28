@@ -92,7 +92,7 @@ const ServicePage2 = () => {
 
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         canonicalUrl="https://aignosis.in/speech-language"
         metaDescription={

@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [numTestsCompleted, setNumTestsCompleted] = useState(0);
   const userId = JSON.parse(localStorage.getItem("user"));
   const authToken = localStorage.getItem("authToken");
-  const TEST_API_URL = "http://localhost:8000/rest/get_num_tests_used/";
+  const TEST_API_URL = "https://35.207.211.80/rest/get_num_tests_used/";
   const [profiles, setProfiles] = useState([]);
   console.log(userId, "userid");
   useEffect(() => {
@@ -204,7 +204,7 @@ const Dashboard = () => {
   const isTestAvailable = numTestsCompleted < totalSessions;
   return (
     <>
-      <Newnavbar />
+      
       <Header />
       <div className="w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]">
         <div className="w-full h-full md:block hidden">

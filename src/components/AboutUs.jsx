@@ -5,6 +5,7 @@ import doctor1 from "../assets/homepage/white screen.png";
 import doctor2 from "../assets/images/aboutUs/doctors2.svg";
 import doctor3 from "../assets/images/aboutUs/doctors3.svg";
 import vission from "./aboutus/vission.jpg";
+import thegoal from "./aboutus/thegoal.jpg";
 import blog_icon from "../assets/images/aboutUs/blog_icon.png";
 import birt_aignosis from "../assets/dna.png";
 import Footer from "./Footer";
@@ -84,7 +85,7 @@ const AboutUs = () => {
   return (
     <>
       <div>
-        <Newnavbar />
+        
       </div>
       <SEO
         canonicalUrl={"https://aignosis.in/about-us"}
@@ -103,7 +104,6 @@ const AboutUs = () => {
             subtitle=" Ai.gnosis – Empowering Early Detection"
           />
         </div>
-
         <div className="max-sm:p-4 flex max-sm:flex-col mt-[3vw] gap-6 justify-center relative">
           <img
             src={sideleft}
@@ -159,27 +159,43 @@ const AboutUs = () => {
         </div>
       </div> */}
 
-        <div className="flex max-sm:flex-col max-sm:gap-[4vw] items-center px-10 justify-center mt-[8vw] ">
-          <div className="flex flex-col items-start w-[50%] h-[500px] bg-gradient-to-b p-16 max-sm:p-[5vw] max-sm:pl-[4vw] max-sm:pt-[3vw] max-sm:w-[100%] max-sm:h-[400px] from-[#241E22] to-[#43284C]">
-            <span className="font-medium font-raleway text-2xl">
-              The Goal of aignosis
-            </span>
-            {/* <span className="pt-4 block font-manrope">
-            Embark on a journey through our narrative, where innovation meets
-            purpose.
-          </span> */}
-            <span className="pt-4 block max-sm:text-[2.5vw] font-manrope">
-              At Aignosis, our mission is to ensure that every child has the
-              opportunity to thrive by meeting their developmental milestones.
-              We aim to identify children who may be struggling early on and
-              provide the tools to enable timely interventions. Our goal is to
-              make a profound impact by supporting parents, empowering families,
-              and equipping clinicians with the resources to provide the care
-              every child deserves
-            </span>
+        {/* The Goal Section of About us Page*/}
+
+        <div className="flex justify-center w-full">
+          <div className="max-sm:p-4 flex max-sm:flex-col mt-[3vw] gap-6 justify-center relative">
+            <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6 max-w-[700px] mr-2 max-md:pl-5">
+              <div className="flex gap-5 max-md:flex-col">
+                {/* Text Section */}
+                <div className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
+                  <div className="flex flex-col items-start self-stretch my-auto max-md:mt-10">
+                    <div className="mt-8 text-xl font-semibold leading-none text-white">
+                      The Goal of Aignosis
+                    </div>
+                    <div className="self-stretch font-inter mt-6 text-sm tracking-wide leading-5 text-white text-opacity-80">
+                      At Aignosis, our mission is to ensure that every child has the opportunity 
+                      to thrive by meeting their developmental milestones. We aim to identify 
+                      children who may be struggling early on and provide the tools to enable 
+                      timely interventions. Our goal is to make a profound impact by supporting 
+                      parents, empowering families, and equipping clinicians with the resources 
+                      to provide the care every child deserves.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Section in the The Goal div*/}
+                <div className="flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full self-stretch">
+                  <img
+                    loading="lazy"
+                    src={thegoal}  
+                    alt="Goal section featured image"
+                    className="w-full h-full object-cover max-md:max-w-full"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex lg:block flex-wrap items-end w-[50%] max-sm:w-[100%] h-[500px] max-sm:p-[2vw] max-sm:h-[60vw] max-sm:mt-[-25vw] bg-gradient-to-b p-16 from-[#241E22] to-[#43284C]"></div>
         </div>
+
 
         <div className="flex flex-row max-sm:flex-col gap-4 max-sm:mt-4  items-center  justify-center mt-[8vw] ">
           <div className="pl-8 rounded-xl bg-white overflow-hidden bg-opacity-10 max-sm:pb-6  max-w-[700px]  mr-2 max-md:pl-5">

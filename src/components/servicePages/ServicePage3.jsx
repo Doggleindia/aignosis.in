@@ -93,7 +93,7 @@ const ServicePage3 = () => {
 
   return (
     <>
-      <Newnavbar />
+      
       <SEO
         canonicalUrl={"https://aignosis.in/behaviour-therapy"}
         metaDescription={
