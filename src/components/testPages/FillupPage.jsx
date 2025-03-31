@@ -414,7 +414,7 @@ export const FillupPage = () => {
           )}
         </div>
 
-        <div className="w-full bg-[#5e235b] py-3 px-4 flex items-center justify-center">
+        <div className="w-full bg-[#5e235b] py-3 px-9 flex items-center justify-center">
           <div className="flex items-center">
             <Checkbox
               checked={consent}
@@ -428,7 +428,7 @@ export const FillupPage = () => {
               className="mr-3"
               style={{ color: "white" }}
             />
-            <div className="text-white">
+            <div className="text-white" style={{textAlign: 'center'}}>
               I give my consent for my data to be used for research purposes. I
               understand that my data will be securely stored, anonymized where
               necessary, and used to improve services and research outcomes.
