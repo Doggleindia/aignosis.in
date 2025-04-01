@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import baby from "./baby.png";
+import {
+  decryptPassword,
+  decryptCalibrationData,
+} from "../aignosisintegration/DecryptionUtils";
 
-const API_BASE_URL = "https://35.207.211.80/rest/";
+const API_BASE_URL = "https://prod.aignosismdw.in/rest/";
 
 const Profile2 = () => {
-  const userId = JSON.parse(localStorage.getItem("user"));
+  // const userId = JSON.parse(localStorage.getItem("user"));
+  const userId = {
+    phoneNumber: "+919711155179", // Replace with actual phone number for testing
+  };
   const [transactionsIds, setTransactionIds] = useState([]);
   const [assessments, setAssessments] = useState([]);
 
   useEffect(() => {
     if (!userId) {
       console.error("User ID not found in local storage");
+      // TODO: return to home page in logged out state
       return;
     } else {
       console.log("user uid is " + userId.phoneNumber);
       fetchTransactions();
     }
-
-    if (transactionsIds.length > 0) {
-      for (let i = 0; i < transactionsIds.length; i++) {
-        fetchAssessments(transactionsIds[i]);
-      }
-    }
-
-    // fetchAssessments();
   }, []);
+
+  useEffect(() => {
+    if (transactionsIds.length > 0) {
+      console.log("Transaction IDs found...fetching assessments");
+      // Clear existing assessments first to avoid duplications
+      setAssessments([]);
+
+      console.log("all tids" + transactionsIds);
+      // Fetch assessments for each transaction ID
+      transactionsIds.forEach((transactionId) => {
+        console.log("passing tid " + transactionId);
+        fetchAssessments(transactionId);
+      });
+    }
+  }, [transactionsIds]); // This will run whenever transactionsIds changes
+
+  useEffect(() => {}, []);
 
   const fetchTransactions = async () => {
     try {
       const response = await axios
         .post(
-          "https://35.207.211.80/rest/get_transactions/",
+          "https://prod.aignosismdw.in/rest/get_transactions/",
           {
             patient_uid: userId.phoneNumber.toString(),
           },
@@ -42,12 +59,14 @@ const Profile2 = () => {
           }
         )
         .then((response) => {
-          console.log("this is the response data", response.data.transactions);
-          setTransactionIds(
-            response.data.transactions.map(
-              (transaction) => transaction.transaction_id
-            )
-          );
+          var transactions = JSON.parse(response.data.success)[
+            "transaction_ids"
+          ];
+          console.log("Transactions fetched => " + transactions);
+          setTransactionIds(transactions);
+        })
+        .catch((error) => {
+          console.log("Error fetching transactions:", error);
         });
     } catch (error) {
       console.error("Error fetching transactions:", error);
@@ -58,7 +77,7 @@ const Profile2 = () => {
     try {
       const payload = {
         patient_uid: userId.phoneNumber.toString(),
-        transaction_id,
+        transaction_id: transaction_id,
       };
 
       const [
@@ -66,6 +85,7 @@ const Profile2 = () => {
         psychologistReportRes,
         testCompletionRes,
         testTimestampRes,
+        encryptedPatientInfoNKey,
       ] = await Promise.all([
         axios.post(`${API_BASE_URL}get_ai_report_available_status/`, payload),
         axios.post(
@@ -74,7 +94,20 @@ const Profile2 = () => {
         ),
         axios.post(`${API_BASE_URL}get_test_completion_status/`, payload),
         axios.post(`${API_BASE_URL}get_test_timestamp/`, payload),
-      ]);
+        axios.post(
+          `${API_BASE_URL}get_encrypted_patient_firestore_info/`,
+          payload
+        ),
+      ]).catch((error) => {
+        console.log("Error fetching assessments:", error);
+      });
+
+      console.log("Assessment data fetched:");
+      console.log(testCompletionRes);
+      console.log(aiReportRes);
+      console.log(psychologistReportRes);
+      console.log(testTimestampRes);
+      console.log(encryptedPatientInfoNKey);
 
       const testCompleted = testCompletionRes.data.test_completion_status;
       const aiReportAvailable = aiReportRes.data.ai_report_available;
@@ -84,15 +117,38 @@ const Profile2 = () => {
         ? new Date(testTimestampRes.data.test_timestamp).toLocaleDateString()
         : "N/A";
 
-      setAssessments([
-        {
-          name: "Assessment 1",
-          takenOn: timestamp,
-          status: testCompleted ? "Completed" : "Incomplete",
-          aiReport: aiReportAvailable ? "#" : null,
-          psychologistReport: psychologistReportAvailable ? "#" : null,
-        },
-      ]);
+      const encryptedPatientInfo =
+        encryptedPatientInfoNKey.data.encrypted_patient_info;
+      const encryptedPatientInfoEncAesKey =
+        encryptedPatientInfoNKey.data.encrypted_patient_info_enc_aes_key;
+
+      decryptPassword(encryptedPatientInfoEncAesKey).then(
+        (calibrationAesKey) => {
+          console.log("calibration aes key is " + calibrationAesKey);
+
+          decryptCalibrationData(encryptedPatientInfo, calibrationAesKey).then(
+            (patientInfo) => {
+              console.log("Decrypted patient info:", patientInfo);
+
+              setAssessments((prevAssessments) => [
+                ...prevAssessments,
+                {
+                  name: patientInfo.patientName,
+                  dob: patientInfo.patientDOB,
+                  takenOn: timestamp,
+                  status: testCompleted ? "Completed" : "Incomplete",
+                  aiReport: aiReportAvailable ? "#" : null,
+                  psychologistReport: psychologistReportAvailable ? "#" : null,
+                },
+              ]);
+            }
+          );
+        }
+      );
+
+      console.log(
+        `UID: ${userId.phoneNumber.toString()} | TID: ${transaction_id} | Test completed ${testCompleted} | Ai report available ${aiReportAvailable} | Psych report available ${psychologistReportAvailable} | Timestamp ${timestamp}`
+      );
     } catch (error) {
       console.error("Error fetching assessments:", error);
     }
@@ -107,14 +163,23 @@ const Profile2 = () => {
             <table className="min-w-full bg-transparent text-white border-collapse border border-[#FB7CE4]">
               <thead>
                 <tr>
+                  <th className="border border-[#FB7CE4] px-4 py-2">Name</th>
                   <th className="border border-[#FB7CE4] px-4 py-2">
-                    Assessment
+                    Date of Birth
                   </th>
+                  {/* <th className="border border-[#FB7CE4] px-4 py-2">
+                    Assessment
+                  </th> */}
                   <th className="border border-[#FB7CE4] px-4 py-2">
                     Taken On
                   </th>
                   <th className="border border-[#FB7CE4] px-4 py-2">Status</th>
-                  <th className="border border-[#FB7CE4] px-4 py-2">Report</th>
+                  <th className="border border-[#FB7CE4] px-4 py-2">
+                    AI Report
+                  </th>
+                  <th className="border border-[#FB7CE4] px-4 py-2">
+                    Psychologist Report
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -123,7 +188,14 @@ const Profile2 = () => {
                     <tr key={index}>
                       <td className="border border-[#FB7CE4] px-4 py-2">
                         {assessment.name}
+                        {index}
                       </td>
+                      <td className="border border-[#FB7CE4] px-4 py-2">
+                        {assessment.dob}
+                      </td>
+                      {/* <td className="border border-[#FB7CE4] px-4 py-2">
+                        {assessment.assessmentName}
+                      </td> */}
                       <td className="border border-[#FB7CE4] px-4 py-2">
                         {assessment.takenOn}
                       </td>
@@ -137,38 +209,34 @@ const Profile2 = () => {
                         {assessment.status}
                       </td>
                       <td className="border border-[#FB7CE4] px-4 py-2">
-                        {assessment.aiReport ||
-                        assessment.psychologistReport ? (
-                          <>
-                            {assessment.aiReport && (
-                              <a
-                                href={assessment.aiReport}
-                                className="text-blue-500 underline"
-                              >
-                                AI Report
-                              </a>
-                            )}
-                            {assessment.psychologistReport && (
-                              <>
-                                {" | "}
-                                <a
-                                  href={assessment.psychologistReport}
-                                  className="text-blue-500 underline"
-                                >
-                                  Psychologist Report
-                                </a>
-                              </>
-                            )}
-                          </>
+                        {assessment.aiReport ? (
+                          <a
+                            href={assessment.aiReport}
+                            className="text-blue-500 underline"
+                          >
+                            AI Report
+                          </a>
                         ) : (
-                          "No Reports"
+                          "No Report"
+                        )}
+                      </td>
+                      <td className="border border-[#FB7CE4] px-4 py-2">
+                        {assessment.psychologistReport ? (
+                          <a
+                            href={assessment.psychologistReport}
+                            className="text-blue-500 underline"
+                          >
+                            Psychologist Report
+                          </a>
+                        ) : (
+                          "No Report"
                         )}
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="4" className="text-center py-4">
+                    <td colSpan="7" className="text-center py-4">
                       No Assessments Found
                     </td>
                   </tr>
@@ -177,41 +245,6 @@ const Profile2 = () => {
             </table>
           </div>
         </div>
-
-        {/* Assessment Banner */}
-        {/* <div className="mt-[5vw]">
-          <div
-            className="w-full h-auto flex flex-wrap items-center justify-between px-4 py-4 mt-4 rounded-lg"
-            style={{ background: "linear-gradient(to left, #4B1056, #280834)" }}
-          >
-            
-            <div className="flex items-center space-x-4 w-full sm:w-3/4 mb-4 sm:mb-0">
-              <div className="w-10 h-10 flex-shrink-0">
-                <img src={baby} alt="Child Icon" className="w-full h-full" />
-              </div>
-              <div>
-                <p className="text-white font-medium text-sm">
-                  Upto 1 in 5 children are at risk of developmental delays**
-                </p>
-                <p className="text-white font-medium mt-1 text-xs">
-                  Take 5 minutes to check if your child is achieving key milestones on time
-                </p>
-              </div>
-            </div>
-
-
-            <div className="flex w-full sm:w-auto justify-center sm:justify-end">
-              <button className="text-white font-bold border-[2px] border-purple-500 rounded-full px-6 py-2 text-sm sm:text-lg">
-                Take test now
-              </button>
-            </div>
-          </div>
-        </div>
-
-        
-        <div className="mt-6">
-          <h2 className="text-white text-xl mb-4">Schedule</h2>
-        </div> */}
       </div>
     </div>
   );
