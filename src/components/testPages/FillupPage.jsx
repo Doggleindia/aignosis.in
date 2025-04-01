@@ -253,7 +253,7 @@ export const FillupPage = () => {
 
       setTestData({
         ...testData,
-        PATIENT_UID: cleanedPhoneNumber,
+        PATIENT_UID: userId.phoneNumber.toString(),
         TRANSACTION_ID: uuidv4(),
       });
     } else {
