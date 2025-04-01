@@ -9,10 +9,8 @@ import {
 const API_BASE_URL = "https://prod.aignosismdw.in/rest/";
 
 const Profile2 = () => {
-  // const userId = JSON.parse(localStorage.getItem("user"));
-  const userId = {
-    phoneNumber: "+919711155179", // Replace with actual phone number for testing
-  };
+  const userId = JSON.parse(localStorage.getItem("user"));
+  
   const [transactionsIds, setTransactionIds] = useState([]);
   const [assessments, setAssessments] = useState([]);
 
