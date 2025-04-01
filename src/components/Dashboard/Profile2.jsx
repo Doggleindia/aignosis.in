@@ -6,7 +6,7 @@ import {
   decryptCalibrationData,
 } from "../aignosisintegration/DecryptionUtils";
 
-const API_BASE_URL = "http://localhost:8000/rest/";
+const API_BASE_URL = "https://prod.aignosismdw.in/rest/";
 
 const Profile2 = () => {
   // const userId = JSON.parse(localStorage.getItem("user"));
@@ -48,7 +48,7 @@ const Profile2 = () => {
     try {
       const response = await axios
         .post(
-          "http://localhost:8000/rest/get_transactions/",
+          "https://prod.aignosismdw.in/rest/get_transactions/",
           {
             patient_uid: userId.phoneNumber.toString(),
           },
@@ -130,7 +130,6 @@ const Profile2 = () => {
             (patientInfo) => {
               console.log("Decrypted patient info:", patientInfo);
 
-
               setAssessments((prevAssessments) => [
                 ...prevAssessments,
                 {
@@ -150,8 +149,6 @@ const Profile2 = () => {
       console.log(
         `UID: ${userId.phoneNumber.toString()} | TID: ${transaction_id} | Test completed ${testCompleted} | Ai report available ${aiReportAvailable} | Psych report available ${psychologistReportAvailable} | Timestamp ${timestamp}`
       );
-
-      
     } catch (error) {
       console.error("Error fetching assessments:", error);
     }
