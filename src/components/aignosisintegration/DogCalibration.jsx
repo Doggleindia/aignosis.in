@@ -12,7 +12,7 @@ import Circle from "./Circle";
 import dogpng from "../../assets/aignoisiai/dog_face.png";
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "https://de.aignosismdw.in/rest/calibration/data/";
 
   const [startTime, setStartTime] = useState();
   const [frameCaptureInterval, setFrameCaptureInterval] = useState();
