@@ -50,6 +50,8 @@ const DogCalibration = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
+
     function goFullScreen() {
       let elem = document.documentElement; // The whole page
 
@@ -192,6 +194,23 @@ const DogCalibration = () => {
       let fps = parseInt(
         (frames.length / parseInt(timeElapsed.toString())).toString()
       );
+
+      const calibrationData = {
+        patient_uid: testData.PATIENT_UID,
+        transaction_id: testData.TRANSACTION_ID,
+        // patient_name: testData.patientName,
+        // patient_dob: testData.patientDOB,
+        camera_resolution: {
+          width: videoResolution[0],
+          height: videoResolution[1],
+        },
+        screen_resolution: {
+          width: screen.width,
+          height: screen.height,
+        },
+        debug: true,
+        video_language: testData.videolanguage
+      };
 
       var calibration_points = [];
       for (let i = 0; i < finalClickTimes.length; i++) {
