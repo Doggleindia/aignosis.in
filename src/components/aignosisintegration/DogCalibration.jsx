@@ -50,6 +50,8 @@ const DogCalibration = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
+
     function goFullScreen() {
       let elem = document.documentElement; // The whole page
 
@@ -219,8 +221,8 @@ const DogCalibration = () => {
           height: videoResolution[1],
         },
         screen_resolution: {
-          width: window.innerWidth,
-          height: window.innerHeight,
+          width: screen.width,
+          height: screen.height,
         },
         debug: true,
         video_language: testData.videolanguage
