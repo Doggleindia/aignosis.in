@@ -34,10 +34,10 @@ const FromDoctor = () => {
         ></div>
         <div className="">
           <div className="w-full h-[25vw] px-[5vw] py-[0vw] gap-14 flex mt-[3vw]" >
-            <div >
+            <div className="w-[50%]">
               <img
                 className="object-fill w-full h-full"
-                src={img2}
+                src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png'
                 alt=""
                 srcset=""
               />
@@ -110,7 +110,7 @@ const FromDoctor = () => {
                           {/* Left Side */}
                           <div className="flex flex-col">
                             <h3 className="text-base text-[#CACED9] font-semibold">
-                              Dr. S. Sitaraman,
+                              Dr.Dhananajay Mangal,
                             </h3>
                             <span className="text-xs text-[#CACED9]">
                               Pediatrician & Developmental Expert
@@ -342,7 +342,7 @@ const FromDoctor = () => {
                 tool supports early understanding and better outcomes.
               </p>
               <div className="w-full">
-                <img src={img2} alt="" srcset="" />
+                <img src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png' alt="" srcset="" />
               </div>
               <div className="flex overflow-x-auto space-x-4 py-10 scrollbar-hide">
                 <div
@@ -365,7 +365,7 @@ const FromDoctor = () => {
                           {/* Left Side */}
                           <div className="flex flex-col">
                             <h3 className="text-base text-[#CACED9] font-semibold">
-                              Dr. S. Sitaraman,
+                              Dr. Dhananajay Mangal,
                             </h3>
                             <span className="text-xs text-[#CACED9]">
                               Pediatrician & Developmental Expert

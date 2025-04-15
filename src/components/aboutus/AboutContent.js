@@ -255,7 +255,7 @@ const AboutContent = {
         },
         {
           sectionTitle: "Building the Solution: Collaboration and Expertise",
-          text: "To bring their vision to life, the co-founders collaborated with leading experts from ICAD and Dr. S. Sitaraman, whose insights were instrumental in shaping the tool’s features. Combining this expertise with their technological know-how, they developed a screening tool designed to transform the diagnostic landscape. Mentorship and guidance from industry leaders like Mr. Rajneesh Bhandari and Amit Jain, CEO of Car Dekho Group, further propelled their journey, refining their product and strategy.",
+          text: "To bring their vision to life, the co-founders collaborated with leading experts from ICAD and Dr. Dhananajay Mangal, whose insights were instrumental in shaping the tool’s features. Combining this expertise with their technological know-how, they developed a screening tool designed to transform the diagnostic landscape. Mentorship and guidance from industry leaders like Mr. Rajneesh Bhandari and Amit Jain, CEO of Car Dekho Group, further propelled their journey, refining their product and strategy.",
         },
         {
           sectionTitle: "Validation Through Clinical Studies",
