@@ -24,81 +24,61 @@ const WebcamMicTest = () => {
   const [permissionsGranted, setPermissionsGranted] = useState(false); // Track permissions
 
   useEffect(() => {
-    // Get camera resolution
-    async function getCameraResolution() {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      const videoTrack = stream.getVideoTracks()[0];
-      const settings = videoTrack.getSettings();
-      console.log(`Resolution: ${settings.width}x${settings.height}`);
-      stream.getTracks().forEach((track) => track.stop()); // Stop the stream
-    }
-    getCameraResolution();
-
-    // Request access to webcam and microphone
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((stream) => {
-        // Set video source
+    async function setupMediaDevices() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+  
+        // ✅ Log resolution
+        const videoTrack = stream.getVideoTracks()[0];
+        const settings = videoTrack.getSettings();
+        console.log(`Resolution: ${settings.width}x${settings.height}`);
+  
+        setPermissionsGranted(true); // Permissions granted
+  
+        // ✅ Set video stream
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-
-          // Check if video is already playing before calling play()
+  
           if (videoRef.current.paused && !videoRef.current.ended) {
             videoRef.current.play().catch((error) => {
               console.error("Error while trying to play video:", error);
             });
           }
         }
-
-        // Create audio context and analyser for audio input
-        audioContextRef.current = new (window.AudioContext ||
-          window.webkitAudioContext)();
-        const audioSource =
-          audioContextRef.current.createMediaStreamSource(stream);
+  
+        // ✅ Setup audio analyser
+        audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+        const audioSource = audioContextRef.current.createMediaStreamSource(stream);
         analyserRef.current = audioContextRef.current.createAnalyser();
         audioSource.connect(analyserRef.current);
-
-        analyserRef.current.fftSize = 256; // Controls frequency range
+  
+        analyserRef.current.fftSize = 256;
         const bufferLength = analyserRef.current.frequencyBinCount;
         dataArrayRef.current = new Uint8Array(bufferLength);
-
+  
         const getVolume = () => {
           analyserRef.current.getByteFrequencyData(dataArrayRef.current);
-          const average =
-            dataArrayRef.current.reduce((sum, value) => sum + value, 0) /
-            bufferLength;
+          const average = dataArrayRef.current.reduce((sum, value) => sum + value, 0) / bufferLength;
           setVolume(average);
           if (!snapshotTaken) {
             requestAnimationFrame(getVolume);
           }
         };
-
-        getVolume(); // Start monitoring volume
-      })
-      .catch((err) => {
-        console.error("Error accessing webcam/microphone:", err);
-        setError("Error: please allow access to your webcam and microphone");
-      });
-    async function checkPermissions() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: true,
-        });
-        if (stream) {
-          setPermissionsGranted(true);
-          // Release the stream immediately to avoid holding the devices
-          stream.getTracks().forEach((track) => track.stop());
-        }
+  
+        getVolume();
+  
       } catch (err) {
-        navigate("/Error");
-        console.error("Permissions not granted:", err);
+        console.error("Error accessing webcam/microphone:", err);
         setPermissionsGranted(false);
         setError("Error: please allow access to your webcam and microphone");
+        navigate("/Error");
       }
     }
-    checkPermissions();
+  
+    setupMediaDevices();
   }, [snapshotTaken]);
+  
+  
 
   const handleSnapshot = () => {
     if (videoRef.current && canvasRef.current) {
