@@ -77,13 +77,13 @@ const AignosisTeam = () => {
             Advisory Board
           </span>
           <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
-            <MemberCard
+            {/* <MemberCard
               title="Dr. S. Sitaraman"
               subtitle="DIRECTOR & DEVELOPMENTAL NEUROLOGIST"
               desc="Dr. S. Sitaraman is a highly respected developmental paediatrician with over 40 years of experience in child health. As Vice-Chancellor of the Indian College of Pediatrics, he has been instrumental in shaping pediatric care in India."
               src={mem}
               logos={[logo5]}
-            />
+            /> */}
             {/* <MemberCard
               title="Dr. Ramesh Agrawal"
               subtitle="HOD mother & child block, AIIMS Delhi"
