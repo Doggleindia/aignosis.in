@@ -253,7 +253,7 @@ export const FillupPage = () => {
 
       setTestData({
         ...testData,
-        PATIENT_UID: userId.phoneNumber.toString(),
+        PATIENT_UID: JSON.parse(localStorage.getItem("user")).phoneNumber.toString(),
         TRANSACTION_ID: uuidv4(),
       });
     } else {
