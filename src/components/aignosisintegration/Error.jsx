@@ -44,7 +44,7 @@ const Error = () => {
       {/* Thank You Paragraph */}
       <div className="mt-6 max-w-2xl px-6 text-[#F6E8FB] font-raleway">
         <p className="text-lg text-center">
-        We deeply value your presence and sincerely apologize for the inconvenience caused. At Aignosis, your experience is of utmost importance to us, and we strive to ensure a seamless journey. Unfortunately, something went wrong during the process. We kindly request you to go through the process again to complete your task. Rest assured, our team is working diligently to improve and prevent such interruptions in the future. Thank you for your patience and understanding.
+        We sincerely apologize for the inconvenience. At Aignosis, your experience is our priority, and we strive for a seamless process. Something went wrong, and we kindly ask you to try again. Our team is actively working to prevent such issues in the future. Thank you for your patience and understanding.
         </p>
       </div>
       
