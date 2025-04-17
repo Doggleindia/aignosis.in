@@ -235,20 +235,16 @@ export const FillupPage = () => {
   const navigate = useNavigate();
   const { testData, setTestData } = useContext(AppContext);
 
+
   function sanitizePatientUID(patient_uid) {
     return patient_uid.replace(/[^a-zA-Z0-9-]/g, '');
   }
-  
 
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
       console.log(
         "Existing UID found " +
           JSON.parse(localStorage.getItem("user")).phoneNumber
-      );
-
-      var cleanedPhoneNumber = cleanPhoneNumber(
-        JSON.parse(localStorage.getItem("user")).phoneNumber
       );
 
       setTestData({
