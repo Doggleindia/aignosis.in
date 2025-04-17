@@ -6,7 +6,7 @@ import {
   decryptCalibrationData,
 } from "../aignosisintegration/DecryptionUtils";
 
-const API_BASE_URL = "https://prod.aignosismdw.in/rest/";
+const API_BASE_URL = "http://localhost:8000/rest/";
 
 const Profile2 = () => {
   const userId = JSON.parse(localStorage.getItem("user"));
@@ -46,7 +46,7 @@ const Profile2 = () => {
     try {
       const response = await axios
         .post(
-          "https://prod.aignosismdw.in/rest/get_transactions/",
+          "http://localhost:8000/rest/get_transactions/",
           {
             patient_uid: userId.phoneNumber.toString(),
           },

@@ -235,10 +235,10 @@ export const FillupPage = () => {
   const navigate = useNavigate();
   const { testData, setTestData } = useContext(AppContext);
 
-  function cleanPhoneNumber(phone) {
-    return phone.replace(/\D/g, ""); // Removes all non-digit characters
+  function sanitizePatientUID(patient_uid) {
+    return patient_uid.replace(/[^a-zA-Z0-9-]/g, '');
   }
-
+  
 
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
@@ -253,7 +253,7 @@ export const FillupPage = () => {
 
       setTestData({
         ...testData,
-        PATIENT_UID: JSON.parse(localStorage.getItem("user")).phoneNumber.toString(),
+        PATIENT_UID: sanitizePatientUID(JSON.parse(localStorage.getItem("user")).phoneNumber.toString()),
         TRANSACTION_ID: uuidv4(),
       });
     } else {
