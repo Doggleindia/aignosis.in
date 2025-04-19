@@ -218,7 +218,7 @@ const VideoPlayback = () => {
           method: "POST",
           body: formData,
         }
-      );
+      ).catch(error=>console.log('Error sending video data to mdw' + error));
 
       if (response.status === 200) {
         navigate("/thankyou");
