@@ -300,7 +300,7 @@ const Header = () => {
                       <ul className="space-y-2 flex flex-col justify-center items-center">
                         <li>
                           <Link
-                            to="/dashboard"
+                            to="/profile1"
                             onClick={() => handleServiceClick("/service1")}
                             className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
                               }`}
@@ -320,7 +320,7 @@ const Header = () => {
                             Profile
                           </Link> */}
                           <Link
-                            to="/profile1"
+                            to="/dashboard"
                             onClick={() => handleServiceClick("/profile1")}
                             className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
                               }`}
