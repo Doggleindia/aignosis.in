@@ -133,7 +133,7 @@ const Profile2 = () => {
                   name: patientInfo.patientName,
                   dob: patientInfo.patientDOB,
                   takenOn: timestamp,
-                  status: testCompleted ? "Completed" : "Incomplete",
+                  status: testCompleted ? "Completed" : "Retake",
                   aiReport: aiReportAvailable ? "#" : null,
                   psychologistReport: psychologistReportAvailable ? "#" : null,
                 },
