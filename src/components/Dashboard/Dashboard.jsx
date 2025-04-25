@@ -33,7 +33,7 @@ const Dashboard = () => {
         // Fetch the number of tests completed from external API
         const testResponse = await axios.post(
           TEST_API_URL,
-          { patient_uid:userId._id },
+          { patient_uid: userId._id },
           { headers: { "Content-Type": "application/json" } }
         );
 
@@ -204,7 +204,6 @@ const Dashboard = () => {
   const isTestAvailable = numTestsCompleted < totalSessions;
   return (
     <>
-      
       <Header />
       <div className="w-full text-white px-5 md:px-10 py-10 mt-[2vw] font-manrope pt-[8vh] md:pt-[12vh] h-full bg-[#2B1B2D]">
         <div className="w-full h-full md:block hidden">
@@ -376,7 +375,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              {/* {isTestAvailable &&  */}
+                {/* {isTestAvailable &&  */}
                 <div className="mt-5 px-5">
                   <div
                     className="w-full h-[5vw] flex items-center justify-between px-10  mt-4"
@@ -409,9 +408,12 @@ const Dashboard = () => {
                     <div className="flex items-center space-x-8">
                       <button className="text-white font-bold text-xl">
                         {/* {isTestAvailable ? ( */}
-                          <Link to={'/test'} className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
-                            Book Now
-                          </Link>
+                        <Link
+                          to={"/test"}
+                          className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full"
+                        >
+                          Book Now
+                        </Link>
                         {/* ) : (
                           <p className="mt-5 text-gray-400">
                             No available sessions remaining.
@@ -424,7 +426,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              {/* } */}
+                {/* } */}
               </>
             )}
           </div>
@@ -601,7 +603,7 @@ const Dashboard = () => {
                 ))}
               </div>
 
-            {/* {isTestAvailable &&  */}
+              {/* {isTestAvailable &&  */}
               <div className="mt-5 px-3">
                 <div
                   className="w-full h-auto flex flex-col items-start justify-between px-4 py-3 space-y-4 sm:flex-row sm:items-center sm:px-8 sm:py-5"
@@ -633,21 +635,73 @@ const Dashboard = () => {
                   {/* Right Section */}
                   <div className="flex items-center justify-center w-full">
                     {/* {isTestAvailable ? ( */}
-                      <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
-                      <Link to={'/test'}>
-                        Book Now
-                        </Link>
-                      </button>
-                      
-                    
+                    <button className="mt-5 bg-[#811F67] text-white px-6 py-2 rounded-full">
+                      <Link to={"/test"}>Book Now</Link>
+                    </button>
                   </div>
                 </div>
               </div>
-            {/* } */}
+              {/* } */}
             </div>
           )}
         </div>
-        <ServicesCard userId={userId._id} />
+        {/* <ServicesCard userId={userId._id} /> */}
+        <div
+          style={{
+            margin: 30,
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            borderWidth: '1px',
+            borderRadius: 20,
+            borderColor: "#722c7e",
+          }}
+        >
+          <h3
+            className="text-lg md:text-xl font-thin text-white mb-4 p-10"
+            style={{ fontSize: 30, fontWeight: 100, opacity: 1.0 }}
+          >
+            Experience our product
+          </h3>
+
+          <Link to={"/test/fillup"}>
+            <button
+              className="demo-button"
+              style={{
+                borderWidth: "1px",
+                borderColor: "#9C00AD",
+                borderRadius: 20,
+                padding: "10px 20px",
+                backgroundColor: "transparent",
+                width: "30vw",
+                maxWidth: "50vw",
+                height: "5vw",
+                color: "white",
+                position: "relative",
+                overflow: "hidden",
+                transition: "all 0.3s ease",
+                marginBottom: 50,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.05)";
+                e.currentTarget.style.backgroundColor =
+                  "rgba(156, 0, 173, 0.2)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 15px rgba(156, 0, 173, 0.7)";
+                e.currentTarget.style.borderColor = "#D740FF";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "#9C00AD";
+              }}
+            >
+              Take Demo
+            </button>
+          </Link>
+        </div>
         <Sessions />
         {/* <Link
           to={"/prices"}
