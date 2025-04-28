@@ -220,6 +220,11 @@ const VideoPlayback = () => {
         }
       ).catch(error=>console.log('Error sending video data to mdw' + error));
 
+      if (response.status === 413) {
+        console.log("File too large");
+        navigate('/test/fillup')
+      }
+
       if (response.status === 200) {
         navigate("/thankyou");
       } else {
