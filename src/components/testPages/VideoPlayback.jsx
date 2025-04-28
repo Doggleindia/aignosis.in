@@ -31,12 +31,13 @@ const VideoPlayback = () => {
   const startFpsCalculation = () => {
     let lastTime = performance.now();
     let frameCount = 0;
-    
+
     fpsIntervalRef.current = setInterval(() => {
       const currentTime = performance.now();
       const elapsed = currentTime - lastTime;
-      
-      if (elapsed >= 1000) { // Calculate every second
+
+      if (elapsed >= 1000) {
+        // Calculate every second
         const currentFps = Math.round((frameCount * 1000) / elapsed);
         setFps(currentFps);
         frameCount = 0;
@@ -56,8 +57,6 @@ const VideoPlayback = () => {
 
   useEffect(() => {
     window.history.pushState(null, null, window.location.href);
-
-    
 
     console.log("testData is", testData);
 
@@ -90,18 +89,19 @@ const VideoPlayback = () => {
   const calculateFps = () => {
     const now = performance.now();
     frameTimes.current.push(now);
-  
+
     if (frameTimes.current.length > 10) {
       frameTimes.current.shift();
     }
-  
+
     if (frameTimes.current.length > 1) {
       const first = frameTimes.current[0];
       const last = frameTimes.current[frameTimes.current.length - 1];
-      const fpsValue = (frameTimes.current.length - 1) / ((last - first) / 1000);
+      const fpsValue =
+        (frameTimes.current.length - 1) / ((last - first) / 1000);
       setFps(Math.round(fpsValue));
     }
-  
+
     requestAnimationFrame(calculateFps);
   };
   const startWebcamRecording = async () => {
@@ -115,15 +115,22 @@ const VideoPlayback = () => {
         video: {
           width: { ideal: 1920 },
           height: { ideal: 1080 },
-          frameRate: { ideal: 60, min: 30 }
+          frameRate: { ideal: 60, min: 30 },
         },
-        audio: true
+        audio: true,
       });
 
       videoStreamRef.current = stream;
       webcamRef.current.srcObject = stream;
 
-      const mediaRecorder = new MediaRecorder(stream);
+      const options = {
+        mimeType: "video/webm;codecs=vp8",
+        videoBitsPerSecond: 2500000, // 2.5 Mbps - adjust as needed
+        audioBitsPerSecond: 128000, // 128 kbps for audio
+      };
+
+      const mediaRecorder = new MediaRecorder(stream, options);
+
       mediaRecorderRef.current = mediaRecorder;
       recordedChunksRef.current = [];
 
@@ -197,19 +204,23 @@ const VideoPlayback = () => {
         "calibration_encrypted_key",
         testData.calibration_encrypted_key
       );
-      formData.append("encrypted_patient_info", testData.encrypted_patient_info);
+      formData.append(
+        "encrypted_patient_info",
+        testData.encrypted_patient_info
+      );
 
-      console.log("data usage value in video palayback is " + testData.data_usage_consent);
+      console.log(
+        "data usage value in video palayback is " + testData.data_usage_consent
+      );
       formData.append("data_usage_consent", testData.data_usage_consent);
 
-
       console.log("Uploading with FPS:", fps);
-      
+
       formData.append("fps", fps.toString()); // Convert fps to string
       formData.append("videolanguage", testData.videolanguage);
-      
+
       for (let pair of formData.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
+        console.log(pair[0] + ": " + pair[1]);
       }
 
       const response = await fetch(
@@ -218,11 +229,13 @@ const VideoPlayback = () => {
           method: "POST",
           body: formData,
         }
-      ).catch(error=>console.log('Error sending video data to mdw' + error));
+      ).catch((error) =>
+        console.log("Error sending video data to mdw" + error)
+      );
 
       if (response.status === 413) {
         console.log("File too large");
-        navigate('/test/fillup')
+        navigate("/test/fillup");
       }
 
       if (response.status === 200) {
@@ -237,7 +250,7 @@ const VideoPlayback = () => {
       console.error("Error uploading video:", error);
       cleanupMediaStream();
       setIsUploading(false);
-      navigate('/thankyou');
+      navigate("/thankyou");
     }
   };
 
