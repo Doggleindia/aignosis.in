@@ -122,14 +122,8 @@ const VideoPlayback = () => {
 
       videoStreamRef.current = stream;
       webcamRef.current.srcObject = stream;
-
-      const options = {
-        mimeType: "video/webm;codecs=vp8",
-        videoBitsPerSecond: 2500000, // 2.5 Mbps - adjust as needed
-        audioBitsPerSecond: 128000, // 128 kbps for audio
-      };
-
-      const mediaRecorder = new MediaRecorder(stream, options);
+      
+      const mediaRecorder = new MediaRecorder(stream);
 
       mediaRecorderRef.current = mediaRecorder;
       recordedChunksRef.current = [];
