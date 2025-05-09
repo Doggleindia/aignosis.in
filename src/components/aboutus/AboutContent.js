@@ -53,7 +53,7 @@ const AboutContent = {
         {
           sectionTitle: "Challenges with Traditional Diagnosis",
           text: `• Long Wait Times: Many families face delays due to a shortage of specialists.
-                 • Subjectivity: Clinician observations can vary, leading to potential misdiagnoses.
+                 • Subjectivity: Clinician observations can vary, leading to potential misdiagnosis.
                  • Accessibility: Rural areas often lack qualified professionals, making diagnosis difficult.`
         },
         {

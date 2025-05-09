@@ -118,7 +118,7 @@ const AboutUs = () => {
               diagnosis. Working at a child development center, we witnessed how
               much of a difference early intervention could make, but many
               children missed that opportunity. It was frustrating to see kids
-              struggle because of delayed diagnoses.
+              struggle because of delayed diagnosis.
             </span>
             <span className="pt-4 relative">
               That’s when we realized something needed to change. We wanted to
