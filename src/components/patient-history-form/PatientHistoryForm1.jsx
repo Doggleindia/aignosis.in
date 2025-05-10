@@ -117,7 +117,7 @@ const PatientHistoryForm1 = ({ onNext }) => {
         <p style={styles.formDescription}>
           By completing this form, you provide us with insights into medical history,
           developmental milestones, family health patterns, and previous assessments or
-          diagnoses.
+          diagnosis.
         </p>
         <button style={styles.languageButton}>Choose language</button>
         <center>
