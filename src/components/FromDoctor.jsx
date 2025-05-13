@@ -36,7 +36,7 @@ const FromDoctor = () => {
           <div className="w-full h-[25vw] px-[5vw] py-[0vw] gap-14 flex mt-[3vw]" >
             <div className="w-[50%]">
               <img
-                className="object-fill w-[85%] h-[120%]"
+                className="object-fill w-[85%] h-[120%] rounded-xl"
                 src='https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png'
                 alt=""
                 srcset=""
