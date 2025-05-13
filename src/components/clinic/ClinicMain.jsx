@@ -131,7 +131,7 @@ const ClinicMain = () => {
                 Embark on a journey through our narrative, where innovation meets purpose.
               </p>
               <p>Lorem ipsum dolor sit amet consectetur. Sit non diam justo fames. Blandit et purus mollis convallis malesuada egestas risus quam enim. Semper lorem rhoncus et felis tristique tellus volutpat orci. Dui elementum a sed.</p> */}
-                <h2 className='font-bold text-xl'>Accurate Diagnosis at your Clinic.
+                <h2 className='font-bold text-xl'>Accurate Screening at your Clinic.
 
                 </h2>
                 <ul className="mt-4 font-manrope list-disc pl-5">
