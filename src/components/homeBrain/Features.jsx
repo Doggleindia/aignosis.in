@@ -172,7 +172,7 @@ const Features = () => {
               <img className="object-contain w-[300px] h-full" src={img2} alt="" />
             </div>
             <div className="flex flex-col text-white w-full justify-center items-center px-[5vw]">
-              <h4 className="font-bold text-lg mt-4">Accurate Diagnosis</h4>
+              <h4 className="font-bold text-lg mt-4">Accurate Screening</h4>
               <p className="text-[#C4C4C4] text-sm text-center mt-2">
               Backed by experts, you can trust the system for accurate insights into your child’s development 
               </p>

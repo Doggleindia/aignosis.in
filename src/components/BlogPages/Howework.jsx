@@ -23,7 +23,7 @@ const Howework = () => {
 
   const milestones = [
     {
-      title: "Attention Features and Their Statistics That Support Early Diagnosis",
+      title: "Attention Features and Their Statistics That Support Early Screening",
       content:
         "Aignosis is India’s first scalable autism screening tool designed for children aged 2 to 8 years. It aims to identify developmental disorders through a seamless combination of audio-visual prompts and attention-based metrics. Discover the key milestones behind the tool’s development, from the foundational hypothesis to its rigorous testing and validation. Learn how real-world performance data has shaped its evolution.",
       icon: <FaMicroscope />,
@@ -50,7 +50,7 @@ const Howework = () => {
     {
       title: "Real-World Integration",
       content:
-        "To achieve true scalability, Aignosis developmental screening test evolved into a cloud-hosted platform, ensuring seamless integration into real-world settings. The tool’s architecture was optimized to work across varying internet infrastructures, enabling accessibility in urban and rural areas alike. Alongside the screening tool, systems were developed to guide parents and clinicians through the journey of diagnosis, counseling, and therapeutic intervention pathways.",
+        "To achieve true scalability, Aignosis developmental screening test evolved into a cloud-hosted platform, ensuring seamless integration into real-world settings. The tool’s architecture was optimized to work across varying internet infrastructures, enabling accessibility in urban and rural areas alike. Alongside the screening tool, systems were developed to guide parents and clinicians through the journey of screening, counseling, and therapeutic intervention pathways.",
       icon: <FaHistory />,
     },
   ];
