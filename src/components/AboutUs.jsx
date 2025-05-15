@@ -113,12 +113,14 @@ const AboutUs = () => {
           <div className="md:w-[50%] flex flex-col justify-center  max-sm:pt-4 px-4 p-3">
             <span className="font-medium">How it all began</span>
             <span className="pt-4 block">
-              We started Aignosis because, as children of pediatricians, we saw
-              how challenging it was for many kids to get an early autism
-              diagnosis. Working at a child development center, we witnessed how
-              much of a difference early intervention could make, but many
-              children missed that opportunity. It was frustrating to see kids
-              struggle because of delayed diagnoses.
+            With a strong foundation in deep science research and technical expertise in physics, computer science, and AI, 
+            we’ve always believed that healthcare is one of the most meaningful and impactful applications of artificial intelligence. 
+            Coming from a family of doctors, we became acutely aware of the alarming rise in autism prevalence. 
+            During our research at a child development center, 
+            we witnessed the transformative power of early intervention — yet saw too many children missing that critical window. 
+            We also recognized a major gap: the lack of objective, rapid, and scalable methods for autism screening. 
+            This inspired us to create an AI-driven tool for early detection of Autism Spectrum Disorder (ASD), 
+            aiming to be a crucial link in the chain of timely intervention.
             </span>
             <span className="pt-4 relative">
               That’s when we realized something needed to change. We wanted to
