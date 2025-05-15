@@ -29,6 +29,7 @@ import BlogView from "./components/BlogPages/BlogView";
 import WeWork from "./components/BlogPages/WeWork";
 import ClinicMain from "./components/clinic/ClinicMain";
 import Priceplan from "./components/Priceplan";
+import ErrorCameraMicAccess from "./components/aignosisintegration/ErrorCameraMicAccess";
 
 import BrainMain from "./components/homeBrain/BrainMain";
 
@@ -147,6 +148,7 @@ const App = () => {
 
         <Route path='/profile1' element={<Profile1 />} />
         <Route path='/orderhistory' element={<Orderhistory />} />
+        <Route path='/resourcepermissionerror' element={<ErrorCameraMicAccess />} />
 
 
         <Route path='/page1' element={<Page1 />} />

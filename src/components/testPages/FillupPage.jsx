@@ -228,7 +228,7 @@ export const FillupPage = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
   const [dob, setDob] = useState(null);
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [, setAgeYears] = useState("");
   const [, setAgeMonths] = useState("");
   const [, setAgeFullYear] = useState("");
@@ -286,7 +286,7 @@ export const FillupPage = () => {
       !dob ||
       document.getElementById("guardian-pno-input").value == ""
     ) {
-      alert("Please fill all fields and agree to the consent");
+      alert("Please fill all fields");
     } else {
       checkGuardianPnoValidity();
       setTestData({

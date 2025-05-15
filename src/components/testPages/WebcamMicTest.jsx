@@ -42,6 +42,8 @@ const WebcamMicTest = () => {
           if (videoRef.current.paused && !videoRef.current.ended) {
             videoRef.current.play().catch((error) => {
               console.error("Error while trying to play video:", error);
+              // when you move to another tab while the video is playing, it will throw an error
+              navigate('/Error');
             });
           }
         }
@@ -71,7 +73,7 @@ const WebcamMicTest = () => {
         console.error("Error accessing webcam/microphone:", err);
         setPermissionsGranted(false);
         setError("Error: please allow access to your webcam and microphone");
-        navigate("/Error");
+        navigate("/resourcepermissionerror");
       }
     }
   
