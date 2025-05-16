@@ -40,7 +40,7 @@ const Reports = () => {
         <div className="w-full justify-center md:justify-start items-center flex">
           <div className="w-[60vw] max-sm:mt-[11px] max-sm:m-auto md:w-[14rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B740A1] transition-colors duration-300">
             <a
-              href="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/sample+reportss.pdf"
+              href="https://storage.googleapis.com/aignosis_static_assets/Screening-Report/sample_ai_report.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
