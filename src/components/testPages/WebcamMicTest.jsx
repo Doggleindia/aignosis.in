@@ -43,7 +43,6 @@ const WebcamMicTest = () => {
             videoRef.current.play().catch((error) => {
               console.error("Error while trying to play video:", error);
               // when you move to another tab while the video is playing, it will throw an error
-              navigate('/Error');
             });
           }
         }
