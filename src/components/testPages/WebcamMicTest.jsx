@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import CalibrationPage from './CalibrationPage';
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import CalibrationPage from "./CalibrationPage";
+import "./facearea.css";
 
 const WebcamMicTest = () => {
   const videoRef = useRef(null);
@@ -26,19 +27,22 @@ const WebcamMicTest = () => {
   useEffect(() => {
     async function setupMediaDevices() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-  
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: true,
+        });
+
         // ✅ Log resolution
         const videoTrack = stream.getVideoTracks()[0];
         const settings = videoTrack.getSettings();
         console.log(`Resolution: ${settings.width}x${settings.height}`);
-  
+
         setPermissionsGranted(true); // Permissions granted
-  
+
         // ✅ Set video stream
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-  
+
           if (videoRef.current.paused && !videoRef.current.ended) {
             videoRef.current.play().catch((error) => {
               console.error("Error while trying to play video:", error);
@@ -46,28 +50,32 @@ const WebcamMicTest = () => {
             });
           }
         }
-  
+
         // ✅ Setup audio analyser
-        audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-        const audioSource = audioContextRef.current.createMediaStreamSource(stream);
+        audioContextRef.current = new (window.AudioContext ||
+          window.webkitAudioContext)();
+        const audioSource = audioContextRef.current.createMediaStreamSource(
+          stream
+        );
         analyserRef.current = audioContextRef.current.createAnalyser();
         audioSource.connect(analyserRef.current);
-  
+
         analyserRef.current.fftSize = 256;
         const bufferLength = analyserRef.current.frequencyBinCount;
         dataArrayRef.current = new Uint8Array(bufferLength);
-  
+
         const getVolume = () => {
           analyserRef.current.getByteFrequencyData(dataArrayRef.current);
-          const average = dataArrayRef.current.reduce((sum, value) => sum + value, 0) / bufferLength;
+          const average =
+            dataArrayRef.current.reduce((sum, value) => sum + value, 0) /
+            bufferLength;
           setVolume(average);
           if (!snapshotTaken) {
             requestAnimationFrame(getVolume);
           }
         };
-  
+
         getVolume();
-  
       } catch (err) {
         console.error("Error accessing webcam/microphone:", err);
         setPermissionsGranted(false);
@@ -75,11 +83,20 @@ const WebcamMicTest = () => {
         navigate("/resourcepermissionerror");
       }
     }
-  
+
     setupMediaDevices();
   }, [snapshotTaken]);
-  
-  
+
+  const silhouette = useMemo(
+    () => (
+      <img
+        src="src/assets/aignoisiai/sil.png"
+        className="absolute left-1/2 w-[130%] h-[130%] object-contain z-20 opacity-60 pointer-events-none -translate-x-1/2 translate-y-[20%] scale-150"
+        alt="Silhouette"
+      />
+    ),
+    []
+  );
 
   const handleSnapshot = () => {
     if (videoRef.current && canvasRef.current) {
@@ -111,7 +128,7 @@ const WebcamMicTest = () => {
     <>
       {!isCalVisible ? (
         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-          <div className="w-[900px] max-sm:w-[90vw] h-[600px] mt-[6px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-6 relative border border-[#5F1B73]">
+          <div className="w-[900px] max-sm:w-[90vw] h-[650px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-3 relative border border-[#5F1B73]">
             {/* Ai.gnosis Branding */}
             <div className="text-4xl font-bold text-[#1A0C25] relative mb-2">
               <span className="z-10 font-montserrat">Ai.gnosis</span>
@@ -126,7 +143,7 @@ const WebcamMicTest = () => {
             </h2>
 
             {/* Webcam Preview or Snapshot Display */}
-            <div className="w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
+            {/* <div className="w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
               {snapshotTaken ? (
                 <img
                   src={snapshot}
@@ -141,10 +158,37 @@ const WebcamMicTest = () => {
                   style={{ maxWidth: "500px", maxHeight: "300px" }}
                 ></video>
               )}
+            </div> */}
+
+            <div className="relative w-[500px] max-sm:w-[85vw] h-[300px] bg-[#D9D9D9] rounded-lg flex items-center justify-center overflow-hidden">
+              {!snapshotTaken && (
+                <div className="face-area">
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    className="absolute inset-0 w-full h-full object-cover rounded-lg z-10"
+                  />
+                </div>
+              )}
+
+              {/* Silhouette overlay */}
+              {/* {!snapshotTaken && silhouette} */}
+
+              {/* Show snapshot after it’s taken */}
+              {snapshotTaken && snapshot && (
+                <img
+                  src={snapshot}
+                  alt="Snapshot"
+                  className="absolute inset-0 w-full h-full object-cover rounded-lg z-30"
+                />
+              )}
             </div>
 
             {/* Canvas for snapshot */}
             <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+
+            <div className="text-center mt-4" style={{color: 'red'}}>Please adjust your distance from the camera until your face fills the oval region</div>
 
             {/* Buttons */}
             {!snapshotTaken ? (

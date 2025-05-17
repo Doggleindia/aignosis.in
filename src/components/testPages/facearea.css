@@ -1,0 +1,77 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face-area {
+  width: 80%; /* This is the bounding box for the ellipse */
+  height: 80%; /* This is the bounding box for the ellipse */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* The magic happens here: clip the div into an oval */
+  /* For a vertical ellipse, the height radius should be larger than the width radius */
+  -webkit-clip-path: ellipse(25% 50% at 50% 50%);
+  clip-path: ellipse(25% 50% at 50% 50%);
+
+  /* If you want a border around the oval that is inside the white area */
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Style for the video/image inside the oval */
+.face-area video,
+.face-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay for the "white" outside effect */
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  mix-blend-mode: screen;
+  /* Adjust the radial-gradient to match the vertical ellipse shape */
+  -webkit-mask-image: radial-gradient(
+    ellipse 25% 50% at 50% 50%,
+    transparent 60%,
+    black 61%
+  );
+  mask-image: radial-gradient(
+    ellipse 25% 50% at 50% 50%,
+    transparent 60%,
+    black 61%
+  );
+}
+
+/* You might want an oval border on top if the above makes the border disappear */
+.oval-border {
+  position: absolute;
+  width: 80%; /* Match .face-area width */
+  height: 80%; /* Match .face-area height */
+  border: 2px solid dodgerblue; /* Your desired border color */
+  /* For a vertical ellipse border, use specific border-radius values or `border-radius: 50% / 45%;` for fine-tuning */
+  /* Using 50% will create a perfect circle if width and height are equal.
+     To truly match the ellipse, you would ideally apply the same clip-path or adjust border-radius.
+     For simplicity and consistency with the clip-path, let's make it an ellipse. */
+  border-radius: 25% / 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-sizing: border-box;
+}
