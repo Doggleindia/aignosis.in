@@ -1336,7 +1336,7 @@ const DogCalibration = () => {
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
+          video: { deviceId: testData.deviceId ? { exact: testData.deviceId } : true, },
         });
         videoRef.current.srcObject = stream;
 

@@ -20,118 +20,37 @@
 //       fact:
 //         "Accepting autism means recognizing that different ways of thinking are not deficits, but different kinds of strengths — early support helps these strengths shine brighter.",
 //     },
-
 //     {
 //       fact:
 //         "Early detection empowers growth, and acceptance empowers belonging — together, they reveal the unique brilliance each autistic individual brings to the world.",
 //     },
-
-//     {
-//       fact:
-//         "Autistic brains are wired differently, not incorrectly. Studies show autistic people often have stronger connections in some brain regions and weaker ones in others.",
-//     },
-//     {
-//       fact:
-//         "Many autistic individuals have exceptional abilities in areas like mathematics, music, art, or memory — called 'savant skills.'",
-//     },
-//     {
-//       fact:
-//         "Autism is a spectrum — no two autistic people are the same. Some need a lot of support, while others live completely independent lives.",
-//     },
-//     {
-//       fact:
-//         "Early signs of autism can appear as early as 12 to 18 months of age, often noticed through differences in eye contact, gestures, or speech.",
-//     },
-//     {
-//       fact:
-//         "Early detection of autism is crucial. Identifying autism early allows for the implementation of early interventions, which can significantly improve a child's development in language, social skills, and behavior.",
-//     },
-//     {
-//       fact:
-//         "Research has shown that **early intervention** can help children with autism develop better cognitive, social, and communication skills compared to those who receive support later.",
-//     },
-//     {
-//       fact:
-//         "Screening for autism is important because it can help identify children who might be at risk. This allows for timely access to support and resources, reducing the potential for developmental delays.",
-//     },
-//     {
-//       fact:
-//         "Autistic people can experience sensory input differently — for example, lights might seem painfully bright, or soft sounds might feel overwhelming.",
-//     },
-//     {
-//       fact:
-//         "The rate of autism diagnosis has increased, not because more people are becoming autistic, but because awareness and diagnostic methods have improved.",
-//     },
-//     {
-//       fact:
-//         "Girls with autism are often underdiagnosed because they can be better at 'masking' or copying social behaviors.",
-//     },
-//     {
-//       fact:
-//         "Many autistic adults were never diagnosed as children and only discover their autism later in life.",
-//     },
-//     {
-//       fact:
-//         "Autism has a strong genetic link — if one identical twin is autistic, the other twin has a very high chance (up to 90%) of being autistic too.",
-//     },
-//     {
-//       fact:
-//         "Routine and predictability often help autistic people feel safe — sudden changes can cause intense stress or anxiety.",
-//     },
-//     {
-//       fact:
-//         "Many autistic people have very intense 'special interests' — areas they are deeply passionate about, often leading to expertise in that field.",
-//     },
-//     {
-//       fact:
-//         "Autistic individuals can communicate in many ways, not just through speech — gestures, writing, typing, or even pictures can be powerful communication tools.",
-//     },
-//     {
-//       fact:
-//         "Self-stimulatory behaviors ('stimming') like hand-flapping, rocking, or repeating words help autistic people regulate their emotions and sensory input.",
-//     },
-//     {
-//       fact:
-//         "Autism is not caused by bad parenting, vaccines, or external factors — these are myths. Scientific studies consistently show autism is neurological and developmental.",
-//     },
-//     {
-//       fact:
-//         "The Neurodiversity movement views autism as a natural variation of the human mind — not a disease to be 'cured,' but a different way of experiencing the world.",
-//     },
-//     {
-//       fact:
-//         "Detecting autism early can improve the quality of life for children and families, as early treatment may reduce the need for extensive support later in life.",
-//     },
-//     {
-//       fact:
-//         "There is growing support for universal autism screening during pediatric checkups, as this can lead to earlier diagnoses and better long-term outcomes.",
-//     },
+//     // ... other facts remain the same
 //   ];
 
 //   const location = useLocation();
 //   const navigate = useNavigate();
 //   const videoRef = useRef(null);
 //   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-//   const [, setIsVideoPlaying] = useState(false);
+//   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 //   const [isVideoEnded, setIsVideoEnded] = useState(false);
 //   const [hasStartedOnce, setHasStartedOnce] = useState(false);
 //   const [isRecording, setIsRecording] = useState(false);
-//   const [, setIsUploading] = useState(false);
-//   const [isLoading, setIsLoading] = useState(false); // State for managing loading spinner
+//   const [isUploading, setIsUploading] = useState(false);
+//   const [isLoading, setIsLoading] = useState(false);
 
 //   // Effect for cycling through autism facts during loading state
 //   useEffect(() => {
+//     console.log('Video playback entry testData is', testData)
 //     if (isLoading) {
 //       const factInterval = setInterval(() => {
 //         setFactIndex((prevIndex) => (prevIndex + 1) % autismFacts.length);
-//       }, newFactInterval); // Change fact every 7 seconds
+//       }, newFactInterval);
 
-//       return () => clearInterval(factInterval); // Cleanup on unmount
+//       return () => clearInterval(factInterval);
 //     }
 //   }, [isLoading]);
 
 //   const webcamRef = useRef(null);
-//   // const calibrationVideoRef = useRef(null);
 //   const mediaRecorderRef = useRef(null);
 //   const recordedChunksRef = useRef([]);
 //   const videoStreamRef = useRef(null);
@@ -151,17 +70,15 @@
 //       const elapsed = currentTime - lastTime;
 
 //       if (elapsed >= 1000) {
-//         // Calculate every second
 //         const currentFps = Math.round((frameCount * 1000) / elapsed);
 //         setFps(currentFps);
 //         frameCount = 0;
 //         lastTime = currentTime;
 //       }
 //       frameCount++;
-//     }, 1000 / 60); // Run at 60Hz
+//     }, 1000 / 60);
 //   };
 
-//   // Stop FPS calculation
 //   const stopFpsCalculation = () => {
 //     if (fpsIntervalRef.current) {
 //       clearInterval(fpsIntervalRef.current);
@@ -216,32 +133,12 @@
 //       recordedChunksRef.current = [];
 //     }
 //   };
-//   // const calculateFps = () => {
-//   //   const now = performance.now();
-//   //   frameTimes.current.push(now);
 
-//   //   if (frameTimes.current.length > 10) {
-//   //     frameTimes.current.shift();
-//   //   }
-
-//   //   if (frameTimes.current.length > 1) {
-//   //     const first = frameTimes.current[0];
-//   //     const last = frameTimes.current[frameTimes.current.length - 1];
-//   //     const fpsValue = (frameTimes.current.length - 1) / ((last - first) / 1000);
-//   //     setFps(Math.round(fpsValue));
-//   //   }
-
-//   //   requestAnimationFrame(calculateFps);
-//   // };
 //   const startWebcamRecording = async () => {
 //     try {
-//       // const stream = await navigator.mediaDevices.getUserMedia({
-//       //   video: true,
-//       //   audio: false,
-//       // });
-
 //       const stream = await navigator.mediaDevices.getUserMedia({
 //         video: {
+//           deviceId: testData.deviceId ? { exact: testData.deviceId } : "default",
 //           width: { ideal: 1920 },
 //           height: { ideal: 1080 },
 //           frameRate: { ideal: 60, min: 30 },
@@ -265,7 +162,7 @@
 
 //       mediaRecorder.start(1000);
 //       setIsRecording(true);
-//       startFpsCalculation(); // Start FPS calculation when recording begins
+//       startFpsCalculation();
 //     } catch (error) {
 //       console.error("Error accessing webcam:", error);
 //       alert(
@@ -275,11 +172,10 @@
 //   };
 
 //   const uploadRecording = async (blob) => {
-//     setIsLoading(true); // Show spinner
-//     stopFpsCalculation(); // Stop FPS calculation before upload
+//     setIsLoading(true); // Show spinner first
+//     stopFpsCalculation();
 
 //     try {
-//       setIsLoading(true); // Show spinner
 //       setIsUploading(true);
 
 //       const videoAesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
@@ -320,41 +216,35 @@
 //       );
 //       formData.append("patient_uid", testData.PATIENT_UID);
 //       formData.append("transaction_id", testData.TRANSACTION_ID);
-//       formData.append("fps", fps.toString()); // Convert fps to string
+//       formData.append("fps", fps.toString());
 //       formData.append("videolanguage", testData.videolanguage);
-
-//       // for (let pair of formData.entries()) {
-//       //   console.log(pair[0] + ": " + pair[1]);
-//       // }
 
 //       await fetch(SERVER_MIDDLEWARE_ENDPOINT + "/rest/test/video_data/", {
 //         method: "POST",
 //         body: formData,
 //       })
 //         .then((response) => {
-//           setIsLoading(false);
 //           if (!response.ok) {
 //             navigate("/Error");
-//             // throw new Error("Network response was not ok");
 //           } else {
-//             setIsLoading(false); // Show spinner
-//             // navigate("/thankyou");
+//             // Keep loading until we navigate
+//             setIsLoading(false);
+//             navigate("/thankyou");
 //           }
 //           return response.json();
 //         })
 //         .catch((err) => {
+//           console.error("Error in video save response:", err);
 //           navigate("/Error");
-//           // throw new Error("Video save response was not ok" + err);
 //         });
 
 //       cleanupMediaStream();
 //       setIsUploading(false);
 //     } catch (error) {
 //       console.error("Error uploading video:", error);
-
 //       cleanupMediaStream();
 //       setIsUploading(false);
-//       setIsLoading(false); // Show spinner
+//       setIsLoading(false);
 //       navigate("/Error");
 //     }
 //   };
@@ -381,21 +271,26 @@
 
 //   const stopRecording = () => {
 //     if (
-//       mediaRecorderRef.current &&
-//       (mediaRecorderRef.current.state === "recording" ||
-//         mediaRecorderRef.current.state === "paused")
+//       !mediaRecorderRef.current ||
+//       (mediaRecorderRef.current.state !== "recording" &&
+//         mediaRecorderRef.current.state !== "paused")
 //     ) {
-//       mediaRecorderRef.current.stop();
-//       setIsRecording(false);
-
-//       mediaRecorderRef.current.onstop = () => {
-//         const blob = new Blob(recordedChunksRef.current, {
-//           type: "video/webm",
-//         });
-
-//         uploadRecording(blob);
-//       };
+//       return;
 //     }
+
+//     // Set loading state immediately when stopping recording
+//     setIsLoading(true);
+
+//     mediaRecorderRef.current.stop();
+//     setIsRecording(false);
+
+//     mediaRecorderRef.current.onstop = () => {
+//       const blob = new Blob(recordedChunksRef.current, {
+//         type: "video/webm",
+//       });
+
+//       uploadRecording(blob);
+//     };
 //   };
 
 //   const handleVideoLoadedData = () => {
@@ -436,30 +331,13 @@
 
 //   const handleVideoEnd = async () => {
 //     setIsVideoEnded(true);
+//     // Set loading state before stopping recording
+//     setIsLoading(true);
 //     stopRecording();
 //   };
 
 //   return (
 //     <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
-//       {/* <video ref={webcamRef} autoPlay playsInline muted className="hidden" />
-//       <video
-//         ref={videoRef}
-//         src={
-//           testData.videolanguage === "English"
-//             ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V7.mp4"
-//             : testData.videolanguage === "Hindi"
-//             ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
-//             : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
-//         }
-//         controls
-//         autoPlay={false}
-//         className="w-full h-full object-cover"
-//         onLoadedData={handleVideoLoadedData}
-//         onPlay={handleVideoPlay}
-//         onPause={handleVideoPause}
-//         onEnded={handleVideoEnd}
-//         style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
-//       /> */}
 //       <video ref={webcamRef} autoPlay playsInline muted className="hidden" />
 
 //       <VideoPlayer
@@ -480,100 +358,55 @@
 //           {isRecording ? "Recording" : "Not Recording"}
 //         </span>
 //       </div>
+
 //       {isLoading && (
 //         <div
 //           className="absolute inset-0 flex flex-col justify-center items-center"
 //           style={{
-//             backgroundColor: "rgba(0, 0, 0, 0.7)",
+//             backgroundColor: "white",
 //             zIndex: 50,
+//             border: "0px solid blue",
 //           }}
 //         >
-//           <MoonLoader color="#ffffff" size={15} />
-//           <p
-//             className="mt-4"
+//           <div
 //             style={{
-//               position: "absolute",
-//               top: "50%",
-//               left: "50%",
-//               transform: "translate(-50%, -50%)",
-//               backgroundColor: "rgba(138, 0, 194, 0.6)",
-//               color: "white",
-//               padding: "12px 24px",
-//               borderRadius: "25px",
-//               fontSize: "32px",
-//               fontWeight: "bold",
+//               display: "flex",
+//               flex: 1.5,
+//               border: "0px solid red",
+//               alignItems: "end",
 //             }}
 //           >
-//             Loading
-//           </p>
-//         </div>
-//         // <div
-//         //   style={{
-//         //     display: "flex",
-//         //     flex: 1,
-//         //     flexDirection: "column",
-//         //     alignItems: "center",
-//         //     border: "2px solid red",
-//         //     justifyContent: "center",
-//         //     height: "100%",
-//         //     backgroundColor: "white",
-//         //   }}
-//         // >
-//         //   <div
-//         //     style={{
-//         //       display: "flex",
-//         //       alignItems: "end",
-//         //       flex: 1,
-//         //       border: "0px solid green",
-//         //       marginTop: 200,
-//         //     }}
-//         //   >
-//         //     <MoonLoader color="#9a0ea9" />
-//         //   </div>
-//         //   <div
-//         //     style={{
-//         //       display: "flex",
-//         //       border: "0px solid green",
-//         //       marginTop: 20,
-//         //       marginBottom: 100,
-//         //       fontWeight: 200,
-//         //       color: "#9a0ea9",
-//         //       fontSize: 30,
-//         //     }}
-//         //   >
-//         //     Please wait calibrating...
-//         //   </div>
-//         //   <div
-//         //     style={{
-//         //       display: "flex",
-//         //       alignItems: "end",
-//         //       flex: 1,
-//         //       border: "0px solid green",
-//         //       textAlign: "center",
-//         //       marginBottom: 100,
-//         //       color: "#9a0ea9",
-//         //       maxWidth: "80%",
-//         //     }}
-//         //   >
-//         //     {autismFacts[factIndex].fact}
-//         //   </div>
-//         // </div>
-//       )}
+//             <MoonLoader color="#9a0ea9" />
+//           </div>
+//           <div
+//             style={{
+//               display: "flex",
+//               flex: 1,
+//               border: "0px solid green",
+//               fontWeight: 200,
+//               color: "#9a0ea9",
+//               fontSize: 30,
+//               alignItems: "center",
+//             }}
+//           >
+//             Processing your data, please do not close this tab.
+//           </div>
 
-//       {/* <div className="absolute bottom-10">
-//         {isVideoEnded ? (
-//           <button
-//             onClick={() => {
-//               window.location.replace("/thankyou");
+//           <div
+//             style={{
+//               display: "flex",
+//               flex: 0.8,
+//               alignItems: "center",
+//               border: "0px solid green",
+//               textAlign: "center",
+//               color: "#9a0ea9",
+//               maxWidth: "80%",
 //             }}
-//             className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
 //           >
-//             Next
-//           </button>
-//         ) : (
-//           <p className="text-white text-3xl">Please watch the video</p>
-//         )}
-//       </div> */}
+//             {autismFacts[factIndex].fact}
+//           </div>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
@@ -622,6 +455,7 @@ const VideoPlayback = () => {
 
   // Effect for cycling through autism facts during loading state
   useEffect(() => {
+    console.log('Video playback entry testData is', testData)
     if (isLoading) {
       const factInterval = setInterval(() => {
         setFactIndex((prevIndex) => (prevIndex + 1) % autismFacts.length);
@@ -719,6 +553,7 @@ const VideoPlayback = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
+          deviceId: testData.deviceId ? { exact: testData.deviceId } : "default",
           width: { ideal: 1920 },
           height: { ideal: 1080 },
           frameRate: { ideal: 60, min: 30 },
