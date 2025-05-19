@@ -177,7 +177,7 @@ const ClinicMain = () => {
                 <ul className="mt-4 font-manrope list-disc pl-5">
                   <li>Interactive and child-friendly screening videos ensure high cooperation rates with the child getting screened without even knowing.</li>
                   <li>Non-invasive, stress-free process for both children and parents.</li>
-                  <li>No need for detailed, expensive diagnosis.</li>
+                  <li>No need for detailed, expensive screening.</li>
                 </ul>
 
               </div>
