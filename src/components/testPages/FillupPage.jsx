@@ -338,7 +338,7 @@ export const FillupPage = () => {
                 <div className="flex flex-col space-y-4 max-w-sm">
                   <p className="text-white font-manrope text-center text-2xl">
                     Please take the assessment to{" "}
-                    <span className="text-left">begin with diagnosis</span>
+                    <span className="text-left">begin with screening</span>
                   </p>
                   <p className="text-[#FFFFFF] font-raleway text-sm px-4 py-2 text-center">
                     Assessment duration: 5 mins
