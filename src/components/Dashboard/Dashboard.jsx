@@ -20,7 +20,7 @@ const Dashboard = () => {
   const authToken = localStorage.getItem("authToken");
   const TEST_API_URL = "https://de.aignosismdw.in/rest/get_num_tests_used/";
   const [profiles, setProfiles] = useState([]);
-  console.log(userId, "userid");
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
