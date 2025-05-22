@@ -92,7 +92,7 @@ const ServicePage5 = () => {
 
     return (
         <>
-        <Newnavbar/>
+        {/*<Newnavbar />*/}
         <SEO
         pageTitle={"AI Autism Diagnosis & Special Education Support | Aignosis"}
         canonicalUrl={"https://aignosis.in/special-education"}

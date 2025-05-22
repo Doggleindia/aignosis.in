@@ -3,14 +3,14 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import HeroSection from './home/HeroSection';
 import Header from './Header';
-import Newnavbar from './Newnavbar';
+// import Newnavbar from './Newnavbar';
 
 const Homepage = () => {
    
 
     return (
         <>
-            <Newnavbar/>
+            {/*<Newnavbar />*/}
             <Header />
             {/* Hero Section */}
             <HeroSection />

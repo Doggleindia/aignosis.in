@@ -1626,7 +1626,7 @@ const AboutContent = {
         },
         {
           sectionTitle: "Statistics on Autism in India",
-          text: "The prevalence of Autism in India has been steadily increasing. According to a 2021 study published in the Indian Journal of Pediatrics:\n\n- The estimated prevalence of Autism in India is around 1 in 68 children.\n- Boys are more commonly affected by Autism than girls, with a male-to-female ratio of approximately 3:1.\n- Early diagnosis and intervention is still inadequate, with many children not receiving the necessary support at the right time. At times, parents lack the necessary knowledge and information on Autism, its potential impacts and available intervention and support measures. Early detection is the key to enabling children with ASD to lead a productive life.",
+          text: "The prevalence of Autism in India has been steadily increasing. According to a 2021 study published in the Indian Journal of Pediatrics:\n\n- The estimated prevalence of Autism in India is around 1 in 36 children.\n- Boys are more commonly affected by Autism than girls, with a male-to-female ratio of approximately 3:1.\n- Early diagnosis and intervention is still inadequate, with many children not receiving the necessary support at the right time. At times, parents lack the necessary knowledge and information on Autism, its potential impacts and available intervention and support measures. Early detection is the key to enabling children with ASD to lead a productive life.",
         },
         {
           sectionTitle: "The Importance of Early Detection",

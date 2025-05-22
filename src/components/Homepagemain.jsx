@@ -6,7 +6,7 @@ import ContactPage from "./ContactPage";
 import WhatsAppButton from "./WhatsAppButton";
 import BlogFooter from "./BlogPages/BlogFooter";
 import SEO from "./config/Seo";
-import Offer from "./Offer";
+// import Offer from "./Offer";
 import Newnavbar from "./Newnavbar";
 import Flyer from "./Flyer";
 const Homepagemain = () => {
@@ -21,7 +21,7 @@ const Homepagemain = () => {
 
       <div className="bg-[#1A0C25] overflow-x-hidden">
         <Homepage />
-        <Offer/>
+        {/* <Offer/> */}
         <WhatsAppButton />
         {/* <Laptop /> */}
         <ContactPage />

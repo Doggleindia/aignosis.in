@@ -10,7 +10,7 @@ import Newnavbar from '../Newnavbar'
 const CareerPage = () => {
   return (
     < >
-    <Newnavbar/>
+    {/*<Newnavbar />*/}
       <Header/>
       <Heading/>
       <Benefits/>

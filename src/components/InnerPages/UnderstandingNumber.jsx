@@ -114,7 +114,7 @@ const UnderstandingNumber = () => {
         <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] text-4xl italic max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
           <h1 className="text-[#F6E8FB] font-raleway italic">
             <span className="text-[#F6E8FB] italic font-raleway font-semibold text-4xl max-sm:text-2xl">
-              1 in 68{' '}
+              1 in 36{' '}
             </span>{' '}
             children are autistic in India
           </h1>

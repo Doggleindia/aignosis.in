@@ -95,7 +95,7 @@ const UnderStandingNumber = () => {
 
                 />
                 <Card
-                    title="1 in 68"
+                    title="1 in 36"
                     subtitle="children are autistic in India"
                     description="Autism awareness and early detection can make a difference."
 

@@ -12,7 +12,7 @@ import Newnavbar from '../Newnavbar'
 const PriceMain = () => {
   return (
     <>
-    <Newnavbar/>
+    {/*<Newnavbar />*/}
     <div className='bg-[#1A0C25]'>
         <Header/>
         <ChoosePlan />

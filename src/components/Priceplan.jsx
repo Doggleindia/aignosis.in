@@ -25,7 +25,7 @@ const Priceplan = () => {
 
   return (
     <>
-    <Newnavbar/>
+    {/*<Newnavbar />*/}
    <SEO
    canonicalUrl={"https://aignosis.in/prices"}
    metaDescription={"Check out Aignosis' competitive pricing for autism assessments, psychological evaluations, and specialized care solutions. Affordable services for parents."}

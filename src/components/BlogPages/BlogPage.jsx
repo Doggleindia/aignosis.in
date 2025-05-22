@@ -44,7 +44,7 @@ const BlogPage = () => {
 
   return (
     <>
-    <Newnavbar/>
+    {/*<Newnavbar />*/}
     <SEO
     canonicalUrl={'https://aignosis.in/blog'}
     metaDescription={'Stay updated with the latest insights on autism, AI-powered assessments, and special education. Explore expert articles on Aignosis Blog for valuable knowledge.'}
