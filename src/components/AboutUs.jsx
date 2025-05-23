@@ -82,7 +82,7 @@ const AboutUs = () => {
           <Divider
             title="About Us"
             desc=" Working together for a brighter future."
-            subtitle=" Ai.gnosis – Empowering Early Detection"
+            subtitle=" Aignosis – Empowering Early Detection"
           />
         </div>
         <div className="relative mt-[3vw] flex justify-center gap-6 max-sm:flex-col max-sm:p-4">

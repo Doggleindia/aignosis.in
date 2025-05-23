@@ -39,7 +39,7 @@ const AignosisTeam = () => {
       <div className="min-h-auto mx-8 my-8 mt-[8vw] flex flex-col rounded-2xl border border-solid border-white border-opacity-10 bg-gray-800 bg-opacity-30 py-[5vw] max-sm:mx-2">
         <Divider
           title="Our Project team"
-          subtitle="The Minds Behind Ai.gnosis"
+          subtitle="The Minds Behind Aignosis"
           desc={
             <>
               At Aignosis, we are driven by the vision to revolutionize early detection of neurodevelopmental disorders

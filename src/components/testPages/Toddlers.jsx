@@ -22,7 +22,7 @@ const Toddlers = () => {
                   <div className="relative ml-[40%] inline-block items-center justify-center">
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
                     <Link to="/" className="relative z-10 text-3xl font-semibold tracking-wide text-white">
-                      Ai.gnosis
+                      Aignosis
                     </Link>
                   </div>
                   <div className="px-[1vw]">
@@ -32,7 +32,7 @@ const Toddlers = () => {
                       unique background and health journey.
                     </p>
                     <p className="mt-[2vw] font-montserrat text-white">
-                      This information is critical for our AI-powered tools at Ai.gnosis to generate accurate insights
+                      This information is critical for our AI-powered tools at Aignosis to generate accurate insights
                       and recommend personalized next steps for supporting your child. Rest assured, all data is handled
                       with the utmost confidentiality and care, enabling us to create a comprehensive support plan
                       tailored to your needs

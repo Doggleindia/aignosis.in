@@ -88,7 +88,7 @@ const Awards = () => {
         </div>
         <div className="mx-auto mt-[2vw] flex items-center justify-center md:w-[800px]">
           <p className="mt-4 text-center text-base font-light leading-5 text-[#F6E8FB] md:mt-8 md:leading-[1.2vw]">
-            AI.Gnosis is backed by renowned organizations, medical experts, and technology pioneers committed to
+            Aignosis is backed by renowned organizations, medical experts, and technology pioneers committed to
             advancing early autism detection and intervention worldwide."
           </p>
         </div>

@@ -350,7 +350,7 @@ const ServicePage4 = () => {
                     <thead>
                       <tr>
                         <th className="border-r border-[#F6E8FB80] pb-4 text-center text-lg"> </th>
-                        <th className="2xl:text-sm p-[2vw] pb-4 text-center md:text-xs">Ai.gnosis</th>
+                        <th className="2xl:text-sm p-[2vw] pb-4 text-center md:text-xs">Aignosis</th>
                       </tr>
                     </thead>
                     <tbody className="2xl:text-base text-center md:text-sm">

@@ -198,7 +198,7 @@ const CustomerLove = () => {
               onClick={() => handleLinkClick('/')}
               className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white md:text-xl"
             >
-              Ai.gnosis
+              Aignosis
             </Link>
           </div>
           <p className="mt-2 text-lg font-semibold text-yellow-400">4.9 ⭐⭐⭐⭐⭐</p>

@@ -21,7 +21,7 @@ function BackgroundInformationForm() {
               {/* Logo with Gradient Background */}
               <div className="relative ml-[60px] inline-block">
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
-                <span className="relative z-10 text-4xl font-semibold tracking-wide text-white">Ai.gnosis</span>
+                <span className="relative z-10 text-4xl font-semibold tracking-wide text-white">Aignosis</span>
               </div>
 
               {/* Assessment Text */}
@@ -30,7 +30,7 @@ function BackgroundInformationForm() {
                 <p className="py-2 text-left font-raleway text-sm text-[#FFFFFF]">
                   Our Patient History form gathers essential information to better understand each individual's unique
                   background and health journey. <br /> <br />
-                  This information is critical for our AI-powered tools at Ai.gnosis to generate accurate insights and
+                  This information is critical for our AI-powered tools at Aignosis to generate accurate insights and
                   recommend personalized next steps for supporting your child. Rest assured, all data is handled with
                   the utmost confidentiality and care, enabling us to create a comprehensive support plan tailored to
                   your needs

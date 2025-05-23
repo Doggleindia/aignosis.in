@@ -623,7 +623,7 @@ const CARS = () => {
 
       <div style={styles.sidebar}>
         <center>
-          <h1 style={styles.logo}>Ai.gnosis</h1>
+          <h1 style={styles.logo}>Aignosis</h1>
           <div style={styles.sidebarContent}>
             <h2 style={styles.sidebarTitle}>CARS</h2>
             <p style={styles.sidebarDescription}>

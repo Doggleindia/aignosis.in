@@ -160,9 +160,9 @@
 //       {!isCalVisible ? (
 //         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
 //           <div className="w-[900px] max-sm:w-[90vw] h-[650px] bg-[#FDF9FF] rounded-3xl shadow-lg flex flex-col items-center p-8 space-y-3 relative border border-[#5F1B73]">
-//             {/* Ai.gnosis Branding */}
+//             {/* Aignosis Branding */}
 //             <div className="text-4xl font-bold text-[#1A0C25] relative mb-2">
-//               <span className="z-10 font-montserrat">Ai.gnosis</span>
+//               <span className="z-10 font-montserrat">Aignosis</span>
 //               <div className="absolute inset-0 flex justify-center items-center z-0">
 //                 <div className="w-[150px] h-[100px] bg-gradient-to-r from-purple-400 to-pink-500 rounded-full blur-2xl opacity-70"></div>
 //               </div>
@@ -464,9 +464,9 @@ const WebcamMicTest = () => {
       {!isCalVisible ? (
         <div className="flex min-h-screen flex-col items-center justify-center bg-[#1A0C25]">
           <div className="relative flex h-[650px] w-[900px] flex-col items-center space-y-3 rounded-3xl border border-[#5F1B73] bg-[#FDF9FF] p-8 shadow-lg max-sm:w-[90vw]">
-            {/* Ai.gnosis Branding */}
+            {/* Aignosis Branding */}
             <div className="relative mb-2 text-4xl font-bold text-[#1A0C25]">
-              <span className="z-10 font-montserrat">Ai.gnosis</span>
+              <span className="z-10 font-montserrat">Aignosis</span>
               <div className="absolute inset-0 z-0 flex items-center justify-center">
                 <div className="h-[100px] w-[150px] rounded-full bg-gradient-to-r from-purple-400 to-pink-500 opacity-70 blur-2xl"></div>
               </div>

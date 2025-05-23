@@ -12,7 +12,7 @@ const ContactServicePage = () => {
           <div className="flex h-[15vw] w-full flex-col items-center justify-center">
             <div className="bg-[#1A0C25]">
               <span className="2xl:text-7xl text-center text-3xl font-semibold leading-[3rem] max-sm:pb-[76px] md:text-5xl">
-                Get in Touch with Ai.gnosis
+                Get in Touch with Aignosis
               </span>
             </div>
             <div className="px-[5vw]">

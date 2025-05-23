@@ -93,7 +93,7 @@ const ContactPage = () => {
           <div className="flex h-[15vw] w-full flex-col items-center justify-center max-sm:h-[50vw]">
             <div>
               <span className="2xl:text-7xl text-center font-semibold leading-[3rem] max-sm:text-2xl md:text-5xl">
-                Get in Touch with Ai.gnosis
+                Get in Touch with Aignosis
               </span>
             </div>
             <div className="px-[5vw]">

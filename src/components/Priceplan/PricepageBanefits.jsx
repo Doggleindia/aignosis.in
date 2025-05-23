@@ -103,7 +103,7 @@ const PricepageBenefits = () => {
         {/* Divider Section */}
         <Divider title="Advantages" />
         <h5 className="2xl:text-5xl w-full text-center font-montserrat text-2xl font-semibold tracking-tight text-[#F6E8FB] max-sm:text-center md:text-3xl">
-          Benefits of Ai.gnosis
+          Benefits of Aignosis
         </h5>
 
         {/* Carousel Section */}
@@ -225,7 +225,7 @@ const PricepageBenefits = () => {
         {/* Divider Section */}
         <Divider title="Advantages" />
         <span className="w-full text-center text-xl font-semibold tracking-tight text-[#F6E8FB]">
-          Benefits of Ai.gnosis
+          Benefits of Aignosis
         </span>
 
         {/* Mobile Carousel Section */}

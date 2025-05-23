@@ -44,7 +44,7 @@
 // //         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
 // //           <div className="w-[900px] max-sm:w-[45vh] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
 // //             <div className="relative text-4xl font-bold text-[#1A0C25] mb-4">
-// //               <span className="relative z-10 font-montserrat">Ai.gnosis</span>
+// //               <span className="relative z-10 font-montserrat">Aignosis</span>
 // //               <div className="absolute inset-0 flex justify-center items-center z-0">
 // //                 <div className="w-[150px] h-[100px] bg-gradient-to-r from-purple-400 to-pink-500 rounded-full blur-2xl opacity-70"></div>
 // //               </div>
@@ -139,7 +139,7 @@
 //         <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
 //           <div className="w-[900px] max-sm:w-[45vh] h-[550px] bg-[#FDF9FF] rounded-3xl flex flex-col items-center p-8 space-y-8">
 //             <div className="relative text-4xl font-bold text-[#1A0C25] mb-4">
-//               <span className="relative z-10 font-montserrat">Ai.gnosis</span>
+//               <span className="relative z-10 font-montserrat">Aignosis</span>
 //               <div className="absolute inset-0 flex justify-center items-center z-0">
 //                 <div className="w-[150px] h-[100px] bg-gradient-to-r from-purple-400 to-pink-500 rounded-full blur-2xl opacity-70"></div>
 //               </div>
@@ -223,7 +223,7 @@ const CalibrationPage = () => {
         <div className="flex min-h-screen flex-col items-center justify-center bg-[#1A0C25] p-4">
           <div className="flex w-full max-w-[950px] flex-col items-center space-y-6 rounded-3xl bg-[#FDF9FF] p-8 shadow-lg">
             <div className="relative mb-2 text-4xl font-bold text-[#1A0C25]">
-              <span className="relative z-10 font-montserrat">Ai.gnosis</span>
+              <span className="relative z-10 font-montserrat">Aignosis</span>
               <div className="absolute inset-0 z-0 flex items-center justify-center">
                 <div className="h-[80px] w-[120px] rounded-full bg-gradient-to-r from-purple-400 to-pink-500 opacity-70 blur-2xl"></div>
               </div>

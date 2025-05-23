@@ -152,7 +152,7 @@ const PartnershipPage = () => {
             </div>
             <div className="mb-4 px-4 text-center md:px-[8vw]">
               <span className="2xl:text-5xl font-semibold tracking-tight md:text-3xl md:leading-[3rem]">
-                If you are a healthcare provider, payor, or caregiver <br /> and want to partner with Ai.gnosis, let’s
+                If you are a healthcare provider, payor, or caregiver <br /> and want to partner with Aignosis, let’s
                 talk!
               </span>
             </div>

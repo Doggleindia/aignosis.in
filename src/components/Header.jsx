@@ -97,7 +97,7 @@ const Header = () => {
             onClick={() => handleLinkClick('/')}
             className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white max-sm:top-[1vw] md:text-xl"
           >
-            Ai.gnosis
+            Aignosis
           </Link>
         </div>
 

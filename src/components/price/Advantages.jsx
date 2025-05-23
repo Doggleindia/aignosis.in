@@ -21,10 +21,10 @@ const Advantages = () => {
 
       {/* Title and Description */}
       <div className="mb-10 flex flex-col items-center gap-4 px-6 text-center">
-        <h1 className="font-manrope text-[40px] font-bold text-[#F6E8FB]">Why Choose Ai.gnosis?</h1>
+        <h1 className="font-manrope text-[40px] font-bold text-[#F6E8FB]">Why Choose Aignosis?</h1>
         <p className="text-md text-[#ECECEC]">
-          Ai.gnosis combines technology and care to provide accurate assessments and personalized <br /> support for
-          your child’s growth.
+          Aignosis combines technology and care to provide accurate assessments and personalized <br /> support for your
+          child’s growth.
         </p>
       </div>
       <div className="mx-auto mt-10 w-[700px] rounded-3xl bg-[#564A5957] p-6 font-raleway max-sm:w-auto">

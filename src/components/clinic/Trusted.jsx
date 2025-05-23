@@ -13,7 +13,7 @@ const Trusted = () => {
         <div className="flex flex-col gap-8">
           <div className="fle mx-auto items-center justify-center max-sm:w-full md:w-[800px]">
             <p className="text-center text-[#F6E8FB]">
-              Hear how AI.Gnosis has transformed early autism detection for healthcare professionals, improving accuracy
+              Hear how Aignosis has transformed early autism detection for healthcare professionals, improving accuracy
               and patient care in clinics worldwide.
             </p>
           </div>

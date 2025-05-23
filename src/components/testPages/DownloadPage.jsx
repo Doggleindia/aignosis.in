@@ -81,10 +81,10 @@ const DownloadPage = () => {
       {/* Step Progress Indicator */}
       {/* <StepProgress /> */}
 
-      {/* Ai.gnosis Title with Glow Effect */}
+      {/* Aignosis Title with Glow Effect */}
       <div className="relative">
         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
-        <h1 className="relative z-10 font-montserrat text-5xl font-semibold text-[#E3E2E5]">Ai.gnosis</h1>
+        <h1 className="relative z-10 font-montserrat text-5xl font-semibold text-[#E3E2E5]">Aignosis</h1>
       </div>
 
       {/* Big Thank You Message */}
@@ -95,7 +95,7 @@ const DownloadPage = () => {
       {/* Thank You Paragraph */}
       <div className="mt-6 max-w-2xl px-6 font-raleway text-[#F6E8FB]">
         <p className="text-center text-lg">
-          Thank you for completing the assessment with Ai.gnosis! Your responses bring us one step closer to
+          Thank you for completing the assessment with Aignosis! Your responses bring us one step closer to
           understanding and supporting your child’s unique needs.
           <br />
           <br />

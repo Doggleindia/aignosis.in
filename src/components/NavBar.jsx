@@ -12,7 +12,7 @@ const NavBar = () => {
           onClick={() => handleLinkClick('/')}
           className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white md:text-xl"
         >
-          Ai.gnosis
+          Aignosis
         </Link>
       </div>
       <div className="text-white">

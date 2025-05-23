@@ -13,9 +13,9 @@ const CalibrationValidation = () => {
       {!isResultVisible ? (
         <div className="flex h-[120vh] flex-col items-center justify-center bg-[rgb(26,12,37)]">
           <div className="relative mt-[6px] flex h-auto w-[900px] flex-col items-center space-y-6 rounded-3xl border border-[#5F1B73] bg-[#FDF9FF] p-8 shadow-lg">
-            {/* Ai.gnosis Branding */}
+            {/* Aignosis Branding */}
             <div className="relative mb-2 text-4xl font-bold text-[#1A0C25]">
-              <span className="z-10 font-montserrat">Ai.gnosis</span>
+              <span className="z-10 font-montserrat">Aignosis</span>
               <div className="absolute inset-0 z-0 flex items-center justify-center">
                 <div className="h-[100px] w-[150px] rounded-full bg-gradient-to-r from-purple-400 to-pink-500 opacity-70 blur-2xl"></div>
               </div>

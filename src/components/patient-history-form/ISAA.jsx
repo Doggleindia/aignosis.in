@@ -119,7 +119,7 @@ const ISAA = () => {
       {/* Sidebar Section */}
       <center>
         <div style={styles.sidebar}>
-          <h1 style={styles.logo}>Ai.gnosis</h1>
+          <h1 style={styles.logo}>Aignosis</h1>
           <div style={styles.sidebarContent}>
             <h2 style={styles.sidebarTitle}>INDIAN SCALE FOR ASSESSMENT OF AUTISM</h2>
             <p style={styles.sidebarDescription}>

@@ -11,7 +11,7 @@ const AutismTest = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const stepsContent = [
     {
-      title: 'The Ai.gnosis Autism Test:',
+      title: 'The Aignosis Autism Test:',
       subtitle: 'A quick, accurate, and non-invasive way to screen your child.',
       description: "This enables early detection and helps parents take proactive steps for their child's development.",
       bgColor: 'rgba(26, 12, 37, 1)',
@@ -23,7 +23,7 @@ const AutismTest = () => {
       title: 'Quick Screening Process',
       subtitle: 'Step 1',
       description:
-        'The Ai.gnosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.',
+        'The Aignosis Autism Test is designed to be swift and straightforward, allowing parents to complete the screening in just a few minutes.',
       bgColor: '#5E3C69',
       header: 'Step 1',
       ScreenNumber: 2,

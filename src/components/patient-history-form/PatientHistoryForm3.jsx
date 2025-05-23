@@ -56,7 +56,7 @@ const PatientHistoryForm3 = ({ onNext }) => {
   return (
     <div style={styles.container}>
       <div style={styles.sidebar}>
-        <h1 style={styles.logo}>Ai.gnosis</h1>
+        <h1 style={styles.logo}>Aignosis</h1>
         <div style={styles.sidebarContent}>
           <h2 style={styles.sidebarTitle}>Patient History</h2>
           <p style={styles.sidebarDescription}>
@@ -64,7 +64,7 @@ const PatientHistoryForm3 = ({ onNext }) => {
             background and health journey.
           </p>
           <p style={styles.sidebarDetails}>
-            This information is critical for our AI-powered tool, Ai.gnosis, to generate accurate insights and
+            This information is critical for our AI-powered tool, Aignosis, to generate accurate insights and
             personalized recommendations in support of a patient’s growth and development. It provides valuable
             insights, enabling our interdisciplinary teams to create a comprehensive support plan tailored to your
             needs.
@@ -284,7 +284,7 @@ export default PatientHistoryForm3;
 //     <div style={styles.container}>
 //       {/* Sidebar Section */}
 //       <div style={styles.sidebar}>
-//         <h1 style={styles.logo}>Ai.gnosis</h1>
+//         <h1 style={styles.logo}>Aignosis</h1>
 //         <div style={styles.sidebarContent}>
 //           <h2 style={styles.sidebarTitle}>Patient History</h2>
 //           <p style={styles.sidebarDescription}>
@@ -292,7 +292,7 @@ export default PatientHistoryForm3;
 //             each individual's unique background and health journey.
 //           </p>
 //           <p style={styles.sidebarDetails}>
-//             This information is critical for our AI-powered tool, Ai.gnosis, to generate
+//             This information is critical for our AI-powered tool, Aignosis, to generate
 //             accurate insights and personalized recommendations in support of a patient’s
 //             growth and development. It provides valuable insights, enabling our
 //             interdisciplinary teams to create a comprehensive support plan tailored to your needs.

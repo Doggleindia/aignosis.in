@@ -88,7 +88,7 @@ const PatientHistoryForm1 = ({ onNext }) => {
   return (
     <div style={styles.container}>
       <div style={styles.sidebar}>
-        <h1 style={styles.logo}>Ai.gnosis</h1>
+        <h1 style={styles.logo}>Aignosis</h1>
         <div style={styles.sidebarContent}>
           <h2 style={styles.sidebarTitle}>Patient History</h2>
           <p style={styles.sidebarDescription}>
@@ -96,7 +96,7 @@ const PatientHistoryForm1 = ({ onNext }) => {
             background and health journey.
           </p>
           <p style={styles.sidebarDetails}>
-            This information is collected for our AI-powered tool, Ai.gnosis, to generate accurate insights and
+            This information is collected for our AI-powered tool, Aignosis, to generate accurate insights and
             personalized recommendations in support of a patient’s growth and development.
           </p>
           <div style={styles.progress}>

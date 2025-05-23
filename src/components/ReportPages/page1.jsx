@@ -4,10 +4,10 @@ import backgroundImage from '../../assets/page1bg.png'; // Importing the backgro
 function ReportPage() {
   return (
     <div style={styles.container}>
-      <div style={styles.logo}>Ai.gnosis</div>
+      <div style={styles.logo}>Aignosis</div>
       <img src={backgroundImage} alt="Background" style={styles.backgroundImage} />
       <div style={styles.overlayBox}>
-        <h1 style={styles.title}>Ai.gnosis Cognitive & Developmental Report</h1>
+        <h1 style={styles.title}>Aignosis Cognitive & Developmental Report</h1>
         <p style={styles.infoText}>Name: Divyansh Mangal</p>
         <p style={styles.infoText}>Date of Assessment: 18-08-2024</p>
         <p style={styles.infoText}>Age at Assessment: 3 years old</p>

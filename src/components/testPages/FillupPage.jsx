@@ -103,7 +103,7 @@
 //                 <div className="relative inline-block m-[auto]">
 //                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
 //                   <span className="relative text-4xl font-semibold tracking-wide text-white z-10">
-//                     Ai.gnosis
+//                     Aignosis
 //                   </span>
 //                 </div>
 
@@ -120,10 +120,10 @@
 
 //               <div className="bg-[#564A5957] p-10 rounded-2xl shadow-lg w-[50vw] max-sm:w-auto mx-8">
 //                 <h2 className="text-white text-2xl font-semibold mb-4 font-manrope text-center">
-//                   Welcome to Ai.gnosis early detection screener
+//                   Welcome to Aignosis early detection screener
 //                 </h2>
 //                 <p className="text-gray-400 text-sm mb-8 font-raleway text-center">
-//                   Ai.gnosis is an online platform that helps you detect early
+//                   Aignosis is an online platform that helps you detect early
 //                   signs of developmental disorder in children.
 //                 </p>
 
@@ -323,7 +323,7 @@ export const FillupPage = () => {
               <div className="flex flex-col items-start space-y-[80px] px-8 max-sm:mt-[50px]">
                 <div className="relative m-[auto] inline-block">
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
-                  <span className="relative z-10 text-4xl font-semibold tracking-wide text-white">Ai.gnosis</span>
+                  <span className="relative z-10 text-4xl font-semibold tracking-wide text-white">Aignosis</span>
                 </div>
 
                 <div className="flex max-w-sm flex-col space-y-4">
@@ -338,10 +338,10 @@ export const FillupPage = () => {
 
               <div className="mx-8 w-[50vw] rounded-2xl bg-[#564A5957] p-10 shadow-lg max-sm:w-auto">
                 <h2 className="mb-4 text-center font-manrope text-2xl font-semibold text-white">
-                  Welcome to Ai.gnosis early detection screener
+                  Welcome to Aignosis early detection screener
                 </h2>
                 <p className="mb-8 text-center font-raleway text-sm text-gray-400">
-                  Ai.gnosis is an online platform that helps you detect early signs of developmental disorder in
+                  Aignosis is an online platform that helps you detect early signs of developmental disorder in
                   children.
                 </p>
 

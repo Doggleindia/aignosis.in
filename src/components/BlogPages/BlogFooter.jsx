@@ -16,11 +16,11 @@ const BlogFooter = () => {
                 onClick={() => handleLinkClick('/')}
                 className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white md:text-2xl"
               >
-                Ai.gnosis
+                Aignosis
               </Link>
             </div>
             <p className="mt-5">
-              AI.gnosis is here to offer AI-powered tools that help you understand your child’s unique way of
+              Aignosis is here to offer AI-powered tools that help you understand your child’s unique way of
               experiencing the world.{' '}
             </p>
             <ul className="hidden flex-row items-start justify-start space-x-4 pt-4 max-sm:flex-row max-sm:space-x-4 max-sm:space-y-0 max-sm:pl-0 md:flex">

@@ -84,7 +84,7 @@ const Comparison = () => {
           </div>
 
           <h2 className="2xl:text-3xl font-semibold leading-snug max-sm:text-center md:text-xl">
-            Ai.gnosis vs. Traditional Screening <br />
+            Aignosis vs. Traditional Screening <br />
             <span className="font-manrope font-light italic text-[#F6E8FB]">A Better Way Forward</span>
           </h2>
 
@@ -110,7 +110,7 @@ const Comparison = () => {
             <div className="mb-2 flex w-full items-center justify-between text-sm font-bold text-gray-200 sm:mb-4 sm:text-base">
               <div className="w-1/4 text-left"></div>
               <div className="w-1/4 text-center md:uppercase">Traditional</div>
-              <div className="w-1/4 text-center md:uppercase">AI.gnosis</div>
+              <div className="w-1/4 text-center md:uppercase">Aignosis</div>
             </div>
 
             {/* Comparison Rows */}

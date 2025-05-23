@@ -103,7 +103,7 @@
 //       <div className="lg:flex-[2] flex flex-col justify-start items-center lg:items-start text-white relative px-4 sm:pl-8 lg:pl-56 xl:pl-38 pt-8 sm:pt-16 lg:pt-42 xl:pt-[10vw] 2xl:ml-[10vw] 2xl: z-10 max-sm:pt-4 max-sm:pb-4 max-sm:px-2 text-center lg:text-left md:px-60">
 //         <div className="relative">
 //           <h1 className="text-3xl sm:text-4xl lg:text-3xl xl:text-4xl font-bold max-sm:text-2xl md:text-3xl">
-//             Ai.gnosis
+//             Aignosis
 //           </h1>
 //           <h2 className="mt-4 text-lg sm:text-xl lg:text-2xl xl:text-3xl max-sm:text-base md:text-2xl">
 //             Early Autism Detection Made<br /> Easy & Accurate
@@ -330,7 +330,7 @@ const LoginOtp = ({ goBack, phoneNumber, confirmationResult }) => {
       <div className="xl:pl-38 lg:pt-42 2xl:ml-[10vw] 2xl: relative z-10 flex flex-col items-center justify-start px-4 pt-8 text-center text-white max-sm:px-2 max-sm:pb-4 max-sm:pt-4 sm:pl-8 sm:pt-16 md:px-60 lg:flex-[2] lg:items-start lg:pl-56 lg:text-left xl:pt-[10vw]">
         <div className="relative">
           <h1 className="text-3xl font-bold max-sm:text-2xl sm:text-4xl md:text-3xl lg:text-3xl xl:text-4xl">
-            Ai.gnosis
+            Aignosis
           </h1>
           <h2 className="mt-4 text-lg max-sm:text-base sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl">
             Early Autism Detection Made

@@ -28,10 +28,10 @@ const Error = () => {
       {/* Step Progress Indicator */}
       {/* <StepProgress /> */}
 
-      {/* Ai.gnosis Title with Glow Effect */}
+      {/* Aignosis Title with Glow Effect */}
       <div className="relative">
         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
-        <h1 className="relative z-10 font-montserrat text-5xl font-semibold text-[#E3E2E5]">Ai.gnosis</h1>
+        <h1 className="relative z-10 font-montserrat text-5xl font-semibold text-[#E3E2E5]">Aignosis</h1>
       </div>
 
       {/* Big Thank You Message */}
