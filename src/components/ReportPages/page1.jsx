@@ -5,11 +5,7 @@ function ReportPage() {
   return (
     <div style={styles.container}>
       <div style={styles.logo}>Ai.gnosis</div>
-      <img
-        src={backgroundImage}
-        alt="Background"
-        style={styles.backgroundImage}
-      />
+      <img src={backgroundImage} alt="Background" style={styles.backgroundImage} />
       <div style={styles.overlayBox}>
         <h1 style={styles.title}>Ai.gnosis Cognitive & Developmental Report</h1>
         <p style={styles.infoText}>Name: Divyansh Mangal</p>
@@ -25,7 +21,7 @@ const styles = {
     position: 'relative',
     height: '100vh',
     width: '100vw',
-    backgroundColor: '#1b0238' , // Changed to a solid colorbackground: #33253E;
+    backgroundColor: '#1b0238', // Changed to a solid colorbackground: #33253E;
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

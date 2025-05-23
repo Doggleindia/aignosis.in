@@ -413,31 +413,28 @@
 
 // export default VideoPlayback;
 
-import React, { useEffect, useRef, useState } from "react";
-import { encryptVideo } from "../aignosisintegration/EncryptionUtils";
-import { Link, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { AppContext } from "../aignosisintegration/AppContext";
-import { useContext } from "react";
-import VideoPlayer from "./VideoPlayer";
-import MoonLoader from "react-spinners/MoonLoader";
-import "../../../src/components/aignosisintegration/Screeningtest.css";
+import React, { useEffect, useRef, useState } from 'react';
+import { encryptVideo } from '../aignosisintegration/EncryptionUtils';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { AppContext } from '../aignosisintegration/AppContext';
+import { useContext } from 'react';
+import VideoPlayer from './VideoPlayer';
+import MoonLoader from 'react-spinners/MoonLoader';
+import '../../../src/components/aignosisintegration/Screeningtest.css';
 
 const VideoPlayback = () => {
   const [factIndex, setFactIndex] = useState(0);
   const newFactInterval = 7000;
   const autismFacts = [
     {
-      fact:
-        "Early detection of autism opens the door to early intervention — giving children the best chance to develop their potential, strengthen their abilities, and lead fuller, more independent lives.",
+      fact: 'Early detection of autism opens the door to early intervention — giving children the best chance to develop their potential, strengthen their abilities, and lead fuller, more independent lives.',
     },
     {
-      fact:
-        "Accepting autism means recognizing that different ways of thinking are not deficits, but different kinds of strengths — early support helps these strengths shine brighter.",
+      fact: 'Accepting autism means recognizing that different ways of thinking are not deficits, but different kinds of strengths — early support helps these strengths shine brighter.',
     },
     {
-      fact:
-        "Early detection empowers growth, and acceptance empowers belonging — together, they reveal the unique brilliance each autistic individual brings to the world.",
+      fact: 'Early detection empowers growth, and acceptance empowers belonging — together, they reveal the unique brilliance each autistic individual brings to the world.',
     },
     // ... other facts remain the same
   ];
@@ -455,7 +452,7 @@ const VideoPlayback = () => {
 
   // Effect for cycling through autism facts during loading state
   useEffect(() => {
-    console.log('Video playback entry testData is', testData)
+    console.log('Video playback entry testData is', testData);
     if (isLoading) {
       const factInterval = setInterval(() => {
         setFactIndex((prevIndex) => (prevIndex + 1) % autismFacts.length);
@@ -474,7 +471,7 @@ const VideoPlayback = () => {
   const frameTimes = useRef([]);
   const { testData, setTestData } = useContext(AppContext);
 
-  const SERVER_MIDDLEWARE_ENDPOINT = "https://de.aignosismdw.in";
+  const SERVER_MIDDLEWARE_ENDPOINT = 'https://de.aignosismdw.in';
 
   const startFpsCalculation = () => {
     let lastTime = performance.now();
@@ -505,20 +502,20 @@ const VideoPlayback = () => {
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
-      navigate("/calibrationpage");
+      navigate('/calibrationpage');
     };
 
-    window.addEventListener("popstate", handleBackButton);
+    window.addEventListener('popstate', handleBackButton);
 
     return () => {
-      window.removeEventListener("popstate", handleBackButton);
+      window.removeEventListener('popstate', handleBackButton);
       stopFpsCalculation();
     };
   }, [location.search, setTestData, navigate]);
 
   useEffect(() => {
     if (isLoading) {
-      console.log("Loader should be visible now!");
+      console.log('Loader should be visible now!');
     }
   }, [isLoading]);
 
@@ -553,7 +550,7 @@ const VideoPlayback = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          deviceId: testData.deviceId ? { exact: testData.deviceId } : "default",
+          deviceId: testData.deviceId ? { exact: testData.deviceId } : 'default',
           width: { ideal: 1920 },
           height: { ideal: 1080 },
           frameRate: { ideal: 60, min: 30 },
@@ -579,10 +576,8 @@ const VideoPlayback = () => {
       setIsRecording(true);
       startFpsCalculation();
     } catch (error) {
-      console.error("Error accessing webcam:", error);
-      alert(
-        "Error accessing webcam. Please ensure you have granted camera permissions."
-      );
+      console.error('Error accessing webcam:', error);
+      alert('Error accessing webcam. Please ensure you have granted camera permissions.');
     }
   };
 
@@ -594,91 +589,83 @@ const VideoPlayback = () => {
       setIsUploading(true);
 
       const videoAesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-        .map((b) => b.toString(16).padStart(2, "0"))
-        .join("");
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
 
       const videoEncryptedBlob = await encryptVideo(blob, videoAesKey);
 
-      const jwk = await fetch(
-        SERVER_MIDDLEWARE_ENDPOINT + "/rest/return_rsa_public_key/"
-      ).then((res) => res.json());
+      const jwk = await fetch(SERVER_MIDDLEWARE_ENDPOINT + '/rest/return_rsa_public_key/').then((res) => res.json());
 
       const publicKey = await window.crypto.subtle.importKey(
-        "jwk",
+        'jwk',
         jwk,
         {
-          name: "RSA-OAEP",
-          hash: "SHA-256",
+          name: 'RSA-OAEP',
+          hash: 'SHA-256',
         },
         false,
-        ["encrypt"]
+        ['encrypt']
       );
 
       const videoEncryptedAesKey = await window.crypto.subtle.encrypt(
         {
-          name: "RSA-OAEP",
+          name: 'RSA-OAEP',
         },
         publicKey,
         new TextEncoder().encode(videoAesKey)
       );
 
       const formData = new FormData();
-      formData.append("video", videoEncryptedBlob, "encrypted-test.bin");
+      formData.append('video', videoEncryptedBlob, 'encrypted-test.bin');
       formData.append(
-        "video_encrypted_aes_key",
-        new Blob([videoEncryptedAesKey], { type: "application/octet-stream" }),
-        "encrypted_aes_key.bin"
+        'video_encrypted_aes_key',
+        new Blob([videoEncryptedAesKey], { type: 'application/octet-stream' }),
+        'encrypted_aes_key.bin'
       );
-      formData.append("patient_uid", testData.PATIENT_UID);
-      formData.append("transaction_id", testData.TRANSACTION_ID);
-      formData.append("fps", fps.toString());
-      formData.append("videolanguage", testData.videolanguage);
+      formData.append('patient_uid', testData.PATIENT_UID);
+      formData.append('transaction_id', testData.TRANSACTION_ID);
+      formData.append('fps', fps.toString());
+      formData.append('videolanguage', testData.videolanguage);
 
-      await fetch(SERVER_MIDDLEWARE_ENDPOINT + "/rest/test/video_data/", {
-        method: "POST",
+      await fetch(SERVER_MIDDLEWARE_ENDPOINT + '/rest/test/video_data/', {
+        method: 'POST',
         body: formData,
       })
         .then((response) => {
           if (!response.ok) {
-            navigate("/Error");
+            navigate('/Error');
           } else {
             // Keep loading until we navigate
             setIsLoading(false);
-            navigate("/thankyou");
+            navigate('/thankyou');
           }
           return response.json();
         })
         .catch((err) => {
-          console.error("Error in video save response:", err);
-          navigate("/Error");
+          console.error('Error in video save response:', err);
+          navigate('/Error');
         });
 
       cleanupMediaStream();
       setIsUploading(false);
     } catch (error) {
-      console.error("Error uploading video:", error);
+      console.error('Error uploading video:', error);
       cleanupMediaStream();
       setIsUploading(false);
       setIsLoading(false);
-      navigate("/Error");
+      navigate('/Error');
     }
   };
 
   const pauseRecording = () => {
-    if (
-      mediaRecorderRef.current &&
-      mediaRecorderRef.current.state === "recording"
-    ) {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
       mediaRecorderRef.current.pause();
       setIsRecording(false);
     }
   };
 
   const resumeRecording = () => {
-    if (
-      mediaRecorderRef.current &&
-      mediaRecorderRef.current.state === "paused"
-    ) {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'paused') {
       mediaRecorderRef.current.resume();
       setIsRecording(true);
     }
@@ -687,8 +674,7 @@ const VideoPlayback = () => {
   const stopRecording = () => {
     if (
       !mediaRecorderRef.current ||
-      (mediaRecorderRef.current.state !== "recording" &&
-        mediaRecorderRef.current.state !== "paused")
+      (mediaRecorderRef.current.state !== 'recording' && mediaRecorderRef.current.state !== 'paused')
     ) {
       return;
     }
@@ -701,7 +687,7 @@ const VideoPlayback = () => {
 
     mediaRecorderRef.current.onstop = () => {
       const blob = new Blob(recordedChunksRef.current, {
-        type: "video/webm",
+        type: 'video/webm',
       });
 
       uploadRecording(blob);
@@ -715,11 +701,11 @@ const VideoPlayback = () => {
         .play()
         .then(() => {
           videoRef.current.requestFullscreen().catch((err) => {
-            console.error("Failed to enter fullscreen mode:", err);
+            console.error('Failed to enter fullscreen mode:', err);
           });
         })
         .catch((err) => {
-          console.error("Error playing video:", err);
+          console.error('Error playing video:', err);
         });
     }
   };
@@ -752,7 +738,7 @@ const VideoPlayback = () => {
   };
 
   return (
-    <div className="bg-[#1A0C25] min-h-screen flex flex-col justify-center items-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#1A0C25]">
       <video ref={webcamRef} autoPlay playsInline muted className="hidden" />
 
       <VideoPlayer
@@ -763,45 +749,39 @@ const VideoPlayback = () => {
         handleVideoEnd={handleVideoEnd}
       />
 
-      <div className="absolute top-4 right-4 z-20 flex items-center space-x-2 bg-black bg-opacity-50 px-4 py-2 rounded-full">
-        <div
-          className={`w-3 h-3 rounded-full ${
-            isRecording ? "bg-red-500" : "bg-gray-500"
-          }`}
-        ></div>
-        <span className="text-white text-sm">
-          {isRecording ? "Recording" : "Not Recording"}
-        </span>
+      <div className="absolute right-4 top-4 z-20 flex items-center space-x-2 rounded-full bg-black bg-opacity-50 px-4 py-2">
+        <div className={`h-3 w-3 rounded-full ${isRecording ? 'bg-red-500' : 'bg-gray-500'}`}></div>
+        <span className="text-sm text-white">{isRecording ? 'Recording' : 'Not Recording'}</span>
       </div>
 
       {isLoading && (
         <div
-          className="absolute inset-0 flex flex-col justify-center items-center"
+          className="absolute inset-0 flex flex-col items-center justify-center"
           style={{
-            backgroundColor: "white",
+            backgroundColor: 'white',
             zIndex: 50,
-            border: "0px solid blue",
+            border: '0px solid blue',
           }}
         >
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               flex: 1.5,
-              border: "0px solid red",
-              alignItems: "end",
+              border: '0px solid red',
+              alignItems: 'end',
             }}
           >
             <MoonLoader color="#9a0ea9" />
           </div>
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               flex: 1,
-              border: "0px solid green",
+              border: '0px solid green',
               fontWeight: 200,
-              color: "#9a0ea9",
+              color: '#9a0ea9',
               fontSize: 30,
-              alignItems: "center",
+              alignItems: 'center',
             }}
           >
             Processing your data, please do not close this tab.
@@ -809,13 +789,13 @@ const VideoPlayback = () => {
 
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               flex: 0.8,
-              alignItems: "center",
-              border: "0px solid green",
-              textAlign: "center",
-              color: "#9a0ea9",
-              maxWidth: "80%",
+              alignItems: 'center',
+              border: '0px solid green',
+              textAlign: 'center',
+              color: '#9a0ea9',
+              maxWidth: '80%',
             }}
           >
             {autismFacts[factIndex].fact}

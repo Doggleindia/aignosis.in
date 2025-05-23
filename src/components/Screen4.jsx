@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import bg from '../assets/images/bg3.png';
 import graph_img from '../assets/graph.png';
-import belongs from '../assets/belongs.png'
+import belongs from '../assets/belongs.png';
 const Screen4 = () => {
   const data = {
     datasets: [
@@ -62,10 +62,10 @@ const Screen4 = () => {
         position: 'bottom',
         ticks: {
           stepSize: 1,
-          color: 'white',  // Make x-axis labels white
+          color: 'white', // Make x-axis labels white
         },
         grid: {
-          display: false,       // Hide x-axis inner grid lines
+          display: false, // Hide x-axis inner grid lines
           borderColor: 'white', // Show x-axis line in white
         },
       },
@@ -73,11 +73,11 @@ const Screen4 = () => {
         beginAtZero: true,
         max: 100,
         ticks: {
-          color: 'white',  // Make y-axis labels white
-          stepSize: 20,    // Add gap of 20 units on y-axis
+          color: 'white', // Make y-axis labels white
+          stepSize: 20, // Add gap of 20 units on y-axis
         },
         grid: {
-          display: false,       // Hide y-axis inner grid lines
+          display: false, // Hide y-axis inner grid lines
           borderColor: 'white', // Show y-axis line in white
         },
       },
@@ -85,7 +85,7 @@ const Screen4 = () => {
     plugins: {
       legend: {
         labels: {
-          color: 'white',  // Make legend text white
+          color: 'white', // Make legend text white
         },
         display: true, // Show the legend
       },
@@ -99,72 +99,59 @@ const Screen4 = () => {
     },
   };
   const Divider = ({ title }) => (
-    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+    <div className="mb-8 mt-10 flex flex-row items-center justify-center space-x-4">
       <span
         className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
         style={{
-          background:
-            "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
         }}
       ></span>
-      <h1 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
-        {title}
-      </h1>
+      <h1 className="2xl:text-[20px] font-medium text-[#F1C6FE] max-sm:text-sm md:text-sm">{title}</h1>
       <span
         className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
         style={{
-          background:
-            "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
         }}
       ></span>
     </div>
   );
 
-
   return (
-    <div
-      className="h-screen max-sm:h-[35vh] p-5 text-white flex justify-center items-center w-full font-montserrat bg-[#1A0C25] relative">
-      <div className="w-auto flex justify-center items-center flex-col">
-        <div className="bg-[#1A0C254D] relative shadow-2xl rounded-xl md:px-[5rem] md:py-[3rem] 2xl:p-10">
-          <div className="flex-col  justify-center flex items-center">
-          <Divider title="Development stages" />
+    <div className="relative flex h-screen w-full items-center justify-center bg-[#1A0C25] p-5 font-montserrat text-white max-sm:h-[35vh]">
+      <div className="flex w-auto flex-col items-center justify-center">
+        <div className="2xl:p-10 relative rounded-xl bg-[#1A0C254D] shadow-2xl md:px-[5rem] md:py-[3rem]">
+          <div className="flex flex-col items-center justify-center">
+            <Divider title="Development stages" />
 
-            <div className="mt-[1rem] flex justify-center items-center flex-col w-full">
-              <h1 className="text-center max-sm:text-lg md:text-xl 2xl:text-2xl  text-[#EDD0E7] tracking-tight font-semibold">
+            <div className="mt-[1rem] flex w-full flex-col items-center justify-center">
+              <h1 className="2xl:text-2xl text-center font-semibold tracking-tight text-[#EDD0E7] max-sm:text-lg md:text-xl">
                 90% of your baby’s brain develops before the age of 5
               </h1>
-              <img src={belongs} className='w-[200px] max-sm:hidden absolute right-[80px]' alt="" loading="lazy" />
-              <div className="m-[1rem] max-sm:mt-7  flex justify-center items-center w-[40vw] max-sm:w-[300px]  h-full">
+              <img src={belongs} className="absolute right-[80px] w-[200px] max-sm:hidden" alt="" loading="lazy" />
+              <div className="m-[1rem] flex h-full w-[40vw] items-center justify-center max-sm:mt-7 max-sm:w-[300px]">
                 <img src={graph_img} alt="" loading="lazy" />
               </div>
-              <div className=" mb-4">
-                <p className="absolute md:text-xs 2xl:text-lg left-[20%]  ">Birth</p>
-                <p className="absolute md:text-xs 2xl:text-lg left-[55%] ">5 Years</p>
-                <p className="absolute md:text-xs 2xl:text-lg left-[76%] ">18 Years</p>
+              <div className="mb-4">
+                <p className="2xl:text-lg absolute left-[20%] md:text-xs">Birth</p>
+                <p className="2xl:text-lg absolute left-[55%] md:text-xs">5 Years</p>
+                <p className="2xl:text-lg absolute left-[76%] md:text-xs">18 Years</p>
               </div>
-
-          
-    
-
-
             </div>
-            
           </div>
-          
-          <div className="justify- relative -left-[12%] -top-[80%] max-sm:hidden">
-                
-                {/* <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md"></p> */}
-                 {/* <p className=" mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Yearsdddd</p> */}
-              </div>
-              <p className="flex justify-center align-center mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Years</p>
 
-              <p className='text-center text-[#F6E8FB] text-sm p-4'>Source: Harvard center for developing child</p>
+          <div className="justify- relative -left-[12%] -top-[80%] max-sm:hidden">
+            {/* <p className="font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md"></p> */}
+            {/* <p className=" mt-2 font-manrope md:text-xs 2xl:text-lg text-[#F6E8FB] text-md max-sm:text-sm">Brain development With First 5 Yearsdddd</p> */}
+          </div>
+          <p className="align-center 2xl:text-lg text-md mt-2 flex justify-center font-manrope text-[#F6E8FB] max-sm:text-sm md:text-xs">
+            Brain development With First 5 Years
+          </p>
+
+          <p className="p-4 text-center text-sm text-[#F6E8FB]">Source: Harvard center for developing child</p>
         </div>
 
-        <div className="absolute inset-0 bg-[#B740A1] w-[10vw] h-[30vw]   left-0   opacity-65 blur-[200px] rounded-xl "></div>
-        <div className="absolute inset-0 bg-[#B740A1] w-auto h-[30vw]   left-[85%] top-[50%]  opacity-65 blur-[200px] rounded-xl "></div>
-
-       
+        <div className="absolute inset-0 left-0 h-[30vw] w-[10vw] rounded-xl bg-[#B740A1] opacity-65 blur-[200px]"></div>
+        <div className="absolute inset-0 left-[85%] top-[50%] h-[30vw] w-auto rounded-xl bg-[#B740A1] opacity-65 blur-[200px]"></div>
       </div>
     </div>
   );

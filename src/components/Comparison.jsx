@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import img1 from "../assets/prescription_img.png";
-import img2 from "../assets/prescription2_img.png";
+import React, { useRef, useState } from 'react';
+import img1 from '../assets/prescription_img.png';
+import img2 from '../assets/prescription2_img.png';
 const Comparison = () => {
   const containerRef = useRef(null);
   const [dragPosition, setDragPosition] = useState(50); // Initial divider position (percentage)
@@ -23,175 +23,156 @@ const Comparison = () => {
 
   return (
     <div
-      
-      className="flex items-center flex-col justify-center min-h-screen px-4 sm:px-8"
-      style={{ background: "rgba(26, 12, 37, 1)" }}
+      className="flex min-h-screen flex-col items-center justify-center px-4 sm:px-8"
+      style={{ background: 'rgba(26, 12, 37, 1)' }}
       // Track mouse movement across the container
     >
-      <div className=" relative mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw] 2xl:gap-[4vw]">
-        <div ref={containerRef} onMouseMove={handleMouseMove}  >
+      <div className="2xl:gap-[4vw] relative mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-[0vw]">
+        <div ref={containerRef} onMouseMove={handleMouseMove}>
           {/* Blur effect */}
-<div className="absolute inset-0 bg-[#B740A1] w-[55vw] sm:w-[40vw] h-[15vw] sm:h-[10vw] -top-[10%] left-[15%]  opacity-65 blur-[120px] rounded-xl"></div>
-        {/* Left Side - Sliding Images */}
-        <div className="max-sm:hidden flex justify-center items-center relative w-full h-auto md:w-[310px] md:h-[410px] 2xl:w-[410px] 2xl:h-[510px]">
-          <div
-            className="p-4 sm:p-9 rounded-xl w-full h-full relative overflow-hidden flex justify-center items-center"
-            style={{ background: "rgba(245, 215, 255, 0.34)" }}
-          >
-            <img
-              src={img1}
-              alt="First Image"
-              className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }} loading="lazy"
-            />
-            <img
-              src={img2}
-              alt="Second Image"
-              className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }} loading="lazy"
-            />
-            {/* Draggable Divider */}
+          <div className="absolute inset-0 -top-[10%] left-[15%] h-[15vw] w-[55vw] rounded-xl bg-[#B740A1] opacity-65 blur-[120px] sm:h-[10vw] sm:w-[40vw]"></div>
+          {/* Left Side - Sliding Images */}
+          <div className="2xl:w-[410px] 2xl:h-[510px] relative flex h-auto w-full items-center justify-center max-sm:hidden md:h-[410px] md:w-[310px]">
             <div
-              className="absolute top-0 bottom-0 w-1 bg-pink-400 cursor-pointer"
-              style={{ left: `${dragPosition}%` }}
+              className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl p-4 sm:p-9"
+              style={{ background: 'rgba(245, 215, 255, 0.34)' }}
             >
+              <img
+                src={img1}
+                alt="First Image"
+                className="absolute h-full w-full rounded-lg p-4 sm:p-8"
+                style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }}
+                loading="lazy"
+              />
+              <img
+                src={img2}
+                alt="Second Image"
+                className="absolute h-full w-full rounded-lg p-4 sm:p-8"
+                style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }}
+                loading="lazy"
+              />
+              {/* Draggable Divider */}
               <div
-                className="w-4 h-4 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2"
-                style={{ left: "50%" }}
-              ></div>
+                className="absolute bottom-0 top-0 w-1 cursor-pointer bg-pink-400"
+                style={{ left: `${dragPosition}%` }}
+              >
+                <div
+                  className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white"
+                  style={{ left: '50%' }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
-        </div>
         {/* Text Content */}
-        <div className=" text-white space-y-4 sm:space-y-8 w-full sm:w-[520px] relative mt-8 sm:mt-0">
+        <div className="relative mt-8 w-full space-y-4 text-white sm:mt-0 sm:w-[520px] sm:space-y-8">
           {/* Comparison Header */}
-          <div className="flex items-center max-sm:justify-center space-x-2 text-pink-400">
-    <span
-      className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-      style={{
-        background:
-          "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-      }}
-    ></span>
-    <span className="text-[#F1C6FE]">Comparison</span>
-    <span
-      className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
-      style={{
-        background:
-          "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
-      }}
-    ></span>
-  </div>
+          <div className="flex items-center space-x-2 text-pink-400 max-sm:justify-center">
+            <span
+              className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+              style={{
+                background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
+              }}
+            ></span>
+            <span className="text-[#F1C6FE]">Comparison</span>
+            <span
+              className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
+              style={{
+                background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
+              }}
+            ></span>
+          </div>
 
-  <h2 className="2xl:text-3xl md:text-xl max-sm:text-center font-semibold leading-snug">
-    Ai.gnosis vs. Traditional Screening <br />
-    <span className="font-light italic font-manrope text-[#F6E8FB]">
-      A Better Way Forward
-    </span>
-  </h2>
+          <h2 className="2xl:text-3xl font-semibold leading-snug max-sm:text-center md:text-xl">
+            Ai.gnosis vs. Traditional Screening <br />
+            <span className="font-manrope font-light italic text-[#F6E8FB]">A Better Way Forward</span>
+          </h2>
 
           {/* Table Container with relative positioning */}
-          <div
-            className="p-6 sm:p-10 rounded-lg bg-[#43284C4D] space-y-4 sm:space-y-6 shadow-xl relative overflow-hidden"
-            
-          >
+          <div className="relative space-y-4 overflow-hidden rounded-lg bg-[#43284C4D] p-6 shadow-xl sm:space-y-6 sm:p-10">
             {/* Vertical Lines within the table */}
             <div
-              className="absolute top-[4vw] left-[33.3%] w-[3px] sm:w-[5px]"
+              className="absolute left-[33.3%] top-[4vw] w-[3px] sm:w-[5px]"
               style={{
-                background:
-                  "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                height: "100%",
+                background: 'radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)',
+                height: '100%',
               }}
             ></div>
             <div
-              className="absolute top-[3vw] left-[66.6%] w-[3px] sm:w-[5px]"
+              className="absolute left-[66.6%] top-[3vw] w-[3px] sm:w-[5px]"
               style={{
-                background:
-                  "radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)",
-                height: "100%",
+                background: 'radial-gradient(130.08% 35.6% at 100% 48.48%, #B740A1 0%, #150A1C 100%)',
+                height: '100%',
               }}
             ></div>
 
             {/* Table Headers */}
-            <div className="flex justify-between items-center text-gray-200 mb-2 sm:mb-4 font-bold w-full text-sm sm:text-base">
+            <div className="mb-2 flex w-full items-center justify-between text-sm font-bold text-gray-200 sm:mb-4 sm:text-base">
               <div className="w-1/4 text-left"></div>
               <div className="w-1/4 text-center md:uppercase">Traditional</div>
               <div className="w-1/4 text-center md:uppercase">AI.gnosis</div>
             </div>
 
             {/* Comparison Rows */}
-            <div className="flex justify-between items-center text-gray-100 mb-2 sm:mb-4 w-full text-sm sm:text-base ">
-              <div className="w-1/4 text-left text-gray-200 font-bold md:uppercase">
-                Cost
-              </div>
+            <div className="mb-2 flex w-full items-center justify-between text-sm text-gray-100 sm:mb-4 sm:text-base">
+              <div className="w-1/4 text-left font-bold text-gray-200 md:uppercase">Cost</div>
               <div className="w-1/4 text-center">Expensive</div>
               <div className="w-1/4 text-center">Affordable</div>
             </div>
 
-            <div className="flex justify-between items-center text-gray-100 mb-2 sm:mb-4 w-full text-sm sm:text-base">
-              <div className="w-1/4 text-left text-gray-200 font-bold md:uppercase">
-                Time
-              </div>
+            <div className="mb-2 flex w-full items-center justify-between text-sm text-gray-100 sm:mb-4 sm:text-base">
+              <div className="w-1/4 text-left font-bold text-gray-200 md:uppercase">Time</div>
               <div className="w-1/4 text-center">Weeks</div>
               <div className="w-1/4 text-center">5 Minutes</div>
             </div>
 
-            <div className="flex justify-between items-center text-gray-100 mb-2 sm:mb-4 w-full text-sm sm:text-base ">
-              <div className="w-1/4 text-left text-gray-200 font-bold md:uppercase pr-12 ">
-                Accessibility
-              </div>
+            <div className="mb-2 flex w-full items-center justify-between text-sm text-gray-100 sm:mb-4 sm:text-base">
+              <div className="w-1/4 pr-12 text-left font-bold text-gray-200 md:uppercase">Accessibility</div>
               <div className="w-1/4 text-center">Limited Location</div>
               <div className="w-1/4 text-center">Remote Friendly</div>
             </div>
           </div>
         </div>
 
-
-      {/* Left Side - Sliding Images */}
-      <div
-      ref={containerRef}
-      className="flex justify-center mt-[40px] max-sm:h-[90vw]"
-      onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}   // Track mouse movement across the container
-    >
-      <div className="md:hidden flex justify-center items-center relative w-[75vw] h-[80vw] mx-auto">
-          <div
-            className="p-4 sm:p-9 rounded-xl w-full h-full relative overflow-hidden flex justify-center items-center"
-            style={{ background: "rgba(245, 215, 255, 0.34)" }}
-          >
-            <img
-              src={img1}
-              alt="First Image"
-              className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }} loading="lazy"
-            />
-            <img
-              src={img2}
-              alt="Second Image"
-              className="rounded-lg p-4 sm:p-8 w-full h-full absolute"
-              style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }} loading="lazy"
-            />
-            {/* Draggable Divider */}
+        {/* Left Side - Sliding Images */}
+        <div
+          ref={containerRef}
+          className="mt-[40px] flex justify-center max-sm:h-[90vw]"
+          onMouseMove={handleMouseMove}
+          onTouchMove={handleTouchMove} // Track mouse movement across the container
+        >
+          <div className="relative mx-auto flex h-[80vw] w-[75vw] items-center justify-center md:hidden">
             <div
-              className="absolute top-0 bottom-0 w-1 bg-pink-400 cursor-pointer"
-              style={{ left: `${dragPosition}%` }}
+              className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl p-4 sm:p-9"
+              style={{ background: 'rgba(245, 215, 255, 0.34)' }}
             >
+              <img
+                src={img1}
+                alt="First Image"
+                className="absolute h-full w-full rounded-lg p-4 sm:p-8"
+                style={{ clipPath: `inset(0 ${100 - dragPosition}% 0 0)` }}
+                loading="lazy"
+              />
+              <img
+                src={img2}
+                alt="Second Image"
+                className="absolute h-full w-full rounded-lg p-4 sm:p-8"
+                style={{ clipPath: `inset(0 0 0 ${dragPosition}%)` }}
+                loading="lazy"
+              />
+              {/* Draggable Divider */}
               <div
-                className="w-4 h-4 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2"
-                style={{ left: "50%" }}
-              ></div>
+                className="absolute bottom-0 top-0 w-1 cursor-pointer bg-pink-400"
+                style={{ left: `${dragPosition}%` }}
+              >
+                <div
+                  className="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white"
+                  style={{ left: '50%' }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-
-        
-
-
-
-
       </div>
     </div>
   );

@@ -1,40 +1,40 @@
-import React, { useState } from "react";
-import img from "../../assets/images/SectionL.png";
-import { GoArrowUpRight } from "react-icons/go";
-import { CiPhone } from "react-icons/ci";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
-import { FaWhatsapp } from "react-icons/fa";
-import crossIcon from "../../assets/images/cross.png";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaCalendarAlt } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaMedium } from "react-icons/fa6";
-import Header from "../Header";
-import Footer from "../Footer";
-import { Link } from "react-router-dom";
-import think_img from "../../assets/think_img.png";
-import pos1 from "../../assets/images/pos1.png";
-import pos2 from "../../assets/images/pos2.png";
-import pos3 from "../../assets/images/pos3.png";
-import pos4 from "../../assets/images/pos4.png";
-import arrow1 from "../../assets/images/Arrow 3.png";
-import arrow2 from "../../assets/images/Arrow 4.png";
-import arrow3 from "../../assets/images/Arrow 5.png";
-import cloud1 from "../../assets/images/cloud1.png";
-import cloud2 from "../../assets/images/cloud2.png";
-import cloud3 from "../../assets/images/cloud3.png";
-import cloud4 from "../../assets/images/cloud4.png";
-import ScrollToTop from "../ScrollToTop";
-import { useEffect } from "react";
-import ContactServicePage from "../ContactServicePage";
-import BlogFooter from "../BlogPages/BlogFooter";
-import service2 from "../../assets/servicepage/speech.jpg";
-import ContactPage from "../ContactPage";
-import SEO from "../config/Seo";
-import Newnavbar from "../Newnavbar";
-import WhatsAppButton from "../WhatsAppButton";
+import React, { useState } from 'react';
+import img from '../../assets/images/SectionL.png';
+import { GoArrowUpRight } from 'react-icons/go';
+import { CiPhone } from 'react-icons/ci';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { IoIosMail } from 'react-icons/io';
+import { FaWhatsapp } from 'react-icons/fa';
+import crossIcon from '../../assets/images/cross.png';
+import { FaLocationDot } from 'react-icons/fa6';
+import { FaCalendarAlt } from 'react-icons/fa';
+import { FaDiscord } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaMedium } from 'react-icons/fa6';
+import Header from '../Header';
+import Footer from '../Footer';
+import { Link } from 'react-router-dom';
+import think_img from '../../assets/think_img.png';
+import pos1 from '../../assets/images/pos1.png';
+import pos2 from '../../assets/images/pos2.png';
+import pos3 from '../../assets/images/pos3.png';
+import pos4 from '../../assets/images/pos4.png';
+import arrow1 from '../../assets/images/Arrow 3.png';
+import arrow2 from '../../assets/images/Arrow 4.png';
+import arrow3 from '../../assets/images/Arrow 5.png';
+import cloud1 from '../../assets/images/cloud1.png';
+import cloud2 from '../../assets/images/cloud2.png';
+import cloud3 from '../../assets/images/cloud3.png';
+import cloud4 from '../../assets/images/cloud4.png';
+import ScrollToTop from '../ScrollToTop';
+import { useEffect } from 'react';
+import ContactServicePage from '../ContactServicePage';
+import BlogFooter from '../BlogPages/BlogFooter';
+import service2 from '../../assets/servicepage/speech.jpg';
+import ContactPage from '../ContactPage';
+import SEO from '../config/Seo';
+import Newnavbar from '../Newnavbar';
+import WhatsAppButton from '../WhatsAppButton';
 
 const ServicePage2 = () => {
   useEffect(() => {
@@ -48,43 +48,39 @@ const ServicePage2 = () => {
 
   const faqData = [
     {
-      question: "How do I know if my child needs an assessment?",
+      question: 'How do I know if my child needs an assessment?',
       answer:
-        "Signs that may indicate your child needs an assessment include difficulties in learning, consistent struggles with reading or writing, challenges in social interactions, behavioral issues, or delays in speech and language development. If you notice your child facing these challenges, it may be beneficial to seek an assessment.",
+        'Signs that may indicate your child needs an assessment include difficulties in learning, consistent struggles with reading or writing, challenges in social interactions, behavioral issues, or delays in speech and language development. If you notice your child facing these challenges, it may be beneficial to seek an assessment.',
     },
     {
-      question: "What is the appropriate age for an assessment?",
+      question: 'What is the appropriate age for an assessment?',
       answer:
-        "Children can be assessed as early as 18 months for developmental milestones, but most comprehensive evaluations typically occur between the ages of 3 and 7. Early intervention is crucial, so if you have concerns, it’s best to seek guidance sooner rather than later.",
+        'Children can be assessed as early as 18 months for developmental milestones, but most comprehensive evaluations typically occur between the ages of 3 and 7. Early intervention is crucial, so if you have concerns, it’s best to seek guidance sooner rather than later.',
     },
     {
-      question: "How long does the assessment process take?",
+      question: 'How long does the assessment process take?',
       answer:
-        "The assessment process generally takes between 1 to 2 hours, depending on the specific evaluations being conducted. Additional time may be needed for follow-up discussions and to review the results with you.",
+        'The assessment process generally takes between 1 to 2 hours, depending on the specific evaluations being conducted. Additional time may be needed for follow-up discussions and to review the results with you.',
     },
     {
-      question: "What can I expect during an assessment?",
+      question: 'What can I expect during an assessment?',
       answer:
-        "During the assessment, your child will participate in various activities and tasks designed to evaluate their cognitive, social, and emotional functioning. The process is interactive and child-friendly, ensuring your child feels comfortable. Afterward, you will receive a detailed report outlining the findings, along with recommendations for further support or intervention if needed.",
+        'During the assessment, your child will participate in various activities and tasks designed to evaluate their cognitive, social, and emotional functioning. The process is interactive and child-friendly, ensuring your child feels comfortable. Afterward, you will receive a detailed report outlining the findings, along with recommendations for further support or intervention if needed.',
     },
   ];
   const Divider = ({ title }) => (
-    <div className="flex flex-row justify-center items-center space-x-4 mb-8 mt-10">
+    <div className="mb-8 mt-10 flex flex-row items-center justify-center space-x-4">
       <span
         className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
         style={{
-          background:
-            "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
         }}
       ></span>
-      <h5 className="2xl:text-[20px] md:text-sm text-[#F1C6FE] font-medium max-sm:text-sm">
-        {title}
-      </h5>
+      <h5 className="2xl:text-[20px] font-medium text-[#F1C6FE] max-sm:text-sm md:text-sm">{title}</h5>
       <span
         className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
         style={{
-          background:
-            "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+          background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
         }}
       ></span>
     </div>
@@ -92,123 +88,109 @@ const ServicePage2 = () => {
 
   return (
     <>
-      
       <SEO
         canonicalUrl="https://aignosis.in/speech-language"
         metaDescription={
-          "Find expert speech therapy for autistic children and accurate autism diagnosis near you. Aignosis offers personalized care and advanced solutions."
+          'Find expert speech therapy for autistic children and accurate autism diagnosis near you. Aignosis offers personalized care and advanced solutions.'
         }
-        pageTitle={"Speech Therapy for Autistic Children | Aignosis"}
+        pageTitle={'Speech Therapy for Autistic Children | Aignosis'}
       />
 
       <div className="bg-[#1A0C25] font-montserrat text-white">
         <Header />
-        <WhatsAppButton/>
-        <div className="h-full w-full ">
-          <div className="bg-[#1A0C25] w-full flex justify-center items-center h-auto px-4 sm:px-0">
-            <div className="w-full z-10 relative flex flex-col justify-center items-center md:mt-[12vh] 2xl:mt-[6vw] h-auto">
+        <WhatsAppButton />
+        <div className="h-full w-full">
+          <div className="flex h-auto w-full items-center justify-center bg-[#1A0C25] px-4 sm:px-0">
+            <div className="2xl:mt-[6vw] relative z-10 flex h-auto w-full flex-col items-center justify-center md:mt-[12vh]">
               {/* Title and Gradient Bars */}
               <Divider title="Services" />
 
               {/* Headline and Subtitle */}
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-lg sm:text-4xl md:text-5xl mt-2 font-medium font-raleway">
+                <h1 className="mt-2 font-raleway text-lg font-medium sm:text-4xl md:text-5xl">
                   Help Your Child Speak with Confidence
                 </h1>
-                <p className="text-xs sm:text-base mt-2 max-sm:mb-2 sm:mt-3">
+                <p className="mt-2 text-xs max-sm:mb-2 sm:mt-3 sm:text-base">
                   Online Speech Therapy with 24/7 Support in 8 Languages!
                 </p>
               </div>
               {/* Image Section */}
-              <div className="w-[90%] mt-[2vw] sm:w-[40vw]  mb-20 max-sm:mb-4 sm:mb-[50px] h-[200px] sm:h-[20vw] bg-[#D9D9D9] overflow-hidden rounded-lg">
-                <img
-                  src={service2}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className="mb-20 mt-[2vw] h-[200px] w-[90%] overflow-hidden rounded-lg bg-[#D9D9D9] max-sm:mb-4 sm:mb-[50px] sm:h-[20vw] sm:w-[40vw]">
+                <img src={service2} alt="" className="h-full w-full object-cover" loading="lazy" />
               </div>
               {/* CTA and Rating */}
-              <div className=" flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-                <div className="w-full max-sm:w-[50%] sm:w-[14rem] cursor-pointer border-2 border-[#B740A1] gap-2 sm:gap-4 rounded-full flex justify-between items-center text-[#0D0C0A] h-[3rem] sm:h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300 px-4">
-                  <Link to="/test" className="text-white text-xs sm:text-base">
+              <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
+                <div className="group flex h-[3rem] w-full cursor-pointer items-center justify-between gap-2 rounded-full border-2 border-[#B740A1] bg-transparent px-4 text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B7407D] max-sm:w-[50%] sm:h-[3.5rem] sm:w-[14rem] sm:gap-4">
+                  <Link to="/test" className="text-xs text-white sm:text-base">
                     Get In Touch
                   </Link>
-                  <div className="w-[2rem] sm:w-[2.5rem] h-[2rem] sm:h-[2.5rem] flex items-center justify-center text-white text-lg group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1]">
+                  <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-[#B740A1] text-lg text-white group-hover:bg-white group-hover:text-black sm:h-[2.5rem] sm:w-[2.5rem]">
                     <GoArrowUpRight />
                   </div>
                 </div>
-                <p className="text-white text-xs sm:text-base font-semibold text-center">
-                  Rated 4.5/5 by Parents
-                </p>
+                <p className="text-center text-xs font-semibold text-white sm:text-base">Rated 4.5/5 by Parents</p>
               </div>
             </div>
-            <div className="absolute inset-1 mt-[5vw] bg-[#B740A1] opacity-20 blur-[200px] rounded-full "></div>
+            <div className="absolute inset-1 mt-[5vw] rounded-full bg-[#B740A1] opacity-20 blur-[200px]"></div>
           </div>
 
-          <div className="w-full min-h-screen max-sm:h-auto px-[10vw] gap-[3vw] bg-[#1A0C25] font-montserrat text-white  flex justify-center items-start flex-wrap md:flex-nowrap">
-            <div className="w-full md:w-[50%] h-auto p-[3vw]">
-              <div className="w-[100%] text-right flex-col mt-[3vw] h-auto flex font-raleway">
+          <div className="flex min-h-screen w-full flex-wrap items-start justify-center gap-[3vw] bg-[#1A0C25] px-[10vw] font-montserrat text-white max-sm:h-auto md:flex-nowrap">
+            <div className="h-auto w-full p-[3vw] md:w-[50%]">
+              <div className="mt-[3vw] flex h-auto w-[100%] flex-col text-right font-raleway">
                 <div>
-                  <h2 className="2xl:text-2xl md:text-xl text-lg text-left font-semibold">
-                    What is Speech Therapy?
-                  </h2>
-                  <h3 className="mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]">
-                    Speech therapy helps children overcome speech delays and
-                    communication challenges.
+                  <h2 className="2xl:text-2xl text-left text-lg font-semibold md:text-xl">What is Speech Therapy?</h2>
+                  <h3 className="2xl:text-base mr-[1vw] mt-6 text-left text-xs md:text-sm">
+                    Speech therapy helps children overcome speech delays and communication challenges.
                   </h3>
                 </div>
                 <div className="mt-6">
-                  <h2 className="2xl:text-2xl md:text-xl text-lg text-left font-semibold">
+                  <h2 className="2xl:text-2xl text-left text-lg font-semibold md:text-xl">
                     Why is Early Diagnosis Important?
                   </h2>
-                  <h3 className="mt-6 2xl:text-base md:text-sm text-xs text-left mr-[1vw]">
-                    It allows us to develop customized therapy solutions and
-                    ensure a smooth transition into school.
+                  <h3 className="2xl:text-base mr-[1vw] mt-6 text-left text-xs md:text-sm">
+                    It allows us to develop customized therapy solutions and ensure a smooth transition into school.
                   </h3>
                 </div>
                 <div className="mt-6">
-                  <h2 className="2xl:text-2xl md:text-xl text-lg text-left font-medium">
-                    Therapy Activities
-                  </h2>
-                  <div className="pl-[2vw] mt-6 2xl:text-base md:text-sm text-xs text-left">
+                  <h2 className="2xl:text-2xl text-left text-lg font-medium md:text-xl">Therapy Activities</h2>
+                  <div className="2xl:text-base mt-6 pl-[2vw] text-left text-xs md:text-sm">
                     {[
-                      "Engaging play activities with games and picture cards",
-                      "Conversational practice with back-and-forth talking",
-                      "Repetition exercises to strengthen speech patterns",
-                      "Vocabulary-building through rhymes and stories",
-                      "Modeling correct sounds and syllables",
-                      "Developing grammar and language skills",
+                      'Engaging play activities with games and picture cards',
+                      'Conversational practice with back-and-forth talking',
+                      'Repetition exercises to strengthen speech patterns',
+                      'Vocabulary-building through rhymes and stories',
+                      'Modeling correct sounds and syllables',
+                      'Developing grammar and language skills',
                     ].map((service, index) => (
-                      <h5 key={index} className="mt-6 mr-[1vw]">
+                      <h5 key={index} className="mr-[1vw] mt-6">
                         {service}
                       </h5>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] flex-col mt-[4vw] h-[auto] py-[2vw] rounded-3xl bg-[#564A5952] px-[2vw] border border-[#B7407D80]">
-                <h2 className="mt-10 2xl:text-xl md:text-lg text-base font-semibold uppercase text-center font-raleway">
+              <div className="mt-[4vw] h-[auto] w-[100%] flex-col rounded-3xl border border-[#B7407D80] bg-[#564A5952] px-[2vw] py-[2vw]">
+                <h2 className="2xl:text-xl mt-10 text-center font-raleway text-base font-semibold uppercase md:text-lg">
                   “The Best Time to Start is NOW”
                 </h2>
-                <h3 className=" mt-3 pl-[1vw] 2xl:text-base md:text-sm text-xs text-center">
+                <h3 className="2xl:text-base mt-3 pl-[1vw] text-center text-xs md:text-sm">
                   Support for Every Age Group
                 </h3>
-                <div className="mt-6 flex flex-col justify-center items-center pl-[2vw]">
-                  <p className="2xl:text-xl md:text-lg text-base text-left pr-[14vw] font-medium font-raleway">
+                <div className="mt-6 flex flex-col items-center justify-center pl-[2vw]">
+                  <p className="2xl:text-xl pr-[14vw] text-left font-raleway text-base font-medium md:text-lg">
                     We Address:
                   </p>
-                  <div className="pl-[1vw] 2xl:text-base md:text-sm text-xs mt-6">
+                  <div className="2xl:text-base mt-6 pl-[1vw] text-xs md:text-sm">
                     {[
-                      "Language Delays",
-                      "Autism Spectrum Disorder",
-                      "Stammering",
-                      "Speech Sound Delays & Disorders",
-                      "Hearing Impairment",
-                      "General Communication Challenges",
-                      "Social, Emotional, and Mental Health (SEMH) Needs",
-                      "Developmental Language Disorders",
-                      "Fluency Issues",
+                      'Language Delays',
+                      'Autism Spectrum Disorder',
+                      'Stammering',
+                      'Speech Sound Delays & Disorders',
+                      'Hearing Impairment',
+                      'General Communication Challenges',
+                      'Social, Emotional, and Mental Health (SEMH) Needs',
+                      'Developmental Language Disorders',
+                      'Fluency Issues',
                     ].map((specialty, index) => (
                       <h5 key={index} className="mt-6">
                         {specialty}
@@ -217,35 +199,27 @@ const ServicePage2 = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] mt-[4vw] flex-col h-[35vw] justify-center max-sm:hidden  md:flex items-center">
-                <div className="flex justify-center gap-5 items-center">
+              <div className="mt-[4vw] h-[35vw] w-[100%] flex-col items-center justify-center max-sm:hidden md:flex">
+                <div className="flex items-center justify-center gap-5">
                   <span
                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                     style={{
-                      background:
-                        "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)",
+                      background: 'linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)',
                     }}
                   ></span>
-                  <p className="text-[#F1C6FE] 2xl:text-base md:text-sm">
-                    Advantages
-                  </p>
+                  <p className="2xl:text-base text-[#F1C6FE] md:text-sm">Advantages</p>
                   <span
                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                     style={{
-                      background:
-                        "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                      background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                     }}
                   ></span>
                 </div>
-                <div className=" justify-center w-full items-center flex flex-col">
-                  <h3 className="mt-5 2xl:text-5xl md:text-3xl font-medium">
-                    Why choose us
-                  </h3>
-                  <h4 className="mt-3 2xl:text-base md:text-sm">
-                    Early Intervention + Consistent Practice{" "}
-                  </h4>
-                  <h5 className="font-semibold italic 2xl:text-xl md:text-lg text-[#9C00AD]">
-                    {" "}
+                <div className="flex w-full flex-col items-center justify-center">
+                  <h3 className="2xl:text-5xl mt-5 font-medium md:text-3xl">Why choose us</h3>
+                  <h4 className="2xl:text-base mt-3 md:text-sm">Early Intervention + Consistent Practice </h4>
+                  <h5 className="2xl:text-xl font-semibold italic text-[#9C00AD] md:text-lg">
+                    {' '}
                     = Remarkable Progress!
                   </h5>
                 </div>
@@ -254,163 +228,135 @@ const ServicePage2 = () => {
                   <img src={think_img} alt="" loading="lazy" />
                 </div>
 
-                <div className=" hidden w-full pt-[3vw] pl-[2.5vw] h-[25vw]  justify-center items-center">
-                  <div className="w-full flex h-[22vw] relative">
+                <div className="hidden h-[25vw] w-full items-center justify-center pl-[2.5vw] pt-[3vw]">
+                  <div className="relative flex h-[22vw] w-full">
                     {/* Group for pos1 */}
-                    <div className="group ">
+                    <div className="group">
                       {/* First Image */}
                       <img
-                        className="absolute cursor-pointer scale-[.9] top-5 left-[2vw]"
+                        className="absolute left-[2vw] top-5 scale-[.9] cursor-pointer"
                         src={pos1}
                         alt=""
                         loading="lazy"
                       />
                       {/* Cloud Image - Visible on hover */}
                       <img
-                        className="absolute scale-[.6] -top-[5vw] left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute -top-[5vw] left-[3vw] scale-[.6] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         src={cloud1}
                         alt=""
                         loading="lazy"
                       />
                       {/* Heading Content - Visible on hover */}
-                      <h4 className="text-black absolute text-[10px] font-medium left-[9vw] -top-[2vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h4 className="absolute -top-[2vw] left-[9vw] text-[10px] font-medium text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         Expertise from <br /> Licensed <br /> Psychologists
                       </h4>
                     </div>
                     {/* Group for pos2 */}
-                    <div className="group ">
+                    <div className="group">
                       <img
-                        className="absolute cursor-pointer scale-[.9] top-[4vw] left-[15vw]"
+                        className="absolute left-[15vw] top-[4vw] scale-[.9] cursor-pointer"
                         src={pos2}
                         alt=""
                         loading="lazy"
                       />
                       <img
-                        className="absolute scale-[.6] -top-[4vw] left-[16vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute -top-[4vw] left-[16vw] scale-[.6] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         src={cloud1}
                         alt=""
                         loading="lazy"
                       />
-                      <h4 className="text-black absolute text-[10px] font-medium left-[22vw] -top-[1vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h4 className="absolute -top-[1vw] left-[22vw] text-[10px] font-medium text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         Personalized <br /> Therapy <br /> Sessions for You
                       </h4>
                     </div>
                     {/* Group for pos3 */}
-                    <div className="group ">
+                    <div className="group">
                       <img
-                        className="absolute cursor-pointer scale-[.9] top-[13vw] left-[4vw]"
+                        className="absolute left-[4vw] top-[13vw] scale-[.9] cursor-pointer"
                         src={pos3}
                         alt=""
                         loading="lazy"
                       />
                       <img
-                        className="absolute scale-[.6] top-[4vw] z-10 left-[3vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute left-[3vw] top-[4vw] z-10 scale-[.6] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         src={cloud1}
                         alt=""
                         loading="lazy"
                       />
-                      <p className="text-black z-20 absolute text-[10px] font-medium left-[8.6vw] top-[7.5vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="absolute left-[8.6vw] top-[7.5vw] z-20 text-[10px] font-medium text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         24/7 Support and <br /> Guidance Available
                       </p>
                     </div>
                     {/* Group for pos4 */}
-                    <div className="group ">
+                    <div className="group">
                       <img
-                        className="absolute cursor-pointer scale-[.9] top-[15vw] left-[16vw]"
+                        className="absolute left-[16vw] top-[15vw] scale-[.9] cursor-pointer"
                         src={pos4}
                         alt=""
                         loading="lazy"
                       />
                       <img
-                        className="absolute scale-[.6] z-10 top-[6vw] left-[15vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute left-[15vw] top-[6vw] z-10 scale-[.6] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         src={cloud1}
                         alt=""
                         loading="lazy"
                       />
-                      <p className="text-black absolute z-20 text-[10px] font-medium left-[21vw] top-[9vw] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="absolute left-[21vw] top-[9vw] z-20 text-[10px] font-medium text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         Confidential <br /> and Secure <br /> Environment
                       </p>
                     </div>
                     {/* Other elements such as arrows */}
-                    <img
-                      className="absolute scale-[.7] top-[6vw] left-[9vw]"
-                      src={arrow1}
-                      alt=""
-                      loading="lazy"
-                    />
-                    <img
-                      className="absolute scale-[.7] top-[10vw] left-[10vw]"
-                      src={arrow2}
-                      alt=""
-                      loading="lazy"
-                    />
-                    <img
-                      className="absolute scale-[.7] top-[16vw] left-[10.5vw]"
-                      src={arrow3}
-                      alt=""
-                      loading="lazy"
-                    />
+                    <img className="absolute left-[9vw] top-[6vw] scale-[.7]" src={arrow1} alt="" loading="lazy" />
+                    <img className="absolute left-[10vw] top-[10vw] scale-[.7]" src={arrow2} alt="" loading="lazy" />
+                    <img className="absolute left-[10.5vw] top-[16vw] scale-[.7]" src={arrow3} alt="" loading="lazy" />
                   </div>
                 </div>
               </div>
-              <div className="w-[100%] flex-col max-sm:mt-[10vw] h-[45vw] max-sm:h-auto justify-center flex items-center">
-                <div className="flex justify-center gap-5 items-center">
+              <div className="flex h-[45vw] w-[100%] flex-col items-center justify-center max-sm:mt-[10vw] max-sm:h-auto">
+                <div className="flex items-center justify-center gap-5">
                   <span
                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                     style={{
-                      background:
-                        "linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)",
+                      background: 'linear-gradient(270deg, rgba(255, 202, 223, 0.13) 0%, #FB7CE4 100%)',
                     }}
                   ></span>
-                  <p className="text-[#F1C6FE] 2xl:text-base md:text-sm">
-                    Advantages
-                  </p>
+                  <p className="2xl:text-base text-[#F1C6FE] md:text-sm">Advantages</p>
                   <span
                     className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                     style={{
-                      background:
-                        "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                      background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                     }}
                   ></span>
                 </div>
-                <div className=" justify-center w-full items-center flex flex-col">
-                  <h2 className="2xl:text-5xl md:text-3xl mt-5 font-manrope text-center font-medium">
+                <div className="flex w-full flex-col items-center justify-center">
+                  <h2 className="2xl:text-5xl mt-5 text-center font-manrope font-medium md:text-3xl">
                     Benefits of Our Service:
                   </h2>
                 </div>
-                <div className=" w-[42vw] max-sm:w-[80vw] mt-[4vw] rounded-3xl h-auto bg-[#564A5957]">
+                <div className="mt-[4vw] h-auto w-[42vw] rounded-3xl bg-[#564A5957] max-sm:w-[80vw]">
                   <table className="w-full text-left text-gray-200">
                     <thead>
                       <tr>
-                        <th className="pb-4 text-center text-lg border-r border-[#F6E8FB80]">
-                          {" "}
-                        </th>
-                        <th className="pb-4 p-[2vw] 2xl:text-sm md:text-xs text-center">
-                          Ai.gnosis
-                        </th>
+                        <th className="border-r border-[#F6E8FB80] pb-4 text-center text-lg"> </th>
+                        <th className="2xl:text-sm p-[2vw] pb-4 text-center md:text-xs">Ai.gnosis</th>
                       </tr>
                     </thead>
-                    <tbody className="text-center 2xl:text-base md:text-sm">
+                    <tbody className="2xl:text-base text-center md:text-sm">
                       {[
-                        "Affordable Compared to Traditional Centers",
-                        "Access to Qualified Specialists",
-                        "Flexible Scheduling (Weekdays and Evenings)",
-                        "Resources Provided After Sessions",
-                        "Regular Progress Updates",
-                        "Engaging Group Art & Story Sessions",
-                        "Direct Messaging with Specialists.",
-                        "Easy Online Scheduling",
-                        "Convenient App for Tips and Activities",
-                        "No Travel or Waiting Time",
-                        "EMI Options for Indian Residents*",
+                        'Affordable Compared to Traditional Centers',
+                        'Access to Qualified Specialists',
+                        'Flexible Scheduling (Weekdays and Evenings)',
+                        'Resources Provided After Sessions',
+                        'Regular Progress Updates',
+                        'Engaging Group Art & Story Sessions',
+                        'Direct Messaging with Specialists.',
+                        'Easy Online Scheduling',
+                        'Convenient App for Tips and Activities',
+                        'No Travel or Waiting Time',
+                        'EMI Options for Indian Residents*',
                       ].map((feature, index) => (
-                        <tr
-                          key={index}
-                          className="border-t border-[#F6E8FB80] last:pb-[2rem]"
-                        >
-                          <td className="py-3 border-r border-[#F6E8FB80]">
-                            {feature}
-                          </td>
+                        <tr key={index} className="border-t border-[#F6E8FB80] last:pb-[2rem]">
+                          <td className="border-r border-[#F6E8FB80] py-3">{feature}</td>
                           <td className="py-3 text-center">✅</td>
                         </tr>
                       ))}
@@ -418,104 +364,90 @@ const ServicePage2 = () => {
                   </table>
                 </div>
               </div>
-              <div className="w-auto max-sm:w-full flex-col max-sm:mt-[5vw] flex justify-center items-center ">
-                <div className="b flex flex-col justify-center items-center  p-6">
-                  <h2 className="text-[#F6E8FB] text-[40px] max-sm:text-[20px] 2xl:text-5xl md:text-3xl text-center font-bold font-manrope">
+              <div className="flex w-auto flex-col items-center justify-center max-sm:mt-[5vw] max-sm:w-full">
+                <div className="b flex flex-col items-center justify-center p-6">
+                  <h2 className="2xl:text-5xl text-center font-manrope text-[40px] font-bold text-[#F6E8FB] max-sm:text-[20px] md:text-3xl">
                     Frequently Asked Questions
                   </h2>
-                  <div className=" w-auto max-sm:w-[80vw] bg-[#564A5957] rounded-3xl p-8 px-[5vw] mx-auto mt-10">
+                  <div className="mx-auto mt-10 w-auto rounded-3xl bg-[#564A5957] p-8 px-[5vw] max-sm:w-[80vw]">
                     <div className="space-y-4">
                       {faqData.map((item, index) => (
                         <div key={index} className="border-b border-gray-400">
                           <div
                             onClick={() => toggleQuestion(index)}
-                            className="flex items-center justify-between py-4 cursor-pointer"
+                            className="flex cursor-pointer items-center justify-between py-4"
                           >
-                            <p className="2xl:text-lg md:text-base text-[#F6E8FB] font-raleway ">
+                            <p className="2xl:text-lg font-raleway text-[#F6E8FB] md:text-base">
                               {index + 1}. {item.question}
                             </p>
-                            <button className="2xl:text-xl md:text-lg font-semibold text-gray-300">
-                              {openQuestion === index ? "−" : "+"}
+                            <button className="2xl:text-xl font-semibold text-gray-300 md:text-lg">
+                              {openQuestion === index ? '−' : '+'}
                             </button>
                           </div>
                           {openQuestion === index && (
-                            <p className="text-gray-300 font-montserrat text-sm mt-2 mb-4">
-                              {item.answer}
-                            </p>
+                            <p className="mb-4 mt-2 font-montserrat text-sm text-gray-300">{item.answer}</p>
                           )}
                         </div>
                       ))}
                     </div>
-                    <div className="text-center mt-8 2xl:text-base md:text-sm text-gray-400 cursor-pointer">
+                    <div className="2xl:text-base mt-8 cursor-pointer text-center text-gray-400 md:text-sm">
                       View All
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-[50%]  max-sm:w-full  sm:block h-auto p-[3vw] md:sticky max-sm:mr-[3vw]  max-sm:mt-[5vw] md:top-10">
-              <div className="max-sm:w-[80vw] w-auto relative md:z-10 flex-col h-[auto] py-[2vw] rounded-3xl bg-[#564A5957] flex items-center justify-center">
-                <div className="absolute w-[15vw] h-[15vw] bottom-0 inset-1 ml-[10vw] mt-[20vw] bg-[#B740A1] opacity-45 blur-[200px] rounded-full "></div>
+            <div className="h-auto w-[50%] p-[3vw] max-sm:mr-[3vw] max-sm:mt-[5vw] max-sm:w-full sm:block md:sticky md:top-10">
+              <div className="relative flex h-[auto] w-auto flex-col items-center justify-center rounded-3xl bg-[#564A5957] py-[2vw] max-sm:w-[80vw] md:z-10">
+                <div className="absolute inset-1 bottom-0 ml-[10vw] mt-[20vw] h-[15vw] w-[15vw] rounded-full bg-[#B740A1] opacity-45 blur-[200px]"></div>
 
-                <p className="2xl:text-xl md:text-lg mt-10 font-semibold font-manrope ">
-                  Book an online consultation{" "}
-                </p>
-                <span className="2xl:text-xl md:text-lg font-semibold font-manrope">
-                  Today
-                </span>
-                <form className="mt-[2vw] 2xl:text-base md:text-sm px-[2vw] flex flex-col justify-center items-center space-y-4">
+                <p className="2xl:text-xl mt-10 font-manrope font-semibold md:text-lg">Book an online consultation </p>
+                <span className="2xl:text-xl font-manrope font-semibold md:text-lg">Today</span>
+                <form className="2xl:text-base mt-[2vw] flex flex-col items-center justify-center space-y-4 px-[2vw] md:text-sm">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-[16vw] max-sm:w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
+                    className="r w-[16vw] rounded-md border border-[#B7407D80] bg-[#2521276B] px-4 py-2 max-sm:w-full"
                   />
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full px-4 py-2   bg-[#2521276B]   border border-[#B7407D80] rounded-md"
+                    className="w-full rounded-md border border-[#B7407D80] bg-[#2521276B] px-4 py-2"
                   />
                   <input
                     type="phone"
                     placeholder="Your Phone Number"
-                    className="w-full px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md"
+                    className="r w-full rounded-md border border-[#B7407D80] bg-[#2521276B] px-4 py-2"
                   />
                   <textarea
                     placeholder="Your Message"
-                    className="w-full h-32 px-4 py-2 r bg-[#2521276B]  border border-[#B7407D80]  rounded-md resize-none"
+                    className="r h-32 w-full resize-none rounded-md border border-[#B7407D80] bg-[#2521276B] px-4 py-2"
                   ></textarea>
                   <Link
                     to=""
-                    className="w-[60%] max-sm:w-[78%] sm:w-[12rem] cursor-pointer mt-[5rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3.5rem] group bg-transparent hover:bg-[#B7407D] transition-colors duration-300"
+                    className="group mt-[5rem] flex h-[3.5rem] w-[60%] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B7407D] max-sm:w-[78%] sm:w-[12rem]"
                   >
-                    <span className="text-white 2xl:text-base md:text-sm flex-grow text-center">
-                      submit
-                    </span>
-                    <div className="w-[2.5rem] h-[2.5rem] flex justify-center items-center text-white text-xl ml-2 group-hover:bg-white group-hover:text-black rounded-full bg-[#B740A1] mr-1">
+                    <span className="2xl:text-base flex-grow text-center text-white md:text-sm">submit</span>
+                    <div className="ml-2 mr-1 flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full bg-[#B740A1] text-xl text-white group-hover:bg-white group-hover:text-black">
                       <GoArrowUpRight />
                     </div>
                   </Link>
                 </form>
-                <div className="flex flex-col justify-start  items-start">
-                  <h2 className="mt-[3vw] max-sm:py-[10px] justify-center mx-[auto] 2xl:text-base md:text-sm font-medium">
-                    Reach us at{" "}
+                <div className="flex flex-col items-start justify-start">
+                  <h2 className="2xl:text-base mx-[auto] mt-[3vw] justify-center font-medium max-sm:py-[10px] md:text-sm">
+                    Reach us at{' '}
                   </h2>
-                  <div className="w-full mt-[1vw] flex justify-start text-xs items-center gap-[1vw] text-[#811F67]">
+                  <div className="mt-[1vw] flex w-full items-center justify-start gap-[1vw] text-xs text-[#811F67]">
                     <FaPhoneAlt />
-                    <h2 className="text-white 2xl:text-sm md:text-xs text-xs font-medium ">
-                      +91 8209860578
-                    </h2>
+                    <h2 className="2xl:text-sm text-xs font-medium text-white md:text-xs">+91 8209860578</h2>
                   </div>
-                  <div className="w-full mt-[1vw] flex justify-start text-xs items-center gap-[1vw] text-[#811F67]">
+                  <div className="mt-[1vw] flex w-full items-center justify-start gap-[1vw] text-xs text-[#811F67]">
                     <IoIosMail />
-                    <h2 className="text-white 2xl:text-sm md:text-xs text-xs font-medium">
-                      support@aignosis.in
-                    </h2>
+                    <h2 className="2xl:text-sm text-xs font-medium text-white md:text-xs">support@aignosis.in</h2>
                   </div>
-                  <div className="w-full mt-[1vw] mb-10 flex justify-start text-xs items-center gap-[1vw] text-[#3ad345]">
+                  <div className="mb-10 mt-[1vw] flex w-full items-center justify-start gap-[1vw] text-xs text-[#3ad345]">
                     <FaWhatsapp />
-                    <h2 className="text-white 2xl:text-sm md:text-xs text-xs font-medium">
-                      +91 8209860578
-                    </h2>
+                    <h2 className="2xl:text-sm text-xs font-medium text-white md:text-xs">+91 8209860578</h2>
                   </div>
                 </div>
               </div>
@@ -527,7 +459,7 @@ const ServicePage2 = () => {
             <BlogFooter />
           </div>
         </div>
-        <div className=" md:hidden mt-[5vw]">
+        <div className="mt-[5vw] md:hidden">
           <ContactPage />
           <BlogFooter />
         </div>

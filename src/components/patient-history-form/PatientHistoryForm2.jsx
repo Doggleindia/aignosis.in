@@ -1,6 +1,6 @@
-import React, { useState , useContext } from 'react';
-import { FaArrowRight } from 'react-icons/fa'; 
-import { AppContext } from "../aignosisintegration/AppContext";
+import React, { useState, useContext } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
+import { AppContext } from '../aignosisintegration/AppContext';
 
 const PatientHistoryForm2 = ({ onNext }) => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ const PatientHistoryForm2 = ({ onNext }) => {
     otherFamilyMember: '',
     jaundice: '',
   });
-  const {testData, setTestData} = useContext(AppContext);
+  const { testData, setTestData } = useContext(AppContext);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -26,7 +26,7 @@ const PatientHistoryForm2 = ({ onNext }) => {
     try {
       // Save form data to testData
       console.log(formData);
-      console.log("testData:", testData);
+      console.log('testData:', testData);
       setTestData({
         ...testData,
         patienthistoryform2data: formData,
@@ -47,38 +47,39 @@ const PatientHistoryForm2 = ({ onNext }) => {
         <div style={styles.sidebarContent}>
           <h2 style={styles.sidebarTitle}>Patient History</h2>
           <p style={styles.sidebarDescription}>
-            Our Patient History form gathers essential information to better understand
-            each individual's unique background and health journey.
+            Our Patient History form gathers essential information to better understand each individual's unique
+            background and health journey.
           </p>
           <p style={styles.sidebarDetails}>
-            This information is collected for our AI-powered tool, Ai.gnosis, to generate
-            accurate insights and personalized recommendations in support of a patient’s
-            growth and development. It provides valuable insights, enabling our
-            interdisciplinary teams to create a comprehensive support plan tailored to your needs.
+            This information is collected for our AI-powered tool, Ai.gnosis, to generate accurate insights and
+            personalized recommendations in support of a patient’s growth and development. It provides valuable
+            insights, enabling our interdisciplinary teams to create a comprehensive support plan tailored to your
+            needs.
           </p>
           <div style={styles.progress}>
-            <span style={styles.progressStep}>1</span> → 
-            <span style={{ ...styles.progressStep, ...styles.circleStep }}>2</span> → 
-            <span style={styles.progressStep}>3</span> → 
-            <span style={styles.progressStep}>4</span>
+            <span style={styles.progressStep}>1</span> →
+            <span style={{ ...styles.progressStep, ...styles.circleStep }}>2</span> →
+            <span style={styles.progressStep}>3</span> →<span style={styles.progressStep}>4</span>
           </div>
         </div>
       </div>
-      
+
       {/* Form Section */}
       <div style={styles.formContainer}>
         <h2 style={styles.formTitle}>Patient History</h2>
         <p style={styles.formDescription}>
-          By completing this form, you provide us with insights into medical history,
-          developmental milestones, family health patterns, and previous assessments or
-          diagnosis.
+          By completing this form, you provide us with insights into medical history, developmental milestones, family
+          health patterns, and previous assessments or diagnosis.
         </p>
         <button style={styles.languageButton}>Choose language</button>
         <center>
-        <h3 className="font-semibold mb-2 text-sm text-white">
-          Fill Google Form Instead? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_dXebCWKaocA7KpAxWJAyHGfEwsqiDvAgXk0tj4ZQa0bYhg/viewform">click here</a>
-        </h3> 
-        <br />
+          <h3 className="mb-2 text-sm font-semibold text-white">
+            Fill Google Form Instead?{' '}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_dXebCWKaocA7KpAxWJAyHGfEwsqiDvAgXk0tj4ZQa0bYhg/viewform">
+              click here
+            </a>
+          </h3>
+          <br />
         </center>
         {/* Form Fields */}
         <form style={styles.form} onSubmit={handleNext}>
@@ -107,7 +108,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.language === 'English'}
                   style={styles.radio}
-                /> English
+                />{' '}
+                English
               </label>
               <label>
                 <input
@@ -117,7 +119,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.language === 'Hindi'}
                   style={styles.radio}
-                /> Hindi
+                />{' '}
+                Hindi
               </label>
               <label>
                 <input
@@ -127,7 +130,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.language === 'Other'}
                   style={styles.radio}
-                /> Other (specify)
+                />{' '}
+                Other (specify)
                 <input
                   type="text"
                   name="otherLanguage"
@@ -152,7 +156,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'Convulsions'}
                   style={styles.radio}
-                /> History of convulsions
+                />{' '}
+                History of convulsions
               </label>
               <label>
                 <input
@@ -162,7 +167,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'Neuromuscular'}
                   style={styles.radio}
-                /> Neuro muscular disorder
+                />{' '}
+                Neuro muscular disorder
               </label>
               <label>
                 <input
@@ -172,7 +178,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'MentalIllness'}
                   style={styles.radio}
-                /> Mental illness
+                />{' '}
+                Mental illness
               </label>
               <label>
                 <input
@@ -182,7 +189,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'LossUnderstanding'}
                   style={styles.radio}
-                /> Loss of understanding
+                />{' '}
+                Loss of understanding
               </label>
               <label>
                 <input
@@ -192,7 +200,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'MaternalBMI'}
                   style={styles.radio}
-                /> Mother’s antenatal weight / BMI
+                />{' '}
+                Mother’s antenatal weight / BMI
               </label>
               <label>
                 <input
@@ -202,7 +211,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.familyHistory === 'Other'}
                   style={styles.radio}
-                /> If other (Specify condition & family member)
+                />{' '}
+                If other (Specify condition & family member)
                 <input
                   type="text"
                   name="otherCondition"
@@ -235,7 +245,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.jaundice === 'Yes'}
                   style={styles.radio}
-                /> Yes
+                />{' '}
+                Yes
               </label>
               <label>
                 <input
@@ -245,7 +256,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.jaundice === 'Maybe'}
                   style={styles.radio}
-                /> Maybe
+                />{' '}
+                Maybe
               </label>
               <label>
                 <input
@@ -255,7 +267,8 @@ const PatientHistoryForm2 = ({ onNext }) => {
                   onChange={handleInputChange}
                   checked={formData.jaundice === 'No'}
                   style={styles.radio}
-                /> No
+                />{' '}
+                No
               </label>
             </div>
           </div>
@@ -272,8 +285,6 @@ const PatientHistoryForm2 = ({ onNext }) => {
     </div>
   );
 };
-
-
 
 // Inline Styles
 const styles = {

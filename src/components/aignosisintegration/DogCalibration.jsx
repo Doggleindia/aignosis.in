@@ -1136,122 +1136,95 @@
 
 // export default DogCalibration;
 
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import MoonLoader from "react-spinners/MoonLoader";
-import "./Screeningtest.css";
+import React, { useRef, useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import MoonLoader from 'react-spinners/MoonLoader';
+import './Screeningtest.css';
 
-import {
-  encryptCalibrationData,
-  encryptPassword,
-} from "../config/EncryptionUtils";
-import { AppContext } from "../aignosisintegration/AppContext.jsx";
-import Circle from "./Circle";
-import dogpng from "../../assets/aignoisiai/dog_face.png";
+import { encryptCalibrationData, encryptPassword } from '../config/EncryptionUtils';
+import { AppContext } from '../aignosisintegration/AppContext.jsx';
+import Circle from './Circle';
+import dogpng from '../../assets/aignoisiai/dog_face.png';
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL =
-    "https://de.aignosismdw.in/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = 'https://de.aignosismdw.in/rest/calibration/data/';
 
   const [factIndex, setFactIndex] = useState(0);
   const newFactInterval = 7000;
 
   const autismFacts = [
     {
-      fact:
-        "Early detection of autism opens the door to early intervention — giving children the best chance to develop their potential, strengthen their abilities, and lead fuller, more independent lives.",
+      fact: 'Early detection of autism opens the door to early intervention — giving children the best chance to develop their potential, strengthen their abilities, and lead fuller, more independent lives.',
     },
     {
-      fact:
-        "Accepting autism means recognizing that different ways of thinking are not deficits, but different kinds of strengths — early support helps these strengths shine brighter.",
+      fact: 'Accepting autism means recognizing that different ways of thinking are not deficits, but different kinds of strengths — early support helps these strengths shine brighter.',
     },
 
     {
-      fact:
-        "Early detection empowers growth, and acceptance empowers belonging — together, they reveal the unique brilliance each autistic individual brings to the world.",
+      fact: 'Early detection empowers growth, and acceptance empowers belonging — together, they reveal the unique brilliance each autistic individual brings to the world.',
     },
 
     {
-      fact:
-        "Autistic brains are wired differently, not incorrectly. Studies show autistic people often have stronger connections in some brain regions and weaker ones in others.",
+      fact: 'Autistic brains are wired differently, not incorrectly. Studies show autistic people often have stronger connections in some brain regions and weaker ones in others.',
     },
     {
-      fact:
-        "Many autistic individuals have exceptional abilities in areas like mathematics, music, art, or memory — called 'savant skills.'",
+      fact: "Many autistic individuals have exceptional abilities in areas like mathematics, music, art, or memory — called 'savant skills.'",
     },
     {
-      fact:
-        "Autism is a spectrum — no two autistic people are the same. Some need a lot of support, while others live completely independent lives.",
+      fact: 'Autism is a spectrum — no two autistic people are the same. Some need a lot of support, while others live completely independent lives.',
     },
     {
-      fact:
-        "Early signs of autism can appear as early as 12 to 18 months of age, often noticed through differences in eye contact, gestures, or speech.",
+      fact: 'Early signs of autism can appear as early as 12 to 18 months of age, often noticed through differences in eye contact, gestures, or speech.',
     },
     {
-      fact:
-        "Early detection of autism is crucial. Identifying autism early allows for the implementation of early interventions, which can significantly improve a child's development in language, social skills, and behavior.",
+      fact: "Early detection of autism is crucial. Identifying autism early allows for the implementation of early interventions, which can significantly improve a child's development in language, social skills, and behavior.",
     },
     {
-      fact:
-        "Research has shown that **early intervention** can help children with autism develop better cognitive, social, and communication skills compared to those who receive support later.",
+      fact: 'Research has shown that **early intervention** can help children with autism develop better cognitive, social, and communication skills compared to those who receive support later.',
     },
     {
-      fact:
-        "Screening for autism is important because it can help identify children who might be at risk. This allows for timely access to support and resources, reducing the potential for developmental delays.",
+      fact: 'Screening for autism is important because it can help identify children who might be at risk. This allows for timely access to support and resources, reducing the potential for developmental delays.',
     },
     {
-      fact:
-        "Autistic people can experience sensory input differently — for example, lights might seem painfully bright, or soft sounds might feel overwhelming.",
+      fact: 'Autistic people can experience sensory input differently — for example, lights might seem painfully bright, or soft sounds might feel overwhelming.',
     },
     {
-      fact:
-        "The rate of autism diagnosis has increased, not because more people are becoming autistic, but because awareness and diagnostic methods have improved.",
+      fact: 'The rate of autism diagnosis has increased, not because more people are becoming autistic, but because awareness and diagnostic methods have improved.',
     },
     {
-      fact:
-        "Girls with autism are often underdiagnosed because they can be better at 'masking' or copying social behaviors.",
+      fact: "Girls with autism are often underdiagnosed because they can be better at 'masking' or copying social behaviors.",
     },
     {
-      fact:
-        "Many autistic adults were never diagnosed as children and only discover their autism later in life.",
+      fact: 'Many autistic adults were never diagnosed as children and only discover their autism later in life.',
     },
     {
-      fact:
-        "Autism has a strong genetic link — if one identical twin is autistic, the other twin has a very high chance (up to 90%) of being autistic too.",
+      fact: 'Autism has a strong genetic link — if one identical twin is autistic, the other twin has a very high chance (up to 90%) of being autistic too.',
     },
     {
-      fact:
-        "Routine and predictability often help autistic people feel safe — sudden changes can cause intense stress or anxiety.",
+      fact: 'Routine and predictability often help autistic people feel safe — sudden changes can cause intense stress or anxiety.',
     },
     {
-      fact:
-        "Many autistic people have very intense 'special interests' — areas they are deeply passionate about, often leading to expertise in that field.",
+      fact: "Many autistic people have very intense 'special interests' — areas they are deeply passionate about, often leading to expertise in that field.",
     },
     {
-      fact:
-        "Autistic individuals can communicate in many ways, not just through speech — gestures, writing, typing, or even pictures can be powerful communication tools.",
+      fact: 'Autistic individuals can communicate in many ways, not just through speech — gestures, writing, typing, or even pictures can be powerful communication tools.',
     },
     {
-      fact:
-        "Self-stimulatory behaviors ('stimming') like hand-flapping, rocking, or repeating words help autistic people regulate their emotions and sensory input.",
+      fact: "Self-stimulatory behaviors ('stimming') like hand-flapping, rocking, or repeating words help autistic people regulate their emotions and sensory input.",
     },
     {
-      fact:
-        "Autism is not caused by bad parenting, vaccines, or external factors — these are myths. Scientific studies consistently show autism is neurological and developmental.",
+      fact: 'Autism is not caused by bad parenting, vaccines, or external factors — these are myths. Scientific studies consistently show autism is neurological and developmental.',
     },
     {
-      fact:
-        "The Neurodiversity movement views autism as a natural variation of the human mind — not a disease to be 'cured,' but a different way of experiencing the world.",
+      fact: "The Neurodiversity movement views autism as a natural variation of the human mind — not a disease to be 'cured,' but a different way of experiencing the world.",
     },
     {
-      fact:
-        "Detecting autism early can improve the quality of life for children and families, as early treatment may reduce the need for extensive support later in life.",
+      fact: 'Detecting autism early can improve the quality of life for children and families, as early treatment may reduce the need for extensive support later in life.',
     },
     {
-      fact:
-        "There is growing support for universal autism screening during pediatric checkups, as this can lead to earlier diagnoses and better long-term outcomes.",
+      fact: 'There is growing support for universal autism screening during pediatric checkups, as this can lead to earlier diagnoses and better long-term outcomes.',
     },
   ];
 
@@ -1300,7 +1273,7 @@ const DogCalibration = () => {
   }, [isLoading]);
 
   useEffect(() => {
-    console.log("Screen resolution is " + screen.width + " x " + screen.height);
+    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
 
     function goFullScreen() {
       let elem = document.documentElement; // The whole page
@@ -1321,7 +1294,7 @@ const DogCalibration = () => {
 
     goFullScreen();
 
-    console.log("DOG CALIBRATION TEST DATA", testData);
+    console.log('DOG CALIBRATION TEST DATA', testData);
     // Get the webcam stream and metadata on mount
     if (parentRef.current) {
       const { clientWidth, clientHeight } = parentRef.current;
@@ -1330,13 +1303,13 @@ const DogCalibration = () => {
 
     const startWebcam = async () => {
       if (!navigator.mediaDevices.getUserMedia) {
-        console.error("getUserMedia not supported");
+        console.error('getUserMedia not supported');
         return;
       }
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: { deviceId: testData.deviceId ? { exact: testData.deviceId } : true, },
+          video: { deviceId: testData.deviceId ? { exact: testData.deviceId } : true },
         });
         videoRef.current.srcObject = stream;
 
@@ -1348,7 +1321,7 @@ const DogCalibration = () => {
 
         videoRef.current.onloadedmetadata = handleMetadata;
       } catch (error) {
-        console.error("Webcam start error:", error);
+        console.error('Webcam start error:', error);
       }
     };
 
@@ -1361,53 +1334,42 @@ const DogCalibration = () => {
     console.log(audio);
     const handleAudioPlay = () => {
       audio.loop = true;
-      audio.play().catch((error) => console.error("Audio play error:", error));
+      audio.play().catch((error) => console.error('Audio play error:', error));
     };
 
-    audio.addEventListener("canplaythrough", handleAudioPlay);
+    audio.addEventListener('canplaythrough', handleAudioPlay);
 
     return () => {
       audio.pause();
       audio.currentTime = 0; // Reset audio position
-      audio.removeEventListener("canplaythrough", handleAudioPlay);
+      audio.removeEventListener('canplaythrough', handleAudioPlay);
     };
   }, [testData]);
 
   const handleNextButtonClick = () => {
-    let {
-      PATIENT_UID,
-      TRANSACTION_ID,
-      calibration_encrypted_aes_key,
-      videolanguage,
-      patientDOB,
-      patientName,
-    } = testData;
-    if (
-      PATIENT_UID &&
-      TRANSACTION_ID &&
-      calibration_encrypted_aes_key &&
-      videolanguage
-    ) {
+    let { PATIENT_UID, TRANSACTION_ID, calibration_encrypted_aes_key, videolanguage, patientDOB, patientName } =
+      testData;
+    if (PATIENT_UID && TRANSACTION_ID && calibration_encrypted_aes_key && videolanguage) {
       navigate(`/video`);
     } else {
-      console.error("Missing required query parameters");
+      console.error('Missing required query parameters');
     }
   };
 
   const captureFrame = () => {
     if (canvasRef.current && videoRef.current) {
       const canvas = canvasRef.current;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext('2d');
 
       canvas.width = videoRef.current.videoWidth;
       canvas.height = videoRef.current.videoHeight;
 
       context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-      const frameData = canvas.toDataURL("image/jpeg");
+      const frameData = canvas.toDataURL('image/jpeg');
       return frameData;
     } else {
-      console.warn("Frame capture failed: canvasRef or videoRef is null");
+      console.warn('Frame capture failed: canvasRef or videoRef is null');
       // TODO: send back to take assignment page, with alert saying some error occurred
     }
   };
@@ -1425,14 +1387,8 @@ const DogCalibration = () => {
         }, 33) // Adjusted to 33ms for ~30 fps
       );
       setCurrentCircleIndex(currentCircleIndex + 1);
-    } else if (
-      currentCircleIndex < circleCoordinates.length - 1 &&
-      currentCircleIndex > 0
-    ) {
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+    } else if (currentCircleIndex < circleCoordinates.length - 1 && currentCircleIndex > 0) {
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       setCurrentCircleIndex(currentCircleIndex + 1);
     } else {
       // THIS IS THE LAST CLICK ON THE DOG / CAT
@@ -1441,25 +1397,20 @@ const DogCalibration = () => {
           audioRef.current.loop = false;
           audioRef.current.pause();
           audioRef.current.currentTime = 0;
-          console.log("Audio stopped successfully");
+          console.log('Audio stopped successfully');
         } else {
-          console.warn("Audio reference is null when attempting to stop");
+          console.warn('Audio reference is null when attempting to stop');
         }
       } catch (err) {
-        console.error("Error stopping audio:", err);
+        console.error('Error stopping audio:', err);
       }
 
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       var finalClickTimes = [...clickTimes, (Date.now() - startTime) / 1000];
       setIsCircleVisible(false);
 
       const timeElapsed = (Date.now() - startTime) / 1000;
-      let fps = parseInt(
-        (frames.length / parseInt(timeElapsed.toString())).toString()
-      );
+      let fps = parseInt((frames.length / parseInt(timeElapsed.toString())).toString());
 
       const calibrationData = {
         patient_uid: testData.PATIENT_UID,
@@ -1502,11 +1453,7 @@ const DogCalibration = () => {
         });
       }
 
-      console.log(
-        `FINAL CALIBRATION DATA BEFORE ENCRYPTION: ${JSON.stringify(
-          calibrationData
-        )}`
-      ); // Fixed template literal
+      console.log(`FINAL CALIBRATION DATA BEFORE ENCRYPTION: ${JSON.stringify(calibrationData)}`); // Fixed template literal
 
       // ENCRYPTION STARTS HERE
 
@@ -1515,8 +1462,8 @@ const DogCalibration = () => {
 
         try {
           const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-            .map((b) => b.toString(16).padStart(2, "0"))
-            .join("");
+            .map((b) => b.toString(16).padStart(2, '0'))
+            .join('');
 
           // encrypting personal information
           // this data includes: guardianPno, patientName, patientDob, clinic name or referrer name
@@ -1526,26 +1473,18 @@ const DogCalibration = () => {
             guardianPno: testData.guardianPno,
             clinicOrReferrerName: testData.clinicOrReferrerName,
           };
-          const encryptedPatientInfo = await encryptCalibrationData(
-            patientInfo,
-            aesKey
-          ).catch((error) => {
-            console.error("Failed to encrypt patient info:", error);
+          const encryptedPatientInfo = await encryptCalibrationData(patientInfo, aesKey).catch((error) => {
+            console.error('Failed to encrypt patient info:', error);
             throw error;
           });
 
-          const encryptedCalibrationPoints = await encryptCalibrationData(
-            calibration_points,
-            aesKey
-          ).catch((error) => {
-            console.error("Failed to encrypt calibration points:", error);
+          const encryptedCalibrationPoints = await encryptCalibrationData(calibration_points, aesKey).catch((error) => {
+            console.error('Failed to encrypt calibration points:', error);
             throw error;
           });
 
-          const calibration_encrypted_aes_key = await encryptPassword(
-            aesKey
-          ).catch((error) => {
-            console.error("Failed to encrypt password:", error);
+          const calibration_encrypted_aes_key = await encryptPassword(aesKey).catch((error) => {
+            console.error('Failed to encrypt password:', error);
             throw error;
           });
 
@@ -1569,11 +1508,11 @@ const DogCalibration = () => {
 
           return axios
             .request({
-              method: "POST",
+              method: 'POST',
               url: SERVER_MIDDLEWARE_URL,
               data: calibrationDataString,
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
             })
             .then((response) => {
@@ -1582,17 +1521,17 @@ const DogCalibration = () => {
               if (response.status === 200) {
                 // pass
               } else {
-                navigate("/Error Page");
+                navigate('/Error Page');
               }
             })
             .catch((error) => {
-              console.error("Processing error:", error);
-              navigate("/Error");
+              console.error('Processing error:', error);
+              navigate('/Error');
               console.log(error);
             });
         } catch (error) {
-          console.error("Processing error:", error);
-          navigate("/Error");
+          console.error('Processing error:', error);
+          navigate('/Error');
           console.log(error);
         }
       }
@@ -1600,11 +1539,11 @@ const DogCalibration = () => {
       processAndSendData()
         .then((response) => {
           clearInterval(frameCaptureInterval);
-          console.log("Frame capturing stopped");
+          console.log('Frame capturing stopped');
         })
         .catch((err) => {
           clearInterval(frameCaptureInterval);
-          console.log("Frame capturing stopped");
+          console.log('Frame capturing stopped');
           console.log(err);
         });
     }
@@ -1615,46 +1554,44 @@ const DogCalibration = () => {
       id="parent-container"
       ref={parentRef}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: !isCircleVisible && isLoading ? "#1b0c26" : "white",
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: !isCircleVisible && isLoading ? '#1b0c26' : 'white',
       }}
     >
-      {isCircleVisible &&
-        parentDimensions[0] > 0 &&
-        parentDimensions[1] > 0 && (
-          <Circle
-            onClickHandler={handleCircleClick}
-            x={circleCoordinates[currentCircleIndex][0]}
-            y={circleCoordinates[currentCircleIndex][1]}
-            radius={50}
-            imageUrl={dogpng}
-          />
-        )}
+      {isCircleVisible && parentDimensions[0] > 0 && parentDimensions[1] > 0 && (
+        <Circle
+          onClickHandler={handleCircleClick}
+          x={circleCoordinates[currentCircleIndex][0]}
+          y={circleCoordinates[currentCircleIndex][1]}
+          radius={50}
+          imageUrl={dogpng}
+        />
+      )}
 
       {/* Conditionally render spinner or button */}
       {!isCircleVisible &&
         (isLoading ? (
           <div
             style={{
-              display: "flex",
+              display: 'flex',
               flex: 1,
-              flexDirection: "column",
-              alignItems: "center",
-              border: "0px solid red",
-              justifyContent: "center",
-              height: "100%",
-              backgroundColor: "white",
+              flexDirection: 'column',
+              alignItems: 'center',
+              border: '0px solid red',
+              justifyContent: 'center',
+              height: '100%',
+              backgroundColor: 'white',
             }}
           >
             <div
               style={{
-                display: "flex",
-                alignItems: "end",
+                display: 'flex',
+                alignItems: 'end',
                 flex: 1,
-                border: "0px solid green",
+                border: '0px solid green',
                 marginTop: 200,
               }}
             >
@@ -1662,12 +1599,12 @@ const DogCalibration = () => {
             </div>
             <div
               style={{
-                display: "flex",
-                border: "0px solid green",
+                display: 'flex',
+                border: '0px solid green',
                 marginTop: 20,
                 marginBottom: 100,
                 fontWeight: 200,
-                color: "#9a0ea9",
+                color: '#9a0ea9',
                 fontSize: 30,
               }}
             >
@@ -1675,32 +1612,29 @@ const DogCalibration = () => {
             </div>
             <div
               style={{
-                display: "flex",
-                alignItems: "end",
+                display: 'flex',
+                alignItems: 'end',
                 flex: 1,
-                border: "0px solid green",
-                textAlign: "center",
+                border: '0px solid green',
+                textAlign: 'center',
                 marginBottom: 100,
-                color: "#9a0ea9",
-                maxWidth: "80%",
+                color: '#9a0ea9',
+                maxWidth: '80%',
               }}
             >
               {autismFacts[factIndex].fact}
             </div>
           </div>
         ) : (
-          <button
-            className="mt-4 calibration-next-btn"
-            onClick={handleNextButtonClick}
-          >
+          <button className="calibration-next-btn mt-4" onClick={handleNextButtonClick}>
             Next
           </button>
         ))}
 
-      <div style={{ display: "none", flex: 1 }}>
+      <div style={{ display: 'none', flex: 1 }}>
         <video ref={videoRef} autoPlay playsInline></video>
       </div>
-      <canvas ref={canvasRef} style={{ flex: 1, display: "none" }} />
+      <canvas ref={canvasRef} style={{ flex: 1, display: 'none' }} />
     </div>
   );
 };
