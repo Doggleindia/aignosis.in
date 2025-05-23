@@ -107,10 +107,10 @@ const Features = () => {
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
         <Divider title="Feature" desc="" titleImg={p3} subtitle="" />
         <div className="flex items-center justify-center">
-          <h3 className="text-center font-raleway text-[40px] font-bold text-[#F6E8FB] max-sm:text-center max-sm:text-[24px]">
+          <h3 className="ml-6 text-center font-raleway text-[40px] font-bold text-[#F6E8FB] max-sm:text-center max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h3>
-          <img src={p4} className="-mt-10 hidden w-[100px] max-sm:w-[50px] md:block" alt="" ref={p3Ref} />
+          <img src={p4} className="hidden w-[100px] max-sm:w-[50px] md:block" alt="" ref={p3Ref} />
         </div>
       </div>
       <div className="mt-[3vw] flex flex-col items-center justify-center gap-[1.5vw] p-4">
@@ -137,9 +137,9 @@ const Features = () => {
               <img className="h-full w-[300px] object-contain" src={img1} alt="" />
             </div>
             <div className="flex w-full flex-col items-center justify-center px-[8vw] text-white">
-              <h4 className="mt-4 text-lg font-bold">Comfort and Privacy of Home </h4>
+              <h4 className="mt-4 text-lg font-bold">Comfort and Privacy of Home</h4>
               <p className="mt-4 text-center text-sm text-[#C4C4C4]">
-                Complete the test from the comfort of your own home, ensuring privacy for both you and your child. 
+                Complete the test from the comfort of your own home, ensuring privacy for both you and your child.
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@ const Features = () => {
             <div className="flex w-full flex-col items-center justify-center px-[5vw] text-white">
               <h4 className="mt-4 text-lg font-bold">Accurate Screening</h4>
               <p className="mt-2 text-center text-sm text-[#C4C4C4]">
-                Backed by experts, you can trust the system for accurate insights into your child’s development 
+                Backed by experts, you can trust the system for accurate insights into your child&apos;s development
               </p>
             </div>
           </div>
@@ -219,7 +219,7 @@ const Features = () => {
             <div className="flex w-full flex-col items-center justify-center px-[7vw] text-white">
               <h4 className="mt-4 text-center text-lg font-bold">Non-Invasive Testing with Just Your Webcam</h4>
               <p className="mt-4 px-[1vw] text-center text-sm text-[#C4C4C4]">
-                The test is non-invasive, requiring only a standard webcam—no needles or complex equipment.
+                The test is non-invasive, requiring only a standard webcam - no needles or complex equipment.
               </p>
             </div>
           </div>

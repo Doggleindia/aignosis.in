@@ -16,7 +16,7 @@ const Card = ({ title, subtitle, description, link, externalLink }) => {
         <h3 className="w-full items-center justify-center text-xl">
           <span className="text-3xl font-semibold italic">{title}</span>{' '}
           <span className="ml-1 font-medium">{subtitle}</span>
-          <span className="absolute bottom-10 right-10 ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-red-800 px-1 py-1 text-[11px] font-bold text-white">
+          <span className="absolute bottom-11 right-10 ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-red-800 px-1 py-1 text-[11px] font-bold text-white">
             SOS
           </span>
         </h3>
@@ -43,7 +43,7 @@ const Card = ({ title, subtitle, description, link, externalLink }) => {
         <h3 className="w-full items-center justify-center text-lg">
           <span className="text-2xl font-semibold italic">{title}</span>{' '}
           <span className="ml-1 font-medium">{subtitle}</span>
-          <span className="absolute bottom-6 right-6 ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-red-800 px-1 py-1 text-[9px] font-bold text-white">
+          <span className="absolute bottom-8 right-6 ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-red-800 px-1 py-1 text-[9px] font-bold text-white">
             SOS
           </span>
         </h3>

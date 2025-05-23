@@ -139,7 +139,7 @@ const Screen5 = () => {
                       {slide.title}
                     </h1>
                     <p className="2xl:text-lg mt-2 text-sm max-sm:text-center md:text-base">{slide.description}</p>
-                    <div className="group mt-4 flex h-[2.5rem] w-full cursor-pointer items-center justify-center rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:m-[auto] max-sm:mb-[15px] max-sm:mt-[21px] max-sm:w-[50%] md:mt-[2rem] md:h-[3rem] md:w-[10rem]">
+                    <div className="group mt-4 flex h-[2.5rem] w-full cursor-pointer items-center justify-center rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:m-[auto] max-sm:mb-[15px] max-sm:mt-[21px] max-sm:w-[50%] md:mt-[2rem] md:h-[3rem] md:w-[10rem]">
                       <a href="#" className="text-sm text-white md:text-base">
                         Learn more
                       </a>

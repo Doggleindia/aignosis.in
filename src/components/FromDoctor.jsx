@@ -66,7 +66,7 @@ const FromDoctor = () => {
                 />
               </div>
 
-              <span className="mt-5 font-raleway text-4xl">Expert Voices </span>
+              <span className="mt-5 font-raleway text-4xl">Expert Voices </span>
               <p className="mt-5 leading-[1.2vw]">
                 Hear from healthcare professionals who've experienced how our tool supports <br /> early understanding
                 and better outcomes.
@@ -169,10 +169,10 @@ const FromDoctor = () => {
                     }}
                   ></span>
                 </div>
-                <span className="mt-5 font-raleway text-4xl">Real Families, Real Stories </span>
+                <span className="mt-5 font-raleway text-4xl">Real Families, Real Stories </span>
                 <p className="mt-5 leading-[1.2vw]">
                   Every milestone matters in a child's development. Here's what families like yours have to say about
-                  their experience with us..
+                  their experience with us...
                 </p>
 
                 <div className="w-full pl-7">
@@ -363,7 +363,7 @@ const FromDoctor = () => {
                   }}
                 ></span>
               </div>
-              <h3 className="text-right font-raleway text-xl">Real Families, Real Stories  </h3>
+              <h3 className="text-right font-raleway text-xl">Real Families, Real Stories </h3>
               <p className="text-center text-xs">
                 Every milestone matters in a child's development. Here's what families like yours have to say about
                 their experience with us.

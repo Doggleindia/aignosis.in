@@ -63,7 +63,7 @@ const Awards = () => {
     );
   }, []);
   return (
-    <div className="relative w-full bg-[#1A0C25] p-[5vw]">
+    <div className="relative w-full justify-center bg-[#1A0C25] p-[5vw]">
       <div className="flex flex-row items-center justify-center space-x-4 max-sm:ml-[15vw] max-sm:mt-[15vw]">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
@@ -82,14 +82,14 @@ const Awards = () => {
       </div>
       <div className="flex flex-col">
         <div className="mt-[1vw] flex items-center justify-center">
-          <h4 className="mt-4 text-center font-raleway text-[48px] leading-7 text-[#F6E8FB] max-sm:text-[24px] md:mr-[20px] md:mt-0 md:leading-[1.2vw]">
+          <h4 className="mt-4 text-center font-raleway text-[48px] leading-7 text-[#F6E8FB] max-sm:text-[24px] md:mt-0 md:leading-[1.2vw]">
             Supported and featured by
           </h4>
         </div>
         <div className="mx-auto mt-[2vw] flex items-center justify-center md:w-[800px]">
           <p className="mt-4 text-center text-base font-light leading-5 text-[#F6E8FB] md:mt-8 md:leading-[1.2vw]">
             Aignosis is backed by renowned organizations, medical experts, and technology pioneers committed to
-            advancing early autism detection and intervention worldwide."
+            advancing early autism detection and intervention worldwide.
           </p>
         </div>
       </div>

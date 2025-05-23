@@ -7,7 +7,7 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
         {/* DIVIDER CODE */}
         <div
           className={`flex flex-row items-center justify-center ${
-            title === 'Transformative' ? 'ml-[-2vw]' : title === 'Know More' ? 'ml-[0vw]' : 'ml-[8vw]'
+            title === 'Transformative' ? '-ml-[8vw]' : title === 'Know More' ? 'ml-[0vw]' : 'ml-[8vw]'
           } space-x-4`}
         >
           <div className="flex flex-row items-center space-x-4">
@@ -55,7 +55,7 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
         {/* DIVIDER CODE */}
         <div
           className={`flex flex-row items-center justify-center ${
-            title === 'Transformative' ? 'ml-[-2vw]' : title === 'Know More' ? 'ml-[0vw]' : 'ml-[8vw]'
+            title === 'Transformative' ? '-ml-[8vw]' : title === 'Know More' ? 'ml-[0vw]' : 'ml-[8vw]'
           } space-x-4`}
         >
           <div className="flex flex-row items-center space-x-2">

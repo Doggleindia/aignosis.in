@@ -167,7 +167,7 @@ const Homefirst = () => {
               <Link to={'/clinic'}>
                 <div className="flex items-center space-x-4">
                   <div className="h-16 w-16 cursor-pointer rounded-full">
-                    <img className="h-full w-full object-contain" src={m2} alt="" srcset="" />
+                    <img className="h-full w-full object-contain" src={m2} alt="" srcSet="" />
                   </div>
                   <span className="text-left">
                     <strong className="block font-bold">For doctors</strong>
@@ -205,7 +205,7 @@ const Homefirst = () => {
               onInput={() => isValid()}
             />
             <div className="flex w-full items-center rounded-md border border-[#9C00AD] bg-transparent p-3 sm:w-[48%]">
-              <span className="whitespace-nowrap pr-2 text-xs text-white">🇮🇳 +91</span>
+              <span className="text-md whitespace-nowrap pr-2 text-white">🇮🇳 +91</span>
               <input
                 type="text"
                 placeholder="WhatsApp Preferred"

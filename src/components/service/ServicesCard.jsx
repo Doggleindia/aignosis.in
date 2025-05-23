@@ -67,12 +67,12 @@ const ServicesCard = ({ userId }) => {
 
                 {/* Button for action (e.g., Book Session) */}
                 <Link to={'/test/fillup'}>
-                  <button className="mt-4 w-full rounded-lg bg-[#811F67] px-4 py-2 text-sm font-semibold text-white transition duration-300 hover:bg-[#B740A1]">
+                  <button className="mt-4 w-full rounded-lg bg-[#811F67] px-4 py-2 text-sm font-semibold text-white transition duration-300 hover:bg-pink-500">
                     Take Test Now
                   </button>
                 </Link>
                 <Link to={'https://calendly.com/aignosis-support/30min'} target="_blank" rel="noreferrer">
-                  <button className="mt-4 w-full rounded-lg bg-[#811F67] px-4 py-2 text-sm font-semibold text-white transition duration-300 hover:bg-[#B740A1]">
+                  <button className="mt-4 w-full rounded-lg bg-[#811F67] px-4 py-2 text-sm font-semibold text-white transition duration-300 hover:bg-pink-500">
                     Book a Session
                   </button>
                 </Link>

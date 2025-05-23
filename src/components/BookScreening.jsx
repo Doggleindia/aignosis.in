@@ -55,7 +55,7 @@ const BookScreening = () => {
         style={{ background: 'rgba(26, 12, 37, 1)' }}
       >
         {/* Top Navigation */}
-        <div className="mb-8 flex items-center justify-center space-x-4 max-sm:ml-[-8vw] md:space-x-2">
+        <div className="-ml-[6vw] mb-8 flex items-center justify-center space-x-4 max-sm:-ml-[10vw] md:space-x-2">
           <img src={star} className="h-[70px] w-[70px] self-center max-sm:h-[30px] max-sm:w-[30px]" alt="star" />
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
@@ -90,7 +90,7 @@ const BookScreening = () => {
                 provide parents with meaningful insights for early autism detection. Early screening can empower you to
                 take proactive steps in supporting your child’s unique journey. We’re here to guide you every step of
                 the way. Simply book a test to connect with caring experts for personalized support and a free
-                consultation. 
+                consultation.
               </p>
             </div>
 
@@ -108,7 +108,7 @@ const BookScreening = () => {
             {/* Proceed Button */}
 
             <div className="mt-7">
-              <button className="flex w-auto items-center space-x-2 rounded-full border border-[#9C00AD] px-2 py-4 text-lg font-semibold transition-colors hover:bg-[#B7407D] max-sm:px-1 max-sm:py-0 max-sm:text-sm md:h-[2.5rem]">
+              <button className="flex w-auto items-center space-x-2 rounded-full border border-[#9C00AD] px-3 py-5 text-lg font-semibold transition-colors hover:bg-pink-500 max-sm:px-2 max-sm:py-1 max-sm:text-sm md:h-[2.5rem]">
                 <span>Click to proceed</span>
                 <div className="flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-[#B740A1] text-lg text-white group-hover:bg-white group-hover:text-black">
                   <GoArrowUpRight />
@@ -148,7 +148,7 @@ const BookScreening = () => {
 
             {/* Subtext */}
             <p className="2xl:text-lg text-center font-raleway text-[#FFFFFF] md:ml-[7rem] md:text-sm">
-              Comprehensive Support for Your Child’s <br /> Growth
+              Comprehensive Support for Your Child’s Growth
             </p>
           </div>
 

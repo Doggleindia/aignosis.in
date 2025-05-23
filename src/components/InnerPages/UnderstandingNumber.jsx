@@ -86,7 +86,7 @@ const UnderstandingNumber = () => {
             <h1 className="mt-2 text-base text-[#F6E8FB] max-sm:text-sm">
               Early identification is essential for better support
             </h1>
-            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:w-[7rem]">
+            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:w-[7rem]">
               <a href="" className="text-base text-white max-sm:text-sm">
                 Learn more
               </a>
@@ -121,7 +121,7 @@ const UnderstandingNumber = () => {
             <h1 className="mt-2 text-base text-[#F6E8FB] max-sm:text-sm">
               Autism awareness and early detection can make a difference.
             </h1>
-            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:w-[7rem]">
+            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:w-[7rem]">
               <a href="" className="text-base text-white max-sm:text-sm">
                 Learn more
               </a>

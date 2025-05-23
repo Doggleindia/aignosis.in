@@ -32,7 +32,7 @@ const Reports = () => {
           better understand the condition and explore effective <br /> approaches for support and development.
         </p>
         <div className="flex w-full items-center justify-center md:justify-start">
-          <div className="group mt-[5rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:m-auto max-sm:mt-[11px] md:w-[14rem]">
+          <div className="group mt-[2rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:m-auto max-sm:mt-[11px] md:w-[15rem]">
             <a
               href="https://storage.googleapis.com/aignosis_static_assets/Screening-Report/sample_ai_report.pdf"
               download

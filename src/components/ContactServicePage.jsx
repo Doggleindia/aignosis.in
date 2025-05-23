@@ -60,7 +60,7 @@ const ContactServicePage = () => {
                     placeholder="Your Message"
                     className="h-32 w-full resize-none rounded-md border-2 border-[#B740A1] bg-[#2521276B] px-4 py-2"
                   ></textarea>
-                  <div className="group mt-[5rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:m-auto max-sm:mt-[11px] md:w-[14rem]">
+                  <div className="group mt-[5rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:m-auto max-sm:mt-[11px] md:w-[14rem]">
                     <a href="" className="text-white">
                       Send Message
                     </a>
@@ -95,7 +95,7 @@ const ContactServicePage = () => {
             placeholder="Your Message"
             className="h-32 w-full resize-none rounded-md border-2 border-[#B740A1] bg-[#2521276B] px-4 py-2"
           ></textarea>
-          <div className="group mt-[5rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:m-auto max-sm:mt-[11px] md:w-[14rem]">
+          <div className="group mt-[5rem] flex h-[3.5rem] w-[60vw] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:m-auto max-sm:mt-[11px] md:w-[14rem]">
             <a href="" className="text-white">
               Send Message
             </a>

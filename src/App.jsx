@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router, Route, and Routes
 import Homepagemain from './components/Homepagemain'; // Import the HomepageMain component
 import AboutUs from './components/AboutUs';
@@ -104,12 +105,15 @@ const Layout = ({ children }) => {
   );
 };
 
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 const App = () => {
   return (
     <Router>
       <Layout>
         <Routes>
-          {' '}
           {/* Use Routes to define all your routes */}
           <Route path="/" element={<Homepagemain />} />
           <Route path="/about-us" element={<AboutUs />} />

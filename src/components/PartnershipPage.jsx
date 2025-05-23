@@ -273,11 +273,11 @@ const PartnershipPage = () => {
                 required
                 className="h-32 w-full resize-none rounded-md bg-[#2521276B] px-4 py-2"
               ></textarea>
-              <div className="2xl:w-[14rem] group mt-[1.5rem] flex h-[3rem] w-[8rem] cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B740A1] max-sm:mx-auto md:h-[3rem] md:w-[9rem]">
+              <div className="2xl:w-[14rem] group mt-[1.5rem] flex h-[3rem] w-[8rem] cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:mx-auto md:h-[3rem] md:w-[9rem]">
                 <button disabled={loading} type="submit" className="text-sm text-white md:text-sm">
                   Submit
                 </button>
-                <div className="2xl:w-[2.5rem] 2xl:h-[2.5rem] flex h-[1.8rem] w-[1.8rem] items-center justify-center rounded-full bg-[#B740A1] text-lg text-white group-hover:bg-white group-hover:text-black md:h-[1.8rem] md:w-[1.8rem] md:text-base">
+                <div className="2xl:w-[2.5rem] 2xl:h-[2.5rem] flex h-[1.8rem] w-[1.8rem] items-center justify-center rounded-full bg-[#B740A1] text-xl text-white group-hover:bg-white group-hover:text-black md:h-[1.8rem] md:w-[1.8rem] md:text-base">
                   <GoArrowUpRight />
                 </div>
               </div>

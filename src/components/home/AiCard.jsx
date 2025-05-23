@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import flag from './redflag.png';
 
 const AiCard = ({ imageSrc, date, title, description = '' }) => {
@@ -19,7 +19,7 @@ const AiCard = ({ imageSrc, date, title, description = '' }) => {
 
         {/* Text Content */}
         <div className="flex flex-col gap-1 p-4">
-          <span className="font-raleway text-xs text-[#D7DAE3] underline">{date}</span>
+          <span className="font-raleway text-xs text-[#D7DAE3] underline underline-offset-2">{date}</span>
 
           <p className="block pt-2 font-montserrat text-sm font-bold text-[#CACED9]">
             {descriptionWords.map((word, index) => (
@@ -51,6 +51,13 @@ const AiCard = ({ imageSrc, date, title, description = '' }) => {
       </div>
     </>
   );
+};
+
+AiCard.propTypes = {
+  imageSrc: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default AiCard;

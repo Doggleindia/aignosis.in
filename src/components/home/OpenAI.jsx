@@ -107,7 +107,7 @@ const OpenAI = () => {
       {/* <p className='text-center text-[12px] p-3 text-white font-montserrat'>*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)</p> */}
       <Link
         to="/prices"
-        className="group m-auto my-4 flex w-[20%] items-center justify-center rounded-full border border-[#B740A1] p-4 font-manrope text-white hover:bg-pink-500 max-sm:w-[60%] max-sm:text-[3vw] xl:text-sm"
+        className="group m-auto my-4 flex w-[20%] items-center justify-center rounded-full border border-[#B740A1] p-4 font-manrope text-white transition-all duration-200 hover:bg-pink-500 max-sm:w-[60%] max-sm:text-[3vw] xl:text-sm"
       >
         Start Your Child’s Assessment
         <div className="2xl:w-[2.5rem] 2xl:h-[2.5rem] ml-[2vw] flex items-center justify-center rounded-full bg-[#B740A1] text-xl text-white transition-colors duration-300 group-hover:bg-white group-hover:text-black md:h-[2rem] md:w-[2rem]">

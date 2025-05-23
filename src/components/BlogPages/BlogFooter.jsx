@@ -212,7 +212,7 @@ const BlogFooter = () => {
             <h3 className="mt-4 text-center text-[10px]">
               {' '}
               <p>
-                &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
+                &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
                 <a
                   href="https://doggleindia.com/"
                   target="_blank"
@@ -230,7 +230,7 @@ const BlogFooter = () => {
           <h3 className="mt-4 text-center text-[10px]">
             {' '}
             <p>
-              &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
+              &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
               <a
                 href="https://doggleindia.com/"
                 target="_blank"

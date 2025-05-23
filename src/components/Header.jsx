@@ -394,7 +394,7 @@ const Header = () => {
             <Link
               to="/login"
               onClick={() => handleLinkClick('/login')}
-              className="group rounded-[30px] border border-[#B740A1] p-2 px-4 hover:bg-pink-500"
+              className="group rounded-[30px] border border-[#B740A1] p-2 px-4 transition-all duration-200 hover:bg-pink-500"
             >
               <span className="2xl:text-base m-auto flex items-center text-xl text-white md:text-sm">
                 Log in
