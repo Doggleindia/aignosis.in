@@ -725,11 +725,11 @@ const VideoPlayback = () => {
   };
 
   const handleVideoPlay = () => {
-    if (!isVideoLoaded) {
-      videoRef.current?.pause();
-      alert("Please wait for the video to load completely before starting.");
-      return;
-    }
+    // if (!isVideoLoaded) {
+    //   videoRef.current?.pause();
+    //   alert("Please wait for the video to load completely before starting.");
+    //   return;
+    // }
     if (!hasStartedOnce) {
       startWebcamRecording();
       setHasStartedOnce(true);
