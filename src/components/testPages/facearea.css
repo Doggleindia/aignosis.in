@@ -37,7 +37,7 @@
 
 /* Overlay for the "white" outside effect */
 .container::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -46,16 +46,8 @@
   background-color: white;
   mix-blend-mode: screen;
   /* Adjust the radial-gradient to match the vertical ellipse shape */
-  -webkit-mask-image: radial-gradient(
-    ellipse 25% 50% at 50% 50%,
-    transparent 60%,
-    black 61%
-  );
-  mask-image: radial-gradient(
-    ellipse 25% 50% at 50% 50%,
-    transparent 60%,
-    black 61%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 25% 50% at 50% 50%, transparent 60%, black 61%);
+  mask-image: radial-gradient(ellipse 25% 50% at 50% 50%, transparent 60%, black 61%);
 }
 
 /* You might want an oval border on top if the above makes the border disappear */

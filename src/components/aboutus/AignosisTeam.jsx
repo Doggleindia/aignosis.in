@@ -1,17 +1,17 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense } from 'react';
 // Lazy load components
-const Divider = lazy(() => import("./Divider"));
-const MemberCard = lazy(() => import("./MemberCard"));
-import member3 from "../../assets/members/image3.png";
-import member6 from "../../assets/members/image6.png";
-import member9 from "../../assets/members/image9.png";
-import raj from "./raj.jpeg";
-import amit from "./amit.jpeg";
-import mem from "./05 (1).jpg";
-import aman from '../../assets/members/aman-gupta.webp'
-import nikhil from '../../assets/members/Nikhil-Kamath.jpg'
-import peyush from '../../assets/members/peyush bansal.jpg'
-import varun from '../../assets/members/Varun Dua.webp'
+const Divider = lazy(() => import('./Divider'));
+const MemberCard = lazy(() => import('./MemberCard'));
+import member3 from '../../assets/members/image3.png';
+import member6 from '../../assets/members/image6.png';
+import member9 from '../../assets/members/image9.png';
+import raj from './raj.jpeg';
+import amit from './amit.jpeg';
+import mem from './05 (1).jpg';
+import aman from '../../assets/members/aman-gupta.webp';
+import nikhil from '../../assets/members/Nikhil-Kamath.jpg';
+import peyush from '../../assets/members/peyush bansal.jpg';
+import varun from '../../assets/members/Varun Dua.webp';
 import logo1 from '../../assets/homepage/a21.png';
 import logo2 from '../../assets/homepage/image a3.png';
 import logo3 from '../../assets/homepage/image a2.png';
@@ -19,44 +19,40 @@ import logo4 from '../../assets/homepage/a16.png';
 import logo5 from '../../assets/images/sponsered/image 89.png';
 import logo6 from '../../assets/images/sponsered/image 107.png';
 import logo7 from '../../assets/homepage/image a6.png';
-import logo8 from '../../assets/images/sponsered/image 102.png'
+import logo8 from '../../assets/images/sponsered/image 102.png';
 import logo9 from '../../assets/homepage/a20.png';
-import logo10 from '../../assets/homepage/image90.avif'
+import logo10 from '../../assets/homepage/image90.avif';
 import logo11 from '../../assets/images/sponsered/image 85.png';
 import logo12 from '../../assets/images/sponsered/image 71.png';
-import citation from '../../assets/members/citations.jpeg'
-import founders from '../../assets/members/founders.jpeg'
+import citation from '../../assets/members/citations.jpeg';
+import founders from '../../assets/members/founders.jpeg';
 import raksheet from '../../assets/members/raksheet.jpeg';
-import divyansh from '../../assets/members/divyansh.jpeg'
-import lenskart from '../../assets/members/lenskart.png'
-import acko from '../../assets/members/acko logo.jpg'
-import boat from '../../assets/members/boat logo.jpg'
-import zerodha from '../../assets/members/zerodha logo.png'
+import divyansh from '../../assets/members/divyansh.jpeg';
+import lenskart from '../../assets/members/lenskart.png';
+import acko from '../../assets/members/acko logo.jpg';
+import boat from '../../assets/members/boat logo.jpg';
+import zerodha from '../../assets/members/zerodha logo.png';
 
 const AignosisTeam = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex rounded-2xl py-[5vw] mt-[8vw] flex-col my-8 max-sm:mx-2 mx-8 border border-solid bg-gray-800 bg-opacity-30 border-white border-opacity-10 min-h-auto">
+      <div className="min-h-auto mx-8 my-8 mt-[8vw] flex flex-col rounded-2xl border border-solid border-white border-opacity-10 bg-gray-800 bg-opacity-30 py-[5vw] max-sm:mx-2">
         <Divider
           title="Our Project team"
-          subtitle="The Minds Behind Ai.gnosis"
+          subtitle="The Minds Behind Aignosis"
           desc={
             <>
-              At Aignosis, we are driven by the vision to revolutionize early
-              detection of neurodevelopmental disorders through cutting-edge AI
-              technology.
+              At Aignosis, we are driven by the vision to revolutionize early detection of neurodevelopmental disorders
+              through cutting-edge AI technology.
               <br />
-              Our passionate and diverse team brings together expertise in
-              healthcare, artificial intelligence, and entrepreneurship to make
-              autism screening.
+              Our passionate and diverse team brings together expertise in healthcare, artificial intelligence, and
+              entrepreneurship to make autism screening.
               <br />
-              <div className="text-center">
-                accessible, affordable, and scalable for every child.
-              </div>
+              <div className="text-center">accessible, affordable, and scalable for every child.</div>
             </>
           }
         />
-        <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw]  gap-4 px-10">
+        <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
           <MemberCard
             title="Divyansh ​Mangal"
             subtitle="Co Founder & CEO"
@@ -72,27 +68,25 @@ const AignosisTeam = () => {
             logos={[logo3, logo4]}
           />
         </div>
-        <div className="flex flex-col mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
-          <span className="text-center text-3xl font-semibold w-full">
-            Advisory Board
-          </span>
-          <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
-            {/* <MemberCard
+        <div className="mt-10 flex flex-col gap-4 px-10 max-sm:gap-[1vw] max-sm:p-[0vw]">
+          <span className="w-full text-center text-3xl font-semibold">Advisory Board</span>
+          {/* <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
+            <MemberCard
               title="Dr. S. Sitaraman"
               subtitle="DIRECTOR & DEVELOPMENTAL NEUROLOGIST"
               desc="Dr. S. Sitaraman is a highly respected developmental paediatrician with over 40 years of experience in child health. As Vice-Chancellor of the Indian College of Pediatrics, he has been instrumental in shaping pediatric care in India."
               src={mem}
               logos={[logo5]}
-            /> */}
-            {/* <MemberCard
+            /> 
+             <MemberCard
               title="Dr. Ramesh Agrawal"
               subtitle="HOD mother & child block, AIIMS Delhi"
               desc="Dr. Ramesh Agrawal is a leading expert in pediatric healthcare, serving as the Head of the Child and Mother Block at AIIMS Delhi. With over 200 publications and 300+ research papers"
               src={citation}
               logos={[logo6]}
-            /> */}
-          </div>
-          <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
+            /> 
+          </div> */}
+          <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
             <MemberCard
               title="Dr. Rajesh Jain"
               subtitle="Director & Consultant Pediatrician, Raksheet Hospital, Jaipur"
@@ -108,11 +102,9 @@ const AignosisTeam = () => {
               logos={[logo8]}
             />
           </div>
-          <div className="flex flex-col mt-10 max-sm:p-[0vw] max-sm:gap-[1vw] gap-4 px-10">
-            <span className="text-center text-3xl font-semibold w-full">
-              Strategic Investors & Mentors
-            </span>
-            <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
+          <div className="mt-10 flex flex-col gap-4 px-10 max-sm:gap-[1vw] max-sm:p-[0vw]">
+            <span className="w-full text-center text-3xl font-semibold">Strategic Investors & Mentors</span>
+            <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
               <MemberCard
                 title=" Mr. Amit Jain"
                 subtitle="Strategic Mentor & Investor"
@@ -125,10 +117,10 @@ const AignosisTeam = () => {
                 subtitle="Founder, NeuroEquilibrium Diagnostic Systems Pvt. Ltd."
                 desc="Rajneesh Bhandari is a seasoned entrepreneur in healthcare diagnostics, having founded NeuroEquilibrium, India’s leading vestibular diagnostic network. With 250+ centers nationwide"
                 src={member9}
-                logos={[logo10,logo11]}
+                logos={[logo10, logo11]}
               />
             </div>
-            <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
+            <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
               <MemberCard
                 title="Mr. Aman Gupta"
                 subtitle="Co-Founder & CMO, boAt"
@@ -136,17 +128,16 @@ const AignosisTeam = () => {
                 src={aman}
                 logos={[boat]}
               />
-                
-                <MemberCard
+
+              <MemberCard
                 title="Mr. Rajendra Setia"
                 subtitle="Strategic Mentor & Advisor"
                 desc="Rajendra Kumar Setia is the Managing Director and the Chief Executive Officer of SK fInance. He holds a bachelor’s degree in science from the University of Rajasthan, Jaipur, Rajasthan, India."
                 src={raj}
                 logos={[logo12]}
               />
-               
             </div>
-            <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
+            <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
               <MemberCard
                 title="Mr. Varun Dua"
                 subtitle="Founder & CEO, Acko"
@@ -163,16 +154,15 @@ const AignosisTeam = () => {
                 logos={[lenskart]}
               />
             </div>
-            <div className="flex mt-10 max-sm:p-[0vw] max-sm:flex-col max-sm:gap-[10vw] gap-4 px-10">
-            <MemberCard
+            <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
+              <MemberCard
                 title="Mr. Nikhil Kamath"
                 subtitle="Co-Founder, Zerodha & True Beacon"
                 desc="Nikhil Kamath is the Co-Founder of Zerodha, India’s largest stock brokerage firm, and True Beacon, an asset management company. A self-taught trader, he is known for revolutionizing India’s investment landscape with commission-free trading and wealth management solutions."
                 src={nikhil}
                 logos={[zerodha]}
-              /> 
-              </div>
-            
+              />
+            </div>
           </div>
         </div>
       </div>

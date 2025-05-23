@@ -1,12 +1,12 @@
-import React from "react";
-import CalendarWithSidebar from "./CalendarWithSidebar";
+import React from 'react';
+import CalendarWithSidebar from './CalendarWithSidebar';
 
 const Booking = () => {
-    return (
-        <>
-            <div className="min-h-screen bg-[#2B1B2D] mt-[2vw] text-white hidden md:flex flex-col">
-                <CalendarWithSidebar/>
-                {/* <div className="flex justify-between items-center p-4">
+  return (
+    <>
+      <div className="mt-[2vw] hidden min-h-screen flex-col bg-[#2B1B2D] text-white md:flex">
+        <CalendarWithSidebar />
+        {/* <div className="flex justify-between items-center p-4">
                     <div className="flex space-x-4">
                         <select className="border bg-transparent px-5 border-[#B740A1] text-white p-2 rounded">
                             <option className="text-[#2B1B2D]">Month</option>
@@ -80,12 +80,12 @@ const Booking = () => {
                         </div>
                     </div>
                 </div> */}
-            </div>
-            <div className="min-h-screen bg-[#2B1B2D] mt-[2vw] text-white md:hidden flex flex-col md:flex-row">
-                {/* Header */}
-                <CalendarWithSidebar/>
+      </div>
+      <div className="mt-[2vw] flex min-h-screen flex-col bg-[#2B1B2D] text-white md:hidden md:flex-row">
+        {/* Header */}
+        <CalendarWithSidebar />
 
-                {/* <div className="flex justify-between items-center p-4 flex-wrap">
+        {/* <div className="flex justify-between items-center p-4 flex-wrap">
                     <div className="flex space-x-4 mb-4 md:mb-0">
                         <select className="border bg-transparent px-5 border-[#B740A1] text-white p-2 rounded">
                             <option className="text-[#2B1B2D]">Month</option>
@@ -119,8 +119,8 @@ const Booking = () => {
                     </div>
                 </div> */}
 
-                {/* Main Content */}
-                {/* <div className="flex-1 flex flex-col md:flex-row">
+        {/* Main Content */}
+        {/* <div className="flex-1 flex flex-col md:flex-row">
                     <div className="w-full md:w-3/4 p-4">
                         <div className="grid grid-cols-7 gap-2 text-center text-sm">
                             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
@@ -160,10 +160,9 @@ const Booking = () => {
                         </div>
                     </div>
                 </div> */}
-            </div>
-
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Booking;

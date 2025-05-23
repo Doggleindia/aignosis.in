@@ -1,28 +1,20 @@
-import React from "react";
+import React from 'react';
 
-const BlogCard = ({ image, title, author, time, category, description ,cardData,handleCardClick}) => {
+const BlogCard = ({ image, title, author, time, category, description, cardData, handleCardClick }) => {
   return (
     <div
-      className="bg-[#2A183885]  rounded-lg shadow-lg border border-[#9C00AD4D] cursor-pointer"
+      className="cursor-pointer rounded-lg border border-[#9C00AD4D] bg-[#2A183885] shadow-lg"
       onClick={() => handleCardClick(cardData.id)}
     >
-      <img
-        src={image}
-        alt={title}
-        className="rounded-t-lg w-full object-cover h-40 max-sm:h-[13rem]"
-      />
+      <img src={image} alt={title} className="h-40 w-full rounded-t-lg object-cover max-sm:h-[13rem]" />
       <div className="p-4">
-        <h3 className="text-[#F6E8FB] text-lg max-sm:text-md font-bold">
-          {title}
-        </h3>
-        <div className="flex items-center justify-between text-purple-300 text-sm mt-2">
+        <h3 className="max-sm:text-md text-lg font-bold text-[#F6E8FB]">{title}</h3>
+        <div className="mt-2 flex items-center justify-between text-sm text-purple-300">
           <span className="text-[#B740A1]">{author}</span>
           <span>{time}</span>
         </div>
-        <span className="text-[#9C00AD] text-sm mt-1 inline-block">
-          {category}
-        </span>
-        <p className="text-[#F6E8FB] text-sm mt-3">{description}</p>
+        <span className="mt-1 inline-block text-sm text-[#9C00AD]">{category}</span>
+        <p className="mt-3 text-sm text-[#F6E8FB]">{description}</p>
       </div>
     </div>
   );

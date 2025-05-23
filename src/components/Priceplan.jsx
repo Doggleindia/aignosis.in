@@ -11,7 +11,7 @@ import CustomerLove from './Priceplan/CustomerLove';
 import CustomerLove2 from './Priceplan/CustomerLove2';
 import Features from './homeBrain/Features';
 import FactorImpacting from './Priceplan/FactorImpacting';
-import SEO from './config/Seo'
+import SEO from './config/Seo';
 import Offer from './Offer';
 import Newnavbar from './Newnavbar';
 import WhatsAppButton from './WhatsAppButton';
@@ -25,28 +25,24 @@ const Priceplan = () => {
 
   return (
     <>
-    {/*<Newnavbar />*/}
-   <SEO
-   canonicalUrl={"https://aignosis.in/prices"}
-   metaDescription={"Check out Aignosis' competitive pricing for autism assessments, psychological evaluations, and specialized care solutions. Affordable services for parents."}
-   pageTitle={"Affordable Pricing for Autism Assessment & Care | Aignosis"}
-   />
+      {/*<Newnavbar />*/}
+      <SEO
+        canonicalUrl={'https://aignosis.in/prices'}
+        metaDescription={
+          "Check out Aignosis' competitive pricing for autism assessments, psychological evaluations, and specialized care solutions. Affordable services for parents."
+        }
+        pageTitle={'Affordable Pricing for Autism Assessment & Care | Aignosis'}
+      />
       <Header />
-      <div className='bg-[#1A0C25] p-2 overflow-x-hidden text-white w-full h-full'>
-        <div className="w-full mt-[5vw] hidden md:block h-full">
-          <div className="w-full p-10 flex ml-6 gap-10">
-            
-           
-          </div>
+      <div className="h-full w-full overflow-x-hidden bg-[#1A0C25] p-2 text-white">
+        <div className="mt-[5vw] hidden h-full w-full md:block">
+          <div className="ml-6 flex w-full gap-10 p-10"></div>
         </div>
-        <div className="w-full mt-16 md:hidden h-full">
-          <div className="w-full p-4 flex justify-around gap-4">
-           
-           
-          </div>
+        <div className="mt-16 h-full w-full md:hidden">
+          <div className="flex w-full justify-around gap-4 p-4"></div>
         </div>
         <PriceBody selectedOption={selectedOption} />
-        <WhatsAppButton/>
+        <WhatsAppButton />
         <PricepageBanefits />
         <HowitWorks />
         <HowtoUseOptically />

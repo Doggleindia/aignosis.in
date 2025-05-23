@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { GoArrowUpRight } from "react-icons/go";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
-import axiosInstance from "./config/axiosInstance";
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-
+import React, { useEffect, useState } from 'react';
+import { GoArrowUpRight } from 'react-icons/go';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi';
+import axiosInstance from './config/axiosInstance';
+import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const [dropdownOpen3, setDropdownOpen3] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
+  const [activeLink, setActiveLink] = useState('/');
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
-  const [selectedService, setSelectedService] = useState(""); // Renamed state variable
+  const [selectedService, setSelectedService] = useState(''); // Renamed state variable
   const [authUser, setAuthUser] = useState(false); // Authenticated user
   // Menu visibility
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
@@ -22,7 +21,7 @@ const Header = () => {
 
   const handleNavigate = () => {
     // Navigate to home with state to trigger scrolling
-    navigate("/", { state: { scrollToContact: true } });
+    navigate('/', { state: { scrollToContact: true } });
   };
 
   const handleServiceClick = (link) => {
@@ -46,71 +45,65 @@ const Header = () => {
 
   const handleLogout = () => {
     // Remove token from local storage
-    localStorage.removeItem("authToken");
+    localStorage.removeItem('authToken');
 
     // Clear other user-related data if necessary
     setAuthUser(null); // Update state to reflect logged-out status
     sessionStorage.clear();
 
     // Redirect to login page
-    window.location.href = "/";
+    window.location.href = '/';
   };
-
 
   useEffect(() => {
     const checkAuth = async () => {
-      const token = localStorage.getItem("authToken");
+      const token = localStorage.getItem('authToken');
       try {
-        console.log(authUser, "authUser1");
-        console.log(token)
+        console.log(authUser, 'authUser1');
+        console.log(token);
         // Verify the token with the backend
         const response = await axiosInstance.post(
-          "/verifyJwt",
+          '/verifyJwt',
           {}, // Empty body for the POST request
           {
             headers: {
               Authorization: `Bearer ${token}`, // Add the token in the headers
             },
-          });
-        setAuthUser(true)
-        
-        
+          }
+        );
+        setAuthUser(true);
 
         if (!response.data.success) {
-          console.log(authUser, "authUser2");
+          console.log(authUser, 'authUser2');
           // Token verification failed, redirect to login
-          setAuthUser(false)
+          setAuthUser(false);
         }
       } catch (error) {
-        console.error("Token verification failed:", error);
-        setAuthUser(false)
+        console.error('Token verification failed:', error);
+        setAuthUser(false);
       }
-    }
+    };
     checkAuth();
   }, []);
 
   return (
-    <div className="text-white w-full bg-[#1A0C25]/60 2xl:h-[4vw] max-sm:h-[12vw] flex items-center justify-center md:h-[4vw] font-montserrat fixed top-0 z-[100] transition-transform duration-300 translate-y-0 backdrop-blur-md">
-      <div className="navbar text-center w-full flex justify-between items-center px-[5vw] md:py-[14px] py-[4vw] max-sm:mt-[-1.5vw] max-sm:py-[1vw] 2xl:py-[10px]">
+    <div className="2xl:h-[4vw] fixed top-0 z-[100] flex w-full translate-y-0 items-center justify-center bg-[#1A0C25]/60 font-montserrat text-white backdrop-blur-md transition-transform duration-300 max-sm:h-[12vw] md:h-[4vw]">
+      <div className="navbar 2xl:py-[10px] flex w-full items-center justify-between px-[5vw] py-[4vw] text-center max-sm:mt-[-1.5vw] max-sm:py-[1vw] md:py-[14px]">
         {/* Logo Section */}
         <div className="relative inline-block">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
           <Link
             to="/"
-            onClick={() => handleLinkClick("/")}
-            className="relative md:text-xl 2xl:text-3xl font-semibold tracking-wide max-sm:top-[1vw] text-white z-10"
+            onClick={() => handleLinkClick('/')}
+            className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white max-sm:top-[1vw] md:text-xl"
           >
-            Ai.gnosis
+            Aignosis
           </Link>
         </div>
 
         {/* Navigation Links for Desktop */}
-        <div className="hidden md:flex justify-center font-medium items-center gap-[4rem]">
-          <div
-            className="relative"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+        <div className="hidden items-center justify-center gap-[4rem] font-medium md:flex">
+          <div className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             {/* <Link
               to=""
               onClick={() => handleServiceClick("/assessments-evaluation")} // Updated function name
@@ -122,23 +115,23 @@ const Header = () => {
             {/* Dropdown menu */}
             {isHovered && (
               <div
-                className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out"
+                className="absolute -left-[8vw] top-[70%] z-10 mt-2 w-[22vw] rounded-lg p-2 text-white shadow-lg transition-all duration-200 ease-in-out"
                 style={{
-                  background:
-                    "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
+                  background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)',
 
-                  padding: "1rem 0",
+                  padding: '1rem 0',
 
-                  borderRadius: "8px",
+                  borderRadius: '8px',
                 }}
               >
-                <ul className="space-y-2 flex flex-col justify-center items-center">
+                <ul className="flex flex-col items-center justify-center space-y-2">
                   <li>
                     <Link
                       to="/assessments-evaluation"
-                      onClick={() => handleServiceClick("/service1")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
-                        }`}
+                      onClick={() => handleServiceClick('/service1')}
+                      className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                        activeLink === '/assessments-evaluation' ? 'text-[#B740A1]' : ''
+                      }`}
                       aria-label="/assessments-evaluation"
                     >
                       Assessments & Evaluation
@@ -147,9 +140,10 @@ const Header = () => {
                   <li>
                     <Link
                       to="/speech-language"
-                      onClick={() => handleServiceClick("/speech-language")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                        }`}
+                      onClick={() => handleServiceClick('/speech-language')}
+                      className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                        activeLink === '/speech-language' ? 'text-[#B740A1]' : ''
+                      }`}
                       aria-label="Service 2"
                     >
                       Speech & Language
@@ -158,9 +152,10 @@ const Header = () => {
                   <li>
                     <Link
                       to="/behaviour-therapy"
-                      onClick={() => handleServiceClick("/behaviour-therapy")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/behaviour-therapy" ? "text-[#B740A1]" : ""
-                        }`}
+                      onClick={() => handleServiceClick('/behaviour-therapy')}
+                      className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                        activeLink === '/behaviour-therapy' ? 'text-[#B740A1]' : ''
+                      }`}
                       aria-label="Service 3"
                     >
                       Behaviour Therapy
@@ -169,9 +164,10 @@ const Header = () => {
                   <li>
                     <Link
                       to="/occupational-therapy"
-                      onClick={() => handleServiceClick("/occupational-therapy")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/occupational-therapy" ? "text-[#B740A1]" : ""
-                        }`}
+                      onClick={() => handleServiceClick('/occupational-therapy')}
+                      className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                        activeLink === '/occupational-therapy' ? 'text-[#B740A1]' : ''
+                      }`}
                       aria-label="Service 4"
                     >
                       Occupational Therapy
@@ -180,9 +176,10 @@ const Header = () => {
                   <li>
                     <Link
                       to="/special-education"
-                      onClick={() => handleServiceClick("/special-education")}
-                      className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/service5" ? "text-[#B740A1]" : ""
-                        }`}
+                      onClick={() => handleServiceClick('/special-education')}
+                      className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                        activeLink === '/service5' ? 'text-[#B740A1]' : ''
+                      }`}
                       aria-label="special-education"
                     >
                       Special Education
@@ -194,18 +191,19 @@ const Header = () => {
           </div>
           <Link
             to="/about-us"
-            onClick={() => handleLinkClick("/about-us")}
-
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/about-us" ? "border-b-2 border-white" : ""
-              }`}
+            onClick={() => handleLinkClick('/about-us')}
+            className={`font-raleway text-sm text-[#F6E8FB] md:text-base ${
+              activeLink === '/about-us' ? 'border-b-2 border-white' : ''
+            }`}
           >
             About Us
           </Link>
           <Link
             to="/test"
-            onClick={() => handleLinkClick("/prices")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/test" ? "border-b-2 border-white" : ""
-              }`}
+            onClick={() => handleLinkClick('/prices')}
+            className={`font-raleway text-sm text-[#F6E8FB] md:text-base ${
+              activeLink === '/test' ? 'border-b-2 border-white' : ''
+            }`}
           >
             Test
           </Link>
@@ -219,32 +217,31 @@ const Header = () => {
           </Link> */}
           <Link
             to="/clinic"
-            onClick={() => handleLinkClick("/clinic")}
-            className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${activeLink === "/clinic" ? "border-b-2 border-white" : ""
-              }`}
+            onClick={() => handleLinkClick('/clinic')}
+            className={`font-raleway text-sm text-[#F6E8FB] md:text-base ${
+              activeLink === '/clinic' ? 'border-b-2 border-white' : ''
+            }`}
           >
             Clinic
           </Link>
-          <div className="relative group">
-            <button className="text-sm md:text-base font-raleway text-[#F6E8FB] hover:underline">
-              Blog
-            </button>
+          <div className="group relative">
+            <button className="font-raleway text-sm text-[#F6E8FB] hover:underline md:text-base">Blog</button>
             <div
-              className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out hidden group-hover:block"
+              className="absolute -left-[8vw] top-[70%] z-10 mt-2 hidden w-[22vw] rounded-lg p-2 text-white shadow-lg transition-all duration-200 ease-in-out group-hover:block"
               style={{
-                background:
-                  "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
-                padding: "1rem 0",
-                borderRadius: "8px",
+                background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)',
+                padding: '1rem 0',
+                borderRadius: '8px',
               }}
             >
-              <ul className="space-y-2 flex flex-col justify-center items-center">
+              <ul className="flex flex-col items-center justify-center space-y-2">
                 <li>
                   <Link
                     to="/blog"
-                    onClick={() => handleLinkClick("/blog")}
-                    className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/blog" ? "text-[#B740A1]" : ""
-                      }`}
+                    onClick={() => handleLinkClick('/blog')}
+                    className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                      activeLink === '/blog' ? 'text-[#B740A1]' : ''
+                    }`}
                     aria-label="Blogs"
                   >
                     Blogs
@@ -253,9 +250,10 @@ const Header = () => {
                 <li>
                   <Link
                     to="/Howework"
-                    onClick={() => handleLinkClick("/Howework")}
-                    className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1] transition duration-200 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""
-                      }`}
+                    onClick={() => handleLinkClick('/Howework')}
+                    className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                      activeLink === '/Howework' ? 'text-[#B740A1]' : ''
+                    }`}
                     aria-label="How We Work"
                   >
                     How We Work
@@ -264,9 +262,6 @@ const Header = () => {
               </ul>
             </div>
           </div>
-
-
-
 
           {authUser ? (
             <>
@@ -278,32 +273,33 @@ const Header = () => {
                 >
                   <Link
                     to=""
-                    onClick={() => handleServiceClick("/dashboard")} // Updated function name
-                    className={`text-sm md:text-base font-raleway text-[#F6E8FB] ${selectedService === "/assessments-evaluation" ? "border-b-2 border-white" : ""
-                      }`} // Updated condition
+                    onClick={() => handleServiceClick('/dashboard')} // Updated function name
+                    className={`font-raleway text-sm text-[#F6E8FB] md:text-base ${
+                      selectedService === '/assessments-evaluation' ? 'border-b-2 border-white' : ''
+                    }`} // Updated condition
                   >
                     Dashboard
                   </Link>
                   {/* Dropdown menu */}
                   {isHovered2 && (
                     <div
-                      className="absolute text-white p-2 mt-2 rounded-lg shadow-lg top-[70%] -left-[8vw] w-[22vw] z-10 transition-all duration-200 ease-in-out"
+                      className="absolute -left-[8vw] top-[70%] z-10 mt-2 w-[22vw] rounded-lg p-2 text-white shadow-lg transition-all duration-200 ease-in-out"
                       style={{
-                        background:
-                          "radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)",
+                        background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, #300834 100%)',
 
-                        padding: "1rem 0",
+                        padding: '1rem 0',
 
-                        borderRadius: "8px",
+                        borderRadius: '8px',
                       }}
                     >
-                      <ul className="space-y-2 flex flex-col justify-center items-center">
+                      <ul className="flex flex-col items-center justify-center space-y-2">
                         <li>
                           <Link
                             to="/profile1"
-                            onClick={() => handleServiceClick("/service1")}
-                            className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
-                              }`}
+                            onClick={() => handleServiceClick('/service1')}
+                            className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                              activeLink === '/assessments-evaluation' ? 'text-[#B740A1]' : ''
+                            }`}
                             aria-label="/assessments-evaluation"
                           >
                             User Dashboard
@@ -321,18 +317,20 @@ const Header = () => {
                           </Link> */}
                           <Link
                             to="/dashboard"
-                            onClick={() => handleServiceClick("/profile1")}
-                            className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                              }`}
+                            onClick={() => handleServiceClick('/profile1')}
+                            className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                              activeLink === '/speech-language' ? 'text-[#B740A1]' : ''
+                            }`}
                             aria-label="Service 2"
                           >
                             Profile
                           </Link>
                           <Link
                             to="/orderhistory"
-                            onClick={() => handleServiceClick("/orderhistory")}
-                            className={`block p-3 border-b-2 border-[#952981] w-[18vw] hover:text-[#B740A1]  transition duration-200 ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                              }`}
+                            onClick={() => handleServiceClick('/orderhistory')}
+                            className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
+                              activeLink === '/speech-language' ? 'text-[#B740A1]' : ''
+                            }`}
                             aria-label="Service 2"
                           >
                             Order History
@@ -374,7 +372,7 @@ const Header = () => {
                       </ul>
                       <button
                         onClick={handleLogout}
-                        className="border-b-2 border-[#952981] w-[18vw] p-3 md:text-base hover:text-[#B740A1]  transition duration-200"
+                        className="w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] md:text-base"
                       >
                         Logout
                       </button>
@@ -384,52 +382,47 @@ const Header = () => {
               </div>
               <Link
                 to={'/test'}
-                className="2xl:w-[17rem] md:w-[14rem] gap-3 rounded-full flex justify-center cursor-pointer items-center text-[#0D0C0A] md:h-[3rem] 2xl:h-[3rem] bg-white group hover:bg-[#B7407D] hover:text-white transition-colors duration-300"
+                className="2xl:w-[17rem] 2xl:h-[3rem] group flex cursor-pointer items-center justify-center gap-3 rounded-full bg-white text-[#0D0C0A] transition-colors duration-300 hover:bg-[#B7407D] hover:text-white md:h-[3rem] md:w-[14rem]"
               >
-                <span className="2xl:text-base md:text-sm">
-                  Book an appointment
-                </span>
-                <div className="2xl:w-[2.5rem] md:w-[2rem] md:h-[2rem] text-white group-hover:text-black text-xl flex justify-center items-center 2xl:h-[2.5rem] rounded-full bg-[#B740A1] group-hover:bg-white">
+                <span className="2xl:text-base md:text-sm">Book an appointment</span>
+                <div className="2xl:w-[2.5rem] 2xl:h-[2.5rem] flex items-center justify-center rounded-full bg-[#B740A1] text-xl text-white group-hover:bg-white group-hover:text-black md:h-[2rem] md:w-[2rem]">
                   <GoArrowUpRight />
                 </div>
               </Link>
-
             </>
           ) : (
             <Link
               to="/login"
-              onClick={() => handleLinkClick("/login")}
-              className="group border border-[#B740A1] p-2 px-4 hover:bg-pink-500 rounded-[30px]"
+              onClick={() => handleLinkClick('/login')}
+              className="group rounded-[30px] border border-[#B740A1] p-2 px-4 transition-all duration-200 hover:bg-pink-500"
             >
-              <span className="flex items-center 2xl:text-base md:text-sm m-auto text-xl text-white">
+              <span className="2xl:text-base m-auto flex items-center text-xl text-white md:text-sm">
                 Log in
-                <div className="w-[1.8rem] h-[1.8rem] flex justify-center items-center text-white text-xl bg-[#B740A1] rounded-full ml-2 group-hover:bg-white group-hover:text-black transition duration-300">
+                <div className="ml-2 flex h-[1.8rem] w-[1.8rem] items-center justify-center rounded-full bg-[#B740A1] text-xl text-white transition duration-300 group-hover:bg-white group-hover:text-black">
                   <GoArrowUpRight />
                 </div>
               </span>
             </Link>
-
           )}
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="flex md:hidden items-center mt-2">
-          <button onClick={toggleMenu} className="text-white text-3xl">
+        <div className="mt-2 flex items-center md:hidden">
+          <button onClick={toggleMenu} className="text-3xl text-white">
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <div className="absolute text-left p-6 top-[5.1vh] left-0 w-full bg-[#1A0C25] z-10 flex flex-col items-center md:hidden">
+        <div className="absolute left-0 top-[5.1vh] z-10 flex w-full flex-col items-center bg-[#1A0C25] p-6 text-left md:hidden">
           <Link
             to="/"
             onClick={() => {
-              handleLinkClick("/");
+              handleLinkClick('/');
               toggleMenu();
             }}
-            className={`text-lg p-4 w-full text-left ${activeLink === "/" ? "text-[#B740A1]" : ""
-              }`}
+            className={`w-full p-4 text-left text-lg ${activeLink === '/' ? 'text-[#B740A1]' : ''}`}
           >
             Home
           </Link>
@@ -447,98 +440,91 @@ const Header = () => {
               )}
             </span> */}
             {dropdownOpen && (
-              <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+              <div className="left-0 top-full w-full bg-[#1A0C25] p-2 text-left text-base">
                 <Link
                   to="/assessments-evaluation"
                   onClick={() => {
-                    handleLinkClick("/assessments-evaluation");
+                    handleLinkClick('/assessments-evaluation');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
-                    }`}
+                  className={`block p-4 ${activeLink === '/assessments-evaluation' ? 'text-[#B740A1]' : ''}`}
                 >
                   Assessments & Evaluation
                 </Link>
-                <div className="border-t-2 w-full border-[#952981]"></div>
+                <div className="w-full border-t-2 border-[#952981]"></div>
 
                 <Link
                   to="/speech-language"
                   onClick={() => {
-                    handleLinkClick("/speech-language");
+                    handleLinkClick('/speech-language');
                     toggleMenu();
                   }}
-                  className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                    }`}
+                  className={`block p-4 ${activeLink === '/speech-language' ? 'text-[#B740A1]' : ''}`}
                 >
                   Speech & Language
                 </Link>
-                <div className="border-t-2 w-full border-[#952981]"></div>
+                <div className="w-full border-t-2 border-[#952981]"></div>
 
                 <Link
                   to="/behaviour-therapy"
                   onClick={() => {
-                    handleLinkClick("/behaviour-therapy");
+                    handleLinkClick('/behaviour-therapy');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/behaviour-therapy" ? "text-[#B740A1]" : ""
-                    }`}
+                  className={`block p-4 ${activeLink === '/behaviour-therapy' ? 'text-[#B740A1]' : ''}`}
                 >
                   Behaviour Therapy
                 </Link>
-                <div className="border-t-2 w-full border-[#952981]"></div>
+                <div className="w-full border-t-2 border-[#952981]"></div>
 
                 <Link
                   to="/occupational-therapy"
                   onClick={() => {
-                    handleLinkClick("/occupational-therapy");
+                    handleLinkClick('/occupational-therapy');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/occupational-therapy" ? "text-[#B740A1]" : ""
-                    }`}
+                  className={`block p-4 ${activeLink === '/occupational-therapy' ? 'text-[#B740A1]' : ''}`}
                 >
                   Occupational Therapy
                 </Link>
-                <div className="border-t-2 w-full border-[#952981]"></div>
+                <div className="w-full border-t-2 border-[#952981]"></div>
 
                 <Link
                   to="/special-education"
                   onClick={() => {
-                    handleLinkClick("/special-education");
+                    handleLinkClick('/special-education');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/special-education" ? "text-[#B740A1]" : ""
-                    }`}
+                  className={`block p-4 ${activeLink === '/special-education' ? 'text-[#B740A1]' : ''}`}
                 >
                   Special Education
                 </Link>
               </div>
             )}
           </div>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div className="w-full border-t-2 border-[#952981]"></div>
           <Link
             to="/about-us"
             onClick={() => {
-              handleLinkClick("/about-us");
+              handleLinkClick('/about-us');
               toggleMenu();
             }}
-            className={` text-lg p-4 w-full text-left ${activeLink === "/about-us" ? "text-[#B740A1]" : ""
-              }`}
+            className={`w-full p-4 text-left text-lg ${activeLink === '/about-us' ? 'text-[#B740A1]' : ''}`}
           >
             About Us
           </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div className="w-full border-t-2 border-[#952981]"></div>
           <Link
             to="/test"
             onClick={() => {
-              handleLinkClick("/test");
+              handleLinkClick('/test');
               toggleMenu();
             }}
-            className={` text-lg p-4 w-full text-left ${activeLink === "/test" ? "text-[#B740A1]" : ""
-              }`}
+            className={`w-full p-4 text-left text-lg ${activeLink === '/test' ? 'text-[#B740A1]' : ''}`}
           >
             Test
           </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div className="w-full border-t-2 border-[#952981]"></div>
           {/* <Link
             to="/therapy"
             onClick={() => {
@@ -550,100 +536,81 @@ const Header = () => {
           >
             Therapy
           </Link> */}
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div className="w-full border-t-2 border-[#952981]"></div>
 
           <Link
             to="/clinic"
             onClick={() => {
-              handleLinkClick("/clinic");
+              handleLinkClick('/clinic');
               toggleMenu();
             }}
-            className={` text-lg p-4 w-full text-left ${activeLink === "/clinic" ? "text-[#B740A1]" : ""
-              }`}
+            className={`w-full p-4 text-left text-lg ${activeLink === '/clinic' ? 'text-[#B740A1]' : ''}`}
           >
             Clinic
           </Link>
-          <div className="border-t-2 w-full border-[#952981]"></div>
+          <div className="w-full border-t-2 border-[#952981]"></div>
           <div
-            className="relative text-lg p-4 w-full text-left"
+            className="relative w-full p-4 text-left text-lg"
             onClick={() => setDropdownOpen3(!dropdownOpen3)} // Toggle dropdown
           >
-            <span className="flex justify-between items-center">
+            <span className="flex items-center justify-between">
               Blog
-              {dropdownOpen3 ? (
-                <RiArrowDropUpLine size={30} />
-              ) : (
-                <RiArrowDropDownLine size={30} />
-              )}
+              {dropdownOpen3 ? <RiArrowDropUpLine size={30} /> : <RiArrowDropDownLine size={30} />}
             </span>
             {dropdownOpen3 && (
-              <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+              <div className="left-0 top-full w-full bg-[#1A0C25] p-2 text-left text-base">
                 {/* Blogs Link */}
                 <Link
                   to="/blog"
                   onClick={() => {
-                    handleLinkClick("/blog");
+                    handleLinkClick('/blog');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/blog" ? "text-[#B740A1]" : ""}`}
+                  className={`block p-4 ${activeLink === '/blog' ? 'text-[#B740A1]' : ''}`}
                 >
                   Blogs
                 </Link>
-                <div className="border-t-2 w-full border-[#952981]"></div>
+                <div className="w-full border-t-2 border-[#952981]"></div>
 
                 {/* How We Work Link */}
-
 
                 {/* Additional Blog Categories */}
                 <Link
                   to="/Howework"
                   onClick={() => {
-                    handleLinkClick("/case-studies");
+                    handleLinkClick('/case-studies');
                     toggleMenu();
                   }}
-                  className={`block p-4 ${activeLink === "/Howework" ? "text-[#B740A1]" : ""}`}
+                  className={`block p-4 ${activeLink === '/Howework' ? 'text-[#B740A1]' : ''}`}
                 >
                   How We Work
                 </Link>
-
               </div>
             )}
-
           </div>
-
 
           {authUser ? (
             <>
-              <div className="border-t-2 w-full border-[#952981]"></div>
-              <button
-                onClick={handleLogout}
-                className="text-lg p-4 w-full text-left"
-              >
+              <div className="w-full border-t-2 border-[#952981]"></div>
+              <button onClick={handleLogout} className="w-full p-4 text-left text-lg">
                 Logout
               </button>
-              <div className="border-t-2 w-full border-[#952981]"></div>
+              <div className="w-full border-t-2 border-[#952981]"></div>
 
-              <div
-                className="relative text-lg p-4 w-full text-left"
-                onClick={() => setDropdownOpen2(!dropdownOpen2)}
-              >
-                <span className="flex justify-between items-center">
+              <div className="relative w-full p-4 text-left text-lg" onClick={() => setDropdownOpen2(!dropdownOpen2)}>
+                <span className="flex items-center justify-between">
                   Dashboard
-                  {dropdownOpen2 ? (
-                    <RiArrowDropUpLine size={30} />
-                  ) : (
-                    <RiArrowDropDownLine size={30} />
-                  )}                </span>
+                  {dropdownOpen2 ? <RiArrowDropUpLine size={30} /> : <RiArrowDropDownLine size={30} />}{' '}
+                </span>
                 {dropdownOpen2 && (
-                  <div className="top-full text-base text-left p-2 left-0 w-full bg-[#1A0C25]">
+                  <div className="left-0 top-full w-full bg-[#1A0C25] p-2 text-left text-base">
                     <Link
                       to="/dashboard"
                       onClick={() => {
-                        handleLinkClick("/dashboard");
+                        handleLinkClick('/dashboard');
                         toggleMenu();
                       }}
-                      className={`block p-4 ${activeLink === "/assessments-evaluation" ? "text-[#B740A1]" : ""
-                        }`}
+                      className={`block p-4 ${activeLink === '/assessments-evaluation' ? 'text-[#B740A1]' : ''}`}
                     >
                       User Dashboard
                     </Link>
@@ -660,31 +627,29 @@ const Header = () => {
                     >
                       Profile
                     </Link> */}
-                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    <div className="w-full border-t-2 border-[#952981]"></div>
                     <Link
                       to="/profile1"
                       onClick={() => {
-                        handleLinkClick("/profile1");
+                        handleLinkClick('/profile1');
                         toggleMenu();
                       }}
-                      className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                        }`}
+                      className={`block p-4 ${activeLink === '/speech-language' ? 'text-[#B740A1]' : ''}`}
                     >
                       Profile1
                     </Link>
-                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    <div className="w-full border-t-2 border-[#952981]"></div>
                     <Link
                       to="/orderhistory"
                       onClick={() => {
-                        handleLinkClick("/orderhistory");
+                        handleLinkClick('/orderhistory');
                         toggleMenu();
                       }}
-                      className={`block p-4  ${activeLink === "/speech-language" ? "text-[#B740A1]" : ""
-                        }`}
+                      className={`block p-4 ${activeLink === '/speech-language' ? 'text-[#B740A1]' : ''}`}
                     >
                       Order History
                     </Link>
-                    <div className="border-t-2 w-full border-[#952981]"></div>
+                    <div className="w-full border-t-2 border-[#952981]"></div>
                     {/* <div className="border-t-2 w-full border-[#952981]"></div> */}
 
                     {/* <Link
@@ -727,12 +692,9 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              <div className="border-t-2 w-full mb-5 border-[#952981]"></div>
+              <div className="mb-5 w-full border-t-2 border-[#952981]"></div>
 
-              <Link
-                to={'/test'}
-                className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
-              >
+              <Link to={'/test'} className="w-full rounded-full bg-[#B740A1] p-3 text-center text-lg text-white">
                 Book an appointment
               </Link>
               {/* <Link
@@ -748,7 +710,7 @@ const Header = () => {
               <Link
                 to="/login"
                 onClick={toggleMenu}
-                className="w-full text-white text-lg p-3 rounded-full text-center bg-[#B740A1]"
+                className="w-full rounded-full bg-[#B740A1] p-3 text-center text-lg text-white"
               >
                 Log in
               </Link>
