@@ -67,7 +67,6 @@ const Divider = ({ title, desc, subtitle, img }) => {
 const AboutUs = () => {
   return (
     <>
-      <div></div>
       <SEO
         canonicalUrl={'https://aignosis.in/about-us'}
         metaDescription={
@@ -94,7 +93,7 @@ const AboutUs = () => {
               and AI, we’ve always believed that healthcare is one of the most meaningful and impactful applications of
               artificial intelligence. Coming from a family of doctors, we became acutely aware of the alarming rise in
               autism prevalence. During our research at a child development center, we witnessed the transformative
-              power of early intervention — yet saw too many children missing that critical window. We also recognized a
+              power of early intervention - yet saw too many children missing that critical window. We also recognized a
               major gap: the lack of objective, rapid, and scalable methods for autism screening. This inspired us to
               create an AI-driven tool for early detection of Autism Spectrum Disorder (ASD), aiming to be a crucial
               link in the chain of timely intervention.
@@ -107,9 +106,9 @@ const AboutUs = () => {
             </span>
           </div>
 
-          <div className="absolute right-0 top-0 h-full w-[15%] rounded-xl bg-[#B740A1A6] opacity-65 blur-[120px]"></div>
+          {/* <div className="absolute right-0 top-0 h-full w-[15%] rounded-xl bg-[#B740A1A6] opacity-65 blur-[120px]"></div> */}
 
-          <div className="absolute h-[40%] rounded-xl opacity-65 blur-[80px] max-sm:right-[1vw] max-sm:top-[110vw] max-sm:w-[100%] max-sm:w-[50%] max-sm:bg-[#B740A1A6] sm:h-[100%] sm:w-[30%]"></div>
+          <div className="absolute h-[40%] rounded-xl opacity-65 blur-[80px] max-sm:right-[1vw] max-sm:top-[110vw] max-sm:w-[100%] max-sm:bg-[#B740A1A6] sm:h-[100%] sm:w-[30%]"></div>
         </div>
 
         {/* <div className="flex flex-row max-sm:flex-col items-start justify-center mt-8">
@@ -172,7 +171,7 @@ const AboutUs = () => {
           <div className="mr-2 max-w-[700px] overflow-hidden rounded-xl bg-white bg-opacity-10 pl-8 max-md:pl-5 max-sm:pb-6">
             <div className="flex gap-5 max-md:flex-col">
               <div className="flex w-[50%] flex-col max-md:ml-0 max-md:w-full">
-                <div className="my-auto flex flex-col items-start self-stretch max-md:mt-10">
+                <div className="my-4 flex flex-col items-start self-stretch max-md:mt-10">
                   <div
                     className="w-[90px] rounded-lg p-2"
                     style={{

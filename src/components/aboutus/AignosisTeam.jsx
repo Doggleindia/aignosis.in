@@ -70,22 +70,22 @@ const AignosisTeam = () => {
         </div>
         <div className="mt-10 flex flex-col gap-4 px-10 max-sm:gap-[1vw] max-sm:p-[0vw]">
           <span className="w-full text-center text-3xl font-semibold">Advisory Board</span>
-          <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
-            {/* <MemberCard
+          {/* <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
+            <MemberCard
               title="Dr. S. Sitaraman"
               subtitle="DIRECTOR & DEVELOPMENTAL NEUROLOGIST"
               desc="Dr. S. Sitaraman is a highly respected developmental paediatrician with over 40 years of experience in child health. As Vice-Chancellor of the Indian College of Pediatrics, he has been instrumental in shaping pediatric care in India."
               src={mem}
               logos={[logo5]}
-            /> */}
-            {/* <MemberCard
+            /> 
+             <MemberCard
               title="Dr. Ramesh Agrawal"
               subtitle="HOD mother & child block, AIIMS Delhi"
               desc="Dr. Ramesh Agrawal is a leading expert in pediatric healthcare, serving as the Head of the Child and Mother Block at AIIMS Delhi. With over 200 publications and 300+ research papers"
               src={citation}
               logos={[logo6]}
-            /> */}
-          </div>
+            /> 
+          </div> */}
           <div className="mt-10 flex gap-4 px-10 max-sm:flex-col max-sm:gap-[10vw] max-sm:p-[0vw]">
             <MemberCard
               title="Dr. Rajesh Jain"
