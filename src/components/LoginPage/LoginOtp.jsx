@@ -324,6 +324,81 @@ const LoginOtp = ({ goBack, phoneNumber, confirmationResult }) => {
     }
   };
 
+  const handleSendOTP = async (e) => {
+    e.preventDefault();
+
+    if (!recaptchaVerifierRef.current) {
+      setMessage(
+        "reCAPTCHA not initialized. Please refresh the page and try again."
+      );
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+    try {
+      // Format phone number with country code if not already formatted
+      const formattedPhoneNumber = phoneNumber.startsWith("+")
+        ? phoneNumber
+        : `+${phoneNumber}`;
+
+      console.log("Sending OTP to:", formattedPhoneNumber);
+      console.log("Using reCAPTCHA verifier:", recaptchaVerifierRef.current);
+
+      const payload = { phoneNumber: formattedPhoneNumber };
+      const { response, error } = await fetchData({
+        url: "/api/otp/sendOtp",
+        method: "POST",
+        data: payload,
+      });
+
+      if (error) {
+        console.log("Doggle sendOtp Error:", error);
+        toast.error("Failed to send OTP. Please try again.");
+      } else if (response) {
+        // Send OTP using the ref verifier
+        console.log("Doggle sendOtp Response:", response);
+        const result = await signInWithPhoneNumber(
+          auth,
+          formattedPhoneNumber,
+          recaptchaVerifierRef.current
+        );
+        setConfirmationResult(result);
+        setMessage("OTP sent successfully! Please check your phone.");
+        console.log("OTP sent successfully please check your phone: ", result);
+        setShowOtpPage(true); // Show the OTP page after sending OTP
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+      setMessage(`Error sending OTP: ${error.message}`);
+
+      // Reset reCAPTCHA on error
+      if (recaptchaVerifierRef.current) {
+        try {
+          recaptchaVerifierRef.current.clear();
+          recaptchaVerifierRef.current = null;
+
+          // Recreate the reCAPTCHA
+          if (recaptchaContainerRef.current) {
+            recaptchaVerifierRef.current = new RecaptchaVerifier(
+              auth,
+              recaptchaContainerRef.current,
+              {
+                size: "normal",
+                callback: () => console.log("reCAPTCHA reset after error"),
+              }
+            );
+            recaptchaVerifierRef.current.render();
+          }
+        } catch (resetError) {
+          console.error("Error resetting reCAPTCHA:", resetError);
+        }
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-[#1A0C25] overflow-hidden relative">
       {/* Pink Gradient Radiant Effect */}
@@ -374,7 +449,7 @@ const LoginOtp = ({ goBack, phoneNumber, confirmationResult }) => {
             ))}
           </div>
 
-          <button className="block text-[#811F67] font-semibold mb-4 max-sm:ml-[9vw] mt-4">
+          <button className="block text-[#811F67] font-semibold mb-4 max-sm:ml-[9vw] mt-4" onClick={handleSendOTP}>
             Resend
           </button>
           <button

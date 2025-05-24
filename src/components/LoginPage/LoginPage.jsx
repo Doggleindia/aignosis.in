@@ -197,6 +197,7 @@ const LoginPage = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [message, setMessage] = useState("");
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   const recaptchaVerifierRef = useRef(null);
   const recaptchaContainerRef = useRef(null);
 
@@ -302,51 +303,7 @@ const LoginPage = () => {
     }
   };
 
-  // // // // // // // // // // // // // //  firebase otp defn stop // // // // // // // // // // // // // //
-  // const SendOtp = async () => {
-  //   try {
-  //     setLoading(true);
-  //     setErrorMessage("");
-  //     const payload = { phoneNumber: phoneNumber };
 
-  //     const { response, error } = await fetchData({
-  //       url: "/api/otp/sendOtp",
-  //       method: "POST",
-  //       data: payload,
-  //     });
-
-  //     setLoading(false);
-
-  //     if (response) {
-  //       console.log("OTP Response:", response);
-  //       toast.success("OTP sent successfully!");
-  //       console.log('OTP sent successfully!');
-  //       // Check for `status` and navigate to OTP page if true
-  //       if (response.status) {
-  //         setShowOtpPage(true);
-  //       } else {
-  //         toast.error(
-  //           response.message || "Failed to send OTP. Please try again."
-  //         );
-  //         setErrorMessage(
-  //           response.message || "Failed to send OTP. Please try again."
-  //         );
-  //       }
-  //     } else if (error) {
-  //       toast.error(
-  //         response.message || "Failed to send OTP. Please try again."
-  //       );
-  //       setErrorMessage(
-  //         error.message || "Failed to send OTP. Please try again."
-  //       );
-  //     }
-  //   } catch (error) {
-  //     setLoading(false);
-  //     toast.error("An error occurred while sending OTP. Please try again.");
-  //     console.error("Error in sending OTP:", error);
-  //     setErrorMessage("An error occurred while sending OTP. Please try again.");
-  //   }
-  // };
 
   useEffect(() => {
     // Only create the reCAPTCHA verifier if it doesn't exist and container is available
@@ -359,6 +316,7 @@ const LoginPage = () => {
           {
             size: "normal", // Changed from invisible to normal for better troubleshooting
             callback: (response) => {
+              setIsCaptchaVerified(true);
               console.log("reCAPTCHA solved", response);
             },
             "expired-callback": () => {
@@ -374,7 +332,10 @@ const LoginPage = () => {
                   recaptchaContainerRef.current,
                   {
                     size: "normal",
-                    callback: () => console.log("New reCAPTCHA solved"),
+                    callback: () => {
+                      setIsCaptchaVerified(true);
+                      console.log("reCAPTCHA solved", response);
+                    },
                   }
                 );
                 recaptchaVerifierRef.current.render();
@@ -466,11 +427,11 @@ const LoginPage = () => {
 
               <button
                 className={`w-full sm:w-[17vw] xl:w-[15vw] py-2 text-sm xl:text-base max-sm:py-1 max-sm:mb-[2vw] max-sm:text-xs md:text-base md:w-[20vw] ${
-                  isButtonEnabled
+                  (isButtonEnabled && isCaptchaVerified)
                     ? "bg-[#811F67] text-white hover:cursor-pointer"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 } font-semibold rounded-full`}
-                disabled={!isButtonEnabled}
+                disabled={!isButtonEnabled && !isCaptchaVerified}
                 onClick={handleSendOTP}
               >
                 {loading ? "Sending..." : "Send OTP"}
