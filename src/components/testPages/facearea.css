@@ -1,4 +1,5 @@
-.container {
+/* removed since conflicting with tailwind's container class */
+/* .container {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -6,11 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .face-area {
-  width: 80%; /* This is the bounding box for the ellipse */
-  height: 80%; /* This is the bounding box for the ellipse */
+  width: 80%;
+  height: 80%;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -36,7 +37,7 @@
 }
 
 /* Overlay for the "white" outside effect */
-.container::after {
+/* .container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -45,17 +46,19 @@
   height: 100%;
   background-color: white;
   mix-blend-mode: screen;
-  /* Adjust the radial-gradient to match the vertical ellipse shape */
   -webkit-mask-image: radial-gradient(ellipse 25% 50% at 50% 50%, transparent 60%, black 61%);
   mask-image: radial-gradient(ellipse 25% 50% at 50% 50%, transparent 60%, black 61%);
-}
+} */
 
 /* You might want an oval border on top if the above makes the border disappear */
 .oval-border {
   position: absolute;
-  width: 80%; /* Match .face-area width */
-  height: 80%; /* Match .face-area height */
-  border: 2px solid dodgerblue; /* Your desired border color */
+  width: 80%;
+  /* Match .face-area width */
+  height: 80%;
+  /* Match .face-area height */
+  border: 2px solid dodgerblue;
+  /* Your desired border color */
   /* For a vertical ellipse border, use specific border-radius values or `border-radius: 50% / 45%;` for fine-tuning */
   /* Using 50% will create a perfect circle if width and height are equal.
      To truly match the ellipse, you would ideally apply the same clip-path or adjust border-radius.

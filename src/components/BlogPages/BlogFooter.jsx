@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebook, FaYoutube, FaLinkedin } from 'react-icons/fa';
 
@@ -11,22 +10,18 @@ const BlogFooter = () => {
           <div className="max-sm:w-full max-sm:text-left">
             <div className="relative inline-block">
               <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
-              <Link
-                to="/"
-                onClick={() => handleLinkClick('/')}
-                className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white md:text-2xl"
-              >
+              <Link to="/" className="2xl:text-3xl relative z-10 font-semibold tracking-wide text-white md:text-2xl">
                 Aignosis
               </Link>
             </div>
             <p className="mt-5">
               Aignosis is here to offer AI-powered tools that help you understand your child’s unique way of
-              experiencing the world.{' '}
+              experiencing the world.
             </p>
             <ul className="hidden flex-row items-start justify-start space-x-4 pt-4 max-sm:flex-row max-sm:space-x-4 max-sm:space-y-0 max-sm:pl-0 md:flex">
               <li>
                 <a
-                  href="https://www.instagram.com/aignosis.in?igsh=MTU0dmUybjViOTIzZw=="
+                  href="https://www.instagram.com/aignosis.in/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2"
@@ -46,7 +41,7 @@ const BlogFooter = () => {
               </li>
               <li>
                 <a
-                  href="https://youtube.com/@aignosis?si=gozM9TLj4ZToY5-k"
+                  href="https://youtube.com/@aignosis"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2"
@@ -70,27 +65,21 @@ const BlogFooter = () => {
             <h3 className="mb-4 text-lg font-semibold">Pages</h3>
             <ul className="list-disc space-y-2 pl-[2vw] max-sm:list-none max-sm:pl-0">
               <Link to="/">
-                {' '}
                 <li>Home</li>
-              </Link>{' '}
+              </Link>
               <Link to="/clinic">
-                {' '}
                 <li>Clinic</li>
-              </Link>{' '}
+              </Link>
               <Link to={'/about-us'}>
-                {' '}
                 <li>About us</li>
               </Link>
               <Link to={'/assessments-evaluation'}>
-                {' '}
                 <li>Services</li>
               </Link>
               <Link>
-                {' '}
                 <li>Contact us</li>
               </Link>
               <Link to={'/career'}>
-                {' '}
                 <li>Career</li>
               </Link>
             </ul>
@@ -102,21 +91,17 @@ const BlogFooter = () => {
             <ul className="list-disc space-y-2 pl-[2vw] max-sm:list-none max-sm:pl-0">
               {/* <li>Brand Story</li> */}
               <Link to={'/terms'}>
-                {' '}
                 <li>Terms & Conditions</li>
               </Link>
               <Link to={'/refund-reschedule'}>
-                {' '}
                 <li>Return Policy</li>
-              </Link>{' '}
+              </Link>
               <Link to={'/refund-reschedule'}>
-                {' '}
                 <li>Refund Policy</li>
-              </Link>{' '}
+              </Link>
               <Link to={'/privacy-policy'}>
-                {' '}
                 <li>Privacy Policy</li>
-              </Link>{' '}
+              </Link>
             </ul>
           </div>
 
@@ -210,7 +195,6 @@ const BlogFooter = () => {
           </div>
           <div className="flex w-full items-center justify-center border-t-2 border-[#F6E8FB80] md:hidden">
             <h3 className="mt-4 text-center text-[10px]">
-              {' '}
               <p>
                 &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
                 <a
@@ -219,7 +203,6 @@ const BlogFooter = () => {
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
-                  {' '}
                   Doggleindia
                 </a>
               </p>
@@ -228,7 +211,6 @@ const BlogFooter = () => {
         </div>
         <div className="mt-[5vw] hidden w-full items-center justify-center border-t-2 border-[#F6E8FB80] md:flex">
           <h3 className="mt-4 text-center text-[10px]">
-            {' '}
             <p>
               &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
               <a
@@ -237,7 +219,6 @@ const BlogFooter = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                {' '}
                 Doggleindia
               </a>
             </p>
