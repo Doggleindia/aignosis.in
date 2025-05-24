@@ -30,11 +30,7 @@ const PaymentScreensMain = () => {
     }
   };
 
-  return (
-    <div>
-      {renderForm()}
-    </div>
-  );
+  return <div>{renderForm()}</div>;
 };
 
 export default PaymentScreensMain;

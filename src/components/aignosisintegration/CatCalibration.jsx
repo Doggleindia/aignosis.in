@@ -1,22 +1,18 @@
 // CatCalibration.jsx updated
 
-import React, { useRef, useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Circle from "./Circle";
+import React, { useRef, useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Circle from './Circle';
 // import "bootstrap/dist/css/bootstrap.min.css";
-import BeatLoader from "react-spinners/BeatLoader"; // Ensure you import the BeatLoader component
+import BeatLoader from 'react-spinners/BeatLoader'; // Ensure you import the BeatLoader component
 
-
-import {
-  encryptCalibrationData,
-  encryptPassword,
-} from "./components/utils/EncryptionUtils";
-import { AppContext } from "./AppContext";
-import { useContext } from "react";
+import { encryptCalibrationData, encryptPassword } from './components/utils/EncryptionUtils';
+import { AppContext } from './AppContext';
+import { useContext } from 'react';
 
 const CatCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://de.aignosismdw.in/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = 'https://de.aignosismdw.in/rest/calibration/data/';
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   const { testData } = useContext(AppContext);
@@ -54,21 +50,21 @@ const CatCalibration = () => {
   useEffect(() => {
     const handleAudioPlay = () => {
       audio.loop = true; // Enable looping
-      audio.play().catch((error) => console.error("Audio play error:", error));
+      audio.play().catch((error) => console.error('Audio play error:', error));
     };
 
-    audio.addEventListener("canplaythrough", handleAudioPlay);
-    console.log("cat calibration TEST DATA", testData);
+    audio.addEventListener('canplaythrough', handleAudioPlay);
+    console.log('cat calibration TEST DATA', testData);
 
     // Get the webcam stream and metadata on mount
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
-      navigate("/calibrationpage"); // Redirect to calibration page
+      navigate('/calibrationpage'); // Redirect to calibration page
     };
 
     // Listen for the popstate event
-    window.addEventListener("popstate", handleBackButton);
+    window.addEventListener('popstate', handleBackButton);
 
     if (parentRef.current) {
       const { clientWidth, clientHeight } = parentRef.current;
@@ -77,7 +73,7 @@ const CatCalibration = () => {
 
     const startWebcam = async () => {
       if (!navigator.mediaDevices.getUserMedia) {
-        console.error("getUserMedia not supported");
+        console.error('getUserMedia not supported');
         return;
       }
 
@@ -95,13 +91,13 @@ const CatCalibration = () => {
 
         videoRef.current.onloadedmetadata = handleMetadata;
       } catch (error) {
-        console.error("Webcam start error:", error);
+        console.error('Webcam start error:', error);
       }
     };
 
     startWebcam();
     return () => {
-      window.removeEventListener("popstate", handleBackButton);
+      window.removeEventListener('popstate', handleBackButton);
       audio.pause();
     };
   }, [navigate]);
@@ -111,23 +107,23 @@ const CatCalibration = () => {
     // audio.currentTime = 0; // Reset audio
     // audio.pause();
     // audio.currentTime = 0; // Reset audio
-    navigate("/test/fillup");
+    navigate('/test/fillup');
   };
 
   const captureFrame = () => {
     if (canvasRef.current && videoRef.current) {
       const canvas = canvasRef.current;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext('2d');
 
       canvas.width = videoRef.current.videoWidth;
       canvas.height = videoRef.current.videoHeight;
 
       context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-      const frameData = canvas.toDataURL("image/jpeg");
+      const frameData = canvas.toDataURL('image/jpeg');
       return frameData;
     } else {
-      console.warn("Frame capture failed: canvasRef or videoRef is null");
+      console.warn('Frame capture failed: canvasRef or videoRef is null');
       // TODO: send back to take assignment page, with alert saying some error occurred
     }
   };
@@ -143,35 +139,21 @@ const CatCalibration = () => {
         }, 33) // Adjusted to 33ms for ~30 fps
       );
       setCurrentCircleIndex(currentCircleIndex + 1);
-    } else if (
-      currentCircleIndex < circleCoordinates.length - 1 &&
-      currentCircleIndex > 0
-    ) {
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+    } else if (currentCircleIndex < circleCoordinates.length - 1 && currentCircleIndex > 0) {
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       setCurrentCircleIndex(currentCircleIndex + 1);
     } else {
-      
       // THIS IS THE FINAL CAT / DOG CLICK
       audio.loop = false;
       audio.pause();
       audio.currentTime = 0; // Reset audio
 
-
-
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       var finalClickTimes = [...clickTimes, (Date.now() - startTime) / 1000];
       setIsCircleVisible(false);
 
       const timeElapsed = (Date.now() - startTime) / 1000;
-      let fps = parseInt(
-        (frames.length / parseInt(timeElapsed.toString())).toString()
-      );
+      let fps = parseInt((frames.length / parseInt(timeElapsed.toString())).toString());
 
       const calibrationData = {
         patient_uid: testData.PATIENT_UID,
@@ -209,11 +191,7 @@ const CatCalibration = () => {
         });
       }
 
-      console.log(
-        `FINAL CALIBRATION DATA BEFORE ENCRYPTION: ${JSON.stringify(
-          calibrationData
-        )}`
-      ); // Fixed template literal
+      console.log(`FINAL CALIBRATION DATA BEFORE ENCRYPTION: ${JSON.stringify(calibrationData)}`); // Fixed template literal
 
       // ENCRYPTION STARTS HERE
 
@@ -222,19 +200,16 @@ const CatCalibration = () => {
 
         try {
           const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-            .map((b) => b.toString(16).padStart(2, "0"))
-            .join("");
+            .map((b) => b.toString(16).padStart(2, '0'))
+            .join('');
 
-          const encryptedCalibrationPoints = await encryptCalibrationData(
-            calibration_points,
-            aesKey
-          ).catch((error) => {
-            console.error("Failed to encrypt calibration points:", error);
+          const encryptedCalibrationPoints = await encryptCalibrationData(calibration_points, aesKey).catch((error) => {
+            console.error('Failed to encrypt calibration points:', error);
             throw error;
           });
 
           const encryptedKey = await encryptPassword(aesKey).catch((error) => {
-            console.error("Failed to encrypt password:", error);
+            console.error('Failed to encrypt password:', error);
             throw error;
           });
 
@@ -251,11 +226,11 @@ const CatCalibration = () => {
 
           return axios
             .request({
-              method: "POST",
+              method: 'POST',
               url: SERVER_MIDDLEWARE_URL,
               data: calibrationDataString,
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
             })
             .then((response) => {
@@ -263,12 +238,12 @@ const CatCalibration = () => {
 
               console.log(response.status);
               if (response.status !== 200) {
-                navigate("/Error Page"); // Navigate to Error Page if status code is not 200
+                navigate('/Error Page'); // Navigate to Error Page if status code is not 200
               }
             });
         } catch (error) {
-          console.error("Processing error:", error);
-          navigate("/Error");
+          console.error('Processing error:', error);
+          navigate('/Error');
           //   throw error;
           console.log(error);
         } finally {
@@ -280,12 +255,12 @@ const CatCalibration = () => {
       processAndSendData()
         .then((response) => {
           clearInterval(frameCaptureInterval);
-          console.log("Frame capturing stopped");
+          console.log('Frame capturing stopped');
           console.log(response);
         })
         .catch((err) => {
           clearInterval(frameCaptureInterval);
-          console.log("Frame capturing stopped");
+          console.log('Frame capturing stopped');
           console.log(err);
         });
     }
@@ -296,34 +271,32 @@ const CatCalibration = () => {
       id="parent-container"
       ref={parentRef}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#1b0c26",
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: '#1b0c26',
       }}
     >
-      {isCircleVisible &&
-        parentDimensions[0] > 0 &&
-        parentDimensions[1] > 0 && (
-          <Circle
-            onClickHandler={handleCircleClick}
-            x={circleCoordinates[currentCircleIndex][0]}
-            y={circleCoordinates[currentCircleIndex][1]}
-            radius={50}
-            imageUrl="/catface.webp"
-          />
-        )}
+      {isCircleVisible && parentDimensions[0] > 0 && parentDimensions[1] > 0 && (
+        <Circle
+          onClickHandler={handleCircleClick}
+          x={circleCoordinates[currentCircleIndex][0]}
+          y={circleCoordinates[currentCircleIndex][1]}
+          radius={50}
+          imageUrl="/catface.webp"
+        />
+      )}
 
       {/* Conditionally render spinner or button */}
       {!isCircleVisible &&
         (isLoading ? (
           <div
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
             }}
           >
             <BeatLoader color="#ffffff" size={15} />
@@ -331,21 +304,21 @@ const CatCalibration = () => {
             <p
               className="mt-4"
               style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "rgba(138, 0, 194, 0.6)",
-                color: "white",
-                padding: "12px 24px",
-                borderRadius: "25px",
-                border: "none",
-                fontSize: "32px",
-                fontWeight: "bold",
-                cursor: "pointer",
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'rgba(138, 0, 194, 0.6)',
+                color: 'white',
+                padding: '12px 24px',
+                borderRadius: '25px',
+                border: 'none',
+                fontSize: '32px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
               }}
             >
-              {" "}
+              {' '}
               Calibrating
             </p>
           </div>
@@ -353,29 +326,29 @@ const CatCalibration = () => {
           <button
             className="mt-4"
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              backgroundColor: "transparent", // Transparent background
-              color: "white",
-              padding: "12px 24px",
-              borderRadius: "50px", // Elliptical shape
-              border: "2px solid white", // White border
-              fontSize: "32px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              transition: "background-color 0.3s ease, color 0.3s ease",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: 'transparent', // Transparent background
+              color: 'white',
+              padding: '12px 24px',
+              borderRadius: '50px', // Elliptical shape
+              border: '2px solid white', // White border
+              fontSize: '32px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              transition: 'background-color 0.3s ease, color 0.3s ease',
             }}
             onClick={handleNextButtonClick}
           >
             Next
           </button>
         ))}
-      <div style={{ display: "none", flex: 1 }}>
+      <div style={{ display: 'none', flex: 1 }}>
         <video ref={videoRef} autoPlay playsInline></video>
       </div>
-      <canvas ref={canvasRef} style={{ flex: 1, display: "none" }} />
+      <canvas ref={canvasRef} style={{ flex: 1, display: 'none' }} />
     </div>
   );
 };

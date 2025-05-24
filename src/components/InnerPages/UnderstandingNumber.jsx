@@ -53,90 +53,85 @@ const UnderstandingNumber = () => {
 
   return (
     <div
-    ref={containerRef}
-    className=" 2xl:w-[100%] md:w-[50%] h-[35vw]  flex flex-col justify-center   items-center   overflow-hidden  mb-10 relative max-sm:w-[90vw] max-sm:h-[85vw]"
-    style={{
-      scrollBehavior: 'smooth',
-      overflowY: 'hidden',
-      position: 'relative',
-    }}
-  >
-    <div
-      
-      className="  2xl:w-[60%] md:w-[100%] h-[25vw]  flex flex-col border border-[#B874B540] overflow-hidden rounded-3xl mb-10 relative max-sm:w-[90vw] max-sm:h-[78vw]"
-    
+      ref={containerRef}
+      className="2xl:w-[100%] relative mb-10 flex h-[35vw] flex-col items-center justify-center overflow-hidden max-sm:h-[85vw] max-sm:w-[90vw] md:w-[50%]"
+      style={{
+        scrollBehavior: 'smooth',
+        overflowY: 'hidden',
+        position: 'relative',
+      }}
     >
-       
-      {/* First Card */}
-      <div
-        className={`firstCard flex absolute inset-0 transition-all duration-700 ease-in-out ${
-          showSecondCard ? '-translate-y-full z-10' : 'translate-y-0 z-10'
-        }`}
-        style={{
-          background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
-        }}
-      >
-        <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] md:text-3xl 2xl:text-4xl max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
-          <h1 className="text-[#F6E8FB] font-raleway italic">
-            <span className="text-[#F6E8FB] italic font-raleway font-semibold text-5xl max-sm:text-2xl">
-              1 in 10{' '}
-            </span>{' '}
-            children experience developmental delays
-          </h1>
-          <h1 className="font-medium flex gap-4 items-center">
-            <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[26vw] max-sm:ml-[30vw]">
-              SOS
-            </span>
-          </h1>
-          <h1 className="text-base max-sm:text-sm mt-2 text-[#F6E8FB]">
-            Early identification is essential for better support
-          </h1>
-          <div className="w-[10rem] max-sm:w-[7rem] cursor-pointer group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent">
-            <a href="" className="text-white text-base max-sm:text-sm">
-              Learn more
-            </a>
+      <div className="2xl:w-[60%] relative mb-10 flex h-[25vw] flex-col overflow-hidden rounded-3xl border border-[#B874B540] max-sm:h-[78vw] max-sm:w-[90vw] md:w-[100%]">
+        {/* First Card */}
+        <div
+          className={`firstCard absolute inset-0 flex transition-all duration-700 ease-in-out ${
+            showSecondCard ? 'z-10 -translate-y-full' : 'z-10 translate-y-0'
+          }`}
+          style={{
+            background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
+          }}
+        >
+          <div className="2xl:text-4xl ml-[5rem] flex h-full w-[50%] flex-col items-start justify-center font-bold max-sm:ml-[2rem] max-sm:text-lg md:text-3xl">
+            <h1 className="font-raleway italic text-[#F6E8FB]">
+              <span className="font-raleway text-5xl font-semibold italic text-[#F6E8FB] max-sm:text-2xl">
+                1 in 10{' '}
+              </span>{' '}
+              children experience developmental delays
+            </h1>
+            <h1 className="flex items-center gap-4 font-medium">
+              <span className="ml-[26vw] flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-red-600 text-xs max-sm:ml-[30vw] max-sm:h-[1.5rem] max-sm:w-[1.5rem]">
+                SOS
+              </span>
+            </h1>
+            <h1 className="mt-2 text-base text-[#F6E8FB] max-sm:text-sm">
+              Early identification is essential for better support
+            </h1>
+            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:w-[7rem]">
+              <a href="" className="text-base text-white max-sm:text-sm">
+                Learn more
+              </a>
+            </div>
+          </div>
+          <div className="flex h-full w-[50%] items-center justify-center">
+            <img className="h-[60%] w-[60%] object-cover max-sm:w-auto" src={bg1} alt="Developmental Delays" />
           </div>
         </div>
-        <div className="w-[50%] h-full flex justify-center items-center">
-          <img className="w-[60%] h-[60%] max-sm:w-auto object-cover" src={bg1} alt="Developmental Delays" />
-        </div>
-      </div>
 
-      {/* Second Card */}
-      <div
-        className={`secondCard flex absolute inset-0 transition-all duration-700 ease-in-out ${
-          showSecondCard ? 'translate-y-0 z-10' : 'translate-y-full z-10'
-        }`}
-        style={{
-          background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
-        }}
-      >
-        <div className="w-[50%] ml-[5rem] max-sm:ml-[2rem] text-4xl italic max-sm:text-lg h-full flex flex-col justify-center items-start font-bold">
-          <h1 className="text-[#F6E8FB] font-raleway italic">
-            <span className="text-[#F6E8FB] italic font-raleway font-semibold text-4xl max-sm:text-2xl">
-              1 in 36{' '}
-            </span>{' '}
-            children are autistic in India
-          </h1>
-          <h1 className="font-medium flex gap-4 items-center">
-            <span className="w-[2rem] h-[2rem] max-sm:w-[1.5rem] max-sm:h-[1.5rem] rounded-full bg-red-600 text-xs flex justify-center items-center ml-[19vw] max-sm:ml-[33vw] ">
-              SOS
-            </span>
-          </h1>
-          <h1 className="text-base max-sm:text-sm mt-2 text-[#F6E8FB]">
-            Autism awareness and early detection can make a difference.
-          </h1>
-          <div className="w-[10rem] cursor-pointer max-sm:w-[7rem] group hover:bg-[#B740A1] transition-colors duration-300 mt-[2rem] border-2 border-[#B740A1] gap-4 rounded-full flex justify-center items-center text-[#0D0C0A] h-[3rem] bg-transparent">
-            <a href="" className="text-white text-base max-sm:text-sm">
-              Learn more
-            </a>
+        {/* Second Card */}
+        <div
+          className={`secondCard absolute inset-0 flex transition-all duration-700 ease-in-out ${
+            showSecondCard ? 'z-10 translate-y-0' : 'z-10 translate-y-full'
+          }`}
+          style={{
+            background: 'radial-gradient(101.54% 60.98% at 50% 39.02%, #070B0E 0%, rgba(48, 8, 52, 0.6) 100%)',
+          }}
+        >
+          <div className="ml-[5rem] flex h-full w-[50%] flex-col items-start justify-center text-4xl font-bold italic max-sm:ml-[2rem] max-sm:text-lg">
+            <h1 className="font-raleway italic text-[#F6E8FB]">
+              <span className="font-raleway text-4xl font-semibold italic text-[#F6E8FB] max-sm:text-2xl">
+                1 in 36{' '}
+              </span>{' '}
+              children are autistic in India
+            </h1>
+            <h1 className="flex items-center gap-4 font-medium">
+              <span className="ml-[19vw] flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-red-600 text-xs max-sm:ml-[33vw] max-sm:h-[1.5rem] max-sm:w-[1.5rem]">
+                SOS
+              </span>
+            </h1>
+            <h1 className="mt-2 text-base text-[#F6E8FB] max-sm:text-sm">
+              Autism awareness and early detection can make a difference.
+            </h1>
+            <div className="group mt-[2rem] flex h-[3rem] w-[10rem] cursor-pointer items-center justify-center gap-4 rounded-full border-2 border-[#B740A1] bg-transparent text-[#0D0C0A] transition-colors duration-300 hover:bg-pink-500 max-sm:w-[7rem]">
+              <a href="" className="text-base text-white max-sm:text-sm">
+                Learn more
+              </a>
+            </div>
+          </div>
+          <div className="flex h-full w-[50%] items-center justify-center">
+            <img className="h-[60%] w-[60%] object-cover max-sm:w-auto" src={bg2} alt="Autism Awareness" />
           </div>
         </div>
-        <div className="w-[50%] h-full flex justify-center items-center">
-          <img className="w-[60%] h-[60%] max-sm:w-auto object-cover" src={bg2} alt="Autism Awareness" />
-        </div>
       </div>
-    </div>
     </div>
   );
 };
