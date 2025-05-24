@@ -177,24 +177,24 @@
 
 // export default LoginPage;
 
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import { useState, useEffect, useRef } from 'react';
-import { auth } from '../config/firebaseconfig'; // Import the auth instance from your firebase.js file
-import LoginOtp from './LoginOtp';
-import fetchData from '../config/fetchData';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { useState, useEffect, useRef } from "react";
+import { auth } from "../config/firebaseconfig"; // Import the auth instance from your firebase.js file
+import LoginOtp from "./LoginOtp";
+import fetchData from "../config/fetchData";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   // const [email, setEmail] = useState("");
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   // // // // // // // // // // // // // //  firebase otp defn // // // // // // // // // // // // // //
-  const [verificationCode, setVerificationCode] = useState('');
+  const [verificationCode, setVerificationCode] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [message, setMessage] = useState("");
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
@@ -202,11 +202,11 @@ const LoginPage = () => {
   const recaptchaContainerRef = useRef(null);
 
   const handlePhoneChange = (e) => {
-    let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
 
     // Ensure "+91" is always present at the start
-    if (!value.startsWith('91')) {
-      value = '91' + value;
+    if (!value.startsWith("91")) {
+      value = "91" + value;
     }
 
     // Extract the last 10 digits (excluding "91" prefix)
@@ -214,10 +214,10 @@ const LoginPage = () => {
       value = value.slice(0, 12); // Limit to "+91" + 10 digits
     }
 
-    setPhoneNumber('+' + value);
+    setPhoneNumber("+" + value);
     setIsButtonEnabled(value.length === 12); // Enable button only when "+91" + 10 digits
   };
-  console.log('phoneNumber', phoneNumber);
+  console.log("phoneNumber", phoneNumber);
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -232,40 +232,48 @@ const LoginPage = () => {
     e.preventDefault();
 
     if (!recaptchaVerifierRef.current) {
-      setMessage('reCAPTCHA not initialized. Please refresh the page and try again.');
+      setMessage(
+        "reCAPTCHA not initialized. Please refresh the page and try again."
+      );
       return;
     }
 
     setLoading(true);
-    setMessage('');
+    setMessage("");
     try {
       // Format phone number with country code if not already formatted
-      const formattedPhoneNumber = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
+      const formattedPhoneNumber = phoneNumber.startsWith("+")
+        ? phoneNumber
+        : `+${phoneNumber}`;
 
-      console.log('Sending OTP to:', formattedPhoneNumber);
-      console.log('Using reCAPTCHA verifier:', recaptchaVerifierRef.current);
+      console.log("Sending OTP to:", formattedPhoneNumber);
+      console.log("Using reCAPTCHA verifier:", recaptchaVerifierRef.current);
 
       const payload = { phoneNumber: formattedPhoneNumber };
       const { response, error } = await fetchData({
-        url: '/api/otp/sendOtp',
-        method: 'POST',
+        url: "/api/otp/sendOtp",
+        method: "POST",
         data: payload,
       });
 
       if (error) {
-        console.log('Doggle sendOtp Error:', error);
-        toast.error('Failed to send OTP. Please try again.');
+        console.log("Doggle sendOtp Error:", error);
+        toast.error("Failed to send OTP. Please try again.");
       } else if (response) {
         // Send OTP using the ref verifier
-        console.log('Doggle sendOtp Response:', response);
-        const result = await signInWithPhoneNumber(auth, formattedPhoneNumber, recaptchaVerifierRef.current);
+        console.log("Doggle sendOtp Response:", response);
+        const result = await signInWithPhoneNumber(
+          auth,
+          formattedPhoneNumber,
+          recaptchaVerifierRef.current
+        );
         setConfirmationResult(result);
-        setMessage('OTP sent successfully! Please check your phone.');
-        console.log('OTP sent successfully please check your phone: ', result);
+        setMessage("OTP sent successfully! Please check your phone.");
+        console.log("OTP sent successfully please check your phone: ", result);
         setShowOtpPage(true); // Show the OTP page after sending OTP
       }
     } catch (error) {
-      console.error('Error sending OTP:', error);
+      console.error("Error sending OTP:", error);
       setMessage(`Error sending OTP: ${error.message}`);
 
       // Reset reCAPTCHA on error
@@ -276,22 +284,24 @@ const LoginPage = () => {
 
           // Recreate the reCAPTCHA
           if (recaptchaContainerRef.current) {
-            recaptchaVerifierRef.current = new RecaptchaVerifier(auth, recaptchaContainerRef.current, {
-              size: 'normal',
-              callback: () => console.log('reCAPTCHA reset after error'),
-            });
+            recaptchaVerifierRef.current = new RecaptchaVerifier(
+              auth,
+              recaptchaContainerRef.current,
+              {
+                size: "normal",
+                callback: () => console.log("reCAPTCHA reset after error"),
+              }
+            );
             recaptchaVerifierRef.current.render();
           }
         } catch (resetError) {
-          console.error('Error resetting reCAPTCHA:', resetError);
+          console.error("Error resetting reCAPTCHA:", resetError);
         }
       }
     } finally {
       setLoading(false);
     }
   };
-
-
 
   useEffect(() => {
     // Only create the reCAPTCHA verifier if it doesn't exist and container is available
@@ -335,10 +345,10 @@ const LoginPage = () => {
         // Render the reCAPTCHA
         recaptchaVerifierRef.current
           .render()
-          .then(() => console.log('reCAPTCHA rendered successfully'))
-          .catch((error) => console.error('Error rendering reCAPTCHA:', error));
+          .then(() => console.log("reCAPTCHA rendered successfully"))
+          .catch((error) => console.error("Error rendering reCAPTCHA:", error));
       } catch (error) {
-        console.error('Error creating reCAPTCHA verifier:', error);
+        console.error("Error creating reCAPTCHA verifier:", error);
       }
     }
 
@@ -349,11 +359,11 @@ const LoginPage = () => {
           recaptchaVerifierRef.current.clear();
           recaptchaVerifierRef.current = null;
         } catch (error) {
-          console.error('Error clearing reCAPTCHA:', error);
+          console.error("Error clearing reCAPTCHA:", error);
         }
       }
     };
-  }, []);
+  }, [showOtpPage]);
 
   return (
     <>
@@ -407,18 +417,22 @@ const LoginPage = () => {
                 </div>
               </div>
 
-              <div ref={recaptchaContainerRef} className="recaptcha-container" style={{ marginBottom: '20px' }}></div>
+              <div
+                ref={recaptchaContainerRef}
+                className="recaptcha-container"
+                style={{ marginBottom: "20px" }}
+              ></div>
 
               <button
                 className={`w-full sm:w-[17vw] xl:w-[15vw] py-2 text-sm xl:text-base max-sm:py-1 max-sm:mb-[2vw] max-sm:text-xs md:text-base md:w-[20vw] ${
-                  (isButtonEnabled && isCaptchaVerified)
+                  isButtonEnabled && isCaptchaVerified
                     ? "bg-[#811F67] text-white hover:cursor-pointer"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 } font-semibold rounded-full`}
                 disabled={!isButtonEnabled && !isCaptchaVerified}
                 onClick={handleSendOTP}
               >
-                {loading ? 'Sending...' : 'Send OTP'}
+                {loading ? "Sending..." : "Send OTP"}
               </button>
             </div>
           </div>
@@ -427,7 +441,7 @@ const LoginPage = () => {
         <LoginOtp
           phoneNumber={phoneNumber}
           goBack={() => setShowOtpPage(false)}
-          confirmationResult={confirmationResult}
+          recaptchaVerifierRefCurrent={recaptchaVerifierRef.current}
         />
       )}
     </>
