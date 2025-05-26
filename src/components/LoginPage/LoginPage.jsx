@@ -198,7 +198,7 @@ const LoginPage = () => {
           </div>
 
           {/* Right Section */}
-          <div className="relative z-20 flex items-center justify-center bg-white p-4 max-sm:ml-[15vw] max-sm:mt-[10vw] max-sm:w-[70vw] max-sm:rounded-[4vw] max-sm:p-2 md:ml-0 md:mt-0 md:pr-8 lg:flex-[2] lg:p-0 xl:pr-[10vw]">
+          <div className="relative z-20 flex items-center justify-center bg-white p-4 max-sm:mx-auto max-sm:mt-[10vw] max-sm:w-[80vw] max-sm:rounded-[3vw] max-sm:p-4 md:ml-0 md:mt-0 md:pr-8 lg:flex-[2] lg:p-0 xl:pr-[10vw]">
             <div className="w-full max-w-md sm:w-3/4">
               <h2 className="mb-2 text-lg font-bold max-sm:text-base sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl">
                 Welcome
@@ -211,7 +211,9 @@ const LoginPage = () => {
                 <PhoneInput
                   international
                   countryCallingCodeEditable={false}
+                  limitMaxLength={true}
                   placeholder="Enter your phone number"
+                  className="login-form"
                   defaultCountry="IN"
                   value={phoneNumber}
                   onChange={handlePhoneChange}

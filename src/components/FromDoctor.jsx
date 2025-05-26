@@ -38,7 +38,7 @@ const FromDoctor = () => {
                 className="h-[120%] w-[85%] rounded-xl object-fill"
                 src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png"
                 alt=""
-                srcset=""
+                srcSet=""
               />
             </div>
             <div className="h-full w-[50%]">
@@ -241,7 +241,7 @@ const FromDoctor = () => {
                   className="h-full w-full object-cover"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
               </div>
             </div>
@@ -288,7 +288,7 @@ const FromDoctor = () => {
                 <img
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/dr+dhananjay.png"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
               </div>
               <div className="scrollbar-hide flex space-x-4 overflow-x-auto py-10">
@@ -372,7 +372,7 @@ const FromDoctor = () => {
                 <img
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image+145.png"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
               </div>
               <div className="scrollbar-hide flex space-x-4 overflow-x-auto py-10">

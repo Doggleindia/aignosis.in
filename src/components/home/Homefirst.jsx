@@ -10,6 +10,8 @@ import hipaa from '../../assets/members/hipaa logo.jpg';
 import iso from '../../assets/members/iso logo.png';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const images = [
   'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel1.png',
@@ -21,15 +23,16 @@ const Homefirst = () => {
   const [bgImage, setBgImage] = useState(images[0]);
   const [fade, setFade] = useState(true);
   const [formData, setFormData] = useState({ name: '', phone: '' });
+  const [phoneNumber, setPhoneNumber] = useState('');
   const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
   const fullNameRef = useRef(null);
-  const phoneNumberRef = useRef(null);
 
   const isValid = () => {
     const fullName = fullNameRef.current?.value.replace(/\s/g, '') || '';
-    const phoneNumber = phoneNumberRef.current?.value || '';
+    // For phone validation, we check if phoneNumber has at least 10 digits
+    const cleanPhone = phoneNumber?.replace(/\D/g, '') || '';
 
-    return fullName.length >= 5 && /^\d{10}$/.test(phoneNumber);
+    return fullName.length >= 5 && cleanPhone.length >= 10;
   };
 
   useEffect(() => {
@@ -48,9 +51,6 @@ const Homefirst = () => {
 
     return () => clearInterval(interval); // Cleanup interval
   }, []);
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,11 +62,11 @@ const Homefirst = () => {
     try {
       const { data } = await axios.post(`${API_BASE_URL}/api/flyer/submit`, {
         name: fullNameRef.current.value,
-        phone: phoneNumberRef.current.value,
+        phone: phoneNumber,
       });
       toast.success(data.message);
       fullNameRef.current.value = '';
-      phoneNumberRef.current.value = '';
+      setPhoneNumber('');
     } catch (error) {
       toast.error(error.response?.data?.message || 'Something went wrong');
     }
@@ -204,16 +204,29 @@ const Homefirst = () => {
               className="w-full rounded-md border border-[#9C00AD] bg-transparent p-3 text-white focus:border-[#9C00AD] focus:outline-none focus:ring-0 sm:w-[48%]"
               onInput={() => isValid()}
             />
-            <div className="flex w-full items-center rounded-md border border-[#9C00AD] bg-transparent p-3 sm:w-[48%]">
-              <span className="text-md whitespace-nowrap pr-2 text-white">🇮🇳 +91</span>
-              <input
-                type="text"
-                placeholder="WhatsApp Preferred"
-                ref={phoneNumberRef}
-                className="w-full bg-transparent text-white placeholder-white/60 focus:outline-none"
-                onInput={() => isValid()}
-              />
-            </div>
+            <PhoneInput
+              international
+              countryCallingCodeEditable={false}
+              defaultCountry="IN"
+              placeholder="WhatsApp Preferred"
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+              limitMaxLength={true}
+              containerComponentProps={{
+                className: 'w-full sm:w-[48%] flex items-center justify-center',
+                style: {
+                  backgroundColor: 'transparent',
+                },
+              }}
+              numberInputProps={{
+                className: 'bg-transparent text-white focus:outline-none focus:ring-0 w-full',
+                onInput: () => isValid(),
+                style: {
+                  border: '1px solid #9C00AD',
+                  borderRadius: '0',
+                },
+              }}
+            />
           </div>
 
           {/* Button Container (Always below inputs) */}

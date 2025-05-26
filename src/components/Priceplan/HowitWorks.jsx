@@ -41,11 +41,11 @@ const HowitWorks = () => {
                 src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
-                srcset=""
+                srcSet=""
                 loading="lazy"
               />
               <div className="absolute -left-16 -top-4">
-                <img src={forward} className="scale-[.6] object-contain" alt="" srcset="" loading="lazy" />
+                <img src={forward} className="scale-[.6] object-contain" alt="" srcSet="" loading="lazy" />
               </div>
             </div>
             <div className="ml-5 h-auto w-[13vw] p-2">
@@ -59,11 +59,11 @@ const HowitWorks = () => {
                 src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
-                srcset=""
+                srcSet=""
                 loading="lazy"
               />
               <div className="absolute -left-16 -top-4">
-                <img src={forward} className="scale-[.6] object-contain" alt="" srcset="" />
+                <img src={forward} className="scale-[.6] object-contain" alt="" srcSet="" />
               </div>
             </div>
           </div>
@@ -74,10 +74,10 @@ const HowitWorks = () => {
                 loading="lazy"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
-                srcset=""
+                srcSet=""
               />
               <div className="absolute -bottom-4 -right-16 rotate-180">
-                <img src={forward} className="scale-[.6] object-contain" alt="" srcset="" loading="lazy" />
+                <img src={forward} className="scale-[.6] object-contain" alt="" srcSet="" loading="lazy" />
               </div>
             </div>
             <div className="ml-5 h-auto w-[13vw] p-2">
@@ -91,11 +91,11 @@ const HowitWorks = () => {
                 src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
-                srcset=""
+                srcSet=""
                 loading="lazy"
               />
               <div className="absolute -bottom-4 -right-16 rotate-180">
-                <img src={forward} className="scale-[.6] object-contain" alt="" srcset="" loading="lazy" />
+                <img src={forward} className="scale-[.6] object-contain" alt="" srcSet="" loading="lazy" />
               </div>
             </div>
             <div className="ml-5 h-auto w-[13vw] p-2">
@@ -114,10 +114,10 @@ const HowitWorks = () => {
                 loading="lazy"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
-                srcset=""
+                srcSet=""
               />
               <div className="absolute -left-16 -top-4">
-                <img src={forward} loading="lazy" className="scale-[.6] object-contain" alt="" srcset="" />
+                <img src={forward} loading="lazy" className="scale-[.6] object-contain" alt="" srcSet="" />
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ const HowitWorks = () => {
                   className="absolute inset-0 z-0"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
                 <div className="absolute -left-4 -top-4 z-10">
                   <img src={forward} className="scale-[.6] object-contain" alt="" />
@@ -165,7 +165,7 @@ const HowitWorks = () => {
                   className="absolute inset-0 z-0"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
                 <div className="absolute -bottom-4 -right-4 rotate-180">
                   <img src={forward} className="scale-[.6] object-contain" alt="" />
@@ -184,7 +184,7 @@ const HowitWorks = () => {
                   className="absolute inset-0 z-0"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
 
                 <div className="absolute -left-4 -top-4">
@@ -204,7 +204,7 @@ const HowitWorks = () => {
                   className="absolute inset-0 z-0"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
 
                 <div className="absolute -bottom-4 -right-4 rotate-180">
@@ -226,7 +226,7 @@ const HowitWorks = () => {
                   className="absolute inset-0 z-0"
                   src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg"
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
 
                 <div className="absolute -left-4 -top-4">

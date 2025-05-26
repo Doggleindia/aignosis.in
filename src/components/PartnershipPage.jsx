@@ -142,7 +142,7 @@ const PartnershipPage = () => {
                   background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
                 }}
               ></span>
-              <spam className="text-[#EDD0E7]">Connect with Sales</spam>
+              <span className="text-[#EDD0E7]">Connect with Sales</span>
               <span
                 className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
                 style={{
