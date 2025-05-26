@@ -1,0 +1,67 @@
+/* Custom styles for react-phone-number-input */
+.PhoneInput {
+    display: flex;
+    align-items: center;
+}
+
+.PhoneInputCountry {
+    border: 1px solid #d1d5db;
+    border-radius: 9999px 0 0 9999px;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    border-right: none;
+}
+
+.PhoneInputCountrySelect {
+    border: none;
+    background: none;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.PhoneInputCountrySelect:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #811F67;
+}
+
+.PhoneInputInput {
+    border: 1px solid #d1d5db;
+    border-radius: 0 9999px 9999px 0;
+    border-left: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    width: 100%;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.PhoneInputInput:focus {
+    outline: none;
+    border-color: #811F67;
+    box-shadow: 0 0 0 2px rgba(129, 31, 103, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+    .PhoneInputCountry {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .PhoneInputInput {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .PhoneInputCountrySelect {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .PhoneInputInput {
+        font-size: 1rem;
+    }
+
+    .PhoneInputCountrySelect {
+        font-size: 1rem;
+    }
+}
