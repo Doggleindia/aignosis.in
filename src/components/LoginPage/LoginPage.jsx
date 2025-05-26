@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import './LoginPageStyles.css';
+import { getFriendlyFirebaseError } from '../../utils/firebase-error-helper';
 
 const LoginPage = () => {
   const [showOtpPage, setShowOtpPage] = useState(false);
@@ -53,11 +54,16 @@ const LoginPage = () => {
     }
 
     setLoading(true);
+    const phoneUID = getPhoneUID();
+    if (!phoneUID || phoneUID.length < 10) {
+      setLoading(false);
+      return;
+    }
+
     try {
       // Use the phoneNumber directly as it's already in international format
       const formattedPhoneNumber = phoneNumber;
       // Use the UID format as phoneNumber for backend API
-      const phoneUID = getPhoneUID();
       console.log('Sending OTP to Firebase:', formattedPhoneNumber);
       console.log('Phone UID for backend:', phoneUID);
       console.log('Using reCAPTCHA verifier:', recaptchaVerifierRef.current);
@@ -82,7 +88,7 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.error('Error sending OTP:', error);
-      toast.error(`Error sending OTP: ${error.message}`);
+      toast.error(getFriendlyFirebaseError(error));
 
       // Reset reCAPTCHA on error
       if (recaptchaVerifierRef.current) {
