@@ -5,7 +5,7 @@ import LoginOtp from './LoginOtp';
 import fetchData from '../config/fetchData';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import './LoginPageStyles.css';
 
@@ -22,7 +22,6 @@ const LoginPage = () => {
 
   const handlePhoneChange = (value) => {
     setPhoneNumber(value);
-    console.log('Phone number changed:', value);
     setIsButtonEnabled(!!value && value.length >= 10);
   };
 
@@ -30,9 +29,8 @@ const LoginPage = () => {
   const getPhoneUID = () => {
     if (!phoneNumber) return '';
     const cleanNumber = phoneNumber.replace('+', '');
-    const countryCode = cleanNumber.slice(0, -10); // Assume last 10 digits are the number
-    const number = cleanNumber.slice(-10);
-    console.log('Generated Phone UID:', `${countryCode}_${number}`);
+    const countryCode = parsePhoneNumber(phoneNumber).countryCallingCode;
+    const number = cleanNumber.replace(countryCode, '').replace(/\D/g, ''); // Remove non-digit characters
     return `${countryCode}_${number}`;
   };
 
