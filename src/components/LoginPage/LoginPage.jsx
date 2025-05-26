@@ -22,23 +22,19 @@ const LoginPage = () => {
 
   const handlePhoneChange = (value) => {
     setPhoneNumber(value);
-    // Enable button if phone number is valid (react-phone-number-input handles validation)
+    console.log('Phone number changed:', value);
     setIsButtonEnabled(!!value && value.length >= 10);
   };
 
   // Generate UID in format: countryCode_PhoneNumber (without + symbol)
   const getPhoneUID = () => {
     if (!phoneNumber) return '';
-    // Remove + and replace first part with underscore
-    // Example: +911234567890 becomes 91_1234567890
     const cleanNumber = phoneNumber.replace('+', '');
     const countryCode = cleanNumber.slice(0, -10); // Assume last 10 digits are the number
     const number = cleanNumber.slice(-10);
+    console.log('Generated Phone UID:', `${countryCode}_${number}`);
     return `${countryCode}_${number}`;
   };
-
-  console.log('Full phoneNumber:', phoneNumber);
-  console.log('Phone UID:', getPhoneUID());
 
   const handleSendOTP = async (e) => {
     e.preventDefault();
@@ -54,7 +50,6 @@ const LoginPage = () => {
       const formattedPhoneNumber = phoneNumber;
       // Use the UID format as phoneNumber for backend API
       const phoneUID = getPhoneUID();
-
       console.log('Sending OTP to Firebase:', formattedPhoneNumber);
       console.log('Phone UID for backend:', phoneUID);
       console.log('Using reCAPTCHA verifier:', recaptchaVerifierRef.current);
@@ -202,34 +197,10 @@ const LoginPage = () => {
                 <PhoneInput
                   international
                   countryCallingCodeEditable={false}
+                  placeholder="Enter your phone number"
                   defaultCountry="IN"
                   value={phoneNumber}
                   onChange={handlePhoneChange}
-                  className="phone-input-container"
-                  style={{
-                    '--PhoneInputCountrySelect-marginRight': '0.5rem',
-                    '--PhoneInput-color--focus': '#811F67',
-                  }}
-                  inputProps={{
-                    className: 'phone-input-field',
-                    style: {
-                      border: '1px solid #d1d5db',
-                      borderRadius: '9999px',
-                      padding: '0.5rem 1rem',
-                      fontSize: '0.875rem',
-                      width: '100%',
-                      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-                    },
-                  }}
-                  countrySelectProps={{
-                    style: {
-                      border: '1px solid #d1d5db',
-                      borderRadius: '9999px 0 0 9999px',
-                      padding: '0.5rem',
-                      fontSize: '0.875rem',
-                      backgroundColor: 'white',
-                    },
-                  }}
                 />
               </div>
 
