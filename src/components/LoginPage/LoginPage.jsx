@@ -28,10 +28,20 @@ const LoginPage = () => {
   // Generate UID in format: countryCode_PhoneNumber (without + symbol)
   const getPhoneUID = () => {
     if (!phoneNumber) return '';
-    const cleanNumber = phoneNumber.replace('+', '');
-    const countryCode = parsePhoneNumber(phoneNumber).countryCallingCode;
-    const number = cleanNumber.replace(countryCode, '').replace(/\D/g, ''); // Remove non-digit characters
-    return `${countryCode}_${number}`;
+    try {
+      const cleanNumber = phoneNumber.replace('+', '');
+      const parsedPhoneNumber = parsePhoneNumber(phoneNumber);
+      if (!parsedPhoneNumber || !parsedPhoneNumber.countryCallingCode) {
+        throw new Error('Invalid phone number format');
+      }
+      const countryCode = parsedPhoneNumber.countryCallingCode;
+      const number = cleanNumber.replace(countryCode, '').replace(/\D/g, ''); // Remove non-digit characters
+      return `${countryCode}_${number}`;
+    } catch (error) {
+      console.error('Error parsing phone number:', error);
+      toast.error('Invalid phone number format. Please check and try again.');
+      return '';
+    }
   };
 
   const handleSendOTP = async (e) => {
