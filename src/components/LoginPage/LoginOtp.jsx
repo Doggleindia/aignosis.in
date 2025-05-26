@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { signInWithPhoneNumber } from 'firebase/auth';
+import { useState, useRef } from 'react';
 import fetchData from '../config/fetchData'; // Assuming you have this function to make API calls
-import { auth } from '../config/firebaseconfig'; // Import the auth instance from your firebase.js file
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginOtp = ({ goBack, phoneNumber, firebasePhoneNumber, recaptchaVerifierRefCurrent }) => {
+const LoginOtp = ({ goBack, uid, firebasePhoneNumber, recaptchaVerifierRefCurrent }) => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(['', '', '', '', '', '']); // For OTP input
   const [errorMessage, setErrorMessage] = useState('');
@@ -50,7 +49,7 @@ const LoginOtp = ({ goBack, phoneNumber, firebasePhoneNumber, recaptchaVerifierR
       setErrorMessage('');
 
       const payload = {
-        phoneNumber: phoneNumber, // Use UID format (countryCode_phoneNumber) directly as phoneNumber
+        phoneNumber: uid,
         otp: otpValue,
       };
       const { response, error } = await fetchData({
@@ -95,7 +94,7 @@ const LoginOtp = ({ goBack, phoneNumber, firebasePhoneNumber, recaptchaVerifierR
         setErrorMessage(error.message || 'OTP verification failed.');
         toast.error(error.message || 'OTP verification failed.');
       }
-    } catch (error) {
+    } catch {
       setLoading(false);
       setErrorMessage('An error occurred during OTP verification.');
       toast.error('An error occurred during OTP verification.');
@@ -158,6 +157,13 @@ const LoginOtp = ({ goBack, phoneNumber, firebasePhoneNumber, recaptchaVerifierR
       </div>
     </div>
   );
+};
+
+LoginOtp.propTypes = {
+  goBack: PropTypes.func.isRequired,
+  uid: PropTypes.string.isRequired,
+  firebasePhoneNumber: PropTypes.string.isRequired,
+  recaptchaVerifierRefCurrent: PropTypes.object.isRequired,
 };
 
 export default LoginOtp;

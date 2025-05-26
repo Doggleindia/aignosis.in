@@ -220,7 +220,7 @@ const LoginPage = () => {
         </div>
       ) : (
         <LoginOtp
-          phoneNumber={getPhoneUID()}
+          uid={getPhoneUID()}
           firebasePhoneNumber={phoneNumber}
           goBack={() => setShowOtpPage(false)}
           recaptchaVerifierRefCurrent={recaptchaVerifierRef.current}
