@@ -62,7 +62,7 @@ const Newnavbar = () => {
       </div>
 
       {/* Add the CSS for continuous scrolling animation */}
-      <style jsx>{`
+      <style>{`
         @keyframes scroll-text {
           0% {
             transform: translateX(100%); /* Start from the right side */

@@ -195,7 +195,7 @@ const Dashboard = () => {
   return (
     <>
       <Header />
-      <div className="mt-[2vw] h-full w-full bg-[#2B1B2D] px-5 py-10 pt-[8vh] font-manrope text-white md:px-10 md:pt-[12vh]">
+      <div className="h-full w-full bg-[#2B1B2D] px-5 py-10 pt-[10vh] font-manrope text-white md:px-10 md:pt-[12vh]">
         <div className="hidden h-full w-full md:block">
           {/* Header */}
           <div

@@ -243,11 +243,11 @@ export const FillupPage = () => {
     if (localStorage.getItem('user') != null) {
       console.log('Existing UID found ' + JSON.parse(localStorage.getItem('user')).phoneNumber);
 
-      var cleanedPhoneNumber = cleanPhoneNumber(JSON.parse(localStorage.getItem('user')).phoneNumber);
+      const phoneNumber = JSON.parse(localStorage.getItem('user')).phoneNumber;
 
       setTestData({
         ...testData,
-        PATIENT_UID: cleanedPhoneNumber,
+        PATIENT_UID: phoneNumber,
         TRANSACTION_ID: uuidv4(),
       });
     } else {

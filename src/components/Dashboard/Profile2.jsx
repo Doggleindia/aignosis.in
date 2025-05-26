@@ -53,7 +53,7 @@ const Profile2 = () => {
           }
         )
         .then((response) => {
-          var transactions = JSON.parse(response.data.success)['transaction_ids'];
+          const transactions = JSON.parse(response.data.success)['transaction_ids'];
           console.log('Transactions fetched => ' + transactions);
           setTransactionIds(transactions);
         })
@@ -152,10 +152,7 @@ const Profile2 = () => {
                 {assessments.length > 0 ? (
                   assessments.map((assessment, index) => (
                     <tr key={index}>
-                      <td className="border border-[#FB7CE4] px-4 py-2">
-                        {assessment.name}
-                        {index}
-                      </td>
+                      <td className="border border-[#FB7CE4] px-4 py-2">{assessment.name}</td>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.dob}</td>
                       {/* <td className="border border-[#FB7CE4] px-4 py-2">
                         {assessment.assessmentName}
