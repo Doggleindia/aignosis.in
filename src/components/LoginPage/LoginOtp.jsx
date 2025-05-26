@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import { signInWithPhoneNumber } from "firebase/auth";
-import fetchData from "../config/fetchData"; // Assuming you have this function to make API calls
-import { auth } from "../config/firebaseconfig"; // Import the auth instance from your firebase.js file
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from 'react';
+import fetchData from '../config/fetchData'; // Assuming you have this function to make API calls
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginOtp = ({ goBack, phoneNumber, recaptchaVerifierRefCurrent }) => {
+const LoginOtp = ({ goBack, uid, firebasePhoneNumber, recaptchaVerifierRefCurrent }) => {
   const navigate = useNavigate();
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]); // For OTP input
-  const [errorMessage, setErrorMessage] = useState("");
+  const [otp, setOtp] = useState(['', '', '', '', '', '']); // For OTP input
+  const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [showOtpPage, setShowOtpPage] = useState(false);
 
@@ -23,14 +22,14 @@ const LoginOtp = ({ goBack, phoneNumber, recaptchaVerifierRefCurrent }) => {
       setOtp(newOtp);
 
       // Focus the next input field automatically when a digit is entered
-      if (value !== "" && index < otp.length - 1) {
+      if (value !== '' && index < otp.length - 1) {
         otpInputs.current[index + 1].focus(); // Focus next input
       }
     }
   };
   const handleKeyDown = (e, index) => {
     // Handle backspace for focusing the previous input
-    if (e.key === "Backspace" && otp[index] === "") {
+    if (e.key === 'Backspace' && otp[index] === '') {
       if (index > 0) {
         otpInputs.current[index - 1].focus(); // Focus previous input
       }
@@ -38,63 +37,67 @@ const LoginOtp = ({ goBack, phoneNumber, recaptchaVerifierRefCurrent }) => {
   };
 
   const handleSubmit = async () => {
-    const otpValue = otp.join("");
+    const otpValue = otp.join('');
 
     if (otpValue.length !== 6) {
-      setErrorMessage("Please enter a valid 6-digit OTP");
+      setErrorMessage('Please enter a valid 6-digit OTP');
       return;
     }
 
     try {
       setLoading(true);
-      setErrorMessage("");
+      setErrorMessage('');
 
-      const payload = { phoneNumber, otp: otpValue };
+      const payload = {
+        phoneNumber: uid,
+        otp: otpValue,
+      };
       const { response, error } = await fetchData({
-        url: "/api/otp/verifyOtp",
-        method: "POST",
+        url: '/api/otp/verifyOtp',
+        method: 'POST',
         data: payload,
+        storedToken: null, // No token needed for OTP verification
       });
 
-      console.log("Response from doggle user data server:", response);
-      console.error("Error from doggle user data server:", error);
+      console.log('Response from doggle user data server:', response);
+      console.error('Error from doggle user data server:', error);
 
       setLoading(false);
 
       if (response) {
-        localStorage.setItem("authToken", response.token);
-        localStorage.setItem("user", JSON.stringify(response.user));
+        localStorage.setItem('authToken', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
         // console.log("user in local storage:", response.user);
         // console.log("auth token in local storage:", response.token);
 
-        toast.success("OTP verified successfully! Redirecting...");
+        toast.success('OTP verified successfully! Redirecting...');
 
-        const preOrderData = JSON.parse(localStorage.getItem("preOrderData"));
+        const preOrderData = JSON.parse(localStorage.getItem('preOrderData'));
         if (preOrderData) {
-          toast.success("Redirecting to payment...");
+          toast.success('Redirecting to payment...');
 
           // ✅ Redirect first, DO NOT REMOVE preOrderData immediately
           navigate(preOrderData.fromPage);
 
           // ✅ Use a delay to remove preOrderData AFTER the page loads
           setTimeout(() => {
-            console.log("Clearing preOrderData after redirection...");
-            localStorage.removeItem("preOrderData");
+            console.log('Clearing preOrderData after redirection...');
+            localStorage.removeItem('preOrderData');
           }, 3000); // Give 3 seconds for the payment page to read it
 
           return;
         }
 
         // ✅ Normal login goes to dashboard
-        navigate("/dashboard");
+        navigate('/dashboard');
       } else if (error) {
-        setErrorMessage(error.message || "OTP verification failed.");
-        toast.error(error.message || "OTP verification failed.");
+        setErrorMessage(error.message || 'OTP verification failed.');
+        toast.error(error.message || 'OTP verification failed.');
       }
-    } catch (error) {
+    } catch {
       setLoading(false);
-      setErrorMessage("An error occurred during OTP verification.");
-      toast.error("An error occurred during OTP verification.");
+      setErrorMessage('An error occurred during OTP verification.');
+      toast.error('An error occurred during OTP verification.');
     }
   };
 
@@ -125,12 +128,8 @@ const LoginOtp = ({ goBack, phoneNumber, recaptchaVerifierRefCurrent }) => {
           &lt;
         </button>
         <div className="relative ml-[6vw] mt-[4vw] w-3/4 max-w-md">
-          <h2 className="mb-2 text-2xl font-bold max-sm:text-lg">
-            Enter your OTP
-          </h2>
-          <p className="mb-2 text-sm text-gray-500">
-            OTP has been sent to {phoneNumber}
-          </p>
+          <h2 className="mb-2 text-2xl font-bold max-sm:text-lg">Enter your OTP</h2>
+          <p className="mb-2 text-sm text-gray-500">OTP has been sent to {firebasePhoneNumber}</p>
           <p className="max-sm:sm mb-4 text-sm text-red-500">{errorMessage}</p>
 
           <div className="mb-2 flex space-x-2 max-sm:space-x-1">
@@ -148,24 +147,23 @@ const LoginOtp = ({ goBack, phoneNumber, recaptchaVerifierRefCurrent }) => {
             ))}
           </div>
 
-          <button
-            className="block text-[#811F67] font-semibold mb-4 max-sm:ml-[9vw] mt-4"
-            onClick={goBack}
-          >
+          <button className="mb-4 mt-4 block font-semibold text-[#811F67] max-sm:ml-[9vw]" onClick={goBack}>
             Resend
           </button>
-          <button
-            onClick={handleSubmit}
-            className="border border-[#B740A1] bg-[#811F67] p-2 px-11 rounded-[30px]"
-          >
-            <span className="text-sm max-sm:w-[35vw] text-white p-auto font-semibold rounded-full">
-              Log In
-            </span>
+          <button onClick={handleSubmit} className="rounded-[30px] border border-[#B740A1] bg-[#811F67] p-2 px-11">
+            <span className="p-auto rounded-full text-sm font-semibold text-white max-sm:w-[35vw]">Log In</span>
           </button>
         </div>
       </div>
     </div>
   );
+};
+
+LoginOtp.propTypes = {
+  goBack: PropTypes.func.isRequired,
+  uid: PropTypes.string.isRequired,
+  firebasePhoneNumber: PropTypes.string.isRequired,
+  recaptchaVerifierRefCurrent: PropTypes.object.isRequired,
 };
 
 export default LoginOtp;
