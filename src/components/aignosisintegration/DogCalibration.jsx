@@ -1146,7 +1146,7 @@ import './Screeningtest.css';
 import { encryptCalibrationData, encryptPassword } from '../config/EncryptionUtils';
 import { AppContext } from '../aignosisintegration/AppContext.jsx';
 import Circle from './Circle';
-import dogpng from '../../assets/aignoisiai/dog_face.png';
+import dogpng from '../../assets/aignoisiai/dog_face.webp';
 
 const DogCalibration = () => {
   const SERVER_MIDDLEWARE_URL = 'https://de.aignosismdw.in/rest/calibration/data/';
