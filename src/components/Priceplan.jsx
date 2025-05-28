@@ -35,13 +35,13 @@ const Priceplan = () => {
       />
       <Header />
       <div className="h-full w-full overflow-x-hidden bg-[#1A0C25] p-2 text-white">
-        <div className="mt-[5vw] hidden h-full w-full md:block">
+        {/* <div className="mt-[5vw] hidden h-full w-full md:block">
           <div className="ml-6 flex w-full gap-10 p-10"></div>
-        </div>
-        <div className="mt-16 h-full w-full md:hidden">
+        </div> */}
+        {/* <div className="mt-16 h-full w-full md:hidden">
           <div className="flex w-full justify-around gap-4 p-4"></div>
-        </div>
-        <PriceBody selectedOption={selectedOption} />
+        </div> */}
+        {/* <PriceBody selectedOption={selectedOption} /> */}
         <WhatsAppButton />
         <PricepageBanefits />
         <HowitWorks />
