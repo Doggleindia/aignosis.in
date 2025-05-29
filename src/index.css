@@ -263,16 +263,16 @@
 }
 
 /* Focus states */
-.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon+.PhoneInputCountrySelectArrow {
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
   opacity: 1 !important;
   border-color: var(--PhoneInputCountrySelectArrow-color--focus) !important;
 }
 
-.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon--border {
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon--border {
   box-shadow: none !important;
 }
 
-.PhoneInputCountrySelect:focus+.PhoneInputCountryIcon .PhoneInputInternationalIconGlobe {
+.PhoneInputCountrySelect:focus + .PhoneInputCountryIcon .PhoneInputInternationalIconGlobe {
   opacity: 1 !important;
   color: var(--PhoneInputCountrySelectArrow-color--focus) !important;
 }

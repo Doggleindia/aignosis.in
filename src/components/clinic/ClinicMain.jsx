@@ -48,7 +48,7 @@ const ClinicMain = () => {
             {/* Left Side: Image */}
             <div className="flex items-center justify-center md:flex-1">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/img1.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/img1.png"
                 alt="Descriptive Alt Text"
                 className="max-h-[80vh] max-w-full rounded-lg object-cover shadow-lg"
               />

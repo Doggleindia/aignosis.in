@@ -38,7 +38,7 @@ const HowitWorks = () => {
             </div>
             <div className="relative h-[15vw] w-[16vw] rounded-r-2xl bg-[#D9D9D947]">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/aboutus.png"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
                 srcSet=""
@@ -56,7 +56,7 @@ const HowitWorks = () => {
             </div>
             <div className="relative h-[15vw] w-[16vw] rounded-r-2xl bg-[#D9D9D947]">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/2.jpg"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
                 srcSet=""
@@ -70,7 +70,7 @@ const HowitWorks = () => {
           <div className="flex h-[15vw] w-full items-center justify-start">
             <div className="relative h-[15vw] w-[16vw] rounded-r-2xl bg-[#D9D9D947]">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/5.jpg"
                 loading="lazy"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
@@ -88,7 +88,7 @@ const HowitWorks = () => {
             </div>
             <div className="relative h-[15vw] w-[16vw] rounded-r-2xl bg-[#D9D9D947]">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/4.jpg"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
                 srcSet=""
@@ -110,7 +110,7 @@ const HowitWorks = () => {
             </div>
             <div className="relative h-[20vw] w-[16vw] rounded-r-2xl bg-[#D9D9D947]">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/3.jpg"
                 loading="lazy"
                 className="relative h-full w-full rounded-r-2xl object-cover"
                 alt=""
@@ -142,7 +142,7 @@ const HowitWorks = () => {
               <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-[#D9D9D947]">
                 <img
                   className="absolute inset-0 z-0"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/aboutus.png"
                   alt=""
                   srcSet=""
                 />
@@ -163,7 +163,7 @@ const HowitWorks = () => {
               <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-[#D9D9D947]">
                 <img
                   className="absolute inset-0 z-0"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/2.jpg"
                   alt=""
                   srcSet=""
                 />
@@ -182,7 +182,7 @@ const HowitWorks = () => {
               <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-[#D9D9D947]">
                 <img
                   className="absolute inset-0 z-0"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/3.jpg"
                   alt=""
                   srcSet=""
                 />
@@ -202,7 +202,7 @@ const HowitWorks = () => {
               <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-[#D9D9D947]">
                 <img
                   className="absolute inset-0 z-0"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/4.jpg"
                   alt=""
                   srcSet=""
                 />
@@ -224,7 +224,7 @@ const HowitWorks = () => {
               <div className="relative h-32 w-full overflow-hidden rounded-2xl bg-[#D9D9D947]">
                 <img
                   className="absolute inset-0 z-0"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/5.jpg"
                   alt=""
                   srcSet=""
                 />

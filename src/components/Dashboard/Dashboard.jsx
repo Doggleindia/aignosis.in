@@ -144,7 +144,9 @@ const Dashboard = () => {
     profileFormData.append('dob', formData.dob);
     profileFormData.append('gender', formData.gender);
 
-    const profilePic = document.querySelector('#profilePicInput').files[0];
+    // Only append profile picture if one is selected
+    const profilePicInput = document.querySelector('#profilePicInput');
+    const profilePic = profilePicInput ? profilePicInput.files[0] : null;
     if (profilePic) {
       profileFormData.append('profilePic', profilePic);
     }
@@ -587,6 +589,11 @@ const Dashboard = () => {
                     <button className="mt-5 rounded-full bg-[#811F67] px-6 py-2 text-white">
                       <Link to={'/test'}>Book Now</Link>
                     </button>
+                    {/* ) : (
+                      <p className="mt-5 text-gray-400">
+                        No available sessions remaining.
+                      </p>
+                    )} */}
                   </div>
                 </div>
               </div>

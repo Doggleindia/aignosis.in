@@ -51,7 +51,7 @@ const Flyer = () => {
           </button>
           {/* Shark Image */}
           <img
-            src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/sharks.png"
+            src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/sharks.png"
             className="object-fit absolute inset-0 h-full w-full"
             alt="Shark"
           />

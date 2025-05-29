@@ -24,38 +24,38 @@ const Heading = () => {
         <div className="flex flex-col items-center justify-center max-sm:mt-[25vw] max-sm:h-[0vw]">
           <div className="flex w-full max-w-md flex-wrap justify-center gap-6">
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c1.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c1.png"
               alt="img1"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c2.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c2.png"
               alt="img2"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c3.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c3.png"
               alt="img3"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c4.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c4.png"
               alt="img4"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
 
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c5.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c5.png"
               alt="img5"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c6.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c6.png"
               alt="img6"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
             <img
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/c7.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/c7.png"
               alt="img7"
               className="h-20 w-20 rounded object-cover shadow-md max-sm:h-14 max-sm:w-14"
             />
