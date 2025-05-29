@@ -14,9 +14,9 @@ import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 const images = [
-  'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel1.png',
-  'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel4.png',
-  'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/carousel3.jpeg',
+  'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/carousel1.png',
+  'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/carousel4.png',
+  'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/carousel3.jpeg',
 ];
 
 const Homefirst = () => {
@@ -189,7 +189,7 @@ const Homefirst = () => {
             <div className="absolute right-0 top-[30vw] h-full w-[15%] rounded-xl bg-[#B740A1A6] opacity-45 blur-[120px]"></div>
             <img
               className="hidden h-full w-full sm:block"
-              src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/banner.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/banner.png"
               alt="Sharks Images"
             />
           </div>

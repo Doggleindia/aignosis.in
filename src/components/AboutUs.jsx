@@ -239,7 +239,7 @@ const AboutUs = () => {
               <div className="ml-5 flex w-[69%] flex-col max-md:ml-0 max-md:w-full">
                 <img
                   loading="lazy"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/DSC_7765.jpeg"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/DSC_7765.jpeg"
                   alt="Blog section featured image"
                   className="aspect-[0.95] w-full grow object-contain max-md:mt-10 max-md:max-w-full"
                 />
@@ -280,7 +280,7 @@ const AboutUs = () => {
               <div className="ml-5 flex w-[69%] flex-col max-md:ml-0 max-md:w-full">
                 <img
                   loading="lazy"
-                  src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/IMG_3535.JPG"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/IMG_3535.JPG"
                   alt="Purpose section featured image"
                   className="aspect-[0.95] w-full grow object-contain max-md:mt-10 max-md:max-w-full"
                 />

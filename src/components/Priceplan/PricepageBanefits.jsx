@@ -83,15 +83,15 @@ const PricepageBenefits = () => {
   );
   const data = [
     {
-      imageUrl: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png',
+      imageUrl: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image.png',
       title: 'Early Detection for Better Outcomes',
     },
     {
-      imageUrl: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png',
+      imageUrl: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image1.png',
       title: 'Personalized Therapy Recommendations',
     },
     {
-      imageUrl: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png',
+      imageUrl: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/Card.png',
       title: 'Improved Social Skills & Communication',
     },
 
@@ -118,7 +118,7 @@ const PricepageBenefits = () => {
             {/* First Item */}
             <div className="flex w-[200px] flex-col items-center justify-center rounded-lg p-4 shadow-lg">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image.png"
                 alt="Child health"
                 className="h-[10vw] w-full scale-[1.2] rounded-lg object-cover"
               />
@@ -128,7 +128,7 @@ const PricepageBenefits = () => {
             {/* Second Item */}
             <div className="flex w-[200px] flex-col items-center justify-center rounded-lg p-4">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/image1.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image1.png"
                 alt="Child health"
                 className="h-[10vw] w-full scale-[1.2] rounded-lg object-cover"
               />
@@ -138,7 +138,7 @@ const PricepageBenefits = () => {
             {/* Third Item */}
             <div className="flex w-[200px] flex-col items-center justify-center rounded-lg p-4">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/Card.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/Card.png"
                 alt="Child health"
                 className="h-[10vw] w-full scale-[1.2] rounded-lg object-cover"
               />

@@ -153,12 +153,12 @@ const Howework = () => {
             </p>
             <div className="mt-6 flex w-[70%] justify-between space-x-4">
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/child1.jpeg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/child1.jpeg"
                 alt="Description of image 1"
                 className="h-[20vw] w-1/2 rounded-lg shadow-lg"
               />
               <img
-                src="https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/child2.jpeg"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/child2.jpeg"
                 alt="Description of image 2"
                 className="h-[20vw] w-1/2 rounded-lg shadow-lg"
               />

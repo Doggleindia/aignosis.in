@@ -32,7 +32,7 @@ const Newnavbar = () => {
       ref={navbarRef}
       className="fixed top-0 z-[100] flex h-8 w-full items-center overflow-hidden bg-[#1A0C25]/60 text-center font-montserrat text-white backdrop-blur-md max-sm:h-6"
       style={{
-        backgroundImage: `url(${'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/newimage.png'})`, // Set the background image
+        backgroundImage: `url(${'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/newimage.png'})`, // Set the background image
         backgroundSize: 'cover', // Ensure the background image covers the entire div
         backgroundPosition: 'center', // Center the image in the div
       }}

@@ -18,11 +18,11 @@ const PriceBody = () => {
   const [selectedTestCard, setSelectedTestCard] = useState(null);
 
   const images2 = [
-    'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/TEST+PAGE+FIRST+IMAGE.png',
-    'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/501.png',
-    'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/601.png',
-    'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/701.png',
-    'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/801.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/TEST+PAGE+FIRST+IMAGE.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/501.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/601.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/701.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/801.png',
   ]; // Image array
 
   const handleCardSelect = (cardIndex) => {
