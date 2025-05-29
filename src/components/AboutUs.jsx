@@ -280,7 +280,7 @@ const AboutUs = () => {
               <div className="ml-5 flex w-[69%] flex-col max-md:ml-0 max-md:w-full">
                 <img
                   loading="lazy"
-                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/IMG_3535.JPG"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/IMG_3535.jpg"
                   alt="Purpose section featured image"
                   className="aspect-[0.95] w-full grow object-contain max-md:mt-10 max-md:max-w-full"
                 />

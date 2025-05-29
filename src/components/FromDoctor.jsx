@@ -36,7 +36,7 @@ const FromDoctor = () => {
             <div className="w-[50%]">
               <img
                 className="h-[120%] w-[85%] rounded-xl object-fill"
-                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr+dhananjay.png"
+                src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr%20dhananjay.png"
                 alt=""
                 srcSet=""
               />
@@ -239,7 +239,7 @@ const FromDoctor = () => {
               <div className="h-full w-[75%] overflow-hidden rounded-3xl">
                 <img
                   className="h-full w-full object-cover"
-                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image+145.png"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image%20145.png"
                   alt=""
                   srcSet=""
                 />
@@ -286,7 +286,7 @@ const FromDoctor = () => {
               </p>
               <div className="w-full">
                 <img
-                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr+dhananjay.png"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr%20dhananjay.png"
                   alt=""
                   srcSet=""
                 />
@@ -370,7 +370,7 @@ const FromDoctor = () => {
               </p>
               <div className="w-full">
                 <img
-                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image+145.png"
+                  src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/image%20145.png"
                   alt=""
                   srcSet=""
                 />

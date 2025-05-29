@@ -91,14 +91,14 @@ const AignosisTeam = () => {
               title="Dr. Rajesh Jain"
               subtitle="Director & Consultant Pediatrician, Raksheet Hospital, Jaipur"
               desc="Dr Rajesh Jain is a renowned paediatrician and the Director at Raksheet Hospital, Jaipur. With extensive experience in pediatric care and developmental health, Dr. Jain has been a vital contributor to Aignosis’s clinical approach."
-              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/Dr+Rajesh+Jain.PNG"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/Dr%20Rajesh%20Jain.png"
               logos={[logo7]}
             />
             <MemberCard
               title="Dr. Dhananajay Mangal"
               subtitle="Director & Consultant Pediatrician, Babylon Hospital, Jaipur"
               desc="Dr. Dhananjay Mangal brings over 27 years of pediatric healthcare experience and currently serves as the President of the Rajasthan Chapter of the Telemedicine Society of India."
-              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr+dhananjay.png"
+              src="https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/dr%20dhananjay.png"
               logos={[logo8]}
             />
           </div>

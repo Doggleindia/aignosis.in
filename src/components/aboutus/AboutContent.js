@@ -214,7 +214,7 @@ const AboutContent = {
     {
       id: 'revolutionizing-autism-diagnosis-aignosis',
       blogimg: blog13,
-      image: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/BLOG+IMAGE.png',
+      image: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/BLOG%20IMAGE.png',
       author: 'Divyansh Mangal, Raksheet Jain',
       time: 'January 29, 2025',
       title: 'AIGNOSIS: Transforming Autism Diagnosis in India with Cutting-Edge Technology',
@@ -242,7 +242,7 @@ const AboutContent = {
           'Learn how AIGNOSIS, led by Divyansh Mangal and Raksheet Jain, is transforming child development with its innovative autism screening tool, achieving 95% accuracy and reshaping early diagnosis in India.',
       },
       imageOptimization: {
-        fileName: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/IMG_2255.JPG',
+        fileName: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/IMG_2255.jpg',
         altText: 'AIGNOSIS screening tool for early autism diagnosis in children',
       },
       content: [

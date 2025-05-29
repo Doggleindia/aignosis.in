@@ -18,7 +18,7 @@ const PriceBody = () => {
   const [selectedTestCard, setSelectedTestCard] = useState(null);
 
   const images2 = [
-    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/TEST+PAGE+FIRST+IMAGE.png',
+    'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/TEST%20PAGE%20FIRST%20IMAGE.png',
     'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/501.png',
     'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/601.png',
     'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/701.png',
