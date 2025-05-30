@@ -7,8 +7,8 @@ const API_BASE_URL = 'https://de.aignosismdw.in/rest/';
 
 const Profile2 = () => {
   const userId = JSON.parse(localStorage.getItem('user'));
-  const [transactionsIds, setTransactionIds] = useState([]);
   const [assessments, setAssessments] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!userId) {
@@ -17,114 +17,66 @@ const Profile2 = () => {
       return;
     } else {
       console.log('user uid is ' + userId.phoneNumber);
-      fetchTransactions();
+      fetchAssessments();
     }
   }, []);
 
-  useEffect(() => {
-    if (transactionsIds.length > 0) {
-      console.log('Transaction IDs found...fetching assessments');
-      // Clear existing assessments first to avoid duplications
-      setAssessments([]);
-
-      console.log('all tids' + transactionsIds);
-      // Fetch assessments for each transaction ID
-      transactionsIds.forEach((transactionId) => {
-        console.log('passing tid ' + transactionId);
-        fetchAssessments(transactionId);
-      });
-    }
-  }, [transactionsIds]); // This will run whenever transactionsIds changes
-
-  useEffect(() => {}, []);
-
-  const fetchTransactions = async () => {
+  const fetchAssessments = async () => {
+    setLoading(true);
     try {
-      const response = await axios
-        .post(
-          'https://de.aignosismdw.in/rest/get_transactions/',
-          {
-            patient_uid: userId.phoneNumber.toString(),
+      const response = await axios.post(
+        `${API_BASE_URL}get_patient_assessments/`,
+        {
+          patient_uid: userId.phoneNumber.toString(),
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
           },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then((response) => {
-          const transactions = JSON.parse(response.data.success)['transaction_ids'];
-          console.log('Transactions fetched => ' + transactions);
-          setTransactionIds(transactions);
-        })
-        .catch((error) => {
-          console.log('Error fetching transactions:', error);
-        });
-    } catch (error) {
-      console.error('Error fetching transactions:', error);
-    }
-  };
+        }
+      );
 
-  const fetchAssessments = async (transaction_id) => {
-    try {
-      const payload = {
-        patient_uid: userId.phoneNumber.toString(),
-        transaction_id: transaction_id,
-      };
+      const assessmentsData = response.data.success.assessments;
+      console.log('Assessments data fetched:', assessmentsData);
 
-      const [aiReportRes, psychologistReportRes, testCompletionRes, testTimestampRes, encryptedPatientInfoNKey] =
-        await Promise.all([
-          axios.post(`${API_BASE_URL}get_ai_report_available_status/`, payload),
-          axios.post(`${API_BASE_URL}get_psychologist_report_available_status/`, payload),
-          axios.post(`${API_BASE_URL}get_test_completion_status/`, payload),
-          axios.post(`${API_BASE_URL}get_test_timestamp/`, payload),
-          axios.post(`${API_BASE_URL}get_encrypted_patient_firestore_info/`, payload),
-        ]).catch((error) => {
-          console.log('Error fetching assessments:', error);
-        });
+      // Process each assessment
+      const processedAssessments = await Promise.all(
+        assessmentsData.map(async (assessment) => {
+          try {
+            const timestamp = assessment.test_timestamp
+              ? new Date(assessment.test_timestamp).toLocaleDateString()
+              : 'N/A';
 
-      console.log('Assessment data fetched:');
-      console.log(testCompletionRes);
-      console.log(aiReportRes);
-      console.log(psychologistReportRes);
-      console.log(testTimestampRes);
-      console.log(encryptedPatientInfoNKey);
+            // Decrypt patient information
+            const calibrationAesKey = await decryptPassword(assessment.encrypted_patient_info_enc_aes_key);
+            console.log('calibration aes key is ' + calibrationAesKey);
 
-      const testCompleted = testCompletionRes.data.test_completion_status;
-      const aiReportAvailable = aiReportRes.data.ai_report_available;
-      const psychologistReportAvailable = psychologistReportRes.data.Psychologist_report_available;
-      const timestamp = testTimestampRes.data.test_timestamp
-        ? new Date(testTimestampRes.data.test_timestamp).toLocaleDateString()
-        : 'N/A';
+            const patientInfo = await decryptCalibrationData(assessment.encrypted_patient_info, calibrationAesKey);
+            console.log('Decrypted patient info:', patientInfo);
 
-      const encryptedPatientInfo = encryptedPatientInfoNKey.data.encrypted_patient_info;
-      const encryptedPatientInfoEncAesKey = encryptedPatientInfoNKey.data.encrypted_patient_info_enc_aes_key;
-
-      decryptPassword(encryptedPatientInfoEncAesKey).then((calibrationAesKey) => {
-        console.log('calibration aes key is ' + calibrationAesKey);
-
-        decryptCalibrationData(encryptedPatientInfo, calibrationAesKey).then((patientInfo) => {
-          console.log('Decrypted patient info:', patientInfo);
-
-          setAssessments((prevAssessments) => [
-            ...prevAssessments,
-            {
+            return {
+              transactionId: assessment.transaction_id,
               name: patientInfo.patientName,
               dob: patientInfo.patientDOB,
               takenOn: timestamp,
-              status: testCompleted ? 'Completed' : 'Retake',
-              aiReport: aiReportAvailable ? '#' : null,
-              psychologistReport: psychologistReportAvailable ? '#' : null,
-            },
-          ]);
-        });
-      });
-
-      console.log(
-        `UID: ${userId.phoneNumber.toString()} | TID: ${transaction_id} | Test completed ${testCompleted} | Ai report available ${aiReportAvailable} | Psych report available ${psychologistReportAvailable} | Timestamp ${timestamp}`
+              status: assessment.test_completion_status ? 'Completed' : 'Retake',
+              aiReport: assessment.ai_report_available ? '#' : null,
+              psychologistReport: assessment.psychologist_report_available ? '#' : null,
+            };
+          } catch (error) {
+            console.error('Error processing assessment:', error);
+            return null; // Skip this assessment if processing fails
+          }
+        })
       );
+
+      // Filter out null assessments (failed to process)
+      const validAssessments = processedAssessments.filter((assessment) => assessment !== null);
+      setAssessments(validAssessments);
     } catch (error) {
       console.error('Error fetching assessments:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -139,9 +91,6 @@ const Profile2 = () => {
                 <tr>
                   <th className="border border-[#FB7CE4] px-4 py-2">Name</th>
                   <th className="border border-[#FB7CE4] px-4 py-2">Date of Birth</th>
-                  {/* <th className="border border-[#FB7CE4] px-4 py-2">
-                    Assessment
-                  </th> */}
                   <th className="border border-[#FB7CE4] px-4 py-2">Taken On</th>
                   <th className="border border-[#FB7CE4] px-4 py-2">Status</th>
                   <th className="border border-[#FB7CE4] px-4 py-2">AI Report</th>
@@ -151,12 +100,9 @@ const Profile2 = () => {
               <tbody>
                 {assessments.length > 0 ? (
                   assessments.map((assessment, index) => (
-                    <tr key={index}>
+                    <tr key={assessment.transactionId || index}>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.name}</td>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.dob}</td>
-                      {/* <td className="border border-[#FB7CE4] px-4 py-2">
-                        {assessment.assessmentName}
-                      </td> */}
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.takenOn}</td>
                       <td
                         className={`border border-[#FB7CE4] px-4 py-2 ${
@@ -187,8 +133,8 @@ const Profile2 = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="7" className="py-4 text-center">
-                      No Assessments Found
+                    <td colSpan="6" className="py-4 text-center">
+                      {loading ? 'Loading...' : 'No Assessments Found'}
                     </td>
                   </tr>
                 )}
