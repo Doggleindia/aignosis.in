@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'; // Import axios at the top
 import ServicesCard from '../service/ServicesCard';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const token = localStorage.getItem('authToken');
@@ -74,6 +73,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const [currentProfile, setCurrentProfile] = useState(null); // For editing specific profile
   const [formData, setFormData] = useState({
@@ -164,6 +164,7 @@ const Dashboard = () => {
   const handleSaveProfile = async (e) => {
     e.preventDefault();
 
+    setIsSaving(true);
     const token = localStorage.getItem('authToken');
 
     const profileFormData = new FormData();
@@ -216,6 +217,8 @@ const Dashboard = () => {
       // Display error message from backend or default message
       const errorMessage = err.response?.data?.message || 'An error occurred while saving the profile.';
       toast.error(errorMessage);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -353,14 +356,16 @@ const Dashboard = () => {
                   <div className="mt-4 flex space-x-4">
                     <button
                       onClick={handleSaveProfile}
-                      className="rounded-full border border-[#9C00AD] px-6 py-2 text-white"
+                      className="rounded-full border border-[#9C00AD] px-6 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+                      disabled={isSaving}
                     >
-                      {isUpdating ? 'Update' : 'Save'}
+                      {isSaving ? (isUpdating ? 'Updating...' : 'Saving...') : isUpdating ? 'Update' : 'Save'}
                     </button>
                     <button
                       type="button"
                       onClick={() => setIsEditing(false)}
-                      className="rounded-full border border-red-500 px-6 py-2 text-white"
+                      className="rounded-full border border-red-500 px-6 py-2 text-white disabled:opacity-50"
+                      disabled={isSaving}
                     >
                       Cancel
                     </button>
@@ -562,9 +567,10 @@ const Dashboard = () => {
                   <button
                     type="button"
                     onClick={handleSaveProfile}
-                    className="rounded-full border border-[#9C00AD] px-6 py-2 text-white"
+                    className="rounded-full border border-[#9C00AD] px-6 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50"
+                    disabled={isSaving}
                   >
-                    {isUpdating ? 'Update' : 'Save'}
+                    {isSaving ? (isUpdating ? 'Updating...' : 'Saving...') : isUpdating ? 'Update' : 'Save'}
                   </button>
                   <button
                     type="button"
