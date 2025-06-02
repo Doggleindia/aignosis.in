@@ -10,6 +10,8 @@ import Newnavbar from '../Newnavbar';
 import { Link } from 'react-router-dom';
 import axios from 'axios'; // Import axios at the top
 import ServicesCard from '../service/ServicesCard';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const token = localStorage.getItem('authToken');
@@ -43,7 +45,7 @@ const Dashboard = () => {
         }
       } catch (err) {
         console.error('Error fetching data:', err);
-        // setError("Failed to fetch data.");
+        toast.error('Error fetching data. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -63,14 +65,13 @@ const Dashboard = () => {
         setProfiles(response.data.profiles); // Set the fetched profiles
       } catch (err) {
         console.error('Error fetching profiles:', err);
-        // setError("Error fetching profiles");
+        toast.error('Error fetching profiles. Please try again later.');
       }
     };
     fetchProfiles();
   }, [token]);
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -86,6 +87,24 @@ const Dashboard = () => {
 
   const [profilePic, setProfilePic] = useState(null); // State to handle profile picture
 
+  // Function to convert ISO date to yyyy-mm-dd format for HTML date input
+  const formatDateForInput = (dateString) => {
+    if (!dateString) return '';
+
+    try {
+      // Handle ISO date format (2003-07-31T00:00:00.000Z)
+      const date = new Date(dateString);
+      if (!isNaN(date.getTime())) {
+        return date.toISOString().split('T')[0];
+      }
+
+      return '';
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return '';
+    }
+  };
+
   const toggleEdit = (profile = null) => {
     if (profile) {
       // Edit existing profile
@@ -95,10 +114,10 @@ const Dashboard = () => {
         username: profile.username,
         age: profile.age,
         email: profile.email,
-        dob: profile.dob,
+        dob: formatDateForInput(profile.dob), // Convert ISO date format to yyyy-mm-dd
         gender: profile.gender,
       });
-      setProfilePic(profile.profilePic); // If profile picture exists
+      setProfilePic(profile.profilePicUrl); // Use profilePicUrl from API response
       setIsUpdating(true);
     } else {
       // Add new profile
@@ -125,9 +144,20 @@ const Dashboard = () => {
   };
 
   const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+      if (!allowedTypes.includes(file.type)) {
+        toast.error('Only JPG, JPEG, and PNG files are allowed for profile pictures.');
+        e.target.value = ''; // Clear the input
+        return;
+      }
+    }
+
     setFormData((prevData) => ({
       ...prevData,
-      profilePic: e.target.files[0],
+      profilePic: file,
     }));
   };
 
@@ -153,21 +183,18 @@ const Dashboard = () => {
 
     try {
       if (currentProfile) {
-        console.log('Updating profile with ID:', currentProfile.id);
-        const response = await axios.put(
-          `${API_BASE_URL}/api/profiles/${currentProfile.id}`, // Ensure ID is passed
-          profileFormData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        // Update the profile in the local state
+        console.log('Updating profile:', currentProfile);
+        const response = await axios.put(`${API_BASE_URL}/api/profiles/${currentProfile._id}`, profileFormData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        // Update the profile in the local state using _id instead of id
         setProfiles((prevProfiles) =>
-          prevProfiles.map((profile) => (profile.id === currentProfile.id ? response.data.profile : profile))
+          prevProfiles.map((profile) => (profile._id === currentProfile._id ? response.data.profile : profile))
         );
         console.log('Profile updated successfully:', response.data);
+        toast.success('Profile updated successfully!');
       } else {
         // Add a new profile
         const response = await axios.post(`${API_BASE_URL}/api/profiles/add`, profileFormData, {
@@ -178,13 +205,17 @@ const Dashboard = () => {
 
         setProfiles((prevProfiles) => [...prevProfiles, response.data.profile]);
         console.log('Profile added successfully:', response.data);
+        toast.success('Profile created successfully!');
       }
 
       setIsEditing(false);
       setCurrentProfile(null);
     } catch (err) {
       console.error('Error saving profile:', err);
-      setError(err.response?.data?.message || 'An error occurred while saving the profile.');
+
+      // Display error message from backend or default message
+      const errorMessage = err.response?.data?.message || 'An error occurred while saving the profile.';
+      toast.error(errorMessage);
     }
   };
 
@@ -196,6 +227,16 @@ const Dashboard = () => {
   const isTestAvailable = numTestsCompleted < totalSessions;
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+      />
       <Header />
       <div className="h-full w-full bg-[#2B1B2D] px-5 py-10 pt-[10vh] font-manrope text-white md:px-10 md:pt-[12vh]">
         <div className="hidden h-full w-full md:block">
@@ -304,7 +345,7 @@ const Dashboard = () => {
                       type="file"
                       id="profilePicInput"
                       name="profilePic"
-                      accept="image/*"
+                      accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                       onChange={handleFileChange}
                       className="w-full rounded bg-[#3D253F] p-2 text-white"
                     />
@@ -331,14 +372,18 @@ const Dashboard = () => {
                 <div className="mt-5 px-5">
                   <h3 className="font-semibold">Profiles</h3>
                   <div className="grid grid-cols-6 gap-4">
-                    {profiles.map((profile) => (
+                    {profiles.map((profile, idx) => (
                       <div
-                        key={profile._id}
+                        key={profile._id + idx}
                         className="mt-5 flex h-[12vw] w-[12vw] cursor-pointer items-center justify-center rounded-md bg-[#3D253F]"
                         onClick={() => toggleEdit(profile)}
                       >
-                        <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-[#9C00AD]">
-                          <img className="h-full w-full object-cover" src={profile.profilePicUrl} alt="" />
+                        <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#9C00AD]">
+                          {profile.profilePicUrl ? (
+                            <img className="h-full w-full object-cover" src={profile.profilePicUrl} alt="Profile" />
+                          ) : (
+                            <span className="text-lg font-bold text-white">{profile.name.charAt(0)}</span>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -547,14 +592,18 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                {profiles.map((profile) => (
+                {profiles.map((profile, idx) => (
                   <div
-                    key={profile._id}
+                    key={profile._id + idx}
                     onClick={() => toggleEdit(profile)}
                     className="mt-5 flex h-24 w-24 items-center justify-center rounded-md bg-[#3D253F]"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9C00AD]">
-                      <h3 className="text-xl font-bold">{profile.name.charAt(0)}</h3>
+                    <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#9C00AD]">
+                      {profile.profilePicUrl ? (
+                        <img className="h-full w-full object-cover" src={profile.profilePicUrl} alt="Profile" />
+                      ) : (
+                        <span className="text-lg font-bold text-white">{profile.name.charAt(0)}</span>
+                      )}
                     </div>
                   </div>
                 ))}
