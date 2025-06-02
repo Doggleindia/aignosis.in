@@ -13,7 +13,7 @@ const stepData = [
     description:
       'In just 5 mins, you child watches a video and with all the comfort we rule out any possibilites of developmental delay',
     image1: laptop,
-    image2: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/aboutus.png',
+    image2: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/aboutus.png',
   },
   {
     bgColor: '#5d15758c',
@@ -22,7 +22,7 @@ const stepData = [
     description:
       "We blend state-of-the-art technology with real understanding of child development. While your little one enjoys playful moments on screen, our smart tools observe key milestones naturally - turning friendly interactions into meaningful guidance for your family's journey.",
     image1: laptop,
-    image2: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/2.jpg',
+    image2: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/2.jpg',
   },
   {
     bgColor: '#2e093a8c',
@@ -31,7 +31,7 @@ const stepData = [
     description:
       "We believe in combining the best of both worlds - our advanced screening tools and expert human insight. After the initial assessment, a qualified psychologist reviews your child's interactions and provides professional observations. This dual approach helps create a thorough understanding of your child's developmental path.",
     image1: laptop,
-    image2: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/3.jpg',
+    image2: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/3.jpg',
   },
   {
     bgColor: '#5E3C69',
@@ -40,7 +40,7 @@ const stepData = [
     description:
       "Based on your child's unique assessment, our expert team designs a personalized blend of therapies and support strategies. From early intervention and behavioural guidance to occupational training, we create a comprehensive approach that grows with your child, ensuring they receive the right support at the right time.",
     image1: laptop,
-    image2: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/4.jpg',
+    image2: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/4.jpg',
   },
   {
     bgColor: '#952981',
@@ -49,7 +49,7 @@ const stepData = [
     description:
       "Our commitment doesn't end with the assessment. We provide continuous guidance, track progress milestones, and adjust support strategies as your child grows. Regular check-ins ensure the plan evolves with your child's changing needs.",
     image1: laptop,
-    image2: 'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/aignosis/Images/5.jpg',
+    image2: 'https://storage.googleapis.com/aignosis_static_assets/Website_assets/images/5.jpg',
   },
 ];
 
