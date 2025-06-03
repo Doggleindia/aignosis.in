@@ -502,7 +502,7 @@ const VideoPlayback = () => {
     window.history.pushState(null, null, window.location.href);
 
     const handleBackButton = () => {
-      navigate('/calibrationpage');
+      navigate('/AutismTest');
     };
 
     window.addEventListener('popstate', handleBackButton);

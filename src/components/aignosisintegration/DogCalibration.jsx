@@ -1233,6 +1233,7 @@ const DogCalibration = () => {
   const [frames, setFrames] = useState([]);
   const [isCircleVisible, setIsCircleVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false); // State for managing loading spinner
+  const [isTestCompleted, setIsTestCompleted] = useState(false); // State to track if the test is completed
 
   const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
   const [parentDimensions, setParentDimensions] = useState([0, 0]);
@@ -1270,29 +1271,14 @@ const DogCalibration = () => {
 
       return () => clearInterval(factInterval); // Cleanup on unmount
     }
-  }, [isLoading]);
+  }, [isLoading, autismFacts.length]);
 
   useEffect(() => {
-    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
-
-    function goFullScreen() {
-      let elem = document.documentElement; // The whole page
-
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        // Firefox
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        // Chrome, Safari, Edge
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        // Internet Explorer
-        elem.msRequestFullscreen();
-      }
+    if (isTestCompleted) {
+      console.log('Test completed, stopping audio and clearing interval');
+      return;
     }
-
-    goFullScreen();
+    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
 
     console.log('DOG CALIBRATION TEST DATA', testData);
     // Get the webcam stream and metadata on mount
@@ -1393,14 +1379,14 @@ const DogCalibration = () => {
     } else {
       // THIS IS THE LAST CLICK ON THE DOG / CAT
       try {
-        if (audioRef.current) {
-          audioRef.current.loop = false;
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
-          console.log('Audio stopped successfully');
-        } else {
-          console.warn('Audio reference is null when attempting to stop');
-        }
+        setIsTestCompleted(true);
+        console.log('Stopping audio...');
+        audioRef.current.loop = false;
+        audioRef.current.currentTime = 0;
+        audioRef.current.pause();
+        audioRef.current.src = '';
+        audioRef.current.removeEventListener('canplaythrough', () => {});
+        console.log('Audio stopped successfully');
       } catch (err) {
         console.error('Error stopping audio:', err);
       }
@@ -1632,7 +1618,7 @@ const DogCalibration = () => {
         ))}
 
       <div style={{ display: 'none', flex: 1 }}>
-        <video ref={videoRef} autoPlay playsInline></video>
+        <video ref={videoRef} autoPlay playsInline muted></video>
       </div>
       <canvas ref={canvasRef} style={{ flex: 1, display: 'none' }} />
     </div>

@@ -209,6 +209,20 @@ const CalibrationPage = () => {
   };
 
   const handleNextClick = () => {
+    // Request fullscreen on user action
+    function goFullScreen() {
+      let elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+    goFullScreen();
     setTestData({
       ...testData,
       videolanguage: selectedLanguage,

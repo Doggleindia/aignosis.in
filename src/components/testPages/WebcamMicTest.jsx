@@ -278,7 +278,7 @@
 
 // export default WebcamMicTest;
 
-import React, { useEffect, useRef, useState, useMemo, useContext } from 'react';
+import { useEffect, useRef, useState, useMemo, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import CalibrationPage from './CalibrationPage';
 import './facearea.css';
@@ -322,7 +322,7 @@ const WebcamMicTest = () => {
                 });
 
                 const stream = await navigator.mediaDevices.getUserMedia({
-                  video: deviceId ? { deviceId: { exact: targetDevice.deviceId } } : true,
+                  video: deviceId ? { deviceId: { exact: device.deviceId } } : true,
                   audio: true,
                 });
 
