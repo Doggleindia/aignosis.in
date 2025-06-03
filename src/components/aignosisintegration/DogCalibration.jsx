@@ -1275,25 +1275,6 @@ const DogCalibration = () => {
   useEffect(() => {
     console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
 
-    function goFullScreen() {
-      let elem = document.documentElement; // The whole page
-
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        // Firefox
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        // Chrome, Safari, Edge
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        // Internet Explorer
-        elem.msRequestFullscreen();
-      }
-    }
-
-    goFullScreen();
-
     console.log('DOG CALIBRATION TEST DATA', testData);
     // Get the webcam stream and metadata on mount
     if (parentRef.current) {
@@ -1632,7 +1613,7 @@ const DogCalibration = () => {
         ))}
 
       <div style={{ display: 'none', flex: 1 }}>
-        <video ref={videoRef} autoPlay playsInline></video>
+        <video ref={videoRef} autoPlay playsInline muted></video>
       </div>
       <canvas ref={canvasRef} style={{ flex: 1, display: 'none' }} />
     </div>
