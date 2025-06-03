@@ -100,7 +100,7 @@ const Profile2 = () => {
               <tbody>
                 {assessments.length > 0 ? (
                   assessments.map((assessment, index) => (
-                    <tr key={assessment.transactionId || index}>
+                    <tr key={assessment.transactionId + index}>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.name}</td>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.dob}</td>
                       <td className="border border-[#FB7CE4] px-4 py-2">{assessment.takenOn}</td>

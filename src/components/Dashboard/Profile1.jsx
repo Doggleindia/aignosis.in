@@ -240,7 +240,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaBell, FaPlus } from 'react-icons/fa';
-import Newnavbar from '../Newnavbar';
+// import Newnavbar from '../Newnavbar';
 import Header from '../Header';
 import Profile2 from './Profile2';
 import Profile3 from './Profile3';
@@ -312,9 +312,9 @@ const Profile1 = () => {
 
   return (
     <>
-      <Newnavbar />
+      {/* <Newnavbar /> */}
       <Header />
-      <div className="mt-[2vw] h-full min-h-screen w-full bg-[#2B1B2D] px-5 py-10 pt-[8vh] font-manrope text-white md:px-10 md:pt-[12vh]">
+      <div className="h-full min-h-screen w-full bg-[#2B1B2D] px-5 py-10 pt-[8vh] font-manrope text-white md:px-10 md:pt-[12vh]">
         <div className="h-full w-full">
           {/* Welcome Header Section */}
           <div
