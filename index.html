@@ -30,7 +30,10 @@
     <!-- Google Tag Manager -->
     <!-- Google tag (gtag.js) -->
     <!-- Google tag (gtag.js) -->
+     opencv.js
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16827648763"></script>
+    <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+    <script async src="haarcascade_frontalface_default.xml" type="text/xml"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -92,6 +95,11 @@
       }
     </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      function onOpenCvReady() {
+        console.log('OpenCV.js is ready');
+      }
+    </script>
   </head>
 
   <body>
