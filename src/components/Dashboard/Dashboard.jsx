@@ -74,6 +74,9 @@ const Dashboard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [logoModalOpen, setLogoModalOpen] = useState(false); // Modal state
+  const [logoFile, setLogoFile] = useState(null); // Logo file state
+  const [logoUploading, setLogoUploading] = useState(false);
 
   const [currentProfile, setCurrentProfile] = useState(null); // For editing specific profile
   const [formData, setFormData] = useState({
@@ -222,6 +225,47 @@ const Dashboard = () => {
     }
   };
 
+  // Logo upload handler
+  const handleLogoFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+      const allowedExtensions = ['.jpeg', '.jpg', '.png'];
+      const fileExtension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+      if (!allowedTypes.includes(file.type) && !allowedExtensions.includes(fileExtension)) {
+        toast.error('Only JPG, JPEG, and PNG files are allowed for logo.');
+        e.target.value = '';
+        setLogoFile(null);
+        return;
+      }
+    }
+    setLogoFile(file);
+  };
+
+  const handleLogoUpload = async (e) => {
+    e.preventDefault();
+    if (!logoFile) {
+      toast.error('Please select a logo file.');
+      return;
+    }
+    setLogoUploading(true);
+    const formData = new FormData();
+    formData.append('logo', logoFile);
+    formData.append('patient_uid', userId.phoneNumber);
+    try {
+      await axios.post('https://de.aignosismdw.in/rest/upload_logo', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      toast.success('Logo uploaded successfully!');
+      setLogoModalOpen(false);
+      setLogoFile(null);
+    } catch {
+      toast.error('Failed to upload logo.');
+    } finally {
+      setLogoUploading(false);
+    }
+  };
+
   // if (loading) return <p className="text-white">Loading dashboard...</p>;
   // if (error) return <p className="text-red-500">{error}</p>;
 
@@ -240,6 +284,50 @@ const Dashboard = () => {
         pauseOnFocusLoss
         pauseOnHover
       />
+      {/* Custom Logo Upload Modal */}
+      {logoModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          style={{ backdropFilter: 'blur(2px)' }}
+        >
+          <div className="relative w-full max-w-xs rounded-lg bg-[#2B1B2D] p-6 text-white shadow-lg">
+            <button
+              className="absolute right-2 top-2 text-xl text-white hover:text-[#9C00AD]"
+              onClick={() => setLogoModalOpen(false)}
+              disabled={logoUploading}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="mb-4 text-lg font-bold">Upload Logo</h2>
+            <form onSubmit={handleLogoUpload}>
+              <input
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                onChange={handleLogoFileChange}
+                className="mb-4 w-full rounded bg-[#3D253F] p-2 text-white"
+              />
+              <div className="flex space-x-4">
+                <button
+                  type="submit"
+                  className="rounded-full border border-[#9C00AD] px-6 py-2 text-white disabled:opacity-50"
+                  disabled={logoUploading}
+                >
+                  {logoUploading ? 'Uploading...' : 'Upload'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLogoModalOpen(false)}
+                  className="rounded-full border border-red-500 px-6 py-2 text-white"
+                  disabled={logoUploading}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
       <Header />
       <div className="h-full w-full bg-[#2B1B2D] px-5 py-10 pt-[10vh] font-manrope text-white md:px-10 md:pt-[12vh]">
         <div className="hidden h-full w-full md:block">
@@ -375,7 +463,16 @@ const Dashboard = () => {
             ) : (
               <>
                 <div className="mt-5 px-5">
-                  <h3 className="font-semibold">Profiles</h3>
+                  <div className="flex items-center gap-5">
+                    <h3 className="font-semibold">Profiles</h3>
+                    <button
+                      className="ml-2 rounded-full border border-[#9C00AD] px-3 py-1 text-xs text-white hover:bg-[#9C00AD]"
+                      onClick={() => setLogoModalOpen(true)}
+                      type="button"
+                    >
+                      Upload Logo
+                    </button>
+                  </div>
                   <div className="grid grid-cols-6 gap-4">
                     {profiles.map((profile, idx) => (
                       <div
@@ -585,7 +682,16 @@ const Dashboard = () => {
           ) : (
             <div>
               {/* Display Profiles */}
-              <h3 className="mt-[10vw] text-sm font-semibold">Profile</h3>
+              <div className="mt-[10vw] flex items-center gap-5">
+                <h3 className="text-sm font-semibold">Profiles</h3>
+                <button
+                  className="ml-2 rounded-full border border-[#9C00AD] px-3 py-1 text-xs text-white hover:bg-[#9C00AD]"
+                  onClick={() => setLogoModalOpen(true)}
+                  type="button"
+                >
+                  Upload Logo
+                </button>
+              </div>
 
               {/* Profile List */}
               <div className="grid grid-cols-3">
