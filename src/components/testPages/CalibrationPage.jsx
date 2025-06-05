@@ -27,7 +27,7 @@
 // //   const allChecked = Object.values(checks).every((value) => value);
 
 // //   const handleNextClick = () => {
-// //     console.log('Testdata:', selectedLanguage);
+// 
 
 // //       setTestData({
 // //         ...testData,
@@ -122,7 +122,7 @@
 //   const allChecked = Object.values(checks).every((value) => value);
 
 //   const handleNextClick = () => {
-//     console.log('Testdata:', selectedLanguage);
+
 
 //       setTestData({
 //         ...testData,
@@ -196,7 +196,7 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import WebcamMicTest from './WebcamMicTest';
+import WebcamMicTest2 from './WebcamMicTest2';
 import { AppContext } from '../aignosisintegration/AppContext';
 
 const CalibrationPage = () => {
@@ -273,7 +273,7 @@ const CalibrationPage = () => {
           </div>
         </div>
       ) : (
-        <WebcamMicTest />
+        <WebcamMicTest2 />
       )}
     </>
   );

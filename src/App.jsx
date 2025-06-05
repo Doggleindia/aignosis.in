@@ -9,7 +9,7 @@ import PatientHistory from './components/PatientHistory'; // Import the combined
 import TestMain from './components/testPages/TestMain';
 import VideoPlayback from './components/testPages/VideoPlayback';
 import CalibrationPage from './components/testPages/CalibrationPage';
-import WebcamMicTest from './components/testPages/WebcamMicTest';
+import WebcamMicTest from './components/testPages/WebcamMicTest[DEPRECATED]';
 import PriceMain from './components/price/PriceMain';
 import ReportComLast from './components/ReportComLast';
 import ScrollToTop from './components/ScrollToTop';
