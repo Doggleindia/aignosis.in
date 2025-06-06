@@ -48,6 +48,7 @@ const Dashboard = () => {
           )
           .then((response) => {
             setIsLicensedUser(response.data.licensed_user);
+            localStorage.setItem('isLicensedUser', response.data.licensed_user);
           })
           .catch((error) => {
             toast.error('Error checking licensed user status. Please try again later.');
