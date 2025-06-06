@@ -1,40 +1,34 @@
 import React, { useEffect, useRef } from 'react';
 import img1 from '../../assets/homepage/image a7.png'; // shark tank
-import img2 from '../../assets/homepage/image a2.png'; //no number
-import img3 from '../../assets/homepage/image a3.png'; //no number
 import img5 from '../../assets/homepage/a20.png'; // car dekho
-import img6 from '../../assets/homepage/image a6.png';
-import img11 from '../../assets/homepage/a13.png'; //  fitt
+import img6 from '../../assets/homepage/image a6.png'; // Raksheet Hospital
+// import img11 from '../../assets/homepage/a13.png'; //  fitt
 import img8 from '../../assets/homepage/a12.png'; //  IIHMR Univ..
-import img9 from '../../assets/homepage/image a9.png';
-import img10 from '../../assets/homepage/image a10.png';
+// import img9 from '../../assets/homepage/image a9.png'; //sk finance
 import img12 from '../../assets/a23.png'; // Babylon Hospital
 import img13 from '../../assets/a22.png'; // rajasthan fostering
-import img14 from '../../assets/a25.png'; // google-cloud
-import img15 from '../../assets/a29.png'; // DOITC
+// import img14 from '../../assets/a25.png'; // google-cloud
+// import img15 from '../../assets/a29.png'; // DOITC
 import img16 from '../../assets/a28.png'; // nvidia
 import img17 from '../../assets/a27.png'; //aws start-up
 import img18 from '../../assets/a26.png'; // seed-fund scheme
-import img19 from '../../assets/homepage/a21.png'; // bits pilani
 import img21 from '../../assets/homepage/a15.png'; //mphasis
-import img22 from '../../assets/homepage/image a8.png';
+import img22 from '../../assets/homepage/image a8.png'; //Schaeffler
 import img23 from '../../assets/homepage/a16.png'; //virigina tech
 import img24 from '../../assets/homepage/image a10.png'; // wadhwani foundation
-import img25 from '../../assets/a24.png'; //merit-y start-up hub
 import img26 from '../../assets/a26.png';
 import img27 from '../../assets/homepage/a17.png'; // dainik vashkar
-import img28 from '../../assets/homepage/a11.png'; // patrika rajasthan
-import img29 from '../../assets/a29.png'; //no number
+// import img28 from '../../assets/homepage/a11.png'; // patrika rajasthan
 import img30 from '../../assets/a30.png'; //no number
-import img31 from '../../assets/homepage/a14.png';
-import img32 from '../../assets/homepage/a18.png';
-import img33 from '../../assets/homepage/a19.png';
-import img34 from '../../assets/homepage/a21.png';
-import img35 from '../../assets/homepage/image a1.png';
-import img36 from '../../assets/homepage/image a4.png';
-import img37 from '../../assets/homepage/image90.avif';
+import img33 from '../../assets/homepage/a19.png'; // News18
+import img34 from '../../assets/homepage/a21.png'; // Bits
+import img35 from '../../assets/homepage/image a1.png'; // IIMA
+// import img36 from '../../assets/homepage/image a4.png'; //ICAD
+import img37 from '../../assets/homepage/image90.avif'; // Neuro Equilibrium
 import teddy from '../../assets/PopUps/teddy.png';
-import wtfund from '../../assets/members/wtfund logo.jpg';
+import wtfund from '../../assets/members/wtfund logo.jpg'; // WTFund
+import iac from '../../assets/IAC.jpg'; // IAC
+import nmims from '../../assets/nmims.png'; // NMIMS
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -102,18 +96,15 @@ const Awards = () => {
                 [
                   img1,
                   img35,
-                  img9,
+                  nmims,
                   img30,
                   img5,
                   img37,
-                  img11,
                   img8,
-                  img36,
+                  iac,
                   img6,
                   img12,
                   img13,
-                  img14,
-                  img15,
                   img16,
                   img17,
                   img18,
@@ -125,22 +116,18 @@ const Awards = () => {
                   img24,
                   img26,
                   img27,
-                  img28,
                   wtfund,
                   img1,
                   img35,
-                  img9,
+                  nmims,
                   img30,
                   img5,
                   img37,
-                  img11,
                   img8,
-                  img36,
+                  iac,
                   img6,
                   img12,
                   img13,
-                  img14,
-                  img15,
                   img16,
                   img17,
                   img18,
@@ -152,7 +139,7 @@ const Awards = () => {
                   img24,
                   img26,
                   img27,
-                  img28,
+                  wtfund,
                 ],
               ].map((imageGroup, groupIndex) => (
                 <div className="flex gap-6" key={`${index}-${groupIndex}`}>
