@@ -59,8 +59,6 @@ const Header = () => {
     const checkAuth = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        console.log(authUser, 'authUser1');
-        console.log(token);
         // Verify the token with the backend
         const response = await axiosInstance.post(
           '/verifyJwt',
@@ -74,7 +72,6 @@ const Header = () => {
         setAuthUser(true);
 
         if (!response.data.success) {
-          console.log(authUser, 'authUser2');
           // Token verification failed, redirect to login
           setAuthUser(false);
         }
