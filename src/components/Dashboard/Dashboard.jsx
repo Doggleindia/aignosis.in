@@ -21,8 +21,12 @@ const Dashboard = () => {
   const authToken = localStorage.getItem('authToken');
   const TEST_API_URL = 'https://de.aignosismdw.in/rest/get_num_tests_used/';
   const [profiles, setProfiles] = useState([]);
+  const [isLicensedUser, setIsLicensedUser] = useState(false);
 
   useEffect(() => {
+    if (isLicensedUser) {
+      toast.success('Welcome to the your Dashboard!');
+    }
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_BASE_URL}/api/service/${userId._id}`, {
@@ -36,6 +40,18 @@ const Dashboard = () => {
           { patient_uid: userId._id },
           { headers: { 'Content-Type': 'application/json' } }
         );
+
+        axios
+          .post(
+            'https://de.aignosismdw.in/rest/check_licensed_user/',
+            JSON.stringify({ patient_uid: userId.phoneNumber })
+          )
+          .then((response) => {
+            setIsLicensedUser(response.data.licensed_user);
+          })
+          .catch((error) => {
+            toast.error('Error checking licensed user status. Please try again later.');
+          });
 
         if (testResponse.data.num_tests_completed !== undefined) {
           setNumTestsCompleted(testResponse.data.num_tests_completed);
@@ -51,7 +67,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, [isLicensedUser]);
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -187,7 +203,6 @@ const Dashboard = () => {
 
     try {
       if (currentProfile) {
-        console.log('Updating profile:', currentProfile);
         const response = await axios.put(`${API_BASE_URL}/api/profiles/${currentProfile._id}`, profileFormData, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -197,7 +212,6 @@ const Dashboard = () => {
         setProfiles((prevProfiles) =>
           prevProfiles.map((profile) => (profile._id === currentProfile._id ? response.data.profile : profile))
         );
-        console.log('Profile updated successfully:', response.data);
         toast.success('Profile updated successfully!');
       } else {
         // Add a new profile
@@ -208,7 +222,6 @@ const Dashboard = () => {
         });
 
         setProfiles((prevProfiles) => [...prevProfiles, response.data.profile]);
-        console.log('Profile added successfully:', response.data);
         toast.success('Profile created successfully!');
       }
 
@@ -763,60 +776,65 @@ const Dashboard = () => {
           )}
         </div>
         {/* <ServicesCard userId={userId._id} /> */}
-        <div
-          style={{
-            margin: 30,
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            alignItems: 'center',
-            borderWidth: '1px',
-            borderRadius: 20,
-            borderColor: '#722c7e',
-          }}
-        >
-          <h3
-            className="mb-4 p-10 text-lg font-thin text-white md:text-xl"
-            style={{ fontSize: 30, fontWeight: 100, opacity: 1.0 }}
+        {!isLicensedUser ? (
+          <></>
+        ) : (
+          <div
+            style={{
+              margin: 30,
+              display: 'flex',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              alignItems: 'center',
+              borderWidth: '1px',
+              borderRadius: 20,
+              borderColor: '#722c7e',
+            }}
           >
-            Experience our product
-          </h3>
-
-          <Link to={'/test/fillup'}>
-            <button
-              className="demo-button"
-              style={{
-                borderWidth: '1px',
-                borderColor: '#9C00AD',
-                borderRadius: 20,
-                padding: '10px 20px',
-                backgroundColor: 'transparent',
-                width: '30vw',
-                maxWidth: '50vw',
-                height: '5vw',
-                color: 'white',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.3s ease',
-                marginBottom: 50,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-                e.currentTarget.style.backgroundColor = 'rgba(156, 0, 173, 0.2)';
-                e.currentTarget.style.boxShadow = '0 0 15px rgba(156, 0, 173, 0.7)';
-                e.currentTarget.style.borderColor = '#D740FF';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = '#9C00AD';
-              }}
+            <h3
+              className="mb-4 p-10 text-lg font-thin text-white md:text-xl"
+              style={{ fontSize: 30, fontWeight: 100, opacity: 1.0 }}
             >
-              Take Demo
-            </button>
-          </Link>
-        </div>
+              Experience our product
+            </h3>
+
+            <Link to={'/test/fillup'}>
+              <button
+                className="demo-button"
+                style={{
+                  borderWidth: '1px',
+                  borderColor: '#9C00AD',
+                  borderRadius: 20,
+                  padding: '10px 20px',
+                  backgroundColor: 'transparent',
+                  width: '30vw',
+                  maxWidth: '50vw',
+                  height: '5vw',
+                  color: 'white',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  marginBottom: 50,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.backgroundColor = 'rgba(156, 0, 173, 0.2)';
+                  e.currentTarget.style.boxShadow = '0 0 15px rgba(156, 0, 173, 0.7)';
+                  e.currentTarget.style.borderColor = '#D740FF';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = '#9C00AD';
+                }}
+              >
+                Take Test
+              </button>
+            </Link>
+          </div>
+        )}
+
         <Sessions />
         {/* <Link
           to={"/prices"}
