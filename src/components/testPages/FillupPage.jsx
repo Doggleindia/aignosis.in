@@ -24,7 +24,6 @@ export const FillupPage = () => {
   useEffect(() => {
     if (localStorage.getItem('isLicensedUser') === 'true') {
       setPageUnavailable(false);
-      return;
     }
     if (localStorage.getItem('user') != null) {
       console.log('Existing UID found ' + JSON.parse(localStorage.getItem('user')).phoneNumber);
@@ -47,17 +46,17 @@ export const FillupPage = () => {
     setDob(formatDate(selectedDate));
 
     // Push initial state to prevent default navigation
-    window.history.pushState(null, null, window.location.href);
+    // window.history.pushState(null, null, window.location.href);
 
-    const handleBackButton = () => {
-      navigate('/dashboard');
-    };
+    // const handleBackButton = () => {
+    //   navigate('/dashboard');
+    // };
 
-    window.addEventListener('popstate', handleBackButton);
+    // window.addEventListener('popstate', handleBackButton);
 
-    return () => {
-      window.removeEventListener('popstate', handleBackButton);
-    };
+    // return () => {
+    //   window.removeEventListener('popstate', handleBackButton);
+    // };
   }, [navigate, selectedDate, consent, pageUnavailable]);
 
   const handleNextClick = async () => {
