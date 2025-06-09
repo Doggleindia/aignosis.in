@@ -1274,6 +1274,9 @@ const DogCalibration = () => {
   }, [isLoading, autismFacts.length]);
 
   useEffect(() => {
+    if (testData === null || testData === undefined) navigate('/test/fillup');
+    else if (!testData.PATIENT_UID || testData.PATIENT_UID === '') navigate('/test/fillup');
+
     if (isTestCompleted) {
       console.log('Test completed, stopping audio and clearing interval');
       return;
