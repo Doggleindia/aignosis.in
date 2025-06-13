@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { FaSearch, FaFilter, FaEye } from 'react-icons/fa';
+import { useEffect, useState, useRef } from 'react';
+import { FaSearch, FaFilter, FaEye, FaChevronDown } from 'react-icons/fa';
 import Header from '../Header';
 import BlogFooter from '../BlogPages/BlogFooter';
 import { formatIndianCurrency } from '../../utils/currencyUtils';
@@ -9,6 +9,9 @@ const Orderhistory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(3);
+  const [showDoctorFilter, setShowDoctorFilter] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const filterRef = useRef(null);
 
   // Mock data for clinic metrics
   const clinicMetrics = {
@@ -88,12 +91,30 @@ const Orderhistory = () => {
     setTestRecords(mockTestRecords);
   }, []);
 
-  const filteredRecords = testRecords.filter(
-    (record) =>
+  useEffect(() => {
+    if (!showDoctorFilter) return;
+    function handleClickOutside(event) {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setShowDoctorFilter(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showDoctorFilter]);
+
+  // Use doctorStats as mock available doctors for now
+  const availableDoctors = doctorStats.map((doc) => doc.name);
+
+  const filteredRecords = testRecords.filter((record) => {
+    const matchesSearch =
       record.patientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       record.supervisingDoctor.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      record.testName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+      record.testName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesDoctor = selectedDoctor ? record.supervisingDoctor === selectedDoctor : true;
+    return matchesSearch && matchesDoctor;
+  });
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -198,10 +219,39 @@ const Orderhistory = () => {
                     className="w-full rounded-lg border border-[#B740A1] bg-[#2B1B2D] py-2 pl-10 pr-6 text-[#F6E8FB] placeholder-[#CACED9] focus:border-[#FB7CE4] focus:outline-none"
                   />
                 </div>
-                <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#B740A1] bg-transparent px-4 py-2 text-[#F6E8FB] transition hover:bg-[#43284C] md:w-auto">
-                  <FaFilter />
-                  <span>Filter</span>
-                </button>
+                <div className="relative" ref={filterRef}>
+                  <button
+                    className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#B740A1] bg-transparent px-4 py-2 text-[#F6E8FB] transition hover:bg-[#43284C] md:w-auto"
+                    onClick={() => setShowDoctorFilter((prev) => !prev)}
+                    type="button"
+                  >
+                    <FaFilter />
+                    <span>Filter</span>
+                    <FaChevronDown className={`transition-transform ${showDoctorFilter ? 'rotate-180' : ''}`} />
+                  </button>
+                  {showDoctorFilter && (
+                    <div className="absolute right-0 z-10 mt-2 w-48 rounded-lg border border-[#B740A1] bg-[#2B1B2D] shadow-lg">
+                      <div className="p-2">
+                        <div className="mb-2 text-xs text-[#CACED9]">Filter by Doctor</div>
+                        <select
+                          className="w-full max-w-xs truncate rounded border border-[#B740A1] bg-[#43284C] p-2 text-[#F6E8FB] focus:outline-none"
+                          value={selectedDoctor}
+                          onChange={(e) => {
+                            setSelectedDoctor(e.target.value);
+                            setShowDoctorFilter(false);
+                          }}
+                        >
+                          <option value="">All Doctors</option>
+                          {availableDoctors.map((doc) => (
+                            <option key={doc} value={doc} className="truncate">
+                              {doc}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
