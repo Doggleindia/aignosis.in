@@ -57,6 +57,7 @@ import DownloadPage from './components/testPages/DownloadPage';
 import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
 import { useLocation } from 'react-router-dom';
+import AuthRoute from './components/config/AuthRoute';
 
 // import AuthRoute from './components/config/AuthRoute';
 
@@ -158,7 +159,14 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/thankyou" element={<DownloadPage />} />
           <Route path="/profile1" element={<Profile1 />} />
-          <Route path="/orderhistory" element={<Orderhistory />} />
+          <Route
+            path="/orderhistory"
+            element={
+              <AuthRoute>
+                <Orderhistory />
+              </AuthRoute>
+            }
+          />
           <Route path="/resourcepermissionerror" element={<ErrorCameraMicAccess />} />
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />
