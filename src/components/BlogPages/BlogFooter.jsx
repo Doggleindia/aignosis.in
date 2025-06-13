@@ -195,33 +195,13 @@ const BlogFooter = () => {
           </div>
           <div className="flex w-full items-center justify-center border-t-2 border-[#F6E8FB80] md:hidden">
             <h3 className="mt-4 text-center text-[10px]">
-              <p>
-                &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited Powered by
-                <a
-                  href="https://doggleindia.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Doggleindia
-                </a>
-              </p>
+              <p>&copy; 2025 All rights reserved by Aignosis Artificial Intelligence Private Limited</p>
             </h3>
           </div>
         </div>
         <div className="mt-[5vw] hidden w-full items-center justify-center border-t-2 border-[#F6E8FB80] md:flex">
           <h3 className="mt-4 text-center text-[10px]">
-            <p>
-              &copy; 2025 All rights reserved By Aignosis Artificial Intelligence Private Limited <br /> Powered by
-              <a
-                href="https://doggleindia.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                Doggleindia
-              </a>
-            </p>
+            <p>&copy; 2025 All rights reserved by Aignosis Artificial Intelligence Private Limited</p>
           </h3>
         </div>
       </footer>
