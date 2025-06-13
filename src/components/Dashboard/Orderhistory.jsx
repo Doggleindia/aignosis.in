@@ -187,18 +187,18 @@ const Orderhistory = () => {
           <div className="mb-8">
             <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <h2 className="text-lg font-semibold text-[#F6E8FB] md:text-xl">Patient Test Records</h2>
-              <div className="flex items-center gap-2">
-                <div className="relative">
+              <div className="flex w-full flex-col gap-2 md:w-auto md:flex-row md:items-center md:justify-end md:gap-2">
+                <div className="relative w-full md:w-[17rem]">
                   <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-[#CACED9]" />
                   <input
                     type="text"
                     placeholder="Search patient or doctor..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-[17rem] rounded-lg border border-[#B740A1] bg-[#2B1B2D] py-2 pl-10 pr-6 text-[#F6E8FB] placeholder-[#CACED9] focus:border-[#FB7CE4] focus:outline-none"
+                    className="w-full rounded-lg border border-[#B740A1] bg-[#2B1B2D] py-2 pl-10 pr-6 text-[#F6E8FB] placeholder-[#CACED9] focus:border-[#FB7CE4] focus:outline-none"
                   />
                 </div>
-                <button className="flex items-center gap-2 rounded-lg border border-[#B740A1] bg-transparent px-4 py-2 text-[#F6E8FB] transition hover:bg-[#43284C]">
+                <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-[#B740A1] bg-transparent px-4 py-2 text-[#F6E8FB] transition hover:bg-[#43284C] md:w-auto">
                   <FaFilter />
                   <span>Filter</span>
                 </button>
