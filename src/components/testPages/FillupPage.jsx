@@ -1,25 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CalibrationPage from './CalibrationPage';
 import { Checkbox } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../aignosisintegration/AppContext';
-import { format } from 'date-fns';
 import Protectedpage from './Protectedpage';
 import { v4 as uuidv4 } from 'uuid';
 import PhoneInput from 'react-phone-number-input';
 import { getPhoneUID } from '../../utils/phoneUtils';
 import PageUnavailable from './PageUnavailable';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const FillupPage = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
-  const [dob, setDob] = useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [dob, setDob] = useState('');
   const [consent, setConsent] = useState(true);
   const [guardianPhone, setGuardianPhone] = useState('');
+  const [profiles, setProfiles] = useState([]);
+  const [patientName, setPatientName] = useState('');
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
   const navigate = useNavigate();
   const { testData, setTestData } = useContext(AppContext);
   const [pageUnavailable, setPageUnavailable] = useState(true);
+
+  const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
+  const token = localStorage.getItem('authToken');
 
   useEffect(() => {
     if (localStorage.getItem('isLicensedUser') === 'true') {
@@ -34,23 +41,46 @@ export const FillupPage = () => {
         PATIENT_UID: phoneNumber,
         TRANSACTION_ID: uuidv4(),
       });
-
-      setDob(formatDate(selectedDate));
     }
-  }, [navigate, selectedDate, consent, pageUnavailable]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/profiles`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setProfiles(response.data.profiles || []);
+      } catch (err) {
+        console.error('Error fetching profiles:', err);
+      }
+    };
+
+    if (token) {
+      fetchProfiles();
+    }
+  }, [token, API_BASE_URL]);
 
   const handleNextClick = async () => {
-    if (document.getElementById('patient-name-input').value == '' || !dob || !guardianPhone) {
-      alert('Please fill all fields');
+    console.log('Next button clicked');
+    console.log('Selected Doctor:', selectedDoctor);
+    console.log('Patient Name:', patientName);
+    console.log('Patient DOB:', dob);
+    console.log('Guardian Phone:', guardianPhone);
+    if (patientName === '' || !dob || !guardianPhone) {
+      toast.error('Please fill all fields');
     } else {
       const formattedPhoneNumber = getPhoneUID(guardianPhone);
 
       setTestData({
         ...testData,
-        patientName: document.getElementById('patient-name-input').value,
+        patientName: patientName,
         patientDOB: dob,
         guardianPno: formattedPhoneNumber,
-        clinicOrReferrerName: document.getElementById('referrer-name-input').value,
+        clinicOrReferrerName: selectedDoctor,
         consentGiven: consent,
       });
 
@@ -59,12 +89,20 @@ export const FillupPage = () => {
     }
   };
 
-  function formatDate(date) {
-    if (date && !isNaN(date)) {
-      return format(new Date(date), 'dd/MM/yyyy');
+  const handleDateChange = (e) => {
+    const dateValue = e.target.value;
+    setSelectedDate(dateValue);
+
+    if (dateValue) {
+      // Convert from YYYY-MM-DD to DD/MM/YYYY
+      const [year, month, day] = dateValue.split('-');
+      const formattedDate = `${day}/${month}/${year}`;
+      setDob(formattedDate);
+      console.log('DOB set to:', formattedDate);
+    } else {
+      setDob('');
     }
-    return '';
-  }
+  };
 
   return (
     <>
@@ -93,27 +131,6 @@ export const FillupPage = () => {
                   </div>
 
                   <div className="mx-8 w-[50vw] rounded-2xl bg-[#564A5957] p-10 shadow-lg max-sm:w-auto">
-                    <style>
-                      {`
-                        /* Style the date input's placeholder text */
-                        input[type="date"]::-webkit-datetime-edit-text,
-                        input[type="date"]::-webkit-datetime-edit-month-field,
-                        input[type="date"]::-webkit-datetime-edit-day-field,
-                        input[type="date"]::-webkit-datetime-edit-year-field {
-                          color: #9CA3AF;
-                        }
-                        
-                        /* For Firefox */
-                        input[type="date"]:invalid {
-                          color: #9CA3AF;
-                        }
-                        
-                        /* When the date input is empty, make the text dimmer */
-                        input[type="date"]:not(:focus):invalid {
-                          color: #6B7280;
-                        }
-                      `}
-                    </style>
                     <h2 className="mb-4 text-center font-manrope text-2xl font-semibold text-white">
                       Welcome to Aignosis early detection screener
                     </h2>
@@ -122,30 +139,24 @@ export const FillupPage = () => {
                       children.
                     </p>
 
-                    <form className="space-y-4">
+                    <form className="space-y-4" autoComplete="off">
                       <input
                         id="patient-name-input"
                         type="text"
                         placeholder="Patient Name"
-                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        value={patientName}
+                        onChange={(e) => setPatientName(e.target.value)}
+                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                       />
-
-                      {/* Native date input for DOB */}
                       <input
                         type="date"
                         id="dob-input"
                         name="dob"
-                        value={selectedDate ? selectedDate : ''}
-                        onChange={(e) => {
-                          setSelectedDate(e.target.value);
-                          // Format to dd/MM/yyyy for display/logic
-                          const [year, month, day] = e.target.value.split('-');
-                          setDob(e.target.value ? `${day}/${month}/${year}` : '');
-                        }}
+                        value={selectedDate}
+                        onChange={handleDateChange}
                         className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
                         style={{ colorScheme: 'dark' }}
                       />
-
                       <PhoneInput
                         international
                         countryCallingCodeEditable={false}
@@ -157,7 +168,7 @@ export const FillupPage = () => {
                         className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25]"
                         numberInputProps={{
                           className:
-                            'w-full rounded-lg border-0 bg-transparent px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500',
+                            'w-full rounded-lg border-0 bg-transparent px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500',
                           style: {
                             backgroundColor: 'transparent',
                             border: 'none',
@@ -173,14 +184,24 @@ export const FillupPage = () => {
                           },
                         }}
                       />
-
-                      <input
-                        id="referrer-name-input"
-                        type="text"
-                        placeholder="Clinic Name / Referred Doctor"
-                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                      />
-
+                      <select
+                        id="referrer-name-select"
+                        value={selectedDoctor}
+                        onChange={(e) => setSelectedDoctor(e.target.value)}
+                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                      >
+                        <option value="" className="bg-[#1A0C25] text-gray-500">
+                          Select Doctor
+                        </option>
+                        {profiles.map((profile) => (
+                          <option key={profile._id} value={profile.name} className="bg-[#1A0C25] text-white">
+                            {profile.name}
+                          </option>
+                        ))}
+                        <option value="Other" className="bg-[#1A0C25] text-white">
+                          Other
+                        </option>
+                      </select>
                       <div className="flex items-center justify-center gap-2 max-sm:flex-col">
                         <Link
                           to="/prices"
