@@ -105,8 +105,6 @@ const Dashboard = () => {
     gender: '',
   });
 
-  const [profilePic, setProfilePic] = useState(null); // State to handle profile picture
-
   // Function to convert ISO date to yyyy-mm-dd format for HTML date input
   const formatDateForInput = (dateString) => {
     if (!dateString) return '';
@@ -127,20 +125,19 @@ const Dashboard = () => {
 
   const toggleEdit = (profile = null) => {
     if (profile) {
-      // Edit existing profile
+      // Edit existing doctor
       setCurrentProfile(profile);
       setFormData({
         name: profile.name,
         username: profile.username,
         age: profile.age,
         email: profile.email,
-        dob: formatDateForInput(profile.dob), // Convert ISO date format to yyyy-mm-dd
+        dob: formatDateForInput(profile.dob),
         gender: profile.gender,
       });
-      setProfilePic(profile.profilePicUrl); // Use profilePicUrl from API response
       setIsUpdating(true);
     } else {
-      // Add new profile
+      // Add new doctor
       setFormData({
         name: '',
         username: '',
@@ -149,7 +146,6 @@ const Dashboard = () => {
         dob: '',
         gender: '',
       });
-      setProfilePic(null); // Reset profile pic
       setIsUpdating(false);
     }
     setIsEditing(true);
@@ -160,24 +156,6 @@ const Dashboard = () => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-      if (!allowedTypes.includes(file.type)) {
-        toast.error('Only JPG, JPEG, and PNG files are allowed for profile pictures.');
-        e.target.value = ''; // Clear the input
-        return;
-      }
-    }
-
-    setFormData((prevData) => ({
-      ...prevData,
-      profilePic: file,
     }));
   };
 
@@ -194,13 +172,6 @@ const Dashboard = () => {
     profileFormData.append('email', formData.email);
     profileFormData.append('dob', formData.dob);
     profileFormData.append('gender', formData.gender);
-
-    // Only append profile picture if one is selected
-    const profilePicInput = document.querySelector('#profilePicInput');
-    const profilePic = profilePicInput ? profilePicInput.files[0] : null;
-    if (profilePic) {
-      profileFormData.append('profilePic', profilePic);
-    }
 
     try {
       if (currentProfile) {
@@ -354,15 +325,7 @@ const Dashboard = () => {
           >
             <div className="flex items-center space-x-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-300">
-                {profiles.length > 0 && profiles[0].profilePicUrl ? (
-                  <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gray-500">
-                    <img className="h-full w-full object-cover" src={profiles[0].profilePicUrl} alt="Profile" />
-                  </div>
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-500">
-                    <span className="text-lg text-white">?</span> {/* Default placeholder */}
-                  </div>
-                )}
+                <span className="text-lg text-white">👨‍⚕️</span>
               </div>
               <div>
                 <h2 className="text-base font-medium text-white">Welcome</h2>
@@ -372,23 +335,16 @@ const Dashboard = () => {
                     <p className="text-xs text-white">{profiles[0].email}</p>
                   </>
                 ) : (
-                  <p className="text-xs text-white">No profile data available</p>
+                  <p className="text-xs text-white">No doctor data available</p>
                 )}
               </div>
             </div>
-
-            {/* Notification Icon */}
-            {/* <div className="text-white text-2xl">
-              <FaBell />
-            </div> */}
           </div>
 
           <div>
             {isEditing ? (
               <div className="relative mt-4 h-full w-full rounded-md border-2 border-[#C4C4C45E] bg-[#2B1B2D] px-[4vw] py-6 text-sm text-white">
-                <h2 className="mb-4 text-lg font-bold">
-                  {isUpdating ? 'Edit Personal Info' : 'Add Personal Info (Guardian)'}
-                </h2>
+                <h2 className="mb-4 text-lg font-bold">{isUpdating ? 'Edit Doctor' : 'Add Doctor'}</h2>
                 <form>
                   <div className="grid grid-cols-1 gap-6 pr-[20vw] text-sm md:grid-cols-2">
                     {/* Form Fields */}
@@ -397,7 +353,7 @@ const Dashboard = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Name"
+                      placeholder="Doctor Name"
                       className="w-full rounded bg-[#3D253F] p-2 text-white"
                     />
                     <input
@@ -405,7 +361,7 @@ const Dashboard = () => {
                       name="username"
                       value={formData.username}
                       onChange={handleInputChange}
-                      placeholder="User name"
+                      placeholder="Username"
                       className="w-full rounded bg-[#3D253F] p-2 text-white"
                     />
                     <input
@@ -444,17 +400,7 @@ const Dashboard = () => {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <div className="mt-4">
-                    <label className="mb-2 block">Profile Picture</label>
-                    <input
-                      type="file"
-                      id="profilePicInput"
-                      name="profilePic"
-                      accept=".jpg,.jpeg,.png,image/jpeg,image/png"
-                      onChange={handleFileChange}
-                      className="w-full rounded bg-[#3D253F] p-2 text-white"
-                    />
-                  </div>
+                  {/* Profile picture upload removed */}
                   <div className="mt-4 flex space-x-4">
                     <button
                       onClick={handleSaveProfile}
@@ -478,37 +424,44 @@ const Dashboard = () => {
               <>
                 <div className="mt-5 px-5">
                   <div className="flex items-center gap-5">
-                    <h3 className="font-semibold">Profiles</h3>
-                    <button
-                      className="ml-2 rounded-full border border-[#9C00AD] px-3 py-1 text-xs text-white hover:bg-[#9C00AD]"
-                      onClick={() => setLogoModalOpen(true)}
-                      type="button"
-                    >
-                      Upload Logo
-                    </button>
+                    <h3 className="font-semibold">Doctors</h3>
                   </div>
-                  <div className="grid grid-cols-6 gap-4">
+                  <div className="mt-1 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {profiles.map((profile, idx) => (
                       <div
                         key={profile._id + idx}
-                        className="mt-5 flex h-[12vw] w-[12vw] cursor-pointer items-center justify-center rounded-md bg-[#3D253F]"
-                        onClick={() => toggleEdit(profile)}
+                        className="flex min-h-52 flex-col items-center justify-between rounded-xl bg-[#3D253F] p-5 shadow-lg transition-shadow hover:shadow-xl"
                       >
-                        <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#9C00AD]">
-                          {profile.profilePicUrl ? (
-                            <img className="h-full w-full object-cover" src={profile.profilePicUrl} alt="Profile" />
-                          ) : (
-                            <span className="text-lg font-bold text-white">{profile.name.charAt(0)}</span>
-                          )}
+                        <div className="flex w-full flex-col items-center">
+                          <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#9C00AD] text-2xl font-bold text-white">
+                            {profile.name.charAt(0)}
+                          </div>
+                          <div className="w-full text-center">
+                            <div className="text-lg font-semibold text-white">{profile.name}</div>
+                            <div className="text-xs text-[#CACED9]">{profile.email}</div>
+                            <div className="text-xs text-[#CACED9]">Age: {profile.age}</div>
+                            <div className="text-xs text-[#CACED9]">Gender: {profile.gender}</div>
+                          </div>
+                        </div>
+                        <div className="mt-4 flex w-full justify-center gap-2">
+                          <button
+                            className="rounded bg-[#B740A1] px-3 py-1 text-xs text-white hover:bg-[#FB7CE4]"
+                            onClick={() => toggleEdit(profile)}
+                          >
+                            Edit
+                          </button>
                         </div>
                       </div>
                     ))}
                     <div
                       onClick={() => toggleEdit()}
-                      className="mt-5 flex h-[12vw] w-[12vw] cursor-pointer items-center justify-center rounded-md bg-[#3D253F]"
+                      className="flex min-h-52 flex-col items-center justify-center rounded-xl bg-[#3D253F] p-5 shadow-lg transition-shadow hover:shadow-xl"
                     >
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#9C00AD]">
-                        <FaPlus />
+                      <div className="flex flex-col items-center">
+                        <div className="mb-2 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-[#9C00AD]">
+                          <FaPlus />
+                        </div>
+                        <span className="text-sm">Add Doctor</span>
                       </div>
                     </div>
                   </div>
@@ -605,9 +558,7 @@ const Dashboard = () => {
           {/* Edit Profile Form */}
           {isEditing ? (
             <div className="relative mt-[5vw] h-full w-full rounded-md border-2 border-[#C4C4C45E] bg-[#2B1B2D] px-[4vw] py-6 text-sm text-white">
-              <h2 className="mb-4 text-lg font-bold">
-                {isUpdating ? 'Edit Personal Info' : 'Add Personal Info (Guardian)'}
-              </h2>
+              <h2 className="mb-4 text-lg font-bold">{isUpdating ? 'Edit Doctor' : 'Add Doctor'}</h2>
               <form>
                 <div className="grid grid-cols-1 gap-6 pr-[20vw] text-sm">
                   <input
@@ -615,7 +566,7 @@ const Dashboard = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    placeholder="Name"
+                    placeholder="Doctor Name"
                     className="w-full rounded bg-[#3D253F] p-2 text-white"
                   />
                   <input
@@ -623,7 +574,7 @@ const Dashboard = () => {
                     name="username"
                     value={formData.username}
                     onChange={handleInputChange}
-                    placeholder="User name"
+                    placeholder="Username"
                     className="w-full rounded bg-[#3D253F] p-2 text-white"
                   />
                   <input
@@ -662,18 +613,6 @@ const Dashboard = () => {
                     <option value="other">Other</option>
                   </select>
                 </div>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <label className="mb-2 block">Profile Picture</label>
-                  <input
-                    type="file"
-                    name="profilePic"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="w-full rounded bg-[#3D253F] p-2 text-white"
-                  />
-                </div>
-
                 <div className="mt-4 flex space-x-4">
                   <button
                     type="button"
@@ -697,7 +636,7 @@ const Dashboard = () => {
             <div>
               {/* Display Profiles */}
               <div className="mt-[10vw] flex items-center gap-5">
-                <h3 className="text-sm font-semibold">Profiles</h3>
+                <h3 className="text-sm font-semibold">Doctors</h3>
                 <button
                   className="ml-2 rounded-full border border-[#9C00AD] px-3 py-1 text-xs text-white hover:bg-[#9C00AD]"
                   onClick={() => setLogoModalOpen(true)}
