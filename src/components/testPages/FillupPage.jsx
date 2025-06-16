@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CalibrationPage from './CalibrationPage';
-import { DatePicker, Checkbox } from 'antd';
+import { Checkbox } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../aignosisintegration/AppContext';
 import { format } from 'date-fns';
@@ -27,7 +27,6 @@ export const FillupPage = () => {
     }
     if (localStorage.getItem('user') != null) {
       console.log('Existing UID found ' + JSON.parse(localStorage.getItem('user')).phoneNumber);
-
       const phoneNumber = JSON.parse(localStorage.getItem('user')).phoneNumber;
 
       setTestData({
@@ -35,28 +34,9 @@ export const FillupPage = () => {
         PATIENT_UID: phoneNumber,
         TRANSACTION_ID: uuidv4(),
       });
-    } else {
-      console.log('UID of current person is null...setting custom patient UID');
-      setTestData({
-        ...testData,
-        PATIENT_UID: uuidv4(),
-        TRANSACTION_ID: uuidv4(),
-      });
+
+      setDob(formatDate(selectedDate));
     }
-    setDob(formatDate(selectedDate));
-
-    // Push initial state to prevent default navigation
-    // window.history.pushState(null, null, window.location.href);
-
-    // const handleBackButton = () => {
-    //   navigate('/dashboard');
-    // };
-
-    // window.addEventListener('popstate', handleBackButton);
-
-    // return () => {
-    //   window.removeEventListener('popstate', handleBackButton);
-    // };
   }, [navigate, selectedDate, consent, pageUnavailable]);
 
   const handleNextClick = async () => {
@@ -79,22 +59,12 @@ export const FillupPage = () => {
     }
   };
 
-  function checkGuardianPnoValidity() {
-    console.log(getPhoneUID(guardianPhone));
-  }
-
   function formatDate(date) {
     if (date && !isNaN(date)) {
       return format(new Date(date), 'dd/MM/yyyy');
     }
     return '';
   }
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    const formattedDate = formatDate(date ? date.toDate() : null);
-    setDob(formattedDate);
-  };
 
   return (
     <>
@@ -123,6 +93,27 @@ export const FillupPage = () => {
                   </div>
 
                   <div className="mx-8 w-[50vw] rounded-2xl bg-[#564A5957] p-10 shadow-lg max-sm:w-auto">
+                    <style>
+                      {`
+                        /* Style the date input's placeholder text */
+                        input[type="date"]::-webkit-datetime-edit-text,
+                        input[type="date"]::-webkit-datetime-edit-month-field,
+                        input[type="date"]::-webkit-datetime-edit-day-field,
+                        input[type="date"]::-webkit-datetime-edit-year-field {
+                          color: #9CA3AF;
+                        }
+                        
+                        /* For Firefox */
+                        input[type="date"]:invalid {
+                          color: #9CA3AF;
+                        }
+                        
+                        /* When the date input is empty, make the text dimmer */
+                        input[type="date"]:not(:focus):invalid {
+                          color: #6B7280;
+                        }
+                      `}
+                    </style>
                     <h2 className="mb-4 text-center font-manrope text-2xl font-semibold text-white">
                       Welcome to Aignosis early detection screener
                     </h2>
@@ -139,17 +130,20 @@ export const FillupPage = () => {
                         className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                       />
 
-                      <DatePicker
-                        onChange={handleDateChange}
-                        format="DD/MM/YYYY"
-                        className="w-full border border-[#B7407D4D] bg-[#1A0C25] text-white focus:ring-2 focus:ring-pink-500"
-                        placeholder="Date of Birth"
-                        style={{
-                          color: 'black',
-                          backgroundColor: 'white',
-                          width: '100%',
-                          borderColor: '#B7407D4D',
+                      {/* Native date input for DOB */}
+                      <input
+                        type="date"
+                        id="dob-input"
+                        name="dob"
+                        value={selectedDate ? selectedDate : ''}
+                        onChange={(e) => {
+                          setSelectedDate(e.target.value);
+                          // Format to dd/MM/yyyy for display/logic
+                          const [year, month, day] = e.target.value.split('-');
+                          setDob(e.target.value ? `${day}/${month}/${year}` : '');
                         }}
+                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        style={{ colorScheme: 'dark' }}
                       />
 
                       <PhoneInput

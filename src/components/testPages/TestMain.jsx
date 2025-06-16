@@ -1,4 +1,3 @@
-import React from 'react';
 import FillupPage from './FillupPage';
 
 const TestMain = () => {
