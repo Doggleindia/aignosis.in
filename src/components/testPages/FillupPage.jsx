@@ -76,12 +76,10 @@ export const FillupPage = () => {
         patientName: patientName,
         patientDOB: dob,
         guardianPno: formattedPhoneNumber,
-        clinicOrReferrerName: selectedDoctor,
         doctorName: selectedDoctor,
         consentGiven: consent,
       });
 
-      console.log(testData);
       navigate('/autismtest');
     }
   };
@@ -190,7 +188,7 @@ export const FillupPage = () => {
                         onChange={(e) => setSelectedDoctor(e.target.value)}
                         className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                       >
-                        <option value="" className="bg-[#1A0C25] text-gray-500">
+                        <option value="" disabled className="bg-[#1A0C25] text-gray-500">
                           Select Doctor
                         </option>
                         {profiles.map((profile) => (

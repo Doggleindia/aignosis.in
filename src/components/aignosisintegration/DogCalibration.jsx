@@ -1461,6 +1461,7 @@ const DogCalibration = () => {
             patientDOB: testData.patientDOB,
             guardianPno: testData.guardianPno,
             clinicOrReferrerName: testData.clinicOrReferrerName,
+            doctorName: testData?.doctorName,
           };
           const encryptedPatientInfo = await encryptCalibrationData(patientInfo, aesKey).catch((error) => {
             console.error('Failed to encrypt patient info:', error);
