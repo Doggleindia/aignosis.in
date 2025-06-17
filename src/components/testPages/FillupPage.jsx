@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CalibrationPage from './CalibrationPage';
 import { Checkbox } from 'antd';
@@ -22,6 +22,7 @@ export const FillupPage = () => {
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
   const navigate = useNavigate();
+  const dobInputRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
   const [pageUnavailable, setPageUnavailable] = useState(true);
 
@@ -65,11 +66,6 @@ export const FillupPage = () => {
   }, [token, API_BASE_URL]);
 
   const handleNextClick = async () => {
-    console.log('Next button clicked');
-    console.log('Selected Doctor:', selectedDoctor);
-    console.log('Patient Name:', patientName);
-    console.log('Patient DOB:', dob);
-    console.log('Guardian Phone:', guardianPhone);
     if (patientName === '' || !dob || !guardianPhone) {
       toast.error('Please fill all fields');
     } else {
@@ -81,6 +77,7 @@ export const FillupPage = () => {
         patientDOB: dob,
         guardianPno: formattedPhoneNumber,
         clinicOrReferrerName: selectedDoctor,
+        doctorName: selectedDoctor,
         consentGiven: consent,
       });
 
@@ -148,15 +145,18 @@ export const FillupPage = () => {
                         onChange={(e) => setPatientName(e.target.value)}
                         className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
                       />
-                      <input
-                        type="date"
-                        id="dob-input"
-                        name="dob"
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
-                        style={{ colorScheme: 'dark' }}
-                      />
+                      <div className="flex" onClick={() => dobInputRef.current?.showPicker()}>
+                        <input
+                          type="date"
+                          id="dob-input"
+                          name="dob"
+                          ref={dobInputRef}
+                          value={selectedDate}
+                          onChange={handleDateChange}
+                          className="pointer-events-none w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                          style={{ colorScheme: 'dark' }}
+                        />
+                      </div>
                       <PhoneInput
                         international
                         countryCallingCodeEditable={false}

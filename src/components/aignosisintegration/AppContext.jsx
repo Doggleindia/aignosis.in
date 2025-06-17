@@ -13,6 +13,7 @@ export const AppProvider = ({ children }) => {
     clinicOrReferrerName: '',
     patientName: '',
     patientDOB: '',
+    doctorName: '', // Added doctor's name field
     inclenFormData: '',
     isaaFormData: '',
     carsFormData: '',
