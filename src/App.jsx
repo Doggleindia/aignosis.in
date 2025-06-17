@@ -47,7 +47,12 @@ import GeneratePDF from './components/report pages/GeneratePDF';
 import DownloadPage from './components/testPages/DownloadPage';
 import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
+import Calibration1 from './components/calibration/Calibration1';
+import Calibration2 from './components/calibration/Calibration2';
+import Calibration3 from './components/calibration/Calibration3';
 import AuthRoute from './components/config/AuthRoute';
+
+// import AuthRoute from './components/config/AuthRoute';
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
@@ -146,6 +151,9 @@ const App = () => {
           <Route path="/generatepdf" element={<GeneratePDF />} />
           <Route path="/Howework" element={<Howework />} />
           <Route path="/therapy" element={<Therapy />} />
+          <Route path="/calibration/1" element={<Calibration1 />} />
+          <Route path="/calibration/2" element={<Calibration2 />} />
+          <Route path="/calibration/3" element={<Calibration3 />} />
         </Routes>
       </Layout>
     </Router>
