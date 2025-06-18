@@ -238,7 +238,7 @@
 
 // export default Profile1;
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBell, FaPlus } from 'react-icons/fa';
 // import Newnavbar from '../Newnavbar';
 import Header from '../Header';
@@ -408,7 +408,7 @@ const Profile1 = () => {
                   </Link>{' '}
                   -
                   <span className="ml-1 text-[#9C00AD]">
-                    <Link to="profile" className="transition-colors hover:text-[#FB7CE4]">
+                    <Link to="/profile" className="transition-colors hover:text-[#FB7CE4]">
                       Profiles
                     </Link>
                   </span>
