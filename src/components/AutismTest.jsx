@@ -97,6 +97,7 @@ const AutismTest = () => {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [currentStep]);
+
   const Divider = ({ title }) => (
     <div className="mb-8 mt-10 flex flex-row items-center justify-center max-sm:mx-auto max-sm:space-x-3 md:space-x-4">
       <span

@@ -48,6 +48,8 @@ import DownloadPage from './components/testPages/DownloadPage';
 import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
 import AuthRoute from './components/config/AuthRoute';
+import InstructionsPage from './components/calibration/InstructionsPage';
+
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
@@ -119,6 +121,7 @@ const App = () => {
           <Route path="/brain" element={<BrainMain />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/AutismTest" element={<CalibrationPage />} />
+          <Route path="/instructions" element={<InstructionsPage />} />
           <Route path="/dogcalibration" element={<DogCalibration />} />
           <Route path="/video" element={<VideoPlayback />} />
           <Route path="/test/fillup" element={<TestMain />} />
