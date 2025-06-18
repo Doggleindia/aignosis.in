@@ -373,16 +373,17 @@ const Orderhistory = () => {
     return (
       <>
         <Header />
-        <div className="min-h-screen w-full bg-[#1A0C25] font-montserrat text-[#F6E8FB]">
+        <div className="w-full bg-[#1A0C25] font-montserrat text-[#F6E8FB]">
           <div className="mx-auto max-w-7xl px-4 pb-10 pt-[8vh] md:px-10 md:pt-[12vh]">
             <div className="flex min-h-[60vh] items-center justify-center">
-              <div className="rounded-2xl border border-red-500 bg-red-50 p-8 text-center">
+              <div className="rounded-2xl border border-[#B740A1] bg-[#43284C4D] p-8 text-center">
                 <div className="mb-4 text-6xl">⚠️</div>
-                <h1 className="mb-4 text-2xl font-bold text-red-800">Access Restricted</h1>
-                <p className="mb-6 text-red-700">You are not a licensed user. Please contact support for assistance.</p>
-                <div className="text-sm text-red-600">
+                <h1 className="mb-4 text-2xl font-bold text-[#F6E8FB]">Access Restricted</h1>
+                <p className="mb-6 text-[#CACED9]">
+                  You are not a licensed user. Please contact support for assistance.
+                </p>
+                <div className="text-sm text-[#CACED9]">
                   <p>Email: support@aignosis.com</p>
-                  <p>Phone: +91-XXXX-XXXX</p>
                 </div>
               </div>
             </div>
