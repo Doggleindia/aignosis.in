@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import WebcamMicTest from './WebcamMicTest';
 import { AppContext } from '../aignosisintegration/AppContext';
@@ -10,6 +10,7 @@ const CalibrationPage = () => {
   const { testData, setTestData } = useContext(AppContext);
   const [pageUnavailable, setPageUnavailable] = useState(true);
 
+  console.log(testData);
   const handleLanguageChange = (e) => {
     setSelectedLanguage(e.target.value);
   };

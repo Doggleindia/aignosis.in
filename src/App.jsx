@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router, Route, and Routes
-import Homepagemain from './components/Homepagemain'; // Import the HomepageMain component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Homepagemain from './components/Homepagemain';
 import AboutUs from './components/AboutUs';
 import PartnershipPage from './components/PartnershipPage';
-import PatientHistory from './components/PatientHistory'; // Import the combined PatientHistory component
-// import Offer from "./components/Offer.jsx"; // Import the Offer component
+import PatientHistory from './components/PatientHistory';
 import TestMain from './components/testPages/TestMain';
 import VideoPlayback from './components/testPages/VideoPlayback';
 import CalibrationPage from './components/testPages/CalibrationPage';
-import WebcamMicTest from './components/testPages/WebcamMicTest';
 import PriceMain from './components/price/PriceMain';
 import ReportComLast from './components/ReportComLast';
 import ScrollToTop from './components/ScrollToTop';
 import BlogPage from './components/BlogPages/BlogPage';
 import PaymentScreensMain from './components/PaymentScreensMain';
 import Toddlers from './components/testPages/Toddlers';
-import ContactPage from './components/ContactPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ServicePage2 from './components/servicePages/ServicePage2';
 import ServicePage3 from './components/servicePages/ServicePage3';
@@ -26,27 +23,21 @@ import ServicePage1 from './components/servicePages/ServicePage1';
 import TAndC from './components/TAndC';
 import RefundAndReschedule from './components/RefundAndReschedule';
 import LoginPage from './components/LoginPage/LoginPage';
-import BlogView from './components/BlogPages/BlogView';
 import WeWork from './components/BlogPages/WeWork';
 import ClinicMain from './components/clinic/ClinicMain';
 import Priceplan from './components/Priceplan';
 import ErrorCameraMicAccess from './components/aignosisintegration/ErrorCameraMicAccess';
-
 import BrainMain from './components/homeBrain/BrainMain';
-
 import FromDoctor from './components/FromDoctor';
 import CareerPage from './components/Career/CareerPage';
-// import AutismTest from "./components/AutismTest";
 import DogCalibration from './components/aignosisintegration/DogCalibration';
 import Error from './components/aignosisintegration/Error';
 import DataCollectionPage from './components/aignosisintegration/DataCollectionPage';
 import Report from './components/ReportPages/page1';
 import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Dashboard/Profile';
-
 import Profile1 from './components/Dashboard/Profile1';
 import Orderhistory from './components/Dashboard/Orderhistory';
-
 import Page1 from './components/report pages/Page1';
 import Page2 from './components/report pages/Page2';
 import Page3 from './components/report pages/Page3';
@@ -56,27 +47,11 @@ import GeneratePDF from './components/report pages/GeneratePDF';
 import DownloadPage from './components/testPages/DownloadPage';
 import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
-import { useLocation } from 'react-router-dom';
-
-// import AuthRoute from './components/config/AuthRoute';
+import AuthRoute from './components/config/AuthRoute';
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
   const [isOfferVisible, setIsOfferVisible] = useState(false);
-  const location = useLocation();
-
-  const hiddenOfferPaths = [
-    '/therapy',
-    '/generatepdf',
-    '/thankyou',
-    '/download',
-    '/dataCollection',
-    '/Error',
-    '/test/fillup',
-    '/video',
-    '/dogcalibration',
-    '/autismtest',
-  ];
 
   useEffect(() => {
     if (!isOfferVisible || offerTimeLeft <= 0) return;
@@ -97,9 +72,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <ScrollToTop />
-      {isOfferVisible && !hiddenOfferPaths.includes(location.pathname) && (
-        <Offer timeLeft={offerTimeLeft} onClose={() => setIsOfferVisible(false)} />
-      )}
       {children}
     </>
   );
@@ -123,13 +95,12 @@ const App = () => {
           <Route path="/" element={<Homepagemain />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/partnership" element={<PartnershipPage />} />
-          <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
           <Route path="/assessments-evaluation" element={<ServicePage1 />} />
           <Route path="/speech-language" element={<ServicePage2 />} />
           <Route path="/behaviour-therapy" element={<ServicePage3 />} />
           <Route path="/occupational-therapy" element={<ServicePage4 />} />
           <Route path="/special-education" element={<ServicePage5 />} />
-          <Route path="/patienthistory" element={<PatientHistory />} /> {/* Updated route for PatientHistory */}
+          <Route path="/patienthistory" element={<PatientHistory />} />
           <Route path="/priceplan" element={<PriceMain />} />
           <Route path="/fromdoctor" element={<FromDoctor />} />
           <Route path="/prices" element={<Priceplan />} />
@@ -158,7 +129,14 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/thankyou" element={<DownloadPage />} />
           <Route path="/profile1" element={<Profile1 />} />
-          <Route path="/orderhistory" element={<Orderhistory />} />
+          <Route
+            path="/orderhistory"
+            element={
+              <AuthRoute>
+                <Orderhistory />
+              </AuthRoute>
+            }
+          />
           <Route path="/resourcepermissionerror" element={<ErrorCameraMicAccess />} />
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />
