@@ -53,7 +53,6 @@ const Orderhistory = () => {
           clinicSharePercentage: response.data.clinic_share_percentage,
           clinicShare: (response.data.test_cost * response.data.clinic_share_percentage) / 100,
         });
-        console.log('Licensed user info fetched:', response.data);
       } else {
         setIsLicensedUser(false);
         setError('You are not a licensed user. Please contact support for assistance.');
@@ -78,7 +77,6 @@ const Orderhistory = () => {
         },
       });
       setProfiles(response.data.profiles || []);
-      console.log('Profiles fetched:', response.data.profiles);
     } catch (error) {
       console.error('Error fetching profiles:', error);
       setProfiles([]);
@@ -108,7 +106,6 @@ const Orderhistory = () => {
       );
 
       const assessmentsData = response.data.success.assessments;
-      console.log('Assessments data fetched:', assessmentsData);
 
       // Process each assessment
       const processedRecords = await Promise.all(
