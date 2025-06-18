@@ -47,10 +47,8 @@ import GeneratePDF from './components/report pages/GeneratePDF';
 import DownloadPage from './components/testPages/DownloadPage';
 import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
-import Calibration1 from './components/calibration/Calibration1';
-import Calibration2 from './components/calibration/Calibration2';
-import Calibration3 from './components/calibration/Calibration3';
 import AuthRoute from './components/config/AuthRoute';
+import InstructionsPage from './components/calibration/InstructionsPage';
 
 // import AuthRoute from './components/config/AuthRoute';
 
@@ -124,6 +122,7 @@ const App = () => {
           <Route path="/brain" element={<BrainMain />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/AutismTest" element={<CalibrationPage />} />
+          <Route path="/instructions" element={<InstructionsPage />} />
           <Route path="/dogcalibration" element={<DogCalibration />} />
           <Route path="/video" element={<VideoPlayback />} />
           <Route path="/test/fillup" element={<TestMain />} />
@@ -151,9 +150,6 @@ const App = () => {
           <Route path="/generatepdf" element={<GeneratePDF />} />
           <Route path="/Howework" element={<Howework />} />
           <Route path="/therapy" element={<Therapy />} />
-          <Route path="/calibration/1" element={<Calibration1 />} />
-          <Route path="/calibration/2" element={<Calibration2 />} />
-          <Route path="/calibration/3" element={<Calibration3 />} />
         </Routes>
       </Layout>
     </Router>
