@@ -50,7 +50,6 @@ import Therapy from './components/Therapy';
 import AuthRoute from './components/config/AuthRoute';
 import InstructionsPage from './components/calibration/InstructionsPage';
 
-// import AuthRoute from './components/config/AuthRoute';
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
