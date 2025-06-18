@@ -35,7 +35,9 @@ const InstructionsPage = () => {
         <div className="mb-8 w-full max-w-[44rem] rounded-md bg-[#23262e] p-6">
           <div className="mb-6 text-center">
             <h3 className="mb-2 text-xl font-semibold text-white">Required Camera Position</h3>
-            <p className="text-[#CACED9]">Your camera must be positioned at the top center of your screen</p>
+            <p className="text-[#CACED9]">
+              Your camera must be positioned at the <b>top center</b> of your screen
+            </p>
           </div>
 
           {/* Monitor with Camera Position */}
@@ -106,7 +108,6 @@ const InstructionsPage = () => {
                 <FaCheck boxSize={16} className="mt-0.5" color="#22C55E" />
                 <span className="font-medium">No Tilt - Correct</span>
               </div>
-              <p className="text-sm text-[#CACED9]">0 degrees</p>
             </div>
 
             {/* Incorrect Tilts */}
@@ -121,7 +122,6 @@ const InstructionsPage = () => {
                 <span className="mt-0.5 font-montserrat font-bold">X</span>
                 <span className="font-medium">Down Tilt - Incorrect</span>
               </div>
-              <p className="text-sm text-[#CACED9]">-20 degrees</p>
             </div>
 
             <div className="flex flex-col items-center">
@@ -135,7 +135,6 @@ const InstructionsPage = () => {
                 <span className="mt-0.5 font-montserrat font-bold">X</span>
                 <span className="font-medium">Up Tilt - Incorrect</span>
               </div>
-              <p className="text-sm text-[#CACED9]">+20 degrees</p>
             </div>
           </div>
         </div>
@@ -147,7 +146,9 @@ const InstructionsPage = () => {
             <h3 className="text-lg font-semibold text-white">Important Notes</h3>
           </div>
           <ul className="list-disc space-y-2 pl-8 text-[#CACED9]">
-            <li>Camera must be positioned at the TOP center of your screen</li>
+            <li>
+              Camera must be positioned at the <b>TOP center</b> of your screen
+            </li>
             <li>Camera should have NO tilt (0 degrees)</li>
             <li>Ensure good lighting and clear view of the subject</li>
             <li>Position subject 18-24 inches from the camera</li>
