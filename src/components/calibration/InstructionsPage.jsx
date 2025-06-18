@@ -52,7 +52,7 @@ const InstructionsPage = () => {
               {/* Checkmark to indicate correct position */}
               <div className="absolute left-[57%] top-3 transform">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#22C55E]">
-                  <FaCheck boxSize={16} color="white" />
+                  <FaCheck size={16} color="white" />
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ const InstructionsPage = () => {
           <div className="flex justify-between text-center">
             <div className="flex-1">
               <div className="flex items-center justify-center gap-2 text-[#22C55E]">
-                <FaCheck boxSize={16} className="mt-0.5" color="#22C55E" />
+                <FaCheck size={16} className="mt-0.5" color="#22C55E" />
                 <span className="font-medium">Top Position - Correct</span>
               </div>
             </div>
@@ -105,7 +105,7 @@ const InstructionsPage = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2 text-[#22C55E]">
-                <FaCheck boxSize={16} className="mt-0.5" color="#22C55E" />
+                <FaCheck size={16} className="mt-0.5" color="#22C55E" />
                 <span className="font-medium">No Tilt - Correct</span>
               </div>
             </div>
