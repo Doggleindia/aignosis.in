@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import axiosInstance from './config/axiosInstance';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
@@ -15,14 +15,6 @@ const Header = () => {
   const [isHovered2, setIsHovered2] = useState(false);
   const [selectedService, setSelectedService] = useState(''); // Renamed state variable
   const [authUser, setAuthUser] = useState(false); // Authenticated user
-  // Menu visibility
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false); // Services dropdown visibility
-  const navigate = useNavigate();
-
-  const handleNavigate = () => {
-    // Navigate to home with state to trigger scrolling
-    navigate('/', { state: { scrollToContact: true } });
-  };
 
   const handleServiceClick = (link) => {
     setActiveLink(link);
@@ -297,7 +289,7 @@ const Header = () => {
                       <ul className="flex flex-col items-center justify-center space-y-2">
                         <li>
                           <Link
-                            to="/profile1"
+                            to="/profile"
                             onClick={() => handleServiceClick('/service1')}
                             className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
                               activeLink === '/assessments-evaluation' ? 'text-[#B740A1]' : ''
@@ -319,7 +311,7 @@ const Header = () => {
                           </Link> */}
                           <Link
                             to="/dashboard"
-                            onClick={() => handleServiceClick('/profile1')}
+                            onClick={() => handleServiceClick('/profile')}
                             className={`block w-[18vw] border-b-2 border-[#952981] p-3 transition duration-200 hover:text-[#B740A1] ${
                               activeLink === '/speech-language' ? 'text-[#B740A1]' : ''
                             }`}
@@ -630,9 +622,9 @@ const Header = () => {
                     </Link> */}
                     <div className="w-full border-t-2 border-[#952981]"></div>
                     <Link
-                      to="/profile1"
+                      to="/profile"
                       onClick={() => {
-                        handleLinkClick('/profile1');
+                        handleLinkClick('/profile');
                         toggleMenu();
                       }}
                       className={`block p-4 ${activeLink === '/speech-language' ? 'text-[#B740A1]' : ''}`}

@@ -35,7 +35,6 @@ import Error from './components/aignosisintegration/Error';
 import DataCollectionPage from './components/aignosisintegration/DataCollectionPage';
 import Report from './components/ReportPages/page1';
 import Dashboard from './components/Dashboard/Dashboard';
-import Profile from './components/Dashboard/Profile';
 import Profile1 from './components/Dashboard/Profile1';
 import Orderhistory from './components/Dashboard/Orderhistory';
 import Page1 from './components/report pages/Page1';
@@ -49,7 +48,6 @@ import Howework from './components/BlogPages/Howework.jsx';
 import Therapy from './components/Therapy';
 import AuthRoute from './components/config/AuthRoute';
 import InstructionsPage from './components/calibration/InstructionsPage';
-
 
 const Layout = ({ children }) => {
   const [offerTimeLeft, setOfferTimeLeft] = useState(10 * 60);
@@ -108,7 +106,6 @@ const App = () => {
           <Route path="/prices" element={<Priceplan />} />
           <Route path="/test" element={<Priceplan />} />
           <Route path="/report" element={<ReportComLast />} />
-          <Route path="/test/fillup" element={<TestMain />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<WeWork />} />
           <Route path="/clinic" element={<ClinicMain />} />
@@ -120,18 +117,81 @@ const App = () => {
           <Route path="/refund-reschedule" element={<RefundAndReschedule />} />
           <Route path="/brain" element={<BrainMain />} />
           <Route path="/career" element={<CareerPage />} />
-          <Route path="/AutismTest" element={<CalibrationPage />} />
-          <Route path="/instructions" element={<InstructionsPage />} />
-          <Route path="/dogcalibration" element={<DogCalibration />} />
-          <Route path="/video" element={<VideoPlayback />} />
-          <Route path="/test/fillup" element={<TestMain />} />
+          <Route
+            path="/AutismTest"
+            element={
+              <AuthRoute>
+                <CalibrationPage />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/instructions"
+            element={
+              <AuthRoute>
+                <InstructionsPage />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/dogcalibration"
+            element={
+              <AuthRoute>
+                <DogCalibration />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/video"
+            element={
+              <AuthRoute>
+                <VideoPlayback />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/test/fillup"
+            element={
+              <AuthRoute>
+                <TestMain />
+              </AuthRoute>
+            }
+          />
           <Route path="/Error" element={<Error />} />
           <Route path="/dataCollection" element={<DataCollectionPage />} />
           <Route path="/download" element={<Report />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/thankyou" element={<DownloadPage />} />
-          <Route path="/profile1" element={<Profile1 />} />
+          <Route
+            path="/dashboard"
+            element={
+              <AuthRoute>
+                <Dashboard />
+              </AuthRoute>
+            }
+          />
+          {/* <Route
+            path="/profile"
+            element={
+              <AuthRoute>
+                <Profile />
+              </AuthRoute>
+            }
+          /> */}
+          <Route
+            path="/thankyou"
+            element={
+              <AuthRoute>
+                <DownloadPage />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <AuthRoute>
+                <Profile1 />
+              </AuthRoute>
+            }
+          />
           <Route
             path="/orderhistory"
             element={

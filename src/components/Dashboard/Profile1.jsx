@@ -259,10 +259,6 @@ const Profile1 = () => {
     setActiveSection(sectionName);
   };
 
-  const toggleEdit = () => {
-    setIsEditing((prev) => !prev);
-  };
-
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -412,7 +408,7 @@ const Profile1 = () => {
                   </Link>{' '}
                   -
                   <span className="ml-1 text-[#9C00AD]">
-                    <Link to="/profile1" className="transition-colors hover:text-[#FB7CE4]">
+                    <Link to="profile" className="transition-colors hover:text-[#FB7CE4]">
                       Profiles
                     </Link>
                   </span>
