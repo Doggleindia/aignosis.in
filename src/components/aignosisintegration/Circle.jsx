@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Circle({ x, y, radius, imageUrl, onClickHandler }) {
   return (
     <>
@@ -20,8 +18,8 @@ function Circle({ x, y, radius, imageUrl, onClickHandler }) {
         onClick={onClickHandler}
         style={{
           position: 'absolute',
-          left: x - radius / 2, // Subtract radius to center the image at (x, y)
-          top: y - radius / 2,
+          left: x - radius, // Center the image horizontally at x coordinate
+          top: y - radius, // Center the image vertically at y coordinate
           width: radius * 2,
           height: radius * 2,
           objectFit: 'contain', // Ensure the image fits nicely
