@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { FaBell } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import pic from '../../assets/pic4.png';
-import { FaUserEdit } from 'react-icons/fa';
-import fetchData from '../config/fetchData';
 import Sessions from './Sessions';
 import Header from '../Header';
-import Newnavbar from '../Newnavbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import axios at the top
-import ServicesCard from '../service/ServicesCard';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
@@ -22,6 +17,7 @@ const Dashboard = () => {
   const TEST_API_URL = 'https://de.aignosismdw.in/rest/get_num_tests_used/';
   const [profiles, setProfiles] = useState([]);
   const [isLicensedUser, setIsLicensedUser] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLicensedUser) {
@@ -738,40 +734,36 @@ const Dashboard = () => {
               Experience our product
             </h3>
 
-            <Link to={'/test/fillup'}>
-              <button
-                className="demo-button"
-                style={{
-                  borderWidth: '1px',
-                  borderColor: '#9C00AD',
-                  borderRadius: 20,
-                  padding: '10px 20px',
-                  backgroundColor: 'transparent',
-                  width: '30vw',
-                  maxWidth: '50vw',
-                  height: '5vw',
-                  color: 'white',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease',
-                  marginBottom: 50,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.backgroundColor = 'rgba(156, 0, 173, 0.2)';
-                  e.currentTarget.style.boxShadow = '0 0 15px rgba(156, 0, 173, 0.7)';
-                  e.currentTarget.style.borderColor = '#D740FF';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.borderColor = '#9C00AD';
-                }}
-              >
-                Take Test
-              </button>
-            </Link>
+            <button
+              className="demo-button"
+              style={{
+                borderWidth: '1px',
+                borderColor: '#9C00AD',
+                borderRadius: 20,
+                padding: '10px 20px',
+                backgroundColor: 'transparent',
+                width: '30vw',
+                maxWidth: '50vw',
+                height: '5vw',
+                color: 'white',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                marginBottom: 50,
+                opacity: profiles.length === 0 ? 0.5 : 1,
+                cursor: profiles.length === 0 ? 'not-allowed' : 'pointer',
+              }}
+              onClick={(e) => {
+                if (profiles.length === 0) {
+                  e.preventDefault();
+                  toast.error('Please add a doctor before taking the test.');
+                } else {
+                  navigate('/test/fillup');
+                }
+              }}
+            >
+              Take Test
+            </button>
           </div>
         )}
 
