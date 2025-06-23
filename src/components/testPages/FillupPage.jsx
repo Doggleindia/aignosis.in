@@ -194,9 +194,6 @@ export const FillupPage = () => {
                           {profile.name}
                         </option>
                       ))}
-                      <option value="Other" className="bg-[#1A0C25] text-white">
-                        Other
-                      </option>
                     </select>
                     <div className="flex items-center justify-center gap-2 max-sm:flex-col">
                       <Link
