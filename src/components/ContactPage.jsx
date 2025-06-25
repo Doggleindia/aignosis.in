@@ -1,11 +1,10 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
-import { FaMapMarkerAlt, FaPhoneAlt, FaCalendarAlt } from 'react-icons/fa';
-import { IoIosMail } from 'react-icons/io';
 import fetchData from './config/fetchData';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import tiger from './aboutus/tiger.png';
+
 const ContactPage = () => {
   const [data, setData] = useState({
     name: '',
@@ -22,8 +21,7 @@ const ContactPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'phone') {
-      // Allow only digits and limit to 10 characters
-      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      const numericValue = value.replace(/\D/g, '').slice(0, 12);
       setData((prevData) => ({
         ...prevData,
         phone: numericValue,
@@ -39,9 +37,21 @@ const ContactPage = () => {
   // Function to send data to the API
   const contact = async (e) => {
     e.preventDefault();
-    // Check if phone number is exactly 10 digits
-    if (data.phone.length !== 10) {
-      toast.error('Phone number must be exactly 10 digits!');
+
+    if (
+      data.name.trim() === '' ||
+      data.age <= 0 ||
+      data.city.trim() === '' ||
+      data.phone.trim() === '' ||
+      data.message.trim() === ''
+    ) {
+      toast.error('Please fill in all fields correctly.');
+      return;
+    }
+
+    // Check if phone number is greater than 13 digits
+    if (data.phone.length > 13) {
+      toast.error('Phone number cannot exceed 13 digits.');
       return;
     }
 
@@ -53,11 +63,13 @@ const ContactPage = () => {
         data,
       });
       console.log('API response:', response);
-      if (response.status == 200) {
-        toast.success('Message sent successfully!');
+
+      if (response.success === true) {
+        toast.success(response.message || 'Message sent successfully!');
+      } else {
+        toast.error(response.error || 'Failed to send the message. Please try again.');
       }
       setLoading(false);
-      // alert('Message sent successfully!');
 
       // Reset the form after successful submission
       setData({

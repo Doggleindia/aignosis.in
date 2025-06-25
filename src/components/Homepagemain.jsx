@@ -1,14 +1,8 @@
-import React from 'react';
 import Homepage from './Homepage';
-import Laptop from './Laptop';
-
 import ContactPage from './ContactPage';
 import WhatsAppButton from './WhatsAppButton';
 import BlogFooter from './BlogPages/BlogFooter';
 import SEO from './config/Seo';
-// import Offer from "./Offer";
-import Newnavbar from './Newnavbar';
-import Flyer from './Flyer';
 const Homepagemain = () => {
   return (
     <>
@@ -20,14 +14,11 @@ const Homepagemain = () => {
 
       <div className="overflow-x-hidden bg-[#1A0C25]">
         <Homepage />
-        {/* <Offer/> */}
         <WhatsAppButton />
-        {/* <Laptop /> */}
         <ContactPage />
         <BlogFooter />
       </div>
     </>
-    // </AnimatedIntro>
   );
 };
 
