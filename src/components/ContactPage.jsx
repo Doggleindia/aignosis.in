@@ -21,7 +21,13 @@ const ContactPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'phone') {
-      const numericValue = value.replace(/\D/g, '').slice(0, 12);
+      const numericValue = value.replace(/\D/g, '');
+      // Limit phone number to 10 digits
+      if (numericValue.length > 10) {
+        toast.error('Phone number must be exactly 10 digits.');
+        return;
+      }
+
       setData((prevData) => ({
         ...prevData,
         phone: numericValue,
@@ -29,7 +35,7 @@ const ContactPage = () => {
     } else {
       setData((prevData) => ({
         ...prevData,
-        [name]: name === 'age' ? Number(value) : value, // Ensure age is a number
+        [name]: value, // Always store as string
       }));
     }
   };
@@ -39,8 +45,7 @@ const ContactPage = () => {
     e.preventDefault();
 
     if (
-      data.name.trim() === '' ||
-      data.age <= 0 ||
+      data.name.trim() === '' || // Convert to number for validation
       data.city.trim() === '' ||
       data.phone.trim() === '' ||
       data.message.trim() === ''
@@ -49,9 +54,15 @@ const ContactPage = () => {
       return;
     }
 
-    // Check if phone number is greater than 13 digits
-    if (data.phone.length > 13) {
-      toast.error('Phone number cannot exceed 13 digits.');
+    // Check if age is a valid number
+    if (isNaN(data.age) || data.age.trim() === '' || Number(data.age) <= 0 || Number(data.age) > 120) {
+      toast.error('Please enter a valid age.');
+      return;
+    }
+
+    // Check if phone number is exactly 10 digits
+    if (data.phone.length !== 10) {
+      toast.error('Phone number must be exactly 10 digits.');
       return;
     }
 
@@ -60,7 +71,7 @@ const ContactPage = () => {
       const { response } = await fetchData({
         url: '/api/otp/contact-us',
         method: 'POST',
-        data,
+        data: { ...data, age: Number(data.age) }, // Convert age to number for API
       });
       console.log('API response:', response);
 
