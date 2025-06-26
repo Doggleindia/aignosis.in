@@ -15,7 +15,7 @@ const CalibrationPage = () => {
     setSelectedLanguage(e.target.value);
   };
 
-  const handleNextClick = () => {
+  const handleNextClick = async () => {
     // Request fullscreen on user action
     function goFullScreen() {
       let elem = document.documentElement;
@@ -29,6 +29,7 @@ const CalibrationPage = () => {
         elem.msRequestFullscreen();
       }
     }
+    await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
     goFullScreen();
     setTestData({
       ...testData,
