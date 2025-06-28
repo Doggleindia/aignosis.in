@@ -7,7 +7,7 @@ const InstructionsPage = () => {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    navigate('/dogcalibration');
+    navigate('/autismtest');
   };
 
   return (

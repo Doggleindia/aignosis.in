@@ -78,7 +78,7 @@ export const FillupPage = () => {
         consentGiven: consent,
       });
 
-      navigate('/autismtest');
+      navigate('/instructions');
     }
   };
 
