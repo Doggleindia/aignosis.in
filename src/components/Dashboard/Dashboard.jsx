@@ -20,6 +20,17 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // // test cors request
+    // axios
+    //   .options('https://de.aignosismdw.in/rest/test_cors/', { data: 'test' })
+    //   .then((response) => {
+    //     console.log('Cors response is ', response);
+    //   })
+    //   .catch((error) => {
+    //     console.error('CORS test failed:', error);
+    //     toast.error('CORS test failed. Please check your server configuration.');
+    //   });
+
     if (isLicensedUser) {
       toast.success('Welcome to the your Dashboard!');
     }
@@ -31,11 +42,7 @@ const Dashboard = () => {
         setServices(response.data.services || []);
 
         // Fetch the number of tests completed from external API
-        const testResponse = await axios.post(
-          TEST_API_URL,
-          { patient_uid: userId._id },
-          { headers: { 'Content-Type': 'application/json' } }
-        );
+        const testResponse = await axios.post(TEST_API_URL, { patient_uid: userId.phoneNumber.toString() });
 
         axios
           .post(
