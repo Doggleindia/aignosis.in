@@ -52,7 +52,14 @@ export const FillupPage = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        setProfiles(response.data.profiles || []);
+        const fetchedProfiles = response.data.profiles || [];
+        setProfiles(fetchedProfiles);
+        if (fetchedProfiles.length === 0) {
+          if (!toast.isActive('no-doctor-toast')) {
+            toast.error('Please add a doctor before taking a test', { toastId: 'no-doctor-toast' });
+          }
+          setTimeout(() => navigate('/dashboard'), 3000);
+        }
       } catch (err) {
         console.error('Error fetching profiles:', err);
       }
@@ -61,7 +68,7 @@ export const FillupPage = () => {
     if (token) {
       fetchProfiles();
     }
-  }, [token, API_BASE_URL]);
+  }, [token, API_BASE_URL, navigate]);
 
   const handleNextClick = async () => {
     if (patientName === '' || !dob || !guardianPhone || selectedDoctor === '') {
