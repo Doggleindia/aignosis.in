@@ -444,7 +444,6 @@ const VideoPlayback = () => {
   const videoRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoEnded, setIsVideoEnded] = useState(false);
   const [hasStartedOnce, setHasStartedOnce] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
@@ -458,13 +457,12 @@ const VideoPlayback = () => {
 
   const fpsIntervalRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
-  const SERVER_MIDDLEWARE_ENDPOINT = "https://prod.aignosismdw.in";
+  const SERVER_MIDDLEWARE_ENDPOINT = 'https://prod.aignosismdw.in';
 
   // Start FPS calculation when recording starts
   const startFpsCalculation = () => {
     let lastTime = performance.now();
     let frameCount = 0;
-
 
     fpsIntervalRef.current = setInterval(() => {
       const currentTime = performance.now();
@@ -491,13 +489,13 @@ const VideoPlayback = () => {
   useEffect(() => {
     window.history.pushState(null, null, window.location.href);
 
-    console.log("testData is", testData);
+    console.log('testData is', testData);
 
     const handleBackButton = () => {
       navigate('/AutismTest');
     };
 
-    window.addEventListener("popstate", handleBackButton);
+    window.addEventListener('popstate', handleBackButton);
     return () => {
       window.removeEventListener('popstate', handleBackButton);
       stopFpsCalculation();
@@ -530,8 +528,7 @@ const VideoPlayback = () => {
     if (frameTimes.current.length > 1) {
       const first = frameTimes.current[0];
       const last = frameTimes.current[frameTimes.current.length - 1];
-      const fpsValue =
-        (frameTimes.current.length - 1) / ((last - first) / 1000);
+      const fpsValue = (frameTimes.current.length - 1) / ((last - first) / 1000);
       setFps(Math.round(fpsValue));
     }
 
@@ -553,7 +550,7 @@ const VideoPlayback = () => {
 
       videoStreamRef.current = stream;
       webcamRef.current.srcObject = stream;
-      
+
       const mediaRecorder = new MediaRecorder(stream);
 
       mediaRecorderRef.current = mediaRecorder;
@@ -580,13 +577,11 @@ const VideoPlayback = () => {
       stopFpsCalculation(); // Stop FPS calculation before upload
 
       const aesKey = Array.from(crypto.getRandomValues(new Uint8Array(32)))
-        .map((b) => b.toString(16).padStart(2, "0"))
-        .join("");
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
 
       const encryptedBlob = await encryptVideo(blob, aesKey);
-      const jwk = await fetch(
-        `${SERVER_MIDDLEWARE_ENDPOINT}/rest/return_rsa_public_key/`
-      ).then((res) => res.json());
+      const jwk = await fetch(`${SERVER_MIDDLEWARE_ENDPOINT}/rest/return_rsa_public_key/`).then((res) => res.json());
 
       const publicKey = await window.crypto.subtle.importKey(
         'jwk',
@@ -600,102 +595,80 @@ const VideoPlayback = () => {
       );
 
       const encryptedKey = await window.crypto.subtle.encrypt(
-        { name: "RSA-OAEP" },
+        { name: 'RSA-OAEP' },
         publicKey,
         new TextEncoder().encode(aesKey)
       );
 
       const formData = new FormData();
-      formData.append("video", encryptedBlob, "encrypted-test.bin");
+      formData.append('video', encryptedBlob, 'encrypted-test.bin');
       formData.append(
-        "video_encrypted_aes_key",
-        new Blob([encryptedKey], { type: "application/octet-stream" }),
-        "encrypted_aes_key.bin"
+        'video_encrypted_aes_key',
+        new Blob([encryptedKey], { type: 'application/octet-stream' }),
+        'encrypted_aes_key.bin'
       );
-      formData.append("patient_uid", testData.PATIENT_UID);
-      formData.append("transaction_id", testData.TRANSACTION_ID);
+      formData.append('patient_uid', testData.PATIENT_UID);
+      formData.append('transaction_id', testData.TRANSACTION_ID);
 
-      formData.append(
-        "calibration_config_data",
-        JSON.stringify(testData.calibration_data)
-      );
-      formData.append(
-        "encrypted_calibration_points",
-        testData.encrypted_calibration_points
-      );
-      formData.append(
-        "calibration_encrypted_key",
-        testData.calibration_encrypted_key
-      );
-      formData.append(
-        "encrypted_patient_info",
-        testData.encrypted_patient_info
-      );
+      formData.append('calibration_config_data', JSON.stringify(testData.calibration_data));
+      formData.append('encrypted_calibration_points', testData.encrypted_calibration_points);
+      formData.append('calibration_encrypted_key', testData.calibration_encrypted_key);
+      formData.append('encrypted_patient_info', testData.encrypted_patient_info);
 
-      console.log(
-        "data usage value in video palayback is " + testData.data_usage_consent
-      );
-      formData.append("data_usage_consent", testData.data_usage_consent);
+      console.log('data usage value in video palayback is ' + testData.data_usage_consent);
+      formData.append('data_usage_consent', testData.data_usage_consent);
 
-      console.log("Uploading with FPS:", fps);
+      console.log('Uploading with FPS:', fps);
 
-      formData.append("fps", fps.toString()); // Convert fps to string
-      formData.append("videolanguage", testData.videolanguage);
+      formData.append('fps', fps.toString()); // Convert fps to string
+      formData.append('videolanguage', testData.videolanguage);
 
       for (let pair of formData.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
+        console.log(pair[0] + ': ' + pair[1]);
       }
 
-      const response = await fetch(
-        `${SERVER_MIDDLEWARE_ENDPOINT}/rest/test/video_data/`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      ).catch((error) =>
-        console.log("Error sending video data to mdw" + error)
-      );
+      const response = await fetch(`${SERVER_MIDDLEWARE_ENDPOINT}/rest/test/video_data/`, {
+        method: 'POST',
+        body: formData,
+      }).catch((error) => console.log('Error sending video data to mdw' + error));
 
       if (response.status === 413) {
-        console.log("File too large");
-        navigate("/test/fillup");
+        console.log('File too large');
+        navigate('/test/fillup');
       }
 
       if (response.status === 200) {
-        navigate("/thankyou");
+        navigate('/thankyou');
       } else {
-        navigate("/Error");
+        navigate('/Error');
       }
 
       cleanupMediaStream();
       setIsUploading(false);
     } catch (error) {
-      console.error("Error uploading video:", error);
+      console.error('Error uploading video:', error);
       cleanupMediaStream();
       setIsUploading(false);
-      navigate("/thankyou");
+      navigate('/thankyou');
     }
   };
 
   const pauseRecording = () => {
-    if (mediaRecorderRef.current?.state === "recording") {
+    if (mediaRecorderRef.current?.state === 'recording') {
       mediaRecorderRef.current.pause();
       setIsRecording(false);
     }
   };
 
   const resumeRecording = () => {
-    if (mediaRecorderRef.current?.state === "paused") {
+    if (mediaRecorderRef.current?.state === 'paused') {
       mediaRecorderRef.current.resume();
       setIsRecording(true);
     }
   };
 
   const stopRecording = () => {
-    if (
-      mediaRecorderRef.current?.state === "recording" ||
-      mediaRecorderRef.current?.state === "paused"
-    ) {
+    if (mediaRecorderRef.current?.state === 'recording' || mediaRecorderRef.current?.state === 'paused') {
       return;
     }
 
@@ -705,13 +678,12 @@ const VideoPlayback = () => {
     mediaRecorderRef.current.stop();
     setIsRecording(false);
 
-      mediaRecorderRef.current.onstop = () => {
-        const blob = new Blob(recordedChunksRef.current, {
-          type: "video/webm",
-        });
-        uploadRecording(blob);
-      };
-    }
+    mediaRecorderRef.current.onstop = () => {
+      const blob = new Blob(recordedChunksRef.current, {
+        type: 'video/webm',
+      });
+      uploadRecording(blob);
+    };
   };
 
   const handleVideoLoadedData = () => {
@@ -720,7 +692,7 @@ const VideoPlayback = () => {
       videoRef.current
         .play()
         .then(() => videoRef.current.requestFullscreen())
-        .catch((err) => console.error("Video playback error:", err));
+        .catch((err) => console.error('Video playback error:', err));
     }
   };
 
@@ -749,13 +721,13 @@ const VideoPlayback = () => {
     // Set loading state before stopping recording
     setIsLoading(true);
     stopRecording();
-    navigate("/thankyou");
+    navigate('/thankyou');
   };
 
   const getVideoSource = () => {
-    const baseUrl = "https://d228sadnexesrp.cloudfront.net/Test_Videos/";
-    const version = "V7";
-    return testData.videolanguage === "English"
+    const baseUrl = 'https://d228sadnexesrp.cloudfront.net/Test_Videos/';
+    const version = 'V7';
+    return testData.videolanguage === 'English'
       ? `${baseUrl}Aignosis_Test_vid_Eng_${version}.mp4`
       : `${baseUrl}Aignosis_Test_vid_Hindi_${version}.mp4`;
   };
@@ -772,33 +744,21 @@ const VideoPlayback = () => {
         handleVideoEnd={handleVideoEnd}
       />
 
-      <div className="absolute top-4 right-4 z-20 flex items-center space-x-2 bg-black bg-opacity-50 px-4 py-2 rounded-full">
-        <div
-          className={`w-3 h-3 rounded-full ${
-            isRecording ? "bg-red-500" : "bg-gray-500"
-          }`}
-        />
-        <span className="text-white text-sm">
-          {isRecording ? "Recording" : "Not Recording"}
-        </span>
+      <div className="absolute right-4 top-4 z-20 flex items-center space-x-2 rounded-full bg-black bg-opacity-50 px-4 py-2">
+        <div className={`h-3 w-3 rounded-full ${isRecording ? 'bg-red-500' : 'bg-gray-500'}`} />
+        <span className="text-sm text-white">{isRecording ? 'Recording' : 'Not Recording'}</span>
       </div>
 
       <div className="absolute bottom-10">
         {isVideoEnded ? (
           <button
-            onClick={() => navigate("/thankyou")}
-            className="px-6 py-3 bg-[#9C00AD] text-white rounded-full font-semibold hover:bg-[#F0A1FF] transition-colors"
+            onClick={() => navigate('/thankyou')}
+            className="rounded-full bg-[#9C00AD] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#F0A1FF]"
           >
             Next
           </button>
         ) : (
-          <p className="text-white">
-            {isVideoPlaying
-              ? "Playing..."
-              : isVideoLoaded
-              ? "Paused"
-              : "Loading video..."}
-          </p>
+          <p className="text-white">{isVideoPlaying ? 'Playing...' : isVideoLoaded ? 'Paused' : 'Loading video...'}</p>
         )}
       </div>
     </div>
@@ -806,4 +766,3 @@ const VideoPlayback = () => {
 };
 
 export default VideoPlayback;
-
