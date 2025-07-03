@@ -1,28 +1,4 @@
-import React from 'react';
-
 const PageUnavailable = () => {
-  const errorStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#1e0a2d', // Light red background
-    color: '#f1f1f1', // Dark red text
-    fontFamily: 'Arial, sans-serif',
-    textAlign: 'center',
-  };
-
-  const errorTitleStyle = {
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    marginBottom: '1rem',
-  };
-
-  const errorMessageStyle = {
-    fontSize: '1.2rem',
-  };
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#1A0C25] text-center">
       {/* Step Progress Indicator */}
@@ -36,7 +12,7 @@ const PageUnavailable = () => {
 
       {/* Big Thank You Message */}
       <div className="mt-4">
-        <h2 className="font-manrope text-6xl font-bold text-[#FFFFFF]">Error</h2>
+        <h2 className="font-manrope text-6xl font-bold text-[#FFFFFF]">License Required</h2>
       </div>
 
       {/* Thank You Paragraph */}
