@@ -1,438 +1,245 @@
-// import React, { useContext, useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import CalibrationPage from "./CalibrationPage";
-// import { DatePicker, Checkbox } from "antd";
-// import { useNavigate } from "react-router-dom";
-// import { AppContext } from "../aignosisintegration/AppContext";
-// import { format } from "date-fns";
-// import Protectedpage from "./Protectedpage";
-// import { v4 as uuidv4 } from "uuid";
-
-// export const FillupPage = () => {
-//   const [selectedDate, setSelectedDate] = useState(null);
-//   const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
-//   const [dob, setDob] = useState(null);
-//   const [consent, setConsent] = useState(false);
-//   const [, setAgeYears] = useState("");
-//   const [, setAgeMonths] = useState("");
-//   const [, setAgeFullYear] = useState("");
-//   const navigate = useNavigate();
-//   const { testData, setTestData } = useContext(AppContext);
-
-//   useEffect(() => {
-//     if (localStorage.getItem("user") != null) {
-//       console.log("Existing UID found "+ JSON.parse(localStorage.getItem("user")).phoneNumber)
-//       setTestData({
-//         ...testData,
-//         PATIENT_UID: JSON.parse(localStorage.getItem("user")).phoneNumber,
-//         TRANSACTION_ID: uuidv4(),
-//       });
-//     } else {
-//       console.log("UID of current person is null...setting custom patient UID");
-//       setTestData({
-//         ...testData,
-//         PATIENT_UID: uuidv4(),
-//         TRANSACTION_ID: uuidv4(),
-//       });
-
-//     }
-//     setDob(formatDate(selectedDate));
-
-//     // Push initial state to prevent default navigation
-//     window.history.pushState(null, null, window.location.href);
-
-//     const handleBackButton = () => {
-//       navigate("/dashboard");
-//     };
-
-//     window.addEventListener("popstate", handleBackButton);
-
-//     return () => {
-//       window.removeEventListener("popstate", handleBackButton);
-//     };
-//   }, [navigate, selectedDate]);
-
-//   const handleNextClick = async () => {
-//     if (
-//       document.getElementById("patient-name-input").value == "" ||
-//       !dob ||
-//       document.getElementById("guardian-pno-input").value == ""
-//     ) {
-//       alert("Please fill all fields and agree to the consent");
-//     } else {
-//       checkGuardianPnoValidity();
-//       setTestData({
-//         ...testData,
-//         patientName: document.getElementById("patient-name-input").value,
-//         patientDOB: dob,
-//         guardianPno: document.getElementById("guardian-pno-input").value,
-//         clinicOrReferrerName: document.getElementById("referrer-name-input")
-//           .value,
-//         consentGiven: consent,
-//       });
-
-//       console.log(testData);
-//       navigate("/autismtest");
-//     }
-//   };
-
-//   function checkGuardianPnoValidity() {
-//     console.log(document.getElementById("guardian-pno-input").value);
-//   }
-
-//   function formatDate(date) {
-//     if (date && !isNaN(date)) {
-//       return format(new Date(date), "dd/MM/yyyy");
-//     }
-//     return "";
-//   }
-
-//   const handleDateChange = (date) => {
-//     setSelectedDate(date);
-//     const formattedDate = formatDate(date ? date.toDate() : null);
-//     setDob(formattedDate);
-//   };
-
-//   return (
-//     <Protectedpage>
-//       <div className="bg-[#1A0C25] flex flex-col justify-between min-h-screen h-full">
-//         <div className="flex-grow flex flex-col justify-center items-center py-8">
-//           {!isBackInfoVisible ? (
-//             <div className="flex flex-row max-sm:flex-col max-sm:justify-center items-center justify-between w-full max-w-7xl px-4">
-//               <div className="flex flex-col items-start space-y-[80px] px-8 max-sm:mt-[50px]">
-//                 <div className="relative inline-block m-[auto]">
-//                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-//                   <span className="relative text-4xl font-semibold tracking-wide text-white z-10">
-//                     Ai.gnosis
-//                   </span>
-//                 </div>
-
-//                 <div className="flex flex-col space-y-4 max-w-sm">
-//                   <p className="text-white font-manrope text-center text-2xl">
-//                     Please take the assessment to{" "}
-//                     <span className="text-left">begin with diagnosis</span>
-//                   </p>
-//                   <p className="text-[#FFFFFF] font-raleway text-sm px-4 py-2 text-center">
-//                     Assessment duration: 5 mins
-//                   </p>
-//                 </div>
-//               </div>
-
-//               <div className="bg-[#564A5957] p-10 rounded-2xl shadow-lg w-[50vw] max-sm:w-auto mx-8">
-//                 <h2 className="text-white text-2xl font-semibold mb-4 font-manrope text-center">
-//                   Welcome to Ai.gnosis early detection screener
-//                 </h2>
-//                 <p className="text-gray-400 text-sm mb-8 font-raleway text-center">
-//                   Ai.gnosis is an online platform that helps you detect early
-//                   signs of developmental disorder in children.
-//                 </p>
-
-//                 <form className="space-y-4">
-//                   <input
-//                     id="patient-name-input"
-//                     type="text"
-//                     placeholder="Patient Name"
-//                     className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-//                   />
-
-//                   <DatePicker
-//                     onChange={handleDateChange}
-//                     format="DD/MM/YYYY"
-//                     className="w-full text-white bg-[#1A0C25] border border-[#B7407D4D] focus:ring-2 focus:ring-pink-500"
-//                     placeholder="Date of Birth"
-//                     style={{
-//                       color: "black",
-//                       backgroundColor: "white",
-//                       width: "100%",
-//                       borderColor: "#B7407D4D",
-//                     }}
-//                   />
-
-//                   <input
-//                     id="guardian-pno-input"
-//                     type="tel"
-//                     placeholder="Patient Guardian Phone"
-//                     className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-//                   />
-
-//                   <input
-//                     id="referrer-name-input"
-//                     type="text"
-//                     placeholder="Clinic Name / Referred Doctor"
-//                     className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-//                   />
-
-//                   <div className="flex justify-center items-center gap-2 max-sm:flex-col">
-//                     <Link
-//                       to="/prices"
-//                       className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
-//                     >
-//                       Back
-//                     </Link>
-
-//                     <button
-//                       type="button"
-//                       onClick={handleNextClick}
-//                       className="hover:bg-pink-700 text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center"
-//                     >
-//                       Next
-//                     </button>
-//                   </div>
-//                 </form>
-//               </div>
-//             </div>
-//           ) : (
-//             <CalibrationPage />
-//           )}
-//         </div>
-
-//         <div className="w-full bg-[#5e235b] py-3 px-4 flex items-center justify-center">
-//           <div className="flex items-center">
-//             <Checkbox
-//               checked={consent}
-//               onChange={(e) => {
-//                 setConsent(e.target.checked);
-//                 setTestData({
-//                   ...testData,
-//                   data_usage_consent: e.target.checked,
-//                 });
-//               }}
-//               className="mr-3"
-//               style={{ color: "white" }}
-//             />
-//             <div className="text-white">
-//               I give my consent for my data to be used for research purposes. I
-//               understand that my data will be securely stored, anonymized where
-//               necessary, and used to improve services and research outcomes.
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </Protectedpage>
-//   );
-// };
-
-// export default FillupPage;
-
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import CalibrationPage from "./CalibrationPage";
-import { DatePicker, Checkbox } from "antd";
-import { useNavigate } from "react-router-dom";
-import { AppContext } from "../aignosisintegration/AppContext";
-import { format } from "date-fns";
-import Protectedpage from "./Protectedpage";
-import { v4 as uuidv4 } from "uuid";
+import { useContext, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Checkbox } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../aignosisintegration/AppContext';
+import Protectedpage from './Protectedpage';
+import { v4 as uuidv4 } from 'uuid';
+import PhoneInput from 'react-phone-number-input';
+import { getPhoneUID } from '../../utils/phoneUtils';
+import PageUnavailable from './PageUnavailable';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const FillupPage = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [isBackInfoVisible, setIsBackInfoVisible] = useState(false);
-  const [dob, setDob] = useState(null);
-  const [consent, setConsent] = useState(false);
-  const [, setAgeYears] = useState("");
-  const [, setAgeMonths] = useState("");
-  const [, setAgeFullYear] = useState("");
+  const [selectedDate, setSelectedDate] = useState('');
+  const [dob, setDob] = useState('');
+  const [consent, setConsent] = useState(true);
+  const [guardianPhone, setGuardianPhone] = useState('');
+  const [profiles, setProfiles] = useState([]);
+  const [patientName, setPatientName] = useState('');
+  const [selectedDoctor, setSelectedDoctor] = useState('');
   const navigate = useNavigate();
+  const dobInputRef = useRef(null);
   const { testData, setTestData } = useContext(AppContext);
+  const [pageUnavailable, setPageUnavailable] = useState(true);
 
-
-  function sanitizePatientUID(patient_uid) {
-    return patient_uid.replace(/[^a-zA-Z0-9-]/g, '');
-  }
+  const API_BASE_URL = import.meta.env.VITE_MAIN_BACKEND;
+  const token = localStorage.getItem('authToken');
 
   useEffect(() => {
-    if (localStorage.getItem("user") != null) {
-      console.log(
-        "Existing UID found " +
-          JSON.parse(localStorage.getItem("user")).phoneNumber
-      );
+    if (localStorage.getItem('isLicensedUser') === 'true') {
+      setPageUnavailable(false);
+    }
+    if (localStorage.getItem('user') != null) {
+      console.log('Existing UID found ' + JSON.parse(localStorage.getItem('user')).phoneNumber);
+      const phoneNumber = JSON.parse(localStorage.getItem('user')).phoneNumber;
 
       setTestData({
         ...testData,
-        PATIENT_UID: sanitizePatientUID(JSON.parse(localStorage.getItem("user")).phoneNumber.toString()),
-        TRANSACTION_ID: uuidv4(),
-      });
-    } else {
-      console.log("UID of current person is null...setting custom patient UID");
-      setTestData({
-        ...testData,
-        PATIENT_UID: uuidv4(),
+        PATIENT_UID: phoneNumber,
         TRANSACTION_ID: uuidv4(),
       });
     }
-    setDob(formatDate(selectedDate));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    // Push initial state to prevent default navigation
-    window.history.pushState(null, null, window.location.href);
-
-    const handleBackButton = () => {
-      navigate("/dashboard");
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/api/profiles`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setProfiles(response.data.profiles || []);
+      } catch (err) {
+        console.error('Error fetching profiles:', err);
+      }
     };
 
-    window.addEventListener("popstate", handleBackButton);
-
-    return () => {
-      window.removeEventListener("popstate", handleBackButton);
-    };
-  }, [navigate, selectedDate, consent]);
+    if (token) {
+      fetchProfiles();
+    }
+  }, [token, API_BASE_URL]);
 
   const handleNextClick = async () => {
-    if (
-      document.getElementById("patient-name-input").value == "" ||
-      !dob ||
-      document.getElementById("guardian-pno-input").value == ""
-    ) {
-      alert("Please fill all fields and agree to the consent");
+    if (patientName === '' || !dob || !guardianPhone || selectedDoctor === '') {
+      toast.error('Please fill all fields');
     } else {
-      checkGuardianPnoValidity();
+      const formattedPhoneNumber = getPhoneUID(guardianPhone);
+
       setTestData({
         ...testData,
-        patientName: document.getElementById("patient-name-input").value,
+        patientName: patientName,
         patientDOB: dob,
-        guardianPno: document.getElementById("guardian-pno-input").value,
-        clinicOrReferrerName: document.getElementById("referrer-name-input")
-          .value,
+        guardianPno: formattedPhoneNumber,
+        doctorName: selectedDoctor,
         consentGiven: consent,
       });
 
-      console.log(testData);
-      navigate("/autismtest");
+      navigate('/instructions');
     }
   };
 
-  function checkGuardianPnoValidity() {
-    console.log(document.getElementById("guardian-pno-input").value);
-  }
+  const handleDateChange = (e) => {
+    const dateValue = e.target.value;
+    setSelectedDate(dateValue);
 
-  function formatDate(date) {
-    if (date && !isNaN(date)) {
-      return format(new Date(date), "dd/MM/yyyy");
+    if (dateValue) {
+      // Convert from YYYY-MM-DD to DD/MM/YYYY
+      const [year, month, day] = dateValue.split('-');
+      const formattedDate = `${day}/${month}/${year}`;
+      setDob(formattedDate);
+      console.log('DOB set to:', formattedDate);
+    } else {
+      setDob('');
     }
-    return "";
-  }
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    const formattedDate = formatDate(date ? date.toDate() : null);
-    setDob(formattedDate);
   };
 
   return (
-    <Protectedpage>
-      <div className="bg-[#1A0C25] flex flex-col justify-between min-h-screen h-full">
-        <div className="flex-grow flex flex-col justify-center items-center py-8">
-          {!isBackInfoVisible ? (
-            <div className="flex flex-row max-sm:flex-col max-sm:justify-center items-center justify-between w-full max-w-7xl px-4">
-              <div className="flex flex-col items-start space-y-[80px] px-8 max-sm:mt-[50px]">
-                <div className="relative inline-block m-[auto]">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 blur-lg opacity-60 rounded-lg"></div>
-                  <span className="relative text-4xl font-semibold tracking-wide text-white z-10">
-                    Ai.gnosis
-                  </span>
-                </div>
-
-                <div className="flex flex-col space-y-4 max-w-sm">
-                  <p className="text-white font-manrope text-center text-2xl">
-                    Please take the assessment to{" "}
-                    <span className="text-left">begin with diagnosis</span>
-                  </p>
-                  <p className="text-[#FFFFFF] font-raleway text-sm px-4 py-2 text-center">
-                    Assessment duration: 5 mins
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-[#564A5957] p-10 rounded-2xl shadow-lg w-[50vw] max-sm:w-auto mx-8">
-                <h2 className="text-white text-2xl font-semibold mb-4 font-manrope text-center">
-                  Welcome to Ai.gnosis early detection screener
-                </h2>
-                <p className="text-gray-400 text-sm mb-8 font-raleway text-center">
-                  Ai.gnosis is an online platform that helps you detect early
-                  signs of developmental disorder in children.
-                </p>
-
-                <form className="space-y-4">
-                  <input
-                    id="patient-name-input"
-                    type="text"
-                    placeholder="Patient Name"
-                    className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-                  />
-
-                  <DatePicker
-                    onChange={handleDateChange}
-                    format="DD/MM/YYYY"
-                    className="w-full text-white bg-[#1A0C25] border border-[#B7407D4D] focus:ring-2 focus:ring-pink-500"
-                    placeholder="Date of Birth"
-                    style={{
-                      color: "black",
-                      backgroundColor: "white",
-                      width: "100%",
-                      borderColor: "#B7407D4D",
-                    }}
-                  />
-
-                  <input
-                    id="guardian-pno-input"
-                    type="tel"
-                    placeholder="Patient Guardian Phone"
-                    className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-                  />
-
-                  <input
-                    id="referrer-name-input"
-                    type="text"
-                    placeholder="Clinic Name / Referred Doctor"
-                    className="bg-[#1A0C25] text-white px-4 py-2.5 rounded-lg w-full placeholder-gray-500 border border-[#B7407D4D] focus:outline-none focus:ring-2 focus:ring-pink-500"
-                  />
-
-                  <div className="flex justify-center items-center gap-2 max-sm:flex-col">
-                    <Link
-                      to="/prices"
-                      className="text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center transition-all duration-300 ease-in-out hover:bg-[#9C00AD] hover:border-transparent hover:shadow-md"
-                    >
-                      Back
-                    </Link>
-
-                    <button
-                      type="button"
-                      onClick={handleNextClick}
-                      className="hover:bg-pink-700 text-white border border-[#9C00AD] px-6 py-3 rounded-full font-semibold mt-4 w-[150px] flex justify-center items-center"
-                    >
-                      Next
-                    </button>
+    <>
+      {pageUnavailable ? (
+        <PageUnavailable />
+      ) : (
+        <Protectedpage>
+          <div className="flex h-full min-h-screen flex-col justify-between bg-[#1A0C25]">
+            <div className="flex flex-grow flex-col items-center justify-center py-8">
+              <div className="flex w-full max-w-7xl flex-row items-center justify-between px-4 max-sm:flex-col max-sm:justify-center">
+                <div className="flex flex-col items-start space-y-[80px] px-8 max-sm:mt-[50px]">
+                  <div className="relative m-[auto] inline-block">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-60 blur-lg"></div>
+                    <span className="relative z-10 text-4xl font-semibold tracking-wide text-white">Aignosis</span>
                   </div>
-                </form>
+
+                  <div className="flex max-w-sm flex-col space-y-4">
+                    <p className="text-center font-manrope text-2xl text-white">
+                      Please take the assessment to <span className="text-left">begin with screening</span>
+                    </p>
+                    <p className="px-4 py-2 text-center font-raleway text-sm text-[#FFFFFF]">
+                      Assessment duration: 5 mins
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mx-8 w-[50vw] rounded-2xl bg-[#564A5957] p-10 shadow-lg max-sm:w-auto">
+                  <h2 className="mb-4 text-center font-manrope text-2xl font-semibold text-white">
+                    Welcome to Aignosis early detection screener
+                  </h2>
+                  <p className="mb-8 text-center font-raleway text-sm text-gray-400">
+                    Aignosis is an online platform that helps you detect early signs of developmental disorder in
+                    children.
+                  </p>
+
+                  <form className="space-y-4" autoComplete="off">
+                    <input
+                      id="patient-name-input"
+                      type="text"
+                      placeholder="Patient Name"
+                      value={patientName}
+                      onChange={(e) => setPatientName(e.target.value)}
+                      className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    />
+                    <div className="flex" onClick={() => dobInputRef.current?.showPicker()}>
+                      <input
+                        type="date"
+                        id="dob-input"
+                        name="dob"
+                        ref={dobInputRef}
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        className="pointer-events-none w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        style={{ colorScheme: 'dark' }}
+                      />
+                    </div>
+                    <PhoneInput
+                      international
+                      countryCallingCodeEditable={false}
+                      defaultCountry="IN"
+                      placeholder="Patient Guardian Phone"
+                      value={guardianPhone}
+                      onChange={setGuardianPhone}
+                      limitMaxLength={true}
+                      className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25]"
+                      numberInputProps={{
+                        className:
+                          'w-full rounded-lg border-0 bg-transparent px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-pink-500',
+                        style: {
+                          backgroundColor: 'transparent',
+                          border: 'none',
+                          outline: 'none',
+                        },
+                      }}
+                      countrySelectProps={{
+                        className: 'bg-[#1A0C25] border-0 text-white',
+                        style: {
+                          backgroundColor: '#1A0C25',
+                          border: 'none',
+                          color: 'white',
+                        },
+                      }}
+                    />
+                    <select
+                      id="referrer-name-select"
+                      value={selectedDoctor}
+                      required
+                      onChange={(e) => setSelectedDoctor(e.target.value)}
+                      className="w-full rounded-lg border border-[#B7407D4D] bg-[#1A0C25] px-4 py-2.5 text-white placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    >
+                      <option value="" disabled className="bg-[#1A0C25] text-gray-500">
+                        Select Doctor
+                      </option>
+                      {profiles.map((profile) => (
+                        <option key={profile._id} value={profile.name} className="bg-[#1A0C25] text-white">
+                          {profile.name}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="flex items-center justify-center gap-2 max-sm:flex-col">
+                      <Link
+                        to="/prices"
+                        className="mt-4 flex w-[150px] items-center justify-center rounded-full border border-[#9C00AD] px-6 py-3 font-semibold text-white transition-all duration-300 ease-in-out hover:border-transparent hover:bg-[#9C00AD] hover:shadow-md"
+                      >
+                        Back
+                      </Link>
+
+                      <button
+                        type="button"
+                        onClick={handleNextClick}
+                        className="mt-4 flex w-[150px] items-center justify-center rounded-full border border-[#9C00AD] px-6 py-3 font-semibold text-white hover:bg-pink-700"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          ) : (
-            <CalibrationPage />
-          )}
-        </div>
 
-        <div className="w-full bg-[#5e235b] py-3 px-9 flex items-center justify-center">
-          <div className="flex items-center">
-            <Checkbox
-              checked={consent}
-              onChange={(e) => {
-                setConsent(e.target.checked);
-                setTestData({
-                  ...testData,
-                  data_usage_consent: e.target.checked,
-                });
-              }}
-              className="mr-3"
-              style={{ color: "white" }}
-            />
-            <div className="text-white" style={{textAlign: 'center'}}>
-              I give my consent for my data to be used for research purposes. I
-              understand that my data will be securely stored, anonymized where
-              necessary, and used to improve services and research outcomes.
+            <div className="flex w-full items-center justify-center bg-[#5e235b] px-9 py-3">
+              <div className="flex items-center">
+                <Checkbox
+                  checked={consent}
+                  onChange={(e) => {
+                    setConsent(e.target.checked);
+                    setTestData({
+                      ...testData,
+                      data_usage_consent: e.target.checked,
+                    });
+                  }}
+                  className="mr-3"
+                  style={{ color: 'white' }}
+                />
+                <div className="text-white" style={{ textAlign: 'center' }}>
+                  I give my consent for my data to be used for research purposes. I understand that my data will be
+                  securely stored, anonymized where necessary, and used to improve services and research outcomes.
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </Protectedpage>
+        </Protectedpage>
+      )}
+    </>
   );
 };
 

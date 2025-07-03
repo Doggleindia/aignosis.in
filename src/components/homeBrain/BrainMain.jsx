@@ -1,6 +1,6 @@
-import React from 'react'
-import Brain from './Brain'
-import Features from './Features'
+import React from 'react';
+import Brain from './Brain';
+import Features from './Features';
 
 const BrainMain = () => {
   return (
@@ -8,7 +8,7 @@ const BrainMain = () => {
       <Brain />
       <Features />
     </div>
-  )
-}
+  );
+};
 
-export default BrainMain
+export default BrainMain;

@@ -1,13 +1,11 @@
-import React from 'react'
-import FillupPage from './FillupPage'
-
+import FillupPage from './FillupPage';
 
 const TestMain = () => {
   return (
     <>
-     <FillupPage />
+      <FillupPage />
     </>
-  )
-}
+  );
+};
 
-export default TestMain
+export default TestMain;

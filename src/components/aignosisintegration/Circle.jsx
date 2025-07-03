@@ -1,5 +1,3 @@
-import React from "react";
-
 function Circle({ x, y, radius, imageUrl, onClickHandler }) {
   return (
     <>
@@ -19,14 +17,14 @@ function Circle({ x, y, radius, imageUrl, onClickHandler }) {
         src={imageUrl} // Use the URL of the dog image
         onClick={onClickHandler}
         style={{
-          position: "absolute",
-          left: x - radius/2, // Subtract radius to center the image at (x, y)
-          top: y - radius/2,
+          position: 'absolute',
+          left: x - radius, // Center the image horizontally at x coordinate
+          top: y - radius, // Center the image vertically at y coordinate
           width: radius * 2,
           height: radius * 2,
-          objectFit: "contain", // Ensure the image fits nicely
-          cursor: "pointer", // Indicate it's clickable
-          animation: "blink 0.5s infinite", // Apply the blinking animation
+          objectFit: 'contain', // Ensure the image fits nicely
+          cursor: 'pointer', // Indicate it's clickable
+          animation: 'blink 0.5s infinite', // Apply the blinking animation
         }}
       />
     </>

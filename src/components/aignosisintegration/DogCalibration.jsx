@@ -19,59 +19,86 @@ const DogCalibration = () => {
   const [frames, setFrames] = useState([]);
   const [isCircleVisible, setIsCircleVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false); // State for managing loading spinner
+  const [isTestCompleted, setIsTestCompleted] = useState(false); // State to track if the test is completed
 
   const [currentCircleIndex, setCurrentCircleIndex] = useState(0);
   const [parentDimensions, setParentDimensions] = useState([0, 0]);
+  const [clickTimes, setClickTimes] = useState([]);
+  const [screenDimensions, setScreenDimensions] = useState([0, 0]);
 
   const [videoResolution, setVideoResolution] = useState([640, 480]); // Static resolution for sample images
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const [clickTimes, setClickTimes] = useState([]);
   const parentRef = useRef(null);
+  const audioRef = useRef(null);
 
   const { testData, setTestData } = useContext(AppContext);
 
   const navigate = useNavigate(); // Initialize navigate from useNavigate
 
-  const circleCoordinates = [
-    [window.innerWidth / 2, window.innerHeight / 2], // center
-    [50, 50], // left top
-    [50, window.innerHeight / 2], // left mid
-    [50, window.innerHeight - 100], // left bottom
-    [window.innerWidth - 100, 50], // right top
-    [window.innerWidth - 100, window.innerHeight / 2], // right mid
-    [window.innerWidth - 100, window.innerHeight - 100], // right bottom
-    [window.innerWidth / 2, 50], // mid top
-    [window.innerWidth / 2, window.innerHeight - 100], // mid bottom
-  ];
+  // Calculate safe coordinates that account for dog size (radius = 50, so dog width/height = 100)
+  const dogSize = 100; // radius * 2
+  const margin = dogSize / 2 + 20; // Add some extra margin
 
-  // const audio = new Audio(`dog_bark.wav?timestamp=${Date.now()}`);
-  const audioRef = useRef(null);
+  const [circleCoordinates, setCircleCoordinates] = useState([]);
+
+  // Calculate screen dimensions and coordinates
+  useEffect(() => {
+    const updateDimensions = () => {
+      // Use document.documentElement for actual viewport size
+      const screenWidth = document.documentElement.clientWidth;
+      const screenHeight = document.documentElement.clientHeight;
+
+      setScreenDimensions([screenWidth, screenHeight]);
+
+      // Calculate coordinates with proper margins
+      const newCoordinates = [
+        [screenWidth / 2, screenHeight / 2], // center
+        [margin, margin], // left top
+        [margin, screenHeight / 2], // left mid
+        [margin, screenHeight - margin], // left bottom
+        [screenWidth - margin, margin], // right top
+        [screenWidth - margin, screenHeight / 2], // right mid
+        [screenWidth - margin, screenHeight - margin], // right bottom
+        [screenWidth / 2, margin], // mid top
+        [screenWidth / 2, screenHeight - margin], // mid bottom
+      ];
+
+      setCircleCoordinates(newCoordinates);
+    };
+
+    // Initial calculation
+    updateDimensions();
+
+    // Update on window resize
+    window.addEventListener('resize', updateDimensions);
+
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  // Effect for cycling through autism facts during loading state
+  useEffect(() => {
+    if (isLoading) {
+      const factInterval = setInterval(() => {
+        setFactIndex((prevIndex) => (prevIndex + 1) % autismFacts.length);
+      }, newFactInterval); // Change fact every 7 seconds
+
+      return () => clearInterval(factInterval); // Cleanup on unmount
+    }
+  }, [isLoading, autismFacts.length]);
 
   useEffect(() => {
-    console.log('Screen resolution is ' + screen.width + ' x ' + screen.height);
+    // if (testData === null || testData === undefined) navigate('/test/fillup');
+    // else if (!testData.PATIENT_UID || testData.PATIENT_UID === '') navigate('/test/fillup');
 
-    function goFullScreen() {
-      let elem = document.documentElement; // The whole page
-
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        // Firefox
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) {
-        // Chrome, Safari, Edge
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        // Internet Explorer
-        elem.msRequestFullscreen();
-      }
+    if (isTestCompleted) {
+      console.log('Test completed, stopping audio and clearing interval');
+      return;
     }
+    console.log('Screen resolution is ' + screenDimensions[0] + ' x ' + screenDimensions[1]);
 
-    goFullScreen();
-
-    console.log("DOG CALIBRATION TEST DATA", testData);
+    console.log('DOG CALIBRATION TEST DATA', testData);
     // Get the webcam stream and metadata on mount
     if (parentRef.current) {
       const { clientWidth, clientHeight } = parentRef.current;
@@ -80,13 +107,13 @@ const DogCalibration = () => {
 
     const startWebcam = async () => {
       if (!navigator.mediaDevices.getUserMedia) {
-        console.error("getUserMedia not supported");
+        console.error('getUserMedia not supported');
         return;
       }
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: true,
+          video: { deviceId: testData.deviceId ? { exact: testData.deviceId } : true },
         });
         videoRef.current.srcObject = stream;
 
@@ -98,7 +125,7 @@ const DogCalibration = () => {
 
         videoRef.current.onloadedmetadata = handleMetadata;
       } catch (error) {
-        console.error("Webcam start error:", error);
+        console.error('Webcam start error:', error);
       }
     };
 
@@ -111,15 +138,15 @@ const DogCalibration = () => {
     console.log(audio);
     const handleAudioPlay = () => {
       audio.loop = true;
-      audio.play().catch((error) => console.error("Audio play error:", error));
+      audio.play().catch((error) => console.error('Audio play error:', error));
     };
 
-    audio.addEventListener("canplaythrough", handleAudioPlay);
+    audio.addEventListener('canplaythrough', handleAudioPlay);
 
     return () => {
       audio.pause();
       audio.currentTime = 0; // Reset audio position
-      audio.removeEventListener("canplaythrough", handleAudioPlay);
+      audio.removeEventListener('canplaythrough', handleAudioPlay);
     };
   }, [testData]);
 
@@ -130,17 +157,17 @@ const DogCalibration = () => {
   const captureFrame = () => {
     if (canvasRef.current && videoRef.current) {
       const canvas = canvasRef.current;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext('2d');
 
       canvas.width = videoRef.current.videoWidth;
       canvas.height = videoRef.current.videoHeight;
 
       context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-      const frameData = canvas.toDataURL("image/jpeg");
+      const frameData = canvas.toDataURL('image/jpeg');
       return frameData;
     } else {
-      console.warn("Frame capture failed: canvasRef or videoRef is null");
+      console.warn('Frame capture failed: canvasRef or videoRef is null');
       // TODO: send back to take assignment page, with alert saying some error occurred
     }
   };
@@ -159,41 +186,30 @@ const DogCalibration = () => {
         }, 33) // Adjusted to 33ms for ~30 fps
       );
       setCurrentCircleIndex(currentCircleIndex + 1);
-    } else if (
-      currentCircleIndex < circleCoordinates.length - 1 &&
-      currentCircleIndex > 0
-    ) {
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+    } else if (currentCircleIndex < circleCoordinates.length - 1 && currentCircleIndex > 0) {
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       setCurrentCircleIndex(currentCircleIndex + 1);
     } else {
       // THIS IS THE LAST CLICK ON THE DOG / CAT
       try {
-        if (audioRef.current) {
-          audioRef.current.loop = false;
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
-          console.log("Audio stopped successfully");
-        } else {
-          console.warn("Audio reference is null when attempting to stop");
-        }
+        setIsTestCompleted(true);
+        console.log('Stopping audio...');
+        audioRef.current.loop = false;
+        audioRef.current.currentTime = 0;
+        audioRef.current.pause();
+        audioRef.current.src = '';
+        audioRef.current.removeEventListener('canplaythrough', () => {});
+        console.log('Audio stopped successfully');
       } catch (err) {
-        console.error("Error stopping audio:", err);
+        console.error('Error stopping audio:', err);
       }
 
-      setClickTimes((clicktimes) => [
-        ...clicktimes,
-        (Date.now() - startTime) / 1000,
-      ]);
+      setClickTimes((clicktimes) => [...clicktimes, (Date.now() - startTime) / 1000]);
       var finalClickTimes = [...clickTimes, (Date.now() - startTime) / 1000];
       setIsCircleVisible(false);
 
       const timeElapsed = (Date.now() - startTime) / 1000;
-      let fps = parseInt(
-        (frames.length / parseInt(timeElapsed.toString())).toString()
-      );
+      let fps = parseInt((frames.length / parseInt(timeElapsed.toString())).toString());
 
 
       var calibration_points = [];
@@ -285,8 +301,8 @@ const DogCalibration = () => {
             encrypted_patient_info: encryptedPatientInfo.toString(),
           });
         } catch (error) {
-          console.error("Processing error:", error);
-          navigate("/Error");
+          console.error('Processing error:', error);
+          navigate('/Error');
           console.log(error);
         }
       }
@@ -308,87 +324,87 @@ const DogCalibration = () => {
       id="parent-container"
       ref={parentRef}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#1b0c26",
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh',
+        backgroundColor: !isCircleVisible && isLoading ? '#1b0c26' : 'white',
       }}
     >
-      {isCircleVisible &&
-        parentDimensions[0] > 0 &&
-        parentDimensions[1] > 0 && (
-          <Circle
-            onClickHandler={handleCircleClick}
-            x={circleCoordinates[currentCircleIndex][0]}
-            y={circleCoordinates[currentCircleIndex][1]}
-            radius={50}
-            imageUrl={dogpng}
-          />
-        )}
+      {isCircleVisible && parentDimensions[0] > 0 && parentDimensions[1] > 0 && circleCoordinates.length > 0 && (
+        <Circle
+          onClickHandler={handleCircleClick}
+          x={circleCoordinates[currentCircleIndex][0]}
+          y={circleCoordinates[currentCircleIndex][1]}
+          radius={50}
+          imageUrl={dogpng}
+        />
+      )}
 
       {/* Conditionally render spinner or button */}
       {!isCircleVisible &&
         (isLoading ? (
           <div
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              display: 'flex',
+              flex: 1,
+              flexDirection: 'column',
+              alignItems: 'center',
+              border: '0px solid red',
+              justifyContent: 'center',
+              height: '100%',
+              backgroundColor: 'white',
             }}
           >
-            <BeatLoader color="#ffffff" size={15} />
-            <br />
-            <p
-              className="mt-4"
+            <div
               style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                backgroundColor: "rgba(138, 0, 194, 0.6)",
-                color: "white",
-                padding: "12px 24px",
-                borderRadius: "25px",
-                border: "none",
-                fontSize: "32px",
-                fontWeight: "bold",
-                cursor: "pointer",
+                display: 'flex',
+                alignItems: 'end',
+                flex: 1,
+                border: '0px solid green',
+                marginTop: 200,
               }}
             >
-              {" "}
-              Calibrating
-            </p>
+              <MoonLoader color="#9a0ea9" />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                border: '0px solid green',
+                marginTop: 20,
+                marginBottom: 100,
+                fontWeight: 200,
+                color: '#9a0ea9',
+                fontSize: 30,
+              }}
+            >
+              Please wait calibrating...
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'end',
+                flex: 1,
+                border: '0px solid green',
+                textAlign: 'center',
+                marginBottom: 100,
+                color: '#9a0ea9',
+                maxWidth: '80%',
+              }}
+            >
+              {autismFacts[factIndex].fact}
+            </div>
           </div>
         ) : (
-          <button
-            className="mt-4"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              backgroundColor: "transparent", // Transparent background
-              color: "white",
-              padding: "12px 24px",
-              borderRadius: "50px", // Elliptical shape
-              border: "2px solid white", // White border
-              fontSize: "32px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              transition: "background-color 0.3s ease, color 0.3s ease",
-            }}
-            onClick={handleNextButtonClick}
-          >
+          <button className="calibration-next-btn mt-4" onClick={handleNextButtonClick}>
             Next
           </button>
         ))}
 
-      <div style={{ display: "none", flex: 1 }}>
-        <video ref={videoRef} autoPlay playsInline></video>
+      <div style={{ display: 'none', flex: 1 }}>
+        <video ref={videoRef} autoPlay playsInline muted></video>
       </div>
-      <canvas ref={canvasRef} style={{ flex: 1, display: "none" }} />
+      <canvas ref={canvasRef} style={{ flex: 1, display: 'none' }} />
     </div>
   );
 };

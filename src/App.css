@@ -1,12 +1,11 @@
 #pdf-image {
-    width: 794px; /* A4 width in pixels */
-    height: 1123px; /* A4 height in pixels */
-    overflow: hidden;
-    background-color: white;
-  }
-  
-  .pdf-image {
-    width: 100%;
-    height: auto;
-  }
-  
+  width: 794px; /* A4 width in pixels */
+  height: 1123px; /* A4 height in pixels */
+  overflow: hidden;
+  background-color: white;
+}
+
+.pdf-image {
+  width: 100%;
+  height: auto;
+}

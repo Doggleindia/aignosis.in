@@ -257,7 +257,7 @@ const ProgressBar = ({ label, value, customClass }) => {
   return (
     <div className="progress-bar">
       <div className="bar">
-        <div className={customClass || "fill"} style={{ width: value }}>
+        <div className={customClass || 'fill'} style={{ width: value }}>
           <div className="percentage-circle">{value}</div>
           <div className="label">{label}</div>
         </div>

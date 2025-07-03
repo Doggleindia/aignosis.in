@@ -6,123 +6,185 @@ import Newnavbar from './Newnavbar';
 
 const TAndC = () => {
   return (
-    <div className='bg-[#1A0C25]'>
-      <Newnavbar/>
+    <div className="bg-[#1A0C25]">
+      {/*<Newnavbar />*/}
       <Header />
-      <div className="min-h-screen text-white px-6 max-sm:py-[20vw] py-[10vw] sm:px-16 font-montserrat">
-        <div className="md:max-w-4xl mx-auto">
+      <div className="min-h-screen px-6 py-[10vw] font-montserrat text-white max-sm:py-[20vw] sm:px-16">
+        <div className="mx-auto md:max-w-4xl">
           {/* Privacy Policy Header */}
-          <div className="flex flex-wrap justify-center items-center space-x-4 mb-8">
+          <div className="mb-8 flex flex-wrap items-center justify-center space-x-4">
             <span
               className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
               style={{
-                background:
-                  "linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                background: 'linear-gradient(270deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
               }}
             ></span>
-            <span className="text-[24px] text-[#F1C6FE] font-medium max-sm:text-base">
-            Terms & Conditions
-            </span>
+            <span className="text-[24px] font-medium text-[#F1C6FE] max-sm:text-base">Terms & Conditions</span>
             <span
               className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
               style={{
-                background:
-                  "linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)",
+                background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
               }}
             ></span>
           </div>
 
           {/* Section Headings with Blank Paragraphs */}
-          <h2 className="text-lg font-semibold mt-6 mb-4 sm:text-2xl">Terms & Conditions</h2>
-          <p>This website is operated by <b>Aignosis Artificial Intelligence Private Limited</b> (“Aignosis”). Throughout the site, the terms “we,” “us,” and “our” refer to Aignosis. Aignosis offers this website, including all information, tools, and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.</p>
+          <h2 className="mb-4 mt-6 text-lg font-semibold sm:text-2xl">Terms & Conditions</h2>
+          <p>
+            This website is operated by <b>Aignosis Artificial Intelligence Private Limited</b> (“Aignosis”). Throughout
+            the site, the terms “we,” “us,” and “our” refer to Aignosis. Aignosis offers this website, including all
+            information, tools, and services available from this site to you, the user, conditioned upon your acceptance
+            of all terms, conditions, policies, and notices stated here.
+          </p>
 
-<p><b>Terms of Service</b></p>
-<ul>
-    <li>By visiting our site and/or purchasing our services, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service” or “Terms”), including any additional terms, conditions, and policies referenced herein and/or available by hyperlink.</li>
-    <li>These Terms of Service apply to all users of the site, including but not limited to browsers, customers, and contributors of content.</li>
-</ul>
+          <p>
+            <b>Terms of Service</b>
+          </p>
+          <ul>
+            <li>
+              By visiting our site and/or purchasing our services, you engage in our “Service” and agree to be bound by
+              the following terms and conditions (“Terms of Service” or “Terms”), including any additional terms,
+              conditions, and policies referenced herein and/or available by hyperlink.
+            </li>
+            <li>
+              These Terms of Service apply to all users of the site, including but not limited to browsers, customers,
+              and contributors of content.
+            </li>
+          </ul>
 
-<p><b>General Information</b></p>
-<ul>
-    <li><b>About Aignosis:</b> Aignosis is an innovative platform that uses artificial intelligence to provide autism screening and diagnostic solutions, connecting individuals with tailored services for early diagnosis and effective interventions.</li>
-    <li><b>Disclaimer:</b> Although we strive to provide accurate and reliable information, Aignosis cannot guarantee the accuracy, reliability, or completeness of the information on our website or services. Users should seek independent verification of any information provided.</li>
-    <li><b>Third-Party Links and Advertising:</b> Aignosis may contain links to third-party websites, applications, or advertisements. We are not responsible for the content, security, or privacy practices of these third parties.</li>
-    <li><b>Privacy:</b> Your use of the services is subject to our Privacy Policy. Please review it carefully.</li>
-    <li><b>Changes to Terms:</b> We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting.</li>
-</ul>
+          <p>
+            <b>General Information</b>
+          </p>
+          <ul>
+            <li>
+              <b>About Aignosis:</b> Aignosis is an innovative platform that uses artificial intelligence to provide
+              autism screening and diagnostic solutions, connecting individuals with tailored services for early
+              diagnosis and effective interventions.
+            </li>
+            <li>
+              <b>Disclaimer:</b> Although we strive to provide accurate and reliable information, Aignosis cannot
+              guarantee the accuracy, reliability, or completeness of the information on our website or services. Users
+              should seek independent verification of any information provided.
+            </li>
+            <li>
+              <b>Third-Party Links and Advertising:</b> Aignosis may contain links to third-party websites,
+              applications, or advertisements. We are not responsible for the content, security, or privacy practices of
+              these third parties.
+            </li>
+            <li>
+              <b>Privacy:</b> Your use of the services is subject to our Privacy Policy. Please review it carefully.
+            </li>
+            <li>
+              <b>Changes to Terms:</b> We reserve the right to modify these Terms of Service at any time. Changes will
+              be effective immediately upon posting.
+            </li>
+          </ul>
 
-<p><b>How to Use Aignosis’s Website</b></p>
-<ul>
-    <li>To use the website (<a href="http://www.aignosis.com">www.aignosis.com</a>), users must provide accurate and complete information.</li>
-    <li>By using the website, you confirm that you are at least the age of majority or have consent to allow a minor dependent to use the site.</li>
-</ul>
+          <p>
+            <b>How to Use Aignosis’s Website</b>
+          </p>
+          <ul>
+            <li>
+              To use the website (<a href="http://www.aignosis.com">www.aignosis.com</a>), users must provide accurate
+              and complete information.
+            </li>
+            <li>
+              By using the website, you confirm that you are at least the age of majority or have consent to allow a
+              minor dependent to use the site.
+            </li>
+          </ul>
 
-<p><b>Your Use of the Services</b></p>
-<ul>
-    <li>Use the services only for lawful and personal purposes.</li>
-    <li>Do not impersonate another person or provide false information.</li>
-    <li>Do not post unlawful, defamatory, obscene, or abusive content.</li>
-    <li>Comply with all applicable local, state, federal, or international laws.</li>
-</ul>
+          <p>
+            <b>Your Use of the Services</b>
+          </p>
+          <ul>
+            <li>Use the services only for lawful and personal purposes.</li>
+            <li>Do not impersonate another person or provide false information.</li>
+            <li>Do not post unlawful, defamatory, obscene, or abusive content.</li>
+            <li>Comply with all applicable local, state, federal, or international laws.</li>
+          </ul>
 
-<p><b>Terms of Use</b></p>
-<ul>
-    <li>Aignosis provides autism screening and related services for informational purposes. Always consult a healthcare provider before altering any course of treatment.</li>
-</ul>
+          <p>
+            <b>Terms of Use</b>
+          </p>
+          <ul>
+            <li>
+              Aignosis provides autism screening and related services for informational purposes. Always consult a
+              healthcare provider before altering any course of treatment.
+            </li>
+          </ul>
 
-<p><b>Fees and Payments</b></p>
-<ul>
-    <li><b>Session Fees:</b> Payments must be completed at least 4 hours prior to the scheduled session.</li>
-    <li><b>Payment Methods:</b> Payments can be made via credit card, online banking, or wallet payment. All payments are processed by third-party gateways and subject to their terms.</li>
-    <li><b>Refunds:</b> Refund requests must be submitted to <a href="mailto:support@aignosis.in">support@aignosis.in</a> and will be processed within 24 hours.</li>
-</ul>
+          <p>
+            <b>Fees and Payments</b>
+          </p>
+          <ul>
+            <li>
+              <b>Session Fees:</b> Payments must be completed at least 4 hours prior to the scheduled session.
+            </li>
+            <li>
+              <b>Payment Methods:</b> Payments can be made via credit card, online banking, or wallet payment. All
+              payments are processed by third-party gateways and subject to their terms.
+            </li>
+            <li>
+              <b>Refunds:</b> Refund requests must be submitted to{' '}
+              <a href="mailto:support@aignosis.in">support@aignosis.in</a> and will be processed within 24 hours.
+            </li>
+          </ul>
 
-<p><b>Cancellation and Rescheduling</b></p>
-<ul>
-    <li><b>By the User:</b> Sessions canceled at least 30 minutes prior may be rescheduled or refunded. Cancellations within 30 minutes will not be refunded.</li>
-    <li><b>By Aignosis:</b> If Aignosis cancels a session, users will be offered a reschedule or a complimentary session, depending on the timing.</li>
-</ul>
+          <p>
+            <b>Cancellation and Rescheduling</b>
+          </p>
+          <ul>
+            <li>
+              <b>By the User:</b> Sessions canceled at least 30 minutes prior may be rescheduled or refunded.
+              Cancellations within 30 minutes will not be refunded.
+            </li>
+            <li>
+              <b>By Aignosis:</b> If Aignosis cancels a session, users will be offered a reschedule or a complimentary
+              session, depending on the timing.
+            </li>
+          </ul>
 
-<p><b>Copyrights and Trademarks</b></p>
-<ul>
-    <li>All content on this website, including text, graphics, and trademarks, is owned or licensed by Aignosis. Unauthorized use is prohibited.</li>
-</ul>
+          <p>
+            <b>Copyrights and Trademarks</b>
+          </p>
+          <ul>
+            <li>
+              All content on this website, including text, graphics, and trademarks, is owned or licensed by Aignosis.
+              Unauthorized use is prohibited.
+            </li>
+          </ul>
 
-<p><b>Indemnification</b></p>
-<ul>
-    <li>You agree to indemnify and hold Aignosis harmless from any claims or damages resulting from your use of the website or violation of these Terms.</li>
-</ul>
+          <p>
+            <b>Indemnification</b>
+          </p>
+          <ul>
+            <li>
+              You agree to indemnify and hold Aignosis harmless from any claims or damages resulting from your use of
+              the website or violation of these Terms.
+            </li>
+          </ul>
 
-<p><b>Governing Law</b></p>
-<ul>
-    <li>These Terms shall be governed by and construed in accordance with the laws of India.</li>
-</ul>
+          <p>
+            <b>Governing Law</b>
+          </p>
+          <ul>
+            <li>These Terms shall be governed by and construed in accordance with the laws of India.</li>
+          </ul>
 
-<p><b>Contacting Us</b></p>
-<ul>
-    <li><b>Email:</b> <a href="mailto:support@aignosis.in">support@aignosis.in</a></li>
-    <li><b>Phone:</b> +91 9414047644</li>
-</ul>
+          <p>
+            <b>Contacting Us</b>
+          </p>
+          <ul>
+            <li>
+              <b>Email:</b> <a href="mailto:support@aignosis.in">support@aignosis.in</a>
+            </li>
+            <li>
+              <b>Phone:</b> +91 9414047644
+            </li>
+          </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* 
+          {/* 
 <h2 className="text-lg font-semibold mt-6 mb-4 sm:text-2xl">Refund and Rescheduling Policy</h2>
 <p>At<strong> Aignosis Artificial Intelligence Private Limited.</strong>("Aignosis" or "We"), we strive to provide exceptional service through our autism screening and related solutions. This policy outlines the terms for cancellations, rescheduling, and refunds.</p>
 
@@ -204,12 +266,6 @@ const TAndC = () => {
 <p>We are committed to ensuring a smooth and satisfactory experience for all our users.</p>
 
  */}
-
-
-
-
-
-          
         </div>
       </div>
       <BlogFooter />

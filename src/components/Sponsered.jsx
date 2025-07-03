@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Sponsered = () => {
-  return (
-    <div className='w-full h-[20vw] bg-white'>
+  return <div className="h-[20vw] w-full bg-white"></div>;
+};
 
-    </div>
-  )
-}
-
-export default Sponsered
+export default Sponsered;

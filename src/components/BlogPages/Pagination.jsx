@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const [maxVisiblePages, setMaxVisiblePages] = useState(10);
@@ -11,8 +11,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     };
 
     updateMaxVisiblePages(); // Initialize on mount
-    window.addEventListener("resize", updateMaxVisiblePages); // Listen to resize events
-    return () => window.removeEventListener("resize", updateMaxVisiblePages); // Cleanup
+    window.addEventListener('resize', updateMaxVisiblePages); // Listen to resize events
+    return () => window.removeEventListener('resize', updateMaxVisiblePages); // Cleanup
   }, []);
 
   const halfRange = Math.floor(maxVisiblePages / 2);
@@ -30,21 +30,16 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   // Generate the range of page numbers to display
-  const pages = Array.from(
-    { length: endPage - startPage + 1 },
-    (_, i) => startPage + i
-  );
+  const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
 
   return (
-    <div className="flex items-center justify-center space-x-2 mt-4">
+    <div className="mt-4 flex items-center justify-center space-x-2">
       {/* Previous Button */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`flex items-center justify-center px-3 py-1 rounded ${
-          currentPage === 1
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-white bg-[#FFCADF21] hover:bg-purple-600"
+        className={`flex items-center justify-center rounded px-3 py-1 ${
+          currentPage === 1 ? 'cursor-not-allowed text-gray-400' : 'bg-[#FFCADF21] text-white hover:bg-purple-600'
         }`}
       >
         <FaChevronLeft />
@@ -55,10 +50,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`px-3 py-1 rounded ${
-            currentPage === page
-              ? "bg-purple-600 text-white"
-              : "bg-purple-500 text-white hover:bg-purple-600"
+          className={`rounded px-3 py-1 ${
+            currentPage === page ? 'bg-purple-600 text-white' : 'bg-purple-500 text-white hover:bg-purple-600'
           }`}
         >
           {page}
@@ -69,10 +62,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`flex items-center justify-center px-3 py-1 rounded ${
+        className={`flex items-center justify-center rounded px-3 py-1 ${
           currentPage === totalPages
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-white bg-[#FFCADF21] hover:bg-purple-600"
+            ? 'cursor-not-allowed text-gray-400'
+            : 'bg-[#FFCADF21] text-white hover:bg-purple-600'
         }`}
       >
         <FaChevronRight />

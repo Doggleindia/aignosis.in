@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const AnimatedIntro = ({ videoSrc, children }) => {
   const [showContent, setShowContent] = useState(false);
@@ -13,21 +13,15 @@ const AnimatedIntro = ({ videoSrc, children }) => {
   }, []);
 
   return (
-    <div className="relative h-screen ">
-   
-        {!playAnimation && (
+    <div className="relative h-screen">
+      {!playAnimation && (
         <motion.div
           initial={{ y: 0 }}
-          animate={{ y: "-100%" }}
-          transition={{ duration: 2, ease: "easeInOut", delay: 10 }}
-          className="absolute inset-0 w-full h-full bg-black z-20"
+          animate={{ y: '-100%' }}
+          transition={{ duration: 2, ease: 'easeInOut', delay: 10 }}
+          className="absolute inset-0 z-20 h-full w-full bg-black"
         >
-          <video
-            src={videoSrc}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-          />
+          <video src={videoSrc} className="absolute inset-0 h-full w-full object-cover" autoPlay muted />
         </motion.div>
       )}
     </div>

@@ -10,9 +10,9 @@ export const AppProvider = ({ children }) => {
     PATIENT_UID: '',
     TRANSACTION_ID: '',
     guardianPno: '',
-    clinicOrReferrerName: '',
     patientName: '',
     patientDOB: '',
+    doctorName: '', // Added doctor's name field
     inclenFormData: '',
     isaaFormData: '',
     carsFormData: '',
@@ -21,11 +21,11 @@ export const AppProvider = ({ children }) => {
     patienthistoryform2Data: '',
     patienthistoryform3Data: '',
     patienthistoryform4Data: '',
-    videolanguage:'',
-    mchatscore:'',
-    carsscore:'',
-    isaascore:'',
-    inclenscore:'',
+    videolanguage: '',
+    mchatscore: '',
+    carsscore: '',
+    isaascore: '',
+    inclenscore: '',
     calibration_encrypted_aes_key: '',
     video_encrypted_aes_key: '',
     data_usage_consent: false,
@@ -33,9 +33,5 @@ export const AppProvider = ({ children }) => {
   });
 
   // Pass the state and updater function to the provider
-  return (
-    <AppContext.Provider value={{ testData, setTestData }}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={{ testData, setTestData }}>{children}</AppContext.Provider>;
 };
