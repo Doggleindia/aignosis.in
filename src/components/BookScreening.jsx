@@ -1,4 +1,3 @@
-import React from 'react';
 import family from '../assets/family.png';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import mind_img2 from '../assets/mind_img2.png';
@@ -7,9 +6,8 @@ import pic2 from '../assets/pic2.png';
 import pic3 from '../assets/pic3.png';
 import pic4 from '../assets/pic4.png';
 import pic5 from '../assets/pic5.png';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { GoArrowUpRight } from 'react-icons/go';
-import star from '../assets/PopUps/star.png';
 
 // Reusable ServiceCard Component
 const ServiceCard = ({ image, title, description, onClick }) => (
@@ -55,8 +53,7 @@ const BookScreening = () => {
         style={{ background: 'rgba(26, 12, 37, 1)' }}
       >
         {/* Top Navigation */}
-        <div className="-ml-[6vw] mb-8 flex items-center justify-center space-x-4 max-sm:-ml-[10vw] md:space-x-2">
-          <img src={star} className="h-[70px] w-[70px] self-center max-sm:h-[30px] max-sm:w-[30px]" alt="star" />
+        <div className="mb-8 flex items-center justify-center space-x-4 max-sm:-ml-[10vw] md:space-x-2">
           <span
             className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
             style={{

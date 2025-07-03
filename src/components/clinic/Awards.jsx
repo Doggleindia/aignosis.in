@@ -25,7 +25,6 @@ import img34 from '../../assets/homepage/a21.png'; // Bits
 import img35 from '../../assets/homepage/image a1.png'; // IIMA
 // import img36 from '../../assets/homepage/image a4.png'; //ICAD
 import img37 from '../../assets/homepage/image90.avif'; // Neuro Equilibrium
-import teddy from '../../assets/PopUps/teddy.png';
 import wtfund from '../../assets/members/wtfund logo.jpg'; // WTFund
 import iac from '../../assets/IAC.jpg'; // IAC
 import nmims from '../../assets/nmims.png'; // NMIMS
@@ -58,7 +57,7 @@ const Awards = () => {
   }, []);
   return (
     <div className="relative w-full justify-center bg-[#1A0C25] p-[5vw]">
-      <div className="flex flex-row items-center justify-center space-x-4 max-sm:ml-[15vw] max-sm:mt-[15vw]">
+      <div className="mb-2 flex flex-row items-center justify-center space-x-4 max-sm:ml-[15vw] max-sm:mt-[15vw]">
         <span
           className="h-[10px] w-[100px] rounded-full max-sm:w-[60px]"
           style={{
@@ -72,7 +71,6 @@ const Awards = () => {
             background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
           }}
         ></span>
-        <img src={teddy} className="h-[70px] w-[70px] rotate-45 object-cover" alt="star" />
       </div>
       <div className="flex flex-col">
         <div className="mt-[1vw] flex items-center justify-center">

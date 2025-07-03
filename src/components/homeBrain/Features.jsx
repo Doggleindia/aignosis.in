@@ -1,15 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Divider from '../aboutus/Divider';
-import img5 from '../../assets/clinic/img5.png';
-import animal from '../../assets/animal.png';
 import img1 from '../../assets/homepage/image i1.png';
 import img2 from '../../assets/ZenBook Duo 15.png';
 import img3 from '../../assets/homepage/image i3.png';
 import img4 from '../../assets/image69.png';
 import gsap from 'gsap';
-import p4 from '../../assets/PopUps/p.png';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import p3 from '../../assets/PopUps/p3.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,12 +101,11 @@ const Features = () => {
     <div className="min-h-screen bg-[#1A0C25] p-[4vw] font-raleway">
       <div>
         {/* <img src={animal} className='w-[00px]' alt="" /> */}
-        <Divider title="Feature" desc="" titleImg={p3} subtitle="" />
+        <Divider title="Feature" desc="" subtitle="" />
         <div className="flex items-center justify-center">
           <h3 className="ml-6 text-center font-raleway text-[40px] font-bold text-[#F6E8FB] max-sm:text-center max-sm:text-[24px]">
             Our Approach to Key Features and Solutions
           </h3>
-          <img src={p4} className="hidden w-[100px] max-sm:w-[50px] md:block" alt="" ref={p3Ref} />
         </div>
       </div>
       <div className="mt-[3vw] flex flex-col items-center justify-center gap-[1.5vw] p-4">

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GoArrowUpRight } from 'react-icons/go';
@@ -6,7 +6,6 @@ import brain from '../assets/images/brain.png';
 import fetchData from './config/fetchData';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import teddy from '../assets/PopUps/teddy.png';
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 

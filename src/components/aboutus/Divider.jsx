@@ -1,30 +1,10 @@
-import React from 'react';
-
-const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
+const Divider = ({ title, desc, subtitle }) => {
   return (
     <>
       <div className="hidden h-auto flex-col items-center justify-center px-4 md:flex md:h-[auto] md:px-0">
         {/* DIVIDER CODE */}
-        <div
-          className={`flex flex-row items-center justify-center ${
-            title === 'Transformative'
-              ? '-ml-[8vw]'
-              : title == 'Our Project team'
-                ? '-ml-[1vw]'
-                : title === 'Know More'
-                  ? 'ml-[0vw]'
-                  : 'ml-[8vw]'
-          } space-x-4`}
-        >
+        <div className={`flex flex-row items-center justify-center space-x-4`}>
           <div className="flex flex-row items-center space-x-4">
-            {/* Image Before Title (if any) */}
-            {belowTitleImg && (
-              <img
-                src={belowTitleImg}
-                alt="Decorative"
-                className="h-[90px] w-[100px] max-sm:h-[30px] max-sm:w-[30px]"
-              />
-            )}
             <span
               className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
               style={{
@@ -32,12 +12,8 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
               }}
             ></span>
 
-            {/* Wrapper for Title & Images */}
-
             {/* Title */}
             <h3 className="text-[24px] font-medium text-[#F1C6FE] max-sm:text-sm">{title}</h3>
-
-            {/* Image After Title (if any) */}
           </div>
 
           <span
@@ -46,9 +22,6 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
               background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
             }}
           ></span>
-          {titleImg && (
-            <img src={titleImg} alt="Decorative" className="h-[70px] w-[120px] max-sm:h-[30px] max-sm:w-[30px]" />
-          )}
         </div>
 
         {/* Subtitle and Description */}
@@ -66,9 +39,7 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
         >
           <div className="flex flex-row items-center space-x-2">
             {/* Image Before Title (if any) */}
-            {belowTitleImg && (
-              <img src={belowTitleImg} alt="Decorative" className="h-[50px] w-[50px] max-sm:h-[30px] max-sm:w-[30px]" />
-            )}
+
             <span
               className="h-[10px] w-[118px] rounded-full max-sm:w-[60px]"
               style={{
@@ -90,9 +61,6 @@ const Divider = ({ title, desc, subtitle, titleImg, belowTitleImg }) => {
               background: 'linear-gradient(90deg, #FB7CE4 0%, rgba(255, 202, 223, 0.13) 100%)',
             }}
           ></span>
-          {titleImg && (
-            <img src={titleImg} alt="Decorative" className="h-[50px] w-[50px] max-sm:h-[30px] max-sm:w-[30px]" />
-          )}
         </div>
 
         <span className="p-2 text-center font-raleway text-3xl font-bold text-[#F6E8FB] max-sm:text-xl">

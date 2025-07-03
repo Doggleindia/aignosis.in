@@ -1,6 +1,3 @@
-import React from 'react';
-
-import HomePageCard from './HomePageCard';
 import OpenAI from './OpenAI';
 import BrainMain from '../homeBrain/BrainMain';
 import Endrosed from '../clinic/Endrosed';

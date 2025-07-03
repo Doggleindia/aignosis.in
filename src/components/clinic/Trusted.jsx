@@ -1,11 +1,8 @@
-import React from 'react';
-import img5 from '../../assets/clinic/img5.png';
 const Trusted = () => {
   return (
     <div className="bg-[#1A0C25]">
       <div className="flex flex-col">
         <div className="flex items-center justify-center">
-          <img src={img5} className="w-[100px]" alt="" />
           <h3 className="font-raleway text-[48px] text-[#F6E8FB] max-sm:text-[24px] md:mr-[20px]">
             Trusted by Experts in Autism Detection
           </h3>

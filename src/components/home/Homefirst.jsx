@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import HomePageCard from './HomePageCard';
 import { Link } from 'react-router-dom';
 import m1 from '../../assets/h1.png';
 import m2 from '../../assets/h2.png';
 import star from './star.png';
 import p2 from '../../assets/PopUps/p2.png';
-import p1 from '../../assets/PopUps/p1.png';
 import hipaa from '../../assets/members/hipaa logo.jpg';
 import iso from '../../assets/members/iso logo.png';
 import axios from 'axios';
@@ -104,13 +103,10 @@ const Homefirst = () => {
               Discover your child's developmental score in just 5 mins. The child watches a video and we are able to
               identify biomarkers which tell us subtle signs about his development.
             </p>
-            <img src={p2} alt="Development Score" className="h-[100px] w-[100px]" />
           </div>
 
           {/* home page Card */}
           <div className="flex flex-row items-center space-x-6">
-            <img src={p1} alt="Description" className="h-[100px] w-[100px]" />
-
             <div className="flex flex-row">
               <HomePageCard
                 urlredirect="/prices"

@@ -7,13 +7,11 @@ import img2 from '../../assets/homefirst/image2.png';
 import img3 from '../../assets/homefirst/image3.png';
 import img4 from '../../assets/homefirst/image4.png';
 import img5 from '../../assets/homefirst/image5.png';
-import p3 from '../../assets/PopUps/p3.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { GoArrowUpRight } from 'react-icons/go';
 import flag from './redflag.png';
-import p4 from '../../assets/PopUps/p3.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +40,6 @@ const OpenAI = () => {
       <div className="relative">
         <Divider
           title="Did you know?"
-          titleImg={p4}
           desc="*Source: A Review Of Developmental Delay And Its Determinants In Under Five Children (National Journal of Medical and Allied Sciences, 2017)"
           subtitle="1 in 5 children experience developmental delay !"
         />
@@ -63,11 +60,6 @@ const OpenAI = () => {
           <AiCard imageSrc={img3} date="2 year old" title="" description="Does NOT speak two-word sentences" />
           <AiCard imageSrc={img4} date="3 year old" title="" description="Has DIFFICULTY manipulating small objects" />
           <AiCard imageSrc={img5} date="4 year old" title="" description="Has DIFFICULTY scribbling or drawing" />
-        </div>
-        <div className="-top-[1vw] right-[13vw] hidden md:absolute" ref={p3Ref}>
-          {' '}
-          {/* Apply the ref to p3 image */}
-          <img src={p3} alt="Popup Image" />
         </div>
       </div>
 

@@ -19,7 +19,6 @@ import arrow from './aboutus/arrow.png';
 import ContactPage from './aboutus/ContactPage';
 import eye from './aboutus/eye.png';
 import ship from './aboutus/ship.png';
-import bear from './aboutus/bear.png';
 import anim from './aboutus/anim.png';
 import Newnavbar from './Newnavbar';
 import WhatsAppButton from './WhatsAppButton';
@@ -84,7 +83,7 @@ const AboutUs = () => {
             subtitle=" Aignosis – Empowering Early Detection"
           />
         </div>
-        <div className="relative mt-[3vw] flex justify-center gap-6 max-sm:flex-col max-sm:p-4">
+        <div className="relative my-[3vw] flex justify-center gap-6 max-sm:flex-col max-sm:p-4">
           <img src={sideleft} alt="about" className="h-[400px] w-[400px] rounded-3xl object-cover" />
           <div className="flex flex-col justify-center p-3 px-4 max-sm:pt-4 md:w-[50%]">
             <span className="font-medium">How it all began</span>
@@ -102,7 +101,6 @@ const AboutUs = () => {
               That’s when we realized something needed to change. We wanted to create a way to help identify these
               issues early, so children could receive the right support at the right time. And that’s how Aignosis was
               born.
-              <img src={bear} className="ml-[32vw] mt-[-12vw] hidden -rotate-45 scale-[.4] md:block" />
             </span>
           </div>
 
