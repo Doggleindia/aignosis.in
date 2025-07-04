@@ -330,10 +330,10 @@ const VideoPlayback = () => {
         ref={videoRef}
         src={
           testData.videolanguage === "English"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Eng_V7.mp4"
+            ? "https://storage.googleapis.com/aignosis_static_assets/Test_Videos/ast%20eng%20vid%20hls%20format/playlist.m3u8"
             : testData.videolanguage === "Hindi"
-            ? "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
-            : "https://d228sadnexesrp.cloudfront.net/Test_Videos/Aignosis_Test_vid_Hindi_V7.mp4"
+            ? "https://storage.googleapis.com/aignosis_static_assets/Test_Videos/ast%20hindi%20vid%20hls%20format/playlist.m3u8"
+            : "https://storage.googleapis.com/aignosis_static_assets/Test_Videos/ast%20hindi%20vid%20hls%20format/playlist.m3u8"
         }
         controls
         autoPlay={false}
